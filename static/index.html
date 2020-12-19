@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>LibreTranslate - Free and Open Source Translation API</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+	<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style type="text/css">
+    textarea.materialize-textarea{height: 6rem;}
+    </style>
+</head>
+<body>
+  <nav class="blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><i class="material-icons">translate</i> LibreTranslate</a>
+      <ul class="right hide-on-med-and-down">
+      	<li><a href="https://github.com/uav4geo/LibreTranslate">Documentation</a></li>
+        <li><a href="https://github.com/uav4geo/LibreTranslate">GitHub</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+      	<li><a href="https://github.com/uav4geo/LibreTranslate">Documentation</a></li>
+        <li><a href="https://github.com/uav4geo/LibreTranslate">GitHub</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div id="app">
+  <div class="section no-pad-bot">
+    <div class="container">
+        <div class="row">
+    	<h3 class="header center">Translation API</h3>
+    	<div class="card horizontal">
+    		<div class="card-stacked">
+		        <div class="card-content">
+				    <form class="col s12">
+				      <div class="row">
+				      	<div class="input-field col s6">
+						    <select v-model="sourceLang" ref="sourceLangDropdown">
+						    	 <template v-for="option in langs">
+							    	 <option :value="option.code">{{ option.name }}</option>
+						    	</template>
+						    </select>
+						    <label>Source</label>
+						 </div>
+						 <div class="input-field col s6">
+						    <select v-model="targetLang" ref="targetLangDropdown">
+						    	<template v-for="option in langs">
+							    	 <option :value="option.code">{{ option.name }}</option>
+						    	</template>
+						    </select>
+						    <label>Target</label>
+						 </div>
+				      </div>
+				      <div class="row">
+				        <div class="input-field col s6">
+				          <textarea id="textarea1" rows="5" class="materialize-textarea"></textarea>
+				          <label for="textarea1">Input Text</label>
+				        </div>
+				        <div class="input-field col s6">
+				        	  <div class="progress">
+							      <div class="indeterminate"></div>
+							  </div>
+
+				          <textarea id="textarea1" rows="5" class="materialize-textarea"></textarea>
+				          <label for="textarea1">Translated Text</label>
+				        </div>
+				      </div>
+				    </form>
+			   </div>
+			  </div>
+		  </div>
+	  </div>
+    </div>
+  </div>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+       <div class="row center">
+		  <div class="col s12 m12">
+		    <div class="card horizontal">
+		      <div class="card-stacked">
+		        <div class="card-content">
+		        	<div class="row center">
+		  				<div class="col s12 m6">
+		          			<p><pre>{{ sourceLang }}</pre></p>
+		  				</div>
+		  				<div class="col s12 m6">
+		  					<div class="progress">
+						       <div class="indeterminate"></div>
+						    </div>
+		  				</div>
+		  			</div>
+
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="page-footer blue darken-3">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">LibreTranslate</h5>
+        <p class="grey-text text-lighten-4">Free and Open Source Translation API, licensed under the <a class="grey-text text-lighten-4"  href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPLv3</a></p>
+        <p class="grey-text text-lighten-4">
+		    Made with ❤ by <a class="grey-text text-lighten-3" href="https://uav4geo.com">UAV4GEO</a> and powered by <a class="grey-text text-lighten-3" href="https://github.com/argosopentech/argos-translate/">Argos Translate</a>
+		</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <!-- <h5 class="white-text">Links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+        </ul> -->
+	    <div class="container">
+	    </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright center">
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+// API host/endpoint
+var BaseUrl = '';
+
+document.addEventListener('DOMContentLoaded', function(){
+ //    var elems = document.querySelectorAll('select');
+	// var instances = M.FormSelect.init(elems);
+
+	var app = new Vue({
+	  el: '#app',
+	  data: {
+	  	loading: true,
+	    error: "",
+	    langs: [],
+	    sourceLang: "",
+	    targetLang: ""
+	  },
+	  mounted: function(){
+	  	var self = this;
+	  	var request = new XMLHttpRequest();
+		request.open('GET', BaseUrl + '/languages', true);
+
+		request.onload = function() {
+		  if (this.status >= 200 && this.status < 400) {
+		    // Success!
+		    self.langs = JSON.parse(this.response);
+		    self.sourceLang = self.langs[0].code;
+		    self.targetLang = self.langs[1].code;
+		  } else {
+		    self.error = "Cannot load /languages";
+		    self.loading = false;
+		  }
+		};
+
+		request.onerror = function() {
+		  self.error = "Error while calling /languages";
+		  self.loading = false;
+		};
+
+		request.send();
+	  },
+	  updated: function(){
+		    M.FormSelect.init(this.$refs.sourceLangDropdown);
+		    M.FormSelect.init(this.$refs.targetLangDropdown);
+	  }
+	});
+
+});
+
+</script>
+</body>
+</html>
