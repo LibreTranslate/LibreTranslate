@@ -199,6 +199,7 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False):
     swag = swagger(app)
     swag['info']['version'] = "1.0"
     swag['info']['title'] = "LibreTranslate"
+    print(swag)
 
     @app.route("/spec")
     def spec():
@@ -206,14 +207,13 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False):
 
     SWAGGER_URL = '/docs'  # URL for exposing Swagger UI (without trailing '/')
     API_URL = '/spec'
-    
+
     # Call factory function to create our blueprint
     swaggerui_blueprint = get_swaggerui_blueprint(
         SWAGGER_URL,
         API_URL,
         config={  # Swagger UI config overrides
-            'app_name': "LibreTranslate",
-            "spec": swag
+            'app_name': "LibreTranslate"
         }
     )
 
