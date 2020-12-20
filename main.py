@@ -6,7 +6,7 @@ parser.add_argument('--host', type=str,
                     help='Hostname (%(default)s)', default="127.0.0.1")
 parser.add_argument('--port', type=int,
                     help='Port (%(default)s)', default=5000)
-parser.add_argument('--char-limit', default=-1, metavar="<number of characters>",
+parser.add_argument('--char-limit', default=-1, type=int, metavar="<number of characters>",
                     help='Set character limit (%(default)s)')
 parser.add_argument('--req-limit', default=-1, type=int, metavar="<number>",
                     help='Set maximum number of requests per minute per client (%(default)s)')
