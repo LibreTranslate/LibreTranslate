@@ -371,17 +371,19 @@ document.addEventListener('DOMContentLoaded', function(){
 				request.open('POST', BaseUrl + '/translate', true);
 
 				request.onload = function() {
-				  if (this.status >= 200 && this.status < 400) {
+				  try{
+				  	var res = JSON.parse(this.response);
 					// Success!
-					var res = JSON.parse(this.response);
 					if (res.translatedText !== undefined){
 						self.translatedText = res.translatedText; 
 					    self.loadingTranslation = false;
+					    self.output = JSON.stringify(res, null, 4);
+					}else{
+						throw new Error(res.error || "Unknown error");
 					}
-					self.output = JSON.stringify(res, null, 4);
-				  } else {
-					self.error = "Cannot call /translate";
-					self.loadingTranslation = false;
+				  }catch(e){
+ 					self.error = e.message;
+ 					self.loadingTranslation = false;
 				  }
 				};
 
@@ -399,8 +401,5 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 </script>
-{% if gaId %}
-
-{% endif %}
 </body>
 </html>
