@@ -6,125 +6,167 @@
 	<title>LibreTranslate - Free and Open Source Translation API</title>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <style type="text/css">
-    textarea.materialize-textarea{height: 6rem;}
-    </style>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism.min.css" rel="stylesheet" />
+
+	<style type="text/css">
+	textarea.materialize-textarea{height: 120px;}
+	.code{
+		font-size: 90%;
+        border-radius: 4px;
+	    padding: 4px;
+	    border: 1px solid #9e9e9e;
+	    background: #fbfbfb;
+	    overflow: auto;
+	    font-family: monospace;
+	    min-height: 280px;
+	}
+	.progress.translate{
+		position: absolute;
+	}
+	</style>
 </head>
 <body>
   <nav class="blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><i class="material-icons">translate</i> LibreTranslate</a>
-      <ul class="right hide-on-med-and-down">
-      	<li><a href="https://github.com/uav4geo/LibreTranslate">Documentation</a></li>
-        <li><a href="https://github.com/uav4geo/LibreTranslate">GitHub</a></li>
-      </ul>
+	<div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><i class="material-icons">translate</i> LibreTranslate</a>
+	  <ul class="right hide-on-med-and-down">
+		<li><a href="https://github.com/uav4geo/LibreTranslate">Documentation</a></li>
+		<li><a href="https://github.com/uav4geo/LibreTranslate">GitHub</a></li>
+	  </ul>
 
-      <ul id="nav-mobile" class="sidenav">
-      	<li><a href="https://github.com/uav4geo/LibreTranslate">Documentation</a></li>
-        <li><a href="https://github.com/uav4geo/LibreTranslate">GitHub</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
+	  <ul id="nav-mobile" class="sidenav">
+		<li><a href="https://github.com/uav4geo/LibreTranslate">Documentation</a></li>
+		<li><a href="https://github.com/uav4geo/LibreTranslate">GitHub</a></li>
+	  </ul>
+	  <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+	</div>
   </nav>
   <div id="app">
+   <div class="section no-pad-bot center" v-if="loading">
+	<div class="container">
+		<div class="row">
+		  <div class="preloader-wrapper active">
+			<div class="spinner-layer spinner-blue-only">
+			  <div class="circle-clipper left">
+				<div class="circle"></div>
+			  </div><div class="gap-patch">
+				<div class="circle"></div>
+			  </div><div class="circle-clipper right">
+				<div class="circle"></div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	</div>
+  </div>
+  <div v-else-if="error">
+  	{{ error }}: TODO
+  </div>
+  <div v-else>
   <div class="section no-pad-bot">
-    <div class="container">
-        <div class="row">
-    	<h3 class="header center">Translation API</h3>
-    	<div class="card horizontal">
-    		<div class="card-stacked">
-		        <div class="card-content">
-				    <form class="col s12">
-				      <div class="row">
-				      	<div class="input-field col s6">
-						    <select v-model="sourceLang" ref="sourceLangDropdown">
-						    	 <template v-for="option in langs">
-							    	 <option :value="option.code">{{ option.name }}</option>
-						    	</template>
-						    </select>
-						    <label>Source</label>
+	<div class="container">
+		<div class="row">
+		<h3 class="header center">Translation API</h3>
+		<div class="card horizontal">
+			<div class="card-stacked">
+				<div class="card-content">
+					<form class="col s12">
+					  <div class="row">
+						<div class="input-field col s5">
+							<select  class="browser-default" v-model="sourceLang" ref="sourceLangDropdown"@change="handleInput">
+								 <template v-for="option in langs">
+									 <option :value="option.code">{{ option.name }}</option>
+								</template>
+							</select>
 						 </div>
-						 <div class="input-field col s6">
-						    <select v-model="targetLang" ref="targetLangDropdown">
-						    	<template v-for="option in langs">
-							    	 <option :value="option.code">{{ option.name }}</option>
-						    	</template>
-						    </select>
-						    <label>Target</label>
+						 <div class="col s2 center">
+						 	<a href="javascript:void(0)" @click="swapLangs" class="waves-effect waves-teal btn-flat btn-large"><i class="material-icons">swap_horiz</i></a>
 						 </div>
-				      </div>
-				      <div class="row">
-				        <div class="input-field col s6">
-				          <textarea id="textarea1" rows="5" class="materialize-textarea"></textarea>
-				          <label for="textarea1">Input Text</label>
-				        </div>
-				        <div class="input-field col s6">
-				        	  <div class="progress">
-							      <div class="indeterminate"></div>
-							  </div>
-
-				          <textarea id="textarea1" rows="5" class="materialize-textarea"></textarea>
-				          <label for="textarea1">Translated Text</label>
-				        </div>
-				      </div>
-				    </form>
+						 <div class="input-field col s5">
+							<select  class="browser-default" v-model="targetLang" ref="targetLangDropdown" @change="handleInput">
+								<template v-for="option in langs">
+									 <option :value="option.code">{{ option.name }}</option>
+								</template>
+							</select>
+						 </div>
+					  </div>
+					  <div class="row">
+						<div class="input-field col s6">
+						  <textarea id="textarea1" class="materialize-textarea" v-model="inputText" @input="handleInput" ref="inputTextarea"></textarea>
+						  <label for="textarea1">Input Text</label>
+						</div>
+						<div class="input-field col s6">
+							<div>
+							  <textarea id="textarea2" class="materialize-textarea" v-model="translatedText" ref="translatedTextarea"></textarea>
+							  <label for="textarea2"><div class="progress translate" v-if="loadingTranslation">
+							  <div class="indeterminate"></div>
+						  </div></label>
+							 </div>
+						</div>
+					  </div>
+					</form>
 			   </div>
 			  </div>
 		  </div>
 	  </div>
-    </div>
+	</div>
   </div>
 
   <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-       <div class="row center">
+	<div class="container">
+	   <div class="row center">
 		  <div class="col s12 m12">
-		    <div class="card horizontal">
-		      <div class="card-stacked">
-		        <div class="card-content">
-		        	<div class="row center">
-		  				<div class="col s12 m6">
-		          			<p><pre>{{ sourceLang }}</pre></p>
-		  				</div>
-		  				<div class="col s12 m6">
-		  					<div class="progress">
-						       <div class="indeterminate"></div>
-						    </div>
-		  				</div>
-		  			</div>
+			<div class="card horizontal">
+			  <div class="card-stacked">
+				<div class="card-content">
+					<div class="row center">
+						<div class="col s12 m6 left-align">
+							<p>Request</p>
+							<p>
+<pre class="code"><code class="language-javascript" v-html="$options.filters.highlight(requestCode)">
+</code></pre></p>
+						</div>
+						<div class="col s12 m6 left-align">
+							<p>Response</p>
+<pre class="code"><code class="language-javascript" v-html="$options.filters.highlight(output)">
+</code></pre>
+						</div>
+					</div>
 
-		        </div>
-		      </div>
-		    </div>
+				</div>
+			  </div>
+			</div>
 		  </div>
-      </div>
-    </div>
+	  </div>
+	</div>
   </div>
+</div>
 </div>
 
 <footer class="page-footer blue darken-3">
   <div class="container">
-    <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">LibreTranslate</h5>
-        <p class="grey-text text-lighten-4">Free and Open Source Translation API, licensed under the <a class="grey-text text-lighten-4"  href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPLv3</a></p>
-        <p class="grey-text text-lighten-4">
-		    Made with ❤ by <a class="grey-text text-lighten-3" href="https://uav4geo.com">UAV4GEO</a> and powered by <a class="grey-text text-lighten-3" href="https://github.com/argosopentech/argos-translate/">Argos Translate</a>
+	<div class="row">
+	  <div class="col l6 s12">
+		<h5 class="white-text">LibreTranslate</h5>
+		<p class="grey-text text-lighten-4">Free and Open Source Translation API</p>
+		<p class="grey-text text-lighten-4">
+			Made with ❤ by <a class="grey-text text-lighten-3" href="https://uav4geo.com">UAV4GEO</a> and powered by <a class="grey-text text-lighten-3" href="https://github.com/argosopentech/argos-translate/">Argos Translate</a>
 		</p>
-      </div>
-      <div class="col l4 offset-l2 s12">
-        <!-- <h5 class="white-text">Links</h5>
-        <ul>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-        </ul> -->
-	    <div class="container">
-	    </div>
-      </div>
-    </div>
+		<p><a class="grey-text text-lighten-4"  href="https://www.gnu.org/licenses/agpl-3.0.en.html">License: AGPLv3</a></p>
+	  </div>
+	  <div class="col l4 offset-l2 s12">
+		<!-- <h5 class="white-text">Links</h5>
+		<ul>
+		  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+		  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+		  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+		  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+		</ul> -->
+		<div class="container">
+		</div>
+	  </div>
+	</div>
   </div>
   <div class="footer-copyright center">
   </div>
@@ -132,36 +174,63 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>
+window.Prism = window.Prism || {};
+window.Prism.manual = true;
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js" ></script>
+
+<script>
 // API host/endpoint
-var BaseUrl = '';
+var BaseUrl = window.location.protocol + "//" + window.location.host;
 
 document.addEventListener('DOMContentLoaded', function(){
- //    var elems = document.querySelectorAll('select');
-	// var instances = M.FormSelect.init(elems);
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
 
 	var app = new Vue({
 	  el: '#app',
 	  data: {
-	  	loading: true,
-	    error: "",
-	    langs: [],
-	    sourceLang: "",
-	    targetLang: ""
+	  	BaseUrl: BaseUrl,
+		loading: true,
+		error: "",
+		langs: [],
+		sourceLang: "",
+		targetLang: "",
+
+		loadingTranslation: false,
+		inputText: "",
+		translatedText: "",
+		output: ""
 	  },
 	  mounted: function(){
-	  	var self = this;
-	  	var request = new XMLHttpRequest();
+		var self = this;
+		var request = new XMLHttpRequest();
 		request.open('GET', BaseUrl + '/languages', true);
 
 		request.onload = function() {
 		  if (this.status >= 200 && this.status < 400) {
-		    // Success!
-		    self.langs = JSON.parse(this.response);
-		    self.sourceLang = self.langs[0].code;
-		    self.targetLang = self.langs[1].code;
+			// Success!
+			self.langs = JSON.parse(this.response);
+			if (self.langs.length === 0){
+				self.loading = false;
+				self.error = "No languages available. Did you install the models correctly?"
+				return;
+			}
+
+			self.sourceLang = self.langs[0].code;
+			self.targetLang = self.langs[1].code;
+
+			// Set Spanish
+			for (var i = 1; i < self.langs.length; i++){
+				if (self.langs[i].code === "es"){
+					self.targetLang = "es";
+				}
+			}
+
+		    self.loading = false;			
 		  } else {
-		    self.error = "Cannot load /languages";
-		    self.loading = false;
+			self.error = "Cannot load /languages";
+			self.loading = false;
 		  }
 		};
 
@@ -173,8 +242,106 @@ document.addEventListener('DOMContentLoaded', function(){
 		request.send();
 	  },
 	  updated: function(){
-		    M.FormSelect.init(this.$refs.sourceLangDropdown);
-		    M.FormSelect.init(this.$refs.targetLangDropdown);
+			M.FormSelect.init(this.$refs.sourceLangDropdown);
+			M.FormSelect.init(this.$refs.targetLangDropdown);
+			if (this.inputText === ""){
+				this.$refs.inputTextarea.style.height = 150 + "px";
+				this.$refs.translatedTextarea.style.height = 150 + "px";
+			}else{
+				this.$refs.inputTextarea.style.height = Math.max(150, this.$refs.inputTextarea.scrollHeight) + "px";
+				this.$refs.translatedTextarea.style.height = Math.max(150, this.$refs.translatedTextarea.scrollHeight) + "px";
+			}
+	  },
+	  computed: {
+	  	requestCode: function(){
+	  		return ['const res = await fetch("' + this.BaseUrl + '/translate", {',
+'	method: "POST",',
+'	body: JSON.stringify({',
+'		q: "' + this.$options.filters.escape(this.inputText) + '",',
+'		source: "' + this.$options.filters.escape(this.sourceLang) + '",',
+'		target: "' + this.$options.filters.escape(this.targetLang) + '"',
+'	}),',
+'	headers: {',
+'		"Content-Type": "application/json"',
+'	});',
+'',
+'console.log(await res.json());'].join("\n");
+	  	}
+	  },
+	  filters: {
+	  	escape: function(v){
+	  		return v.replace('"', '\\\"');
+	  	},
+	  	highlight: function(v){
+	  		return Prism.highlight(v, Prism.languages.javascript, 'javascript');
+	  	}
+	  },
+	  methods: {
+	  	abortPreviousTransRequest: function(){
+	  		if (this.transRequest){
+	  			this.transRequest.abort();
+	  			this.transRequest = null;
+	  		}
+	  	},
+	  	swapLangs: function(){
+	  		var t = this.sourceLang;
+	  		this.sourceLang = this.targetLang;
+	  		this.targetLang = t;
+	  		this.inputText = this.translatedText;
+	  		this.translatedText = "";
+	  		this.handleInput();
+	  	},
+	  	handleInput: function(e){
+	  		if (this.timeout) clearTimeout(this.timeout);
+	  		this.timeout = null;
+
+	  		if (this.inputText === ""){
+	  			this.translatedText = "";
+	  			this.output = "";
+	  			this.abortPreviousTransRequest();
+	  			this.loadingTranslation = false;
+	  			return;
+	  		}
+
+	  		var self = this;
+
+	  		self.loadingTranslation = true;
+	  		this.timeout = setTimeout(function(){
+	  			self.abortPreviousTransRequest();
+
+	  			var request = new XMLHttpRequest();
+	  			self.transRequest = request;
+
+	  			var data = new FormData();
+	  			data.append("q", self.inputText);
+	  			data.append("source", self.sourceLang);
+	  			data.append("target", self.targetLang);
+
+				request.open('POST', BaseUrl + '/translate', true);
+
+				request.onload = function() {
+				  if (this.status >= 200 && this.status < 400) {
+					// Success!
+					var res = JSON.parse(this.response);
+					if (res.translatedText !== undefined){
+						self.translatedText = res.translatedText; 
+					    self.loadingTranslation = false;
+					}
+					self.output = JSON.stringify(res, null, 4);
+				  } else {
+					self.error = "Cannot call /translate";
+					self.loadingTranslation = false;
+				  }
+				};
+
+				request.onerror = function() {
+				  self.error = "Error while calling /translate";
+				  self.loadingTranslation = false;
+				};
+
+				request.send(data);
+	  		}, 300);
+	  	}
 	  }
 	});
 

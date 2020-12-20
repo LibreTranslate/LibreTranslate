@@ -1,7 +1,7 @@
+from app.init import boot
 import argparse
 from flask import Flask, render_template, jsonify, request, abort, send_from_directory
 from app.language import languages
-from app.init import boot
 
 parser = argparse.ArgumentParser(description='LibreTranslate - Free and Open Source Translation API')
 parser.add_argument('host', type=str,
@@ -35,9 +35,15 @@ def langs():
 @app.route("/translate", methods=['POST'])
 def translate():
 
-	q = request.values.get("q")
-	source_lang = request.values.get("source")
-	target_lang = request.values.get("target")
+	if request.is_json:
+		json = request.get_json()
+		q = json.get('q')
+		source_lang = json.get('source')
+		target_lang = json.get('target')
+	else:
+		q = request.values.get("q")
+		source_lang = request.values.get("source")
+		target_lang = request.values.get("target")
 
 	if not q:
 		abort(400, description="Invalid request: missing q parameter")

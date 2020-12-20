@@ -1,10 +1,13 @@
 import os
-from argostranslate import translate
-import os, glob, shutil, zipfile
+from pathlib import Path
+from argostranslate import settings
 
 INSTALLED_MODELS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "installed_models"))
-
 os.environ["ARGOS_TRANSLATE_PACKAGES_DIR"] = INSTALLED_MODELS_DIR
+settings.package_dirs = [Path(INSTALLED_MODELS_DIR)]
+
+from argostranslate import translate
+import os, glob, shutil, zipfile
 
 def boot():
 	check_and_install_models()

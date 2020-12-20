@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from app.init import check_and_install_models
 
 if __name__ == "__main__":
