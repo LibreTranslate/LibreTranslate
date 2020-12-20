@@ -292,6 +292,7 @@ document.addEventListener('DOMContentLoaded', function(){
 				this.$refs.inputTextarea.style.height = 150 + "px";
 				this.$refs.translatedTextarea.style.height = 150 + "px";
 			}else{
+				this.$refs.inputTextarea.style.height = this.$refs.translatedTextarea.style.height = "1px";
 				this.$refs.inputTextarea.style.height = Math.max(150, this.$refs.inputTextarea.scrollHeight) + "px";
 				this.$refs.translatedTextarea.style.height = Math.max(150, this.$refs.translatedTextarea.scrollHeight) + "px";
 			}

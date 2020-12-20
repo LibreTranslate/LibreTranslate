@@ -6,7 +6,7 @@ from flask_swagger_ui import get_swaggerui_blueprint
 from flask_limiter.util import get_remote_address
 
 
-def create_app(char_limit=-1, req_limit=-1, google_analytics=None, debug=False):
+def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False):
     boot()
     app = Flask(__name__)
 
@@ -35,7 +35,7 @@ def create_app(char_limit=-1, req_limit=-1, google_analytics=None, debug=False):
 
     @app.route("/")
     def index():
-        return render_template('index.html', gaId=google_analytics)
+        return render_template('index.html', gaId=ga_id)
 
     @app.route("/languages")
     def langs():
