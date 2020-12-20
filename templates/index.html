@@ -4,6 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>LibreTranslate - Free and Open Source Translation API</title>
+
+
+
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<!-- Compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -31,6 +34,18 @@
 		overflow: auto;
 	}
 	</style>
+
+	{% if gaId %}
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id={{ gaId }}"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', '{{ gaId }}');
+	</script>
+   {% endif %}
 </head>
 <body>
   <nav class="blue lighten-1" role="navigation">
@@ -73,7 +88,7 @@
 		    <div class="card horizontal">
 		      <div class="card-stacked">
 		        <div class="card-content">
-		          <i class="material-icons">warning</i><p> {{ error }}</p>
+		          <i class="material-icons">warning</i><p> [[ error ]]</p>
 		        </div>
 		        <div class="card-action">
 		          <a href="#" @click="dismissError">Dismiss</a>
@@ -98,7 +113,7 @@
 						<div class="input-field col s5">
 							<select  class="browser-default" v-model="sourceLang" ref="sourceLangDropdown"@change="handleInput">
 								 <template v-for="option in langs">
-									 <option :value="option.code">{{ option.name }}</option>
+									 <option :value="option.code">[[ option.name ]]</option>
 								</template>
 							</select>
 						 </div>
@@ -108,7 +123,7 @@
 						 <div class="input-field col s5">
 							<select  class="browser-default" v-model="targetLang" ref="targetLangDropdown" @change="handleInput">
 								<template v-for="option in langs">
-									 <option :value="option.code">{{ option.name }}</option>
+									 <option :value="option.code">[[ option.name ]]</option>
 								</template>
 							</select>
 						 </div>
@@ -118,7 +133,7 @@
 						  <textarea id="textarea1" class="materialize-textarea" v-model="inputText" @input="handleInput" ref="inputTextarea"></textarea>
 						  <label for="textarea1">Input Text</label>
 						  <div v-if="charactersLimit !== -1">
-							  <label>{{ inputText.length }} / {{ charactersLimit }}</label>
+							  <label>[[ inputText.length ]] / [[ charactersLimit ]]</label>
 							</div>
 						</div>
 						<div class="input-field col s6">
@@ -214,6 +229,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	var app = new Vue({
 	  el: '#app',
+	  delimiters: ['[[',']]'],
 	  data: {
 	  	BaseUrl: BaseUrl,
 		loading: true,
@@ -383,5 +399,8 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 </script>
+{% if gaId %}
+
+{% endif %}
 </body>
 </html>

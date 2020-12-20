@@ -4,14 +4,20 @@ from flask import Flask, render_template, jsonify, request, abort, send_from_dir
 from app.language import languages
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
+from flask_limiter import Limiter
 
 parser = argparse.ArgumentParser(description='LibreTranslate - Free and Open Source Translation API')
-parser.add_argument('host', type=str,
-                    help='Hostname', default="127.0.0.1")
-parser.add_argument('port', type=int,
-                    help='Port', default=5000)
-parser.add_argument('--char-limit', default=-1,
-                    help='Character limit')
+parser.add_argument('--host', type=str,
+                    help='Hostname (%(default)s)', default="127.0.0.1")
+parser.add_argument('--port', type=int,
+                    help='Port (%(default)s)', default=5000)
+parser.add_argument('--char-limit', default=-1, metavar="<number of characters>",
+                    help='Set character limit (%(default)s)')
+parser.add_argument('--req-limit', default=-1, metavar="<number>",
+                    help='Set maximum number of requests per hour per client (%(default)s)')
+parser.add_argument('--google-analytics', default=None, metavar="<GA ID>",
+                    help='Enable Google Analytics on the API client page by providing an ID (%(default)s)')
+
 args = parser.parse_args()
 
 boot()
@@ -29,7 +35,7 @@ def server_error(e):
 
 @app.route("/")
 def index():
-    return send_from_directory('static', 'index.html')
+    return render_template('index.html', gaId=args.google_analytics)
 
 @app.route("/languages")
 def langs():
