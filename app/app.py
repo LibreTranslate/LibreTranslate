@@ -1,12 +1,13 @@
-from app.init import boot
 from flask import Flask, render_template, jsonify, request, abort, send_from_directory
-from app.language import languages
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
 from flask_limiter.util import get_remote_address
 
 
 def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False):
+    from app.init import boot
+    from app.language import languages
+
     boot()
     app = Flask(__name__)
 
