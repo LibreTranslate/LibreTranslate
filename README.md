@@ -2,13 +2,13 @@
 
 Free and Open Source Translation API.
 
-Entirely self-hosted and can work in offline environments. Unlike other APIs, it doesn't rely on a commercial provider such as Google or Azure to perform translations.
+Entirely self-hosted and can work in offline environments. Unlike other APIs, it doesn't rely on proprietary providers such as Google or Azure to perform translations.
 
 ![image](https://user-images.githubusercontent.com/1951843/102724116-32a6df00-42db-11eb-8cc0-129ab39cdfb5.png)
 
-[Try it online](https://libretranslate.com) | [API Docs](https://libretranslate.com/docs)
+[Try it online!](https://libretranslate.com) | [API Docs](https://libretranslate.com/docs)
 
-https://libretranslate.com
+Website: [libretranslate.com](https://libretranslate.com)
 
 ## Build and Run
 
