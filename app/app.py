@@ -6,9 +6,9 @@ from flask_limiter.util import get_remote_address
 
 def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False):
     from app.init import boot
-    from app.language import languages
-
     boot()
+    
+    from app.language import languages
     app = Flask(__name__)
 
     if debug:
