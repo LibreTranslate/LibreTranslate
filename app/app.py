@@ -205,12 +205,12 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False):
         return jsonify(swag)
 
     SWAGGER_URL = '/docs'  # URL for exposing Swagger UI (without trailing '/')
-    API_URL = 'http://petstore.swagger.io/v2/swagger.json'  # Our API url (can of course be a local resource)
-
+    API_URL = '/spec'
+    
     # Call factory function to create our blueprint
     swaggerui_blueprint = get_swaggerui_blueprint(
         SWAGGER_URL,
-        "",
+        API_URL,
         config={  # Swagger UI config overrides
             'app_name': "LibreTranslate",
             "spec": swag
