@@ -21,22 +21,27 @@
 	    overflow: auto;
 	    font-family: monospace;
 	    min-height: 280px;
+	    width: 100%;
+	    overflow: auto;
 	}
 	.progress.translate{
 		position: absolute;
+	}
+	.card.horizontal .card-stacked{
+		overflow: auto;
 	}
 	</style>
 </head>
 <body>
   <nav class="blue lighten-1" role="navigation">
-	<div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><i class="material-icons">translate</i> LibreTranslate</a>
+	<div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo"><i class="material-icons">translate</i> LibreTranslate</a>
 	  <ul class="right hide-on-med-and-down">
-		<li><a href="https://github.com/uav4geo/LibreTranslate">Documentation</a></li>
+		<li><a href="/docs">API Docs</a></li>
 		<li><a href="https://github.com/uav4geo/LibreTranslate">GitHub</a></li>
 	  </ul>
 
 	  <ul id="nav-mobile" class="sidenav">
-		<li><a href="https://github.com/uav4geo/LibreTranslate">Documentation</a></li>
+		<li><a href="/docs">API Docs</a></li>
 		<li><a href="https://github.com/uav4geo/LibreTranslate">GitHub</a></li>
 	  </ul>
 	  <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -61,7 +66,24 @@
 	</div>
   </div>
   <div v-else-if="error">
-  	{{ error }}: TODO
+  <div class="section no-pad-bot">
+	<div class="container">
+		<div class="row">
+		  <div class="col s12 m7">
+		    <div class="card horizontal">
+		      <div class="card-stacked">
+		        <div class="card-content">
+		          <i class="material-icons">warning</i><p> {{ error }}</p>
+		        </div>
+		        <div class="card-action">
+		          <a href="#" @click="dismissError">Dismiss</a>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		 </div>
+		</div>
+	</div>
   </div>
   <div v-else>
   <div class="section no-pad-bot">
@@ -95,6 +117,9 @@
 						<div class="input-field col s6">
 						  <textarea id="textarea1" class="materialize-textarea" v-model="inputText" @input="handleInput" ref="inputTextarea"></textarea>
 						  <label for="textarea1">Input Text</label>
+						  <div v-if="charactersLimit !== -1">
+							  <label>{{ inputText.length }} / {{ charactersLimit }}</label>
+							</div>
 						</div>
 						<div class="input-field col s6">
 							<div>
@@ -121,13 +146,13 @@
 			  <div class="card-stacked">
 				<div class="card-content">
 					<div class="row center">
-						<div class="col s12 m6 left-align">
+						<div class="col s12 m12 l6 left-align">
 							<p>Request</p>
 							<p>
 <pre class="code"><code class="language-javascript" v-html="$options.filters.highlight(requestCode)">
 </code></pre></p>
 						</div>
-						<div class="col s12 m6 left-align">
+						<div class="col s12 m12 l6 left-align">
 							<p>Response</p>
 <pre class="code"><code class="language-javascript" v-html="$options.filters.highlight(output)">
 </code></pre>
@@ -200,7 +225,8 @@ document.addEventListener('DOMContentLoaded', function(){
 		loadingTranslation: false,
 		inputText: "",
 		translatedText: "",
-		output: ""
+		output: "",
+		charactersLimit: -1,
 	  },
 	  mounted: function(){
 		var self = this;
@@ -219,6 +245,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
 			self.sourceLang = self.langs[0].code;
 			self.targetLang = self.langs[1].code;
+			self.charactersLimit = self.langs[0].charLimit;
+			// TODO: update this when switching languages
 
 			// Set Spanish
 			for (var i = 1; i < self.langs.length; i++){
@@ -250,6 +278,10 @@ document.addEventListener('DOMContentLoaded', function(){
 			}else{
 				this.$refs.inputTextarea.style.height = Math.max(150, this.$refs.inputTextarea.scrollHeight) + "px";
 				this.$refs.translatedTextarea.style.height = Math.max(150, this.$refs.translatedTextarea.scrollHeight) + "px";
+			}
+
+			if (this.charactersLimit !== -1 && this.inputText.length >= this.charactersLimit){
+				this.inputText = this.inputText.substring(0, this.charactersLimit);
 			}
 	  },
 	  computed: {
@@ -290,6 +322,9 @@ document.addEventListener('DOMContentLoaded', function(){
 	  		this.inputText = this.translatedText;
 	  		this.translatedText = "";
 	  		this.handleInput();
+	  	},
+	  	dismissError: function(){
+	  		this.error = '';
 	  	},
 	  	handleInput: function(e){
 	  		if (this.timeout) clearTimeout(this.timeout);
