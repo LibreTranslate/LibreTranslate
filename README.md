@@ -61,7 +61,7 @@ Then open a web browser to http://localhost:5000
 | --req-limit        | Set maximum number of requests per minute per client | `No limit`               |
 | --ga-id        | Enable Google Analytics on the API client page by providing an ID | `No tracking`               |
 | --debug      | Enable debug environment | `False`           |
-| --ssl        | Whether to enable SSL | `5000`               |
+| --ssl        | Whether to enable SSL | `False`               |
 
 
 ## Roadmap
