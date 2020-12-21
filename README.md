@@ -71,6 +71,7 @@ Help us by opening a pull request!
 - [ ] A docker image
 - [ ] Auto-detect input language
 - [ ] User authentication / tokens
+- [ ] Language bindings for every computer language
 
 ## Credits
 
