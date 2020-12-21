@@ -51,6 +51,28 @@ python main.py [args]
 
 Then open a web browser to http://localhost:5000
 
+### Run with Docker
+
+Make sure you cloned the `models` submodule before building the Docker image:
+
+```bash
+docker build -t libretranslate .
+```
+
+Run the built image:
+
+```bash
+docker run -it -p 5000:5000 libretranslate [args]
+```
+
+Or build and run using `docker-compose`:
+
+```bash
+docker-compose up -d --build
+```
+
+> Feel free to change the [`docker-compose.yml`](https://github.com/uav4geo/LibreTranslate/blob/main/docker-compose.yml) file to adapt it to your deployment needs, or use an extra `docker-compose.prod.yml` file for your deployment configuration.
+
 ## Arguments
 
 | Argument      | Description                    | Default              |
