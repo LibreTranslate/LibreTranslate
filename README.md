@@ -1,6 +1,8 @@
 # LibreTranslate
 
-Free and Open Source Translation API, entirely self-hosted and can work in offline environments. Unlike other APIs, it doesn't rely on proprietary providers such as Google or Azure to perform translations.
+[Try it online!](https://libretranslate.com) | [API Docs](https://libretranslate.com/docs)
+
+Free and Open Source Translation API, entirely self-hosted and works even in offline environments. Unlike other APIs, it doesn't rely on proprietary providers such as Google or Azure to perform translations.
 
 ![image](https://user-images.githubusercontent.com/1951843/102724116-32a6df00-42db-11eb-8cc0-129ab39cdfb5.png)
 
@@ -59,7 +61,7 @@ Then open a web browser to http://localhost:5000
 | --req-limit        | Set maximum number of requests per minute per client | `No limit`               |
 | --ga-id        | Enable Google Analytics on the API client page by providing an ID | `No tracking`               |
 | --debug      | Enable debug environment | `False`           |
-| --ssl        | Whether to enable SSL | `5000`               |
+| --ssl        | Whether to enable SSL | `False`               |
 
 
 ## Roadmap
