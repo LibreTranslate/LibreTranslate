@@ -1,8 +1,14 @@
 from flask import Flask, render_template, jsonify, request, abort, send_from_directory
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
-from flask_limiter.util import get_remote_address
 
+def get_remote_address():
+    if request.headers.getlist("X-Forwarded-For"):
+        ip = request.headers.getlist("X-Forwarded-For")[0]
+    else:
+        ip = request.remote_addr or '127.0.0.1'
+
+    return ip
 
 def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False):
     from app.init import boot
