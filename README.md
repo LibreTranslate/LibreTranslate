@@ -53,6 +53,16 @@ Then open a web browser to http://localhost:5000
 
 ### Run with Docker
 
+Simply run:
+
+```bash
+docker run -ti --rm -p 5000:5000 libretranslate/libretranslate
+```
+
+Then open a web browser to http://localhost:5000
+
+### Build with Docker
+
 Make sure you cloned the `models` submodule before building the Docker image:
 
 ```bash
