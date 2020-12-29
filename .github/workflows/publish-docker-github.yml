@@ -1,0 +1,73 @@
+name: Publish to GitHub Container Registry
+# To uav4geo GitHub Container Registry
+# https://github.com/orgs/uav4geo/packages
+
+on:
+  push:
+    # Publish `main` as Docker `latest` image.
+    branches:
+      - main
+    # Publish `v1.2.3` tags as releases.
+    tags:
+      - v*
+  # Run tests for any PRs.
+  pull_request:
+  # Enable manual trigger.
+  workflow_dispatch:
+
+env:
+  IMAGE_NAME: libretranslate
+  # The image ID is generated using the GitHub user ID
+  # In our case IMAGE_ID: ghcr.io/uav4geo/libretranslate
+
+jobs:
+  # Test if the docker image build successfully
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run tests
+        run: |
+          docker build . --file Dockerfile
+
+  # Push image to GitHub Packages.
+  # See also https://docs.docker.com/docker-hub/builds/
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build image
+        run: docker build . --file Dockerfile --tag $IMAGE_NAME
+
+      # Create an access token with `read:packages` and `write:packages` scopes
+      # https://github.com/settings/tokens
+      - name: Log into GitHub Container Registry
+        run: echo "${{ secrets.CONTAINER_REGISTRY_GITHUB_TOKEN }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Push image to GitHub Container Registry
+        run: |
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
+
+          # Change all uppercase to lowercase
+          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+
+          # Strip git ref prefix from version
+          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+
+          # Strip "v" prefix from tag name
+          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+
+          # Use Docker `latest` tag convention
+          [ "$VERSION" == "main" ] && VERSION=latest
+
+          echo IMAGE_ID=$IMAGE_ID
+          echo VERSION=$VERSION
+
+          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
+          docker push $IMAGE_ID:$VERSION
