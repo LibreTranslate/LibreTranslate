@@ -4,7 +4,7 @@
 
 [![Publish to DockerHub](https://github.com/uav4geo/LibreTranslate/workflows/Publish%20to%20DockerHub/badge.svg)](https://hub.docker.com/r/libretranslate/libretranslate) ![Publish to GitHub Container Registry](https://github.com/uav4geo/LibreTranslate/workflows/Publish%20to%20GitHub%20Container%20Registry/badge.svg)
 
-Free and Open Source Machine Translation API, entirely self-hosted and works even in offline environments. Unlike other APIs, it doesn't rely on proprietary providers such as Google or Azure to perform translations.
+Free and Open Source Machine Translation API, entirely self-hosted. Unlike other APIs, it doesn't rely on proprietary providers such as Google or Azure to perform translations.
 
 ![image](https://user-images.githubusercontent.com/1951843/102724116-32a6df00-42db-11eb-8cc0-129ab39cdfb5.png)
 
