@@ -63,32 +63,30 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_la
         responses:
           200:
             description: List of languages
-            content:
-              application/json:
-                schema:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      code:
-                        type: string
-                        description: Language code
-                      name:
-                        type: string
-                        description: Human-readable language name (in English)
-                      charLimit:
-                        type: string
-                        description: Character input limit for this language (-1 indicates no limit)
+            schema:
+              id: languages
+              type: array
+              items:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    description: Language code
+                  name:
+                    type: string
+                    description: Human-readable language name (in English)
+                  charLimit:
+                    type: string
+                    description: Character input limit for this language (-1 indicates no limit)
           429:
             description: Slow down
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-                    error:
-                      type: string
-                      description: Reason for slow down
+            schema:
+              id: error-slow-down
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Reason for slow down
         """
         return jsonify([{'code': l.code, 'name': l.name, 'charLimit': char_limit } for l in languages])
 
@@ -136,44 +134,40 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_la
         responses:
           200:
             description: Translated text
-            content:
-              application/json:
-                schema:
-                type: object
-                properties:
-                  translatedText:
-                    type: string
-                    description: Translated text
+            schema:
+              id: translate
+              type: object
+              properties:
+                translatedText:
+                  type: string
+                  description: Translated text
           400:
             description: Invalid request
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-                    error:
-                      type: string
-                      description: Error message
+            schema:
+              id: error-response
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Error message
           500:
             description: Translation error
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-                    error:
-                      type: string
-                      description: Error message
+            schema:
+              id: error-response
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Error message
           429:
             description: Slow down
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-                    error:
-                      type: string
-                      description: Reason for slow down
+            schema:
+              id: error-slow-down
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Reason for slow down
         """
 
         if request.is_json:
