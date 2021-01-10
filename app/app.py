@@ -75,9 +75,6 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_la
                   name:
                     type: string
                     description: Human-readable language name (in English)
-                  charLimit:
-                    type: string
-                    description: Character input limit for this language (-1 indicates no limit)
           429:
             description: Slow down
             schema:
@@ -88,7 +85,7 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_la
                   type: string
                   description: Reason for slow down
         """
-        return jsonify([{'code': l.code, 'name': l.name, 'charLimit': char_limit } for l in languages])
+        return jsonify([{'code': l.code, 'name': l.name} for l in languages])
 
     # Add cors
     @app.after_request
@@ -218,6 +215,9 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_la
               id: frontend-settings
               type: object
               properties:
+                charLimit:
+                  type: integer
+                  description: Character input limit for this language (-1 indicates no limit)
                 language:
                   type: object
                   properties:
@@ -240,7 +240,8 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_la
                           type: string
                           description: Human-readable language name (in English)
         """
-        return jsonify({'language': {
+        return jsonify({'charLimit': char_limit,
+                        'language': {
                             'source': {'code': frontend_argos_language_source.code, 'name': frontend_argos_language_source.name},
                             'target': {'code': frontend_argos_language_target.code, 'name': frontend_argos_language_target.name}}
                        })

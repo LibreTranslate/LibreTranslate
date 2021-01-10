@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', function(){
 				self.settings = JSON.parse(this.response);
 				self.sourceLang = self.settings.language.source.code;
 				self.targetLang = self.settings.language.target.code;
-
+				self.charactersLimit = self.settings.charLimit;
 			}else {
 				self.error = "Cannot load /frontend/settings";
 				self.loading = false;
@@ -304,8 +304,6 @@ document.addEventListener('DOMContentLoaded', function(){
 				self.error = "No languages available. Did you install the models correctly?"
 				return;
 			}
-
-			self.charactersLimit = self.langs[0].charLimit;
 
 		    self.loading = false;			
 		  } else {
