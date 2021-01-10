@@ -10,7 +10,7 @@ def get_remote_address():
 
     return ip
 
-def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False):
+def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_language_source="en", frontend_language_target="es"):
     from app.init import boot
     boot()
     
@@ -19,6 +19,15 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False):
 
     if debug:
         app.config['TEMPLATES_AUTO_RELOAD'] = True
+
+    # Map userdefined frontend languages to argos language object.
+    frontend_argos_language_source = next(iter([l for l in languages if l.code == frontend_language_source]), None)
+    frontend_argos_language_target = next(iter([l for l in languages if l.code == frontend_language_target]), None)
+    # Raise AttributeError to prevent app startup if user input is not valid.
+    if frontend_argos_language_source is None:
+        raise AttributeError(f"{frontend_language_source} as frontend source language is not supported.")
+    if frontend_argos_language_target is None:
+        raise AttributeError(f"{frontend_language_target} as frontend target language is not supported.")
 
     if req_limit > 0:
         from flask_limiter import Limiter
@@ -54,34 +63,29 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False):
         responses:
           200:
             description: List of languages
-            content:
-              application/json:
-                schema:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      code:
-                        type: string
-                        description: Language code
-                      name:
-                        type: string
-                        description: Human-readable language name (in English)
-                      charLimit:
-                        type: string
-                        description: Character input limit for this language (-1 indicates no limit)
+            schema:
+              id: languages
+              type: array
+              items:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    description: Language code
+                  name:
+                    type: string
+                    description: Human-readable language name (in English)
           429:
             description: Slow down
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-                    error:
-                      type: string
-                      description: Reason for slow down
+            schema:
+              id: error-slow-down
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Reason for slow down
         """
-        return jsonify([{'code': l.code, 'name': l.name, 'charLimit': char_limit } for l in languages])
+        return jsonify([{'code': l.code, 'name': l.name} for l in languages])
 
     # Add cors
     @app.after_request
@@ -127,44 +131,40 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False):
         responses:
           200:
             description: Translated text
-            content:
-              application/json:
-                schema:
-                type: object
-                properties:
-                  translatedText:
-                    type: string
-                    description: Translated text
+            schema:
+              id: translate
+              type: object
+              properties:
+                translatedText:
+                  type: string
+                  description: Translated text
           400:
             description: Invalid request
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-                    error:
-                      type: string
-                      description: Error message
+            schema:
+              id: error-response
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Error message
           500:
             description: Translation error
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-                    error:
-                      type: string
-                      description: Error message
+            schema:
+              id: error-response
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Error message
           429:
             description: Slow down
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-                    error:
-                      type: string
-                      description: Reason for slow down
+            schema:
+              id: error-slow-down
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Reason for slow down
         """
 
         if request.is_json:
@@ -201,6 +201,50 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False):
         except Exception as e:
             abort(500, description="Cannot translate text: %s" % str(e))
 
+    @app.route("/frontend/settings")
+    def frontend_settings():
+        """
+        Retrieve frontend specific settings
+        ---
+        tags:
+          - frontend
+        responses:
+          200:
+            description: frontend settings
+            schema:
+              id: frontend-settings
+              type: object
+              properties:
+                charLimit:
+                  type: integer
+                  description: Character input limit for this language (-1 indicates no limit)
+                language:
+                  type: object
+                  properties:
+                    source:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                          description: Language code
+                        name:
+                          type: string
+                          description: Human-readable language name (in English)
+                    target:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                          description: Language code
+                        name:
+                          type: string
+                          description: Human-readable language name (in English)
+        """
+        return jsonify({'charLimit': char_limit,
+                        'language': {
+                            'source': {'code': frontend_argos_language_source.code, 'name': frontend_argos_language_source.name},
+                            'target': {'code': frontend_argos_language_target.code, 'name': frontend_argos_language_target.name}}
+                       })
 
     swag = swagger(app)
     swag['info']['version'] = "1.0"

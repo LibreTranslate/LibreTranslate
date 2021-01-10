@@ -16,6 +16,10 @@ parser.add_argument('--debug', default=False, action="store_true",
                     help="Enable debug environment")
 parser.add_argument('--ssl', default=None, action="store_true",
                     help="Whether to enable SSL")
+parser.add_argument('--frontend-language-source', type=str, default="en", metavar="<language code>",
+                    help='Set frontend default language - source (%(default)s)')
+parser.add_argument('--frontend-language-target', type=str, default="es", metavar="<language code>",
+                    help='Set frontend default language - target (%(default)s)')
 
 args = parser.parse_args()
 
@@ -24,7 +28,9 @@ if __name__ == "__main__":
     app = create_app(char_limit=args.char_limit, 
                      req_limit=args.req_limit,
                      ga_id=args.ga_id,
-                     debug=args.debug)
+                     debug=args.debug,
+                     frontend_language_source=args.frontend_language_source,
+                     frontend_language_target=args.frontend_language_target)
     if args.debug:
         app.run(host=args.host, port=args.port)
     else:

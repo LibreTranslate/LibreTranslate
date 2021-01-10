@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>LibreTranslate - Free and Open Source Machine Translation API</title>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <meta name="description" content="Free and Open Source Machine Translation API. 100% self-hosted, no limits, no ties to proprietary services. Run your own API server in just a few minutes.">
     <meta name="keywords" content="translation,api">
 
@@ -256,6 +257,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		loading: true,
 		error: "",
 		langs: [],
+		settings: {},
 		sourceLang: "",
 		targetLang: "",
 
@@ -267,10 +269,33 @@ document.addEventListener('DOMContentLoaded', function(){
 	  },
 	  mounted: function(){
 		var self = this;
-		var request = new XMLHttpRequest();
-		request.open('GET', BaseUrl + '/languages', true);
+		var requestSettings = new XMLHttpRequest();
+		requestSettings.open('GET', BaseUrl + '/frontend/settings', true);
 
-		request.onload = function() {
+		requestSettings.onload = function() {
+		  if (this.status >= 200 && this.status < 400) {
+				// Success!
+				self.settings = JSON.parse(this.response);
+				self.sourceLang = self.settings.language.source.code;
+				self.targetLang = self.settings.language.target.code;
+				self.charactersLimit = self.settings.charLimit;
+			}else {
+				self.error = "Cannot load /frontend/settings";
+				self.loading = false;
+		  }
+		};
+
+		requestSettings.onerror = function() {
+		  self.error = "Error while calling /frontend/settings";
+		  self.loading = false;
+		};
+
+		requestSettings.send();
+
+		var requestLanguages = new XMLHttpRequest();
+		requestLanguages.open('GET', BaseUrl + '/languages', true);
+
+		requestLanguages.onload = function() {
 		  if (this.status >= 200 && this.status < 400) {
 			// Success!
 			self.langs = JSON.parse(this.response);
@@ -280,18 +305,6 @@ document.addEventListener('DOMContentLoaded', function(){
 				return;
 			}
 
-			self.sourceLang = self.langs[0].code;
-			self.targetLang = self.langs[1].code;
-			self.charactersLimit = self.langs[0].charLimit;
-			// TODO: update this when switching languages
-
-			// Set Spanish
-			for (var i = 1; i < self.langs.length; i++){
-				if (self.langs[i].code === "es"){
-					self.targetLang = "es";
-				}
-			}
-
 		    self.loading = false;			
 		  } else {
 			self.error = "Cannot load /languages";
@@ -299,12 +312,12 @@ document.addEventListener('DOMContentLoaded', function(){
 		  }
 		};
 
-		request.onerror = function() {
+		requestLanguages.onerror = function() {
 		  self.error = "Error while calling /languages";
 		  self.loading = false;
 		};
 
-		request.send();
+		requestLanguages.send();
 	  },
 	  updated: function(){
 			M.FormSelect.init(this.$refs.sourceLangDropdown);
