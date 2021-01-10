@@ -96,6 +96,8 @@ docker-compose up -d --build
 | --ga-id        | Enable Google Analytics on the API client page by providing an ID | `No tracking`               |
 | --debug      | Enable debug environment | `False`           |
 | --ssl        | Whether to enable SSL | `False`               |
+| --frontend-language-source | Set frontend default language - source | `en`          |
+| --frontend-language-target | Set frontend default language - target | `es`          |
 
 
 ## Roadmap
