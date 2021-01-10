@@ -109,6 +109,12 @@ Help us by opening a pull request!
 - [ ] User authentication / tokens
 - [ ] Language bindings for every computer language
 
+## FAQ
+
+### Can I use your API server at libretranslate.com for my application in production?
+
+The API on libretranslate.com should be used for testing, personal or infrequent use. If you're going to run an application in production, please [get in touch](https://uav4geo.com/contact) to discuss options.
+
 ## Credits
 
 This work is largely possible thanks to [Argos Translate](https://github.com/argosopentech/argos-translate), which powers the translation engine.
