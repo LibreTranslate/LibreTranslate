@@ -10,7 +10,7 @@ def get_remote_address():
 
     return ip
 
-def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False):
+def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_language_source="en", frontend_language_target="es"):
     from app.init import boot
     boot()
     
@@ -19,6 +19,15 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False):
 
     if debug:
         app.config['TEMPLATES_AUTO_RELOAD'] = True
+
+    # Map userdefined frontend languages to argos language object.
+    frontend_argos_language_source = next(iter([l for l in languages if l.code == frontend_language_source]), None)
+    frontend_argos_language_target = next(iter([l for l in languages if l.code == frontend_language_target]), None)
+    # Raise AttributeError to prevent app startup if user input is not valid.
+    if frontend_argos_language_source is None:
+        raise AttributeError(f"{frontend_language_source} as frontend source language is not supported.")
+    if frontend_argos_language_target is None:
+        raise AttributeError(f"{frontend_language_target} as frontend target language is not supported.")
 
     if req_limit > 0:
         from flask_limiter import Limiter
@@ -201,6 +210,46 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False):
         except Exception as e:
             abort(500, description="Cannot translate text: %s" % str(e))
 
+    @app.route("/frontend/settings")
+    def frontend_settings():
+        """
+        Retrieve frontend specific settings
+        ---
+        tags:
+          - frontend
+        responses:
+          200:
+            description: frontend settings
+            schema:
+              id: frontend-settings
+              type: object
+              properties:
+                language:
+                  type: object
+                  properties:
+                    source:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                          description: Language code
+                        name:
+                          type: string
+                          description: Human-readable language name (in English)
+                    target:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                          description: Language code
+                        name:
+                          type: string
+                          description: Human-readable language name (in English)
+        """
+        return jsonify({'language': {
+                            'source': {'code': frontend_argos_language_source.code, 'name': frontend_argos_language_source.name},
+                            'target': {'code': frontend_argos_language_target.code, 'name': frontend_argos_language_target.name}}
+                       })
 
     swag = swagger(app)
     swag['info']['version'] = "1.0"
