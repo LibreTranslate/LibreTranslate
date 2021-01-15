@@ -1,7 +1,7 @@
 from flask import Flask, render_template, jsonify, request, abort, send_from_directory
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
-from langdetect import detect
+from langdetect import detect_langs
 
 def get_remote_address():
     if request.headers.getlist("X-Forwarded-For"):
@@ -11,7 +11,7 @@ def get_remote_address():
 
     return ip
 
-def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_language_source="auto", frontend_language_target="en"):
+def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_language_source="en", frontend_language_target="en"):
     from app.init import boot
     boot()
     
@@ -22,8 +22,16 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_la
         app.config['TEMPLATES_AUTO_RELOAD'] = True
 
     # Map userdefined frontend languages to argos language object.
-    frontend_argos_language_source = next(iter([l for l in languages if l.code == frontend_language_source or l.code == 'auto']), None)
+    if frontend_language_source == "auto":
+        frontend_argos_language_source = type('obj', (object,), {
+            'code': 'auto',
+            'name': 'Auto Detect'
+        })
+    else:
+        frontend_argos_language_source = next(iter([l for l in languages if l.code == frontend_language_source]), None)
+    
     frontend_argos_language_target = next(iter([l for l in languages if l.code == frontend_language_target]), None)
+    
     # Raise AttributeError to prevent app startup if user input is not valid.
     if frontend_argos_language_source is None:
         raise AttributeError(f"{frontend_language_source} as frontend source language is not supported.")
@@ -188,16 +196,24 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_la
         if char_limit != -1:
             q = q[:char_limit]
 
-        original_source_lang = source_lang
         if source_lang == 'auto':
-            source_lang = detect(q)
+            candidate_langs = detect_langs(q)
+            if len(candidate_langs) > 0:
+                candidate_langs.sort(key=lambda l: l.prob, reverse=True)
+                if debug:
+                    print(candidate_langs)
+                source_lang = next(iter([l.code for l in languages if l.code == candidate_langs[0].lang]), None)
+                if not source_lang:
+                    source_lang = 'en'
+            else:
+                source_lang = 'en'
+            
+            if debug:
+                print("Auto detected: %s" % source_lang)
 
         src_lang = next(iter([l for l in languages if l.code == source_lang]), None)
         tgt_lang = next(iter([l for l in languages if l.code == target_lang]), None)
         
-        if src_lang is None and original_source_lang == 'auto':
-            return jsonify({"translatedText": "Detected language not supported (" + source_lang + ")" })
-            
         if src_lang is None:
             abort(400, description="%s is not supported" % source_lang)
         if tgt_lang is None:

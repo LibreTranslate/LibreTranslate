@@ -4,4 +4,4 @@ flask-swagger==0.2.14
 flask-swagger-ui==3.36.0
 Flask-Limiter==1.4
 waitress==1.4.4
-langdetect
+langdetect==1.0.8

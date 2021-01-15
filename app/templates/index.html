@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		  if (this.status >= 200 && this.status < 400) {
 			// Success!
 			self.langs = JSON.parse(this.response);
-			self.langs.push({ name: 'Auto (experimental)', code: 'auto' })
+			self.langs.push({ name: 'Auto Detect (Experimental)', code: 'auto' })
 			if (self.langs.length === 0){
 				self.loading = false;
 				self.error = "No languages available. Did you install the models correctly?"
