@@ -22,8 +22,7 @@ const res = await fetch("https://libretranslate.com/translate", {
 		source: "en",
 		target: "es"
 	}),
-	headers: {
-		"Content-Type": "application/json"}
+	headers: { "Content-Type": "application/json" }
 	});
 
 console.log(await res.json());

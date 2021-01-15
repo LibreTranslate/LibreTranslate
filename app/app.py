@@ -2,6 +2,8 @@ from flask import Flask, render_template, jsonify, request, abort, send_from_dir
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
 from langdetect import detect_langs
+from langdetect import DetectorFactory
+DetectorFactory.seed = 0 # deterministic
 
 def get_remote_address():
     if request.headers.getlist("X-Forwarded-For"):
@@ -17,6 +19,11 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_la
     
     from app.language import languages
     app = Flask(__name__)
+
+    # For faster access
+    language_map = {}
+    for l in languages:
+        language_map[l.code] = l.name
 
     if debug:
         app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -197,11 +204,14 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_la
             q = q[:char_limit]
 
         if source_lang == 'auto':
-            candidate_langs = detect_langs(q)
+            candidate_langs = list(filter(lambda l: l.lang in language_map, detect_langs(q)))
+
             if len(candidate_langs) > 0:
                 candidate_langs.sort(key=lambda l: l.prob, reverse=True)
+
                 if debug:
                     print(candidate_langs)
+
                 source_lang = next(iter([l.code for l in languages if l.code == candidate_langs[0].lang]), None)
                 if not source_lang:
                     source_lang = 'en'
