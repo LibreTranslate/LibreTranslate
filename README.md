@@ -104,7 +104,7 @@ docker-compose up -d --build
 Help us by opening a pull request!
 
 - [x] A docker image (thanks [@vemonet](https://github.com/vemonet) !)
-- [x] Auto-detect input language
+- [x] Auto-detect input language (thanks [@vemonet](https://github.com/vemonet) !)
 - [ ] User authentication / tokens
 - [ ] Language bindings for every computer language
 
