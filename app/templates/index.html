@@ -135,8 +135,8 @@
 								</template>
 							</select>
 						 </div>
-					  </div>
-					  <div class="row">
+					</div>
+					<div class="row">
 						<div class="input-field col s6">
 						  <textarea id="textarea1" class="materialize-textarea" v-model="inputText" @input="handleInput" ref="inputTextarea"></textarea>
 						  <label for="textarea1">Input Text</label>
@@ -151,15 +151,15 @@
 							  <div class="indeterminate"></div>
 						  </div></label>
 							 </div>
-							<div style="text-align: right;">
-								<button class="copy" data-clipboard-target="#textarea2" style="display: inline-block;">Copy text</button>
-					    		</div>
 						</div>
-					  </div>
+					</div>
 					<div class="row">
-					    <div style="text-align: right;">
-						<input type="reset" style="display: inline-block;" value="🗑" title="Delete text">
-					    </div>
+						<div class="col s6">
+							<button class="btn btn-small" style="display: inline-block;" title="Delete text" @click="deleteText"><i class="material-icons">delete</i></button>
+						</div>
+						<div class="col s6" style="text-align: right;">
+							<button class="btn btn-small" style="display: inline-block;" @click="copyText">[[ copyTextLabel ]]</button>
+						</div>
 					</div>
 					</form>
 			   </div>
@@ -250,8 +250,6 @@ window.Prism.manual = true;
 	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js"></script>
 	
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
-	
 <script>
 // API host/endpoint
 var BaseUrl = window.location.protocol + "//" + window.location.host;
@@ -277,6 +275,8 @@ document.addEventListener('DOMContentLoaded', function(){
 		translatedText: "",
 		output: "",
 		charactersLimit: -1,
+
+		copyTextLabel: "Copy Text"
 	  },
 	  mounted: function(){
 		var self = this;
@@ -346,6 +346,8 @@ document.addEventListener('DOMContentLoaded', function(){
 			if (this.charactersLimit !== -1 && this.inputText.length >= this.charactersLimit){
 				this.inputText = this.inputText.substring(0, this.charactersLimit);
 			}
+            
+			
 	  },
 	  computed: {
 	  	requestCode: function(){
@@ -440,21 +442,31 @@ document.addEventListener('DOMContentLoaded', function(){
 
 				request.send(data);
 	  		}, 300);
-	  	}
+	  	},
+
+		copyText: function(e){
+			e.preventDefault();
+			console.log(this.$refs);
+			this.$refs.translatedTextarea.select();
+			this.$refs.translatedTextarea.setSelectionRange(0, 9999999); /* For mobile devices */
+			document.execCommand("copy");
+			
+			if (this.copyTextLabel === "Copy Text"){
+				this.copyTextLabel = "Copied!";
+				var self = this;
+				setTimeout(function(){
+					self.copyTextLabel = "Copy Text";
+				}, 1500);
+			}
+		},
+
+		deleteText: function(e){
+			e.preventDefault();
+			this.inputText = this.translatedText = "";
+		}
 	  }
 	});
 
-});
-
-
-
-var clipboard = new ClipboardJS('.copy');
-clipboard.on('success', function(e) {
-  console.log('Done, text copied.');
-    e.clearSelection();
-});
-clipboard.on('error', function(e) {
-  console.log('Error: '+e);
 });
 </script>
 </body>
