@@ -151,8 +151,16 @@
 							  <div class="indeterminate"></div>
 						  </div></label>
 							 </div>
+							<div style="text-align: right;">
+								<button class="copy" data-clipboard-target="#textarea2" style="display: inline-block;">Copy text</button>
+					    		</div>
 						</div>
 					  </div>
+					<div class="row">
+					    <div style="text-align: right;">
+						<input type="reset" style="display: inline-block;" value="🗑" title="Delete text">
+					    </div>
+					</div>
 					</form>
 			   </div>
 			  </div>
@@ -239,8 +247,11 @@
 window.Prism = window.Prism || {};
 window.Prism.manual = true;
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js" ></script>
-
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js"></script>
+	
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+	
 <script>
 // API host/endpoint
 var BaseUrl = window.location.protocol + "//" + window.location.host;
@@ -435,6 +446,16 @@ document.addEventListener('DOMContentLoaded', function(){
 
 });
 
+
+
+var clipboard = new ClipboardJS('.copy');
+clipboard.on('success', function(e) {
+  console.log('Done, text copied.');
+    e.clearSelection();
+});
+clipboard.on('error', function(e) {
+  console.log('Error: '+e);
+});
 </script>
 </body>
 </html>
