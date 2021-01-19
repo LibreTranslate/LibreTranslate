@@ -13,10 +13,10 @@ def get_remote_address():
 
     return ip
 
-def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_language_source="en", frontend_language_target="en"):
+def create_app(char_limit=-1, req_limit=-1, batch_limit=-1, ga_id=None, debug=False, frontend_language_source="en", frontend_language_target="en"):
     from app.init import boot
     boot()
-    
+
     from app.language import languages
     app = Flask(__name__)
 
@@ -36,9 +36,9 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_la
         })
     else:
         frontend_argos_language_source = next(iter([l for l in languages if l.code == frontend_language_source]), None)
-    
+
     frontend_argos_language_target = next(iter([l for l in languages if l.code == frontend_language_target]), None)
-    
+
     # Raise AttributeError to prevent app startup if user input is not valid.
     if frontend_argos_language_source is None:
         raise AttributeError(f"{frontend_language_source} as frontend source language is not supported.")
@@ -126,17 +126,20 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_la
           - in: formData
             name: q
             schema:
-              type: string
-              example: Hello world!
+              oneOf:
+                - type: string
+                  example: Hello world!
+                - type: array
+                  example: ['Hello world!']
             required: true
-            description: Text to translate
+            description: Text(s) to translate
           - in: formData
             name: source
             schema:
               type: string
               example: en
             required: true
-            description: Source language code      
+            description: Source language code
           - in: formData
             name: target
             schema:
@@ -152,8 +155,10 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_la
               type: object
               properties:
                 translatedText:
-                  type: string
-                  description: Translated text
+                  oneOf:
+                    - type: string
+                    - type: array
+                  description: Translated text(s)
           400:
             description: Invalid request
             schema:
@@ -200,8 +205,21 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_la
         if not target_lang:
             abort(400, description="Invalid request: missing target parameter")
 
+        batch = isinstance(q, list)
+
+        if batch and batch_limit != -1:
+          batch_size = len(q)
+          if batch_limit < batch_size:
+            abort(400, description="Invalid request: Request (%d) exceeds text limit (%d)" % (batch_size, batch_limit))
+
         if char_limit != -1:
-            q = q[:char_limit]
+            if batch:
+              chars = sum([len(text) for text in q])
+            else:
+              chars = len(q)
+
+            if char_limit < chars:
+              abort(400, description="Invalid request: Request (%d) exceeds character limit (%d)" % (chars, char_limit))
 
         if source_lang == 'auto':
             candidate_langs = list(filter(lambda l: l.lang in language_map, detect_langs(q)))
@@ -217,20 +235,24 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_la
                     source_lang = 'en'
             else:
                 source_lang = 'en'
-            
+
             if debug:
                 print("Auto detected: %s" % source_lang)
 
         src_lang = next(iter([l for l in languages if l.code == source_lang]), None)
         tgt_lang = next(iter([l for l in languages if l.code == target_lang]), None)
-        
+
         if src_lang is None:
             abort(400, description="%s is not supported" % source_lang)
         if tgt_lang is None:
             abort(400, description="%s is not supported" % target_lang)
 
         translator = src_lang.get_translation(tgt_lang)
+
         try:
+          if batch:
+            return jsonify({"translatedText": [translator.translate(text) for text in q] })
+          else:
             return jsonify({"translatedText": translator.translate(q) })
         except Exception as e:
             abort(500, description="Cannot translate text: %s" % str(e))
