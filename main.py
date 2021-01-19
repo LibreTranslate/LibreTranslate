@@ -21,7 +21,7 @@ parser.add_argument('--ssl', default=None, action="store_true",
 parser.add_argument('--frontend-language-source', type=str, default="en", metavar="<language code>",
                     help='Set frontend default language - source (%(default)s)')
 parser.add_argument('--frontend-language-target', type=str, default="es", metavar="<language code>",
-                    help='Set frontend xxxdefault language - target (%(default)s)')
+                    help='Set frontend default language - target (%(default)s)')
 
 args = parser.parse_args()
 
