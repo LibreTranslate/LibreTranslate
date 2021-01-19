@@ -247,9 +247,9 @@
 window.Prism = window.Prism || {};
 window.Prism.manual = true;
 </script>
-	
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js"></script>
-	
+
 <script>
 // API host/endpoint
 var BaseUrl = window.location.protocol + "//" + window.location.host;
@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function(){
 				return;
 			}
 
-		    self.loading = false;			
+		    self.loading = false;
 		  } else {
 			self.error = "Cannot load /languages";
 			self.loading = false;
@@ -346,8 +346,8 @@ document.addEventListener('DOMContentLoaded', function(){
 			if (this.charactersLimit !== -1 && this.inputText.length >= this.charactersLimit){
 				this.inputText = this.inputText.substring(0, this.charactersLimit);
 			}
-            
-			
+
+
 	  },
 	  computed: {
 	  	requestCode: function(){
@@ -423,7 +423,7 @@ document.addEventListener('DOMContentLoaded', function(){
 				  	var res = JSON.parse(this.response);
 					// Success!
 					if (res.translatedText !== undefined){
-						self.translatedText = res.translatedText; 
+						self.translatedText = res.translatedText;
 					    self.loadingTranslation = false;
 					    self.output = JSON.stringify(res, null, 4);
 					}else{
@@ -450,7 +450,7 @@ document.addEventListener('DOMContentLoaded', function(){
 			this.$refs.translatedTextarea.select();
 			this.$refs.translatedTextarea.setSelectionRange(0, 9999999); /* For mobile devices */
 			document.execCommand("copy");
-			
+
 			if (this.copyTextLabel === "Copy Text"){
 				this.copyTextLabel = "Copied!";
 				var self = this;
