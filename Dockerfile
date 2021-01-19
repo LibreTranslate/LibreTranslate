@@ -1,5 +1,7 @@
 FROM python:3.8
 
+WORKDIR /app
+
 RUN pip install --upgrade pip
 
 # Avoid rebuilding this step if no changes to requirements.txt
