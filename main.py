@@ -10,6 +10,8 @@ parser.add_argument('--char-limit', default=-1, type=int, metavar="<number of ch
                     help='Set character limit (%(default)s)')
 parser.add_argument('--req-limit', default=-1, type=int, metavar="<number>",
                     help='Set maximum number of requests per minute per client (%(default)s)')
+parser.add_argument('--batch-limit', default=-1, type=int, metavar="<number of texts>",
+                    help='Set maximum number of texts to translate in a batch request (%(default)s)')
 parser.add_argument('--ga-id', type=str, default=None, metavar="<GA ID>",
                     help='Enable Google Analytics on the API client page by providing an ID (%(default)s)')
 parser.add_argument('--debug', default=False, action="store_true",
@@ -25,8 +27,9 @@ args = parser.parse_args()
 
 
 if __name__ == "__main__":
-    app = create_app(char_limit=args.char_limit, 
+    app = create_app(char_limit=args.char_limit,
                      req_limit=args.req_limit,
+                     batch_limit=args.batch_limit,
                      ga_id=args.ga_id,
                      debug=args.debug,
                      frontend_language_source=args.frontend_language_source,

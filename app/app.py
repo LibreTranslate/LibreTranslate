@@ -13,7 +13,7 @@ def get_remote_address():
 
     return ip
 
-def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_language_source="en", frontend_language_target="en"):
+def create_app(char_limit=-1, req_limit=-1, batch_limit=-1, ga_id=None, debug=False, frontend_language_source="en", frontend_language_target="en"):
     from app.init import boot
     boot()
 
@@ -206,6 +206,11 @@ def create_app(char_limit=-1, req_limit=-1, ga_id=None, debug=False, frontend_la
             abort(400, description="Invalid request: missing target parameter")
 
         batch = isinstance(q, list)
+
+        if batch and batch_limit != -1:
+          batch_size = len(q)
+          if batch_limit < batch_size:
+            abort(400, description="Invalid request: Request (%d) exceeds text limit (%d)" % (batch_size, batch_limit))
 
         if char_limit != -1:
             if batch:
