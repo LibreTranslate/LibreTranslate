@@ -98,6 +98,7 @@ docker-compose up -d --build
 | --ssl        | Whether to enable SSL | `False`               |
 | --frontend-language-source | Set frontend default language - source | `en`          |
 | --frontend-language-target | Set frontend default language - target | `es`          |
+| --frontend-timeout | Set frontend translation timeout | `500`         |
 
 
 ## Roadmap
