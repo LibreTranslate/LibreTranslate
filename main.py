@@ -22,6 +22,8 @@ parser.add_argument('--frontend-language-source', type=str, default="en", metava
                     help='Set frontend default language - source (%(default)s)')
 parser.add_argument('--frontend-language-target', type=str, default="es", metavar="<language code>",
                     help='Set frontend default language - target (%(default)s)')
+parser.add_argument('--frontend-timeout', type=int, default=500, metavar="<milliseconds>",
+                    help='Set frontend translation timeout (%(default)s)')
 
 args = parser.parse_args()
 
@@ -33,7 +35,8 @@ if __name__ == "__main__":
                      ga_id=args.ga_id,
                      debug=args.debug,
                      frontend_language_source=args.frontend_language_source,
-                     frontend_language_target=args.frontend_language_target)
+                     frontend_language_target=args.frontend_language_target,
+                     frontend_timeout=args.frontend_timeout)
     if args.debug:
         app.run(host=args.host, port=args.port)
     else:
