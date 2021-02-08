@@ -1,33 +1,26 @@
 import os
 from pathlib import Path
-from argostranslate import settings
-
-INSTALLED_MODELS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "installed_models"))
-os.environ["ARGOS_TRANSLATE_PACKAGES_DIR"] = INSTALLED_MODELS_DIR
-settings.package_dirs = [Path(INSTALLED_MODELS_DIR)]
-
-from argostranslate import translate
+from argostranslate import settings, package, translate
 import os, glob, shutil, zipfile
 
 def boot():
 	check_and_install_models()
 
 def check_and_install_models(force=False):
-	if os.path.exists(INSTALLED_MODELS_DIR) and not force:
-		return
+    if len(package.get_installed_packages()) == 0 or force:
+        # Update package definitions from remote
+        print("Updating language models")
+        package.update_package_index()
 
-	if os.path.exists(INSTALLED_MODELS_DIR):
-		print("Removing old %s" % INSTALLED_MODELS_DIR)
-		shutil.rmtree(INSTALLED_MODELS_DIR)
+        # Load available packages from local package index
+        available_packages = package.load_available_packages()
+        print("Found %s models" % len(available_packages))
 
-	print("Creating %s" % INSTALLED_MODELS_DIR)
-	os.makedirs(INSTALLED_MODELS_DIR, exist_ok=True)
+        # Download and install all available packages
+        for available_package in available_packages:
+            print("Downloading %s (%s) ..." % (available_package, available_package.package_version))
+            download_path = available_package.download()
+            package.install_from_path(download_path)
 
-
-	for f in glob.glob("models/**.argosmodel"):
-		print("Installing %s..." % f)
-		with zipfile.ZipFile(f, 'r') as zip:
-			zip.extractall(path=INSTALLED_MODELS_DIR)
-
-	print("Installed %s language models!" % (len(translate.load_installed_languages())))
+        print("Loaded support for %s languages (%s models total)!" % (len(translate.load_installed_languages()), len(available_packages)))
 	

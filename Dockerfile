@@ -2,9 +2,6 @@ FROM python:3.8
 
 WORKDIR /app
 
-# This expects the models submodule to be present
-COPY models models
-
 RUN pip install --upgrade pip
 
 # Avoid rebuilding this step if no changes to requirements.txt
