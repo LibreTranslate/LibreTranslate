@@ -28,7 +28,7 @@ setup(
     tests_require=['pytest==5.2.0'],
     setup_requires=['pytest-runner'],
     classifiers=[
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: GNU Affero General Public License v3 ",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
