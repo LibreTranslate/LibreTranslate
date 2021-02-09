@@ -68,7 +68,7 @@ def create_app(char_limit=-1, req_limit=-1, batch_limit=-1, ga_id=None, debug=Fa
 
     @app.route("/")
     def index():
-        return render_template(resource_filename('app', 'templates/index.html'), gaId=ga_id, frontendTimeout=frontend_timeout)
+        return render_template('index.html', gaId=ga_id, frontendTimeout=frontend_timeout)
 
     @app.route("/languages")
     def langs():
