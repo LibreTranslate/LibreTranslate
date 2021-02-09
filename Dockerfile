@@ -4,13 +4,10 @@ WORKDIR /app
 
 RUN pip install --upgrade pip
 
-# Avoid rebuilding this step if no changes to requirements.txt
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+COPY . .
 
-# Copy everything else
-COPY app app
-COPY *.py LICENSE README.md ./
+# Install package from source code
+RUN pip install .
 
 EXPOSE 5000
-ENTRYPOINT [ "python", "main.py", "--host", "0.0.0.0" ]
+ENTRYPOINT [ "libretranslate", "--host", "0.0.0.0" ]

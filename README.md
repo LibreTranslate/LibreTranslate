@@ -36,18 +36,28 @@ Response:
 }
 ```
 
-
-## Build and Run
+## Install and Run
 
 You can run your own API server in just a few lines of setup!
 
 Make sure you have installed Python (3.8 or higher), then simply issue:
 
 ```bash
+pip install libretranslate
+libretranslate [args]
+```
+
+Then open a web browser to http://localhost:5000
+
+## Build and Run
+
+If you want to make some changes to the code, you can build from source, and run the API:
+
+```bash
 git clone https://github.com/uav4geo/LibreTranslate
 cd LibreTranslate
-pip install -r requirements.txt
-python main.py [args]
+pip install -e .
+libretranslate [args]
 ```
 
 Then open a web browser to http://localhost:5000
