@@ -7,7 +7,7 @@ def boot():
 	check_and_install_models()
 
 def check_and_install_models(force=False):
-    if len(package.get_installed_packages()) == 0 or force:
+    if len(package.get_installed_packages()) < 2 or force:
         # Update package definitions from remote
         print("Updating language models")
         package.update_package_index()

@@ -3,6 +3,7 @@ from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
 from langdetect import detect_langs
 from langdetect import DetectorFactory
+from pkg_resources import resource_filename
 DetectorFactory.seed = 0 # deterministic
 
 def get_remote_address():
