@@ -44,7 +44,7 @@ You can run your own API server in just a few lines of setup!
 Make sure you have installed Python (3.8 or higher), then simply issue:
 
 ```bash
-git clone https://github.com/uav4geo/LibreTranslate --recurse-submodules
+git clone https://github.com/uav4geo/LibreTranslate
 cd LibreTranslate
 pip install -r requirements.txt
 python main.py [args]
