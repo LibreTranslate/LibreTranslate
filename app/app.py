@@ -71,7 +71,7 @@ def create_app(char_limit=-1, req_limit=-1, batch_limit=-1, ga_id=None, debug=Fa
     def index():
         return render_template('index.html', gaId=ga_id, frontendTimeout=frontend_timeout, offline=offline)
 
-    @app.route("/languages")
+    @app.route("/languages", methods=['GET', 'POST'])
     def langs():
         """
         Retrieve list of supported languages
