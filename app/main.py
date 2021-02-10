@@ -25,6 +25,8 @@ def main():
                         help='Set frontend default language - target (%(default)s)')
     parser.add_argument('--frontend-timeout', type=int, default=500, metavar="<milliseconds>",
                         help='Set frontend translation timeout (%(default)s)')
+    parser.add_argument('--offline', default=False, action="store_true",
+                        help="Use offline")
 
     args = parser.parse_args()
 
@@ -35,7 +37,8 @@ def main():
                      debug=args.debug,
                      frontend_language_source=args.frontend_language_source,
                      frontend_language_target=args.frontend_language_target,
-                     frontend_timeout=args.frontend_timeout)
+                     frontend_timeout=args.frontend_timeout,
+                     offline=args.offline)
     if args.debug:
         app.run(host=args.host, port=args.port)
     else:

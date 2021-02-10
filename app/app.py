@@ -14,9 +14,10 @@ def get_remote_address():
 
     return ip
 
-def create_app(char_limit=-1, req_limit=-1, batch_limit=-1, ga_id=None, debug=False, frontend_language_source="en", frontend_language_target="en", frontend_timeout=500):
-    from app.init import boot
-    boot()
+def create_app(char_limit=-1, req_limit=-1, batch_limit=-1, ga_id=None, debug=False, frontend_language_source="en", frontend_language_target="en", frontend_timeout=500, offline=False):
+    if not offline:
+        from app.init import boot
+        boot()
 
     from app.language import languages
     app = Flask(__name__)
@@ -68,7 +69,7 @@ def create_app(char_limit=-1, req_limit=-1, batch_limit=-1, ga_id=None, debug=Fa
 
     @app.route("/")
     def index():
-        return render_template('index.html', gaId=ga_id, frontendTimeout=frontend_timeout)
+        return render_template('index.html', gaId=ga_id, frontendTimeout=frontend_timeout, offline=offline)
 
     @app.route("/languages")
     def langs():
