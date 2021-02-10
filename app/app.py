@@ -259,6 +259,86 @@ def create_app(char_limit=-1, req_limit=-1, batch_limit=-1, ga_id=None, debug=Fa
         except Exception as e:
             abort(500, description="Cannot translate text: %s" % str(e))
 
+    @app.route("/detect", methods=['POST'])
+    def detect():
+        """
+        Detect the language of a single text
+        ---
+        tags:
+          - translate
+        parameters:
+          - in: formData
+            name: q
+            schema:
+              type: string
+              example: Hello world!
+            required: true
+            description: Text to detect
+        responses:
+          200:
+            description: Detections
+            schema:
+              id: detections
+              type: array
+              items:
+                type: object
+                properties:
+                  confidence:
+                    type: number
+                    format: float
+                    minimum: 0
+                    maximum: 1
+                    description: Confidence value
+                    example: 0.6
+                  language:
+                    type: string
+                    description: Language code
+                    example: en
+          400:
+            description: Invalid request
+            schema:
+              id: error-response
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Error message
+          500:
+            description: Detection error
+            schema:
+              id: error-response
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Error message
+          429:
+            description: Slow down
+            schema:
+              id: error-slow-down
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Reason for slow down
+        """
+        if request.is_json:
+            json = request.get_json()
+            q = json.get('q')
+        else:
+            q = request.values.get("q")
+
+        if not q:
+            abort(400, description="Invalid request: missing q parameter")
+
+        candidate_langs = list(filter(lambda l: l.lang in language_map, detect_langs(q)))
+        candidate_langs.sort(key=lambda l: l.prob, reverse=True)
+        return jsonify([{
+            'confidence': l.prob,
+            'language': l.lang
+        } for l in candidate_langs])
+
+
     @app.route("/frontend/settings")
     def frontend_settings():
         """

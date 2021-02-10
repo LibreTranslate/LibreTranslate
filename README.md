@@ -60,6 +60,9 @@ git clone https://github.com/uav4geo/LibreTranslate
 cd LibreTranslate
 pip install -e .
 libretranslate [args]
+
+# Or
+python main.py [args]
 ```
 
 Then open a web browser to http://localhost:5000
