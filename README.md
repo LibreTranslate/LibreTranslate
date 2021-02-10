@@ -2,7 +2,7 @@
 
 [Try it online!](https://libretranslate.com) | [API Docs](https://libretranslate.com/docs)
 
-[![Publish to DockerHub](https://github.com/uav4geo/LibreTranslate/workflows/Publish%20to%20DockerHub/badge.svg)](https://hub.docker.com/r/libretranslate/libretranslate) ![Publish to GitHub Container Registry](https://github.com/uav4geo/LibreTranslate/workflows/Publish%20to%20GitHub%20Container%20Registry/badge.svg)
+[![Python versions](https://img.shields.io/pypi/pyversions/libretranslate)](https://pypi.org/project/libretranslate) [![Run tests](https://github.com/uav4geo/LibreTranslate/workflows/Run%20tests/badge.svg)](https://github.com/uav4geo/LibreTranslate/actions?query=workflow%3A%22Run+tests%22) [![Publish to DockerHub](https://github.com/uav4geo/LibreTranslate/workflows/Publish%20to%20DockerHub/badge.svg)](https://hub.docker.com/r/libretranslate/libretranslate) [![Publish to GitHub Container Registry](https://github.com/uav4geo/LibreTranslate/workflows/Publish%20to%20GitHub%20Container%20Registry/badge.svg)](https://github.com/uav4geo/LibreTranslate/actions?query=workflow%3A%22Publish+to+GitHub+Container+Registry%22)
 
 Free and Open Source Machine Translation API, entirely self-hosted. Unlike other APIs, it doesn't rely on proprietary providers such as Google or Azure to perform translations.
 
@@ -40,7 +40,7 @@ Response:
 
 You can run your own API server in just a few lines of setup!
 
-Make sure you have installed Python (3.8 or higher), then simply issue:
+Make sure you have installed Python (3.8 or higher is recommended), then simply issue:
 
 ```bash
 pip install libretranslate
