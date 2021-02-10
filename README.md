@@ -79,8 +79,6 @@ Then open a web browser to http://localhost:5000
 
 ### Build with Docker
 
-Make sure you cloned the `models` submodule before building the Docker image:
-
 ```bash
 docker build -t libretranslate .
 ```
