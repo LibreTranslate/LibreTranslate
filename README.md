@@ -112,7 +112,34 @@ docker-compose up -d --build
 | --frontend-language-source | Set frontend default language - source | `en`          |
 | --frontend-language-target | Set frontend default language - target | `es`          |
 | --frontend-timeout | Set frontend translation timeout | `500`         |
+| --offline | Run user-interface entirely offline (don't use internet CDNs) | `false` |
+| --api-keys | Enable API keys database for per-user rate limits lookup | `Don't use API keys` |
 
+## Manage API Keys
+
+LibreTranslate supports per-user limit quotas, e.g. you can issue API keys to users so that they can enjoy higher requests limits per minute (if you also set `--req-limit`). By default all users are rate-limited based on `--req-limit`, but passing an optional `api_key` parameter to the REST endpoints allows a user to enjoy higher request limits.
+
+To use API keys simply start LibreTranslate with the `--api-keys` option.
+
+### Add New Keys
+
+To issue a new API key with 120 requests per minute limits:
+
+```bash
+ltmanage keys add 120
+```
+
+### Remove Keys
+
+```bash
+ltmanage keys remove <api-key>
+```
+
+### View Keys
+
+```bash
+ltmanage keys
+```
 
 ## Roadmap
 
@@ -120,14 +147,14 @@ Help us by opening a pull request!
 
 - [x] A docker image (thanks [@vemonet](https://github.com/vemonet) !)
 - [x] Auto-detect input language (thanks [@vemonet](https://github.com/vemonet) !)
-- [ ] User authentication / tokens
+- [X] User authentication / tokens
 - [ ] Language bindings for every computer language
 
 ## FAQ
 
 ### Can I use your API server at libretranslate.com for my application in production?
 
-The API on libretranslate.com should be used for testing, personal or infrequent use. If you're going to run an application in production, please [get in touch](https://uav4geo.com/contact) to discuss options.
+The API on libretranslate.com should be used for testing, personal or infrequent use. If you're going to run an application in production, please [get in touch](https://uav4geo.com/contact) to get an API key or discuss other options.
 
 ## Credits
 

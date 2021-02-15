@@ -10,7 +10,7 @@ def main():
     parser.add_argument('--char-limit', default=-1, type=int, metavar="<number of characters>",
                         help='Set character limit (%(default)s)')
     parser.add_argument('--req-limit', default=-1, type=int, metavar="<number>",
-                        help='Set maximum number of requests per minute per client (%(default)s)')
+                        help='Set the default maximum number of requests per minute per client (%(default)s)')
     parser.add_argument('--batch-limit', default=-1, type=int, metavar="<number of texts>",
                         help='Set maximum number of texts to translate in a batch request (%(default)s)')
     parser.add_argument('--ga-id', type=str, default=None, metavar="<GA ID>",
@@ -27,18 +27,13 @@ def main():
                         help='Set frontend translation timeout (%(default)s)')
     parser.add_argument('--offline', default=False, action="store_true",
                         help="Use offline")
+    parser.add_argument('--api-keys', default=False, action="store_true",
+                        help="Enable API keys database for per-user rate limits lookup")
+    
 
     args = parser.parse_args()
+    app = create_app(args)
 
-    app = create_app(char_limit=args.char_limit,
-                     req_limit=args.req_limit,
-                     batch_limit=args.batch_limit,
-                     ga_id=args.ga_id,
-                     debug=args.debug,
-                     frontend_language_source=args.frontend_language_source,
-                     frontend_language_target=args.frontend_language_target,
-                     frontend_timeout=args.frontend_timeout,
-                     offline=args.offline)
     if args.debug:
         app.run(host=args.host, port=args.port)
     else:

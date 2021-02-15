@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 installed_models/
 
+# Misc
+api_keys.db

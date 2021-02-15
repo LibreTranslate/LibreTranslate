@@ -1,10 +1,15 @@
+import os
 from flask import Flask, render_template, jsonify, request, abort, send_from_directory
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
 from langdetect import detect_langs
 from langdetect import DetectorFactory
 from pkg_resources import resource_filename
+from .api_keys import Database
+
 DetectorFactory.seed = 0 # deterministic
+
+api_keys_db = None
 
 def get_remote_address():
     if request.headers.getlist("X-Forwarded-For"):
@@ -14,8 +19,32 @@ def get_remote_address():
 
     return ip
 
-def create_app(char_limit=-1, req_limit=-1, batch_limit=-1, ga_id=None, debug=False, frontend_language_source="en", frontend_language_target="en", frontend_timeout=500, offline=False):
-    if not offline:
+def get_routes_limits(default_req_limit, api_keys_db):
+    if default_req_limit == -1:
+        # TODO: better way?
+        default_req_limit = 9999999999999
+
+    def limits():
+        req_limit = default_req_limit
+
+        if api_keys_db:
+            if request.is_json:
+                json = request.get_json()
+                api_key = json.get('api_key')
+            else:
+                api_key = request.values.get("api_key")
+
+            if api_key:
+                db_req_limit = api_keys_db.lookup(api_key)
+                if db_req_limit is not None:
+                    req_limit = db_req_limit
+
+        return "%s per minute" % req_limit
+    
+    return [limits]
+
+def create_app(args):
+    if not args.offline:
         from app.init import boot
         boot()
 
@@ -27,32 +56,32 @@ def create_app(char_limit=-1, req_limit=-1, batch_limit=-1, ga_id=None, debug=Fa
     for l in languages:
         language_map[l.code] = l.name
 
-    if debug:
+    if args.debug:
         app.config['TEMPLATES_AUTO_RELOAD'] = True
 
     # Map userdefined frontend languages to argos language object.
-    if frontend_language_source == "auto":
+    if args.frontend_language_source == "auto":
         frontend_argos_language_source = type('obj', (object,), {
             'code': 'auto',
             'name': 'Auto Detect'
         })
     else:
-        frontend_argos_language_source = next(iter([l for l in languages if l.code == frontend_language_source]), None)
+        frontend_argos_language_source = next(iter([l for l in languages if l.code == args.frontend_language_source]), None)
 
-    frontend_argos_language_target = next(iter([l for l in languages if l.code == frontend_language_target]), None)
+    frontend_argos_language_target = next(iter([l for l in languages if l.code == args.frontend_language_target]), None)
 
     # Raise AttributeError to prevent app startup if user input is not valid.
     if frontend_argos_language_source is None:
-        raise AttributeError(f"{frontend_language_source} as frontend source language is not supported.")
+        raise AttributeError(f"{args.frontend_language_source} as frontend source language is not supported.")
     if frontend_argos_language_target is None:
-        raise AttributeError(f"{frontend_language_target} as frontend target language is not supported.")
+        raise AttributeError(f"{args.frontend_language_target} as frontend target language is not supported.")
 
-    if req_limit > 0:
+    if args.req_limit > 0 or args.api_keys:
         from flask_limiter import Limiter
         limiter = Limiter(
             app,
             key_func=get_remote_address,
-            default_limits=["%s per minute" % req_limit]
+            default_limits=get_routes_limits(args.req_limit, Database() if args.api_keys else None)
         )
 
     @app.errorhandler(400)
@@ -68,10 +97,12 @@ def create_app(char_limit=-1, req_limit=-1, batch_limit=-1, ga_id=None, debug=Fa
         return jsonify({"error": "Slowdown: " + str(e.description)}), 429
 
     @app.route("/")
+    @limiter.exempt
     def index():
-        return render_template('index.html', gaId=ga_id, frontendTimeout=frontend_timeout, offline=offline)
+        return render_template('index.html', gaId=args.ga_id, frontendTimeout=args.frontend_timeout, offline=args.offline, api_keys=args.api_keys, web_version=os.environ.get('LT_WEB') is not None)
 
     @app.route("/languages", methods=['GET', 'POST'])
+    @limiter.exempt
     def langs():
         """
         Retrieve list of supported languages
@@ -149,6 +180,13 @@ def create_app(char_limit=-1, req_limit=-1, batch_limit=-1, ga_id=None, debug=Fa
               example: es
             required: true
             description: Target language code
+          - in: formData
+            name: api_key
+            schema:
+              type: string
+              example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+            required: false
+            description: API key
         responses:
           200:
             description: Translated text
@@ -209,19 +247,19 @@ def create_app(char_limit=-1, req_limit=-1, batch_limit=-1, ga_id=None, debug=Fa
 
         batch = isinstance(q, list)
 
-        if batch and batch_limit != -1:
+        if batch and args.batch_limit != -1:
           batch_size = len(q)
-          if batch_limit < batch_size:
-            abort(400, description="Invalid request: Request (%d) exceeds text limit (%d)" % (batch_size, batch_limit))
+          if args.batch_limit < batch_size:
+            abort(400, description="Invalid request: Request (%d) exceeds text limit (%d)" % (batch_size, args.batch_limit))
 
-        if char_limit != -1:
+        if args.char_limit != -1:
             if batch:
               chars = sum([len(text) for text in q])
             else:
               chars = len(q)
 
-            if char_limit < chars:
-              abort(400, description="Invalid request: Request (%d) exceeds character limit (%d)" % (chars, char_limit))
+            if args.char_limit < chars:
+              abort(400, description="Invalid request: Request (%d) exceeds character limit (%d)" % (chars, args.char_limit))
 
         if source_lang == 'auto':
             candidate_langs = list(filter(lambda l: l.lang in language_map, detect_langs(q)))
@@ -229,7 +267,7 @@ def create_app(char_limit=-1, req_limit=-1, batch_limit=-1, ga_id=None, debug=Fa
             if len(candidate_langs) > 0:
                 candidate_langs.sort(key=lambda l: l.prob, reverse=True)
 
-                if debug:
+                if args.debug:
                     print(candidate_langs)
 
                 source_lang = next(iter([l.code for l in languages if l.code == candidate_langs[0].lang]), None)
@@ -238,7 +276,7 @@ def create_app(char_limit=-1, req_limit=-1, batch_limit=-1, ga_id=None, debug=Fa
             else:
                 source_lang = 'en'
 
-            if debug:
+            if args.debug:
                 print("Auto detected: %s" % source_lang)
 
         src_lang = next(iter([l for l in languages if l.code == source_lang]), None)
@@ -274,6 +312,13 @@ def create_app(char_limit=-1, req_limit=-1, batch_limit=-1, ga_id=None, debug=Fa
               example: Hello world!
             required: true
             description: Text to detect
+          - in: formData
+            name: api_key
+            schema:
+              type: string
+              example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+            required: false
+            description: API key
         responses:
           200:
             description: Detections
@@ -340,6 +385,7 @@ def create_app(char_limit=-1, req_limit=-1, batch_limit=-1, ga_id=None, debug=Fa
 
 
     @app.route("/frontend/settings")
+    @limiter.exempt
     def frontend_settings():
         """
         Retrieve frontend specific settings
@@ -381,18 +427,19 @@ def create_app(char_limit=-1, req_limit=-1, batch_limit=-1, ga_id=None, debug=Fa
                           type: string
                           description: Human-readable language name (in English)
         """
-        return jsonify({'charLimit': char_limit,
-                        'frontendTimeout': frontend_timeout,
+        return jsonify({'charLimit': args.char_limit,
+                        'frontendTimeout': args.frontend_timeout,
                         'language': {
                             'source': {'code': frontend_argos_language_source.code, 'name': frontend_argos_language_source.name},
                             'target': {'code': frontend_argos_language_target.code, 'name': frontend_argos_language_target.name}}
                        })
 
     swag = swagger(app)
-    swag['info']['version'] = "1.0"
+    swag['info']['version'] = "1.2"
     swag['info']['title'] = "LibreTranslate"
 
     @app.route("/spec")
+    @limiter.exempt
     def spec():
         return jsonify(swag)
 
