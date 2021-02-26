@@ -141,6 +141,14 @@ ltmanage keys remove <api-key>
 ltmanage keys
 ```
 
+## Language Bindings
+
+You can use the LibreTranslate API using the following bindings:
+
+ - Rust: https://github.com/DefunctLizard/libretranslate-rs
+
+More coming soon!
+
 ## Roadmap
 
 Help us by opening a pull request!
