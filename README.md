@@ -177,9 +177,11 @@ Add `--restart unless-stopped` if you want this docker to start on boot, unless 
 <details>
 <summary>Apache config</summary>
 <br>
-	Replace [YOUR_DOMAIN] with your full domain; for example, `translate.domain.tld` or `libretranslate.domain.tld`. 
+	
+Replace [YOUR_DOMAIN] with your full domain; for example, `translate.domain.tld` or `libretranslate.domain.tld`. 
 
 Remove `#` on the ErrorLog and CustomLog lines to log requests.
+
 ```ApacheConf
 #Libretranslate
 
@@ -207,10 +209,10 @@ Remove `#` on the ErrorLog and CustomLog lines to log requests.
     # CustomLog ${APACHE_LOG_DIR}/tr-access.log combined
 </VirtualHost>
 ```
-To get a HTTPS subdomain certificate, install `certbot` (snap), run `sudo certbot certonly --manual --preferred-challenges dns` and enter your information (with `subdomain.domain.tld` as the domain). Add a DNS TXT record with your domain registrar when asked. This will save your certificate and key to `/etc/letsencrypt/live/{subdomain.domain.tld}/`. Alternatively, comment the SSL lines out if you don't want to use HTTPS.
 
 Add this to an existing site config, or a new file in `/etc/apache2/sites-available/new-site.conf` and run `sudo a2ensite new-site.conf`. 
 
+To get a HTTPS subdomain certificate, install `certbot` (snap), run `sudo certbot certonly --manual --preferred-challenges dns` and enter your information (with `subdomain.domain.tld` as the domain). Add a DNS TXT record with your domain registrar when asked. This will save your certificate and key to `/etc/letsencrypt/live/{subdomain.domain.tld}/`. Alternatively, comment the SSL lines out if you don't want to use HTTPS.
 </details>
 
 ## Credits
