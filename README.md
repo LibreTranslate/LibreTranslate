@@ -164,6 +164,55 @@ Help us by opening a pull request!
 
 The API on libretranslate.com should be used for testing, personal or infrequent use. If you're going to run an application in production, please [get in touch](https://uav4geo.com/contact) to get an API key or discuss other options.
 
+### Can I use this behind a reverse proxy, like Apache2?
+
+Yes, here is an example Apache2 config that redirects a subdomain (with HTTPS certificate) to LibreTranslate running on a docker at localhost. 
+```
+sudo docker run -ti --rm -p 127.0.0.1:5000:5000 libretranslate/libretranslate
+```
+You can remove `127.0.0.1` on the above command if you want to be able to access it from `domain.tld:5000`, in addition to `subdomain.domain.tld` (this can be helpful to determine if there is an issue with Apache2 or the docker container). 
+
+Add `--restart unless-stopped` if you want this docker to start on boot, unless manually stopped.
+
+<details>
+<summary>Apache config</summary>
+<br>
+	Replace [YOUR_DOMAIN] with your full domain; for example, `translate.domain.tld` or `libretranslate.domain.tld`. 
+
+Remove `#` on the ErrorLog and CustomLog lines to log requests.
+```ApacheConf
+#Libretranslate
+
+#Redirect http to https
+<VirtualHost *:80>
+    ServerName http://[YOUR_DOMAIN]
+    Redirect / https://[YOUR_DOMAIN]
+    # ErrorLog ${APACHE_LOG_DIR}/error.log
+    # CustomLog ${APACHE_LOG_DIR}/tr-access.log combined
+ </VirtualHost>
+
+#https
+<VirtualHost *:443>
+    ServerName https://[YOUR_DOMAIN]
+    
+    ProxyPass / http://127.0.0.1:5000/
+    ProxyPassReverse / http://127.0.0.1:5000/
+
+    SSLEngine on
+    SSLCertificateFile /etc/letsencrypt/live/[YOUR_DOMAIN]/fullchain.pem
+    SSLCertificateKeyFile /etc/letsencrypt/live/[YOUR_DOMAIN]/privkey.pem
+    SSLCertificateChainFile /etc/letsencrypt/live/[YOUR_DOMAIN]/fullchain.pem
+    
+    # ErrorLog ${APACHE_LOG_DIR}/tr-error.log
+    # CustomLog ${APACHE_LOG_DIR}/tr-access.log combined
+</VirtualHost>
+```
+To get a HTTPS subdomain certificate, install `certbot` (snap), run `sudo certbot certonly --manual --preferred-challenges dns` and enter your information (with `subdomain.domain.tld` as the domain). Add a DNS TXT record with your domain registrar when asked. This will save your certificate and key to `/etc/letsencrypt/live/{subdomain.domain.tld}/`. Alternatively, comment the SSL lines out if you don't want to use HTTPS.
+
+Add this to an existing site config, or a new file in `/etc/apache2/sites-available/new-site.conf` and run `sudo a2ensite new-site.conf`. 
+
+</details>
+
 ## Credits
 
 This work is largely possible thanks to [Argos Translate](https://github.com/argosopentech/argos-translate), which powers the translation engine.
