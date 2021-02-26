@@ -83,6 +83,9 @@ def create_app(args):
             key_func=get_remote_address,
             default_limits=get_routes_limits(args.req_limit, Database() if args.api_keys else None)
         )
+    else:
+      from .no_limiter import Limiter
+      limiter = Limiter()
 
     @app.errorhandler(400)
     def invalid_api(e):
