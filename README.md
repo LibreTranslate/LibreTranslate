@@ -147,6 +147,7 @@ You can use the LibreTranslate API using the following bindings:
 
  - Rust: https://github.com/DefunctLizard/libretranslate-rs
  - Node.js: https://github.com/franciscop/translate
+ - .Net: https://github.com/sigaloid/LibreTranslate.Net
 
 More coming soon!
 
