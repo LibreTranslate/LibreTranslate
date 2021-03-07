@@ -11,6 +11,12 @@ DetectorFactory.seed = 0 # deterministic
 
 api_keys_db = None
 
+def get_json_dict(request):
+    d = request.get_json()
+    if not isinstance(d, dict):
+        abort(400, description="Invalid JSON format")
+    return d
+
 def get_remote_address():
     if request.headers.getlist("X-Forwarded-For"):
         ip = request.headers.getlist("X-Forwarded-For")[0]
@@ -29,7 +35,7 @@ def get_routes_limits(default_req_limit, api_keys_db):
 
         if api_keys_db:
             if request.is_json:
-                json = request.get_json()
+                json = get_json_dict(request)
                 api_key = json.get('api_key')
             else:
                 api_key = request.values.get("api_key")
@@ -232,7 +238,7 @@ def create_app(args):
         """
 
         if request.is_json:
-            json = request.get_json()
+            json = get_json_dict(request)
             q = json.get('q')
             source_lang = json.get('source')
             target_lang = json.get('target')
@@ -371,7 +377,7 @@ def create_app(args):
                   description: Reason for slow down
         """
         if request.is_json:
-            json = request.get_json()
+            json = get_json_dict(request)
             q = json.get('q')
         else:
             q = request.values.get("q")
