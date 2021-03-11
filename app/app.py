@@ -2,13 +2,9 @@ import os
 from flask import Flask, render_template, jsonify, request, abort, send_from_directory
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
-from langdetect import detect_langs
-from langdetect import DetectorFactory
 from pkg_resources import resource_filename
 from .api_keys import Database
 from app.language import detect_languages
-
-DetectorFactory.seed = 0 # deterministic
 
 api_keys_db = None
 
