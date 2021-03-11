@@ -25,6 +25,9 @@ def check_and_install_models(force=False):
             download_path = available_package.download()
             package.install_from_path(download_path)
 
+        # reload installed languages
+        global languages
+        languages = translate.load_installed_languages()
         print("Loaded support for %s languages (%s models total)!" % (len(translate.load_installed_languages()), len(available_packages)))
 
 
