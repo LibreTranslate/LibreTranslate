@@ -4,7 +4,7 @@ from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
 from pkg_resources import resource_filename
 from .api_keys import Database
-from app.language import detect_languages
+from app.language import detect_languages, transliterate
 
 api_keys_db = None
 
@@ -285,9 +285,9 @@ def create_app(args):
 
         try:
           if batch:
-            return jsonify({"translatedText": [translator.translate(text) for text in q] })
+            return jsonify({"translatedText": [translator.translate(transliterate(text, target_lang=source_lang)) for text in q] })
           else:
-            return jsonify({"translatedText": translator.translate(q) })
+            return jsonify({"translatedText": translator.translate(transliterate(q, target_lang=source_lang)) })
         except Exception as e:
             abort(500, description="Cannot translate text: %s" % str(e))
 
