@@ -47,6 +47,8 @@ def check_and_install_transliteration(force=False):
 
     # install the needed transliteration packages
     if install_needed:
+        print(f"Installing transliteration models for the following languages: {', '.join(install_needed)}")
+
         from polyglot.downloader import Downloader
         downloader = Downloader()
 
