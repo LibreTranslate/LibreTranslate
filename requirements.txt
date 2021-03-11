@@ -9,3 +9,4 @@ pyicu==2.6
 pycld2==0.41
 morfessor==2.0.6
 polyglot==16.7.4
+appdirs==1.4.4
