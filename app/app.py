@@ -2,12 +2,9 @@ import os
 from flask import Flask, render_template, jsonify, request, abort, send_from_directory
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
-from langdetect import detect_langs
-from langdetect import DetectorFactory
 from pkg_resources import resource_filename
 from .api_keys import Database
-
-DetectorFactory.seed = 0 # deterministic
+from app.language import detect_languages, transliterate
 
 api_keys_db = None
 
@@ -56,11 +53,6 @@ def create_app(args):
 
     from app.language import languages
     app = Flask(__name__)
-
-    # For faster access
-    language_map = {}
-    for l in languages:
-        language_map[l.code] = l.name
 
     if args.debug:
         app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -271,19 +263,12 @@ def create_app(args):
               abort(400, description="Invalid request: Request (%d) exceeds character limit (%d)" % (chars, args.char_limit))
 
         if source_lang == 'auto':
-            candidate_langs = list(filter(lambda l: l.lang in language_map, detect_langs(q)))
+            candidate_langs = detect_languages(q)
 
-            if len(candidate_langs) > 0:
-                candidate_langs.sort(key=lambda l: l.prob, reverse=True)
+            if args.debug:
+                print(candidate_langs)
 
-                if args.debug:
-                    print(candidate_langs)
-
-                source_lang = next(iter([l.code for l in languages if l.code == candidate_langs[0].lang]), None)
-                if not source_lang:
-                    source_lang = 'en'
-            else:
-                source_lang = 'en'
+            source_lang = candidate_langs[0]["language"]
 
             if args.debug:
                 print("Auto detected: %s" % source_lang)
@@ -300,9 +285,9 @@ def create_app(args):
 
         try:
           if batch:
-            return jsonify({"translatedText": [translator.translate(text) for text in q] })
+            return jsonify({"translatedText": [translator.translate(transliterate(text, target_lang=source_lang)) for text in q] })
           else:
-            return jsonify({"translatedText": translator.translate(q) })
+            return jsonify({"translatedText": translator.translate(transliterate(q, target_lang=source_lang)) })
         except Exception as e:
             abort(500, description="Cannot translate text: %s" % str(e))
 
@@ -385,12 +370,7 @@ def create_app(args):
         if not q:
             abort(400, description="Invalid request: missing q parameter")
 
-        candidate_langs = list(filter(lambda l: l.lang in language_map, detect_langs(q)))
-        candidate_langs.sort(key=lambda l: l.prob, reverse=True)
-        return jsonify([{
-            'confidence': l.prob,
-            'language': l.lang
-        } for l in candidate_langs])
+        return jsonify(detect_languages(q))
 
 
     @app.route("/frontend/settings")
