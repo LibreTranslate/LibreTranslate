@@ -1,7 +1,7 @@
 import string
 
 from argostranslate import translate
-from polyglot.detect.base import Detector
+from polyglot.detect.base import Detector, UnknownLanguage
 from polyglot.transliteration.base import Transliterator
 
 
@@ -22,7 +22,10 @@ def detect_languages(text):
     # get the candidates
     candidates = []
     for t in text:
-        candidates.extend(Detector(t).languages)
+        try:
+            candidates.extend(Detector(t).languages)
+        except UnknownLanguage as e:
+            pass
 
     # total read bytes of the provided text
     read_bytes_total = sum(c.read_bytes for c in candidates)
