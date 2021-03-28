@@ -1,4 +1,5 @@
 import argparse
+import operator
 from app.app import create_app
 
 def main():
@@ -29,6 +30,9 @@ def main():
                         help="Use offline")
     parser.add_argument('--api-keys', default=False, action="store_true",
                         help="Enable API keys database for per-user rate limits lookup")
+    parser.add_argument('--load-only', type=operator.methodcaller('split', ','),
+                        metavar='<comma-separated language codes>',
+                        help='Set available languages (ar,de,en,es,fr,ga,hi,it,ja,ko,pt,ru,zh)')
     
 
     args = parser.parse_args()
