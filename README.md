@@ -116,6 +116,7 @@ docker-compose up -d --build
 | --frontend-timeout | Set frontend translation timeout | `500`         |
 | --offline | Run user-interface entirely offline (don't use internet CDNs) | `false` |
 | --api-keys | Enable API keys database for per-user rate limits lookup | `Don't use API keys` |
+| --load-only   | Set available languages    | `all from argostranslate`    |
 
 ## Manage API Keys
 
