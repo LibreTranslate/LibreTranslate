@@ -49,7 +49,7 @@ def get_routes_limits(default_req_limit, api_keys_db):
 def create_app(args):
     if not args.offline:
         from app.init import boot
-        boot()
+        boot(args.load_only)
 
     from app.language import languages
     app = Flask(__name__)
