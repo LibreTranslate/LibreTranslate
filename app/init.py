@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from argostranslate import settings, package, translate
 import os, glob, shutil, zipfile
-from app.language import languages
+import app.language
 import polyglot
 
 def boot(load_only=None):
@@ -45,14 +45,13 @@ def check_and_install_models(force=False, load_only_lang_codes=None):
             package.install_from_path(download_path)
 
         # reload installed languages
-        global languages
-        languages = translate.load_installed_languages()
+        app.language.languages = translate.load_installed_languages()
         print("Loaded support for %s languages (%s models total)!" % (len(translate.load_installed_languages()), len(available_packages)))
 
 
 def check_and_install_transliteration(force=False):
     # 'en' is not a supported transliteration language
-    transliteration_languages = [l.code for l in languages if l.code != "en"]
+    transliteration_languages = [l.code for l in app.language.languages if l.code != "en"]
 
     # check installed
     install_needed = []
