@@ -43,7 +43,7 @@ def get_routes_limits(default_req_limit, api_keys_db):
                     req_limit = db_req_limit
 
         return "%s per minute" % req_limit
-    
+
     return [limits]
 
 def create_app(args):
@@ -101,6 +101,11 @@ def create_app(args):
     @limiter.exempt
     def index():
         return render_template('index.html', gaId=args.ga_id, frontendTimeout=args.frontend_timeout, offline=args.offline, api_keys=args.api_keys, web_version=os.environ.get('LT_WEB') is not None)
+
+    @app.route("/javascript-licenses", methods=['GET'])
+    @limiter.exempt
+    def javascript_licenses():
+        return render_template('javascript-licenses.html', offline=args.offline)
 
     @app.route("/languages", methods=['GET', 'POST'])
     @limiter.exempt

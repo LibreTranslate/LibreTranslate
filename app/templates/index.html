@@ -229,7 +229,8 @@
 		<p class="grey-text text-lighten-4">
 			Made with ❤ by <a class="grey-text text-lighten-3" href="https://uav4geo.com">UAV4GEO</a> and powered by <a class="grey-text text-lighten-3" href="https://github.com/argosopentech/argos-translate/">Argos Translate</a>
 		</p>
-        <p><a class="grey-text text-lighten-4"  href="https://www.gnu.org/licenses/agpl-3.0.en.html">License: AGPLv3</a></p>
+		<p><a class="grey-text text-lighten-4" href="https://www.gnu.org/licenses/agpl-3.0.en.html">License: AGPLv3</a></p>
+		<p><a class="grey-text text-lighten-4" href="/javascript-licenses" rel="jslicense">JavaScript license information</a></p>
 {% if web_version %}
         <p>
 			The public API on libretranslate.com should be used for testing, personal or infrequent use. If you're going to run an application in production, please <a href="https://github.com/uav4geo/LibreTranslate" class="grey-text text-lighten-4" style="text-decoration: underline;">host your own server</a> or <a class="grey-text text-lighten-4" href="https://uav4geo.com/contact" style="text-decoration: underline;">get in touch</a> to obtain an API key.
@@ -255,13 +256,16 @@
 
 <script src="{% if offline %}{{ url_for('static', filename='js/materialize.min.js') }}{% else %}https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js{% endif %}"></script>
 <script>
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-3.0
 window.Prism = window.Prism || {};
 window.Prism.manual = true;
+// @license-end
 </script>
 
 <script src="{% if offline %}{{ url_for('static', filename='js/prism.min.js') }}{% else %}https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js{% endif %}"></script>
 
 <script>
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-3.0
 // API host/endpoint
 var BaseUrl = window.location.protocol + "//" + window.location.host;
 
@@ -488,7 +492,7 @@ function setApiKey(){
 
 	localStorage.setItem("api_key", newKey);
 }
-
+// @license-end
 </script>
 </body>
 </html>
