@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    version='1.2.2',
+    version='1.2.3',
     name='libretranslate',
     license='GNU Affero General Public License v3.0',
     description='Free and Open Source Machine Translation API. Self-hosted, no limits, no ties to proprietary services.',
