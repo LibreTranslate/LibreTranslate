@@ -15,11 +15,11 @@
     <meta property="og:description" name="description" class="swiftype" content="Free and Open Source Machine Translation API. 100% self-hosted, no limits, no ties to proprietary services. Run your own API server in just a few minutes."/>
 
 
-	<script src="{% if offline %}{{ url_for('static', filename='js/vue@2.js') }}{% else %}https://cdn.jsdelivr.net/npm/vue@2{% endif %}"></script>
+	<script src="{{ url_for('static', filename='js/vue@2.js') }}"></script>
 	<!-- Compiled and minified CSS -->
-	<link rel="stylesheet" href="{% if offline %}{{ url_for('static', filename='css/materialize.min.css') }}{% else %}https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css{% endif %}">
-	<link href="{% if offline %}{{ url_for('static', filename='css/material-icons.css') }}{% else %}https://fonts.googleapis.com/icon?family=Material+Icons{% endif %}" rel="stylesheet">
-	<link href="{% if offline %}{{ url_for('static', filename='css/prism.min.css') }}{% else %}https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism.min.css{% endif %}" rel="stylesheet" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}">
+	<link href="{{ url_for('static', filename='css/material-icons.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/prism.min.css') }}" rel="stylesheet" />
 
 	<style type="text/css">
 	textarea.materialize-textarea{height: 120px;}
@@ -254,7 +254,7 @@
   </div>
 </footer>
 
-<script src="{% if offline %}{{ url_for('static', filename='js/materialize.min.js') }}{% else %}https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js{% endif %}"></script>
+<script src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
 <script>
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-3.0
 window.Prism = window.Prism || {};
@@ -262,7 +262,7 @@ window.Prism.manual = true;
 // @license-end
 </script>
 
-<script src="{% if offline %}{{ url_for('static', filename='js/prism.min.js') }}{% else %}https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js{% endif %}"></script>
+<script src="{{ url_for('static', filename='js/prism.min.js') }}"></script>
 
 <script>
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-3.0
