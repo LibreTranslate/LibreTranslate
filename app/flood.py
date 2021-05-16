@@ -28,8 +28,9 @@ def setup(violations_threshold = 100):
 
 
 def report(request_ip):
-    banned[request_ip] = banned.get(request_ip, 0)
-    banned[request_ip] += 1
+    if active:
+        banned[request_ip] = banned.get(request_ip, 0)
+        banned[request_ip] += 1
 
 def is_banned(request_ip):
     # More than X offences?
