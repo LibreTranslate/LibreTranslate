@@ -22,7 +22,7 @@ def get_remote_address():
 
     return ip
 
-def get_routes_limits(default_req_limit, api_keys_db):
+def get_routes_limits(default_req_limit, daily_req_limit, api_keys_db):
     if default_req_limit == -1:
         # TODO: better way?
         default_req_limit = 9999999999999
@@ -44,7 +44,12 @@ def get_routes_limits(default_req_limit, api_keys_db):
 
         return "%s per minute" % req_limit
 
-    return [limits]
+    res = [limits]
+
+    if daily_req_limit > 0:
+        res.append("%s per day" % daily_req_limit) 
+
+    return res
 
 def create_app(args):
     from app.init import boot
@@ -73,12 +78,12 @@ def create_app(args):
     if frontend_argos_language_target is None:
         raise AttributeError(f"{args.frontend_language_target} as frontend target language is not supported.")
 
-    if args.req_limit > 0 or args.api_keys:
+    if args.req_limit > 0 or args.api_keys or args.daily_req_limit > 0:
         from flask_limiter import Limiter
         limiter = Limiter(
             app,
             key_func=get_remote_address,
-            default_limits=get_routes_limits(args.req_limit, Database() if args.api_keys else None)
+            default_limits=get_routes_limits(args.req_limit, args.daily_req_limit, Database() if args.api_keys else None)
         )
     else:
       from .no_limiter import Limiter
