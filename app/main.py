@@ -26,8 +26,6 @@ def main():
                         help='Set frontend default language - target (%(default)s)')
     parser.add_argument('--frontend-timeout', type=int, default=500, metavar="<milliseconds>",
                         help='Set frontend translation timeout (%(default)s)')
-    parser.add_argument('--offline', default=False, action="store_true",
-                        help="Use offline")
     parser.add_argument('--api-keys', default=False, action="store_true",
                         help="Enable API keys database for per-user rate limits lookup")
     parser.add_argument('--load-only', type=operator.methodcaller('split', ','),

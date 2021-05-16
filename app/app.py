@@ -47,9 +47,8 @@ def get_routes_limits(default_req_limit, api_keys_db):
     return [limits]
 
 def create_app(args):
-    if not args.offline:
-        from app.init import boot
-        boot(args.load_only)
+    from app.init import boot
+    boot(args.load_only)
 
     from app.language import languages
     app = Flask(__name__)
@@ -100,12 +99,12 @@ def create_app(args):
     @app.route("/")
     @limiter.exempt
     def index():
-        return render_template('index.html', gaId=args.ga_id, frontendTimeout=args.frontend_timeout, offline=args.offline, api_keys=args.api_keys, web_version=os.environ.get('LT_WEB') is not None)
+        return render_template('index.html', gaId=args.ga_id, frontendTimeout=args.frontend_timeout, api_keys=args.api_keys, web_version=os.environ.get('LT_WEB') is not None)
 
     @app.route("/javascript-licenses", methods=['GET'])
     @limiter.exempt
     def javascript_licenses():
-        return render_template('javascript-licenses.html', offline=args.offline)
+        return render_template('javascript-licenses.html')
 
     @app.route("/languages", methods=['GET', 'POST'])
     @limiter.exempt

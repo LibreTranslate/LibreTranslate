@@ -6,8 +6,11 @@ import app.language
 import polyglot
 
 def boot(load_only=None):
-    check_and_install_models(load_only_lang_codes=load_only)
-    check_and_install_transliteration()
+    try:
+        check_and_install_models(load_only_lang_codes=load_only)
+        check_and_install_transliteration()
+    except Exception as e:
+        print("Cannot update models (normal if you're offline): %s" % str(e))
 
 def check_and_install_models(force=False, load_only_lang_codes=None):
     if len(package.get_installed_packages()) < 2 or force:
