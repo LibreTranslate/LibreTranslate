@@ -9,7 +9,6 @@ threshold = -1
 
 def clear_banned():
     global banned
-    print(banned)
     banned = {}
 
 def setup(violations_threshold = 100):
