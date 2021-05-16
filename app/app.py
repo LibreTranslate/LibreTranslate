@@ -5,8 +5,7 @@ from flask_swagger_ui import get_swaggerui_blueprint
 from pkg_resources import resource_filename
 from .api_keys import Database
 from app.language import detect_languages, transliterate
-
-api_keys_db = None
+from app import flood
 
 def get_json_dict(request):
     d = request.get_json()
@@ -88,6 +87,9 @@ def create_app(args):
     else:
       from .no_limiter import Limiter
       limiter = Limiter()
+    
+    if args.req_flood_threshold > 0:
+        flood.setup(args.req_flood_threshold)
 
     @app.errorhandler(400)
     def invalid_api(e):
@@ -99,7 +101,13 @@ def create_app(args):
 
     @app.errorhandler(429)
     def slow_down_error(e):
+        flood.report(get_remote_address())
         return jsonify({"error": "Slowdown: " + str(e.description)}), 429
+
+    @app.errorhandler(403)
+    def denied(e):
+        return jsonify({"error": str(e.description)}), 403
+
 
     @app.route("/")
     @limiter.exempt
@@ -236,7 +244,18 @@ def create_app(args):
                 error:
                   type: string
                   description: Reason for slow down
+          403:
+            description: Banned
+            schema:
+              id: error-response
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Error message
         """
+        if flood.is_banned(get_remote_address()):
+            abort(403, description="Too many request limits violations")
 
         if request.is_json:
             json = get_json_dict(request)
@@ -350,7 +369,7 @@ def create_app(args):
               properties:
                 error:
                   type: string
-                  description: Error message
+                  description: Error message          
           500:
             description: Detection error
             schema:
@@ -369,7 +388,19 @@ def create_app(args):
                 error:
                   type: string
                   description: Reason for slow down
+          403:
+            description: Banned
+            schema:
+              id: error-response
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Error message
         """
+        if flood.is_banned(get_remote_address()):
+            abort(403, description="Too many request limits violations")
+
         if request.is_json:
             json = get_json_dict(request)
             q = json.get('q')

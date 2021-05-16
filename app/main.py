@@ -14,6 +14,8 @@ def main():
                         help='Set the default maximum number of requests per minute per client (%(default)s)')
     parser.add_argument('--daily-req-limit', default=-1, type=int, metavar="<number>",
                         help='Set the default maximum number of requests per day per client, in addition to req-limit. (%(default)s)')
+    parser.add_argument('--req-flood-threshold', default=-1, type=int, metavar="<number>",
+                        help='Set the maximum number of request limit offences per 4 weeks that a client can exceed before being banned. (%(default)s)')
     parser.add_argument('--batch-limit', default=-1, type=int, metavar="<number of texts>",
                         help='Set maximum number of texts to translate in a batch request (%(default)s)')
     parser.add_argument('--ga-id', type=str, default=None, metavar="<GA ID>",
