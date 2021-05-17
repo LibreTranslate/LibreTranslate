@@ -6,6 +6,7 @@ from pkg_resources import resource_filename
 from .api_keys import Database
 from app.language import detect_languages, transliterate
 from app import flood
+from functools import wraps
 
 def get_json_dict(request):
     d = request.get_json()
@@ -50,6 +51,7 @@ def get_routes_limits(default_req_limit, daily_req_limit, api_keys_db):
 
     return res
 
+
 def create_app(args):
     from app.init import boot
     boot(args.load_only)
@@ -76,13 +78,17 @@ def create_app(args):
         raise AttributeError(f"{args.frontend_language_source} as frontend source language is not supported.")
     if frontend_argos_language_target is None:
         raise AttributeError(f"{args.frontend_language_target} as frontend target language is not supported.")
+    
+    api_keys_db = None
 
     if args.req_limit > 0 or args.api_keys or args.daily_req_limit > 0:
+        api_keys_db = Database() if args.api_keys else None
+
         from flask_limiter import Limiter
         limiter = Limiter(
             app,
             key_func=get_remote_address,
-            default_limits=get_routes_limits(args.req_limit, args.daily_req_limit, Database() if args.api_keys else None)
+            default_limits=get_routes_limits(args.req_limit, args.daily_req_limit, api_keys_db)
         )
     else:
       from .no_limiter import Limiter
@@ -90,6 +96,25 @@ def create_app(args):
     
     if args.req_flood_threshold > 0:
         flood.setup(args.req_flood_threshold)
+
+    def access_check(f):
+        @wraps(f)
+        def func(*a, **kw):
+            if flood.is_banned(get_remote_address()):
+                abort(403, description="Too many request limits violations")
+            
+            if args.api_keys and args.require_api_key_origin:
+                if request.is_json:
+                    json = get_json_dict(request)
+                    ak = json.get("api_key")
+                else:
+                    ak = request.values.get("api_key")
+
+                if api_keys_db.lookup(ak) is None and request.headers.get("Origin") != args.require_api_key_origin:
+                    abort(403, description="Please contact the server operator to obtain an API key")
+
+            return f(*a, **kw)
+        return func
 
     @app.errorhandler(400)
     def invalid_api(e):
@@ -167,6 +192,7 @@ def create_app(args):
 
 
     @app.route("/translate", methods=['POST'])
+    @access_check
     def translate():
         """
         Translate text from a language to another
@@ -254,9 +280,6 @@ def create_app(args):
                   type: string
                   description: Error message
         """
-        if flood.is_banned(get_remote_address()):
-            abort(403, description="Too many request limits violations")
-
         if request.is_json:
             json = get_json_dict(request)
             q = json.get('q')
@@ -320,6 +343,7 @@ def create_app(args):
             abort(500, description="Cannot translate text: %s" % str(e))
 
     @app.route("/detect", methods=['POST'])
+    @access_check
     def detect():
         """
         Detect the language of a single text

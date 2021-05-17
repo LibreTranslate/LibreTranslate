@@ -32,6 +32,8 @@ def main():
                         help='Set frontend translation timeout (%(default)s)')
     parser.add_argument('--api-keys', default=False, action="store_true",
                         help="Enable API keys database for per-user rate limits lookup")
+    parser.add_argument('--require-api-key-origin', type=str, default="",
+                        help="Require use of an API key for programmatic access to the API, unless the request origin matches this domain")
     parser.add_argument('--load-only', type=operator.methodcaller('split', ','),
                         metavar='<comma-separated language codes>',
                         help='Set available languages (ar,de,en,es,fr,ga,hi,it,ja,ko,pt,ru,zh)')
