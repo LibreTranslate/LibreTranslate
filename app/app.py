@@ -1,12 +1,14 @@
 import os
-from flask import Flask, render_template, jsonify, request, abort, send_from_directory
+from functools import wraps
+
+from flask import Flask, abort, jsonify, render_template, request
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
-from pkg_resources import resource_filename
-from .api_keys import Database
-from app.language import detect_languages, transliterate
+
 from app import flood
-from functools import wraps
+from app.language import detect_languages, transliterate
+
+from .api_keys import Database
 
 
 def get_json_dict(request):
@@ -128,8 +130,7 @@ def create_app(args):
                     ak = request.values.get("api_key")
 
                 if (
-                    api_keys_db.lookup(ak) is None
-                    and request.headers.get("Origin") != args.require_api_key_origin
+                    api_keys_db.lookup(ak) is None and request.headers.get("Origin") != args.require_api_key_origin
                 ):
                     abort(
                         403,

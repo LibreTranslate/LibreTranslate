@@ -1,9 +1,9 @@
-import os
 from pathlib import Path
-from argostranslate import settings, package, translate
-import os, glob, shutil, zipfile
-import app.language
+
 import polyglot
+from argostranslate import package, translate
+
+import app.language
 
 
 def boot(load_only=None):
@@ -39,8 +39,7 @@ def check_and_install_models(force=False, load_only_lang_codes=None):
             available_packages = [
                 pack
                 for pack in available_packages
-                if pack.from_code in load_only_lang_codes
-                and pack.to_code in load_only_lang_codes
+                if pack.from_code in load_only_lang_codes and pack.to_code in load_only_lang_codes
             ]
             if not available_packages:
                 raise ValueError("no available package")

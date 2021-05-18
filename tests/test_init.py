@@ -1,4 +1,3 @@
-import pytest
 from app.init import boot
 from argostranslate import package
 

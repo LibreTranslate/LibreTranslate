@@ -1,5 +1,6 @@
 import argparse
 import operator
+
 from app.app import create_app
 
 

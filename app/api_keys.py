@@ -1,5 +1,6 @@
 import sqlite3
 import uuid
+
 from expiringdict import ExpiringDict
 
 DEFAULT_DB_PATH = "api_keys.db"
