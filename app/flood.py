@@ -1,4 +1,3 @@
-import time
 import atexit
 
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -7,11 +6,13 @@ banned = {}
 active = False
 threshold = -1
 
+
 def clear_banned():
     global banned
     banned = {}
 
-def setup(violations_threshold = 100):
+
+def setup(violations_threshold=100):
     global active
     global threshold
 
@@ -30,6 +31,7 @@ def report(request_ip):
     if active:
         banned[request_ip] = banned.get(request_ip, 0)
         banned[request_ip] += 1
+
 
 def is_banned(request_ip):
     # More than X offences?
