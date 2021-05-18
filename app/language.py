@@ -31,17 +31,14 @@ def detect_languages(text):
     read_bytes_total = sum(c.read_bytes for c in candidates)
 
     # only use candidates that are supported by argostranslate
-    candidate_langs = list(filter(lambda l: l.read_bytes != 0 and l.code in __lang_codes, candidates))
+    candidate_langs = list(
+        filter(lambda l: l.read_bytes != 0 and l.code in __lang_codes, candidates)
+    )
 
     # this happens if no language could be detected
     if not candidate_langs:
         # use language "en" by default but with zero confidence
-        return [
-                    {
-                        'confidence': 0.0,
-                        'language': "en"
-                    }
-                ]
+        return [{"confidence": 0.0, "language": "en"}]
 
     # for multiple occurrences of the same language (can happen on batch detection)
     # calculate the average confidence for each language
@@ -65,15 +62,11 @@ def detect_languages(text):
             candidate_langs = temp_average_list
 
     # sort the candidates descending based on the detected confidence
-    candidate_langs.sort(key=lambda l: (l.confidence * l.read_bytes) / read_bytes_total, reverse=True)
+    candidate_langs.sort(
+        key=lambda l: (l.confidence * l.read_bytes) / read_bytes_total, reverse=True
+    )
 
-    return [
-                {
-                    'confidence': l.confidence,
-                    'language': l.code
-                }
-                for l in candidate_langs
-            ]
+    return [{"confidence": l.confidence, "language": l.code} for l in candidate_langs]
 
 
 def __transliterate_line(transliterator, line_text):
@@ -97,9 +90,9 @@ def __transliterate_line(transliterator, line_text):
         else:
             # add back any stripped punctuation
             if r_diff:
-                t_word = t_word + ''.join(r_diff)
+                t_word = t_word + "".join(r_diff)
             if l_diff:
-                t_word = ''.join(l_diff) + t_word
+                t_word = "".join(l_diff) + t_word
 
         new_text.append(t_word)
 
