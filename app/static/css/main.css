@@ -1,0 +1,149 @@
+/* Custom styles for LibreTranslate page */
+
+h3.header {
+  margin-bottom: 2.5rem;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.language-select {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.language-select select {
+  border: none;
+  width: auto;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+  padding: 0;
+  height: 2rem;
+}
+
+
+.btn-switch-language {
+  color: black;
+  margin-left: -1.5rem;
+  margin-right: 1rem;
+}
+
+.textarea-container {
+  margin-top: 0;
+  position: relative;
+}
+
+.btn-delete-text {
+  position: absolute;
+  right: 1.5rem;
+  top: 0.75rem;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  color: #888;
+}
+
+.btn-delete-text:focus,
+.btn-copy-translated:focus {
+  background: none !important;
+}
+
+.characters-limit-container {
+  position: absolute;
+  right: 2rem;
+  bottom: 1rem;
+  color: #888;
+  pointer-events: none;
+}
+
+.btn-copy-translated {
+  position: absolute;
+  right: 2rem;
+  bottom: 1rem;
+  display: flex;
+  align-items: center;
+  color: #888;
+  font-size: 0.85rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: -1.5rem;
+}
+
+.btn-copy-translated span {
+  padding-right: 0.5rem;
+}
+
+.btn-copy-translated .material-icons {
+  font-size: 1.35rem;
+}
+
+.progress {
+  background-color: #efefef;
+}
+
+.progress.translate {
+  position: absolute;
+}
+
+.progress .indeterminate {
+  background-color: steelblue;
+}
+
+.textarea-container textarea {
+  font-size: 1.25rem;
+  resize: none;
+  border: 1px solid #ccc;
+  background: #efefef;
+  padding: 1rem 2rem 1rem 1.5rem;
+  overflow-y: hidden;
+}
+
+.code {
+  font-size: 90%;
+  border-radius: 4px;
+  padding: 1rem 1.5rem;
+  border: 1px solid #9e9e9e;
+  background: #fbfbfb;
+  overflow: auto;
+  font-family: monospace;
+  min-height: 280px;
+  width: 100%;
+  overflow: auto;
+}
+
+.page-footer .footer-copyright {
+  justify-content: center;
+}
+
+@media (max-width: 991px) {
+  .language-select {
+  }
+}
+
+@media (max-width: 760px) {
+  .language-select select{
+    text-align: center;
+    margin: auto;
+  }
+  .language-select span {
+    display: none;
+  }
+}
