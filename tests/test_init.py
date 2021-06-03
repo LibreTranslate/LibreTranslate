@@ -1,6 +1,6 @@
-import pytest
 from app.init import boot
 from argostranslate import package
+
 
 def test_boot_argos():
     """Test Argos translate models initialization"""

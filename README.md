@@ -115,6 +115,7 @@ docker-compose up -d --build
 | --frontend-language-target | Set frontend default language - target | `es`          |
 | --frontend-timeout | Set frontend translation timeout | `500`         |
 | --api-keys | Enable API keys database for per-user rate limits lookup | `Don't use API keys` |
+| --require-api-key-origin | Require use of an API key for programmatic access to the API, unless the request origin matches this domain | `No restrictions on domain origin` |
 | --load-only   | Set available languages    | `all from argostranslate`    |
 
 ## Manage API Keys
@@ -151,6 +152,7 @@ You can use the LibreTranslate API using the following bindings:
  - Node.js: https://github.com/franciscop/translate
  - .Net: https://github.com/sigaloid/LibreTranslate.Net
  - Go: https://github.com/SnakeSel/libretranslate
+ - Python: https://github.com/argosopentech/LibreTranslate-py
 
 More coming soon!
 
