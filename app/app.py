@@ -21,32 +21,40 @@ def get_remote_address():
 
     return ip
 
+
+def get_req_limits(default_limit, api_keys_db, multiplier = 1):
+    req_limit = default_limit
+
+    if api_keys_db:
+        if request.is_json:
+            json = get_json_dict(request)
+            api_key = json.get("api_key")
+        else:
+            api_key = request.values.get("api_key")
+
+        if api_key:
+            db_req_limit = api_keys_db.lookup(api_key)
+            if db_req_limit is not None:
+                req_limit = db_req_limit
+                
+    return req_limit
+
+
 def get_routes_limits(default_req_limit, daily_req_limit, api_keys_db):
     if default_req_limit == -1:
         # TODO: better way?
         default_req_limit = 9999999999999
 
-    def limits():
-        req_limit = default_req_limit
+    def minute_limits():
+        return "%s per minute" % get_req_limits(default_req_limit, api_keys_db)
 
-        if api_keys_db:
-            if request.is_json:
-                json = get_json_dict(request)
-                api_key = json.get('api_key')
-            else:
-                api_key = request.values.get("api_key")
+    def daily_limits():
+        return "%s per day" % get_req_limits(daily_req_limit, api_keys_db, 1440)
 
-            if api_key:
-                db_req_limit = api_keys_db.lookup(api_key)
-                if db_req_limit is not None:
-                    req_limit = db_req_limit
-
-        return "%s per minute" % req_limit
-
-    res = [limits]
+    res = [minute_limits]
 
     if daily_req_limit > 0:
-        res.append("%s per day" % daily_req_limit) 
+        res.append(daily_limits)
 
     return res
 
