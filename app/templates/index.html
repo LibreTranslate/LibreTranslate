@@ -14,34 +14,12 @@
     <meta property="og:image" content="https://user-images.githubusercontent.com/1951843/102724116-32a6df00-42db-11eb-8cc0-129ab39cdfb5.png" />
     <meta property="og:description" name="description" class="swiftype" content="Free and Open Source Machine Translation API. 100% self-hosted, no limits, no ties to proprietary services. Run your own API server in just a few minutes."/>
 
-
 	<script src="{{ url_for('static', filename='js/vue@2.js') }}"></script>
 	<!-- Compiled and minified CSS -->
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}">
-	<link href="{{ url_for('static', filename='css/material-icons.css') }}" rel="stylesheet">
-	<link href="{{ url_for('static', filename='css/prism.min.css') }}" rel="stylesheet" />
-
-	<style type="text/css">
-	textarea.materialize-textarea{height: 120px;}
-	.code{
-		font-size: 90%;
-        border-radius: 4px;
-	    padding: 4px;
-	    border: 1px solid #9e9e9e;
-	    background: #fbfbfb;
-	    overflow: auto;
-	    font-family: monospace;
-	    min-height: 280px;
-	    width: 100%;
-	    overflow: auto;
-	}
-	.progress.translate{
-		position: absolute;
-	}
-	.card.horizontal .card-stacked{
-		overflow: auto;
-	}
-	</style>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/material-icons.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/prism.min.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.min.css') }}" />
 
 	{% if gaId %}
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -50,449 +28,440 @@
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
 	  gtag('js', new Date());
-
 	  gtag('config', '{{ gaId }}');
 	</script>
-   {% endif %}
+	{% endif %}
 </head>
-<body>
-  <nav class="blue lighten-1" role="navigation">
-	<div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo"><i class="material-icons">translate</i> LibreTranslate</a>
-	  <ul class="right hide-on-med-and-down">
-		<li><a href="/docs">API Docs</a></li>
-        <li><a href="https://github.com/uav4geo/LibreTranslate">GitHub</a></li>
-        {% if api_keys %}
-        <li><a href="javascript:setApiKey()" title="Set API Key"><i class="material-icons">vpn_key</i></a></li>
-        {% endif %}
-	  </ul>
 
-	  <ul id="nav-mobile" class="sidenav">
-		<li><a href="/docs">API Docs</a></li>
-        <li><a href="https://github.com/uav4geo/LibreTranslate">GitHub</a></li>
-        {% if api_keys %}
-        <li><a href="javascript:setApiKey()" title="Set API Key"><i class="material-icons">vpn_key</i></a></li>
-        {% endif %}
-      </ul>
-	  <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-	</div>
-  </nav>
-  <div id="app">
-   <div class="section no-pad-bot center" v-if="loading">
-	<div class="container">
-		<div class="row">
-		  <div class="preloader-wrapper active">
-			<div class="spinner-layer spinner-blue-only">
-			  <div class="circle-clipper left">
-				<div class="circle"></div>
-			  </div><div class="gap-patch">
-				<div class="circle"></div>
-			  </div><div class="circle-clipper right">
-				<div class="circle"></div>
-			  </div>
+<body>
+	<header>
+		<nav class="blue lighten-1" role="navigation">
+			<div class="nav-wrapper container">
+				<a id="logo-container" href="/" class="brand-logo">
+					<i class="material-icons">translate</i> LibreTranslate
+				</a>
+				<ul class="right hide-on-med-and-down">
+				<li><a href="/docs">API Docs</a></li>
+				<li><a href="https://github.com/uav4geo/LibreTranslate">GitHub</a></li>
+				{% if api_keys %}
+				<li><a href="javascript:setApiKey()" title="Set API Key"><i class="material-icons">vpn_key</i></a></li>
+				{% endif %}
+				</ul>
+
+				<ul id="nav-mobile" class="sidenav">
+				<li><a href="/docs">API Docs</a></li>
+				<li><a href="https://github.com/uav4geo/LibreTranslate">GitHub</a></li>
+				{% if api_keys %}
+				<li><a href="javascript:setApiKey()" title="Set API Key"><i class="material-icons">vpn_key</i></a></li>
+				{% endif %}
+				</ul>
+				<a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 			</div>
-		  </div>
-		</div>
-	</div>
-  </div>
-  <div v-else-if="error">
-  <div class="section no-pad-bot">
-	<div class="container">
-		<div class="row">
-		  <div class="col s12 m7">
-		    <div class="card horizontal">
-		      <div class="card-stacked">
-		        <div class="card-content">
-		          <i class="material-icons">warning</i><p> [[ error ]]</p>
-		        </div>
-		        <div class="card-action">
-		          <a href="#" @click="dismissError">Dismiss</a>
-		        </div>
-		      </div>
-		    </div>
-		  </div>
-		 </div>
-		</div>
-	</div>
-  </div>
-  <div v-else>
-  <div class="section no-pad-bot">
-	<div class="container">
-		<div class="row">
-		<h3 class="header center">Translation API</h3>
-		<div class="card horizontal">
-			<div class="card-stacked">
-				<div class="card-content">
-					<form class="col s12">
-					  <div class="row">
-						<div class="input-field col s5">
-							<select  class="browser-default" v-model="sourceLang" ref="sourceLangDropdown"@change="handleInput">
-								 <template v-for="option in langs">
-									 <option :value="option.code">[[ option.name ]]</option>
-								</template>
-							</select>
-						 </div>
-						 <div class="col s2 center">
-						 	<a href="javascript:void(0)" @click="swapLangs" class="waves-effect waves-teal btn-flat btn-large" style="margin-top: 8px;"><i class="material-icons">swap_horiz</i></a>
-						 </div>
-						 <div class="input-field col s5">
-							<select  class="browser-default" v-model="targetLang" ref="targetLangDropdown" @change="handleInput">
-								<template v-for="option in langs">
-									 <option v-if="option.code !== 'auto'" :value="option.code">[[ option.name ]]</option>
-								</template>
-							</select>
-						 </div>
+		</nav>
+	</header>
+
+	<main id="app">
+	<div class="section no-pad-bot center" v-if="loading">
+		<div class="container">
+			<div class="row">
+				<div class="preloader-wrapper active">
+				<div class="spinner-layer spinner-blue-only">
+					<div class="circle-clipper left">
+					<div class="circle"></div>
+					</div><div class="gap-patch">
+					<div class="circle"></div>
+					</div><div class="circle-clipper right">
+					<div class="circle"></div>
 					</div>
-					<div class="row">
-						<div class="input-field col s6">
-						  <textarea id="textarea1" class="materialize-textarea" v-model="inputText" @input="handleInput" ref="inputTextarea"></textarea>
-						  <label for="textarea1">Input Text</label>
-						  <div v-if="charactersLimit !== -1">
-							  <label>[[ inputText.length ]] / [[ charactersLimit ]]</label>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div v-else-if="error">
+		<div class="section no-pad-bot">
+			<div class="container">
+				<div class="row">
+					<div class="col s12 m7">
+					<div class="card horizontal">
+						<div class="card-stacked">
+						<div class="card-content">
+							<i class="material-icons">warning</i><p> [[ error ]]</p>
+						</div>
+						<div class="card-action">
+							<a href="#" @click="dismissError">Dismiss</a>
+						</div>
+						</div>
+					</div>
+					</div>
+					</div>
+			</div>
+		</div>
+	</div>
+
+	<div v-else>
+		<div class="section no-pad-bot">
+			<div class="container">
+				<div class="row">
+					<h3 class="header center">Translation API</h3>
+
+					<form class="col s12">
+						<div class="row mb-0">
+							<div class="col s6 language-select">
+								<span>Translate from</span>
+								<select class="browser-default" v-model="sourceLang" ref="sourceLangDropdown" @change="handleInput">
+									<template v-for="option in langs">
+										<option :value="option.code">[[ option.name ]]</option>
+									</template>
+								</select>
+							</div>
+
+							<div class="col s6 language-select">
+								<a href="javascript:void(0)" @click="swapLangs" class="btn-switch-language">
+									<i class="material-icons">swap_horiz</i>
+								</a>								
+								<span>Translate into</span>
+								<select  class="browser-default" v-model="targetLang" ref="targetLangDropdown" @change="handleInput">
+									<template v-for="option in langs">
+										<option v-if="option.code !== 'auto'" :value="option.code">[[ option.name ]]</option>
+									</template>
+								</select>								
 							</div>
 						</div>
-						<div class="input-field col s6">
-							<div>
-							  <textarea id="textarea2" class="materialize-textarea" v-model="translatedText" ref="translatedTextarea"></textarea>
-							  <label for="textarea2"><div class="progress translate" v-if="loadingTranslation">
-							  <div class="indeterminate"></div>
-						  </div></label>
-							 </div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col s6">
-							<button class="btn btn-small" style="display: inline-block;" title="Delete text" @click="deleteText"><i class="material-icons">delete</i></button>
-						</div>
-						<div class="col s6" style="text-align: right;">
-							<button class="btn btn-small" style="display: inline-block;" @click="copyText">[[ copyTextLabel ]]</button>
-						</div>
-					</div>
-					</form>
-			   </div>
-			  </div>
-		  </div>
-	  </div>
-	</div>
-  </div>
 
-  <div class="section no-pad-bot" id="index-banner">
-	<div class="container">
-	   <div class="row center">
-		  <div class="col s12 m12">
-			<div class="card horizontal">
-			  <div class="card-stacked">
-				<div class="card-content">
+						<div class="row">
+							<div class="input-field textarea-container col s6">
+								<textarea id="textarea1" v-model="inputText" @input="handleInput" ref="inputTextarea"></textarea>
+								<button class="btn-delete-text" title="Delete text" @click="deleteText">
+									<i class="material-icons">close</i>
+								</button>							
+								<div class="characters-limit-container" v-if="charactersLimit !== -1">
+									<label>[[ inputText.length ]] / [[ charactersLimit ]]</label>
+								</div>
+							</div>
+
+							<div class="input-field textarea-container col s6">
+								<div class="position-relative">
+									<textarea id="textarea2" v-model="translatedText" ref="translatedTextarea"></textarea>
+									<button class="btn-copy-translated" @click="copyText">
+										<span>[[ copyTextLabel ]]</span> <i class="material-icons">content_copy</i>
+									</button>										
+									<label for="textarea2">
+										<div class="progress translate" v-if="loadingTranslation">
+											<div class="indeterminate"></div>
+										</div>
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="section no-pad-bot" id="index-banner">
+			<div class="container">
+				<div class="row center">
+					<div class="col s12 m12">
+
 					<div class="row center">
 						<div class="col s12 m12 l6 left-align">
 							<p>Request</p>
-							<p>
-<pre class="code"><code class="language-javascript" v-html="$options.filters.highlight(requestCode)">
-</code></pre></p>
+							<pre class="code"><code class="language-javascript" v-html="$options.filters.highlight(requestCode)">
+							</code></pre>
 						</div>
 						<div class="col s12 m12 l6 left-align">
 							<p>Response</p>
-<pre class="code"><code class="language-javascript" v-html="$options.filters.highlight(output)">
-</code></pre>
+							<pre class="code"><code class="language-javascript" v-html="$options.filters.highlight(output)">
+							</code></pre>
 						</div>
 					</div>
 
+					</div>
 				</div>
-			  </div>
 			</div>
-		  </div>
-	  </div>
-	</div>
-  </div>
- {% if web_version %}
-  <div class="section no-pad-bot" id="index-banner">
-	<div class="container">
-	   <div class="row center">
-		  <div class="col s12 m12">
-		  		<h3 class="header">Open Source Machine Translation</h3>
-  				<h4 class="header">100% Self-Hosted. No Limits. No Ties to Proprietary Services.</h4>
-  		  		<br/><a class="waves-effect waves-light btn btn-large" href="https://github.com/uav4geo/LibreTranslate"><i class="material-icons left">cloud_download</i> Download</a>
-  		  		<br/><br/><br/>
-  		  </div>
-  		</div>
-	  </div>
-	</div>
-{% endif %}
-</div>
-</div>
-
-<footer class="page-footer blue darken-3">
-  <div class="container">
-	<div class="row">
-	  <div class="col l12 s12">
-		<h5 class="white-text">LibreTranslate</h5>
-		<p class="grey-text text-lighten-4">Free and Open Source Machine Translation API</p>
-		<p class="grey-text text-lighten-4">
-			Made with ❤ by <a class="grey-text text-lighten-3" href="https://uav4geo.com">UAV4GEO</a> and powered by <a class="grey-text text-lighten-3" href="https://github.com/argosopentech/argos-translate/">Argos Translate</a>
-		</p>
-		<p><a class="grey-text text-lighten-4" href="https://www.gnu.org/licenses/agpl-3.0.en.html">License: AGPLv3</a></p>
-		<p><a class="grey-text text-lighten-4" href="/javascript-licenses" rel="jslicense">JavaScript license information</a></p>
-{% if web_version %}
-        <p>
-			The public API on libretranslate.com should be used for testing, personal or infrequent use. If you're going to run an application in production, please <a href="https://github.com/uav4geo/LibreTranslate" class="grey-text text-lighten-4" style="text-decoration: underline;">host your own server</a> or <a class="grey-text text-lighten-4" href="https://uav4geo.com/contact" style="text-decoration: underline;">get in touch</a> to obtain an API key.
-		</p>
-{% endif %}
-	  </div>
-	  <div class="col l4 offset-l2 s12">
-		<!-- <h5 class="white-text">Links</h5>
-		<ul>
-		  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-		  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-		  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-		  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-		</ul> -->
-		<div class="container">
 		</div>
-	  </div>
+		{% if web_version %}
+		<div class="section no-pad-bot" id="index-banner">
+			<div class="container">
+				<div class="row center">
+					<div class="col s12 m12">
+						<h3 class="header">Open Source Machine Translation</h3>
+						<h4 class="header">100% Self-Hosted. No Limits. No Ties to Proprietary Services.</h4>
+						<br/><a class="waves-effect waves-light btn btn-large" href="https://github.com/uav4geo/LibreTranslate"><i class="material-icons left">cloud_download</i> Download</a>
+						<br/><br/><br/>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endif %}
 	</div>
-  </div>
-  <div class="footer-copyright center">
-  </div>
-</footer>
+	</main>
 
-<script src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
-<script>
-// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-3.0
-window.Prism = window.Prism || {};
-window.Prism.manual = true;
-// @license-end
-</script>
+	<footer class="page-footer blue darken-3">
+		<div class="container">
+			<div class="row">
+				<div class="col l12 s12">
+					<h5 class="white-text">LibreTranslate</h5>
+					<p class="grey-text text-lighten-4">Free and Open Source Machine Translation API</p>
+					<p><a class="grey-text text-lighten-4" href="https://www.gnu.org/licenses/agpl-3.0.en.html">License: AGPLv3</a></p>
+					<p><a class="grey-text text-lighten-4" href="/javascript-licenses" rel="jslicense">JavaScript license information</a></p>
+					{% if web_version %}
+					<p>
+						The public API on libretranslate.com should be used for testing, personal or infrequent use. If you're going to run an application in production, please <a href="https://github.com/uav4geo/LibreTranslate" class="grey-text text-lighten-4" style="text-decoration: underline;">host your own server</a> or <a class="grey-text text-lighten-4" href="https://uav4geo.com/contact" style="text-decoration: underline;">get in touch</a> to obtain an API key.
+					</p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright center">
+			<p>
+				Made with ❤ by <a class="grey-text text-lighten-3" href="https://uav4geo.com">UAV4GEO</a> and powered by <a class="grey-text text-lighten-3" href="https://github.com/argosopentech/argos-translate/">Argos Translate</a>
+			</p>
+		</div>
+	</footer>
 
-<script src="{{ url_for('static', filename='js/prism.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
+	<script>
+	// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-3.0
+	window.Prism = window.Prism || {};
+	window.Prism.manual = true;
+	// @license-end
+	</script>
 
-<script>
-// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-3.0
-// API host/endpoint
-var BaseUrl = window.location.protocol + "//" + window.location.host;
+	<script src="{{ url_for('static', filename='js/prism.min.js') }}"></script>
 
-document.addEventListener('DOMContentLoaded', function(){
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems);
+	<script>
+	// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-3.0
+	// API host/endpoint
+	var BaseUrl = window.location.protocol + "//" + window.location.host;
 
-	var app = new Vue({
-	  el: '#app',
-	  delimiters: ['[[',']]'],
-	  data: {
-	  	BaseUrl: BaseUrl,
-		loading: true,
-		error: "",
-		langs: [],
-		settings: {},
-		sourceLang: "",
-		targetLang: "",
+	document.addEventListener('DOMContentLoaded', function(){
+		var sidenavElems = document.querySelectorAll('.sidenav');
+		var sidenavInstances = M.Sidenav.init(sidenavElems);
 
-		loadingTranslation: false,
-		inputText: "",
-		translatedText: "",
-		output: "",
-		charactersLimit: -1,
+		var app = new Vue({
+		el: '#app',
+		delimiters: ['[[',']]'],
+		data: {
+			BaseUrl: BaseUrl,
+			loading: true,
+			error: "",
+			langs: [],
+			settings: {},
+			sourceLang: "",
+			targetLang: "",
 
-		copyTextLabel: "Copy Text"
-	  },
-	  mounted: function(){
-		var self = this;
-		var requestSettings = new XMLHttpRequest();
-		requestSettings.open('GET', BaseUrl + '/frontend/settings', true);
+			loadingTranslation: false,
+			inputText: "",
+			inputTextareaHeight: 250,
+			translatedText: "",
+			output: "",
+			charactersLimit: -1,
 
-		requestSettings.onload = function() {
-		  if (this.status >= 200 && this.status < 400) {
-				// Success!
-				self.settings = JSON.parse(this.response);
-				self.sourceLang = self.settings.language.source.code;
-				self.targetLang = self.settings.language.target.code;
-				self.charactersLimit = self.settings.charLimit;
-			}else {
-				self.error = "Cannot load /frontend/settings";
-				self.loading = false;
-		  }
-		};
+			copyTextLabel: "Copy text"
+		},
+		mounted: function(){
+			var self = this;
+			var requestSettings = new XMLHttpRequest();
+			requestSettings.open('GET', BaseUrl + '/frontend/settings', true);
 
-		requestSettings.onerror = function() {
-		  self.error = "Error while calling /frontend/settings";
-		  self.loading = false;
-		};
-
-		requestSettings.send();
-
-		var requestLanguages = new XMLHttpRequest();
-		requestLanguages.open('GET', BaseUrl + '/languages', true);
-
-		requestLanguages.onload = function() {
-		  if (this.status >= 200 && this.status < 400) {
-			// Success!
-			self.langs = JSON.parse(this.response);
-			self.langs.push({ name: 'Auto Detect (Experimental)', code: 'auto' })
-			if (self.langs.length === 0){
-				self.loading = false;
-				self.error = "No languages available. Did you install the models correctly?"
-				return;
-			}
-
-		    self.loading = false;
-		  } else {
-			self.error = "Cannot load /languages";
-			self.loading = false;
-		  }
-		};
-
-		requestLanguages.onerror = function() {
-		  self.error = "Error while calling /languages";
-		  self.loading = false;
-		};
-
-		requestLanguages.send();
-	  },
-	  updated: function(){
-			M.FormSelect.init(this.$refs.sourceLangDropdown);
-			M.FormSelect.init(this.$refs.targetLangDropdown);
-			if (this.inputText === ""){
-				this.$refs.inputTextarea.style.height = 150 + "px";
-				this.$refs.translatedTextarea.style.height = 150 + "px";
-			}else{
-				this.$refs.inputTextarea.style.height = this.$refs.translatedTextarea.style.height = "1px";
-				this.$refs.inputTextarea.style.height = Math.max(150, this.$refs.inputTextarea.scrollHeight) + "px";
-				this.$refs.translatedTextarea.style.height = Math.max(150, this.$refs.translatedTextarea.scrollHeight) + "px";
-			}
-
-			if (this.charactersLimit !== -1 && this.inputText.length >= this.charactersLimit){
-				this.inputText = this.inputText.substring(0, this.charactersLimit);
-			}
-
-
-	  },
-	  computed: {
-	  	requestCode: function(){
-	  		return ['const res = await fetch("' + this.BaseUrl + '/translate", {',
-'	method: "POST",',
-'	body: JSON.stringify({',
-'		q: "' + this.$options.filters.escape(this.inputText) + '",',
-'		source: "' + this.$options.filters.escape(this.sourceLang) + '",',
-'		target: "' + this.$options.filters.escape(this.targetLang) + '"',
-'	}),',
-'	headers: { "Content-Type": "application/json" }',
-'});',
-'',
-'console.log(await res.json());'].join("\n");
-	  	}
-	  },
-	  filters: {
-	  	escape: function(v){
-	  		return v.replace('"', '\\\"');
-	  	},
-	  	highlight: function(v){
-	  		return Prism.highlight(v, Prism.languages.javascript, 'javascript');
-	  	}
-	  },
-	  methods: {
-	  	abortPreviousTransRequest: function(){
-	  		if (this.transRequest){
-	  			this.transRequest.abort();
-	  			this.transRequest = null;
-	  		}
-	  	},
-	  	swapLangs: function(){
-	  		var t = this.sourceLang;
-	  		this.sourceLang = this.targetLang;
-	  		this.targetLang = t;
-	  		this.inputText = this.translatedText;
-	  		this.translatedText = "";
-	  		this.handleInput();
-	  	},
-	  	dismissError: function(){
-	  		this.error = '';
-	  	},
-	  	handleInput: function(e){
-	  		if (this.timeout) clearTimeout(this.timeout);
-	  		this.timeout = null;
-
-	  		if (this.inputText === ""){
-	  			this.translatedText = "";
-	  			this.output = "";
-	  			this.abortPreviousTransRequest();
-	  			this.loadingTranslation = false;
-	  			return;
-	  		}
-
-	  		var self = this;
-
-	  		self.loadingTranslation = true;
-	  		this.timeout = setTimeout(function(){
-	  			self.abortPreviousTransRequest();
-
-	  			var request = new XMLHttpRequest();
-	  			self.transRequest = request;
-
-	  			var data = new FormData();
-	  			data.append("q", self.inputText);
-	  			data.append("source", self.sourceLang);
-	  			data.append("target", self.targetLang);
-				data.append("api_key", localStorage.getItem("api_key") || "");
-
-				request.open('POST', BaseUrl + '/translate', true);
-
-				request.onload = function() {
-				  try{
-				  	var res = JSON.parse(this.response);
+			requestSettings.onload = function() {
+			if (this.status >= 200 && this.status < 400) {
 					// Success!
-					if (res.translatedText !== undefined){
-						self.translatedText = res.translatedText;
-					    self.loadingTranslation = false;
-					    self.output = JSON.stringify(res, null, 4);
-					}else{
-						throw new Error(res.error || "Unknown error");
-					}
-				  }catch(e){
- 					self.error = e.message;
- 					self.loadingTranslation = false;
-				  }
-				};
+					self.settings = JSON.parse(this.response);
+					self.sourceLang = self.settings.language.source.code;
+					self.targetLang = self.settings.language.target.code;
+					self.charactersLimit = self.settings.charLimit;
+				}else {
+					self.error = "Cannot load /frontend/settings";
+					self.loading = false;
+			}
+			};
 
-				request.onerror = function() {
-				  self.error = "Error while calling /translate";
-				  self.loadingTranslation = false;
-				};
+			requestSettings.onerror = function() {
+			self.error = "Error while calling /frontend/settings";
+			self.loading = false;
+			};
 
-				request.send(data);
-	  		}, {{ frontendTimeout }});
-	  	},
+			requestSettings.send();
 
-		copyText: function(e){
-			e.preventDefault();
-			this.$refs.translatedTextarea.select();
-			this.$refs.translatedTextarea.setSelectionRange(0, 9999999); /* For mobile devices */
-			document.execCommand("copy");
+			var requestLanguages = new XMLHttpRequest();
+			requestLanguages.open('GET', BaseUrl + '/languages', true);
 
-			if (this.copyTextLabel === "Copy Text"){
-				this.copyTextLabel = "Copied!";
-				var self = this;
-				setTimeout(function(){
-					self.copyTextLabel = "Copy Text";
-				}, 1500);
+			requestLanguages.onload = function() {
+			if (this.status >= 200 && this.status < 400) {
+				// Success!
+				self.langs = JSON.parse(this.response);
+				self.langs.push({ name: 'Auto Detect (Experimental)', code: 'auto' })
+				if (self.langs.length === 0){
+					self.loading = false;
+					self.error = "No languages available. Did you install the models correctly?"
+					return;
+				}
+
+				self.loading = false;
+			} else {
+				self.error = "Cannot load /languages";
+				self.loading = false;
+			}
+			};
+
+			requestLanguages.onerror = function() {
+			self.error = "Error while calling /languages";
+			self.loading = false;
+			};
+
+			requestLanguages.send();
+		},
+		updated: function(){
+				M.FormSelect.init(this.$refs.sourceLangDropdown);
+				M.FormSelect.init(this.$refs.targetLangDropdown);
+				if (this.inputText === ""){
+					this.$refs.inputTextarea.style.height = this.inputTextareaHeight + "px";
+					this.$refs.translatedTextarea.style.height = this.inputTextareaHeight + "px";
+				}else{
+					this.$refs.inputTextarea.style.height = this.$refs.translatedTextarea.style.height = "1px";
+					this.$refs.inputTextarea.style.height = Math.max(this.inputTextareaHeight, this.$refs.inputTextarea.scrollHeight + 32) + "px";
+					this.$refs.translatedTextarea.style.height = Math.max(this.inputTextareaHeight, this.$refs.translatedTextarea.scrollHeight + 32) + "px";
+				}
+
+				if (this.charactersLimit !== -1 && this.inputText.length >= this.charactersLimit){
+					this.inputText = this.inputText.substring(0, this.charactersLimit);
+				}
+
+		},
+		computed: {
+			requestCode: function(){
+				return ['const res = await fetch("' + this.BaseUrl + '/translate", {',
+	'	method: "POST",',
+	'	body: JSON.stringify({',
+	'		q: "' + this.$options.filters.escape(this.inputText) + '",',
+	'		source: "' + this.$options.filters.escape(this.sourceLang) + '",',
+	'		target: "' + this.$options.filters.escape(this.targetLang) + '"',
+	'	}),',
+	'	headers: { "Content-Type": "application/json" }',
+	'});',
+	'',
+	'console.log(await res.json());'].join("\n");
 			}
 		},
+		filters: {
+			escape: function(v){
+				return v.replace('"', '\\\"');
+			},
+			highlight: function(v){
+				return Prism.highlight(v, Prism.languages.javascript, 'javascript');
+			}
+		},
+		methods: {
+			abortPreviousTransRequest: function(){
+				if (this.transRequest){
+					this.transRequest.abort();
+					this.transRequest = null;
+				}
+			},
+			swapLangs: function(){
+				var t = this.sourceLang;
+				this.sourceLang = this.targetLang;
+				this.targetLang = t;
+				this.inputText = this.translatedText;
+				this.translatedText = "";
+				this.handleInput();
+			},
+			dismissError: function(){
+				this.error = '';
+			},
+			handleInput: function(e){
+				if (this.timeout) clearTimeout(this.timeout);
+				this.timeout = null;
 
-		deleteText: function(e){
-			e.preventDefault();
-			this.inputText = this.translatedText = "";
+				if (this.inputText === ""){
+					this.translatedText = "";
+					this.output = "";
+					this.abortPreviousTransRequest();
+					this.loadingTranslation = false;
+					return;
+				}
+
+				var self = this;
+
+				self.loadingTranslation = true;
+				this.timeout = setTimeout(function(){
+					self.abortPreviousTransRequest();
+
+					var request = new XMLHttpRequest();
+					self.transRequest = request;
+
+					var data = new FormData();
+					data.append("q", self.inputText);
+					data.append("source", self.sourceLang);
+					data.append("target", self.targetLang);
+					data.append("api_key", localStorage.getItem("api_key") || "");
+
+					request.open('POST', BaseUrl + '/translate', true);
+
+					request.onload = function() {
+					try{
+						var res = JSON.parse(this.response);
+						// Success!
+						if (res.translatedText !== undefined){
+							self.translatedText = res.translatedText;
+							self.loadingTranslation = false;
+							self.output = JSON.stringify(res, null, 4);
+						}else{
+							throw new Error(res.error || "Unknown error");
+						}
+					}catch(e){
+						self.error = e.message;
+						self.loadingTranslation = false;
+					}
+					};
+
+					request.onerror = function() {
+					self.error = "Error while calling /translate";
+					self.loadingTranslation = false;
+					};
+
+					request.send(data);
+				}, {{ frontendTimeout }});
+			},
+
+			copyText: function(e){
+				e.preventDefault();
+				this.$refs.translatedTextarea.select();
+				this.$refs.translatedTextarea.setSelectionRange(0, 9999999); /* For mobile devices */
+				document.execCommand("copy");
+
+				if (this.copyTextLabel === "Copy text"){
+					this.copyTextLabel = "Copied";
+					var self = this;
+					setTimeout(function(){
+						self.copyTextLabel = "Copy text";
+					}, 1500);
+				}
+			},
+
+			deleteText: function(e){
+				e.preventDefault();
+				this.inputText = this.translatedText = "";
+			}
 		}
-	  }
+		});
+
 	});
 
-});
+	function setApiKey(){
+		var prevKey = localStorage.getItem("api_key") || "";
+		var newKey = "";
+		newKey = window.prompt("Type in your API Key. If you need an API key, contact the server operator.", prevKey);
+		if (newKey === null) newKey = "";
 
-function setApiKey(){
-    var prevKey = localStorage.getItem("api_key") || "";
-    var newKey = "";
-    newKey = window.prompt("Type in your API Key. If you need an API key, contact the server operator.", prevKey);
-    if (newKey === null) newKey = "";
-
-	localStorage.setItem("api_key", newKey);
-}
-// @license-end
-</script>
+		localStorage.setItem("api_key", newKey);
+	}
+	// @license-end
+	</script>
 </body>
 </html>
