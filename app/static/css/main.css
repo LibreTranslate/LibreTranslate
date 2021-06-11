@@ -75,7 +75,7 @@ h3.header {
 
 .btn-copy-translated {
   position: absolute;
-  right: 2rem;
+  right: 2.75rem;
   bottom: 1rem;
   display: flex;
   align-items: center;
@@ -116,11 +116,21 @@ h3.header {
   overflow-y: hidden;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
 .code {
   font-size: 90%;
-  border-radius: 4px;
   padding: 1rem 1.5rem;
-  border: 1px solid #9e9e9e;
+  border: 1px solid #ccc;
   background: #fbfbfb;
   overflow: auto;
   font-family: monospace;

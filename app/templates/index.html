@@ -132,6 +132,9 @@
 
 						<div class="row">
 							<div class="input-field textarea-container col s6">
+								<label for="textarea1" class="sr-only">
+									Text to translate
+								</label>								
 								<textarea id="textarea1" v-model="inputText" @input="handleInput" ref="inputTextarea"></textarea>
 								<button class="btn-delete-text" title="Delete text" @click="deleteText">
 									<i class="material-icons">close</i>
@@ -142,16 +145,17 @@
 							</div>
 
 							<div class="input-field textarea-container col s6">
-								<div class="position-relative">
-									<textarea id="textarea2" v-model="translatedText" ref="translatedTextarea" readonly></textarea>
-									<button class="btn-copy-translated" @click="copyText">
-										<span>[[ copyTextLabel ]]</span> <i class="material-icons">content_copy</i>
-									</button>										
-									<label for="textarea2">
-										<div class="progress translate" v-if="loadingTranslation">
-											<div class="indeterminate"></div>
-										</div>
-									</label>
+								<label for="textarea2" class="sr-only">
+									Translated text
+								</label>									
+								<textarea id="textarea2" v-model="translatedText" ref="translatedTextarea" readonly></textarea>
+								<button class="btn-copy-translated" @click="copyText">
+									<span>[[ copyTextLabel ]]</span> <i class="material-icons">content_copy</i>
+								</button>	
+								<div class="position-relative">									
+									<div class="progress translate" v-if="loadingTranslation">
+										<div class="indeterminate"></div>
+									</div>																		
 								</div>
 							</div>
 						</div>
