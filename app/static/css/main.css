@@ -57,7 +57,7 @@ h3.header {
   background: none;
   padding: 0;
   cursor: pointer;
-  color: #888;
+  color: #777;
 }
 
 .btn-delete-text:focus,
@@ -69,7 +69,7 @@ h3.header {
   position: absolute;
   right: 2rem;
   bottom: 1rem;
-  color: #888;
+  color: #777;
   pointer-events: none;
 }
 
@@ -79,7 +79,7 @@ h3.header {
   bottom: 1rem;
   display: flex;
   align-items: center;
-  color: #888;
+  color: #777;
   font-size: 0.85rem;
   background: none;
   border: none;
@@ -96,7 +96,7 @@ h3.header {
 }
 
 .progress {
-  background-color: #efefef;
+  background-color: #f3f3f3;
 }
 
 .progress.translate {
@@ -111,7 +111,7 @@ h3.header {
   font-size: 1.25rem;
   resize: none;
   border: 1px solid #ccc;
-  background: #efefef;
+  background: #f3f3f3;
   padding: 1rem 2rem 1rem 1.5rem;
   overflow-y: hidden;
 }

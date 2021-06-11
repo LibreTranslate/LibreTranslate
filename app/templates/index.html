@@ -430,9 +430,8 @@
 					};
 
 					request.send(data);
-				}, {{ frontendTimeout }});
+				}, '{{ frontendTimeout }}');
 			},
-
 			copyText: function(e){
 				e.preventDefault();
 				this.$refs.translatedTextarea.select();
@@ -447,7 +446,6 @@
 					}, 1500);
 				}
 			},
-
 			deleteText: function(e){
 				e.preventDefault();
 				this.inputText = this.translatedText = this.output = "";
