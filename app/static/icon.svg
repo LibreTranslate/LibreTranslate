@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="187.04305"
+   height="188.81523"
+   viewBox="0 0 49.488472 49.957363"
+   version="1.1"
+   id="svg8">
+  <defs
+     id="defs2">
+    <rect
+       x="25.162016"
+       y="84.327377"
+       width="71.115189"
+       height="52.835255"
+       id="rect835" />
+    <rect
+       x="25.162016"
+       y="84.327377"
+       width="71.115189"
+       height="52.835255"
+       id="rect835-7" />
+    <rect
+       x="25.162016"
+       y="84.327377"
+       width="71.115189"
+       height="52.835255"
+       id="rect874" />
+    <rect
+       x="25.162016"
+       y="84.327377"
+       width="71.115189"
+       height="52.835255"
+       id="rect923" />
+  </defs>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     transform="translate(-23.040803,-26.932047)">
+    <g
+       id="g861"
+       transform="translate(-42.114518,-17.993737)"
+       style="fill:#ffffff">
+      <g
+         aria-label="众"
+         transform="matrix(4.3205134,0,0,4.3205134,-37.271798,-327.6536)"
+         id="text833"
+         style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect835);fill:#ffffff;fill-opacity:1;stroke:none">
+        <path
+           d="m 34.996103,90.121035 -0.614947,0.759641 q -2.754346,-1.41593 -3.948067,-2.950715 -1.167884,1.617467 -3.7672,2.888703 L 26.0096,90.084861 q 3.457142,-1.601964 4.283963,-3.849882 l 0.878496,0.273884 q -0.175699,0.516763 -0.232543,0.604613 1.116207,1.596797 4.056587,3.007559 z m 0.165364,4.91958 -0.676959,0.645954 q -1.514115,-1.157549 -2.346102,-2.826692 -0.547769,1.550288 -2.268589,2.806021 l -0.676959,-0.625283 q 1.19889,-0.795814 1.798334,-1.875848 0.599445,-1.080034 0.682127,-3.079906 l 0.909502,0.07751 q 0,0.268716 -0.04134,0.671791 l -0.03617,0.361734 q 0,0.273884 0.30489,1.033525 0.310058,0.754474 0.899167,1.467606 0.594277,0.707965 1.452103,1.343583 z m -4.800725,-1.374588 -0.702797,0.63045 q -0.594277,-0.780312 -1.162716,-1.276404 -0.651121,1.421098 -2.020542,2.676831 l -0.687295,-0.614948 q 1.229895,-1.095537 1.767329,-2.201409 0.5426,-1.105872 0.697629,-2.795686 l 0.919838,0.09819 q -0.103353,0.940508 -0.366902,1.91719 1.00252,0.862993 1.555456,1.565791 z"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Adobe Garamond Pro';-inkscape-font-specification:'Adobe Garamond Pro Bold';fill:#ffffff"
+           id="path961" />
+      </g>
+      <g
+         aria-label="L"
+         id="text841"
+         style="font-style:normal;font-weight:normal;font-size:43.3964px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.08492">
+        <path
+           d="M 84.81389,94.883148 V 91.324643 H 69.191186 V 63.247172 h -4.035865 v 31.635976 z"
+           style="fill:#ffffff;stroke-width:1.08492"
+           id="path964" />
+      </g>
+    </g>
+    <g
+       id="g921"
+       transform="translate(29.198135,-14.725175)" />
+  </g>
+</svg>
