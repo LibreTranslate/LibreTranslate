@@ -160,12 +160,12 @@ More coming soon!
 
 This is a list of online resources that serve the LibreTranslate API. Some require an API key. If you want to add a new URL, please open a pull request.
 
-URL |API Key Required
+URL |API Key Required|Contact|Cost
 --- | ---
-[https://libretranslate.com](libretranslate.com)|:heavy_check_mark:
-[https://libretranslate.de/](libretranslate.de)|
-[https://translate.mentality.rip](translate.mentality.rip)|
-[https://translate.astian.org/](translate.astian.org)|
+[https://libretranslate.com](libretranslate.com)|:heavy_check_mark:|[https://uav4geo.com/contact](UAV4GEO)| $9 / month
+[https://libretranslate.de/](libretranslate.de)|-|-
+[https://translate.mentality.rip](translate.mentality.rip)|-|-
+[https://translate.astian.org/](translate.astian.org)|-|-
 
 
 ## Roadmap
