@@ -162,10 +162,10 @@ This is a list of online resources that serve the LibreTranslate API. Some requi
 
 URL |API Key Required|Contact|Cost
 --- | --- | --- | ---
-[https://libretranslate.com](libretranslate.com)|:heavy_check_mark:|[https://uav4geo.com/contact](UAV4GEO)| $9 / month
-[https://libretranslate.de/](libretranslate.de)|-|-
-[https://translate.mentality.rip](translate.mentality.rip)|-|-
-[https://translate.astian.org/](translate.astian.org)|-|-
+[libretranslate.com](https://libretranslate.com)|:heavy_check_mark:|[UAV4GEO](https://uav4geo.com/contact)| $9 / month
+[libretranslate.de](https://libretranslate.de/)|-|-
+[translate.mentality.rip](https://translate.mentality.rip)|-|-
+[translate.astian.org](https://translate.astian.org/)|-|-
 
 
 ## Roadmap
@@ -176,6 +176,7 @@ Help us by opening a pull request!
 - [x] Auto-detect input language (thanks [@vemonet](https://github.com/vemonet) !)
 - [X] User authentication / tokens
 - [ ] Language bindings for every computer language
+- [ ] [Improved translations](https://github.com/argosopentech/argos-parallel-corpus)
 
 ## FAQ
 
