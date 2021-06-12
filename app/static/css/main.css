@@ -143,6 +143,14 @@ h3.header {
   justify-content: center;
 }
 
+#logo-container{
+  height: 100%;
+}
+
+.logo{
+  height: 32px;
+}
+
 @media (max-width: 991px) {
   .language-select {
   }

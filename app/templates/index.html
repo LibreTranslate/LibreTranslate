@@ -38,11 +38,11 @@
 		<nav class="blue lighten-1" role="navigation">
 			<div class="nav-wrapper container">
 				<a id="logo-container" href="/" class="brand-logo">
-					<i class="material-icons">translate</i> LibreTranslate
+					<img src="{{ url_for('static', filename='icon.svg') }}" class="logo"> LibreTranslate
 				</a>
 				<ul class="right hide-on-med-and-down">
 				<li><a href="/docs">API Docs</a></li>
-				<li><a href="https://github.com/uav4geo/LibreTranslate" rel="noopener noreferrer">GitHub</a></li>
+				<li><a href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">GitHub</a></li>
 				{% if api_keys %}
 				<li><a href="javascript:setApiKey()" title="Set API Key"><i class="material-icons">vpn_key</i></a></li>
 				{% endif %}
@@ -50,7 +50,7 @@
 
 				<ul id="nav-mobile" class="sidenav">
 				<li><a href="/docs">API Docs</a></li>
-				<li><a href="https://github.com/uav4geo/LibreTranslate" rel="noopener noreferrer">GitHub</a></li>
+				<li><a href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">GitHub</a></li>
 				{% if api_keys %}
 				<li><a href="javascript:setApiKey()" title="Set API Key"><i class="material-icons">vpn_key</i></a></li>
 				{% endif %}
@@ -194,7 +194,7 @@
 					<div class="col s12 m12">
 						<h3 class="header">Open Source Machine Translation</h3>
 						<h4 class="header">100% Self-Hosted. No Limits. No Ties to Proprietary Services.</h4>
-						<br/><a class="waves-effect waves-light btn btn-large" href="https://github.com/uav4geo/LibreTranslate" rel="noopener noreferrer"><i class="material-icons left">cloud_download</i> Download</a>
+						<br/><a class="waves-effect waves-light btn btn-large" href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer"><i class="material-icons left">cloud_download</i> Download</a>
 						<br/><br/><br/>
 					</div>
 				</div>
@@ -214,7 +214,7 @@
 					<p><a class="grey-text text-lighten-4" href="/javascript-licenses" rel="jslicense">JavaScript license information</a></p>
 					{% if web_version %}
 					<p>
-						The public API on libretranslate.com should be used for testing, personal or infrequent use. If you're going to run an application in production, please <a href="https://github.com/uav4geo/LibreTranslate" class="grey-text text-lighten-4" style="text-decoration: underline;" rel="noopener noreferrer">host your own server</a> or <a class="grey-text text-lighten-4" href="https://uav4geo.com/contact" style="text-decoration: underline;" rel="noopener noreferrer">get in touch</a> to obtain an API key.
+						The public API on libretranslate.com should be used for testing, personal or infrequent use. If you're going to run an application in production, please <a href="https://github.com/LibreTranslate/LibreTranslate" class="grey-text text-lighten-4" style="text-decoration: underline;" rel="noopener noreferrer">host your own server</a> or <a class="grey-text text-lighten-4" href="https://LibreTranslate.com/contact" style="text-decoration: underline;" rel="noopener noreferrer">get in touch</a> to obtain an API key.
 					</p>
 					{% endif %}
 				</div>
@@ -222,7 +222,7 @@
 		</div>
 		<div class="footer-copyright center">
 			<p>
-				Made with ❤ by <a class="grey-text text-lighten-3" href="https://uav4geo.com" rel="noopener noreferrer">UAV4GEO</a> and powered by <a class="grey-text text-lighten-3" href="https://github.com/argosopentech/argos-translate/" rel="noopener noreferrer">Argos Translate</a>
+				Made with ❤ by <a class="grey-text text-lighten-3" href="https://github.com/LibreTranslate/LibreTranslate/graphs/contributors" rel="noopener noreferrer">LibreTranslate Contributors</a> and powered by <a class="grey-text text-lighten-3" href="https://github.com/argosopentech/argos-translate/" rel="noopener noreferrer">Argos Translate</a>
 			</p>
 		</div>
 	</footer>
