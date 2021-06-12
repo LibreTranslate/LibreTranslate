@@ -6,7 +6,7 @@
 
 Free and Open Source Machine Translation API, entirely self-hosted. Unlike other APIs, it doesn't rely on proprietary providers such as Google or Azure to perform translations.
 
-![image](https://user-images.githubusercontent.com/1951843/102724116-32a6df00-42db-11eb-8cc0-129ab39cdfb5.png)
+![image](https://user-images.githubusercontent.com/1951843/121782367-23f90080-cb77-11eb-87fd-ed23a21b730f.png)
 
 [Try it online!](https://libretranslate.com) | [API Docs](https://libretranslate.com/docs)
 
@@ -161,7 +161,7 @@ More coming soon!
 This is a list of online resources that serve the LibreTranslate API. Some require an API key. If you want to add a new URL, please open a pull request.
 
 URL |API Key Required|Contact|Cost
---- | ---
+--- | --- | --- | ---
 [https://libretranslate.com](libretranslate.com)|:heavy_check_mark:|[https://uav4geo.com/contact](UAV4GEO)| $9 / month
 [https://libretranslate.de/](libretranslate.de)|-|-
 [https://translate.mentality.rip](translate.mentality.rip)|-|-
