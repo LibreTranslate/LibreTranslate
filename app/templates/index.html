@@ -120,7 +120,7 @@
 							<div class="col s6 language-select">
 								<a href="javascript:void(0)" @click="swapLangs" class="btn-switch-language">
 									<i class="material-icons">swap_horiz</i>
-								</a>								
+								</a>
 								<span>Translate into</span>
 								<select  class="browser-default" v-model="targetLang" ref="targetLangDropdown" @change="handleInput">
 									<template v-for="option in langs">
@@ -335,7 +335,19 @@
 				if (this.charactersLimit !== -1 && this.inputText.length >= this.charactersLimit){
 					this.inputText = this.inputText.substring(0, this.charactersLimit);
 				}
-
+				
+				// Update "selected" attribute (to overcome a vue.js limitation)
+				// but properly display checkmarks on supported browsers
+				for (var i = 0; i < this.$refs.sourceLangDropdown.children.length; i++){
+					var el = this.$refs.sourceLangDropdown.children[i];
+					if (el.value === this.sourceLang) el.setAttribute('selected', '');
+					else el.removeAttribute('selected');
+				}
+				for (var i = 0; i < this.$refs.targetLangDropdown.children.length; i++){
+					var el = this.$refs.targetLangDropdown.children[i];
+					if (el.value === this.targetLang) el.setAttribute('selected', '');
+					else el.removeAttribute('selected');
+				}
 		},
 		computed: {
 			requestCode: function(){
