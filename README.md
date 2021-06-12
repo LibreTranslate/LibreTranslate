@@ -156,6 +156,18 @@ You can use the LibreTranslate API using the following bindings:
 
 More coming soon!
 
+## Mirrors
+
+This is a list of online resources that serve the LibreTranslate API. Some require an API key. If you want to add a new URL, please open a pull request.
+
+URL |API Key Required
+--- | ---
+[https://libretranslate.com](libretranslate.com)|:heavy_check_mark:
+[https://libretranslate.de/](libretranslate.de)|
+[https://translate.mentality.rip](translate.mentality.rip)|
+[https://translate.astian.org/](translate.astian.org)|
+
+
 ## Roadmap
 
 Help us by opening a pull request!
