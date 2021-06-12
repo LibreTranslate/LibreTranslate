@@ -57,7 +57,7 @@ h3.header {
   background: none;
   padding: 0;
   cursor: pointer;
-  color: #888;
+  color: #777;
 }
 
 .btn-delete-text:focus,
@@ -69,17 +69,17 @@ h3.header {
   position: absolute;
   right: 2rem;
   bottom: 1rem;
-  color: #888;
+  color: #777;
   pointer-events: none;
 }
 
 .btn-copy-translated {
   position: absolute;
-  right: 2rem;
+  right: 2.75rem;
   bottom: 1rem;
   display: flex;
   align-items: center;
-  color: #888;
+  color: #777;
   font-size: 0.85rem;
   background: none;
   border: none;
@@ -96,7 +96,7 @@ h3.header {
 }
 
 .progress {
-  background-color: #efefef;
+  background-color: #f3f3f3;
 }
 
 .progress.translate {
@@ -111,16 +111,26 @@ h3.header {
   font-size: 1.25rem;
   resize: none;
   border: 1px solid #ccc;
-  background: #efefef;
+  background: #f3f3f3;
   padding: 1rem 2rem 1rem 1.5rem;
   overflow-y: hidden;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
 .code {
   font-size: 90%;
-  border-radius: 4px;
   padding: 1rem 1.5rem;
-  border: 1px solid #9e9e9e;
+  border: 1px solid #ccc;
   background: #fbfbfb;
   overflow: auto;
   font-family: monospace;
