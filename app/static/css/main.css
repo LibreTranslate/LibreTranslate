@@ -1,5 +1,12 @@
 /* Custom styles for LibreTranslate page */
 
+html,
+body,
+select {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
 h3.header {
   margin-bottom: 2.5rem;
 }
@@ -29,14 +36,37 @@ h3.header {
   font-weight: 600;
   text-decoration: underline;
   -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
-  text-indent: 1px;
+  background-color: transparent;
+  padding: 0 1.25rem 0 0.25rem;
+  text-indent: 0.01px;
   text-overflow: "";
-  padding: 0;
+  margin: 0;
   height: 2rem;
+  line-height: inherit;
+  outline: none;
+  position: relative;
+}
+@-moz-document url-prefix() {
+  .language-select select {
+    -moz-appearance: none;
+    text-indent: -2px;
+    margin-right: -8px;
+  }
 }
 
+.language-select:after {
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  margin: 0 0 0.25rem -0.75rem;
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  z-index: -1;
+}
 
 .btn-switch-language {
   color: black;
@@ -123,7 +153,7 @@ h3.header {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   border: 0;
 }
 
@@ -141,25 +171,25 @@ h3.header {
 
 .page-footer .footer-copyright {
   justify-content: center;
+  padding: 0.5rem 1rem;
 }
 
-#logo-container{
+#logo-container {
   height: 100%;
 }
 
-.logo{
+.logo {
   height: 32px;
 }
 
-@media (max-width: 991px) {
-  .language-select {
-  }
-}
-
 @media (max-width: 760px) {
-  .language-select select{
+  .language-select select {
     text-align: center;
     margin: auto;
+    padding: 0;
+  }
+  .language-select:after {
+    content: none;
   }
   .language-select span {
     display: none;
