@@ -158,7 +158,7 @@ More coming soon!
 
 ## Discourse Plugin
 
-You can use this [discourse translator plugin](https://github.com/LibreTranslate/discourse-translator) to translate [Discourse](https://discourse.org) topics. To install it simply add to `/var/discourse/containers/app.yml` the discourse-translator URL as follows:
+You can use this [discourse translator plugin](https://github.com/LibreTranslate/discourse-translator) to translate [Discourse](https://discourse.org) topics. To install it simply modify `/var/discourse/containers/app.yml`:
 
 ```
 ## Plugins go here
