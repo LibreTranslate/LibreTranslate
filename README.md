@@ -156,6 +156,25 @@ You can use the LibreTranslate API using the following bindings:
 
 More coming soon!
 
+## Discourse Plugin
+
+You can use this [discourse translator plugin](https://github.com/LibreTranslate/discourse-translator) to translate [Discourse](https://discourse.org) topics. To install it simply add to `/var/discourse/containers/app.yml` the discourse-translator URL as follows:
+
+```
+## Plugins go here
+## see https://meta.discourse.org/t/19157 for details
+hooks:
+  after_code:
+    - exec:
+        cd: $home/plugins
+        cmd:
+          - git clone https://github.com/discourse/docker_manager.git
+          - git clone https://github.com/LibreTranslate/discourse-translator
+	  ...
+```
+
+Then issue `./launcher rebuild app`. From the Discourse's admin panel then select "LibreTranslate" as a translation provider and set the relevant endpoint configurations.
+
 ## Mirrors
 
 This is a list of online resources that serve the LibreTranslate API. Some require an API key. If you want to add a new URL, please open a pull request.
