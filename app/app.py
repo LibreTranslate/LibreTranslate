@@ -40,7 +40,7 @@ def get_req_limits(default_limit, api_keys_db, multiplier = 1):
         if api_key:
             db_req_limit = api_keys_db.lookup(api_key)
             if db_req_limit is not None:
-                req_limit = db_req_limit
+                req_limit = db_req_limit * multiplier
                 
     return req_limit
 
