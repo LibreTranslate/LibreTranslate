@@ -5,7 +5,7 @@ flask-swagger-ui==3.36.0
 Flask-Limiter==1.4
 waitress==1.4.4
 expiringdict==1.2.1
-pyicu==2.6
+pyicu==2.7
 pycld2==0.41
 morfessor==2.0.6
 polyglot==16.7.4
