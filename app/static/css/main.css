@@ -38,10 +38,11 @@ h3.header {
   -webkit-appearance: none;
   appearance: none;
   background-color: transparent;
-  padding: 0 1.25rem 0 0.25rem;
+  padding: 0;
   text-indent: 0.01px;
   text-overflow: "";
   margin: 0;
+  margin-left: 6px;
   height: 2rem;
   line-height: inherit;
   outline: none;
