@@ -1,4 +1,5 @@
 import argparse
+import sys
 import operator
 
 from app.app import create_app
@@ -103,17 +104,20 @@ def main():
     args = parser.parse_args()
     app = create_app(args)
 
-    if args.debug:
-        app.run(host=args.host, port=args.port)
+    if sys.argv[0] == '--wsgi':
+        return app
     else:
-        from waitress import serve
+        if args.debug:
+            app.run(host=args.host, port=args.port)
+        else:
+            from waitress import serve
 
-        serve(
-            app,
-            host=args.host,
-            port=args.port,
-            url_scheme="https" if args.ssl else "http",
-        )
+            serve(
+                app,
+                host=args.host,
+                port=args.port,
+                url_scheme="https" if args.ssl else "http",
+            )
 
 
 if __name__ == "__main__":

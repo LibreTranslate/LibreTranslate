@@ -118,6 +118,21 @@ docker-compose up -d --build
 | --require-api-key-origin | Require use of an API key for programmatic access to the API, unless the request origin matches this domain | `No restrictions on domain origin` |
 | --load-only   | Set available languages    | `all from argostranslate`    |
 
+## Run with Gunicorn
+
+```
+pip install gunicorn
+gunicorn --bind 0.0.0.0:5000 'wsgi:app'
+```
+
+You can pass application arguments directly to Gunicorn via:
+
+
+```
+gunicorn --bind 0.0.0.0:5000 'wsgi:app(api_keys=True)'
+```
+
+
 ## Manage API Keys
 
 LibreTranslate supports per-user limit quotas, e.g. you can issue API keys to users so that they can enjoy higher requests limits per minute (if you also set `--req-limit`). By default all users are rate-limited based on `--req-limit`, but passing an optional `api_key` parameter to the REST endpoints allows a user to enjoy higher request limits.
