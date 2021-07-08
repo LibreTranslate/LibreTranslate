@@ -7,6 +7,10 @@ select {
   font-family: Arial, Helvetica, sans-serif !important;
 }
 
+#app {
+  min-height: 80vh;
+}
+
 h3.header {
   margin-bottom: 2.5rem;
 }
