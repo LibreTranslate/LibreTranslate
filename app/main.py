@@ -30,7 +30,7 @@ def main():
     )
     parser.add_argument(
         "--daily-req-limit",
-        default=DEFARGS['DAILY_REQ_LIMI'],
+        default=DEFARGS['DAILY_REQ_LIMIT'],
         type=int,
         metavar="<number>",
         help="Set the default maximum number of requests per day per client, in addition to req-limit. (%(default)s)",
