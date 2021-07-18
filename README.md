@@ -101,22 +101,24 @@ docker-compose up -d --build
 
 ## Arguments
 
-| Argument      | Description                    | Default              |
-| ------------- | ------------------------------ | -------------------- |
-| --host        | Set host to bind the server to | `127.0.0.1`          |
-| --port        | Set port to bind the server to | `5000`               |
-| --char-limit        | Set character limit | `No limit`               |
-| --req-limit        | Set maximum number of requests per minute per client | `No limit`               |
-| --batch-limit        | Set maximum number of texts to translate in a batch request | `No limit`               |
-| --ga-id        | Enable Google Analytics on the API client page by providing an ID | `No tracking`               |
-| --debug      | Enable debug environment | `False`           |
-| --ssl        | Whether to enable SSL | `False`               |
-| --frontend-language-source | Set frontend default language - source | `en`          |
-| --frontend-language-target | Set frontend default language - target | `es`          |
-| --frontend-timeout | Set frontend translation timeout | `500`         |
-| --api-keys | Enable API keys database for per-user rate limits lookup | `Don't use API keys` |
-| --require-api-key-origin | Require use of an API key for programmatic access to the API, unless the request origin matches this domain | `No restrictions on domain origin` |
-| --load-only   | Set available languages    | `all from argostranslate`    |
+| Argument      | Description                    | Default              | Env. name              |
+| ------------- | ------------------------------ | -------------------- | ---------------------- |
+| --host        | Set host to bind the server to | `127.0.0.1`          | LT_HOST |
+| --port        | Set port to bind the server to | `5000`               | LT_PORT |
+| --char-limit        | Set character limit | `No limit`               | LT_CHAR_LIMIT |
+| --req-limit        | Set maximum number of requests per minute per client | `No limit`               | LT_REQ_LIMIT |
+| --batch-limit        | Set maximum number of texts to translate in a batch request | `No limit`               | LT_BATCH_LIMIT |
+| --ga-id        | Enable Google Analytics on the API client page by providing an ID | `No tracking`               | LT_GA_ID |
+| --debug      | Enable debug environment | `False`           | LT_DEBUG |
+| --ssl        | Whether to enable SSL | `False`               | LT_SSL |
+| --frontend-language-source | Set frontend default language - source | `en`          | LT_FRONTEND_LANGUAGE_SOURCE |
+| --frontend-language-target | Set frontend default language - target | `es`          | LT_FRONTEND_LANGUAGE_TARGET |
+| --frontend-timeout | Set frontend translation timeout | `500`         | LT_FRONTEND_TIMEOUT |
+| --api-keys | Enable API keys database for per-user rate limits lookup | `Don't use API keys` | LT_API_KEYS |
+| --require-api-key-origin | Require use of an API key for programmatic access to the API, unless the request origin matches this domain | `No restrictions on domain origin` | LT_REQUIRE_API_KEY_ORIGIN |
+| --load-only   | Set available languages    | `all from argostranslate`    | LT_LOAD_ONLY |
+
+Note that each argument has an equivalent env. variable that can be used instead. The env. variables overwrite the default values but have lower priority than the command aguments. They are particularly useful if used with Docker. Their name is the upper-snake case of the command arguments' ones, with a `LT` prefix.
 
 ## Run with Gunicorn
 
