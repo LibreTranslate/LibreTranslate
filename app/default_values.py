@@ -115,5 +115,3 @@ _default_options_objects = [
 
 
 DEFAULT_ARGUMENTS = { obj['name']:_get_value(**obj) for obj in _default_options_objects}
-
-print(DEFAULT_ARGUMENTS)
