@@ -172,6 +172,8 @@ You can use the LibreTranslate API using the following bindings:
  - .Net: https://github.com/sigaloid/LibreTranslate.Net
  - Go: https://github.com/SnakeSel/libretranslate
  - Python: https://github.com/argosopentech/LibreTranslate-py
+ - C++: https://github.com/argosopentech/LibreTranslate-cpp
+ - Unix: https://github.com/argosopentech/LibreTranslate-sh
 
 More coming soon!
 
