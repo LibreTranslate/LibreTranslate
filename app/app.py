@@ -360,43 +360,61 @@ def create_app(args):
                 )
 
         if source_lang == "auto":
-            candidate_langs = detect_languages(q)
+            source_langs = []
+            if batch:
+              auto_detect_texts = q
+            else:
+              auto_detect_texts = [q]
 
-            if args.debug:
-                print(candidate_langs)
+            overall_candidates = detect_languages(q)
+            
+            for text_to_check in auto_detect_texts:
+              if len(text_to_check) > 40:
+                candidate_langs = detect_languages(text_to_check)
+              else:
+                # Unable to accurately detect languages for short texts
+                candidate_langs = overall_candidates
+              source_langs.append(candidate_langs[0]["language"])
 
-            source_lang = candidate_langs[0]["language"]
+              if args.debug:
+                  print(text_to_check, candidate_langs)
+                  print("Auto detected: %s" % candidate_langs[0]["language"])
+        else:
+          if batch:
+            source_langs = [source_lang for text in q]
+          else:
+            source_langs = [source_lang]
 
-            if args.debug:
-                print("Auto detected: %s" % source_lang)
+        src_langs = [next(iter([l for l in languages if l.code == source_lang]), None) for source_lang in source_langs]
+        
+        for idx, lang in enumerate(src_langs):
+          if lang is None:
+            abort(400, description="%s is not supported" % source_langs[idx])
 
-        src_lang = next(iter([l for l in languages if l.code == source_lang]), None)
         tgt_lang = next(iter([l for l in languages if l.code == target_lang]), None)
 
-        if src_lang is None:
-            abort(400, description="%s is not supported" % source_lang)
         if tgt_lang is None:
             abort(400, description="%s is not supported" % target_lang)
 
-        translator = src_lang.get_translation(tgt_lang)
-
         try:
             if batch:
+                results = []
+                for idx, text in enumerate(q):
+                  translator = src_langs[idx].get_translation(tgt_lang)
+                  results.append(translator.translate(
+                                transliterate(text, target_lang=source_langs[idx])
+                                ))
                 return jsonify(
                     {
-                        "translatedText": [
-                            translator.translate(
-                                transliterate(text, target_lang=source_lang)
-                            )
-                            for text in q
-                        ]
+                        "translatedText": results
                     }
                 )
             else:
+                translator = src_langs[0].get_translation(tgt_lang)
                 return jsonify(
                     {
                         "translatedText": translator.translate(
-                            transliterate(q, target_lang=source_lang)
+                            transliterate(q, target_lang=source_langs[0])
                         )
                     }
                 )

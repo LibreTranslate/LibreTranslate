@@ -22,16 +22,19 @@ def detect_languages(text):
     candidates = []
     for t in text:
         try:
-            candidates.extend(Detector(t).languages)
+            d = Detector(t).languages
+            for i in range(len(d)):
+                d[i].text_length = len(t)
+            candidates.extend(d)
         except UnknownLanguage:
             pass
 
     # total read bytes of the provided text
-    read_bytes_total = sum(c.read_bytes for c in candidates)
+    text_length_total = sum(c.text_length for c in candidates)
 
     # only use candidates that are supported by argostranslate
     candidate_langs = list(
-        filter(lambda l: l.read_bytes != 0 and l.code in __lang_codes, candidates)
+        filter(lambda l: l.text_length != 0 and l.code in __lang_codes, candidates)
     )
 
     # this happens if no language could be detected
@@ -50,7 +53,7 @@ def detect_languages(text):
                 # if more than one is present, calculate the average confidence
                 lang = lc[0]
                 lang.confidence = sum(l.confidence for l in lc) / len(lc)
-                lang.read_bytes = sum(l.read_bytes for l in lc)
+                lang.text_length = sum(l.text_length for l in lc)
                 temp_average_list.append(lang)
             elif lc:
                 # otherwise just add it to the temporary list
@@ -62,7 +65,7 @@ def detect_languages(text):
 
     # sort the candidates descending based on the detected confidence
     candidate_langs.sort(
-        key=lambda l: (l.confidence * l.read_bytes) / read_bytes_total, reverse=True
+        key=lambda l: (l.confidence * l.text_length) / text_length_total, reverse=True
     )
 
     return [{"confidence": l.confidence, "language": l.code} for l in candidate_langs]
