@@ -428,6 +428,7 @@
 					data.append("api_key", localStorage.getItem("api_key") || "");
 
 					request.open('POST', BaseUrl + '/translate', true);
+					request.setRequestHeader("ReqKey", "1");
 
 					request.onload = function() {
 					try{
