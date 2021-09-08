@@ -20,7 +20,7 @@ def get_json_dict(request):
 
 def get_remote_address():
     if request.headers.getlist("X-Forwarded-For"):
-        ip = request.headers.getlist("X-Forwarded-For")[0]
+        ip = request.headers.getlist("X-Forwarded-For")[0].split(",")[0]
     else:
         ip = request.remote_addr or "127.0.0.1"
 
