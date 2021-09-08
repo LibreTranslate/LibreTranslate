@@ -135,9 +135,9 @@ def create_app(args):
                     ak = json.get("api_key")
                 else:
                     ak = request.values.get("api_key")
-                
+
                 if (
-                    api_keys_db.lookup(ak) is None and (request.headers.get("Origin") != args.require_api_key_origin or (args.require_api_key_origin and request.headers.get("ReqKey") != "1"))
+                    api_keys_db.lookup(ak) is None and request.headers.get("Origin") != args.require_api_key_origin
                 ):
                     abort(
                         403,
