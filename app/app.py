@@ -10,6 +10,7 @@ from app.language import detect_languages, transliterate
 
 from .api_keys import Database
 
+from translatehtml import translate_html
 
 def get_json_dict(request):
     d = request.get_json()
@@ -263,6 +264,18 @@ def create_app(args):
             required: true
             description: Target language code
           - in: formData
+            name: format
+            schema:
+              type: string
+              enum: [text, html]
+              default: text
+              example: text
+            required: false
+            description: >
+              Format of source text:
+               * `text` - Plain text
+               * `html` - HTML markup
+          - in: formData
             name: api_key
             schema:
               type: string
@@ -323,10 +336,12 @@ def create_app(args):
             q = json.get("q")
             source_lang = json.get("source")
             target_lang = json.get("target")
+            text_format = json.get("format")
         else:
             q = request.values.get("q")
             source_lang = request.values.get("source")
             target_lang = request.values.get("target")
+            text_format = request.values.get("format")
 
         if not q:
             abort(400, description="Invalid request: missing q parameter")
@@ -396,14 +411,25 @@ def create_app(args):
         if tgt_lang is None:
             abort(400, description="%s is not supported" % target_lang)
 
+        if not text_format:
+            text_format = "text"
+
+        if text_format not in ["text", "html"]:
+            abort(400, description="%s format is not supported" % text_format)
+
+
         try:
             if batch:
                 results = []
                 for idx, text in enumerate(q):
                   translator = src_langs[idx].get_translation(tgt_lang)
-                  results.append(translator.translate(
-                                transliterate(text, target_lang=source_langs[idx])
-                                ))
+
+                  if text_format == "html":
+                    translated_text = str(translate_html(translator, transliterate(text, target_lang=source_langs[idx])))
+                  else:
+                    translated_text = translator.translate(transliterate(text, target_lang=source_langs[idx]))
+
+                  results.append(translated_text)
                 return jsonify(
                     {
                         "translatedText": results
@@ -411,11 +437,14 @@ def create_app(args):
                 )
             else:
                 translator = src_langs[0].get_translation(tgt_lang)
+
+                if text_format == "html":
+                    translated_text = str(translate_html(translator, transliterate(q, target_lang=source_langs[0])))
+                else:
+                    translated_text = translator.translate(transliterate(q, target_lang=source_langs[0]))
                 return jsonify(
                     {
-                        "translatedText": translator.translate(
-                            transliterate(q, target_lang=source_langs[0])
-                        )
+                        "translatedText": translated_text
                     }
                 )
         except Exception as e:
