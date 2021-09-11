@@ -39,7 +39,7 @@ Response:
 }
 ```
 
-### HTML
+### HTML (beta)
 
 Request:
 
@@ -47,7 +47,7 @@ Request:
 const res = await fetch("https://libretranslate.com/translate", {
 	method: "POST",
 	body: JSON.stringify({
-		q: '<a href="#" class="green">Hello!</a>',
+		q: '<p class="green">Hello!</p>',
 		source: "en",
 		target: "es",
 		format: "html"
@@ -62,7 +62,7 @@ Response:
 
 ```javascript
 {
-    "translatedText": "<a href\"#='class=\"green\"'>¡Hola!</a>"
+    "translatedText": "<p class=\"green\">¡Hola!</p>"
 }
 ```
 
