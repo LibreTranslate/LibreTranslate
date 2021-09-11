@@ -12,6 +12,9 @@ Free and Open Source Machine Translation API, entirely self-hosted. Unlike other
 
 ## API Examples
 
+
+### Plain Text
+
 Request:
 
 ```javascript
@@ -33,6 +36,33 @@ Response:
 ```javascript
 {
     "translatedText": "¡Hola!"
+}
+```
+
+### HTML
+
+Request:
+
+```javascript
+const res = await fetch("https://libretranslate.com/translate", {
+	method: "POST",
+	body: JSON.stringify({
+		q: '<a href="#" class="green">Hello!</a>',
+		source: "en",
+		target: "es",
+		format: "html"
+	}),
+	headers: { "Content-Type": "application/json" }
+});
+
+console.log(await res.json());
+```
+
+Response:
+
+```javascript
+{
+    "translatedText": "<a href\"#='class=\"green\"'>¡Hola!</a>"
 }
 ```
 
@@ -135,7 +165,6 @@ You can pass application arguments directly to Gunicorn via:
 ```
 gunicorn --bind 0.0.0.0:5000 'wsgi:app(api_keys=True)'
 ```
-
 
 ## Manage API Keys
 

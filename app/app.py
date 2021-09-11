@@ -267,9 +267,14 @@ def create_app(args):
             name: format
             schema:
               type: string
-              example: html or text
+              enum: [text, html]
+              default: text
+              example: text
             required: false
-            description: The format of the source text
+            description: >
+              Format of source text:
+               * `text` - Plain text
+               * `html` - HTML markup
           - in: formData
             name: api_key
             schema:
