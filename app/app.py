@@ -425,7 +425,7 @@ def create_app(args):
                   translator = src_langs[idx].get_translation(tgt_lang)
 
                   if text_format == "html":
-                    translated_text = str(translate_html(translator, transliterate(text, target_lang=source_langs[idx])))
+                    translated_text = str(translate_html(translator, text))
                   else:
                     translated_text = translator.translate(transliterate(text, target_lang=source_langs[idx]))
 
@@ -439,7 +439,7 @@ def create_app(args):
                 translator = src_langs[0].get_translation(tgt_lang)
 
                 if text_format == "html":
-                    translated_text = str(translate_html(translator, transliterate(q, target_lang=source_langs[0])))
+                    translated_text = str(translate_html(translator, q))
                 else:
                     translated_text = translator.translate(transliterate(q, target_lang=source_langs[0]))
                 return jsonify(
