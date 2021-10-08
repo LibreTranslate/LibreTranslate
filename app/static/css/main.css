@@ -124,6 +124,13 @@ h3.header {
   cursor: pointer;
 }
 
+.btn-blue {
+  color: #42A5F5;
+}
+.btn-action:disabled {
+    color: #777;
+}
+
 .btn-action span {
   padding-right: 0.5rem;
 }
