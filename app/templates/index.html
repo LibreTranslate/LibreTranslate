@@ -272,7 +272,8 @@
 			loadingTranslation: false,
 			inputText: "",
 			inputTextareaHeight: 250,
-			translatedText: "",
+            savedTanslatedText: "",
+            translatedText: "",
 			output: "",
 			charactersLimit: -1,
 
@@ -392,7 +393,7 @@
 				return htmlRegex.test(this.inputText);
 			},
             canSendSuggestion() {
-                return this.translatedText.trim() !== "" && this.translatedText !== this.inputText;
+                return this.translatedText.trim() !== "" && this.translatedText !== this.savedTanslatedText;
             }
         },
 		filters: {
@@ -496,10 +497,13 @@
 			},
             suggestTranslation: function(e) {
                 e.preventDefault();
+                this.savedTanslatedText = this.translatedText
 
                 this.isSuggesting = true;
             },
             closeSuggestTranslation: function(e) {
+                this.translatedText = this.savedTanslatedText
+
                 e.preventDefault();
 
                 this.isSuggesting = false;
