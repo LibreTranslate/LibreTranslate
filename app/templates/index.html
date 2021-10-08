@@ -149,9 +149,18 @@
 									Translated text
 								</label>									
 								<textarea id="textarea2" v-model="translatedText" ref="translatedTextarea" dir="auto" readonly></textarea>
-								<button class="btn-copy-translated" @click="copyText">
-									<span>[[ copyTextLabel ]]</span> <i class="material-icons">content_copy</i>
-								</button>	
+                                <div class="actions">
+                                    <button v-if="inputText.length && !isSuggesting" class="btn-action" @click="suggestTranslation">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                    <button v-if="inputText.length && isSuggesting" class="btn-action" @click="closeSuggestTranslation">
+                                        <i class="material-icons">close</i>
+                                    </button>
+
+                                    <button class="btn-action btn-copy-translated" @click="copyText">
+                                        <span>[[ copyTextLabel ]]</span> <i class="material-icons">content_copy</i>
+                                    </button>
+                                </div>
 								<div class="position-relative">									
 									<div class="progress translate" v-if="loadingTranslation">
 										<div class="indeterminate"></div>
@@ -265,7 +274,9 @@
 			output: "",
 			charactersLimit: -1,
 
-			copyTextLabel: "Copy text"
+			copyTextLabel: "Copy text",
+
+            isSuggesting: false,
 		},
 		mounted: function(){
 			var self = this;
@@ -474,6 +485,16 @@
 					}, 1500);
 				}
 			},
+            suggestTranslation: function(e) {
+                e.preventDefault();
+
+                this.isSuggesting = true;
+            },
+            closeSuggestTranslation: function(e) {
+                e.preventDefault();
+
+                this.isSuggesting = false;
+            },
 			deleteText: function(e){
 				e.preventDefault();
 				this.inputText = this.translatedText = this.output = "";
