@@ -96,7 +96,7 @@ h3.header {
 }
 
 .btn-delete-text:focus,
-.btn-copy-translated:focus {
+.btn-action:focus {
   background: none !important;
 }
 
@@ -107,11 +107,14 @@ h3.header {
   color: #777;
   pointer-events: none;
 }
-
-.btn-copy-translated {
+.actions {
   position: absolute;
-  right: 2.75rem;
+  right: 1.25rem;
   bottom: 1rem;
+  display: flex;
+}
+
+.btn-action {
   display: flex;
   align-items: center;
   color: #777;
@@ -119,14 +122,20 @@ h3.header {
   background: none;
   border: none;
   cursor: pointer;
-  margin-right: -1.5rem;
 }
 
-.btn-copy-translated span {
+.btn-blue {
+  color: #42A5F5;
+}
+.btn-action:disabled {
+    color: #777;
+}
+
+.btn-action span {
   padding-right: 0.5rem;
 }
 
-.btn-copy-translated .material-icons {
+.btn-action .material-icons {
   font-size: 1.35rem;
 }
 

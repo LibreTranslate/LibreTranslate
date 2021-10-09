@@ -9,6 +9,7 @@ from app import flood
 from app.language import detect_languages, transliterate
 
 from .api_keys import Database
+from .suggestions import Database as SuggestionsDatabase
 
 from translatehtml import translate_html
 
@@ -565,6 +566,9 @@ def create_app(args):
                 frontendTimeout:
                   type: integer
                   description: Frontend translation timeout
+                suggestions:
+                  type: boolean
+                  description: Whether submitting suggestions is enabled.
                 language:
                   type: object
                   properties:
@@ -591,6 +595,7 @@ def create_app(args):
             {
                 "charLimit": args.char_limit,
                 "frontendTimeout": args.frontend_timeout,
+                "suggestions": args.suggestions,
                 "language": {
                     "source": {
                         "code": frontend_argos_language_source.code,
@@ -604,8 +609,76 @@ def create_app(args):
             }
         )
 
+    @app.route("/suggest", methods=["POST"])
+    @limiter.exempt
+    def suggest():
+        """
+        Submit a suggestion to improve a translation
+        ---
+        tags:
+          - feedback
+        parameters:
+          - in: formData
+            name: q
+            schema:
+              type: string
+              example: Hello world!
+            required: true
+            description: Original text
+          - in: formData
+            name: s
+            schema:
+              type: string
+              example: ¡Hola mundo!
+            required: true
+            description: Suggested translation
+          - in: formData
+            name: source
+            schema:
+              type: string
+              example: en
+            required: true
+            description: Language of original text
+          - in: formData
+            name: target
+            schema:
+              type: string
+              example: es
+            required: true
+            description: Language of suggested translation
+        responses:
+          200:
+            description: Success
+            schema:
+              id: suggest-response
+              type: object
+              properties:
+                success:
+                  type: boolean
+                  description: Whether submission was successful
+          403:
+            description: Not authorized
+            schema:
+              id: error-response
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Error message
+        """
+        if not args.suggestions:
+            abort(403, description="Suggestions are disabled on this server.")
+
+        q = request.values.get("q")
+        s = request.values.get("s")
+        source_lang = request.values.get("source")
+        target_lang = request.values.get("target")
+
+        SuggestionsDatabase().add(q, s, source_lang, target_lang)
+        return jsonify({"success": True})
+
     swag = swagger(app)
-    swag["info"]["version"] = "1.2"
+    swag["info"]["version"] = "1.2.1"
     swag["info"]["title"] = "LibreTranslate"
 
     @app.route("/spec")
