@@ -9,6 +9,7 @@ from app import flood
 from app.language import detect_languages, transliterate
 
 from .api_keys import Database
+from .suggestions import Database as SuggestionsDatabase
 
 from translatehtml import translate_html
 
@@ -617,7 +618,12 @@ def create_app(args):
     @app.route("/suggest", methods=["POST"])
     @limiter.exempt
     def suggest():
-        # TODO:
+        q = request.values.get("q")
+        s = request.values.get("s")
+        source_lang = request.values.get("source")
+        target_lang = request.values.get("target")
+
+        SuggestionsDatabase().add(q, s, source_lang, target_lang)
         return jsonify({"success": True})
 
     SWAGGER_URL = "/docs"  # URL for exposing Swagger UI (without trailing '/')
