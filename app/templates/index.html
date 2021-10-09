@@ -150,13 +150,13 @@
 								</label>
 								<textarea id="textarea2" v-model="translatedText" ref="translatedTextarea" dir="auto" v-bind:readonly="!isSuggesting"></textarea>
                                 <div class="actions">
-                                    <button v-if="inputText.length && !isSuggesting" class="btn-action" @click="suggestTranslation">
+                                    <button v-if="!loadingTranslation && inputText.length && !isSuggesting" class="btn-action" @click="suggestTranslation">
                                         <i class="material-icons">edit</i>
                                     </button>
-                                    <button v-if="inputText.length && isSuggesting" class="btn-action btn-blue" @click="closeSuggestTranslation">
+                                    <button v-if="!loadingTranslation && inputText.length && isSuggesting" class="btn-action btn-blue" @click="closeSuggestTranslation">
                                         <span>Cancel</span>
                                     </button>
-                                    <button v-if="inputText.length && isSuggesting" :disabled="!canSendSuggestion" class="btn-action btn-blue" @click="sendSuggestion">
+                                    <button v-if="!loadingTranslation && inputText.length && isSuggesting" :disabled="!canSendSuggestion" class="btn-action btn-blue" @click="sendSuggestion">
                                         <span>Send</span>
                                     </button>
                                     <button v-if="!isSuggesting" class="btn-action btn-copy-translated" @click="copyText">
