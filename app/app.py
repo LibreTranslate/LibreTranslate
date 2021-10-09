@@ -613,6 +613,13 @@ def create_app(args):
     def spec():
         return jsonify(swag)
 
+
+    @app.route("/suggest", methods=["POST"])
+    @limiter.exempt
+    def suggest():
+        # TODO:
+        return jsonify({"success": True})
+
     SWAGGER_URL = "/docs"  # URL for exposing Swagger UI (without trailing '/')
     API_URL = "/spec"
 

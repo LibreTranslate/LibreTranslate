@@ -511,6 +511,8 @@
             sendSuggestion: function(e) {
                 e.preventDefault();
 
+                var self = this;
+
                 var request = new XMLHttpRequest();
                 self.transRequest = request;
 
@@ -520,7 +522,28 @@
                 data.append("source", self.sourceLang);
                 data.append("target", self.targetLang);
 
-                request.open('POST', BaseUrl + '/translate', true);
+                request.open('POST', BaseUrl + '/suggest', true);
+                request.onload = function() {
+                    try{
+                        var res = JSON.parse(this.response);
+                        if (res.success){
+                            M.toast({html: 'Thanks for your correction.'})
+                            self.closeSuggestTranslation(e)
+                        }else{
+                            throw new Error(res.error || "Unknown error");
+                        }
+                    }catch(e){
+                        self.error = e.message;
+                        self.closeSuggestTranslation(e)
+                    }
+                };
+
+                request.onerror = function() {
+                    self.error = "Error while calling /suggest";
+                    self.loadingTranslation = false;
+                };
+
+                request.send(data);
             },
 			deleteText: function(e){
 				e.preventDefault();
