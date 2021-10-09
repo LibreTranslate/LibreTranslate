@@ -19,7 +19,7 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/material-icons.css') }}" />
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/prism.min.css') }}" />
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}?t=2" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}?v={{ version }}" />
 
 	{% if gaId %}
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -245,8 +245,7 @@
 	window.Prism.manual = true;
 	// @license-end
 	</script>
-
     <script src="{{ url_for('static', filename='js/prism.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}?v={{ version }}"></script>
 </body>
 </html>
