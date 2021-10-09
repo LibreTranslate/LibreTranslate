@@ -1,6 +1,7 @@
 import os
 from functools import wraps
 
+import pkg_resources
 from flask import Flask, abort, jsonify, render_template, request
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
@@ -176,6 +177,7 @@ def create_app(args):
             frontendTimeout=args.frontend_timeout,
             api_keys=args.api_keys,
             web_version=os.environ.get("LT_WEB") is not None,
+            version=pkg_resources.require("LibreTranslate")[0].version
         )
 
     @app.route("/javascript-licenses", methods=["GET"])
