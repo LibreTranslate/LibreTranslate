@@ -566,6 +566,9 @@ def create_app(args):
                 frontendTimeout:
                   type: integer
                   description: Frontend translation timeout
+                suggestions:
+                  type: boolean
+                  description: Whether submitting suggestions is enabled.
                 language:
                   type: object
                   properties:
@@ -606,21 +609,65 @@ def create_app(args):
             }
         )
 
-    swag = swagger(app)
-    swag["info"]["version"] = "1.2"
-    swag["info"]["title"] = "LibreTranslate"
-
-    @app.route("/spec")
-    @limiter.exempt
-    def spec():
-        return jsonify(swag)
-
-
     @app.route("/suggest", methods=["POST"])
     @limiter.exempt
     def suggest():
-        if args.suggestions is False:
-            abort(404)
+        """
+        Submit a suggestion to improve a translation
+        ---
+        tags:
+          - feedback
+        parameters:
+          - in: formData
+            name: q
+            schema:
+              type: string
+              example: Hello world!
+            required: true
+            description: Original text
+          - in: formData
+            name: s
+            schema:
+              type: string
+              example: ¡Hola mundo!
+            required: true
+            description: Suggested translation
+          - in: formData
+            name: source
+            schema:
+              type: string
+              example: en
+            required: true
+            description: Language of original text
+          - in: formData
+            name: target
+            schema:
+              type: string
+              example: es
+            required: true
+            description: Language of suggested translation
+        responses:
+          200:
+            description: Success
+            schema:
+              id: suggest-response
+              type: object
+              properties:
+                success:
+                  type: boolean
+                  description: Whether submission was successful
+          403:
+            description: Not authorized
+            schema:
+              id: error-response
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Error message
+        """
+        if not args.suggestions:
+            abort(403, description="Suggestions are disabled on this server.")
 
         q = request.values.get("q")
         s = request.values.get("s")
@@ -629,6 +676,15 @@ def create_app(args):
 
         SuggestionsDatabase().add(q, s, source_lang, target_lang)
         return jsonify({"success": True})
+
+    swag = swagger(app)
+    swag["info"]["version"] = "1.2.1"
+    swag["info"]["title"] = "LibreTranslate"
+
+    @app.route("/spec")
+    @limiter.exempt
+    def spec():
+        return jsonify(swag)
 
     SWAGGER_URL = "/docs"  # URL for exposing Swagger UI (without trailing '/')
     API_URL = "/spec"
