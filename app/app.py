@@ -592,6 +592,7 @@ def create_app(args):
             {
                 "charLimit": args.char_limit,
                 "frontendTimeout": args.frontend_timeout,
+                "suggestions": args.suggestions,
                 "language": {
                     "source": {
                         "code": frontend_argos_language_source.code,
@@ -618,6 +619,9 @@ def create_app(args):
     @app.route("/suggest", methods=["POST"])
     @limiter.exempt
     def suggest():
+        if args.suggestions is False:
+            abort(404)
+
         q = request.values.get("q")
         s = request.values.get("s")
         source_lang = request.values.get("source")

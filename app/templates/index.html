@@ -148,15 +148,15 @@
 								<label for="textarea2" class="sr-only">
 									Translated text
 								</label>
-								<textarea id="textarea2" v-model="translatedText" ref="translatedTextarea" dir="auto" v-bind:readonly="!isSuggesting"></textarea>
+								<textarea id="textarea2" v-model="translatedText" ref="translatedTextarea" dir="auto" v-bind:readonly="suggestions && !isSuggesting"></textarea>
                                 <div class="actions">
-                                    <button v-if="!loadingTranslation && inputText.length && !isSuggesting" class="btn-action" @click="suggestTranslation">
+                                    <button v-if="suggestions && !loadingTranslation && inputText.length && !isSuggesting" class="btn-action" @click="suggestTranslation">
                                         <i class="material-icons">edit</i>
                                     </button>
-                                    <button v-if="!loadingTranslation && inputText.length && isSuggesting" class="btn-action btn-blue" @click="closeSuggestTranslation">
+                                    <button v-if="suggestions && !loadingTranslation && inputText.length && isSuggesting" class="btn-action btn-blue" @click="closeSuggestTranslation">
                                         <span>Cancel</span>
                                     </button>
-                                    <button v-if="!loadingTranslation && inputText.length && isSuggesting" :disabled="!canSendSuggestion" class="btn-action btn-blue" @click="sendSuggestion">
+                                    <button v-if="suggestions && !loadingTranslation && inputText.length && isSuggesting" :disabled="!canSendSuggestion" class="btn-action btn-blue" @click="sendSuggestion">
                                         <span>Send</span>
                                     </button>
                                     <button v-if="!isSuggesting" class="btn-action btn-copy-translated" @click="copyText">
@@ -279,6 +279,7 @@
 
 			copyTextLabel: "Copy text",
 
+            suggestions: false,
             isSuggesting: false,
 		},
 		mounted: function(){
@@ -293,7 +294,8 @@
 					self.sourceLang = self.settings.language.source.code;
 					self.targetLang = self.settings.language.target.code;
 					self.charactersLimit = self.settings.charLimit;
-				}else {
+                    self.suggestions = self.settings.suggestions;
+            }else {
 					self.error = "Cannot load /frontend/settings";
 					self.loading = false;
 			}

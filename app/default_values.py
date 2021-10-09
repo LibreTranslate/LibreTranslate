@@ -110,6 +110,11 @@ _default_options_objects = [
         'name': 'LOAD_ONLY',
         'default_value': None,
         'value_type': 'str'
+    },
+    {
+        'name': 'SUGGESTIONS',
+        'default_value': False,
+        'value_type':  'bool'
     }
 ]
 
