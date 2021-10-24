@@ -23,6 +23,10 @@ h3.header {
   margin-top: 0 !important;
 }
 
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
 .position-relative {
   position: relative;
 }
@@ -112,6 +116,21 @@ h3.header {
   right: 1.25rem;
   bottom: 1rem;
   display: flex;
+}
+
+.btn-switch-type {
+    background-color: #fff;
+    color: #42A5F5;
+}
+
+.btn-switch-type:hover {
+    background-color: #eee;
+    color: #42A5F5;
+}
+
+.btn-switch-type.active {
+    background-color: #42A5F5;
+    color: #fff;
 }
 
 .btn-action {
