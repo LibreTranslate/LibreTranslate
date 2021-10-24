@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
             supportedFilesFormat : [],
             translationType: "text",
-            inputFile: false
+            inputFile: false,
+            loadingFileTranslation: false,
         },
         mounted: function(){
             var self = this;
@@ -319,6 +320,25 @@ document.addEventListener('DOMContentLoaded', function(){
             },
             translateFile: function(e) {
                 e.preventDefault();
+
+                let translateFileRequest = new XMLHttpRequest();
+
+                translateFileRequest.open("POST", BaseUrl + "/translate_file", true);
+                translateFileRequest.setRequestHeader("Content-type", "multipart/form-data");
+
+                let formdata = new FormData();
+                formdata.append("file", this.inputFile);
+
+                translateFileRequest.send(formdata);
+
+                this.loadingFileTranslation = true
+
+                translateFileRequest.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        this.loadingFileTranslation = false
+                    }
+                }
+
             }
         }
     });

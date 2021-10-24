@@ -1,19 +1,22 @@
 import os
+import tempfile
+import uuid
 from functools import wraps
 
+import argostranslatefiles
 import pkg_resources
+from argostranslatefiles import get_supported_formats
 from flask import Flask, abort, jsonify, render_template, request
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
+from translatehtml import translate_html
+from werkzeug.utils import secure_filename
 
 from app import flood
 from app.language import detect_languages, transliterate
-
 from .api_keys import Database
 from .suggestions import Database as SuggestionsDatabase
 
-from argostranslatefiles import get_supported_formats
-from translatehtml import translate_html
 
 def get_json_dict(request):
     d = request.get_json()
@@ -31,7 +34,7 @@ def get_remote_address():
     return ip
 
 
-def get_req_limits(default_limit, api_keys_db, multiplier = 1):
+def get_req_limits(default_limit, api_keys_db, multiplier=1):
     req_limit = default_limit
 
     if api_keys_db:
@@ -45,7 +48,7 @@ def get_req_limits(default_limit, api_keys_db, multiplier = 1):
             db_req_limit = api_keys_db.lookup(api_key)
             if db_req_limit is not None:
                 req_limit = db_req_limit * multiplier
-                
+
     return req_limit
 
 
@@ -147,7 +150,7 @@ def create_app(args):
                     ak = request.values.get("api_key")
 
                 if (
-                    api_keys_db.lookup(ak) is None and request.headers.get("Origin") != args.require_api_key_origin
+                        api_keys_db.lookup(ak) is None and request.headers.get("Origin") != args.require_api_key_origin
                 ):
                     abort(
                         403,
@@ -368,7 +371,7 @@ def create_app(args):
                 abort(
                     400,
                     description="Invalid request: Request (%d) exceeds text limit (%d)"
-                    % (batch_size, args.batch_limit),
+                                % (batch_size, args.batch_limit),
                 )
 
         if args.char_limit != -1:
@@ -381,40 +384,40 @@ def create_app(args):
                 abort(
                     400,
                     description="Invalid request: Request (%d) exceeds character limit (%d)"
-                    % (chars, args.char_limit),
+                                % (chars, args.char_limit),
                 )
 
         if source_lang == "auto":
             source_langs = []
             if batch:
-              auto_detect_texts = q
+                auto_detect_texts = q
             else:
-              auto_detect_texts = [q]
+                auto_detect_texts = [q]
 
             overall_candidates = detect_languages(q)
-            
-            for text_to_check in auto_detect_texts:
-              if len(text_to_check) > 40:
-                candidate_langs = detect_languages(text_to_check)
-              else:
-                # Unable to accurately detect languages for short texts
-                candidate_langs = overall_candidates
-              source_langs.append(candidate_langs[0]["language"])
 
-              if args.debug:
-                  print(text_to_check, candidate_langs)
-                  print("Auto detected: %s" % candidate_langs[0]["language"])
+            for text_to_check in auto_detect_texts:
+                if len(text_to_check) > 40:
+                    candidate_langs = detect_languages(text_to_check)
+                else:
+                    # Unable to accurately detect languages for short texts
+                    candidate_langs = overall_candidates
+                source_langs.append(candidate_langs[0]["language"])
+
+                if args.debug:
+                    print(text_to_check, candidate_langs)
+                    print("Auto detected: %s" % candidate_langs[0]["language"])
         else:
-          if batch:
-            source_langs = [source_lang for text in q]
-          else:
-            source_langs = [source_lang]
+            if batch:
+                source_langs = [source_lang for text in q]
+            else:
+                source_langs = [source_lang]
 
         src_langs = [next(iter([l for l in languages if l.code == source_lang]), None) for source_lang in source_langs]
-        
+
         for idx, lang in enumerate(src_langs):
-          if lang is None:
-            abort(400, description="%s is not supported" % source_langs[idx])
+            if lang is None:
+                abort(400, description="%s is not supported" % source_langs[idx])
 
         tgt_lang = next(iter([l for l in languages if l.code == target_lang]), None)
 
@@ -427,19 +430,18 @@ def create_app(args):
         if text_format not in ["text", "html"]:
             abort(400, description="%s format is not supported" % text_format)
 
-
         try:
             if batch:
                 results = []
                 for idx, text in enumerate(q):
-                  translator = src_langs[idx].get_translation(tgt_lang)
+                    translator = src_langs[idx].get_translation(tgt_lang)
 
-                  if text_format == "html":
-                    translated_text = str(translate_html(translator, text))
-                  else:
-                    translated_text = translator.translate(transliterate(text, target_lang=source_langs[idx]))
+                    if text_format == "html":
+                        translated_text = str(translate_html(translator, text))
+                    else:
+                        translated_text = translator.translate(transliterate(text, target_lang=source_langs[idx]))
 
-                  results.append(translated_text)
+                    results.append(translated_text)
                 return jsonify(
                     {
                         "translatedText": results
@@ -459,6 +461,143 @@ def create_app(args):
                 )
         except Exception as e:
             abort(500, description="Cannot translate text: %s" % str(e))
+
+    @app.route("/translate_file", methods=["POST"])
+    @access_check
+    def translate_file():
+        """
+        Translate file from a language to another
+        ---
+        tags:
+          - translate
+        consumes:
+         - multipart/form-data
+        parameters:
+          - in: formData
+            name: file
+            type: file
+            required: true
+            description: file to translate
+          - in: formData
+            name: source
+            schema:
+              type: string
+              example: en
+            required: true
+            description: Source language code
+          - in: formData
+            name: target
+            schema:
+              type: string
+              example: es
+            required: true
+            description: Target language code
+          - in: formData
+            name: api_key
+            schema:
+              type: string
+              example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+            required: false
+            description: API key
+        responses:
+          200:
+            description: Translated file
+            schema:
+              id: translate
+              type: object
+              properties:
+                translatedText:
+                  oneOf:
+                    - type: string
+                    - type: array
+                  description: Translated text(s)
+          400:
+            description: Invalid request
+            schema:
+              id: error-response
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Error message
+          500:
+            description: Translation error
+            schema:
+              id: error-response
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Error message
+          429:
+            description: Slow down
+            schema:
+              id: error-slow-down
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Reason for slow down
+          403:
+            description: Banned
+            schema:
+              id: error-response
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Error message
+        """
+        if request.is_json:
+            json = get_json_dict(request)
+            source_lang = json.get("source")
+            target_lang = json.get("target")
+        else:
+            source_lang = request.values.get("source")
+            target_lang = request.values.get("target")
+
+        file = request.files['file']
+
+        if not file:
+            abort(400, description="Invalid request: missing q parameter")
+        if not source_lang:
+            abort(400, description="Invalid request: missing source parameter")
+        if not target_lang:
+            abort(400, description="Invalid request: missing target parameter")
+
+        if file.filename == '':
+            abort(400, description="Invalid request: empty file")
+
+        if os.path.splitext(file.filename)[1] not in frontend_argos_supported_files_format:
+            abort(400, description="Invalid request: file format not supported")
+
+        source_langs = [source_lang]
+        src_langs = [next(iter([l for l in languages if l.code == source_lang]), None) for source_lang in source_langs]
+
+        for idx, lang in enumerate(src_langs):
+            if lang is None:
+                abort(400, description="%s is not supported" % source_langs[idx])
+
+        tgt_lang = next(iter([l for l in languages if l.code == target_lang]), None)
+
+        if tgt_lang is None:
+            abort(400, description="%s is not supported" % target_lang)
+
+        try:
+            filename = str(uuid.uuid4()) + '.' + secure_filename(file.filename)
+            filepath = os.path.join(tempfile.gettempdir(), filename)
+
+            file.save(filepath)
+
+            translated_file_path = argostranslatefiles.translate_file(src_langs[0].get_translation(tgt_lang), filepath)
+
+            return jsonify(
+                {
+                    "translatedFileUrl": translated_file_path
+                }
+            )
+        except Exception as e:
+            abort(500, description=e)
 
     @app.route("/detect", methods=["POST"])
     @access_check
