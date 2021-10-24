@@ -180,7 +180,7 @@
                                         <div class="file-field input-field">
                                             <div class="btn">
                                                 <span>File</span>
-                                                <input type="file" @change="handleInputFile" ref="fileInputRef">
+                                                <input type="file" :accept="supportedFilesFormatFormatted" @change="handleInputFile" ref="fileInputRef">
                                             </div>
                                             <div class="file-path-wrapper hidden">
                                                 <input class="file-path validate" type="text">
