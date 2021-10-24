@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function(){
             suggestions: false,
             isSuggesting: false,
 
+            supportedFilesFormat : [],
             translationType: "text"
         },
         mounted: function(){
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     self.targetLang = self.settings.language.target.code;
                     self.charactersLimit = self.settings.charLimit;
                     self.suggestions = self.settings.suggestions;
+                    self.supportedFilesFormat = self.settings.supportedFilesFormat;
                 }else {
                     self.error = "Cannot load /frontend/settings";
                     self.loading = false;
@@ -141,7 +143,9 @@ document.addEventListener('DOMContentLoaded', function(){
                     '',
                     'console.log(await res.json());'].join("\n");
             },
-
+            supportedFilesFormatFormatted: function() {
+                return this.supportedFilesFormat.join(', ');
+            },
             isHtml: function(){
                 return htmlRegex.test(this.inputText);
             },

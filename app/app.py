@@ -12,6 +12,7 @@ from app.language import detect_languages, transliterate
 from .api_keys import Database
 from .suggestions import Database as SuggestionsDatabase
 
+from argostranslatefiles import get_supported_formats
 from translatehtml import translate_html
 
 def get_json_dict(request):
@@ -93,6 +94,12 @@ def create_app(args):
     frontend_argos_language_target = next(
         iter([l for l in languages if l.code == args.frontend_language_target]), None
     )
+
+    frontend_argos_supported_files_format = []
+
+    for file_format in get_supported_formats():
+        for ff in file_format.supported_file_extensions:
+            frontend_argos_supported_files_format.append(ff)
 
     # Raise AttributeError to prevent app startup if user input is not valid.
     if frontend_argos_language_source is None:
@@ -571,6 +578,11 @@ def create_app(args):
                 suggestions:
                   type: boolean
                   description: Whether submitting suggestions is enabled.
+                supportedFilesFormat:
+                  type: array
+                  items:
+                    type: string
+                  description: Supported files format
                 language:
                   type: object
                   properties:
@@ -598,6 +610,7 @@ def create_app(args):
                 "charLimit": args.char_limit,
                 "frontendTimeout": args.frontend_timeout,
                 "suggestions": args.suggestions,
+                "supportedFilesFormat": frontend_argos_supported_files_format,
                 "language": {
                     "source": {
                         "code": frontend_argos_language_source.code,
