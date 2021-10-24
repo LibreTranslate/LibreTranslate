@@ -174,19 +174,36 @@
 						</div>
                         <div class="row" v-if="translationType === 'files'">
                             <div class="file-dropzone">
-                                <div class="dropzone-content">
+                                <div v-if="inputFile === false" class="dropzone-content">
                                     <span>Supported file format: [[ supportedFilesFormatFormatted ]]</span>
                                     <form action="#">
                                         <div class="file-field input-field">
                                             <div class="btn">
                                                 <span>File</span>
-                                                <input type="file">
+                                                <input type="file" @change="handleInputFile" ref="fileInputRef">
                                             </div>
                                             <div class="file-path-wrapper hidden">
                                                 <input class="file-path validate" type="text">
                                             </div>
                                         </div>
                                     </form>
+                                </div>
+                                <div v-if="inputFile !== false" class="dropzone-content">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <div class="row">
+                                                <div class="col s10">
+                                            <p>[[ inputFile.name ]]</p>
+                                                </div>
+                                                <div class="col s2">
+                                                    <button @click="removeFile" class="btn-flat">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button @click="translateFile" class="btn">Translate</button>
                                 </div>
                             </div>
                         </div>

@@ -32,7 +32,8 @@ document.addEventListener('DOMContentLoaded', function(){
             isSuggesting: false,
 
             supportedFilesFormat : [],
-            translationType: "text"
+            translationType: "text",
+            inputFile: false
         },
         mounted: function(){
             var self = this;
@@ -308,6 +309,16 @@ document.addEventListener('DOMContentLoaded', function(){
             },
             switchType: function(type) {
                 this.translationType = type;
+            },
+            handleInputFile: function(e) {
+                this.inputFile = e.target.files[0];
+            },
+            removeFile: function(e) {
+              e.preventDefault()
+              this.inputFile = false;
+            },
+            translateFile: function(e) {
+                e.preventDefault();
             }
         }
     });
