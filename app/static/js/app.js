@@ -307,7 +307,6 @@ document.addEventListener('DOMContentLoaded', function(){
                 this.inputText = this.translatedText = this.output = "";
             },
             switchType: function(type) {
-                console.log(type)
                 this.translationType = type;
             }
         }
