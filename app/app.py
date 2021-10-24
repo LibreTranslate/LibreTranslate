@@ -1,3 +1,4 @@
+import io
 import os
 import tempfile
 import uuid
@@ -6,7 +7,7 @@ from functools import wraps
 import argostranslatefiles
 import pkg_resources
 from argostranslatefiles import get_supported_formats
-from flask import Flask, abort, jsonify, render_template, request, url_for, send_from_directory
+from flask import Flask, abort, jsonify, render_template, request, url_for, send_from_directory, send_file
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
 from translatehtml import translate_html
@@ -548,14 +549,8 @@ def create_app(args):
                   type: string
                   description: Error message
         """
-        if request.is_json:
-            json = get_json_dict(request)
-            source_lang = json.get("source")
-            target_lang = json.get("target")
-        else:
-            source_lang = request.values.get("source")
-            target_lang = request.values.get("target")
-
+        source_lang = request.form.get("source")
+        target_lang = request.form.get("target")
         file = request.files['file']
 
         if not file:
@@ -606,8 +601,16 @@ def create_app(args):
         Download a translated file
         """
         filename.split('.').pop(0)
+        filepath = os.path.join(tempfile.gettempdir(), filename)
 
-        return send_from_directory(directory=tempfile.gettempdir(), filename=filename)
+        return_data = io.BytesIO()
+        with open(filepath, 'rb') as fo:
+            return_data.write(fo.read())
+        return_data.seek(0)
+
+        os.remove(filepath)
+
+        return send_file(return_data, attachment_filename=filename)
 
     @app.route("/detect", methods=["POST"])
     @access_check

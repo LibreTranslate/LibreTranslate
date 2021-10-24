@@ -196,14 +196,17 @@
                                             <p>[[ inputFile.name ]]</p>
                                                 </div>
                                                 <div class="col s2">
-                                                    <button @click="removeFile" class="btn-flat">
+                                                    <button v-if="loadingFileTranslation !== true" @click="removeFile" class="btn-flat">
                                                         <i class="material-icons">close</i>
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <button @click="translateFile" class="btn">Translate</button>
+                                    <button @click="translateFile" v-if="loadingFileTranslation === false" class="btn">Translate</button>
+                                    <div class="progress" v-if="loadingFileTranslation">
+                                        <div class="indeterminate"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

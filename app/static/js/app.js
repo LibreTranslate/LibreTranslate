@@ -328,17 +328,18 @@ document.addEventListener('DOMContentLoaded', function(){
 
                 let formdata = new FormData();
                 formdata.append("file", this.inputFile);
-
-                translateFileRequest.send(formdata);
+                formdata.append("source", this.sourceLang);
+                formdata.append("target", this.targetLang);
 
                 this.loadingFileTranslation = true
 
-                translateFileRequest.onreadystatechange = function () {
-                    if (xhr.readyState == 4 && xhr.status == 200) {
+                translateFileRequest.onload = () => {
+                    if (translateFileRequest.readyState === 4 && translateFileRequest.status === 200) {
                         this.loadingFileTranslation = false
                     }
                 }
 
+                translateFileRequest.send(formdata);
             }
         }
     });
