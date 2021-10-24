@@ -137,6 +137,23 @@ h3.header {
     color: #fff;
 }
 
+.file-dropzone {
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+  background: #f3f3f3;
+  padding: 1rem 2rem 1rem 1.5rem;
+  height: 220px;
+  position: relative;
+}
+
+.dropzone-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
 .btn-action {
   display: flex;
   align-items: center;

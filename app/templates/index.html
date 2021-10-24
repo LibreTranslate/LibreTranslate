@@ -173,8 +173,21 @@
 							</div>
 						</div>
                         <div class="row" v-if="translationType === 'files'">
-                            <div class="input-field textarea-container col s12">
-                             
+                            <div class="file-dropzone">
+                                <div class="dropzone-content">
+                                    <span>Supported file format: </span>
+                                    <form action="#">
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span>File</span>
+                                                <input type="file">
+                                            </div>
+                                            <div class="file-path-wrapper hidden">
+                                                <input class="file-path validate" type="text">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
 					</form>
