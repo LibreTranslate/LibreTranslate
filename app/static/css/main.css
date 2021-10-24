@@ -123,13 +123,17 @@ h3.header {
     color: #42A5F5;
 }
 
+.btn-switch-type:focus {
+  background-color: inherit;
+}
+
 .btn-switch-type:hover {
-    background-color: #eee;
+    background-color: #eee !important;
     color: #42A5F5;
 }
 
 .btn-switch-type.active {
-    background-color: #42A5F5;
+    background-color: #42A5F5 !important;
     color: #fff;
 }
 
