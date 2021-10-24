@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
             suggestions: false,
             isSuggesting: false,
+
+            translationType: "text"
         },
         mounted: function(){
             var self = this;
@@ -299,6 +301,10 @@ document.addEventListener('DOMContentLoaded', function(){
             deleteText: function(e){
                 e.preventDefault();
                 this.inputText = this.translatedText = this.output = "";
+            },
+            switchType: function(type) {
+                console.log(type)
+                this.translationType = type;
             }
         }
     });

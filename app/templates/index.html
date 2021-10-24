@@ -106,8 +106,8 @@
 				<div class="row">
 					<h3 class="header center">Translation API</h3>
                     <div class="col s12 mb-1">
-                        <a class="btn btn-switch-type active"><i class="material-icons left">title</i>Translate text</a>
-                        <a class="btn btn-switch-type"><i class="material-icons left">description</i>Translate files</a>
+                        <button type="button" class="btn btn-switch-type" @click="switchType('text')" :class="{'active': translationType === 'text'}"><i class="material-icons left">title</i>Translate text</button>
+                        <button type="button" class="btn btn-switch-type" @click="switchType('files')" :class="{'active': translationType === 'files'}"><i class="material-icons left">description</i>Translate files</button>
                     </div>
 					<form class="col s12">
 						<div class="row mb-0">
@@ -133,7 +133,7 @@
 							</div>
 						</div>
 
-						<div class="row">
+						<div class="row" v-if="translationType === 'text'">
 							<div class="input-field textarea-container col s6">
 								<label for="textarea1" class="sr-only">
 									Text to translate
@@ -146,7 +146,6 @@
 									<label>[[ inputText.length ]] / [[ charactersLimit ]]</label>
 								</div>
 							</div>
-
 							<div class="input-field textarea-container col s6">
 								<label for="textarea2" class="sr-only">
 									Translated text
@@ -173,8 +172,12 @@
 								</div>
 							</div>
 						</div>
+                        <div class="row" v-if="translationType === 'files'">
+                            <div class="input-field textarea-container col s12">
+                             
+                            </div>
+                        </div>
 					</form>
-
 				</div>
 			</div>
 		</div>
