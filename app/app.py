@@ -6,7 +6,7 @@ from functools import wraps
 import argostranslatefiles
 import pkg_resources
 from argostranslatefiles import get_supported_formats
-from flask import Flask, abort, jsonify, render_template, request, url_for
+from flask import Flask, abort, jsonify, render_template, request, url_for, send_from_directory
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
 from translatehtml import translate_html
@@ -601,11 +601,13 @@ def create_app(args):
 
     @app.route("/download_file/<string:filename>", methods=["GET"])
     @access_check
-    def download_file(filename):
+    def download_file(filename: str):
         """
         Download a translated file
         """
-        print('')
+        filename.split('.').pop(0)
+
+        return send_from_directory(directory=tempfile.gettempdir(), filename=filename)
 
     @app.route("/detect", methods=["POST"])
     @access_check
