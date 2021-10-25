@@ -7,7 +7,7 @@ from functools import wraps
 import argostranslatefiles
 import pkg_resources
 from argostranslatefiles import get_supported_formats
-from flask import Flask, abort, jsonify, render_template, request, url_for, send_from_directory, send_file
+from flask import Flask, abort, jsonify, render_template, request, url_for, send_file
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
 from translatehtml import translate_html
@@ -584,6 +584,7 @@ def create_app(args):
 
             translated_file_path = argostranslatefiles.translate_file(src_langs[0].get_translation(tgt_lang), filepath)
             translated_filename = os.path.basename(translated_file_path)
+            
             return jsonify(
                 {
                     "translatedFileUrl": url_for('download_file', filename=translated_filename, _external=True)
