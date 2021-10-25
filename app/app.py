@@ -612,7 +612,6 @@ def create_app(args):
         """
         Download a translated file
         """
-        filename.split('.').pop(0)
         filepath = os.path.join(get_upload_dir(), filename)
 
         return_data = io.BytesIO()
@@ -620,9 +619,11 @@ def create_app(args):
             return_data.write(fo.read())
         return_data.seek(0)
 
-        print(filename)
+        download_filename = filename.split('.')
+        download_filename.pop(0)
+        download_filename = '.'.join(download_filename)
 
-        return send_file(return_data, attachment_filename=filename)
+        return send_file(return_data, as_attachment=True, attachment_filename=download_filename)
 
     @app.route("/detect", methods=["POST"])
     @access_check
