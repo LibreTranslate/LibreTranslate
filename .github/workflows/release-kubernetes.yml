@@ -22,7 +22,7 @@ jobs:
           registry: ghcr.io
           repository: ${{ github.repository }}
           tag: ${{ github.ref }}-with-models
-          build_args: with_models=true,with_expose=false,with_entrypoint=false
+          build_args: with_models=true
 
       - name: Extract service name
         uses: bluwy/substitute-string-action@v1
