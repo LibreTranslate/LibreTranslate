@@ -324,12 +324,12 @@ document.addEventListener('DOMContentLoaded', function(){
                 let translateFileRequest = new XMLHttpRequest();
 
                 translateFileRequest.open("POST", BaseUrl + "/translate_file", true);
-                translateFileRequest.setRequestHeader("Content-type", "multipart/form-data");
 
-                let formdata = new FormData();
-                formdata.append("file", this.inputFile);
-                formdata.append("source", this.sourceLang);
-                formdata.append("target", this.targetLang);
+                let data = new FormData();
+                data.append("file", this.inputFile);
+                data.append("source", this.sourceLang);
+                data.append("target", this.targetLang);
+                data.append("api_key", localStorage.getItem("api_key") || "");
 
                 this.loadingFileTranslation = true
 
@@ -339,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     }
                 }
 
-                translateFileRequest.send(formdata);
+                translateFileRequest.send(data);
             }
         }
     });
