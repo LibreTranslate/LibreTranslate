@@ -149,6 +149,7 @@ docker-compose up -d --build
 | --api-keys | Enable API keys database for per-user rate limits lookup | `Don't use API keys` | LT_API_KEYS |
 | --require-api-key-origin | Require use of an API key for programmatic access to the API, unless the request origin matches this domain | `No restrictions on domain origin` | LT_REQUIRE_API_KEY_ORIGIN |
 | --load-only   | Set available languages    | `all from argostranslate`    | LT_LOAD_ONLY |
+| --suggestions   | Allow user suggestions    | `false`    | LT_SUGGESTIONS |
 
 Note that each argument has an equivalent env. variable that can be used instead. The env. variables overwrite the default values but have lower priority than the command aguments. They are particularly useful if used with Docker. Their name is the upper-snake case of the command arguments' ones, with a `LT` prefix.
 
@@ -227,7 +228,7 @@ Then issue `./launcher rebuild app`. From the Discourse's admin panel then selec
 
 ## Mobile Apps
 
-- [LibreTranslater](https://gitlab.com/BeowuIf/libretranslater) is an Android app available on the Play Store (https://play.google.com/store/apps/details?id=de.beowulf.libretranslater) that uses the LibreTranslate API.
+- [LibreTranslater](https://gitlab.com/BeowuIf/libretranslater) is an Android app available on the Play Store (https://play.google.com/store/apps/details?id=de.beowulf.libretranslater) and in F-Droid store (https://f-droid.org/packages/de.beowulf.libretranslater/) that uses the LibreTranslate API.
 
 ## Web browser
 - [minbrowser](https://minbrowser.org/) is a web browser with [integrated LibreTranslate support](https://github.com/argosopentech/argos-translate/discussions/158#discussioncomment-1141551).
