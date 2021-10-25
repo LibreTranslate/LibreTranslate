@@ -19,6 +19,9 @@ from .api_keys import Database
 from .suggestions import Database as SuggestionsDatabase
 
 
+def get_upload_dir():
+    return os.path.join(tempfile.gettempdir(), "libretranslate-files-translate")
+
 def get_json_dict(request):
     d = request.get_json()
     if not isinstance(d, dict):
@@ -578,7 +581,7 @@ def create_app(args):
 
         try:
             filename = str(uuid.uuid4()) + '.' + secure_filename(file.filename)
-            filepath = os.path.join(tempfile.gettempdir(), filename)
+            filepath = os.path.join(get_upload_dir(), filename)
 
             file.save(filepath)
 
@@ -600,7 +603,7 @@ def create_app(args):
         Download a translated file
         """
         filename.split('.').pop(0)
-        filepath = os.path.join(tempfile.gettempdir(), filename)
+        filepath = os.path.join(get_upload_dir(), filename)
 
         return_data = io.BytesIO()
         with open(filepath, 'rb') as fo:
