@@ -105,7 +105,7 @@
 			<div class="container">
 				<div class="row">
 					<h3 class="header center">Translation API</h3>
-                    <div class="col s12 mb-1" v-if="disableFilesTranslation === false">
+                    <div class="col s12 mb-1" v-if="filesTranslation === true">
                         <button type="button" class="btn btn-switch-type" @click="switchType('text')" :class="{'active': translationType === 'text'}"><i class="material-icons left">title</i>Translate text</button>
                         <button type="button" class="btn btn-switch-type" @click="switchType('files')" :class="{'active': translationType === 'files'}"><i class="material-icons left">description</i>Translate files</button>
                     </div>

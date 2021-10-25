@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function(){
             inputFile: false,
             loadingFileTranslation: false,
             translatedFileUrl: false,
-            disableFilesTranslation: false,
+            filesTranslation: true,
         },
         mounted: function(){
             var self = this;
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     self.charactersLimit = self.settings.charLimit;
                     self.suggestions = self.settings.suggestions;
                     self.supportedFilesFormat = self.settings.supportedFilesFormat;
-                    self.disableFilesTranslation = self.settings.disableFilesTranslation;
+                    self.filesTranslation = self.settings.filesTranslation;
                 }else {
                     self.error = "Cannot load /frontend/settings";
                     self.loading = false;
