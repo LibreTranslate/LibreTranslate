@@ -362,8 +362,6 @@ document.addEventListener('DOMContentLoaded', function(){
                     }
                 }
 
-
-
                 translateFileRequest.onerror = function() {
                     self.error = "Error while calling /translate_file";
                     self.loadingFileTranslation = false;

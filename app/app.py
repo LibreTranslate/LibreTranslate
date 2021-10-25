@@ -584,7 +584,7 @@ def create_app(args):
 
             translated_file_path = argostranslatefiles.translate_file(src_langs[0].get_translation(tgt_lang), filepath)
             translated_filename = os.path.basename(translated_file_path)
-            
+
             return jsonify(
                 {
                     "translatedFileUrl": url_for('download_file', filename=translated_filename, _external=True)
