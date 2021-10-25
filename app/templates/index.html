@@ -203,8 +203,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button @click="translateFile" v-if="translatedFileUrl === '' && loadingFileTranslation === false" class="btn">Translate</button>
-                                    <a v-if="translatedFileUrl !== ''" :href="translatedFileUrl" class="btn">Download</a>
+                                    <button @click="translateFile" v-if="translatedFileUrl === false && loadingFileTranslation === false" class="btn">Translate</button>
+                                    <a v-if="translatedFileUrl !== false" :href="translatedFileUrl" class="btn">Download</a>
                                     <div class="progress" v-if="loadingFileTranslation">
                                         <div class="indeterminate"></div>
                                     </div>

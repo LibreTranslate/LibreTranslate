@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function(){
             translationType: "text",
             inputFile: false,
             loadingFileTranslation: false,
-            translatedFileUrl: "",
+            translatedFileUrl: false,
         },
         mounted: function(){
             var self = this;
@@ -318,7 +318,7 @@ document.addEventListener('DOMContentLoaded', function(){
             removeFile: function(e) {
               e.preventDefault()
               this.inputFile = false;
-              this.translatedFileUrl = "";
+              this.translatedFileUrl = false;
               this.loadingFileTranslation = false;
             },
             translateFile: function(e) {
