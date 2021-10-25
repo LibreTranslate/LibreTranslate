@@ -1,9 +1,9 @@
 ****************************************
-First of all, thank you for taking the time to report an issue.
+Please do NOT ask question about LibreTranslate here! We have a forum at https://community.libretranslate.com for questions.
 
-For installation problems, questions, server configuration problems and feature requests, please open a topic on http://community.libretranslate.com
+Please open an issue only to report faults and bugs.
 
-Please open an issue only to report faults and bugs! 
+For feature requests, please open pull requests directly! We accept all kinds of contributions. If you don't know how to code, you can still provide feedback, but please offer to contribute something (how are you going to help the project develop the feature?)
 
-PLEASE REMOVE THIS NOTE AFTER READING IT!
+Remove these lines after reading it
 ****************************************
