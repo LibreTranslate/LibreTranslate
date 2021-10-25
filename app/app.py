@@ -560,6 +560,9 @@ def create_app(args):
                   type: string
                   description: Error message
         """
+        if args.disable_files_translation:
+            abort(403, description="Files translation are disabled on this server.")
+
         source_lang = request.form.get("source")
         target_lang = request.form.get("target")
         file = request.files['file']
@@ -612,6 +615,10 @@ def create_app(args):
         """
         Download a translated file
         """
+        if args.disable_files_translation:
+            abort(403, description="Files translation are disabled on this server.")
+
+
         filepath = os.path.join(get_upload_dir(), filename)
 
         return_data = io.BytesIO()
@@ -775,7 +782,8 @@ def create_app(args):
                 "charLimit": args.char_limit,
                 "frontendTimeout": args.frontend_timeout,
                 "suggestions": args.suggestions,
-                "supportedFilesFormat": frontend_argos_supported_files_format,
+                "filesTranslation": not args.disable_files_translation,
+                "supportedFilesFormat": [] if args.disable_files_translation else frontend_argos_supported_files_format,
                 "language": {
                     "source": {
                         "code": frontend_argos_language_source.code,
