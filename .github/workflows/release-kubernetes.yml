@@ -46,4 +46,4 @@ jobs:
         run: kubectl -n telq apply -f ${{ github.workspace }}/deploy
 
       - name: Verify deployment
-        run: kubectl -n telq rollout status deployment/${{ steps.substr.outputs.result }}
+        run: kubectl -n telq rollout status deployment/libretranslate
