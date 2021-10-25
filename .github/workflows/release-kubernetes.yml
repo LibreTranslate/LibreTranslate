@@ -17,7 +17,7 @@ jobs:
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v1
         with:
-          username: ${{ github.actor }}
+          username: telq-org
           password: ${{ secrets.GH_CI_TOKEN }}
           registry: ghcr.io
           repository: ${{ github.repository }}
@@ -32,7 +32,7 @@ jobs:
         id: substr
         with:
           _input-text: ${{ github.repository }}
-          ${{ github.actor }}/: ''
+          telq-org/: ''
 
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
