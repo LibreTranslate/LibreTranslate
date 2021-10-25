@@ -1,0 +1,52 @@
+name: Release to Kubernetes
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
+      - name: Push to GitHub Packages
+        uses: docker/build-push-action@v1
+        with:
+          username: telq-org
+          password: ${{ secrets.GH_CI_TOKEN }}
+          registry: ghcr.io
+          repository: ${{ github.repository }}
+          tag_with_ref: true
+          build_args:
+            - with_models=true
+            - with_expose=false
+            - with_entrypoint=false
+
+      - name: Extract service name
+        uses: bluwy/substitute-string-action@v1
+        id: substr
+        with:
+          _input-text: ${{ github.repository }}
+          telq-org/: ''
+
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_CI_TOKEN }}
+
+      - name: Save DigitalOcean kubeconfig
+        run: doctl kubernetes cluster kubeconfig save k8s
+
+      - name: Update deployment file
+        run: sed -i 's|busybox|ghcr.io/${{ github.repository }}:${{ github.event.release.tag_name }}|' $GITHUB_WORKSPACE/deploy/deployment.yml
+
+      - name: Apply deployment
+        run: kubectl -n telq apply -f ${{ github.workspace }}/deploy
+
+      - name: Verify deployment
+        run: kubectl -n telq rollout status deployment/${{ steps.substr.outputs.result }}

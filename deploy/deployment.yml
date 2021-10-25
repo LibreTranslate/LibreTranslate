@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: libretranslate
+  labels:
+    app: libretranslate
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: libretranslate
+  template:
+    metadata:
+      labels:
+        app: libretranslate
+    spec:
+      containers:
+        - name: libretranslate
+          image: busybox
+          command:
+            - libretranslate
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+          ports:
+            - containerPort: 80
+              name: http
+              protocol: TCP
+          resources:
+            requests:
+              cpu: "1"
+              memory: 1Gi
+            limits:
+              cpu: "3"
+              memory: 3Gi
+          env:
+            - name: LT_HOST
+              value: 0.0.0.0
+            - name: LT_PORT
+              value: "80"
