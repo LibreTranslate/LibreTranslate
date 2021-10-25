@@ -115,6 +115,11 @@ _default_options_objects = [
         'name': 'SUGGESTIONS',
         'default_value': False,
         'value_type':  'bool'
+    },
+    {
+        'name': 'DISABLE_FILES_TRANSLATION',
+        'default_value': False,
+        'value_type': 'bool'
     }
 ]
 

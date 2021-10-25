@@ -105,6 +105,9 @@ def main():
     parser.add_argument(
         "--suggestions", default=DEFARGS['SUGGESTIONS'], action="store_true", help="Allow user suggestions"
     )
+    parser.add_argument(
+        "--disable-files-translation", default=DEFARGS['DISABLE_FILES_TRANSLATION'], action="store_true", help="Disable files translation"
+    )
 
     args = parser.parse_args()
     app = create_app(args)
