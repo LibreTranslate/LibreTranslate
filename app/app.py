@@ -14,13 +14,23 @@ from translatehtml import translate_html
 from werkzeug.utils import secure_filename
 
 from app import flood
+from app import remove_translated_files
 from app.language import detect_languages, transliterate
 from .api_keys import Database
 from .suggestions import Database as SuggestionsDatabase
 
 
 def get_upload_dir():
-    return os.path.join(tempfile.gettempdir(), "libretranslate-files-translate")
+    upload_dir = os.path.join(tempfile.gettempdir(), "libretranslate-files-translate")
+
+    if not os.path.isdir(upload_dir):
+        os.mkdir(upload_dir)
+
+    return upload_dir
+
+
+remove_translated_files.setup(get_upload_dir())
+
 
 def get_json_dict(request):
     d = request.get_json()
@@ -610,7 +620,7 @@ def create_app(args):
             return_data.write(fo.read())
         return_data.seek(0)
 
-        os.remove(filepath)
+        print(filename)
 
         return send_file(return_data, attachment_filename=filename)
 
