@@ -40,7 +40,7 @@ jobs:
         run: doctl kubernetes cluster kubeconfig save k8s
 
       - name: Update deployment file
-        run: sed -i 's|busybox|ghcr.io/libretranslate:${{ github.event.release.tag_name }}|' $GITHUB_WORKSPACE/deploy/deployment.yml
+        run: sed -i 's|busybox|ghcr.io/telq-org/libretranslate:${{ github.event.release.tag_name }}|' $GITHUB_WORKSPACE/deploy/deployment.yml
 
       - name: Apply deployment
         run: kubectl -n telq apply -f ${{ github.workspace }}/deploy
