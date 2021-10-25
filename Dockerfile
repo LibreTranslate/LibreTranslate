@@ -21,10 +21,10 @@ RUN if [ "$with_models" = "true" ]; then  \
 # Install package from source code
 RUN pip install .
 
-if [ "$with_expose" = "true" ]; then \
-    EXPOSE 5000
-fi
+RUN if [ "$with_expose" = "true" ]; then \
+        EXPOSE 5000
+    fi
 
-if [ "$with_entrypoint" = "true" ]; then \
-    ENTRYPOINT [ "libretranslate", "--host", "0.0.0.0" ]
-fi
+RUN if [ "$with_entrypoint" = "true" ]; then \
+        ENTRYPOINT [ "libretranslate", "--host", "0.0.0.0" ]
+    fi

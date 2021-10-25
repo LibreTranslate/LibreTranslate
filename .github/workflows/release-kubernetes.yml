@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.GH_CI_TOKEN }}
           registry: ghcr.io
           repository: ${{ github.repository }}
-          tag_with_ref: true
+          tag: ${{ github.ref }}-with-models
           build_args:
             - with_models=true
             - with_expose=false
