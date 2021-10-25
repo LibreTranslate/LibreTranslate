@@ -150,6 +150,7 @@ docker-compose up -d --build
 | --require-api-key-origin | Require use of an API key for programmatic access to the API, unless the request origin matches this domain | `No restrictions on domain origin` | LT_REQUIRE_API_KEY_ORIGIN |
 | --load-only   | Set available languages    | `all from argostranslate`    | LT_LOAD_ONLY |
 | --suggestions   | Allow user suggestions    | `false`    | LT_SUGGESTIONS |
+| --disable-files-translation   | Disable files translation    | `false`    | LT_DISABLE_FILES_TRANSLATION |
 
 Note that each argument has an equivalent env. variable that can be used instead. The env. variables overwrite the default values but have lower priority than the command aguments. They are particularly useful if used with Docker. Their name is the upper-snake case of the command arguments' ones, with a `LT` prefix.
 
