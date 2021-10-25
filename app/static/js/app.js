@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function(){
             translationType: "text",
             inputFile: false,
             loadingFileTranslation: false,
+            translatedFileUrl: "",
         },
         mounted: function(){
             var self = this;
@@ -317,10 +318,13 @@ document.addEventListener('DOMContentLoaded', function(){
             removeFile: function(e) {
               e.preventDefault()
               this.inputFile = false;
+              this.translatedFileUrl = "";
+              this.loadingFileTranslation = false;
             },
             translateFile: function(e) {
                 e.preventDefault();
 
+                let self = this;
                 let translateFileRequest = new XMLHttpRequest();
 
                 translateFileRequest.open("POST", BaseUrl + "/translate_file", true);
@@ -333,11 +337,38 @@ document.addEventListener('DOMContentLoaded', function(){
 
                 this.loadingFileTranslation = true
 
-                translateFileRequest.onload = () => {
+                translateFileRequest.onload = function()  {
                     if (translateFileRequest.readyState === 4 && translateFileRequest.status === 200) {
-                        this.loadingFileTranslation = false
+                        try{
+                            self.loadingFileTranslation = false;
+
+                            let res = JSON.parse(this.response);
+                            if (res.translatedFileUrl){
+                                self.translatedFileUrl = res.translatedFileUrl;
+
+                                let link = document.createElement("a");
+                                link.target = "_blank";
+                                link.href = self.translatedFileUrl;
+                                link.click();
+                            }else{
+                                throw new Error(res.error || "Unknown error");
+                            }
+
+                        }catch(e){
+                            self.error = e.message;
+                            self.loadingFileTranslation = false;
+                            self.inputFile = false;
+                        }
                     }
                 }
+
+
+
+                translateFileRequest.onerror = function() {
+                    self.error = "Error while calling /translate_file";
+                    self.loadingFileTranslation = false;
+                    self.inputFile = false;
+                };
 
                 translateFileRequest.send(data);
             }

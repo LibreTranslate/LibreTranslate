@@ -507,11 +507,9 @@ def create_app(args):
               id: translate
               type: object
               properties:
-                translatedText:
-                  oneOf:
-                    - type: string
-                    - type: array
-                  description: Translated text(s)
+                translatedFileUrl:
+                  type: string
+                  description: Translated file url
           400:
             description: Invalid request
             schema:
@@ -588,7 +586,7 @@ def create_app(args):
             translated_filename = os.path.basename(translated_file_path)
             return jsonify(
                 {
-                    "translatedFileUrl": url_for('download_file', filename=translated_filename)
+                    "translatedFileUrl": url_for('download_file', filename=translated_filename, _external=True)
                 }
             )
         except Exception as e:
