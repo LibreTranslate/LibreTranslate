@@ -13,8 +13,7 @@ from flask_swagger_ui import get_swaggerui_blueprint
 from translatehtml import translate_html
 from werkzeug.utils import secure_filename
 
-from app import flood
-from app import remove_translated_files
+from app import flood, remove_translated_files
 from app.language import detect_languages, transliterate
 from .api_keys import Database
 from .suggestions import Database as SuggestionsDatabase
@@ -27,9 +26,6 @@ def get_upload_dir():
         os.mkdir(upload_dir)
 
     return upload_dir
-
-
-remove_translated_files.setup(get_upload_dir())
 
 
 def get_json_dict(request):
@@ -96,6 +92,9 @@ def create_app(args):
 
     if args.debug:
         app.config["TEMPLATES_AUTO_RELOAD"] = True
+
+    if not args.disable_files_translation:
+        remove_translated_files.setup(get_upload_dir())
 
     # Map userdefined frontend languages to argos language object.
     if args.frontend_language_source == "auto":
