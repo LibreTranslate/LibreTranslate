@@ -876,7 +876,7 @@ def create_app(args):
         return jsonify({"success": True})
 
     swag = swagger(app)
-    swag["info"]["version"] = "1.2.1"
+    swag["info"]["version"] = "1.3.0"
     swag["info"]["title"] = "LibreTranslate"
 
     @app.route("/spec")
