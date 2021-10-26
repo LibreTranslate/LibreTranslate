@@ -23,6 +23,10 @@ h3.header {
   margin-top: 0 !important;
 }
 
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
 .position-relative {
   position: relative;
 }
@@ -112,6 +116,42 @@ h3.header {
   right: 1.25rem;
   bottom: 1rem;
   display: flex;
+}
+
+.btn-switch-type {
+    background-color: #fff;
+    color: #42A5F5;
+}
+
+.btn-switch-type:focus {
+  background-color: inherit;
+}
+
+.btn-switch-type:hover {
+    background-color: #eee !important;
+    color: #42A5F5;
+}
+
+.btn-switch-type.active {
+    background-color: #42A5F5 !important;
+    color: #fff;
+}
+
+.file-dropzone {
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+  background: #f3f3f3;
+  padding: 1rem 2rem 1rem 1.5rem;
+  min-height: 220px;
+  position: relative;
+}
+
+.dropzone-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
 }
 
 .btn-action {

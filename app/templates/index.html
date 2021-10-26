@@ -105,7 +105,10 @@
 			<div class="container">
 				<div class="row">
 					<h3 class="header center">Translation API</h3>
-
+                    <div class="col s12 mb-1 center" v-if="filesTranslation === true">
+                        <button type="button" class="btn btn-switch-type" @click="switchType('text')" :class="{'active': translationType === 'text'}"><i class="material-icons left">title</i>Translate text</button>
+                        <button type="button" class="btn btn-switch-type" @click="switchType('files')" :class="{'active': translationType === 'files'}"><i class="material-icons left">description</i>Translate files</button>
+                    </div>
 					<form class="col s12">
 						<div class="row mb-0">
 							<div class="col s6 language-select">
@@ -130,7 +133,7 @@
 							</div>
 						</div>
 
-						<div class="row">
+						<div class="row" v-if="translationType === 'text'">
 							<div class="input-field textarea-container col s6">
 								<label for="textarea1" class="sr-only">
 									Text to translate
@@ -143,7 +146,6 @@
 									<label>[[ inputText.length ]] / [[ charactersLimit ]]</label>
 								</div>
 							</div>
-
 							<div class="input-field textarea-container col s6">
 								<label for="textarea2" class="sr-only">
 									Translated text
@@ -170,13 +172,49 @@
 								</div>
 							</div>
 						</div>
+                        <div class="row" v-if="translationType === 'files'">
+                            <div class="file-dropzone">
+                                <div v-if="inputFile === false" class="dropzone-content">
+                                    <span>Supported file formats: [[ supportedFilesFormatFormatted ]]</span>
+                                    <form action="#">
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span>File</span>
+                                                <input type="file" :accept="supportedFilesFormatFormatted" @change="handleInputFile" ref="fileInputRef">
+                                            </div>
+                                            <div class="file-path-wrapper hidden">
+                                                <input class="file-path validate" type="text">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div v-if="inputFile !== false" class="dropzone-content">
+                                    <div class="card">
+                                        <div class="card-content"  style="padding-right: 6px;">
+                                            <div class="row mb-0">
+                                                <div class="col s12">
+                                                    [[ inputFile.name ]]
+                                                    <button v-if="loadingFileTranslation !== true" @click="removeFile" class="btn-flat">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button @click="translateFile" v-if="translatedFileUrl === false && loadingFileTranslation === false" class="btn">Translate</button>
+                                    <a v-if="translatedFileUrl !== false" :href="translatedFileUrl" class="btn">Download</a>
+                                    <div class="progress" v-if="loadingFileTranslation">
+                                        <div class="indeterminate"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 					</form>
-
 				</div>
 			</div>
 		</div>
 
-		<div class="section no-pad-bot">
+		<div class="section no-pad-bot" v-if="translationType !== 'files'">
 			<div class="container">
 				<div class="row center">
 					<div class="col s12 m12">

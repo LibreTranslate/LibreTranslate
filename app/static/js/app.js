@@ -30,6 +30,13 @@ document.addEventListener('DOMContentLoaded', function(){
 
             suggestions: false,
             isSuggesting: false,
+
+            supportedFilesFormat : [],
+            translationType: "text",
+            inputFile: false,
+            loadingFileTranslation: false,
+            translatedFileUrl: false,
+            filesTranslation: true,
         },
         mounted: function(){
             var self = this;
@@ -44,6 +51,8 @@ document.addEventListener('DOMContentLoaded', function(){
                     self.targetLang = self.settings.language.target.code;
                     self.charactersLimit = self.settings.charLimit;
                     self.suggestions = self.settings.suggestions;
+                    self.supportedFilesFormat = self.settings.supportedFilesFormat;
+                    self.filesTranslation = self.settings.filesTranslation;
                 }else {
                     self.error = "Cannot load /frontend/settings";
                     self.loading = false;
@@ -139,7 +148,9 @@ document.addEventListener('DOMContentLoaded', function(){
                     '',
                     'console.log(await res.json());'].join("\n");
             },
-
+            supportedFilesFormatFormatted: function() {
+                return this.supportedFilesFormat.join(', ');
+            },
             isHtml: function(){
                 return htmlRegex.test(this.inputText);
             },
@@ -299,6 +310,67 @@ document.addEventListener('DOMContentLoaded', function(){
             deleteText: function(e){
                 e.preventDefault();
                 this.inputText = this.translatedText = this.output = "";
+            },
+            switchType: function(type) {
+                this.translationType = type;
+            },
+            handleInputFile: function(e) {
+                this.inputFile = e.target.files[0];
+            },
+            removeFile: function(e) {
+              e.preventDefault()
+              this.inputFile = false;
+              this.translatedFileUrl = false;
+              this.loadingFileTranslation = false;
+            },
+            translateFile: function(e) {
+                e.preventDefault();
+
+                let self = this;
+                let translateFileRequest = new XMLHttpRequest();
+
+                translateFileRequest.open("POST", BaseUrl + "/translate_file", true);
+
+                let data = new FormData();
+                data.append("file", this.inputFile);
+                data.append("source", this.sourceLang);
+                data.append("target", this.targetLang);
+                data.append("api_key", localStorage.getItem("api_key") || "");
+
+                this.loadingFileTranslation = true
+
+                translateFileRequest.onload = function()  {
+                    if (translateFileRequest.readyState === 4 && translateFileRequest.status === 200) {
+                        try{
+                            self.loadingFileTranslation = false;
+
+                            let res = JSON.parse(this.response);
+                            if (res.translatedFileUrl){
+                                self.translatedFileUrl = res.translatedFileUrl;
+
+                                let link = document.createElement("a");
+                                link.target = "_blank";
+                                link.href = self.translatedFileUrl;
+                                link.click();
+                            }else{
+                                throw new Error(res.error || "Unknown error");
+                            }
+
+                        }catch(e){
+                            self.error = e.message;
+                            self.loadingFileTranslation = false;
+                            self.inputFile = false;
+                        }
+                    }
+                }
+
+                translateFileRequest.onerror = function() {
+                    self.error = "Error while calling /translate_file";
+                    self.loadingFileTranslation = false;
+                    self.inputFile = false;
+                };
+
+                translateFileRequest.send(data);
             }
         }
     });
