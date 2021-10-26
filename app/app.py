@@ -5,7 +5,6 @@ import uuid
 from functools import wraps
 
 import argostranslatefiles
-import pkg_resources
 from argostranslatefiles import get_supported_formats
 from flask import Flask, abort, jsonify, render_template, request, url_for, send_file
 from flask_swagger import swagger
@@ -18,6 +17,13 @@ from app.language import detect_languages, transliterate
 from .api_keys import Database
 from .suggestions import Database as SuggestionsDatabase
 
+
+def get_version():
+    try:
+        with open("VERSION") as f:
+            return f.read().strip()
+    except:
+        return "?"
 
 def get_upload_dir():
     upload_dir = os.path.join(tempfile.gettempdir(), "libretranslate-files-translate")
@@ -200,7 +206,7 @@ def create_app(args):
             frontendTimeout=args.frontend_timeout,
             api_keys=args.api_keys,
             web_version=os.environ.get("LT_WEB") is not None,
-            version=pkg_resources.require("LibreTranslate")[0].version
+            version=get_version()
         )
 
     @app.route("/javascript-licenses", methods=["GET"])
