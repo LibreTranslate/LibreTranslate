@@ -105,7 +105,7 @@
 			<div class="container">
 				<div class="row">
 					<h3 class="header center">Translation API</h3>
-                    <div class="col s12 mb-1" v-if="filesTranslation === true">
+                    <div class="col s12 mb-1 center" v-if="filesTranslation === true">
                         <button type="button" class="btn btn-switch-type" @click="switchType('text')" :class="{'active': translationType === 'text'}"><i class="material-icons left">title</i>Translate text</button>
                         <button type="button" class="btn btn-switch-type" @click="switchType('files')" :class="{'active': translationType === 'files'}"><i class="material-icons left">description</i>Translate files</button>
                     </div>
@@ -190,12 +190,10 @@
                                 </div>
                                 <div v-if="inputFile !== false" class="dropzone-content">
                                     <div class="card">
-                                        <div class="card-content">
-                                            <div class="row">
-                                                <div class="col s10">
-                                            <p>[[ inputFile.name ]]</p>
-                                                </div>
-                                                <div class="col s2">
+                                        <div class="card-content"  style="padding-right: 6px;">
+                                            <div class="row mb-0">
+                                                <div class="col s12">
+                                                    [[ inputFile.name ]]
                                                     <button v-if="loadingFileTranslation !== true" @click="removeFile" class="btn-flat">
                                                         <i class="material-icons">close</i>
                                                     </button>
@@ -216,7 +214,7 @@
 			</div>
 		</div>
 
-		<div class="section no-pad-bot">
+		<div class="section no-pad-bot" v-if="translationType !== 'files'">
 			<div class="container">
 				<div class="row center">
 					<div class="col s12 m12">

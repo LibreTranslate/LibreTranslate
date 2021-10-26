@@ -496,7 +496,7 @@ def create_app(args):
             name: file
             type: file
             required: true
-            description: file to translate
+            description: File to translate
           - in: formData
             name: source
             schema:
@@ -573,7 +573,7 @@ def create_app(args):
         file = request.files['file']
 
         if not file:
-            abort(400, description="Invalid request: missing q parameter")
+            abort(400, description="Invalid request: missing file parameter")
         if not source_lang:
             abort(400, description="Invalid request: missing source parameter")
         if not target_lang:
