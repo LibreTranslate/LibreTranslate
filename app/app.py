@@ -33,6 +33,14 @@ def get_upload_dir():
 
     return upload_dir
 
+def get_req_api_key():
+    if request.is_json:
+        json = get_json_dict(request)
+        ak = json.get("api_key")
+    else:
+        ak = request.values.get("api_key")
+
+    return ak
 
 def get_json_dict(request):
     d = request.get_json()
@@ -54,11 +62,7 @@ def get_req_limits(default_limit, api_keys_db, multiplier=1):
     req_limit = default_limit
 
     if api_keys_db:
-        if request.is_json:
-            json = get_json_dict(request)
-            api_key = json.get("api_key")
-        else:
-            api_key = request.values.get("api_key")
+        api_key = get_req_api_key()
 
         if api_key:
             db_req_limit = api_keys_db.lookup(api_key)
@@ -162,11 +166,7 @@ def create_app(args):
                 abort(403, description="Too many request limits violations")
 
             if args.api_keys and args.require_api_key_origin:
-                if request.is_json:
-                    json = get_json_dict(request)
-                    ak = json.get("api_key")
-                else:
-                    ak = request.values.get("api_key")
+                ak = get_req_api_key()
 
                 if (
                         api_keys_db.lookup(ak) is None and request.headers.get("Origin") != args.require_api_key_origin
@@ -608,7 +608,7 @@ def create_app(args):
 
             return jsonify(
                 {
-                    "translatedFileUrl": url_for('download_file', filename=translated_filename, _external=True)
+                    "translatedFileUrl": url_for('download_file', filename=translated_filename, _external=True, api_key=get_req_api_key())
                 }
             )
         except Exception as e:

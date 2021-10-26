@@ -97,13 +97,16 @@ document.addEventListener('DOMContentLoaded', function(){
         updated: function(){
             M.FormSelect.init(this.$refs.sourceLangDropdown);
             M.FormSelect.init(this.$refs.targetLangDropdown);
-            if (this.inputText === ""){
-                this.$refs.inputTextarea.style.height = this.inputTextareaHeight + "px";
-                this.$refs.translatedTextarea.style.height = this.inputTextareaHeight + "px";
-            }else{
-                this.$refs.inputTextarea.style.height = this.$refs.translatedTextarea.style.height = "1px";
-                this.$refs.inputTextarea.style.height = Math.max(this.inputTextareaHeight, this.$refs.inputTextarea.scrollHeight + 32) + "px";
-                this.$refs.translatedTextarea.style.height = Math.max(this.inputTextareaHeight, this.$refs.translatedTextarea.scrollHeight + 32) + "px";
+            
+            if (this.$refs.inputTextarea){
+                if (this.inputText === ""){
+                    this.$refs.inputTextarea.style.height = this.inputTextareaHeight + "px";
+                    this.$refs.translatedTextarea.style.height = this.inputTextareaHeight + "px";
+                }else{
+                    this.$refs.inputTextarea.style.height = this.$refs.translatedTextarea.style.height = "1px";
+                    this.$refs.inputTextarea.style.height = Math.max(this.inputTextareaHeight, this.$refs.inputTextarea.scrollHeight + 32) + "px";
+                    this.$refs.translatedTextarea.style.height = Math.max(this.inputTextareaHeight, this.$refs.translatedTextarea.scrollHeight + 32) + "px";
+                }
             }
 
             if (this.charactersLimit !== -1 && this.inputText.length >= this.charactersLimit){
@@ -113,25 +116,29 @@ document.addEventListener('DOMContentLoaded', function(){
             // Update "selected" attribute (to overcome a vue.js limitation)
             // but properly display checkmarks on supported browsers.
             // Also change the <select> width value depending on the <option> length
-            for (var i = 0; i < this.$refs.sourceLangDropdown.children.length; i++){
-                var el = this.$refs.sourceLangDropdown.children[i];
-                if (el.value === this.sourceLang){
-                    el.setAttribute('selected', '');
-                    this.$refs.sourceLangDropdown.style.width = getTextWidth(el.text) + 24 + 'px';
-                }else{
-                    el.removeAttribute('selected');
-                }
-            }
-            for (var i = 0; i < this.$refs.targetLangDropdown.children.length; i++){
-                var el = this.$refs.targetLangDropdown.children[i];
-                if (el.value === this.targetLang){
-                    el.setAttribute('selected', '');
-                    this.$refs.targetLangDropdown.style.width = getTextWidth(el.text) + 24 + 'px';
-                }else{
-                    el.removeAttribute('selected');
+            if (this.$refs.sourceLangDropdown){
+                for (var i = 0; i < this.$refs.sourceLangDropdown.children.length; i++){
+                    var el = this.$refs.sourceLangDropdown.children[i];
+                    if (el.value === this.sourceLang){
+                        el.setAttribute('selected', '');
+                        this.$refs.sourceLangDropdown.style.width = getTextWidth(el.text) + 24 + 'px';
+                    }else{
+                        el.removeAttribute('selected');
+                    }
                 }
             }
 
+            if (this.$refs.targetLangDropdown){
+                for (var i = 0; i < this.$refs.targetLangDropdown.children.length; i++){
+                    var el = this.$refs.targetLangDropdown.children[i];
+                    if (el.value === this.targetLang){
+                        el.setAttribute('selected', '');
+                        this.$refs.targetLangDropdown.style.width = getTextWidth(el.text) + 24 + 'px';
+                    }else{
+                        el.removeAttribute('selected');
+                    }
+                }
+            }
         },
         computed: {
             requestCode: function(){
@@ -361,6 +368,11 @@ document.addEventListener('DOMContentLoaded', function(){
                             self.loadingFileTranslation = false;
                             self.inputFile = false;
                         }
+                    }else{
+                        let res = JSON.parse(this.response);
+                        self.error = res.error || "Unknown error";
+                        self.loadingFileTranslation = false;
+                        self.inputFile = false;
                     }
                 }
 
