@@ -12,7 +12,7 @@ from flask_swagger_ui import get_swaggerui_blueprint
 from translatehtml import translate_html
 from werkzeug.utils import secure_filename
 
-from app import flood, remove_translated_files
+from app import flood, remove_translated_files, security
 from app.language import detect_languages, transliterate
 from .api_keys import Database
 from .suggestions import Database as SuggestionsDatabase
@@ -621,10 +621,15 @@ def create_app(args):
         Download a translated file
         """
         if args.disable_files_translation:
-            abort(403, description="Files translation are disabled on this server.")
-
-
+            abort(400, description="Files translation are disabled on this server.")
+        
         filepath = os.path.join(get_upload_dir(), filename)
+        try:
+            checked_filepath = security.path_traversal_check(filepath, get_upload_dir())
+            if os.path.isfile(checked_filepath):
+                filepath = checked_filepath
+        except security.SuspiciousFileOperation:
+            abort(400, description="Invalid filename")
 
         return_data = io.BytesIO()
         with open(filepath, 'rb') as fo:
