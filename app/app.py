@@ -615,7 +615,6 @@ def create_app(args):
             abort(500, description=e)
 
     @app.route("/download_file/<string:filename>", methods=["GET"])
-    @access_check
     def download_file(filename: str):
         """
         Download a translated file
