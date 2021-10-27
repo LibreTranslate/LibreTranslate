@@ -12,4 +12,4 @@ polyglot==16.7.4
 appdirs==1.4.4
 APScheduler==3.7.0
 translatehtml==1.5.1
-argos-translate-files==1.0.3
+argos-translate-files==1.0.4
