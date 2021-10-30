@@ -756,6 +756,9 @@ def create_app(args):
                 frontendTimeout:
                   type: integer
                   description: Frontend translation timeout
+                keyRequired:
+                  type: boolean
+                  description: Whether an API key is required.
                 suggestions:
                   type: boolean
                   description: Whether submitting suggestions is enabled.
@@ -790,6 +793,7 @@ def create_app(args):
             {
                 "charLimit": args.char_limit,
                 "frontendTimeout": args.frontend_timeout,
+                "keyRequired": bool(args.api_keys and args.require_api_key_origin),
                 "suggestions": args.suggestions,
                 "filesTranslation": not args.disable_files_translation,
                 "supportedFilesFormat": [] if args.disable_files_translation else frontend_argos_supported_files_format,
