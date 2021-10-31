@@ -290,6 +290,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 data.append("s", self.translatedText);
                 data.append("source", self.sourceLang);
                 data.append("target", self.targetLang);
+                data.append("api_key", localStorage.getItem("api_key") || "");
 
                 request.open('POST', BaseUrl + '/suggest', true);
                 request.onload = function() {
