@@ -811,7 +811,7 @@ def create_app(args):
         )
 
     @app.route("/suggest", methods=["POST"])
-    @limiter.exempt
+    @access_check
     def suggest():
         """
         Submit a suggestion to improve a translation
