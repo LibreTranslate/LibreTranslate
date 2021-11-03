@@ -756,6 +756,9 @@ def create_app(args):
                 frontendTimeout:
                   type: integer
                   description: Frontend translation timeout
+                apiKeys:
+                  type: boolean
+                  description: Whether the API key database is enabled.
                 keyRequired:
                   type: boolean
                   description: Whether an API key is required.
@@ -793,6 +796,7 @@ def create_app(args):
             {
                 "charLimit": args.char_limit,
                 "frontendTimeout": args.frontend_timeout,
+                "apiKeys": args.api_keys,
                 "keyRequired": bool(args.api_keys and args.require_api_key_origin),
                 "suggestions": args.suggestions,
                 "filesTranslation": not args.disable_files_translation,
