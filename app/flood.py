@@ -33,6 +33,15 @@ def report(request_ip):
         banned[request_ip] += 1
 
 
+def decrease(request_ip):
+    if banned[request_ip] > 0:
+        banned[request_ip] -= 1
+
+
+def has_violation(request_ip):
+    return request_ip in banned and banned[request_ip] > 0
+
+
 def is_banned(request_ip):
     # More than X offences?
     return active and banned.get(request_ip, 0) >= threshold
