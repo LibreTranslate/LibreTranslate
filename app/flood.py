@@ -19,6 +19,8 @@ def setup(violations_threshold=100):
     active = True
     threshold = violations_threshold
 
+    print(violations_threshold)
+
     scheduler = BackgroundScheduler()
     scheduler.add_job(func=clear_banned, trigger="interval", weeks=4)
     scheduler.start()
@@ -31,6 +33,17 @@ def report(request_ip):
     if active:
         banned[request_ip] = banned.get(request_ip, 0)
         banned[request_ip] += 1
+        print(banned[request_ip])
+
+
+def decrease(request_ip):
+    if banned[request_ip] > 0:
+        banned[request_ip] -= 1
+        print('decrease',  request_ip)
+
+
+def has_violation(request_ip):
+    return request_ip in banned and banned[request_ip] > 0
 
 
 def is_banned(request_ip):

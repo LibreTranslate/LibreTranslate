@@ -25,6 +25,7 @@ def get_version():
     except:
         return "?"
 
+
 def get_upload_dir():
     upload_dir = os.path.join(tempfile.gettempdir(), "libretranslate-files-translate")
 
@@ -32,6 +33,7 @@ def get_upload_dir():
         os.mkdir(upload_dir)
 
     return upload_dir
+
 
 def get_req_api_key():
     if request.is_json:
@@ -41,6 +43,7 @@ def get_req_api_key():
         ak = request.values.get("api_key")
 
     return ak
+
 
 def get_json_dict(request):
     d = request.get_json()
@@ -162,8 +165,13 @@ def create_app(args):
     def access_check(f):
         @wraps(f)
         def func(*a, **kw):
-            if flood.is_banned(get_remote_address()):
+            ip = get_remote_address()
+
+            if flood.is_banned(ip):
                 abort(403, description="Too many request limits violations")
+            else:
+                if flood.has_violation(ip):
+                    flood.decrease(ip)
 
             if args.api_keys and args.require_api_key_origin:
                 ak = get_req_api_key()
@@ -621,7 +629,7 @@ def create_app(args):
         """
         if args.disable_files_translation:
             abort(400, description="Files translation are disabled on this server.")
-        
+
         filepath = os.path.join(get_upload_dir(), filename)
         try:
             checked_filepath = security.path_traversal_check(filepath, get_upload_dir())
