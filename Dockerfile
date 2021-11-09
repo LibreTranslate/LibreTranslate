@@ -27,4 +27,4 @@ RUN pip install . \
   && pip cache purge
 
 EXPOSE 5000
-ENTRYPOINT [ "/home/worker/.local/bin/libretranslate", "--host", "0.0.0.0" ]
+ENTRYPOINT [ "libretranslate", "--host", "0.0.0.0" ]
