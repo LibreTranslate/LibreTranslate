@@ -40,7 +40,7 @@ def main():
         default=DEFARGS['REQ_FLOOD_THRESHOLD'],
         type=int,
         metavar="<number>",
-        help="Set the maximum number of request limit offences per 4 weeks that a client can exceed before being banned. (%(default)s)",
+        help="Set the maximum number of request limit offences that a client can exceed before being banned. (%(default)s)",
     )
     parser.add_argument(
         "--batch-limit",

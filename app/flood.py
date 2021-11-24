@@ -9,6 +9,7 @@ threshold = -1
 
 def forgive_banned():
     global banned
+    global threshold
 
     clear_list = []
 
@@ -16,7 +17,7 @@ def forgive_banned():
         if banned[ip] <= 0:
             clear_list.append(ip)
         else:
-            banned[ip] -= 1
+            banned[ip] = min(threshold, banned[ip]) - 1
 
     for ip in clear_list:
         del banned[ip]
@@ -29,7 +30,7 @@ def setup(violations_threshold=100):
     threshold = violations_threshold
 
     scheduler = BackgroundScheduler()
-    scheduler.add_job(func=forgive_banned, trigger="interval", minutes=5)
+    scheduler.add_job(func=forgive_banned, trigger="interval", minutes=60)
     scheduler.start()
 
     # Shut down the scheduler when exiting the app
