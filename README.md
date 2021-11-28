@@ -246,6 +246,7 @@ URL |API Key Required|Contact|Cost
 [translate.mentality.rip](https://translate.mentality.rip)|-|-
 [translate.astian.org](https://translate.astian.org/)|-|-
 [translate.argosopentech.com](https://translate.argosopentech.com/)|-|-
+[translate.api.skitzen.com](https://translate.api.skitzen.com/)|-|-
 [trans.zillyhuhn.com](https://trans.zillyhuhn.com/)|-|-
 
 
