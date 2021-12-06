@@ -30,7 +30,7 @@ def setup(violations_threshold=100):
     threshold = violations_threshold
 
     scheduler = BackgroundScheduler()
-    scheduler.add_job(func=forgive_banned, trigger="interval", minutes=60)
+    scheduler.add_job(func=forgive_banned, trigger="interval", minutes=480)
     scheduler.start()
 
     # Shut down the scheduler when exiting the app
