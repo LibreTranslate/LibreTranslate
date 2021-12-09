@@ -145,9 +145,9 @@ document.addEventListener('DOMContentLoaded', function(){
                 return ['const res = await fetch("' + this.BaseUrl + '/translate", {',
                     '	method: "POST",',
                     '	body: JSON.stringify({',
-                    '		q: "' + this.$options.filters.escape(this.inputText) + '",',
-                    '		source: "' + this.$options.filters.escape(this.sourceLang) + '",',
-                    '		target: "' + this.$options.filters.escape(this.targetLang) + '",',
+                    '		q: ' + this.$options.filters.escape(this.inputText) + ',',
+                    '		source: ' + this.$options.filters.escape(this.sourceLang) + ',',
+                    '		target: ' + this.$options.filters.escape(this.targetLang) + ',',
                     '		format: "' + (this.isHtml ? "html" : "text") + '"',
                     '	}),',
                     '	headers: { "Content-Type": "application/json" }',
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function(){
         },
         filters: {
             escape: function(v){
-                return v.replace('"', '\\\"');
+                return JSON.stringify(v);
             },
             highlight: function(v){
                 return Prism.highlight(v, Prism.languages.javascript, 'javascript');
