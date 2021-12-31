@@ -89,7 +89,7 @@ On Ubuntu 20.04 you can also use the install script available on https://github.
 If you want to make some changes to the code, you can build from source, and run the API:
 
 ```bash
-git clone https://github.com/uav4geo/LibreTranslate
+git clone https://github.com/LibreTranslate/LibreTranslate
 cd LibreTranslate
 pip install -e .
 libretranslate [args]
@@ -130,7 +130,7 @@ Or build and run using `docker-compose`:
 docker-compose up -d --build
 ```
 
-> Feel free to change the [`docker-compose.yml`](https://github.com/uav4geo/LibreTranslate/blob/main/docker-compose.yml) file to adapt it to your deployment needs, or use an extra `docker-compose.prod.yml` file for your deployment configuration.
+> Feel free to change the [`docker-compose.yml`](https://github.com/LibreTranslate/LibreTranslate/blob/main/docker-compose.yml) file to adapt it to your deployment needs, or use an extra `docker-compose.prod.yml` file for your deployment configuration.
 
 ## Arguments
 
