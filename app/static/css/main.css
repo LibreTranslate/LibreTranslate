@@ -256,6 +256,17 @@ h3.header {
   height: 32px;
 }
 
+#download-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 2em 0;
+}
+
+#download-btn {
+  display: flex;
+  align-items: center;
+}
+
 @media (min-width: 280px) {
   .btn-text {
     display: inline;

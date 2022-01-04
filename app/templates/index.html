@@ -243,20 +243,24 @@
 				</div>
 			</div>
 		</div>
-		{% if web_version %}
+    {% if web_version %}
 		<div class="section no-pad-bot">
 			<div class="container">
 				<div class="row center">
 					<div class="col s12 m12">
 						<h3 class="header">Open Source Machine Translation API</h3>
 						<h4 class="header">100% Self-Hosted. Offline Capable. Easy to Setup.</h4>
-						<br/><a class="waves-effect waves-light btn btn-large" href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer"><i class="material-icons left">cloud_download</i> Download</a>
-						<br/><br/><br/>
+            <div id="download-btn-wrapper">
+              <a id="download-btn" class="waves-effect waves-light btn btn-large" href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">
+                <i class="material-icons">cloud_download</i>
+                <span class="btn-text">Download</span>
+              </a>
+            </div>
 					</div>
 				</div>
 			</div>
 		</div>
-		{% endif %}
+    {% endif %}
 	</div>
 	</main>
 
