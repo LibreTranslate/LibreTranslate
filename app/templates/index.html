@@ -5,14 +5,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>LibreTranslate - Free and Open Source Machine Translation API</title>
 	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <meta name="description" content="Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup. Run your own API server in just a few minutes.">
-    <meta name="keywords" content="translation,api">
+  <meta name="description" content="Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup. Run your own API server in just a few minutes.">
+  <meta name="keywords" content="translation,api">
 
-    <meta property="og:title" content="LibreTranslate - Free and Open Source Machine Translation API" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://libretranslate.com" />
-    <meta property="og:image" content="https://user-images.githubusercontent.com/1951843/102724116-32a6df00-42db-11eb-8cc0-129ab39cdfb5.png" />
-    <meta property="og:description" name="description" class="swiftype" content="Free and Open Source Machine Translation API. 100% self-hosted, no limits, no ties to proprietary services. Run your own API server in just a few minutes."/>
+  <meta property="og:title" content="LibreTranslate - Free and Open Source Machine Translation API" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://libretranslate.com" />
+  <meta property="og:image" content="https://user-images.githubusercontent.com/1951843/102724116-32a6df00-42db-11eb-8cc0-129ab39cdfb5.png" />
+  <meta property="og:description" name="description" class="swiftype" content="Free and Open Source Machine Translation API. 100% self-hosted, no limits, no ties to proprietary services. Run your own API server in just a few minutes."/>
 
 	<script src="{{ url_for('static', filename='js/vue@2.js') }}"></script>
 	<!-- Compiled and minified CSS -->
@@ -37,8 +37,10 @@
 	<header>
 		<nav class="blue lighten-1" role="navigation">
 			<div class="nav-wrapper container">
+				<a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 				<a id="logo-container" href="/" class="brand-logo">
-					<img src="{{ url_for('static', filename='icon.svg') }}" class="logo"> LibreTranslate
+					<img src="{{ url_for('static', filename='icon.svg') }}" alt="Logo for LibreTranslate" class="logo">
+          <span>LibreTranslate</span>
 				</a>
 				<ul class="right hide-on-med-and-down">
 				<li><a href="/docs">API Docs</a></li>
@@ -55,7 +57,6 @@
 				<li><a href="javascript:setApiKey()" title="Set API Key"><i class="material-icons">vpn_key</i></a></li>
 				{% endif %}
 				</ul>
-				<a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 			</div>
 		</nav>
 	</header>
@@ -105,11 +106,17 @@
 			<div class="container">
 				<div class="row">
 					<h3 class="header center">Translation API</h3>
-                    <div class="col s12 mb-1 center" v-if="filesTranslation === true">
-                        <button type="button" class="btn btn-switch-type" @click="switchType('text')" :class="{'active': translationType === 'text'}"><i class="material-icons left">title</i>Translate text</button>
-                        <button type="button" class="btn btn-switch-type" @click="switchType('files')" :class="{'active': translationType === 'files'}"><i class="material-icons left">description</i>Translate files</button>
-                    </div>
-					<form class="col s12">
+          <div id="translation-type-btns" class="s12 center" v-if="filesTranslation === true">
+            <button type="button" class="btn btn-switch-type" @click="switchType('text')" :class="{'active': translationType === 'text'}">
+              <i class="material-icons">title</i>
+              <span class="btn-text">Translate Text</span>
+            </button>
+            <button type="button" class="btn btn-switch-type" @click="switchType('files')" :class="{'active': translationType === 'files'}">
+              <i class="material-icons">description</i>
+              <span class="btn-text">Translate Files</span>
+            </button>
+          </div>
+					<form id="translation-form" class="col s12">
 						<div class="row mb-0">
 							<div class="col s6 language-select">
 								<span>Translate from</span>
