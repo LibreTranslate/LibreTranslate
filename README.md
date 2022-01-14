@@ -242,6 +242,7 @@ This is a list of online resources that serve the LibreTranslate API. Some requi
 URL |API Key Required|Contact|Cost
 --- | --- | --- | ---
 [libretranslate.com](https://libretranslate.com)|:heavy_check_mark:|[UAV4GEO](https://buy.stripe.com/28obLvdgGcIE5AQfYY)| [$9 / month](https://buy.stripe.com/28obLvdgGcIE5AQfYY), 80 requests / minute limit
+[libretranslate.de](https://libretranslate.de)|-|-
 [translate.mentality.rip](https://translate.mentality.rip)|-|-
 [translate.argosopentech.com](https://translate.argosopentech.com/)|-|-
 [translate.api.skitzen.com](https://translate.api.skitzen.com/)|-|-
