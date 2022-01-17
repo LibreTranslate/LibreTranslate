@@ -7,6 +7,10 @@ select {
   font-family: Arial, Helvetica, sans-serif !important;
 }
 
+a {
+  text-decoration: underline; 
+}
+
 #app {
   min-height: 80vh;
 }
@@ -97,7 +101,7 @@ h3.header {
   background: none;
   padding: 0;
   cursor: pointer;
-  color: #777;
+  color: #666;
 }
 
 .btn-delete-text:focus,
@@ -109,7 +113,7 @@ h3.header {
   position: absolute;
   right: 2rem;
   bottom: 1rem;
-  color: #777;
+  color: #666;
   pointer-events: none;
 }
 .actions {
@@ -121,7 +125,7 @@ h3.header {
 
 .btn-switch-type {
   background-color: #fff;
-  color: #42A5F5;
+  color: #1565C0;
   display: flex;
   align-items: center;
   margin: .5rem;
@@ -133,11 +137,11 @@ h3.header {
 
 .btn-switch-type:hover {
     background-color: #eee !important;
-    color: #42A5F5;
+    color: #1565C0;
 }
 
 .btn-switch-type.active {
-    background-color: #42A5F5 !important;
+    background-color: #1565C0 !important;
     color: #fff;
 }
 
@@ -161,7 +165,7 @@ h3.header {
 .btn-action {
   display: flex;
   align-items: center;
-  color: #777;
+  color: #666;
   font-size: 0.85rem;
   background: none;
   border: none;
@@ -169,10 +173,10 @@ h3.header {
 }
 
 .btn-blue {
-  color: #42A5F5;
+  color: #1565C0;
 }
 .btn-action:disabled {
-    color: #777;
+    color: #666;
 }
 
 .btn-action span {
@@ -254,6 +258,22 @@ h3.header {
 
 .logo {
   height: 32px;
+}
+
+.brand-logo {
+  text-decoration: none;
+}
+
+.sidenav-trigger {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+@media (min-width: 993px) {
+  nav button.sidenav-trigger {
+    display: none;
+  }
 }
 
 #download-btn-wrapper {
