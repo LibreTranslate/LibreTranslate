@@ -33,11 +33,11 @@
 	{% endif %}
 </head>
 
-<body>
+<body class="white">
 	<header>
-		<nav class="blue lighten-1" role="navigation">
+		<nav class="blue darken-3" role="navigation">
 			<div class="nav-wrapper container">
-				<a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+				<button data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></button>
 				<a id="logo-container" href="/" class="brand-logo">
 					<img src="{{ url_for('static', filename='icon.svg') }}" alt="Logo for LibreTranslate" class="logo">
           <span>LibreTranslate</span>
@@ -251,7 +251,7 @@
 						<h3 class="header">Open Source Machine Translation API</h3>
 						<h4 class="header">100% Self-Hosted. Offline Capable. Easy to Setup.</h4>
             <div id="download-btn-wrapper">
-              <a id="download-btn" class="waves-effect waves-light btn btn-large" href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">
+              <a id="download-btn" class="waves-effect waves-light btn btn-large teal darken-2" href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">
                 <i class="material-icons">cloud_download</i>
                 <span class="btn-text">Download</span>
               </a>
@@ -270,19 +270,19 @@
 				<div class="col l12 s12">
 					<h5 class="white-text">LibreTranslate</h5>
 					<p class="grey-text text-lighten-4">Free and Open Source Machine Translation API</p>
-					<p><a class="grey-text text-lighten-4" href="https://www.gnu.org/licenses/agpl-3.0.en.html" rel="noopener noreferrer">License: AGPLv3</a></p>
+					<p>License: <a class="grey-text text-lighten-4" href="https://www.gnu.org/licenses/agpl-3.0.en.html" rel="noopener noreferrer">AGPLv3</a></p>
 					<p><a class="grey-text text-lighten-4" href="/javascript-licenses" rel="jslicense">JavaScript license information</a></p>
 					{% if web_version %}
 					<p>
-						This public API should be used for testing, personal or infrequent use. If you're going to run an application in production, please <a href="https://github.com/LibreTranslate/LibreTranslate" class="grey-text text-lighten-4" style="text-decoration: underline;" rel="noopener noreferrer">host your own server</a> or <a class="grey-text text-lighten-4" href="https://github.com/LibreTranslate/LibreTranslate#mirrors" style="text-decoration: underline;" rel="noopener noreferrer">get an API key</a>.
+						This public API should be used for testing, personal or infrequent use. If you're going to run an application in production, please <a href="https://github.com/LibreTranslate/LibreTranslate" class="grey-text text-lighten-4" rel="noopener noreferrer">host your own server</a> or <a class="grey-text text-lighten-4" href="https://github.com/LibreTranslate/LibreTranslate#mirrors" rel="noopener noreferrer">get an API key</a>.
 					</p>
 					{% endif %}
 				</div>
 			</div>
 		</div>
 		<div class="footer-copyright center">
-			<p>
-				Made with ❤ by <a class="grey-text text-lighten-3" href="https://github.com/LibreTranslate/LibreTranslate/graphs/contributors" rel="noopener noreferrer">LibreTranslate Contributors</a> and powered by <a class="grey-text text-lighten-3" href="https://github.com/argosopentech/argos-translate/" rel="noopener noreferrer">Argos Translate</a>
+			<p class="white-text">
+				Made with ❤ by <a class="white-text" href="https://github.com/LibreTranslate/LibreTranslate/graphs/contributors" rel="noopener noreferrer">LibreTranslate Contributors</a> and powered by <a class="white-text text-lighten-3" href="https://github.com/argosopentech/argos-translate/" rel="noopener noreferrer">Argos Translate</a>
 			</p>
 		</div>
 	</footer>
