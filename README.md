@@ -248,6 +248,9 @@ URL |API Key Required|Contact|Cost
 [translate.api.skitzen.com](https://translate.api.skitzen.com/)|-|-
 [trans.zillyhuhn.com](https://trans.zillyhuhn.com/)|-|-
 
+## Adding New Languages
+
+To add new languages you first need to train an Argos Translate model. See [this video](https://odysee.com/@argosopentech:7/training-an-Argos-Translate-model-tutorial-2022:2?r=DMnK7NqdPNHRCfwhmKY9LPow3PqVUUgw) for details.
 
 ## Roadmap
 
