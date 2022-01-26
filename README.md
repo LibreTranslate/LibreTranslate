@@ -266,7 +266,7 @@ Help us by opening a pull request!
 
 ### Can I use your API server at libretranslate.com for my application in production?
 
-The API on libretranslate.com should be used for testing, personal or infrequent use. If you're going to run an application in production, [you need to buy an API key](https://buy.stripe.com/28obLvdgGcIE5AQfYY). You can always run LibreTranslate for free on your own machine of course.
+In short, no. [You need to buy an API key](https://buy.stripe.com/28obLvdgGcIE5AQfYY). You can always run LibreTranslate for free on your own server of course.
 
 ### Can I use this behind a reverse proxy, like Apache2?
 
