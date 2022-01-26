@@ -239,9 +239,9 @@ Then issue `./launcher rebuild app`. From the Discourse's admin panel then selec
 
 This is a list of online resources that serve the LibreTranslate API. Some require an API key. If you want to add a new URL, please open a pull request.
 
-URL |API Key Required|Contact|Cost
+URL |API Key Required|Payment Link|Cost
 --- | --- | --- | ---
-[libretranslate.com](https://libretranslate.com)|:heavy_check_mark:|[UAV4GEO](https://buy.stripe.com/28obLvdgGcIE5AQfYY)| [$9 / month](https://buy.stripe.com/28obLvdgGcIE5AQfYY), 80 requests / minute limit
+[libretranslate.com](https://libretranslate.com)|:heavy_check_mark:|[Buy](https://buy.stripe.com/28obLvdgGcIE5AQfYY)| [$9 / month](https://buy.stripe.com/28obLvdgGcIE5AQfYY), 80 requests / minute limit
 [libretranslate.de](https://libretranslate.de)|-|-
 [translate.mentality.rip](https://translate.mentality.rip)|-|-
 [translate.argosopentech.com](https://translate.argosopentech.com/)|-|-
@@ -266,7 +266,7 @@ Help us by opening a pull request!
 
 ### Can I use your API server at libretranslate.com for my application in production?
 
-The API on libretranslate.com should be used for testing, personal or infrequent use. If you're going to run an application in production, please [get in touch](https://uav4geo.com/contact) to get an API key or discuss other options.
+The API on libretranslate.com should be used for testing, personal or infrequent use. If you're going to run an application in production, [you need to buy an API key](https://buy.stripe.com/28obLvdgGcIE5AQfYY). You can always run LibreTranslate for free on your own machine of course.
 
 ### Can I use this behind a reverse proxy, like Apache2?
 
