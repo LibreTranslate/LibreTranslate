@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     self.suggestions = self.settings.suggestions;
                     self.supportedFilesFormat = self.settings.supportedFilesFormat;
                     self.filesTranslation = self.settings.filesTranslation;
-                    self.frontendTimeout = self.setttings.frontendTimeout;
+                    self.frontendTimeout = self.settings.frontendTimeout;
                 }else {
                     self.error = "Cannot load /frontend/settings";
                     self.loading = false;
