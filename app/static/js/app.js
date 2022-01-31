@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function(){
             loadingFileTranslation: false,
             translatedFileUrl: false,
             filesTranslation: true,
+            frontendTimeout: 500
         },
         mounted: function(){
             var self = this;
@@ -53,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     self.suggestions = self.settings.suggestions;
                     self.supportedFilesFormat = self.settings.supportedFilesFormat;
                     self.filesTranslation = self.settings.filesTranslation;
+                    self.frontendTimeout = self.setttings.frontendTimeout;
                 }else {
                     self.error = "Cannot load /frontend/settings";
                     self.loading = false;
@@ -248,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     };
 
                     request.send(data);
-                }, '{{ frontendTimeout }}');
+                }, self.frontendTimeout);
             },
             copyText: function(e){
                 e.preventDefault();
