@@ -11,6 +11,7 @@ from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
 from translatehtml import translate_html
 from werkzeug.utils import secure_filename
+from html import unescape
 
 from app import flood, remove_translated_files, security
 from app.language import detect_languages, transliterate
@@ -468,7 +469,7 @@ def create_app(args):
                     else:
                         translated_text = translator.translate(transliterate(text, target_lang=source_langs[idx]))
 
-                    results.append(translated_text)
+                    results.append(unescape(translated_text))
                 return jsonify(
                     {
                         "translatedText": results
@@ -483,7 +484,7 @@ def create_app(args):
                     translated_text = translator.translate(transliterate(q, target_lang=source_langs[0]))
                 return jsonify(
                     {
-                        "translatedText": translated_text
+                        "translatedText": unescape(translated_text)
                     }
                 )
         except Exception as e:
