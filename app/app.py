@@ -135,7 +135,7 @@ def create_app(args):
     if frontend_argos_language_source is None:
         frontend_argos_language_source = languages[0]
     if frontend_argos_language_target is None:
-        if languages[1]:
+        if len(languages) >= 2:
             frontend_argos_language_target = languages[1]
         else:
             frontend_argos_language_target = languages[0]
