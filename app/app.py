@@ -209,6 +209,9 @@ def create_app(args):
     @app.route("/")
     @limiter.exempt
     def index():
+        if args.disable_web_ui:
+            abort(404)
+
         return render_template(
             "index.html",
             gaId=args.ga_id,
@@ -221,6 +224,9 @@ def create_app(args):
     @app.route("/javascript-licenses", methods=["GET"])
     @limiter.exempt
     def javascript_licenses():
+        if args.disable_web_ui:
+            abort(404)
+
         return render_template("javascript-licenses.html")
 
     @app.route("/languages", methods=["GET", "POST"])
