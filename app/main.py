@@ -108,6 +108,9 @@ def main():
     parser.add_argument(
         "--disable-files-translation", default=DEFARGS['DISABLE_FILES_TRANSLATION'], action="store_true", help="Disable files translation"
     )
+    parser.add_argument(
+        "--disable-web-ui", default=DEFARGS['DISABLE_WEB_UI'], action="store_true", help="Disable web ui"
+    )
 
     args = parser.parse_args()
     app = create_app(args)

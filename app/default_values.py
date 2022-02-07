@@ -19,7 +19,7 @@ def _get_value_bool(name, default_value):
     if env_value in ['TRUE', 'True', 'true', '1']:
         return True
     return default_value
-    
+
 def _get_value(name, default_value, value_type):
     env_name = _prefix + name
     if value_type == 'str':
@@ -75,7 +75,7 @@ _default_options_objects = [
         'name': 'DEBUG',
         'default_value': False,
         'value_type': 'bool'
-    }, 
+    },
     {
         'name': 'SSL',
         'default_value': None,
@@ -120,7 +120,12 @@ _default_options_objects = [
         'name': 'DISABLE_FILES_TRANSLATION',
         'default_value': False,
         'value_type': 'bool'
-    }
+    },
+    {
+        'name': 'DISABLE_WEB_UI',
+        'default_value': False,
+        'value_type': 'bool'
+    },
 ]
 
 
