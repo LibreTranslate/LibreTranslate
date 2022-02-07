@@ -133,13 +133,13 @@ def create_app(args):
 
     # Raise AttributeError to prevent app startup if user input is not valid.
     if frontend_argos_language_source is None:
-        raise AttributeError(
-            f"{args.frontend_language_source} as frontend source language is not supported."
-        )
+        frontend_argos_language_source = languages[0]
     if frontend_argos_language_target is None:
-        raise AttributeError(
-            f"{args.frontend_language_target} as frontend target language is not supported."
-        )
+        if languages[1]:
+            frontend_argos_language_target = languages[1]
+        else:
+            frontend_argos_language_target = languages[0]
+
 
     api_keys_db = None
 
