@@ -82,6 +82,24 @@ document.addEventListener('DOMContentLoaded', function(){
                         return;
                     }
 
+                    const sourceLanguage = self.langs.find(l => l.code === self.getQueryParam('source'))
+                    const isSourceAuto = !sourceLanguage && self.getQueryParam('source') === "auto"
+                    const targetLanguage = self.langs.find(l => l.code === self.getQueryParam('target'))
+
+                    if (sourceLanguage || isSourceAuto) {
+                        self.sourceLang = isSourceAuto ? "auto" : sourceLanguage.code
+                    }
+
+                    if (targetLanguage) {
+                        self.targetLang = targetLanguage.code
+                    }
+
+                    const defaultText = self.getQueryParam('q')
+
+                    if(defaultText) {
+                        self.inputText = decodeURI(defaultText)
+                    }
+
                     self.loading = false;
                 } else {
                     self.error = "Cannot load /languages";
@@ -195,8 +213,22 @@ document.addEventListener('DOMContentLoaded', function(){
             dismissError: function(){
                 this.error = '';
             },
+            getQueryParam: function (key) {
+                const params = new URLSearchParams(window.location.search);
+                return params.get(key)
+            },
+            updateQueryParam: function (key, value) {
+                let searchParams = new URLSearchParams(window.location.search)
+                searchParams.set(key, value);
+                let newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
+                history.pushState(null, '', newRelativePathQuery);
+            },
             handleInput: function(e){
                 this.closeSuggestTranslation(e)
+
+                this.updateQueryParam('source', this.sourceLang)
+                this.updateQueryParam('target', this.targetLang)
+                this.updateQueryParam('q', encodeURI(this.inputText))
 
                 if (this.timeout) clearTimeout(this.timeout);
                 this.timeout = null;
