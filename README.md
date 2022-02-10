@@ -14,7 +14,7 @@ Free and Open Source Machine Translation API, entirely self-hosted. Unlike other
 ## API Examples
 
 
-### Plain Text
+### Simple
 
 Request:
 
@@ -37,6 +37,32 @@ Response:
 ```javascript
 {
     "translatedText": "¡Hola!"
+}
+```
+
+### Auto Detect Language
+
+Request:
+
+```javascript
+const res = await fetch("https://libretranslate.com/translate", {
+	method: "POST",
+	body: JSON.stringify({
+		q: "Ciao!",
+		source: "auto",
+		target: "en"
+	}),
+	headers: { "Content-Type": "application/json" }
+});
+
+console.log(await res.json());
+```
+
+Response:
+
+```javascript
+{
+    "translatedText": "Bye!"
 }
 ```
 
