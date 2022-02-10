@@ -248,6 +248,7 @@ URL |API Key Required|Payment Link|Cost
 [translate.argosopentech.com](https://translate.argosopentech.com/)|-|-
 [translate.api.skitzen.com](https://translate.api.skitzen.com/)|-|-
 [trans.zillyhuhn.com](https://trans.zillyhuhn.com/)|-|-
+[libretranslate.esmailelbob.xyz](https://libretranslate.esmailelbob.xyz)|-|-
 
 ## Adding New Languages
 
