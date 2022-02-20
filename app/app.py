@@ -903,6 +903,15 @@ def create_app(args):
         source_lang = request.values.get("source")
         target_lang = request.values.get("target")
 
+        if not q:
+            abort(400, description="Invalid request: missing q parameter")
+        if not s:
+            abort(400, description="Invalid request: missing s parameter")
+        if not source_lang:
+            abort(400, description="Invalid request: missing source parameter")
+        if not target_lang:
+            abort(400, description="Invalid request: missing target parameter")
+
         SuggestionsDatabase().add(q, s, source_lang, target_lang)
         return jsonify({"success": True})
 
