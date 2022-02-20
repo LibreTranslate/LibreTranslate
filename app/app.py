@@ -3,18 +3,20 @@ import os
 import tempfile
 import uuid
 from functools import wraps
+from html import unescape
 
 import argostranslatefiles
 from argostranslatefiles import get_supported_formats
-from flask import Flask, abort, jsonify, render_template, request, url_for, send_file
+from flask import (Flask, abort, jsonify, render_template, request, send_file,
+                   url_for)
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
 from translatehtml import translate_html
 from werkzeug.utils import secure_filename
-from html import unescape
 
 from app import flood, remove_translated_files, security
 from app.language import detect_languages, transliterate
+
 from .api_keys import Database
 from .suggestions import Database as SuggestionsDatabase
 
@@ -140,7 +142,6 @@ def create_app(args):
         else:
             frontend_argos_language_target = languages[0]
 
-
     api_keys_db = None
 
     if args.req_limit > 0 or args.api_keys or args.daily_req_limit > 0:
@@ -174,11 +175,19 @@ def create_app(args):
                 if flood.has_violation(ip):
                     flood.decrease(ip)
 
-            if args.api_keys and args.require_api_key_origin:
+            if args.api_keys:
                 ak = get_req_api_key()
-
                 if (
-                        api_keys_db.lookup(ak) is None and request.headers.get("Origin") != args.require_api_key_origin
+                    ak and api_keys_db.lookup(ak) is None
+                ):
+                    abort(
+                        403,
+                        description="Invalid API key",
+                    )
+                elif (
+                    args.require_api_key_origin
+                    and api_keys_db.lookup(ak) is None
+                    and request.headers.get("Origin") != args.require_api_key_origin
                 ):
                     abort(
                         403,

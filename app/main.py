@@ -1,6 +1,6 @@
 import argparse
-import sys
 import operator
+import sys
 
 from app.app import create_app
 from app.default_values import DEFAULT_ARGUMENTS as DEFARGS

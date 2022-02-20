@@ -2,15 +2,18 @@ import os
 
 _prefix = 'LT_'
 
+
 def _get_value_str(name, default_value):
     env_value = os.environ.get(name)
     return default_value if env_value is None else env_value
+
 
 def _get_value_int(name, default_value):
     try:
         return int(os.environ[name])
     except:
         return default_value
+
 
 def _get_value_bool(name, default_value):
     env_value = os.environ.get(name)
@@ -19,6 +22,7 @@ def _get_value_bool(name, default_value):
     if env_value in ['TRUE', 'True', 'true', '1']:
         return True
     return default_value
+
 
 def _get_value(name, default_value, value_type):
     env_name = _prefix + name
@@ -29,6 +33,7 @@ def _get_value(name, default_value, value_type):
     if value_type == 'bool':
         return _get_value_bool(env_name, default_value)
     return default_value
+
 
 _default_options_objects = [
     {
@@ -114,7 +119,7 @@ _default_options_objects = [
     {
         'name': 'SUGGESTIONS',
         'default_value': False,
-        'value_type':  'bool'
+        'value_type': 'bool'
     },
     {
         'name': 'DISABLE_FILES_TRANSLATION',
@@ -129,4 +134,4 @@ _default_options_objects = [
 ]
 
 
-DEFAULT_ARGUMENTS = { obj['name']:_get_value(**obj) for obj in _default_options_objects}
+DEFAULT_ARGUMENTS = {obj['name']: _get_value(**obj) for obj in _default_options_objects}
