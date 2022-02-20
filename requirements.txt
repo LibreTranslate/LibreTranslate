@@ -13,3 +13,4 @@ appdirs==1.4.4
 APScheduler==3.7.0
 translatehtml==1.5.2
 argos-translate-files==1.0.5
+itsdangerous==2.0.1
