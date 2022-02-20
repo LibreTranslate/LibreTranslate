@@ -174,11 +174,19 @@ def create_app(args):
                 if flood.has_violation(ip):
                     flood.decrease(ip)
 
-            if args.api_keys and args.require_api_key_origin:
+            if args.api_keys:
                 ak = get_req_api_key()
-
                 if (
-                        api_keys_db.lookup(ak) is None and request.headers.get("Origin") != args.require_api_key_origin
+                    ak and api_keys_db.lookup(ak) is None
+                ):
+                    abort(
+                        403,
+                        description="Invalid API key",
+                    )
+                elif (
+                    args.require_api_key_origin
+                    and api_keys_db.lookup(ak) is None
+                    and request.headers.get("Origin") != args.require_api_key_origin
                 ):
                     abort(
                         403,
