@@ -1,5 +1,4 @@
 import sqlite3
-import uuid
 
 from expiringdict import ExpiringDict
 

@@ -22,6 +22,7 @@ def forgive_banned():
     for ip in clear_list:
         del banned[ip]
 
+
 def setup(violations_threshold=100):
     global active
     global threshold

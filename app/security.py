@@ -1,7 +1,9 @@
 import os
 
+
 class SuspiciousFileOperation(Exception):
     pass
+
 
 def path_traversal_check(unsafe_path, known_safe_path):
     known_safe_path = os.path.abspath(known_safe_path)

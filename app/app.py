@@ -3,18 +3,20 @@ import os
 import tempfile
 import uuid
 from functools import wraps
+from html import unescape
 
 import argostranslatefiles
 from argostranslatefiles import get_supported_formats
-from flask import Flask, abort, jsonify, render_template, request, url_for, send_file
+from flask import (Flask, abort, jsonify, render_template, request, send_file,
+                   url_for)
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
 from translatehtml import translate_html
 from werkzeug.utils import secure_filename
-from html import unescape
 
 from app import flood, remove_translated_files, security
 from app.language import detect_languages, transliterate
+
 from .api_keys import Database
 from .suggestions import Database as SuggestionsDatabase
 
@@ -139,7 +141,6 @@ def create_app(args):
             frontend_argos_language_target = languages[1]
         else:
             frontend_argos_language_target = languages[0]
-
 
     api_keys_db = None
 
