@@ -196,7 +196,7 @@ You can pass application arguments directly to Gunicorn via:
 gunicorn --bind 0.0.0.0:5000 'wsgi:app(api_keys=True)'
 ```
 
-## Run on Kubernetes
+## Run with Kubernetes
 
 See https://jmrobles.medium.com/libretranslate-your-own-translation-service-on-kubernetes-b46c3e1af630
 
