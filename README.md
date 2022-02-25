@@ -196,6 +196,10 @@ You can pass application arguments directly to Gunicorn via:
 gunicorn --bind 0.0.0.0:5000 'wsgi:app(api_keys=True)'
 ```
 
+## Run on Kubernetes
+
+See https://jmrobles.medium.com/libretranslate-your-own-translation-service-on-kubernetes-b46c3e1af630
+
 ## Manage API Keys
 
 LibreTranslate supports per-user limit quotas, e.g. you can issue API keys to users so that they can enjoy higher requests limits per minute (if you also set `--req-limit`). By default all users are rate-limited based on `--req-limit`, but passing an optional `api_key` parameter to the REST endpoints allows a user to enjoy higher request limits.
