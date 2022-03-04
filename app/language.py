@@ -4,11 +4,15 @@ from argostranslate import translate
 from polyglot.detect.base import Detector, UnknownLanguage
 from polyglot.transliteration.base import Transliterator
 
-
+__languages = None
 
 def load_languages():
-    languages = translate.load_installed_languages()
-    return languages
+    global __languages
+
+    if __languages is None or len(__languages) == 0:
+        __languages = translate.load_installed_languages()
+
+    return __languages
 
 def detect_languages(text):
     # detect batch processing
@@ -34,11 +38,11 @@ def detect_languages(text):
 
     # Load language codes
     languages = load_languages()
-    __lang_codes = [l.code for l in languages]
+    lang_codes = [l.code for l in languages]
 
     # only use candidates that are supported by argostranslate
     candidate_langs = list(
-        filter(lambda l: l.text_length != 0 and l.code in __lang_codes, candidates)
+        filter(lambda l: l.text_length != 0 and l.code in lang_codes, candidates)
     )
 
     # this happens if no language could be detected
@@ -50,7 +54,7 @@ def detect_languages(text):
     # calculate the average confidence for each language
     if is_batch:
         temp_average_list = []
-        for lang_code in __lang_codes:
+        for lang_code in lang_codes:
             # get all candidates for a specific language
             lc = list(filter(lambda l: l.code == lang_code, candidate_langs))
             if len(lc) > 1:
