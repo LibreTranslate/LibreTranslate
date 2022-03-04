@@ -1,6 +1,6 @@
-ctranslate2==1.16.2
+ctranslate2==2.10.1
 itsdangerous==2.0.1
-argostranslate==1.5.2
+argostranslate==1.6.1
 Flask==1.1.2
 flask-swagger==0.2.14
 flask-swagger-ui==3.36.0
