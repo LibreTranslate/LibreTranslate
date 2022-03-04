@@ -4,11 +4,11 @@ from argostranslate import translate
 from polyglot.detect.base import Detector, UnknownLanguage
 from polyglot.transliteration.base import Transliterator
 
-languages = translate.load_installed_languages()
 
 
-__lang_codes = [l.code for l in languages]
-
+def load_languages():
+    languages = translate.load_installed_languages()
+    return languages
 
 def detect_languages(text):
     # detect batch processing
@@ -31,6 +31,10 @@ def detect_languages(text):
 
     # total read bytes of the provided text
     text_length_total = sum(c.text_length for c in candidates)
+
+    # Load language codes
+    languages = load_languages()
+    __lang_codes = [l.code for l in languages]
 
     # only use candidates that are supported by argostranslate
     candidate_langs = list(

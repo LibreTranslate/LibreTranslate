@@ -102,7 +102,7 @@ def create_app(args):
 
     boot(args.load_only)
 
-    from app.language import languages
+    from app.language import load_languages
 
     app = Flask(__name__)
 
@@ -111,6 +111,7 @@ def create_app(args):
 
     if not args.disable_files_translation:
         remove_translated_files.setup(get_upload_dir())
+    languages = load_languages()
 
     # Map userdefined frontend languages to argos language object.
     if args.frontend_language_source == "auto":
