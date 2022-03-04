@@ -1,16 +1,52 @@
+import io
 import os
+import tempfile
+import uuid
 from functools import wraps
+from html import unescape
 
-from flask import Flask, abort, jsonify, render_template, request
+import argostranslatefiles
+from argostranslatefiles import get_supported_formats
+from flask import (Flask, abort, jsonify, render_template, request, send_file,
+                   url_for)
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
+from translatehtml import translate_html
+from werkzeug.utils import secure_filename
 
-from app import flood
+from app import flood, remove_translated_files, security
 from app.language import detect_languages, transliterate
 
 from .api_keys import Database
+from .suggestions import Database as SuggestionsDatabase
 
-from translatehtml import translate_html
+
+def get_version():
+    try:
+        with open("VERSION") as f:
+            return f.read().strip()
+    except:
+        return "?"
+
+
+def get_upload_dir():
+    upload_dir = os.path.join(tempfile.gettempdir(), "libretranslate-files-translate")
+
+    if not os.path.isdir(upload_dir):
+        os.mkdir(upload_dir)
+
+    return upload_dir
+
+
+def get_req_api_key():
+    if request.is_json:
+        json = get_json_dict(request)
+        ak = json.get("api_key")
+    else:
+        ak = request.values.get("api_key")
+
+    return ak
+
 
 def get_json_dict(request):
     d = request.get_json()
@@ -28,21 +64,17 @@ def get_remote_address():
     return ip
 
 
-def get_req_limits(default_limit, api_keys_db, multiplier = 1):
+def get_req_limits(default_limit, api_keys_db, multiplier=1):
     req_limit = default_limit
 
     if api_keys_db:
-        if request.is_json:
-            json = get_json_dict(request)
-            api_key = json.get("api_key")
-        else:
-            api_key = request.values.get("api_key")
+        api_key = get_req_api_key()
 
         if api_key:
             db_req_limit = api_keys_db.lookup(api_key)
             if db_req_limit is not None:
                 req_limit = db_req_limit * multiplier
-                
+
     return req_limit
 
 
@@ -77,6 +109,9 @@ def create_app(args):
     if args.debug:
         app.config["TEMPLATES_AUTO_RELOAD"] = True
 
+    if not args.disable_files_translation:
+        remove_translated_files.setup(get_upload_dir())
+
     # Map userdefined frontend languages to argos language object.
     if args.frontend_language_source == "auto":
         frontend_argos_language_source = type(
@@ -92,15 +127,20 @@ def create_app(args):
         iter([l for l in languages if l.code == args.frontend_language_target]), None
     )
 
+    frontend_argos_supported_files_format = []
+
+    for file_format in get_supported_formats():
+        for ff in file_format.supported_file_extensions:
+            frontend_argos_supported_files_format.append(ff)
+
     # Raise AttributeError to prevent app startup if user input is not valid.
     if frontend_argos_language_source is None:
-        raise AttributeError(
-            f"{args.frontend_language_source} as frontend source language is not supported."
-        )
+        frontend_argos_language_source = languages[0]
     if frontend_argos_language_target is None:
-        raise AttributeError(
-            f"{args.frontend_language_target} as frontend target language is not supported."
-        )
+        if len(languages) >= 2:
+            frontend_argos_language_target = languages[1]
+        else:
+            frontend_argos_language_target = languages[0]
 
     api_keys_db = None
 
@@ -127,18 +167,27 @@ def create_app(args):
     def access_check(f):
         @wraps(f)
         def func(*a, **kw):
-            if flood.is_banned(get_remote_address()):
+            ip = get_remote_address()
+
+            if flood.is_banned(ip):
                 abort(403, description="Too many request limits violations")
+            else:
+                if flood.has_violation(ip):
+                    flood.decrease(ip)
 
-            if args.api_keys and args.require_api_key_origin:
-                if request.is_json:
-                    json = get_json_dict(request)
-                    ak = json.get("api_key")
-                else:
-                    ak = request.values.get("api_key")
-
+            if args.api_keys:
+                ak = get_req_api_key()
                 if (
-                    api_keys_db.lookup(ak) is None and request.headers.get("Origin") != args.require_api_key_origin
+                    ak and api_keys_db.lookup(ak) is None
+                ):
+                    abort(
+                        403,
+                        description="Invalid API key",
+                    )
+                elif (
+                    args.require_api_key_origin
+                    and api_keys_db.lookup(ak) is None
+                    and request.headers.get("Origin") != args.require_api_key_origin
                 ):
                     abort(
                         403,
@@ -169,17 +218,24 @@ def create_app(args):
     @app.route("/")
     @limiter.exempt
     def index():
+        if args.disable_web_ui:
+            abort(404)
+
         return render_template(
             "index.html",
             gaId=args.ga_id,
             frontendTimeout=args.frontend_timeout,
             api_keys=args.api_keys,
             web_version=os.environ.get("LT_WEB") is not None,
+            version=get_version()
         )
 
     @app.route("/javascript-licenses", methods=["GET"])
     @limiter.exempt
     def javascript_licenses():
+        if args.disable_web_ui:
+            abort(404)
+
         return render_template("javascript-licenses.html")
 
     @app.route("/languages", methods=["GET", "POST"])
@@ -358,7 +414,7 @@ def create_app(args):
                 abort(
                     400,
                     description="Invalid request: Request (%d) exceeds text limit (%d)"
-                    % (batch_size, args.batch_limit),
+                                % (batch_size, args.batch_limit),
                 )
 
         if args.char_limit != -1:
@@ -371,40 +427,40 @@ def create_app(args):
                 abort(
                     400,
                     description="Invalid request: Request (%d) exceeds character limit (%d)"
-                    % (chars, args.char_limit),
+                                % (chars, args.char_limit),
                 )
 
         if source_lang == "auto":
             source_langs = []
             if batch:
-              auto_detect_texts = q
+                auto_detect_texts = q
             else:
-              auto_detect_texts = [q]
+                auto_detect_texts = [q]
 
             overall_candidates = detect_languages(q)
-            
-            for text_to_check in auto_detect_texts:
-              if len(text_to_check) > 40:
-                candidate_langs = detect_languages(text_to_check)
-              else:
-                # Unable to accurately detect languages for short texts
-                candidate_langs = overall_candidates
-              source_langs.append(candidate_langs[0]["language"])
 
-              if args.debug:
-                  print(text_to_check, candidate_langs)
-                  print("Auto detected: %s" % candidate_langs[0]["language"])
+            for text_to_check in auto_detect_texts:
+                if len(text_to_check) > 40:
+                    candidate_langs = detect_languages(text_to_check)
+                else:
+                    # Unable to accurately detect languages for short texts
+                    candidate_langs = overall_candidates
+                source_langs.append(candidate_langs[0]["language"])
+
+                if args.debug:
+                    print(text_to_check, candidate_langs)
+                    print("Auto detected: %s" % candidate_langs[0]["language"])
         else:
-          if batch:
-            source_langs = [source_lang for text in q]
-          else:
-            source_langs = [source_lang]
+            if batch:
+                source_langs = [source_lang for text in q]
+            else:
+                source_langs = [source_lang]
 
         src_langs = [next(iter([l for l in languages if l.code == source_lang]), None) for source_lang in source_langs]
-        
+
         for idx, lang in enumerate(src_langs):
-          if lang is None:
-            abort(400, description="%s is not supported" % source_langs[idx])
+            if lang is None:
+                abort(400, description="%s is not supported" % source_langs[idx])
 
         tgt_lang = next(iter([l for l in languages if l.code == target_lang]), None)
 
@@ -417,19 +473,18 @@ def create_app(args):
         if text_format not in ["text", "html"]:
             abort(400, description="%s format is not supported" % text_format)
 
-
         try:
             if batch:
                 results = []
                 for idx, text in enumerate(q):
-                  translator = src_langs[idx].get_translation(tgt_lang)
+                    translator = src_langs[idx].get_translation(tgt_lang)
 
-                  if text_format == "html":
-                    translated_text = str(translate_html(translator, text))
-                  else:
-                    translated_text = translator.translate(transliterate(text, target_lang=source_langs[idx]))
+                    if text_format == "html":
+                        translated_text = str(translate_html(translator, text))
+                    else:
+                        translated_text = translator.translate(transliterate(text, target_lang=source_langs[idx]))
 
-                  results.append(translated_text)
+                    results.append(unescape(translated_text))
                 return jsonify(
                     {
                         "translatedText": results
@@ -444,11 +499,171 @@ def create_app(args):
                     translated_text = translator.translate(transliterate(q, target_lang=source_langs[0]))
                 return jsonify(
                     {
-                        "translatedText": translated_text
+                        "translatedText": unescape(translated_text)
                     }
                 )
         except Exception as e:
             abort(500, description="Cannot translate text: %s" % str(e))
+
+    @app.route("/translate_file", methods=["POST"])
+    @access_check
+    def translate_file():
+        """
+        Translate file from a language to another
+        ---
+        tags:
+          - translate
+        consumes:
+         - multipart/form-data
+        parameters:
+          - in: formData
+            name: file
+            type: file
+            required: true
+            description: File to translate
+          - in: formData
+            name: source
+            schema:
+              type: string
+              example: en
+            required: true
+            description: Source language code
+          - in: formData
+            name: target
+            schema:
+              type: string
+              example: es
+            required: true
+            description: Target language code
+          - in: formData
+            name: api_key
+            schema:
+              type: string
+              example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+            required: false
+            description: API key
+        responses:
+          200:
+            description: Translated file
+            schema:
+              id: translate
+              type: object
+              properties:
+                translatedFileUrl:
+                  type: string
+                  description: Translated file url
+          400:
+            description: Invalid request
+            schema:
+              id: error-response
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Error message
+          500:
+            description: Translation error
+            schema:
+              id: error-response
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Error message
+          429:
+            description: Slow down
+            schema:
+              id: error-slow-down
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Reason for slow down
+          403:
+            description: Banned
+            schema:
+              id: error-response
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Error message
+        """
+        if args.disable_files_translation:
+            abort(403, description="Files translation are disabled on this server.")
+
+        source_lang = request.form.get("source")
+        target_lang = request.form.get("target")
+        file = request.files['file']
+
+        if not file:
+            abort(400, description="Invalid request: missing file parameter")
+        if not source_lang:
+            abort(400, description="Invalid request: missing source parameter")
+        if not target_lang:
+            abort(400, description="Invalid request: missing target parameter")
+
+        if file.filename == '':
+            abort(400, description="Invalid request: empty file")
+
+        if os.path.splitext(file.filename)[1] not in frontend_argos_supported_files_format:
+            abort(400, description="Invalid request: file format not supported")
+
+        source_langs = [source_lang]
+        src_langs = [next(iter([l for l in languages if l.code == source_lang]), None) for source_lang in source_langs]
+
+        for idx, lang in enumerate(src_langs):
+            if lang is None:
+                abort(400, description="%s is not supported" % source_langs[idx])
+
+        tgt_lang = next(iter([l for l in languages if l.code == target_lang]), None)
+
+        if tgt_lang is None:
+            abort(400, description="%s is not supported" % target_lang)
+
+        try:
+            filename = str(uuid.uuid4()) + '.' + secure_filename(file.filename)
+            filepath = os.path.join(get_upload_dir(), filename)
+
+            file.save(filepath)
+
+            translated_file_path = argostranslatefiles.translate_file(src_langs[0].get_translation(tgt_lang), filepath)
+            translated_filename = os.path.basename(translated_file_path)
+
+            return jsonify(
+                {
+                    "translatedFileUrl": url_for('download_file', filename=translated_filename, _external=True)
+                }
+            )
+        except Exception as e:
+            abort(500, description=e)
+
+    @app.route("/download_file/<string:filename>", methods=["GET"])
+    def download_file(filename: str):
+        """
+        Download a translated file
+        """
+        if args.disable_files_translation:
+            abort(400, description="Files translation are disabled on this server.")
+
+        filepath = os.path.join(get_upload_dir(), filename)
+        try:
+            checked_filepath = security.path_traversal_check(filepath, get_upload_dir())
+            if os.path.isfile(checked_filepath):
+                filepath = checked_filepath
+        except security.SuspiciousFileOperation:
+            abort(400, description="Invalid filename")
+
+        return_data = io.BytesIO()
+        with open(filepath, 'rb') as fo:
+            return_data.write(fo.read())
+        return_data.seek(0)
+
+        download_filename = filename.split('.')
+        download_filename.pop(0)
+        download_filename = '.'.join(download_filename)
+
+        return send_file(return_data, as_attachment=True, attachment_filename=download_filename)
 
     @app.route("/detect", methods=["POST"])
     @access_check
@@ -565,6 +780,20 @@ def create_app(args):
                 frontendTimeout:
                   type: integer
                   description: Frontend translation timeout
+                apiKeys:
+                  type: boolean
+                  description: Whether the API key database is enabled.
+                keyRequired:
+                  type: boolean
+                  description: Whether an API key is required.
+                suggestions:
+                  type: boolean
+                  description: Whether submitting suggestions is enabled.
+                supportedFilesFormat:
+                  type: array
+                  items:
+                    type: string
+                  description: Supported files format
                 language:
                   type: object
                   properties:
@@ -591,6 +820,11 @@ def create_app(args):
             {
                 "charLimit": args.char_limit,
                 "frontendTimeout": args.frontend_timeout,
+                "apiKeys": args.api_keys,
+                "keyRequired": bool(args.api_keys and args.require_api_key_origin),
+                "suggestions": args.suggestions,
+                "filesTranslation": not args.disable_files_translation,
+                "supportedFilesFormat": [] if args.disable_files_translation else frontend_argos_supported_files_format,
                 "language": {
                     "source": {
                         "code": frontend_argos_language_source.code,
@@ -604,8 +838,85 @@ def create_app(args):
             }
         )
 
+    @app.route("/suggest", methods=["POST"])
+    @access_check
+    def suggest():
+        """
+        Submit a suggestion to improve a translation
+        ---
+        tags:
+          - feedback
+        parameters:
+          - in: formData
+            name: q
+            schema:
+              type: string
+              example: Hello world!
+            required: true
+            description: Original text
+          - in: formData
+            name: s
+            schema:
+              type: string
+              example: ¡Hola mundo!
+            required: true
+            description: Suggested translation
+          - in: formData
+            name: source
+            schema:
+              type: string
+              example: en
+            required: true
+            description: Language of original text
+          - in: formData
+            name: target
+            schema:
+              type: string
+              example: es
+            required: true
+            description: Language of suggested translation
+        responses:
+          200:
+            description: Success
+            schema:
+              id: suggest-response
+              type: object
+              properties:
+                success:
+                  type: boolean
+                  description: Whether submission was successful
+          403:
+            description: Not authorized
+            schema:
+              id: error-response
+              type: object
+              properties:
+                error:
+                  type: string
+                  description: Error message
+        """
+        if not args.suggestions:
+            abort(403, description="Suggestions are disabled on this server.")
+
+        q = request.values.get("q")
+        s = request.values.get("s")
+        source_lang = request.values.get("source")
+        target_lang = request.values.get("target")
+
+        if not q:
+            abort(400, description="Invalid request: missing q parameter")
+        if not s:
+            abort(400, description="Invalid request: missing s parameter")
+        if not source_lang:
+            abort(400, description="Invalid request: missing source parameter")
+        if not target_lang:
+            abort(400, description="Invalid request: missing target parameter")
+
+        SuggestionsDatabase().add(q, s, source_lang, target_lang)
+        return jsonify({"success": True})
+
     swag = swagger(app)
-    swag["info"]["version"] = "1.2"
+    swag["info"]["version"] = "1.3.0"
     swag["info"]["title"] = "LibreTranslate"
 
     @app.route("/spec")

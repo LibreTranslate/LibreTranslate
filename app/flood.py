@@ -7,9 +7,20 @@ active = False
 threshold = -1
 
 
-def clear_banned():
+def forgive_banned():
     global banned
-    banned = {}
+    global threshold
+
+    clear_list = []
+
+    for ip in banned:
+        if banned[ip] <= 0:
+            clear_list.append(ip)
+        else:
+            banned[ip] = min(threshold, banned[ip]) - 1
+
+    for ip in clear_list:
+        del banned[ip]
 
 
 def setup(violations_threshold=100):
@@ -20,7 +31,7 @@ def setup(violations_threshold=100):
     threshold = violations_threshold
 
     scheduler = BackgroundScheduler()
-    scheduler.add_job(func=clear_banned, trigger="interval", weeks=4)
+    scheduler.add_job(func=forgive_banned, trigger="interval", minutes=480)
     scheduler.start()
 
     # Shut down the scheduler when exiting the app
@@ -31,6 +42,15 @@ def report(request_ip):
     if active:
         banned[request_ip] = banned.get(request_ip, 0)
         banned[request_ip] += 1
+
+
+def decrease(request_ip):
+    if banned[request_ip] > 0:
+        banned[request_ip] -= 1
+
+
+def has_violation(request_ip):
+    return request_ip in banned and banned[request_ip] > 0
 
 
 def is_banned(request_ip):

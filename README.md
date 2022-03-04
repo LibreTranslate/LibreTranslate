@@ -6,14 +6,15 @@
 
 Free and Open Source Machine Translation API, entirely self-hosted. Unlike other APIs, it doesn't rely on proprietary providers such as Google or Azure to perform translations. Instead, its translation engine is powered by the open source [Argos Translate][argo] library.
 
-![image](https://user-images.githubusercontent.com/1951843/121782367-23f90080-cb77-11eb-87fd-ed23a21b730f.png)
+![image](https://user-images.githubusercontent.com/64697405/139015751-279f31ac-36f1-4950-9ea7-87e76bf65f51.png)
+
 
 [Try it online!](https://libretranslate.com) | [API Docs](https://libretranslate.com/docs)
 
 ## API Examples
 
 
-### Plain Text
+### Simple
 
 Request:
 
@@ -36,6 +37,32 @@ Response:
 ```javascript
 {
     "translatedText": "¡Hola!"
+}
+```
+
+### Auto Detect Language
+
+Request:
+
+```javascript
+const res = await fetch("https://libretranslate.com/translate", {
+	method: "POST",
+	body: JSON.stringify({
+		q: "Ciao!",
+		source: "auto",
+		target: "en"
+	}),
+	headers: { "Content-Type": "application/json" }
+});
+
+console.log(await res.json());
+```
+
+Response:
+
+```javascript
+{
+    "translatedText": "Bye!"
 }
 ```
 
@@ -88,7 +115,7 @@ On Ubuntu 20.04 you can also use the install script available on https://github.
 If you want to make some changes to the code, you can build from source, and run the API:
 
 ```bash
-git clone https://github.com/uav4geo/LibreTranslate
+git clone https://github.com/LibreTranslate/LibreTranslate
 cd LibreTranslate
 pip install -e .
 libretranslate [args]
@@ -129,26 +156,29 @@ Or build and run using `docker-compose`:
 docker-compose up -d --build
 ```
 
-> Feel free to change the [`docker-compose.yml`](https://github.com/uav4geo/LibreTranslate/blob/main/docker-compose.yml) file to adapt it to your deployment needs, or use an extra `docker-compose.prod.yml` file for your deployment configuration.
+> Feel free to change the [`docker-compose.yml`](https://github.com/LibreTranslate/LibreTranslate/blob/main/docker-compose.yml) file to adapt it to your deployment needs, or use an extra `docker-compose.prod.yml` file for your deployment configuration.
 
 ## Arguments
 
-| Argument      | Description                    | Default              | Env. name              |
-| ------------- | ------------------------------ | -------------------- | ---------------------- |
-| --host        | Set host to bind the server to | `127.0.0.1`          | LT_HOST |
-| --port        | Set port to bind the server to | `5000`               | LT_PORT |
-| --char-limit        | Set character limit | `No limit`               | LT_CHAR_LIMIT |
-| --req-limit        | Set maximum number of requests per minute per client | `No limit`               | LT_REQ_LIMIT |
-| --batch-limit        | Set maximum number of texts to translate in a batch request | `No limit`               | LT_BATCH_LIMIT |
-| --ga-id        | Enable Google Analytics on the API client page by providing an ID | `No tracking`               | LT_GA_ID |
-| --debug      | Enable debug environment | `False`           | LT_DEBUG |
-| --ssl        | Whether to enable SSL | `False`               | LT_SSL |
-| --frontend-language-source | Set frontend default language - source | `en`          | LT_FRONTEND_LANGUAGE_SOURCE |
-| --frontend-language-target | Set frontend default language - target | `es`          | LT_FRONTEND_LANGUAGE_TARGET |
-| --frontend-timeout | Set frontend translation timeout | `500`         | LT_FRONTEND_TIMEOUT |
-| --api-keys | Enable API keys database for per-user rate limits lookup | `Don't use API keys` | LT_API_KEYS |
-| --require-api-key-origin | Require use of an API key for programmatic access to the API, unless the request origin matches this domain | `No restrictions on domain origin` | LT_REQUIRE_API_KEY_ORIGIN |
-| --load-only   | Set available languages    | `all from argostranslate`    | LT_LOAD_ONLY |
+| Argument                    | Description                                                                                                 | Default              | Env. name                    |
+|-----------------------------|-------------------------------------------------------------------------------------------------------------| -------------------- |------------------------------|
+| --host                      | Set host to bind the server to                                                                              | `127.0.0.1`          | LT_HOST                      |
+| --port                      | Set port to bind the server to                                                                              | `5000`               | LT_PORT                      |
+| --char-limit                | Set character limit                                                                                         | `No limit`               | LT_CHAR_LIMIT                |
+| --req-limit                 | Set maximum number of requests per minute per client                                                        | `No limit`               | LT_REQ_LIMIT                 |
+| --batch-limit               | Set maximum number of texts to translate in a batch request                                                 | `No limit`               | LT_BATCH_LIMIT               |
+| --ga-id                     | Enable Google Analytics on the API client page by providing an ID                                           | `No tracking`               | LT_GA_ID                     |
+| --debug                     | Enable debug environment                                                                                    | `False`           | LT_DEBUG                     |
+| --ssl                       | Whether to enable SSL                                                                                       | `False`               | LT_SSL                       |
+| --frontend-language-source  | Set frontend default language - source                                                                      | `en`          | LT_FRONTEND_LANGUAGE_SOURCE  |
+| --frontend-language-target  | Set frontend default language - target                                                                      | `es`          | LT_FRONTEND_LANGUAGE_TARGET  |
+| --frontend-timeout          | Set frontend translation timeout                                                                            | `500`         | LT_FRONTEND_TIMEOUT          |
+| --api-keys                  | Enable API keys database for per-user rate limits lookup                                                    | `Don't use API keys` | LT_API_KEYS                  |
+| --require-api-key-origin    | Require use of an API key for programmatic access to the API, unless the request origin matches this domain | `No restrictions on domain origin` | LT_REQUIRE_API_KEY_ORIGIN    |
+| --load-only                 | Set available languages                                                                                     | `all from argostranslate`    | LT_LOAD_ONLY                 |
+| --suggestions               | Allow user suggestions                                                                                      | `false`    | LT_SUGGESTIONS               |
+| --disable-files-translation | Disable files translation                                                                                   | `false`    | LT_DISABLE_FILES_TRANSLATION |
+| --disable-web-ui            | Disable web ui                                                                                              | `false`    | LT_DISABLE_WEB_UI            |
 
 Note that each argument has an equivalent env. variable that can be used instead. The env. variables overwrite the default values but have lower priority than the command aguments. They are particularly useful if used with Docker. Their name is the upper-snake case of the command arguments' ones, with a `LT` prefix.
 
@@ -165,6 +195,10 @@ You can pass application arguments directly to Gunicorn via:
 ```
 gunicorn --bind 0.0.0.0:5000 'wsgi:app(api_keys=True)'
 ```
+
+## Run with Kubernetes
+
+See https://jmrobles.medium.com/libretranslate-your-own-translation-service-on-kubernetes-b46c3e1af630
 
 ## Manage API Keys
 
@@ -227,7 +261,7 @@ Then issue `./launcher rebuild app`. From the Discourse's admin panel then selec
 
 ## Mobile Apps
 
-- [LibreTranslater](https://gitlab.com/BeowuIf/libretranslater) is an Android app available on the Play Store (https://play.google.com/store/apps/details?id=de.beowulf.libretranslater) that uses the LibreTranslate API.
+- [LibreTranslater](https://gitlab.com/BeowuIf/libretranslater) is an Android app available on the Play Store (https://play.google.com/store/apps/details?id=de.beowulf.libretranslater) and in F-Droid store (https://f-droid.org/packages/de.beowulf.libretranslater/) that uses the LibreTranslate API.
 
 ## Web browser
 - [minbrowser](https://minbrowser.org/) is a web browser with [integrated LibreTranslate support](https://github.com/argosopentech/argos-translate/discussions/158#discussioncomment-1141551).
@@ -236,13 +270,19 @@ Then issue `./launcher rebuild app`. From the Discourse's admin panel then selec
 
 This is a list of online resources that serve the LibreTranslate API. Some require an API key. If you want to add a new URL, please open a pull request.
 
-URL |API Key Required|Contact|Cost
+URL |API Key Required|Payment Link|Cost
 --- | --- | --- | ---
-[libretranslate.com](https://libretranslate.com)|:heavy_check_mark:|[UAV4GEO](https://uav4geo.com/contact)| [$9 / month](https://buy.stripe.com/28obLvdgGcIE5AQfYY), 80 requests / minute limit
-[libretranslate.de](https://libretranslate.de/)|-|-
-[translate.astian.org](https://translate.astian.org/)|-|-
+[libretranslate.com](https://libretranslate.com)|:heavy_check_mark:|[Buy](https://buy.stripe.com/28obLvdgGcIE5AQfYY)| [$9 / month](https://buy.stripe.com/28obLvdgGcIE5AQfYY), 80 requests / minute limit
+[libretranslate.de](https://libretranslate.de)|-|-
+[translate.mentality.rip](https://translate.mentality.rip)|-|-
 [translate.argosopentech.com](https://translate.argosopentech.com/)|-|-
+[translate.api.skitzen.com](https://translate.api.skitzen.com/)|-|-
+[trans.zillyhuhn.com](https://trans.zillyhuhn.com/)|-|-
+[libretranslate.esmailelbob.xyz](https://libretranslate.esmailelbob.xyz)|-|-
 
+## Adding New Languages
+
+To add new languages you first need to train an Argos Translate model. See [this video](https://odysee.com/@argosopentech:7/training-an-Argos-Translate-model-tutorial-2022:2?r=DMnK7NqdPNHRCfwhmKY9LPow3PqVUUgw) for details.
 
 ## Roadmap
 
@@ -258,7 +298,7 @@ Help us by opening a pull request!
 
 ### Can I use your API server at libretranslate.com for my application in production?
 
-The API on libretranslate.com should be used for testing, personal or infrequent use. If you're going to run an application in production, please [get in touch](https://uav4geo.com/contact) to get an API key or discuss other options.
+In short, no. [You need to buy an API key](https://buy.stripe.com/28obLvdgGcIE5AQfYY). You can always run LibreTranslate for free on your own server of course.
 
 ### Can I use this behind a reverse proxy, like Apache2?
 

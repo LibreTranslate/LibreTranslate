@@ -7,6 +7,10 @@ select {
   font-family: Arial, Helvetica, sans-serif !important;
 }
 
+a {
+  text-decoration: underline; 
+}
+
 #app {
   min-height: 80vh;
 }
@@ -21,6 +25,10 @@ h3.header {
 
 .mt-0 {
   margin-top: 0 !important;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
 }
 
 .position-relative {
@@ -52,6 +60,7 @@ h3.header {
   outline: none;
   position: relative;
 }
+
 @-moz-document url-prefix() {
   .language-select select {
     -moz-appearance: none;
@@ -92,11 +101,11 @@ h3.header {
   background: none;
   padding: 0;
   cursor: pointer;
-  color: #777;
+  color: #666;
 }
 
 .btn-delete-text:focus,
-.btn-copy-translated:focus {
+.btn-action:focus {
   background: none !important;
 }
 
@@ -104,30 +113,94 @@ h3.header {
   position: absolute;
   right: 2rem;
   bottom: 1rem;
-  color: #777;
+  color: #666;
   pointer-events: none;
 }
-
-.btn-copy-translated {
+.actions {
   position: absolute;
-  right: 2.75rem;
+  right: 1.25rem;
   bottom: 1rem;
   display: flex;
+}
+
+.btn-switch-type {
+  background-color: #fff;
+  color: #1565C0;
+  display: flex;
   align-items: center;
-  color: #777;
+  margin: .5rem;
+}
+
+.btn-switch-type:focus {
+  background-color: inherit;
+}
+
+.btn-switch-type:hover {
+    background-color: #eee !important;
+    color: #1565C0;
+}
+
+.btn-switch-type.active {
+    background-color: #1565C0 !important;
+    color: #fff;
+}
+
+.file-dropzone {
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+  background: #f3f3f3;
+  padding: 1rem 2rem 1rem 1.5rem;
+  min-height: 220px;
+  position: relative;
+}
+
+.dropzone-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+.btn-action {
+  display: flex;
+  align-items: center;
+  color: #666;
   font-size: 0.85rem;
   background: none;
   border: none;
   cursor: pointer;
-  margin-right: -1.5rem;
 }
 
-.btn-copy-translated span {
+.btn-blue {
+  color: #1565C0;
+}
+.btn-action:disabled {
+    color: #666;
+}
+
+.btn-action span {
   padding-right: 0.5rem;
 }
 
-.btn-copy-translated .material-icons {
+.btn-action .material-icons {
   font-size: 1.35rem;
+}
+
+#translation-type-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: -.5rem;
+}
+
+.btn-text {
+  display: none;
+  margin-left: 1em;
+}
+
+#translation-form {
+  padding-top: 1em;
 }
 
 .progress {
@@ -185,6 +258,39 @@ h3.header {
 
 .logo {
   height: 32px;
+}
+
+.brand-logo {
+  text-decoration: none;
+}
+
+.sidenav-trigger {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+@media (min-width: 993px) {
+  nav button.sidenav-trigger {
+    display: none;
+  }
+}
+
+#download-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 2em 0;
+}
+
+#download-btn {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 280px) {
+  .btn-text {
+    display: inline;
+  }
 }
 
 @media (max-width: 760px) {

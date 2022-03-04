@@ -5,21 +5,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>LibreTranslate - Free and Open Source Machine Translation API</title>
 	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <meta name="description" content="Free and Open Source Machine Translation API. 100% self-hosted, no limits, no ties to proprietary services. Run your own API server in just a few minutes.">
-    <meta name="keywords" content="translation,api">
+  <meta name="description" content="Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup. Run your own API server in just a few minutes.">
+  <meta name="keywords" content="translation,api">
 
-    <meta property="og:title" content="LibreTranslate - Free and Open Source Machine Translation API" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://libretranslate.com" />
-    <meta property="og:image" content="https://user-images.githubusercontent.com/1951843/102724116-32a6df00-42db-11eb-8cc0-129ab39cdfb5.png" />
-    <meta property="og:description" name="description" class="swiftype" content="Free and Open Source Machine Translation API. 100% self-hosted, no limits, no ties to proprietary services. Run your own API server in just a few minutes."/>
+  <meta property="og:title" content="LibreTranslate - Free and Open Source Machine Translation API" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://libretranslate.com" />
+  <meta property="og:image" content="https://user-images.githubusercontent.com/1951843/102724116-32a6df00-42db-11eb-8cc0-129ab39cdfb5.png" />
+  <meta property="og:description" name="description" class="swiftype" content="Free and Open Source Machine Translation API. 100% self-hosted, no limits, no ties to proprietary services. Run your own API server in just a few minutes."/>
 
 	<script src="{{ url_for('static', filename='js/vue@2.js') }}"></script>
 	<!-- Compiled and minified CSS -->
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/material-icons.css') }}" />
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/prism.min.css') }}" />
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}?t=2" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}?v={{ version }}" />
 
 	{% if gaId %}
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -33,12 +33,14 @@
 	{% endif %}
 </head>
 
-<body>
+<body class="white">
 	<header>
-		<nav class="blue lighten-1" role="navigation">
+		<nav class="blue darken-3" role="navigation">
 			<div class="nav-wrapper container">
+				<button data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></button>
 				<a id="logo-container" href="/" class="brand-logo">
-					<img src="{{ url_for('static', filename='icon.svg') }}" class="logo"> LibreTranslate
+					<img src="{{ url_for('static', filename='icon.svg') }}" alt="Logo for LibreTranslate" class="logo">
+          <span>LibreTranslate</span>
 				</a>
 				<ul class="right hide-on-med-and-down">
 				<li><a href="/docs">API Docs</a></li>
@@ -55,7 +57,6 @@
 				<li><a href="javascript:setApiKey()" title="Set API Key"><i class="material-icons">vpn_key</i></a></li>
 				{% endif %}
 				</ul>
-				<a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 			</div>
 		</nav>
 	</header>
@@ -105,8 +106,17 @@
 			<div class="container">
 				<div class="row">
 					<h3 class="header center">Translation API</h3>
-
-					<form class="col s12">
+          <div id="translation-type-btns" class="s12 center" v-if="filesTranslation === true">
+            <button type="button" class="btn btn-switch-type" @click="switchType('text')" :class="{'active': translationType === 'text'}">
+              <i class="material-icons">title</i>
+              <span class="btn-text">Translate Text</span>
+            </button>
+            <button type="button" class="btn btn-switch-type" @click="switchType('files')" :class="{'active': translationType === 'files'}">
+              <i class="material-icons">description</i>
+              <span class="btn-text">Translate Files</span>
+            </button>
+          </div>
+					<form id="translation-form" class="col s12">
 						<div class="row mb-0">
 							<div class="col s6 language-select">
 								<span>Translate from</span>
@@ -126,46 +136,92 @@
 									<template v-for="option in langs">
 										<option v-if="option.code !== 'auto'" :value="option.code">[[ option.name ]]</option>
 									</template>
-								</select>								
+								</select>
 							</div>
 						</div>
 
-						<div class="row">
+						<div class="row" v-if="translationType === 'text'">
 							<div class="input-field textarea-container col s6">
 								<label for="textarea1" class="sr-only">
 									Text to translate
-								</label>								
+								</label>
 								<textarea id="textarea1" v-model="inputText" @input="handleInput" ref="inputTextarea" dir="auto"></textarea>
 								<button class="btn-delete-text" title="Delete text" @click="deleteText">
 									<i class="material-icons">close</i>
-								</button>							
+								</button>
 								<div class="characters-limit-container" v-if="charactersLimit !== -1">
 									<label>[[ inputText.length ]] / [[ charactersLimit ]]</label>
 								</div>
 							</div>
-
 							<div class="input-field textarea-container col s6">
 								<label for="textarea2" class="sr-only">
 									Translated text
-								</label>									
-								<textarea id="textarea2" v-model="translatedText" ref="translatedTextarea" dir="auto" readonly></textarea>
-								<button class="btn-copy-translated" @click="copyText">
-									<span>[[ copyTextLabel ]]</span> <i class="material-icons">content_copy</i>
-								</button>	
-								<div class="position-relative">									
+								</label>
+								<textarea id="textarea2" v-model="translatedText" ref="translatedTextarea" dir="auto" v-bind:readonly="suggestions && !isSuggesting"></textarea>
+                                <div class="actions">
+                                    <button v-if="suggestions && !loadingTranslation && inputText.length && !isSuggesting" class="btn-action" @click="suggestTranslation">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                    <button v-if="suggestions && !loadingTranslation && inputText.length && isSuggesting" class="btn-action btn-blue" @click="closeSuggestTranslation">
+                                        <span>Cancel</span>
+                                    </button>
+                                    <button v-if="suggestions && !loadingTranslation && inputText.length && isSuggesting" :disabled="!canSendSuggestion" class="btn-action btn-blue" @click="sendSuggestion">
+                                        <span>Send</span>
+                                    </button>
+                                    <button v-if="!isSuggesting" class="btn-action btn-copy-translated" @click="copyText">
+                                        <span>[[ copyTextLabel ]]</span> <i class="material-icons">content_copy</i>
+                                    </button>
+                                </div>
+								<div class="position-relative">
 									<div class="progress translate" v-if="loadingTranslation">
 										<div class="indeterminate"></div>
-									</div>																		
+									</div>
 								</div>
 							</div>
 						</div>
+                        <div class="row" v-if="translationType === 'files'">
+                            <div class="file-dropzone">
+                                <div v-if="inputFile === false" class="dropzone-content">
+                                    <span>Supported file formats: [[ supportedFilesFormatFormatted ]]</span>
+                                    <form action="#">
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span>File</span>
+                                                <input type="file" :accept="supportedFilesFormatFormatted" @change="handleInputFile" ref="fileInputRef">
+                                            </div>
+                                            <div class="file-path-wrapper hidden">
+                                                <input class="file-path validate" type="text">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div v-if="inputFile !== false" class="dropzone-content">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <div class="row mb-0">
+                                                <div class="col s12">
+                                                    [[ inputFile.name ]]
+                                                    <button v-if="loadingFileTranslation !== true" @click="removeFile" class="btn-flat">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button @click="translateFile" v-if="translatedFileUrl === false && loadingFileTranslation === false" class="btn">Translate</button>
+                                    <a v-if="translatedFileUrl !== false" :href="translatedFileUrl" class="btn">Download</a>
+                                    <div class="progress" v-if="loadingFileTranslation">
+                                        <div class="indeterminate"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 					</form>
-
 				</div>
 			</div>
 		</div>
 
-		<div class="section no-pad-bot">
+		<div class="section no-pad-bot" v-if="translationType !== 'files'">
 			<div class="container">
 				<div class="row center">
 					<div class="col s12 m12">
@@ -187,20 +243,24 @@
 				</div>
 			</div>
 		</div>
-		{% if web_version %}
+    {% if web_version %}
 		<div class="section no-pad-bot">
 			<div class="container">
 				<div class="row center">
 					<div class="col s12 m12">
-						<h3 class="header">Open Source Machine Translation</h3>
-						<h4 class="header">100% Self-Hosted. No Limits. No Ties to Proprietary Services.</h4>
-						<br/><a class="waves-effect waves-light btn btn-large" href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer"><i class="material-icons left">cloud_download</i> Download</a>
-						<br/><br/><br/>
+						<h3 class="header">Open Source Machine Translation API</h3>
+						<h4 class="header">100% Self-Hosted. Offline Capable. Easy to Setup.</h4>
+            <div id="download-btn-wrapper">
+              <a id="download-btn" class="waves-effect waves-light btn btn-large teal darken-2" href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">
+                <i class="material-icons">cloud_download</i>
+                <span class="btn-text">Download</span>
+              </a>
+            </div>
 					</div>
 				</div>
 			</div>
 		</div>
-		{% endif %}
+    {% endif %}
 	</div>
 	</main>
 
@@ -210,19 +270,19 @@
 				<div class="col l12 s12">
 					<h5 class="white-text">LibreTranslate</h5>
 					<p class="grey-text text-lighten-4">Free and Open Source Machine Translation API</p>
-					<p><a class="grey-text text-lighten-4" href="https://www.gnu.org/licenses/agpl-3.0.en.html" rel="noopener noreferrer">License: AGPLv3</a></p>
+					<p>License: <a class="grey-text text-lighten-4" href="https://www.gnu.org/licenses/agpl-3.0.en.html" rel="noopener noreferrer">AGPLv3</a></p>
 					<p><a class="grey-text text-lighten-4" href="/javascript-licenses" rel="jslicense">JavaScript license information</a></p>
 					{% if web_version %}
 					<p>
-						This public API should be used for testing, personal or infrequent use. If you're going to run an application in production, please <a href="https://github.com/LibreTranslate/LibreTranslate" class="grey-text text-lighten-4" style="text-decoration: underline;" rel="noopener noreferrer">host your own server</a> or <a class="grey-text text-lighten-4" href="https://github.com/LibreTranslate/LibreTranslate#mirrors" style="text-decoration: underline;" rel="noopener noreferrer">get an API key</a>.
+						This public API should be used for testing, personal or infrequent use. If you're going to run an application in production, please <a href="https://github.com/LibreTranslate/LibreTranslate" class="grey-text text-lighten-4" rel="noopener noreferrer">host your own server</a> or <a class="grey-text text-lighten-4" href="https://github.com/LibreTranslate/LibreTranslate#mirrors" rel="noopener noreferrer">get an API key</a>.
 					</p>
 					{% endif %}
 				</div>
 			</div>
 		</div>
 		<div class="footer-copyright center">
-			<p>
-				Made with ❤ by <a class="grey-text text-lighten-3" href="https://github.com/LibreTranslate/LibreTranslate/graphs/contributors" rel="noopener noreferrer">LibreTranslate Contributors</a> and powered by <a class="grey-text text-lighten-3" href="https://github.com/argosopentech/argos-translate/" rel="noopener noreferrer">Argos Translate</a>
+			<p class="white-text">
+				Made with ❤ by <a class="white-text" href="https://github.com/LibreTranslate/LibreTranslate/graphs/contributors" rel="noopener noreferrer">LibreTranslate Contributors</a> and powered by <a class="white-text text-lighten-3" href="https://github.com/argosopentech/argos-translate/" rel="noopener noreferrer">Argos Translate</a>
 			</p>
 		</div>
 	</footer>
@@ -234,273 +294,7 @@
 	window.Prism.manual = true;
 	// @license-end
 	</script>
-
-	<script src="{{ url_for('static', filename='js/prism.min.js') }}"></script>
-
-	<script>
-	// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-3.0
-	// API host/endpoint
-	var BaseUrl = window.location.protocol + "//" + window.location.host;
-    var htmlRegex = /<(.*)>.*?|<(.*)\/>/;
-	document.addEventListener('DOMContentLoaded', function(){
-		var sidenavElems = document.querySelectorAll('.sidenav');
-		var sidenavInstances = M.Sidenav.init(sidenavElems);
-
-		var app = new Vue({
-		el: '#app',
-		delimiters: ['[[',']]'],
-		data: {
-			BaseUrl: BaseUrl,
-			loading: true,
-			error: "",
-			langs: [],
-			settings: {},
-			sourceLang: "",
-			targetLang: "",
-
-			loadingTranslation: false,
-			inputText: "",
-			inputTextareaHeight: 250,
-			translatedText: "",
-			output: "",
-			charactersLimit: -1,
-
-			copyTextLabel: "Copy text"
-		},
-		mounted: function(){
-			var self = this;
-			var requestSettings = new XMLHttpRequest();
-			requestSettings.open('GET', BaseUrl + '/frontend/settings', true);
-
-			requestSettings.onload = function() {
-			if (this.status >= 200 && this.status < 400) {
-					// Success!
-					self.settings = JSON.parse(this.response);
-					self.sourceLang = self.settings.language.source.code;
-					self.targetLang = self.settings.language.target.code;
-					self.charactersLimit = self.settings.charLimit;
-				}else {
-					self.error = "Cannot load /frontend/settings";
-					self.loading = false;
-			}
-			};
-
-			requestSettings.onerror = function() {
-			self.error = "Error while calling /frontend/settings";
-			self.loading = false;
-			};
-
-			requestSettings.send();
-
-			var requestLanguages = new XMLHttpRequest();
-			requestLanguages.open('GET', BaseUrl + '/languages', true);
-
-			requestLanguages.onload = function() {
-			if (this.status >= 200 && this.status < 400) {
-				// Success!
-				self.langs = JSON.parse(this.response);
-				self.langs.push({ name: 'Auto Detect (Experimental)', code: 'auto' })
-				if (self.langs.length === 0){
-					self.loading = false;
-					self.error = "No languages available. Did you install the models correctly?"
-					return;
-				}
-
-				self.loading = false;
-			} else {
-				self.error = "Cannot load /languages";
-				self.loading = false;
-			}
-			};
-
-			requestLanguages.onerror = function() {
-			self.error = "Error while calling /languages";
-			self.loading = false;
-			};
-
-			requestLanguages.send();
-		},
-		updated: function(){
-				M.FormSelect.init(this.$refs.sourceLangDropdown);
-				M.FormSelect.init(this.$refs.targetLangDropdown);
-				if (this.inputText === ""){
-					this.$refs.inputTextarea.style.height = this.inputTextareaHeight + "px";
-					this.$refs.translatedTextarea.style.height = this.inputTextareaHeight + "px";
-				}else{
-					this.$refs.inputTextarea.style.height = this.$refs.translatedTextarea.style.height = "1px";
-					this.$refs.inputTextarea.style.height = Math.max(this.inputTextareaHeight, this.$refs.inputTextarea.scrollHeight + 32) + "px";
-					this.$refs.translatedTextarea.style.height = Math.max(this.inputTextareaHeight, this.$refs.translatedTextarea.scrollHeight + 32) + "px";
-				}
-
-				if (this.charactersLimit !== -1 && this.inputText.length >= this.charactersLimit){
-					this.inputText = this.inputText.substring(0, this.charactersLimit);
-				}
-				
-				// Update "selected" attribute (to overcome a vue.js limitation)
-				// but properly display checkmarks on supported browsers.
-				// Also change the <select> width value depending on the <option> length
-				for (var i = 0; i < this.$refs.sourceLangDropdown.children.length; i++){
-					var el = this.$refs.sourceLangDropdown.children[i];
-					if (el.value === this.sourceLang){
-						el.setAttribute('selected', '');
-						this.$refs.sourceLangDropdown.style.width = getTextWidth(el.text) + 24 + 'px';
-					}else{ 
-						el.removeAttribute('selected');
-					}
-				}
-				for (var i = 0; i < this.$refs.targetLangDropdown.children.length; i++){
-					var el = this.$refs.targetLangDropdown.children[i];
-					if (el.value === this.targetLang){
-						el.setAttribute('selected', '');
-						this.$refs.targetLangDropdown.style.width = getTextWidth(el.text) + 24 + 'px';
-					}else{
-						el.removeAttribute('selected');
-					} 
-				}
-				
-		},
-		computed: {
-			requestCode: function(){
-				return ['const res = await fetch("' + this.BaseUrl + '/translate", {',
-	'	method: "POST",',
-	'	body: JSON.stringify({',
-	'		q: "' + this.$options.filters.escape(this.inputText) + '",',
-	'		source: "' + this.$options.filters.escape(this.sourceLang) + '",',
-	'		target: "' + this.$options.filters.escape(this.targetLang) + '",',
-	'		format: "' + (this.isHtml ? "html" : "text") + '"',
-	'	}),',
-	'	headers: { "Content-Type": "application/json" }',
-	'});',
-	'',
-	'console.log(await res.json());'].join("\n");
-			},
-
-			isHtml: function(){
-				return htmlRegex.test(this.inputText);
-			}
-		},
-		filters: {
-			escape: function(v){
-				return v.replace('"', '\\\"');
-			},
-			highlight: function(v){
-				return Prism.highlight(v, Prism.languages.javascript, 'javascript');
-			}
-		},
-		methods: {
-			abortPreviousTransRequest: function(){
-				if (this.transRequest){
-					this.transRequest.abort();
-					this.transRequest = null;
-				}
-			},
-			swapLangs: function(){
-				var t = this.sourceLang;
-				this.sourceLang = this.targetLang;
-				this.targetLang = t;
-				this.inputText = this.translatedText;
-				this.translatedText = "";
-				this.handleInput();
-			},
-			dismissError: function(){
-				this.error = '';
-			},
-			handleInput: function(e){
-				if (this.timeout) clearTimeout(this.timeout);
-				this.timeout = null;
-
-				if (this.inputText === ""){
-					this.translatedText = "";
-					this.output = "";
-					this.abortPreviousTransRequest();
-					this.loadingTranslation = false;
-					return;
-				}
-
-				var self = this;
-
-				self.loadingTranslation = true;
-				this.timeout = setTimeout(function(){
-					self.abortPreviousTransRequest();
-
-					var request = new XMLHttpRequest();
-					self.transRequest = request;
-
-					var data = new FormData();
-					data.append("q", self.inputText);
-					data.append("source", self.sourceLang);
-					data.append("target", self.targetLang);
-					data.append("format", self.isHtml ? "html" : "text");
-					data.append("api_key", localStorage.getItem("api_key") || "");
-
-					request.open('POST', BaseUrl + '/translate', true);
-
-					request.onload = function() {
-					try{
-						var res = JSON.parse(this.response);
-						// Success!
-						if (res.translatedText !== undefined){
-							self.translatedText = res.translatedText;
-							self.loadingTranslation = false;
-							self.output = JSON.stringify(res, null, 4);
-						}else{
-							throw new Error(res.error || "Unknown error");
-						}
-					}catch(e){
-						self.error = e.message;
-						self.loadingTranslation = false;
-					}
-					};
-
-					request.onerror = function() {
-					self.error = "Error while calling /translate";
-					self.loadingTranslation = false;
-					};
-
-					request.send(data);
-				}, '{{ frontendTimeout }}');
-			},
-			copyText: function(e){
-				e.preventDefault();
-				this.$refs.translatedTextarea.select();
-				this.$refs.translatedTextarea.setSelectionRange(0, 9999999); /* For mobile devices */
-				document.execCommand("copy");
-
-				if (this.copyTextLabel === "Copy text"){
-					this.copyTextLabel = "Copied";
-					var self = this;
-					setTimeout(function(){
-						self.copyTextLabel = "Copy text";
-					}, 1500);
-				}
-			},
-			deleteText: function(e){
-				e.preventDefault();
-				this.inputText = this.translatedText = this.output = "";
-			}
-		}
-		});
-
-	});
-
-	function getTextWidth(text) {
-		var canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
-		var ctx = canvas.getContext("2d");
-		ctx.font = 'bold 16px sans-serif';
-		var textWidth = Math.ceil(ctx.measureText(text).width);
-		return textWidth;
-	}	
-
-	function setApiKey(){
-		var prevKey = localStorage.getItem("api_key") || "";
-		var newKey = "";
-		newKey = window.prompt("Type in your API Key. If you need an API key, contact the server operator.", prevKey);
-		if (newKey === null) newKey = "";
-
-		localStorage.setItem("api_key", newKey);
-	}
-	
-	// @license-end
-	</script>
+    <script src="{{ url_for('static', filename='js/prism.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}?v={{ version }}"></script>
 </body>
 </html>
