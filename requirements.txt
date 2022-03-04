@@ -1,3 +1,5 @@
+ctranslate2==1.16.2
+itsdangerous==2.0.1
 argostranslate==1.5.2
 Flask==1.1.2
 flask-swagger==0.2.14
@@ -5,10 +7,11 @@ flask-swagger-ui==3.36.0
 Flask-Limiter==1.4
 waitress==1.4.4
 expiringdict==1.2.1
-pyicu==2.7
+pyicu>=2.8
 pycld2==0.41
 morfessor==2.0.6
 polyglot==16.7.4
 appdirs==1.4.4
 APScheduler==3.7.0
-translatehtml==1.5.1
+translatehtml==1.5.2
+argos-translate-files==1.0.5
