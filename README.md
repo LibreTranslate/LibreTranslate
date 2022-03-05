@@ -95,9 +95,9 @@ Response:
 
 ## Install and Run
 
-You can run your own API server in just a few lines of setup!
+You can run your own API server with just a few lines of setup!
 
-Make sure you have installed Python (3.8 or higher is recommended), then simply issue:
+Make sure you have Python installed (3.8 or higher is recommended), then simply run:
 
 ```bash
 pip install libretranslate
@@ -108,11 +108,11 @@ Then open a web browser to http://localhost:5000
 
 If you're on Windows, we recommend you [Run with Docker](#run-with-docker) instead.
 
-On Ubuntu 20.04 you can also use the install script available on https://github.com/argosopentech/LibreTranslate-init
+On Ubuntu 20.04 you can also use the install script available at https://github.com/argosopentech/LibreTranslate-init
 
 ## Build and Run
 
-If you want to make some changes to the code, you can build from source, and run the API:
+If you want to make changes to the code, you can build from source, and run the API:
 
 ```bash
 git clone https://github.com/LibreTranslate/LibreTranslate
@@ -142,7 +142,7 @@ Then open a web browser to http://localhost:5000
 docker build [--build-arg with_models=true] -t libretranslate .
 ```
 
-If you want to run the Docker image in a complete offline environment, you need to add the `--build-arg with_models=true` parameter. Then the language models get downloaded during the build process of the image. Otherwise these models get downloaded on the first run of the image/container.
+If you want to run the Docker image in a complete offline environment, you need to add the `--build-arg with_models=true` parameter. Then the language models are downloaded during the build process of the image. Otherwise these models get downloaded on the first run of the image/container.
 
 Run the built image:
 
@@ -180,9 +180,9 @@ docker-compose up -d --build
 | --disable-files-translation | Disable files translation                                                                                   | `false`    | LT_DISABLE_FILES_TRANSLATION |
 | --disable-web-ui            | Disable web ui                                                                                              | `false`    | LT_DISABLE_WEB_UI            |
 
-Note that each argument has an equivalent env. variable that can be used instead. The env. variables overwrite the default values but have lower priority than the command aguments. They are particularly useful if used with Docker. Their name is the upper-snake case of the command arguments' ones, with a `LT` prefix.
+Note that each argument has an equivalent environment variable that can be used instead. The env. variables overwrite the default values but have lower priority than the command aguments and are particularly useful if used with Docker. The environment variable names are the upper-snake-case of the equivalent command argument's name with a `LT` prefix.
 
-## Run with Gunicorn
+## Run with WSGI and Gunicorn
 
 ```
 pip install gunicorn
@@ -198,7 +198,7 @@ gunicorn --bind 0.0.0.0:5000 'wsgi:app(api_keys=True)'
 
 ## Run with Kubernetes
 
-See https://jmrobles.medium.com/libretranslate-your-own-translation-service-on-kubernetes-b46c3e1af630
+See ["LibreTranslate: your own translation service on Kubernetes" by JM Robles](https://jmrobles.medium.com/libretranslate-your-own-translation-service-on-kubernetes-b46c3e1af630)
 
 ## Manage API Keys
 
@@ -238,8 +238,6 @@ You can use the LibreTranslate API using the following bindings:
  - C++: https://github.com/argosopentech/LibreTranslate-cpp
  - Unix: https://github.com/argosopentech/LibreTranslate-sh
 
-More coming soon!
-
 ## Discourse Plugin
 
 You can use this [discourse translator plugin](https://github.com/LibreTranslate/discourse-translator) to translate [Discourse](https://discourse.org) topics. To install it simply modify `/var/discourse/containers/app.yml`:
@@ -261,14 +259,15 @@ Then issue `./launcher rebuild app`. From the Discourse's admin panel then selec
 
 ## Mobile Apps
 
-- [LibreTranslater](https://gitlab.com/BeowuIf/libretranslater) is an Android app [available on the Play Store](https://play.google.com/store/apps/details?id=de.beowulf.libretranslater) and [in F-Droid store](https://f-droid.org/packages/de.beowulf.libretranslater/) that uses the LibreTranslate API.
+- [LibreTranslater](https://gitlab.com/BeowuIf/libretranslater) is an Android app [available on the Play Store](https://play.google.com/store/apps/details?id=de.beowulf.libretranslater) and [in the F-Droid store](https://f-droid.org/packages/de.beowulf.libretranslater/) that uses the LibreTranslate API.
 
 ## Web browser
 - [minbrowser](https://minbrowser.org/) is a web browser with [integrated LibreTranslate support](https://github.com/argosopentech/argos-translate/discussions/158#discussioncomment-1141551).
+- A LibreTranslate Firefox addon is [currently a work in progress](https://github.com/LibreTranslate/LibreTranslate/issues/55).
 
 ## Mirrors
 
-This is a list of online resources that serve the LibreTranslate API. Some require an API key. If you want to add a new URL, please open a pull request.
+This is a list of public LibreTranslate instances, some require an API key. If you want to add a new URL, please open a pull request.
 
 URL |API Key Required|Payment Link|Cost
 --- | --- | --- | ---
@@ -293,7 +292,7 @@ Help us by opening a pull request!
 - [x] Auto-detect input language (thanks [@vemonet](https://github.com/vemonet) !)
 - [X] User authentication / tokens
 - [ ] Language bindings for every computer language
-- [ ] [Improved translations](https://github.com/argosopentech/argos-parallel-corpus)
+- [ ] [Improved translations](https://community.libretranslate.com/t/the-best-way-to-train-models/172)
 
 ## FAQ
 
@@ -301,7 +300,7 @@ Help us by opening a pull request!
 
 In short, no. [You need to buy an API key](https://buy.stripe.com/28obLvdgGcIE5AQfYY). You can always run LibreTranslate for free on your own server of course.
 
-### Can I use this behind a reverse proxy, like Apache2?
+### Can I use LibreTranslate behind a reverse proxy, like Apache2?
 
 Yes, here is an example Apache2 config that redirects a subdomain (with HTTPS certificate) to LibreTranslate running on a docker at localhost. 
 ```
@@ -354,10 +353,8 @@ To get a HTTPS subdomain certificate, install `certbot` (snap), run `sudo certbo
 
 ## Credits
 
-This work is largely possible thanks to [Argos Translate][argo], which powers the translation engine.
+This work is largely possible thanks to [Argos Translate][https://github.com/argosopentech/argos-translate], which powers the translation engine.
 
 ## License
 
 [GNU Affero General Public License v3](https://www.gnu.org/licenses/agpl-3.0.en.html)
-
-[argo]: https://github.com/argosopentech/argos-translate
