@@ -261,7 +261,7 @@ Then issue `./launcher rebuild app`. From the Discourse's admin panel then selec
 
 ## Mobile Apps
 
-- [LibreTranslater](https://gitlab.com/BeowuIf/libretranslater) is an Android app available on the Play Store (https://play.google.com/store/apps/details?id=de.beowulf.libretranslater) and in F-Droid store (https://f-droid.org/packages/de.beowulf.libretranslater/) that uses the LibreTranslate API.
+- [LibreTranslater](https://gitlab.com/BeowuIf/libretranslater) is an Android app [available on the Play Store](https://play.google.com/store/apps/details?id=de.beowulf.libretranslater) and [in F-Droid store](https://f-droid.org/packages/de.beowulf.libretranslater/) that uses the LibreTranslate API.
 
 ## Web browser
 - [minbrowser](https://minbrowser.org/) is a web browser with [integrated LibreTranslate support](https://github.com/argosopentech/argos-translate/discussions/158#discussioncomment-1141551).
