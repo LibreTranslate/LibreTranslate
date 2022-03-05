@@ -279,6 +279,7 @@ URL |API Key Required|Payment Link|Cost
 [translate.api.skitzen.com](https://translate.api.skitzen.com/)|-|-
 [trans.zillyhuhn.com](https://trans.zillyhuhn.com/)|-|-
 [libretranslate.esmailelbob.xyz](https://libretranslate.esmailelbob.xyz)|-|-
+[libretranslate.pussthecat.org](https://libretranslate.pussthecat.org/)|-|-
 
 ## Adding New Languages
 
