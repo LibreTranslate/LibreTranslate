@@ -446,18 +446,18 @@ def create_app(args):
                 else:
                     # Unable to accurately detect languages for short texts
                     candidate_langs = overall_candidates
-                source_langs.append(candidate_langs[0]["language"])
+                source_langs.append(candidate_langs[0])
 
                 if args.debug:
                     print(text_to_check, candidate_langs)
                     print("Auto detected: %s" % candidate_langs[0]["language"])
         else:
             if batch:
-                source_langs = [source_lang for text in q]
+                source_langs = [ {"confidence": 100.0, "language": source_lang} for text in q]
             else:
-                source_langs = [source_lang]
+                source_langs = [ {"confidence": 100.0, "language": source_lang} ]
 
-        src_langs = [next(iter([l for l in languages if l.code == source_lang]), None) for source_lang in source_langs]
+        src_langs = [next(iter([l for l in languages if l.code == source_lang["language"]]), None) for source_lang in source_langs]
 
         for idx, lang in enumerate(src_langs):
             if lang is None:
@@ -483,26 +483,43 @@ def create_app(args):
                     if text_format == "html":
                         translated_text = str(translate_html(translator, text))
                     else:
-                        translated_text = translator.translate(transliterate(text, target_lang=source_langs[idx]))
+                        translated_text = translator.translate(transliterate(text, target_lang=source_langs[idx]["language"]))
 
                     results.append(unescape(translated_text))
-                return jsonify(
-                    {
-                        "translatedText": results
-                    }
-                )
+                if source_lang == "auto":
+                    return jsonify(
+                        {
+                            "translatedText": results,
+                            "detectedLanguage": source_langs
+                        }
+                    )
+                else:
+                    return jsonify(
+                         {
+                            "translatedText": results
+                         }
+                    )
             else:
                 translator = src_langs[0].get_translation(tgt_lang)
 
                 if text_format == "html":
                     translated_text = str(translate_html(translator, q))
                 else:
-                    translated_text = translator.translate(transliterate(q, target_lang=source_langs[0]))
-                return jsonify(
-                    {
-                        "translatedText": unescape(translated_text)
-                    }
-                )
+                    translated_text = translator.translate(transliterate(q, target_lang=source_langs[0]["language"]))
+
+                if source_lang == "auto":
+                    return jsonify(
+                        {
+                            "translatedText": unescape(translated_text),
+						    "detectedLanguage": source_langs[0]
+                        }
+                    )
+                else:
+                    return jsonify(
+                        {
+                            "translatedText": unescape(translated_text)
+                        }
+                    )
         except Exception as e:
             abort(500, description="Cannot translate text: %s" % str(e))
 
