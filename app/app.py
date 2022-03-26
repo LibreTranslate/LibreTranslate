@@ -231,7 +231,7 @@ def create_app(args):
             version=get_version()
         )
 
-    @app.route("/javascript-licenses", methods=["GET"])
+    @app.get("/javascript-licenses")
     @limiter.exempt
     def javascript_licenses():
         if args.disable_web_ui:
@@ -287,7 +287,7 @@ def create_app(args):
         response.headers.add("Access-Control-Max-Age", 60 * 60 * 24 * 20)
         return response
 
-    @app.route("/translate", methods=["POST"])
+    @app.post("/translate")
     @access_check
     def translate():
         """
@@ -523,7 +523,7 @@ def create_app(args):
         except Exception as e:
             abort(500, description="Cannot translate text: %s" % str(e))
 
-    @app.route("/translate_file", methods=["POST"])
+    @app.post("/translate_file")
     @access_check
     def translate_file():
         """
@@ -656,7 +656,7 @@ def create_app(args):
         except Exception as e:
             abort(500, description=e)
 
-    @app.route("/download_file/<string:filename>", methods=["GET"])
+    @app.get("/download_file/<string:filename>")
     def download_file(filename: str):
         """
         Download a translated file
@@ -683,7 +683,7 @@ def create_app(args):
 
         return send_file(return_data, as_attachment=True, attachment_filename=download_filename)
 
-    @app.route("/detect", methods=["POST"])
+    @app.post("/detect")
     @access_check
     def detect():
         """
@@ -856,7 +856,7 @@ def create_app(args):
             }
         )
 
-    @app.route("/suggest", methods=["POST"])
+    @app.post("/suggest")
     @access_check
     def suggest():
         """
