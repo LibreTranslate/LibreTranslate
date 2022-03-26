@@ -13,5 +13,6 @@ appdirs==1.4.4
 APScheduler==3.9.1
 translatehtml==1.5.2
 argos-translate-files==1.0.5
+jinja2==3.0.3
 itsdangerous==2.1.2
 Werkzeug==2.0.3
