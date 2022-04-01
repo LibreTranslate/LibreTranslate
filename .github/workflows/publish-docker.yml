@@ -44,7 +44,7 @@ jobs:
         with:
           platforms: linux/amd64
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/libretranslate:${{ env.TAG }},
+            ${{ steps.get-variables.outputs.gh-username-lower }}/libretranslate:${{ env.TAG }},
             ghcr.io/${{ steps.get-variables.outputs.gh-username-lower }}/libretranslate:${{ env.TAG }}
           push: true
           cache-from: type=gha
