@@ -352,6 +352,7 @@ document.addEventListener('DOMContentLoaded', function(){
             deleteText: function(e){
                 e.preventDefault();
                 this.inputText = this.translatedText = this.output = "";
+                this.$refs.inputTextarea.focus();
             },
             switchType: function(type) {
                 this.translationType = type;
