@@ -235,6 +235,7 @@ You can use the LibreTranslate API using the following bindings:
  - .Net: https://github.com/sigaloid/LibreTranslate.Net
  - Go: https://github.com/SnakeSel/libretranslate
  - Python: https://github.com/argosopentech/LibreTranslate-py
+ - PHP: https://github.com/jefs42/libretranslate
  - C++: https://github.com/argosopentech/LibreTranslate-cpp
  - Unix: https://github.com/argosopentech/LibreTranslate-sh
 
