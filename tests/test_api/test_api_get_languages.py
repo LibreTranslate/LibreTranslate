@@ -11,6 +11,6 @@ def test_api_get_languages(client):
 
 
 def test_api_get_languages_must_fail_bad_request_type(client):
-    response = client.post("/spec")
+    response = client.post("/languages")
 
     assert response.status_code == 405
