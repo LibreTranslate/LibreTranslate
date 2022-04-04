@@ -1,7 +1,7 @@
 import json
 
 
-def test_api_detect_language(client):
+def test_api_translate(client):
     response = client.post("/translate", data={
         "q": "Hello",
         "source": "en",
