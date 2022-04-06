@@ -53,4 +53,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Docker build
-          run: docker build -t libretranslate .
+        run: docker build -t libretranslate .
