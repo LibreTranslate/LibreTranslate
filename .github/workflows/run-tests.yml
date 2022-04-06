@@ -55,4 +55,4 @@ jobs:
         run: docker build -t libretranslate .
 
       - name: Docker build with some models
-        run: docker build -t libretranslate --build-args models=en,es  .
+        run: docker build -t libretranslate --build-arg models=en,es  .
