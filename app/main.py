@@ -6,7 +6,7 @@ from app.app import create_app
 from app.default_values import DEFAULT_ARGUMENTS as DEFARGS
 
 
-def main():
+def get_args():
     parser = argparse.ArgumentParser(
         description="LibreTranslate - Free and Open Source Translation API"
     )
@@ -106,13 +106,18 @@ def main():
         "--suggestions", default=DEFARGS['SUGGESTIONS'], action="store_true", help="Allow user suggestions"
     )
     parser.add_argument(
-        "--disable-files-translation", default=DEFARGS['DISABLE_FILES_TRANSLATION'], action="store_true", help="Disable files translation"
+        "--disable-files-translation", default=DEFARGS['DISABLE_FILES_TRANSLATION'], action="store_true",
+        help="Disable files translation"
     )
     parser.add_argument(
         "--disable-web-ui", default=DEFARGS['DISABLE_WEB_UI'], action="store_true", help="Disable web ui"
     )
 
-    args = parser.parse_args()
+    return parser.parse_args()
+
+
+def main():
+    args = get_args()
     app = create_app(args)
 
     if sys.argv[0] == '--wsgi':

@@ -239,7 +239,7 @@ def create_app(args):
 
         return render_template("javascript-licenses.html")
 
-    @app.route("/languages", methods=["GET", "POST"])
+    @app.get("/languages")
     @limiter.exempt
     def langs():
         """
