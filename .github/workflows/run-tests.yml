@@ -53,3 +53,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Docker build
         run: docker build -t libretranslate .
+
+      - name: Docker build with some models
+        run: docker build -t libretranslate --build-args models=en,es  .
