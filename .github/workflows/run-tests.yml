@@ -47,7 +47,6 @@ jobs:
 
 
   test_docker_build:
-    needs: [ tests_python ]
     runs-on: ubuntu-latest
 
     steps:
