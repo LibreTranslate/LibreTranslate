@@ -1,5 +1,5 @@
 argostranslate==1.6.1
-Flask==2.0.3
+Flask==2.1.1
 flask-swagger==0.2.14
 flask-swagger-ui==3.36.0
 Flask-Limiter==2.2.0
@@ -14,4 +14,4 @@ APScheduler==3.9.1
 translatehtml==1.5.2
 argos-translate-files==1.0.5
 itsdangerous==2.1.2
-Werkzeug==2.0.3
+Werkzeug==2.1.1
