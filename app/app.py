@@ -681,7 +681,7 @@ def create_app(args):
         download_filename.pop(0)
         download_filename = '.'.join(download_filename)
 
-        return send_file(return_data, as_attachment=True, attachment_filename=download_filename)
+        return send_file(return_data, as_attachment=True, download_name=download_filename)
 
     @app.post("/detect")
     @access_check
