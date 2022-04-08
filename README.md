@@ -280,6 +280,7 @@ URL |API Key Required|Payment Link|Cost
 [trans.zillyhuhn.com](https://trans.zillyhuhn.com/)|-|-
 [libretranslate.esmailelbob.xyz](https://libretranslate.esmailelbob.xyz)|-|-
 [libretranslate.pussthecat.org](https://libretranslate.pussthecat.org/)|-|-
+[translate.fortytwo-it.com](https://translate.fortytwo-it.com/)|-|-
 
 ## Adding New Languages
 
