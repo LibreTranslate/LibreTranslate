@@ -361,3 +361,7 @@ This work is largely possible thanks to [Argos Translate](https://github.com/arg
 ## License
 
 [GNU Affero General Public License v3](https://www.gnu.org/licenses/agpl-3.0.en.html)
+
+## Trademark
+
+See [Trademark Guidelines](https://github.com/LibreTranslate/LibreTranslate/blob/main/TRADEMARK.md)
