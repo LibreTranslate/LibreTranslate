@@ -62,6 +62,10 @@ Response:
 
 ```javascript
 {
+    "detectedLanguage": {
+        "confidence": 83,
+        "language": "it"
+    },
     "translatedText": "Bye!"
 }
 ```
