@@ -62,6 +62,10 @@ Response:
 
 ```javascript
 {
+    "detectedLanguage": {
+        "confidence": 83,
+        "language": "it"
+    },
     "translatedText": "Bye!"
 }
 ```
@@ -280,6 +284,7 @@ URL |API Key Required|Payment Link|Cost
 [translate.api.skitzen.com](https://translate.api.skitzen.com/)|-|-
 [libretranslate.pussthecat.org](https://libretranslate.pussthecat.org/)|-|-
 [translate.fortytwo-it.com](https://translate.fortytwo-it.com/)|-|-
+[translate.terraprint.co](https://translate.terraprint.co/)|-|-
 
 ## Adding New Languages
 
