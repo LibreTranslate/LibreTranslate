@@ -18,7 +18,7 @@ If you want to report misuse of an LibreTranslate trademark, please contact us v
 
 You may do the following without receiving specific permission from LibreTranslate (or its affiliates):
 
- * Use LibreTranslate wordmarks in text to truthfully refer to and/or link to unmodified LibreTranslate programs, products, services and technologies.
+ * Use LibreTranslate wordmarks in text to truthfully refer to and/or link to unmodified LibreTranslate programs, products, services and technologies, including those hosted on third party servers.
  * Use LibreTranslate logos in visuals to truthfully refer to and/or to link to the applicable programs, products, services and technologies hosted on LibreTranslate servers.
  * Use LibreTranslate wordmarks to explain that your software is based on LibreTranslate's open source code, or is compatible with LibreTranslate's software.
  * Describe a social media account, page, or community in accordance with the [Social Media Guidelines](#social-media-guidelines).
