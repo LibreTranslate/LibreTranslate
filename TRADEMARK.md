@@ -32,7 +32,7 @@ All other uses of an LibreTranslate trademark require our prior written permissi
 #### Do:
 
  * Use the LibreTranslate trademark exactly as shown in the list above.
- * Use LibreTranslate wordmarks only as an adjective, never as a noun or verb. Do not use them in plural or possessive forms. Instead, use the generic term for the LibreTranslate product or service following the trademark, for example: LibreTranslate processing software.
+ * Use LibreTranslate wordmarks only as an adjective, never as a noun or verb. Do not use them in plural or possessive forms. Instead, use the generic term for the LibreTranslate product or service following the trademark, for example: LibreTranslate translation software.
 
 #### Don't:
 
@@ -79,18 +79,6 @@ For instance, you may state that your project:
 as long as you also include the statement equally prominently:
 
 "[Brand Name] and [Product Name] are not officially associated with LibreTranslate or its products."
-
-### Cloud-based Services
-
-If you offer a cloud-based service that provides remote access to LibreTranslate software, it is important that you do so in a way that does not confuse users about who is offering the service. You must not use LibreTranslate trademarks in the name of your product or service.
-
-You may state in words (not using logos or images) that your product or service features or provides access to unaltered LibreTranslate software, if this is true.
-
-For example:
-
-Acceptable: [Your Product Name] featuring LibreTranslate's processing software
-
-Incorrect: LibreTranslate [Your Product Name]
 
 ### LibreTranslate Community Guidelines
 
