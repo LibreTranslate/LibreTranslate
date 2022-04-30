@@ -10,7 +10,7 @@ def load_languages():
     global __languages
 
     if __languages is None or len(__languages) == 0:
-        __languages = translate.load_installed_languages()
+        __languages = translate.get_installed_languages()
 
     return __languages
 
