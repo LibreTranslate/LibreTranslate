@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7, 3.8, 3.9]
+        python-version: ['3.7', '3.8', '3.9', '3.10']
 
     steps:
     - uses: actions/checkout@v2
@@ -29,7 +29,7 @@ jobs:
 
     - name: Check code style with flake8 (lint)
       run: |
-        # warnings if there are Python syntax errors or undefined names 
+        # warnings if there are Python syntax errors or undefined names
         # (remove --exit-zero to fail when syntax error)
         flake8 . --count --exit-zero --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
@@ -38,7 +38,7 @@ jobs:
     - name: Test with pytest
       run: pytest
 
-  
+
   publish:
     needs: [ tests ]
     runs-on: ubuntu-latest
