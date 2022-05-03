@@ -474,6 +474,21 @@ def create_app(args):
         if text_format not in ["text", "html"]:
             abort(400, description="%s format is not supported" % text_format)
 
+        def improve_translation(source, translation):
+            if source.islower():
+                return translation.lower()
+
+            if source.isupper():
+                return translation.upper()
+
+            if source[0].islower():
+                return translation[0].lower() + translation[1:]
+
+            if source[0].isupper():
+                return translation[0].upper() + translation[1:]
+
+            return translation
+
         try:
             if batch:
                 results = []
@@ -483,7 +498,8 @@ def create_app(args):
                     if text_format == "html":
                         translated_text = str(translate_html(translator, text))
                     else:
-                        translated_text = translator.translate(transliterate(text, target_lang=source_langs[idx]["language"]))
+                        translated_text = improve_translation(text, translator.translate(
+                            transliterate(text, target_lang=source_langs[idx]["language"])))
 
                     results.append(unescape(translated_text))
                 if source_lang == "auto":
@@ -505,7 +521,8 @@ def create_app(args):
                 if text_format == "html":
                     translated_text = str(translate_html(translator, q))
                 else:
-                    translated_text = translator.translate(transliterate(q, target_lang=source_langs[0]["language"]))
+                    translated_text = improve_translation(q, translator.translate(
+                        transliterate(q, target_lang=source_langs[0]["language"])))
 
                 if source_lang == "auto":
                     return jsonify(
