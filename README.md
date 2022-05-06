@@ -343,7 +343,8 @@ Remove `#` on the ErrorLog and CustomLog lines to log requests.
     
     ProxyPass / http://127.0.0.1:5000/
     ProxyPassReverse / http://127.0.0.1:5000/
-
+    ProxyPreserveHost On
+   
     SSLEngine on
     SSLCertificateFile /etc/letsencrypt/live/[YOUR_DOMAIN]/fullchain.pem
     SSLCertificateKeyFile /etc/letsencrypt/live/[YOUR_DOMAIN]/privkey.pem
