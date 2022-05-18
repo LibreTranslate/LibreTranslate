@@ -278,7 +278,7 @@ This is a list of public LibreTranslate instances, some require an API key. If y
 
 URL |API Key Required|Payment Link|Cost
 --- | --- | --- | ---
-[libretranslate.com](https://libretranslate.com)|:heavy_check_mark:|[Buy](https://buy.stripe.com/28obLvdgGcIE5AQfYY)| [$9 / month](https://buy.stripe.com/28obLvdgGcIE5AQfYY), 80 requests / minute limit
+[libretranslate.com](https://libretranslate.com)|:heavy_check_mark:|[Buy](https://buy.stripe.com/3cs4j3a4u4c8d3i289)| [$19 / month](https://buy.stripe.com/3cs4j3a4u4c8d3i289), 80 requests / minute limit
 [libretranslate.de](https://libretranslate.de)|-|-
 [translate.argosopentech.com](https://translate.argosopentech.com/)|-|-
 [translate.api.skitzen.com](https://translate.api.skitzen.com/)|-|-
@@ -306,7 +306,7 @@ Help us by opening a pull request!
 
 ### Can I use your API server at libretranslate.com for my application in production?
 
-In short, no. [You need to buy an API key](https://buy.stripe.com/28obLvdgGcIE5AQfYY). You can always run LibreTranslate for free on your own server of course.
+In short, no. [You need to buy an API key](https://buy.stripe.com/3cs4j3a4u4c8d3i289). You can always run LibreTranslate for free on your own server of course.
 
 ### Can I use LibreTranslate behind a reverse proxy, like Apache2?
 
