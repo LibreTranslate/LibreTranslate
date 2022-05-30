@@ -475,6 +475,21 @@ def create_app(args):
             abort(400, description="%s format is not supported" % text_format)
 
         def improve_translation(source, translation):
+            source = source.strip()
+
+            source_last_char = source[len(source) - 1]
+            translation_last_char = translation[len(translation) - 1]
+
+            punctuation_chars = ['!', '?', '.', ',', ';']
+            if source_last_char in punctuation_chars:
+                if translation_last_char != source_last_char:
+                    if translation_last_char in punctuation_chars:
+                        translation = translation[:-1]
+
+                    translation += source_last_char
+            elif translation_last_char in punctuation_chars:
+                translation = translation[:-1]
+
             if source.islower():
                 return translation.lower()
 
