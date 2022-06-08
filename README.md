@@ -285,6 +285,7 @@ URL |API Key Required|Payment Link|Cost
 [libretranslate.pussthecat.org](https://libretranslate.pussthecat.org/)|-|-
 [translate.fortytwo-it.com](https://translate.fortytwo-it.com/)|-|-
 [translate.terraprint.co](https://translate.terraprint.co/)|-|-
+[lt.vern.cc](https://lt.vern.cc)|-|-
 
 ## Adding New Languages
 
