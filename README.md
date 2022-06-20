@@ -164,6 +164,16 @@ docker-compose up -d --build
 
 > Feel free to change the [`docker-compose.yml`](https://github.com/LibreTranslate/LibreTranslate/blob/main/docker-compose.yml) file to adapt it to your deployment needs, or use an extra `docker-compose.prod.yml` file for your deployment configuration.
 
+### CUDA
+
+You can use hardware acceleration to speed up translations on a GPU machine with CUDA 11.2 and [nvidia-docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) installed.
+
+Run this version with:
+
+```bash
+docker-compose -f docker-compose.cuda.yml up -d --build
+```
+
 ## Arguments
 
 | Argument                    | Description                                                                                                 | Default              | Env. name                    |
