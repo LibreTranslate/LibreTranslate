@@ -76,13 +76,12 @@ class RemoteDatabase:
                 res = r.json()
             except Exception as e:
                 print("Cannot authenticate API key: " + str(e))
-                return False
+                return None
 
             if res.get('error', None) is None:
                 req_limit = res.get('req_limit', None)
-                self.cache[api_key] = req_limit
             else:
-                req_limit = False
-                self.cache[api_key] = False
+                req_limit = None
+            self.cache[api_key] = req_limit
 
         return req_limit
