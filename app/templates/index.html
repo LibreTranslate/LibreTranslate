@@ -282,7 +282,7 @@
 					<p><a class="grey-text text-lighten-4" href="/javascript-licenses" rel="jslicense">JavaScript license information</a></p>
 					{% if web_version %}
 					<p>
-						This public API should be used for testing, personal or infrequent use. If you're going to run an application in production, please <a href="https://github.com/LibreTranslate/LibreTranslate" class="grey-text text-lighten-4" rel="noopener noreferrer">host your own server</a> or <a class="grey-text text-lighten-4" href="https://github.com/LibreTranslate/LibreTranslate#mirrors" rel="noopener noreferrer">get an API key</a>.
+						This public API should be used for testing, personal or infrequent use. If you're going to run an application in production, please <a href="https://github.com/LibreTranslate/LibreTranslate" class="grey-text text-lighten-4" rel="noopener noreferrer">host your own server</a> or <a class="grey-text text-lighten-4" href="{{ get_api_key_link if get_api_key_link else 'https://github.com/LibreTranslate/LibreTranslate#mirrors' }}" rel="noopener noreferrer">get an API key</a>.
 					</p>
 					{% endif %}
 				</div>
