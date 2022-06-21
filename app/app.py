@@ -17,7 +17,7 @@ from werkzeug.utils import secure_filename
 from app import flood, remove_translated_files, security
 from app.language import detect_languages, transliterate
 
-from .api_keys import Database
+from .api_keys import Database, RemoteDatabase
 from .suggestions import Database as SuggestionsDatabase
 
 
@@ -146,7 +146,12 @@ def create_app(args):
     api_keys_db = None
 
     if args.req_limit > 0 or args.api_keys or args.daily_req_limit > 0:
-        api_keys_db = Database() if args.api_keys else None
+        api_keys_db = None
+        if args.api_keys:
+            if args.api_keys_remote:
+                api_keys_db = RemoteDatabase(args.api_keys_remote)
+            else:
+                api_keys_db = Database()
 
         from flask_limiter import Limiter
 

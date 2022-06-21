@@ -1,6 +1,6 @@
 import sqlite3
 import uuid
-
+import requests
 from expiringdict import ExpiringDict
 
 DEFAULT_DB_PATH = "api_keys.db"
@@ -61,3 +61,28 @@ class Database:
     def all(self):
         row = self.c.execute("SELECT api_key, req_limit FROM api_keys")
         return row.fetchall()
+
+
+class RemoteDatabase:
+    def __init__(self, url, max_cache_len=1000, max_cache_age=600):
+        self.url = url
+        self.cache = ExpiringDict(max_len=max_cache_len, max_age_seconds=max_cache_age)
+
+    def lookup(self, api_key):
+        req_limit = self.cache.get(api_key)
+        if req_limit is None:
+            try:
+                r = requests.post(self.url, data={'api_key': api_key})
+                res = r.json()
+            except Exception as e:
+                print("Cannot authenticate API key: " + str(e))
+                return False
+
+            if res.get('error', None) is None:
+                req_limit = res.get('req_limit', None)
+                self.cache[api_key] = req_limit
+            else:
+                req_limit = False
+                self.cache[api_key] = False
+
+        return req_limit

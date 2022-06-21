@@ -105,6 +105,11 @@ _default_options_objects = [
         'name': 'API_KEYS',
         'default_value': False,
         'value_type': 'bool'
+    },    
+    {
+        'name': 'API_KEYS_REMOTE',
+        'default_value': '',
+        'value_type': 'str'
     },
     {
         'name': 'REQUIRE_API_KEY_ORIGIN',

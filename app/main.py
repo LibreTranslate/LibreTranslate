@@ -90,6 +90,12 @@ def get_args():
         help="Enable API keys database for per-user rate limits lookup",
     )
     parser.add_argument(
+        "--api-keys-remote",
+        default=DEFARGS['API_KEYS_REMOTE'],
+        type=str,
+        help="Use this remote endpoint to query for valid API keys instead of using the local database",
+    )
+    parser.add_argument(
         "--require-api-key-origin",
         type=str,
         default=DEFARGS['REQUIRE_API_KEY_ORIGIN'],
