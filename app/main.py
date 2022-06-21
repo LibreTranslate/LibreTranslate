@@ -140,11 +140,14 @@ def main():
         else:
             from waitress import serve
 
+            url_scheme = "https" if args.ssl else "http"
+            print("Running on %s://%s:%s" % (url_scheme, args.host, args.port))
+
             serve(
                 app,
                 host=args.host,
                 port=args.port,
-                url_scheme="https" if args.ssl else "http",
+                url_scheme=url_scheme,
             )
 
 
