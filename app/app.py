@@ -195,9 +195,12 @@ def create_app(args):
                     and api_keys_db.lookup(ak) is None
                     and request.headers.get("Origin") != args.require_api_key_origin
                 ):
+                    description = "Please contact the server operator to get an API key"
+                    if args.get_api_key_link:
+                        description = "Visit %s to get an API key" % args.get_api_key_link
                     abort(
                         403,
-                        description="Please contact the server operator to obtain an API key",
+                        description=description,
                     )
 
             return f(*a, **kw)
