@@ -96,6 +96,12 @@ def get_args():
         help="Use this remote endpoint to query for valid API keys instead of using the local database",
     )
     parser.add_argument(
+        "--get-api-key-link",
+        default=DEFARGS['GET_API_KEY_LINK'],
+        type=str,
+        help="Show a link in the UI where to direct users to get an API key",
+    )
+    parser.add_argument(
         "--require-api-key-origin",
         type=str,
         default=DEFARGS['REQUIRE_API_KEY_ORIGIN'],

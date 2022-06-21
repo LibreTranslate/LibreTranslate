@@ -436,7 +436,9 @@ function getTextWidth(text) {
 function setApiKey(){
     var prevKey = localStorage.getItem("api_key") || "";
     var newKey = "";
-    newKey = window.prompt("Type in your API Key. If you need an API key, contact the server operator.", prevKey);
+    var instructions = "contact the server operator.";
+    if (window.getApiKeyLink) instructions = "press the \"Get API Key\" link."
+    newKey = window.prompt("Type in your API Key. If you need an API key, " + instructions, prevKey);
     if (newKey === null) newKey = "";
 
     localStorage.setItem("api_key", newKey);

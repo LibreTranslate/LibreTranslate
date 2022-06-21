@@ -41,10 +41,14 @@
 				<button data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></button>
 				<a id="logo-container" href="/" class="brand-logo">
 					<img src="{{ url_for('static', filename='icon.svg') }}" alt="Logo for LibreTranslate" class="logo">
-          <span>LibreTranslate</span>
+					<span>LibreTranslate</span>
 				</a>
 				<ul class="right hide-on-med-and-down">
 				<li><a href="/docs">API Docs</a></li>
+				{% if get_api_key_link %}
+				<li><a href="{{ get_api_key_link }}">Get API Key</a></li>
+				<script>window.getApiKeyLink = "{{ get_api_key_link }}";</script>
+				{% endif %}
 				<li><a href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">GitHub</a></li>
 				{% if api_keys %}
 				<li><a href="javascript:setApiKey()" title="Set API Key"><i class="material-icons">vpn_key</i></a></li>
@@ -53,6 +57,9 @@
 
 				<ul id="nav-mobile" class="sidenav">
 				<li><a href="/docs">API Docs</a></li>
+				{% if get_api_key_link %}
+				<li><a href="{{ get_api_key_link }}">Get API Key</a></li>
+				{% endif %}
 				<li><a href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">GitHub</a></li>
 				{% if api_keys %}
 				<li><a href="javascript:setApiKey()" title="Set API Key"><i class="material-icons">vpn_key</i></a></li>

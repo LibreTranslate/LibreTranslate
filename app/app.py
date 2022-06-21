@@ -232,6 +232,7 @@ def create_app(args):
             gaId=args.ga_id,
             frontendTimeout=args.frontend_timeout,
             api_keys=args.api_keys,
+            get_api_key_link=args.get_api_key_link,
             web_version=os.environ.get("LT_WEB") is not None,
             version=get_version()
         )
