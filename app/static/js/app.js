@@ -39,15 +39,18 @@ document.addEventListener('DOMContentLoaded', function(){
             filesTranslation: true,
             frontendTimeout: 500
         },
-        mounted: function(){
-            var self = this;
-            var requestSettings = new XMLHttpRequest();
-            requestSettings.open('GET', BaseUrl + '/frontend/settings', true);
+        mounted: async function() {
+            const self = this;
 
-            requestSettings.onload = function() {
-                if (this.status >= 200 && this.status < 400) {
-                    // Success!
-                    self.settings = JSON.parse(this.response);
+            const settingPromise = fetch(BaseUrl + "/frontend/settings");
+            const langsPromise = fetch(BaseUrl + "/languages");
+
+            try {
+                const settingsResponse = await settingPromise;
+
+                if (settingsResponse.status >= 200 && settingsResponse.status < 400) {
+                    self.settings = await settingsResponse.json();
+
                     self.sourceLang = self.settings.language.source.code;
                     self.targetLang = self.settings.language.target.code;
                     self.charactersLimit = self.settings.charLimit;
@@ -55,48 +58,43 @@ document.addEventListener('DOMContentLoaded', function(){
                     self.supportedFilesFormat = self.settings.supportedFilesFormat;
                     self.filesTranslation = self.settings.filesTranslation;
                     self.frontendTimeout = self.settings.frontendTimeout;
-                }else {
+                } else {
                     self.error = "Cannot load /frontend/settings";
                     self.loading = false;
                 }
-            };
-
-            requestSettings.onerror = function() {
+            } catch (err) {
                 self.error = "Error while calling /frontend/settings";
                 self.loading = false;
-            };
+            }
 
-            requestSettings.send();
+            try {
+                const langsResponse = await langsPromise;
 
-            var requestLanguages = new XMLHttpRequest();
-            requestLanguages.open('GET', BaseUrl + '/languages', true);
+                if (langsResponse.status >= 200 && langsResponse.status < 400) {
+                    self.langs = await langsResponse.json();
 
-            requestLanguages.onload = function() {
-                if (this.status >= 200 && this.status < 400) {
-                    // Success!
-                    self.langs = JSON.parse(this.response);
-                    self.langs.push({ name: 'Auto Detect (Experimental)', code: 'auto' })
-                    if (self.langs.length === 0){
+                    if (self.langs.length === 0) {
                         self.loading = false;
                         self.error = "No languages available. Did you install the models correctly?"
                         return;
                     }
 
-                    const sourceLanguage = self.langs.find(l => l.code === self.getQueryParam('source'))
-                    const isSourceAuto = !sourceLanguage && self.getQueryParam('source') === "auto"
-                    const targetLanguage = self.langs.find(l => l.code === self.getQueryParam('target'))
+                    self.langs.push({ name: "Auto Detect (Experimental)", code: "auto" })
 
-                    if (sourceLanguage || isSourceAuto) {
-                        self.sourceLang = isSourceAuto ? "auto" : sourceLanguage.code
+                    const sourceLanguage = self.langs.find(l => l.code === self.getQueryParam("source"))
+                    const targetLanguage = self.langs.find(l => l.code === self.getQueryParam("target"))
+
+                    if (sourceLanguage) {
+                        self.sourceLang = sourceLanguage.code
                     }
 
                     if (targetLanguage) {
                         self.targetLang = targetLanguage.code
                     }
 
-                    const defaultText = self.getQueryParam('q')
+                    const defaultText = self.getQueryParam("q")
 
-                    if(defaultText) {
+                    if (defaultText) {
                         self.inputText = decodeURI(defaultText)
                     }
 
@@ -105,19 +103,15 @@ document.addEventListener('DOMContentLoaded', function(){
                     self.error = "Cannot load /languages";
                     self.loading = false;
                 }
-            };
-
-            requestLanguages.onerror = function() {
+            } catch (err) {
                 self.error = "Error while calling /languages";
                 self.loading = false;
-            };
-
-            requestLanguages.send();
+            }
         },
         updated: function(){
             M.FormSelect.init(this.$refs.sourceLangDropdown);
             M.FormSelect.init(this.$refs.targetLangDropdown);
-            
+
             if (this.$refs.inputTextarea){
                 if (this.inputText === ""){
                     this.$refs.inputTextarea.style.height = this.inputTextareaHeight + "px";
@@ -136,28 +130,12 @@ document.addEventListener('DOMContentLoaded', function(){
             // Update "selected" attribute (to overcome a vue.js limitation)
             // but properly display checkmarks on supported browsers.
             // Also change the <select> width value depending on the <option> length
-            if (this.$refs.sourceLangDropdown){
-                for (var i = 0; i < this.$refs.sourceLangDropdown.children.length; i++){
-                    var el = this.$refs.sourceLangDropdown.children[i];
-                    if (el.value === this.sourceLang){
-                        el.setAttribute('selected', '');
-                        this.$refs.sourceLangDropdown.style.width = getTextWidth(el.text) + 24 + 'px';
-                    }else{
-                        el.removeAttribute('selected');
-                    }
-                }
+            if (this.$refs.sourceLangDropdown) {
+                updateSelectedAttribute(this.$refs.sourceLangDropdown, this.sourceLang);
             }
 
-            if (this.$refs.targetLangDropdown){
-                for (var i = 0; i < this.$refs.targetLangDropdown.children.length; i++){
-                    var el = this.$refs.targetLangDropdown.children[i];
-                    if (el.value === this.targetLang){
-                        el.setAttribute('selected', '');
-                        this.$refs.targetLangDropdown.style.width = getTextWidth(el.text) + 24 + 'px';
-                    }else{
-                        el.removeAttribute('selected');
-                    }
-                }
+            if (this.$refs.targetLangDropdown) {
+                updateSelectedAttribute(this.$refs.targetLangDropdown, this.targetLang);
             }
         },
         computed: {
@@ -384,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
                 translateFileRequest.onload = function()  {
                     if (translateFileRequest.readyState === 4 && translateFileRequest.status === 200) {
-                        try{
+                        try {
                             self.loadingFileTranslation = false;
 
                             let res = JSON.parse(this.response);
@@ -395,16 +373,16 @@ document.addEventListener('DOMContentLoaded', function(){
                                 link.target = "_blank";
                                 link.href = self.translatedFileUrl;
                                 link.click();
-                            }else{
+                            } else {
                                 throw new Error(res.error || "Unknown error");
                             }
 
-                        }catch(e){
+                        } catch (e) {
                             self.error = e.message;
                             self.loadingFileTranslation = false;
                             self.inputFile = false;
                         }
-                    }else{
+                    } else {
                         let res = JSON.parse(this.response);
                         self.error = res.error || "Unknown error";
                         self.loadingFileTranslation = false;
@@ -422,8 +400,22 @@ document.addEventListener('DOMContentLoaded', function(){
             }
         }
     });
-
 });
+
+/**
+ * @param {object} langDropdown
+ * @param {string} lang
+ */
+function updateSelectedAttribute(langDropdown, lang) {
+    for (const child of langDropdown.children) {
+        if (child.value === lang){
+            child.setAttribute('selected', '');
+            langDropdown.style.width = getTextWidth(child.text) + 24 + 'px';
+        } else{
+            child.removeAttribute('selected');
+        }
+    }
+}
 
 function getTextWidth(text) {
     var canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
