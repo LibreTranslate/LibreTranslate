@@ -18,6 +18,8 @@ COPY . .
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
+RUN pip3 install torch==1.12.0+cu116 -f https://download.pytorch.org/whl/torch_stable.html
+
 RUN if [ "$with_models" = "true" ]; then  \
     # install only the dependencies first
     pip3 install -e .;  \
@@ -32,6 +34,10 @@ RUN if [ "$with_models" = "true" ]; then  \
 # Install package from source code
 RUN pip3 install . \
     && pip3 cache purge
-ENV LD_LIBRARY_PATH=/usr/local/cuda/lib:/usr/local/cuda/lib64
+
+# Depending on your cuda install you may need to uncomment this line to allow the container to access the cuda libraries
+# See: https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions
+# ENV LD_LIBRARY_PATH=/usr/local/cuda/lib:/usr/local/cuda/lib64
+
 EXPOSE 5000
 ENTRYPOINT [ "libretranslate", "--host", "0.0.0.0" ]
