@@ -107,6 +107,11 @@ _default_options_objects = [
         'value_type': 'bool'
     },
     {
+        'name': 'API_KEYS_DB_PATH',
+        'default_value': 'api_keys.db',
+        'value_type': 'str'
+    },
+    {
         'name': 'API_KEYS_REMOTE',
         'default_value': '',
         'value_type': 'str'

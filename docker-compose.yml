@@ -8,4 +8,12 @@ services:
     ports:
       - 5000:5000
     ## Uncomment above command and define your args if necessary
-    # command: --ssl --ga-id MY-GA-ID --req-limit 100 --char-limit 500 
+    # command: --ssl --ga-id MY-GA-ID --req-limit 100 --char-limit 500
+    ## Uncomment this section and the `volumes` section if you want to backup your API keys
+    # environment:
+    #   - LT_API_KEYS_DB_PATH=/app/db/api_keys.db # Same result as `db/api_keys.db` or `./db/api_keys.db`
+    # volumes:
+    #   - libretranslate_api_keys:/app/db/api_keys.db
+
+# volumes:
+#   libretranslate_api_keys:

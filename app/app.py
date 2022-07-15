@@ -151,7 +151,7 @@ def create_app(args):
             if args.api_keys_remote:
                 api_keys_db = RemoteDatabase(args.api_keys_remote)
             else:
-                api_keys_db = Database()
+                api_keys_db = Database(args.api_keys_db_path)
 
         from flask_limiter import Limiter
 
