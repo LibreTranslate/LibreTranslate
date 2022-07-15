@@ -197,6 +197,7 @@ docker-compose -f docker-compose.cuda.yml up -d --build
 | --get-api-key-link          | Show a link in the UI where to direct users to get an API key                                               | `Don't show a link` | LT_GET_API_KEY_LINK                  |
 | --require-api-key-origin    | Require use of an API key for programmatic access to the API, unless the request origin matches this domain | `No restrictions on domain origin` | LT_REQUIRE_API_KEY_ORIGIN    |
 | --load-only                 | Set available languages                                                                                     | `all from argostranslate`    | LT_LOAD_ONLY                 |
+| --threads                   | Set number of threads                                                                                       | `4`    | LT_THREADS                 |
 | --suggestions               | Allow user suggestions                                                                                      | `false`    | LT_SUGGESTIONS               |
 | --disable-files-translation | Disable files translation                                                                                   | `false`    | LT_DISABLE_FILES_TRANSLATION |
 | --disable-web-ui            | Disable web ui                                                                                              | `false`    | LT_DISABLE_WEB_UI            |

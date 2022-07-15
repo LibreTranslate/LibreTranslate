@@ -121,6 +121,13 @@ def get_args():
         help="Set available languages (ar,de,en,es,fr,ga,hi,it,ja,ko,pt,ru,zh)",
     )
     parser.add_argument(
+        "--threads",
+        default=DEFARGS['THREADS'],
+        type=int,
+        metavar="<number of threads>",
+        help="Set number of threads (%(default)s)",
+    )
+    parser.add_argument(
         "--suggestions", default=DEFARGS['SUGGESTIONS'], action="store_true", help="Allow user suggestions"
     )
     parser.add_argument(
@@ -154,6 +161,7 @@ def main():
                 host=args.host,
                 port=args.port,
                 url_scheme=url_scheme,
+                threads=args.threads
             )
 
 

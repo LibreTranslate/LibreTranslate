@@ -132,6 +132,11 @@ _default_options_objects = [
         'value_type': 'str'
     },
     {
+        'name': 'THREADS',
+        'default_value': 4,
+        'value_type': 'int'
+    },
+    {
         'name': 'SUGGESTIONS',
         'default_value': False,
         'value_type': 'bool'
