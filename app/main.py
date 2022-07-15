@@ -90,6 +90,12 @@ def get_args():
         help="Enable API keys database for per-user rate limits lookup",
     )
     parser.add_argument(
+        "--api-keys-db-path",
+        default=DEFARGS['API_KEYS_DB_PATH'],
+        type=str,
+        help="Use a specific path inside the container for the local database. Can be absolute or relative (%(default)s)",
+    )
+    parser.add_argument(
         "--api-keys-remote",
         default=DEFARGS['API_KEYS_REMOTE'],
         type=str,
