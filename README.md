@@ -303,7 +303,6 @@ URL |API Key Required|Payment Link|Cost
 [libretranslate.de](https://libretranslate.de)|-|-
 [translate.argosopentech.com](https://translate.argosopentech.com/)|-|-
 [translate.api.skitzen.com](https://translate.api.skitzen.com/)|-|-
-[libretranslate.pussthecat.org](https://libretranslate.pussthecat.org/)|-|-
 [translate.fortytwo-it.com](https://translate.fortytwo-it.com/)|-|-
 [translate.terraprint.co](https://translate.terraprint.co/)|-|-
 [lt.vern.cc](https://lt.vern.cc)|-|-
