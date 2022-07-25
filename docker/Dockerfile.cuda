@@ -12,7 +12,9 @@ RUN apt-get update -qq \
     && apt-get clean \
     && rm -rf /var/lib/apt
 
-RUN pip3 install --upgrade pip
+RUN apt-get update && apt-get upgrade --assume-yes
+
+RUN pip3 install --upgrade pip && apt-get remove python3-pip --assume-yes
 
 COPY . .
 

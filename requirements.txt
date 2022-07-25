@@ -3,7 +3,7 @@ Flask==2.1.2
 flask-swagger==0.2.14
 flask-swagger-ui==3.36.0
 Flask-Limiter==2.4.5.1
-waitress==2.1.1
+waitress==2.1.2
 expiringdict==1.2.1
 pyicu>=2.8
 pycld2==0.41

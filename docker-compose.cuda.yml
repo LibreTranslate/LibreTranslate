@@ -9,4 +9,10 @@ services:
     restart: unless-stopped
     ports:
       - 5000:5000
-    command: --gpus all
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
