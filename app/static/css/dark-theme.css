@@ -27,11 +27,15 @@
         color: #fff;
     }
     
-    
     select {
         color: #fff;
+        background: #111;
     }
 
+    option {
+        color: #fff;
+        background: #222;    
+    }
 
     textarea {
         border: 1px solid #444 !important;
