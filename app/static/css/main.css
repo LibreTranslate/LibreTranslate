@@ -236,15 +236,14 @@ h3.header {
 }
 
 .code {
+   overflow: auto; 
   font-size: 90%;
   padding: 1rem 1.5rem;
   border: 1px solid #ccc;
   background: #fbfbfb;
-  overflow: auto;
   font-family: monospace;
   min-height: 280px;
   width: 100%;
-  overflow: auto;
 }
 
 .page-footer .footer-copyright {
