@@ -7,12 +7,12 @@
     .blue.darken-3 {
         background-color: #1E5DA6 !important;
     }
-
-    /*" like in btn-delete-text */
-    .btn-flat {
-	color: #666; 
-    }
     
+    /* like in btn-delete-text */
+    .btn-flat {
+        color: #666;
+    }
+  
     .btn-switch-type {
         background-color: #333;
         color: #5CA8FF;
@@ -30,18 +30,19 @@
         color: #fff;
     }
 
+    /* like in textarea */
     .card-content {
-	border: 1px solid #444 !important;
-	background-color: #222 !important;
-	color: #fff;
+        border: 1px solid #444 !important;
+        background-color: #222 !important;
+        color: #fff;
     }
-    
+  
     .file-dropzone {
         background: #222;
-	border: 1px solid #444;
-	margin-top: 1rem;
+        border: 1px solid #444;
+        margin-top: 1rem;
     }
-    
+
     select {
         color: #fff;
         background: #111;
@@ -57,10 +58,11 @@
         background-color: #222 !important;
         color: #fff;
     }
+    /* like in file dropzone */
     .textarea-container {
-	    margin-top: 1rem;
+        margin-top: 1rem;
     }
-
+    
     .code {
         border: 1px solid #444;
         background: #222;

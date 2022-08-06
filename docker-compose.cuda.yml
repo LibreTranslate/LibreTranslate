@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  libretranslate-cuda:
+    container_name: libretranslate-cuda
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.cuda
+    restart: unless-stopped
+    ports:
+      - 5000:5000
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

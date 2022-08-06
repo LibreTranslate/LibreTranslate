@@ -65,7 +65,7 @@ def check_and_install_models(force=False, load_only_lang_codes=None):
 def check_and_install_transliteration(force=False):
     # 'en' is not a supported transliteration language
     transliteration_languages = [
-        l.code for l in app.language.languages if l.code != "en"
+        l.code for l in app.language.load_languages() if l.code != "en"
     ]
 
     # check installed

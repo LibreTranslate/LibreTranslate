@@ -17,7 +17,7 @@ from werkzeug.utils import secure_filename
 from app import flood, remove_translated_files, security
 from app.language import detect_languages, transliterate
 
-from .api_keys import Database
+from .api_keys import Database, RemoteDatabase
 from .suggestions import Database as SuggestionsDatabase
 
 
@@ -146,7 +146,12 @@ def create_app(args):
     api_keys_db = None
 
     if args.req_limit > 0 or args.api_keys or args.daily_req_limit > 0:
-        api_keys_db = Database() if args.api_keys else None
+        api_keys_db = None
+        if args.api_keys:
+            if args.api_keys_remote:
+                api_keys_db = RemoteDatabase(args.api_keys_remote)
+            else:
+                api_keys_db = Database(args.api_keys_db_path)
 
         from flask_limiter import Limiter
 
@@ -190,9 +195,12 @@ def create_app(args):
                     and api_keys_db.lookup(ak) is None
                     and request.headers.get("Origin") != args.require_api_key_origin
                 ):
+                    description = "Please contact the server operator to get an API key"
+                    if args.get_api_key_link:
+                        description = "Visit %s to get an API key" % args.get_api_key_link
                     abort(
                         403,
-                        description="Please contact the server operator to obtain an API key",
+                        description=description,
                     )
 
             return f(*a, **kw)
@@ -227,6 +235,7 @@ def create_app(args):
             gaId=args.ga_id,
             frontendTimeout=args.frontend_timeout,
             api_keys=args.api_keys,
+            get_api_key_link=args.get_api_key_link,
             web_version=os.environ.get("LT_WEB") is not None,
             version=get_version()
         )
@@ -475,6 +484,21 @@ def create_app(args):
             abort(400, description="%s format is not supported" % text_format)
 
         def improve_translation(source, translation):
+            source = source.strip()
+
+            source_last_char = source[len(source) - 1]
+            translation_last_char = translation[len(translation) - 1]
+
+            punctuation_chars = ['!', '?', '.', ',', ';']
+            if source_last_char in punctuation_chars:
+                if translation_last_char != source_last_char:
+                    if translation_last_char in punctuation_chars:
+                        translation = translation[:-1]
+
+                    translation += source_last_char
+            elif translation_last_char in punctuation_chars:
+                translation = translation[:-1]
+
             if source.islower():
                 return translation.lower()
 

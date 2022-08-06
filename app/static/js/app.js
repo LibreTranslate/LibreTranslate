@@ -39,14 +39,17 @@ document.addEventListener('DOMContentLoaded', function(){
             filesTranslation: true,
             frontendTimeout: 500
         },
-        mounted: function(){
-            var self = this;
-            var requestSettings = new XMLHttpRequest();
-            requestSettings.open('GET', BaseUrl + '/frontend/settings', true);
+        mounted: function() {
+            const self = this;
 
-            requestSettings.onload = function() {
+            const settingsRequest = new XMLHttpRequest();
+            settingsRequest.open("GET", BaseUrl + "/frontend/settings", true);
+
+            const langsRequest = new XMLHttpRequest();
+            langsRequest.open("GET", BaseUrl + "/languages", true);
+
+            settingsRequest.onload = function() {
                 if (this.status >= 200 && this.status < 400) {
-                    // Success!
                     self.settings = JSON.parse(this.response);
                     self.sourceLang = self.settings.language.source.code;
                     self.targetLang = self.settings.language.target.code;
@@ -55,74 +58,42 @@ document.addEventListener('DOMContentLoaded', function(){
                     self.supportedFilesFormat = self.settings.supportedFilesFormat;
                     self.filesTranslation = self.settings.filesTranslation;
                     self.frontendTimeout = self.settings.frontendTimeout;
-                }else {
+
+                    if (langsRequest.response) {
+                        handleLangsResponse(self, langsRequest);
+                    } else {
+                        langsRequest.onload = function() {
+                            handleLangsResponse(self, this);
+                        }
+                    }
+                } else {
                     self.error = "Cannot load /frontend/settings";
                     self.loading = false;
                 }
             };
 
-            requestSettings.onerror = function() {
+            settingsRequest.onerror = function() {
                 self.error = "Error while calling /frontend/settings";
                 self.loading = false;
             };
 
-            requestSettings.send();
-
-            var requestLanguages = new XMLHttpRequest();
-            requestLanguages.open('GET', BaseUrl + '/languages', true);
-
-            requestLanguages.onload = function() {
-                if (this.status >= 200 && this.status < 400) {
-                    // Success!
-                    self.langs = JSON.parse(this.response);
-                    self.langs.push({ name: 'Auto Detect (Experimental)', code: 'auto' })
-                    if (self.langs.length === 0){
-                        self.loading = false;
-                        self.error = "No languages available. Did you install the models correctly?"
-                        return;
-                    }
-
-                    const sourceLanguage = self.langs.find(l => l.code === self.getQueryParam('source'))
-                    const isSourceAuto = !sourceLanguage && self.getQueryParam('source') === "auto"
-                    const targetLanguage = self.langs.find(l => l.code === self.getQueryParam('target'))
-
-                    if (sourceLanguage || isSourceAuto) {
-                        self.sourceLang = isSourceAuto ? "auto" : sourceLanguage.code
-                    }
-
-                    if (targetLanguage) {
-                        self.targetLang = targetLanguage.code
-                    }
-
-                    const defaultText = self.getQueryParam('q')
-
-                    if(defaultText) {
-                        self.inputText = decodeURI(defaultText)
-                    }
-
-                    self.loading = false;
-                } else {
-                    self.error = "Cannot load /languages";
-                    self.loading = false;
-                }
-            };
-
-            requestLanguages.onerror = function() {
+            langsRequest.onerror = function() {
                 self.error = "Error while calling /languages";
                 self.loading = false;
             };
 
-            requestLanguages.send();
+            settingsRequest.send();
+            langsRequest.send();
         },
         updated: function(){
             M.FormSelect.init(this.$refs.sourceLangDropdown);
             M.FormSelect.init(this.$refs.targetLangDropdown);
-            
+
             if (this.$refs.inputTextarea){
                 if (this.inputText === ""){
                     this.$refs.inputTextarea.style.height = this.inputTextareaHeight + "px";
                     this.$refs.translatedTextarea.style.height = this.inputTextareaHeight + "px";
-                }else{
+                } else{
                     this.$refs.inputTextarea.style.height = this.$refs.translatedTextarea.style.height = "1px";
                     this.$refs.inputTextarea.style.height = Math.max(this.inputTextareaHeight, this.$refs.inputTextarea.scrollHeight + 32) + "px";
                     this.$refs.translatedTextarea.style.height = Math.max(this.inputTextareaHeight, this.$refs.translatedTextarea.scrollHeight + 32) + "px";
@@ -136,28 +107,12 @@ document.addEventListener('DOMContentLoaded', function(){
             // Update "selected" attribute (to overcome a vue.js limitation)
             // but properly display checkmarks on supported browsers.
             // Also change the <select> width value depending on the <option> length
-            if (this.$refs.sourceLangDropdown){
-                for (var i = 0; i < this.$refs.sourceLangDropdown.children.length; i++){
-                    var el = this.$refs.sourceLangDropdown.children[i];
-                    if (el.value === this.sourceLang){
-                        el.setAttribute('selected', '');
-                        this.$refs.sourceLangDropdown.style.width = getTextWidth(el.text) + 24 + 'px';
-                    }else{
-                        el.removeAttribute('selected');
-                    }
-                }
+            if (this.$refs.sourceLangDropdown) {
+                updateSelectedAttribute(this.$refs.sourceLangDropdown, this.sourceLang);
             }
 
-            if (this.$refs.targetLangDropdown){
-                for (var i = 0; i < this.$refs.targetLangDropdown.children.length; i++){
-                    var el = this.$refs.targetLangDropdown.children[i];
-                    if (el.value === this.targetLang){
-                        el.setAttribute('selected', '');
-                        this.$refs.targetLangDropdown.style.width = getTextWidth(el.text) + 24 + 'px';
-                    }else{
-                        el.removeAttribute('selected');
-                    }
-                }
+            if (this.$refs.targetLangDropdown) {
+                updateSelectedAttribute(this.$refs.targetLangDropdown, this.targetLang);
             }
         },
         computed: {
@@ -168,7 +123,8 @@ document.addEventListener('DOMContentLoaded', function(){
                     '		q: ' + this.$options.filters.escape(this.inputText) + ',',
                     '		source: ' + this.$options.filters.escape(this.sourceLang) + ',',
                     '		target: ' + this.$options.filters.escape(this.targetLang) + ',',
-                    '		format: "' + (this.isHtml ? "html" : "text") + '"',
+                    '		format: "' + (this.isHtml ? "html" : "text") + '",',
+                    '		api_key: "' + (localStorage.getItem("api_key") || "") + '"',
                     '	}),',
                     '	headers: { "Content-Type": "application/json" }',
                     '});',
@@ -267,10 +223,10 @@ document.addEventListener('DOMContentLoaded', function(){
                                 self.translatedText = res.translatedText;
                                 self.loadingTranslation = false;
                                 self.output = JSON.stringify(res, null, 4);
-                            }else{
+                            } else{
                                 throw new Error(res.error || "Unknown error");
                             }
-                        }catch(e){
+                        } catch (e) {
                             self.error = e.message;
                             self.loadingTranslation = false;
                         }
@@ -422,8 +378,61 @@ document.addEventListener('DOMContentLoaded', function(){
             }
         }
     });
-
 });
+
+/**
+ * @param {object} self
+ * @param {XMLHttpRequest} response
+ */
+function handleLangsResponse(self, response) {
+    if (response.status >= 200 && response.status < 400) {
+        self.langs = JSON.parse(response.response);
+
+        if (self.langs.length === 0){
+            self.loading = false;
+            self.error = "No languages available. Did you install the models correctly?"
+            return;
+        }
+
+        self.langs.push({ name: "Auto Detect (Experimental)", code: "auto" })
+
+        const sourceLanguage = self.langs.find(l => l.code === self.getQueryParam("source"))
+        const targetLanguage = self.langs.find(l => l.code === self.getQueryParam("target"))
+
+        if (sourceLanguage) {
+            self.sourceLang = sourceLanguage.code
+        }
+
+        if (targetLanguage) {
+            self.targetLang = targetLanguage.code
+        }
+
+        const defaultText = self.getQueryParam("q")
+
+        if (defaultText) {
+            self.inputText = decodeURI(defaultText)
+        }
+    } else {
+        self.error = "Cannot load /languages";
+    }
+
+    self.loading = false;
+}
+
+/**
+ * @param {object} langDropdown
+ * @param {string} lang
+ */
+function updateSelectedAttribute(langDropdown, lang) {
+    for (const child of langDropdown.children) {
+        if (child.value === lang){
+            child.setAttribute('selected', '');
+            langDropdown.style.width = getTextWidth(child.text) + 24 + 'px';
+        } else{
+            child.removeAttribute('selected');
+        }
+    }
+}
 
 function getTextWidth(text) {
     var canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
@@ -436,7 +445,9 @@ function getTextWidth(text) {
 function setApiKey(){
     var prevKey = localStorage.getItem("api_key") || "";
     var newKey = "";
-    newKey = window.prompt("Type in your API Key. If you need an API key, contact the server operator.", prevKey);
+    var instructions = "contact the server operator.";
+    if (window.getApiKeyLink) instructions = "press the \"Get API Key\" link."
+    newKey = window.prompt("Type in your API Key. If you need an API key, " + instructions, prevKey);
     if (newKey === null) newKey = "";
 
     localStorage.setItem("api_key", newKey);

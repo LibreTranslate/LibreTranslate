@@ -90,6 +90,24 @@ def get_args():
         help="Enable API keys database for per-user rate limits lookup",
     )
     parser.add_argument(
+        "--api-keys-db-path",
+        default=DEFARGS['API_KEYS_DB_PATH'],
+        type=str,
+        help="Use a specific path inside the container for the local database. Can be absolute or relative (%(default)s)",
+    )
+    parser.add_argument(
+        "--api-keys-remote",
+        default=DEFARGS['API_KEYS_REMOTE'],
+        type=str,
+        help="Use this remote endpoint to query for valid API keys instead of using the local database",
+    )
+    parser.add_argument(
+        "--get-api-key-link",
+        default=DEFARGS['GET_API_KEY_LINK'],
+        type=str,
+        help="Show a link in the UI where to direct users to get an API key",
+    )
+    parser.add_argument(
         "--require-api-key-origin",
         type=str,
         default=DEFARGS['REQUIRE_API_KEY_ORIGIN'],
@@ -101,6 +119,13 @@ def get_args():
         default=DEFARGS['LOAD_ONLY'],
         metavar="<comma-separated language codes>",
         help="Set available languages (ar,de,en,es,fr,ga,hi,it,ja,ko,pt,ru,zh)",
+    )
+    parser.add_argument(
+        "--threads",
+        default=DEFARGS['THREADS'],
+        type=int,
+        metavar="<number of threads>",
+        help="Set number of threads (%(default)s)",
     )
     parser.add_argument(
         "--suggestions", default=DEFARGS['SUGGESTIONS'], action="store_true", help="Allow user suggestions"
@@ -128,11 +153,15 @@ def main():
         else:
             from waitress import serve
 
+            url_scheme = "https" if args.ssl else "http"
+            print("Running on %s://%s:%s" % (url_scheme, args.host, args.port))
+
             serve(
                 app,
                 host=args.host,
                 port=args.port,
-                url_scheme="https" if args.ssl else "http",
+                url_scheme=url_scheme,
+                threads=args.threads
             )
 
 

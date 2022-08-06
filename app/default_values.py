@@ -107,6 +107,21 @@ _default_options_objects = [
         'value_type': 'bool'
     },
     {
+        'name': 'API_KEYS_DB_PATH',
+        'default_value': 'api_keys.db',
+        'value_type': 'str'
+    },
+    {
+        'name': 'API_KEYS_REMOTE',
+        'default_value': '',
+        'value_type': 'str'
+    },
+    {
+        'name': 'GET_API_KEY_LINK',
+        'default_value': '',
+        'value_type': 'str'
+    },
+    {
         'name': 'REQUIRE_API_KEY_ORIGIN',
         'default_value': '',
         'value_type': 'str'
@@ -115,6 +130,11 @@ _default_options_objects = [
         'name': 'LOAD_ONLY',
         'default_value': None,
         'value_type': 'str'
+    },
+    {
+        'name': 'THREADS',
+        'default_value': 4,
+        'value_type': 'int'
     },
     {
         'name': 'SUGGESTIONS',

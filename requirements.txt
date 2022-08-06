@@ -3,7 +3,7 @@ Flask==2.1.2
 flask-swagger==0.2.14
 flask-swagger-ui==3.36.0
 Flask-Limiter==2.4.5.1
-waitress==2.1.1
+waitress==2.1.2
 expiringdict==1.2.1
 pyicu>=2.8
 pycld2==0.41
@@ -12,6 +12,8 @@ polyglot==16.7.4
 appdirs==1.4.4
 APScheduler==3.9.1
 translatehtml==1.5.2
-argos-translate-files==1.0.5
+argos-translate-files==1.1.0
 itsdangerous==2.1.2
 Werkzeug==2.1.2
+requests==2.28.0
+

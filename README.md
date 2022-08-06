@@ -164,6 +164,18 @@ docker-compose up -d --build
 
 > Feel free to change the [`docker-compose.yml`](https://github.com/LibreTranslate/LibreTranslate/blob/main/docker-compose.yml) file to adapt it to your deployment needs, or use an extra `docker-compose.prod.yml` file for your deployment configuration.
 
+> The models are stored inside the container under `/root/.local/share` and `/root/.local/cache`. Feel free to use volumes if you do not want to redownload the models when the container is destroyed. Be aware that this will prevent the models from being updated!
+
+### CUDA
+
+You can use hardware acceleration to speed up translations on a GPU machine with CUDA 11.2 and [nvidia-docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) installed.
+
+Run this version with:
+
+```bash
+docker-compose -f docker-compose.cuda.yml up -d --build
+```
+
 ## Arguments
 
 | Argument                    | Description                                                                                                 | Default              | Env. name                    |
@@ -180,8 +192,12 @@ docker-compose up -d --build
 | --frontend-language-target  | Set frontend default language - target                                                                      | `es`          | LT_FRONTEND_LANGUAGE_TARGET  |
 | --frontend-timeout          | Set frontend translation timeout                                                                            | `500`         | LT_FRONTEND_TIMEOUT          |
 | --api-keys                  | Enable API keys database for per-user rate limits lookup                                                    | `Don't use API keys` | LT_API_KEYS                  |
+| --api-keys-db-path          | Use a specific path inside the container for the local database. Can be absolute or relative                | `api_keys.db`                      | LT_API_KEYS_DB_PATH          |
+| --api-keys-remote           | Use this remote endpoint to query for valid API keys instead of using the local database                    | `Use local API key database` | LT_API_KEYS_REMOTE                  |
+| --get-api-key-link          | Show a link in the UI where to direct users to get an API key                                               | `Don't show a link` | LT_GET_API_KEY_LINK                  |
 | --require-api-key-origin    | Require use of an API key for programmatic access to the API, unless the request origin matches this domain | `No restrictions on domain origin` | LT_REQUIRE_API_KEY_ORIGIN    |
 | --load-only                 | Set available languages                                                                                     | `all from argostranslate`    | LT_LOAD_ONLY                 |
+| --threads                   | Set number of threads                                                                                       | `4`    | LT_THREADS                 |
 | --suggestions               | Allow user suggestions                                                                                      | `false`    | LT_SUGGESTIONS               |
 | --disable-files-translation | Disable files translation                                                                                   | `false`    | LT_DISABLE_FILES_TRANSLATION |
 | --disable-web-ui            | Disable web ui                                                                                              | `false`    | LT_DISABLE_WEB_UI            |
@@ -210,7 +226,7 @@ See ["LibreTranslate: your own translation service on Kubernetes" by JM Robles](
 
 LibreTranslate supports per-user limit quotas, e.g. you can issue API keys to users so that they can enjoy higher requests limits per minute (if you also set `--req-limit`). By default all users are rate-limited based on `--req-limit`, but passing an optional `api_key` parameter to the REST endpoints allows a user to enjoy higher request limits.
 
-To use API keys simply start LibreTranslate with the `--api-keys` option.
+To use API keys simply start LibreTranslate with the `--api-keys` option. If you modified the API keys database path with the option `--api-keys-db-path`, you must specify the path with the same argument flag when using the `ltmanage keys` command. 
 
 ### Add New Keys
 
@@ -218,6 +234,11 @@ To issue a new API key with 120 requests per minute limits:
 
 ```bash
 ltmanage keys add 120
+```
+
+If you changed the API keys database path:
+```bash
+ltmanage keys --api-keys-db-path path/to/db/dbName.db add 120
 ```
 
 ### Remove Keys
@@ -282,9 +303,9 @@ URL |API Key Required|Payment Link|Cost
 [libretranslate.de](https://libretranslate.de)|-|-
 [translate.argosopentech.com](https://translate.argosopentech.com/)|-|-
 [translate.api.skitzen.com](https://translate.api.skitzen.com/)|-|-
-[libretranslate.pussthecat.org](https://libretranslate.pussthecat.org/)|-|-
 [translate.fortytwo-it.com](https://translate.fortytwo-it.com/)|-|-
 [translate.terraprint.co](https://translate.terraprint.co/)|-|-
+[lt.vern.cc](https://lt.vern.cc)|-|-
 
 ## Adding New Languages
 
