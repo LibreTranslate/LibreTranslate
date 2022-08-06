@@ -58,15 +58,15 @@
 					<span>LibreTranslate</span>
 				</a>
 				<ul class="right hide-on-med-and-down">
-				<li><a href="/docs">API Docs</a></li>
-				{% if get_api_key_link %}
-				<li><a href="{{ get_api_key_link }}">Get API Key</a></li>
-				<script>window.getApiKeyLink = "{{ get_api_key_link }}";</script>
-				{% endif %}
-				<li><a href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">GitHub</a></li>
-				{% if api_keys %}
-				<li><a href="javascript:setApiKey()" title="Set API Key"><i class="material-icons">vpn_key</i></a></li>
-				{% endif %}
+					<li><a href="/docs">API Docs</a></li>
+					{% if get_api_key_link %}
+					<li><a href="{{ get_api_key_link }}">Get API Key</a></li>
+					<script>window.getApiKeyLink = "{{ get_api_key_link }}";</script>
+					{% endif %}
+					<li><a href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">GitHub</a></li>
+					{% if api_keys %}
+					<li><a href="javascript:setApiKey()" title="Set API Key"><i class="material-icons">vpn_key</i></a></li>
+					{% endif %}
 				</ul>
 
 				<ul id="nav-mobile" class="sidenav">
@@ -137,11 +137,15 @@
 							<i class="material-icons">description</i>
 							<span class="btn-text">Translate Files</span>
 						</button>
+						<button type="button" class="btn btn-switch-type" @click="switchType('api')" :class="{'active': translationType === 'api'}">
+							<i class="material-icons">code</i>
+							<span class="btn-text">Api Example</span>
+						</button>
 					</div>
 					<form id="translation-form" class="col s12">
 						<div class="row mb-0">
 							<div class="col s6 language-select">
-								<span>Translate from</span>
+								<span style="padding-left:24px;">Translate from</span>
 								<select class="browser-default" v-model="sourceLang" ref="sourceLangDropdown" @change="handleInput">
 									<template v-for="option in langs">
 										<option :value="option.code">[[ option.name ]]</option>
@@ -163,87 +167,87 @@
 						</div>
 
 						<div class="row" v-if="translationType === 'text'">
-							<div class="input-field textarea-container col s6">
-								<label for="textarea1" class="sr-only">
-									Text to translate
-								</label>
-								<textarea id="textarea1" v-model="inputText" @input="handleInput" ref="inputTextarea" dir="auto"></textarea>
-								<button class="btn-delete-text" title="Delete text" @click="deleteText">
-									<i class="material-icons">close</i>
-								</button>
-								<div class="characters-limit-container" v-if="charactersLimit !== -1">
-									<label>[[ inputText.length ]] / [[ charactersLimit ]]</label>
-								</div>
-							</div>
-							<div class="input-field textarea-container col s6">
-								<label for="textarea2" class="sr-only">
-									Translated text
-								</label>
-								<textarea id="textarea2" v-model="translatedText" ref="translatedTextarea" dir="auto" v-bind:readonly="suggestions && !isSuggesting"></textarea>
-																<div class="actions">
-																		<button v-if="suggestions && !loadingTranslation && inputText.length && !isSuggesting" class="btn-action" @click="suggestTranslation">
-																				<i class="material-icons">edit</i>
-																		</button>
-																		<button v-if="suggestions && !loadingTranslation && inputText.length && isSuggesting" class="btn-action btn-blue" @click="closeSuggestTranslation">
-																				<span>Cancel</span>
-																		</button>
-																		<button v-if="suggestions && !loadingTranslation && inputText.length && isSuggesting" :disabled="!canSendSuggestion" class="btn-action btn-blue" @click="sendSuggestion">
-																				<span>Send</span>
-																		</button>
-																		<button v-if="!isSuggesting" class="btn-action btn-copy-translated" @click="copyText">
-																				<span>[[ copyTextLabel ]]</span> <i class="material-icons">content_copy</i>
-																		</button>
-																</div>
-								<div class="position-relative">
-									<div class="progress translate" v-if="loadingTranslation">
-										<div class="indeterminate"></div>
+								<div class="input-field textarea-container col s6">
+									<label for="textarea1" class="sr-only">
+										Text to translate
+									</label>
+									<textarea id="textarea1" v-model="inputText" @input="handleInput" ref="inputTextarea" dir="auto"></textarea>
+									<button class="btn-delete-text" title="Delete text" @click="deleteText">
+										<i class="material-icons">close</i>
+									</button>
+									<div class="characters-limit-container" v-if="charactersLimit !== -1">
+										<label>[[ inputText.length ]] / [[ charactersLimit ]]</label>
 									</div>
 								</div>
-							</div>
+								<div class="input-field textarea-container col s6">
+									<label for="textarea2" class="sr-only">
+										Translated text
+									</label>
+									<textarea id="textarea2" v-model="translatedText" ref="translatedTextarea" dir="auto" v-bind:readonly="suggestions && !isSuggesting"></textarea>
+											<div class="actions">
+													<button v-if="suggestions && !loadingTranslation && inputText.length && !isSuggesting" class="btn-action" @click="suggestTranslation">
+															<i class="material-icons">edit</i>
+													</button>
+													<button v-if="suggestions && !loadingTranslation && inputText.length && isSuggesting" class="btn-action btn-blue" @click="closeSuggestTranslation">
+															<span>Cancel</span>
+													</button>
+													<button v-if="suggestions && !loadingTranslation && inputText.length && isSuggesting" :disabled="!canSendSuggestion" class="btn-action btn-blue" @click="sendSuggestion">
+															<span>Send</span>
+													</button>
+													<button v-if="!isSuggesting" class="btn-action btn-copy-translated" @click="copyText">
+															<span>[[ copyTextLabel ]]</span> <i class="material-icons">content_copy</i>
+													</button>
+											</div>
+									<div class="position-relative">
+										<div class="progress translate" v-if="loadingTranslation">
+											<div class="indeterminate"></div>
+										</div>
+									</div>
+								</div>
 						</div>
-												<div class="row" v-if="translationType === 'files'">
-														<div class="file-dropzone">
-																<div v-if="inputFile === false" class="dropzone-content">
-																		<span>Supported file formats: [[ supportedFilesFormatFormatted ]]</span>
-																		<form action="#">
-																				<div class="file-field input-field">
-																						<div class="btn">
-																								<span>File</span>
-																								<input type="file" :accept="supportedFilesFormatFormatted" @change="handleInputFile" ref="fileInputRef">
-																						</div>
-																						<div class="file-path-wrapper hidden">
-																								<input class="file-path validate" type="text">
-																						</div>
-																				</div>
-																		</form>
+						<div class="row" v-if="translationType === 'files'">
+								<div class="file-dropzone">
+										<div v-if="inputFile === false" class="dropzone-content">
+												<span>Supported file formats: [[ supportedFilesFormatFormatted ]]</span>
+												<form action="#">
+														<div class="file-field input-field">
+																<div class="btn">
+																		<span>File</span>
+																		<input type="file" :accept="supportedFilesFormatFormatted" @change="handleInputFile" ref="fileInputRef">
 																</div>
-																<div v-if="inputFile !== false" class="dropzone-content">
-																		<div class="card">
-																				<div class="card-content">
-																						<div class="row mb-0">
-																								<div class="col s12">
-																										[[ inputFile.name ]]
-																										<button v-if="loadingFileTranslation !== true" @click="removeFile" class="btn-flat">
-																												<i class="material-icons">close</i>
-																										</button>
-																								</div>
-																						</div>
-																				</div>
-																		</div>
-																		<button @click="translateFile" v-if="translatedFileUrl === false && loadingFileTranslation === false" class="btn">Translate</button>
-																		<a v-if="translatedFileUrl !== false" :href="translatedFileUrl" class="btn">Download</a>
-																		<div class="progress" v-if="loadingFileTranslation">
-																				<div class="indeterminate"></div>
+																<div class="file-path-wrapper hidden">
+																		<input class="file-path validate" type="text">
+																</div>
+														</div>
+												</form>
+										</div>
+										<div v-if="inputFile !== false" class="dropzone-content">
+												<div class="card">
+														<div class="card-content">
+																<div class="row mb-0">
+																		<div class="col s12">
+																				[[ inputFile.name ]]
+																				<button v-if="loadingFileTranslation !== true" @click="removeFile" class="btn-flat">
+																						<i class="material-icons">close</i>
+																				</button>
 																		</div>
 																</div>
 														</div>
 												</div>
+												<button @click="translateFile" v-if="translatedFileUrl === false && loadingFileTranslation === false" class="btn">Translate</button>
+												<a v-if="translatedFileUrl !== false" :href="translatedFileUrl" class="btn">Download</a>
+												<div class="progress" v-if="loadingFileTranslation">
+														<div class="indeterminate"></div>
+												</div>
+										</div>
+								</div>
+						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 
-		<div class="section no-pad-bot" v-if="translationType !== 'files'">
+		<div class="section no-pad-bot" v-if="translationType === 'api'">
 			<div class="container">
 				<div class="row center">
 					<div class="col s12 m12">
