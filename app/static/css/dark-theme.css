@@ -29,6 +29,16 @@
         background-color: #5CA8FF !important;
         color: #fff;
     }
+    .btn-switch-language {
+        color: #fff;
+    }
+    .btn-switch-language:hover {
+        color: #3392FF !important;
+    }    
+
+    .browser-default{
+        color: #3392FF !important;
+    }
 
     /* like in textarea */
     .card-content {
