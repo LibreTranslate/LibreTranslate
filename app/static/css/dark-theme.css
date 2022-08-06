@@ -7,8 +7,12 @@
     .blue.darken-3 {
         background-color: #1E5DA6 !important;
     }
-    
 
+    /*" like in btn-delete-text */
+    .btn-flat {
+	color: #666; 
+    }
+    
     .btn-switch-type {
         background-color: #333;
         color: #5CA8FF;
@@ -17,7 +21,6 @@
         background-color: #444 !important;
         color: #5CA8FF;
     }
-    
     .btn-switch-type.active {
         background-color: #3392FF !important;
         color: #fff;
@@ -26,19 +29,38 @@
         background-color: #5CA8FF !important;
         color: #fff;
     }
+
+    .card-content {
+	border: 1px solid #444 !important;
+	background-color: #222 !important;
+	color: #fff;
+    }
     
+    .file-dropzone {
+        background: #222;
+	border: 1px solid #444;
+	margin-top: 1rem;
+    }
     
     select {
         color: #fff;
+        background: #111;
     }
 
+    option {
+        color: #fff;
+        background: #222;    
+    }
 
     textarea {
         border: 1px solid #444 !important;
         background-color: #222 !important;
         color: #fff;
     }
-    
+    .textarea-container {
+	    margin-top: 1rem;
+    }
+
     .code {
         border: 1px solid #444;
         background: #222;
@@ -48,7 +70,6 @@
         color: #fff;
         text-shadow: 0 1px #000;
     }
-    
     
     .token.atrule,
     .token.attr-value,
