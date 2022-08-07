@@ -5,33 +5,47 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>LibreTranslate - Free and Open Source Machine Translation API</title>
 	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-  <meta name="description" content="Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup. Run your own API server in just a few minutes.">
-  <meta name="keywords" content="translation,api">
+	<meta name="description" content="Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup. Run your own API server in just a few minutes.">
+	<meta name="keywords" content="translation,api">
 
-  <meta property="og:title" content="LibreTranslate - Free and Open Source Machine Translation API" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://libretranslate.com" />
-  <meta property="og:image" content="https://user-images.githubusercontent.com/1951843/102724116-32a6df00-42db-11eb-8cc0-129ab39cdfb5.png" />
-  <meta property="og:description" name="description" class="swiftype" content="Free and Open Source Machine Translation API. 100% self-hosted, no limits, no ties to proprietary services. Run your own API server in just a few minutes."/>
+	<link rel="preload" href="{{ url_for('static', filename='icon.svg') }}" as="image" />
+	<link rel="preload" href="{{ url_for('static', filename='js/vue@2.js') }}" as="script">
+	<link rel="preload" href="{{ url_for('static', filename='js/materialize.min.js') }}" as="script">
+	<link rel="preload" href="{{ url_for('static', filename='js/prism.min.js') }}" as="script">
+	<link rel="preload" href="{{ url_for('static', filename='js/app.js') }}?v={{ version }}" as="script">
+
+	<link rel="preload" href="{{ url_for('static', filename='css/materialize.min.css') }}" as="style"/>
+	<link rel="preload" href="{{ url_for('static', filename='css/material-icons.css') }}" as="style"/>
+	<link rel="preload" href="{{ url_for('static', filename='css/prism.min.css') }}" as="style"/>
+	<link rel="preload" href="{{ url_for('static', filename='css/main.css') }}?v={{ version }}" as="style"/>
+	<link rel="preload" href="{{ url_for('static', filename='css/dark-theme.css') }}" as="style"/>
+	
+	<meta property="og:title" content="LibreTranslate - Free and Open Source Machine Translation API" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://libretranslate.com" />
+	<meta property="og:image" content="https://user-images.githubusercontent.com/1951843/102724116-32a6df00-42db-11eb-8cc0-129ab39cdfb5.png" />
+	<meta property="og:description" name="description" class="swiftype" content="Free and Open Source Machine Translation API. 100% self-hosted, no limits, no ties to proprietary services. Run your own API server in just a few minutes."/>
 
 	<script src="{{ url_for('static', filename='js/vue@2.js') }}"></script>
-	<!-- Compiled and minified CSS -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/material-icons.css') }}" />
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/prism.min.css') }}" />
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}?v={{ version }}" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/dark-theme.css') }}" />
+
 
 	{% if gaId %}
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id={{ gaId }}"></script>
 	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-	  gtag('config', '{{ gaId }}');
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', '{{ gaId }}');
 	</script>
 	{% endif %}
+
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/material-icons.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/prism.min.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}?v={{ version }}" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/dark-theme.css') }}" />	
 </head>
 
 <body class="white">
@@ -114,16 +128,16 @@
 			<div class="container">
 				<div class="row">
 					<h3 class="header center">Translation API</h3>
-          <div id="translation-type-btns" class="s12 center" v-if="filesTranslation === true">
-            <button type="button" class="btn btn-switch-type" @click="switchType('text')" :class="{'active': translationType === 'text'}">
-              <i class="material-icons">title</i>
-              <span class="btn-text">Translate Text</span>
-            </button>
-            <button type="button" class="btn btn-switch-type" @click="switchType('files')" :class="{'active': translationType === 'files'}">
-              <i class="material-icons">description</i>
-              <span class="btn-text">Translate Files</span>
-            </button>
-          </div>
+					<div id="translation-type-btns" class="s12 center" v-if="filesTranslation === true">
+						<button type="button" class="btn btn-switch-type" @click="switchType('text')" :class="{'active': translationType === 'text'}">
+							<i class="material-icons">title</i>
+							<span class="btn-text">Translate Text</span>
+						</button>
+						<button type="button" class="btn btn-switch-type" @click="switchType('files')" :class="{'active': translationType === 'files'}">
+							<i class="material-icons">description</i>
+							<span class="btn-text">Translate Files</span>
+						</button>
+					</div>
 					<form id="translation-form" class="col s12">
 						<div class="row mb-0">
 							<div class="col s6 language-select">
@@ -166,20 +180,20 @@
 									Translated text
 								</label>
 								<textarea id="textarea2" v-model="translatedText" ref="translatedTextarea" dir="auto" v-bind:readonly="suggestions && !isSuggesting"></textarea>
-                                <div class="actions">
-                                    <button v-if="suggestions && !loadingTranslation && inputText.length && !isSuggesting" class="btn-action" @click="suggestTranslation">
-                                        <i class="material-icons">edit</i>
-                                    </button>
-                                    <button v-if="suggestions && !loadingTranslation && inputText.length && isSuggesting" class="btn-action btn-blue" @click="closeSuggestTranslation">
-                                        <span>Cancel</span>
-                                    </button>
-                                    <button v-if="suggestions && !loadingTranslation && inputText.length && isSuggesting" :disabled="!canSendSuggestion" class="btn-action btn-blue" @click="sendSuggestion">
-                                        <span>Send</span>
-                                    </button>
-                                    <button v-if="!isSuggesting" class="btn-action btn-copy-translated" @click="copyText">
-                                        <span>[[ copyTextLabel ]]</span> <i class="material-icons">content_copy</i>
-                                    </button>
-                                </div>
+																<div class="actions">
+																		<button v-if="suggestions && !loadingTranslation && inputText.length && !isSuggesting" class="btn-action" @click="suggestTranslation">
+																				<i class="material-icons">edit</i>
+																		</button>
+																		<button v-if="suggestions && !loadingTranslation && inputText.length && isSuggesting" class="btn-action btn-blue" @click="closeSuggestTranslation">
+																				<span>Cancel</span>
+																		</button>
+																		<button v-if="suggestions && !loadingTranslation && inputText.length && isSuggesting" :disabled="!canSendSuggestion" class="btn-action btn-blue" @click="sendSuggestion">
+																				<span>Send</span>
+																		</button>
+																		<button v-if="!isSuggesting" class="btn-action btn-copy-translated" @click="copyText">
+																				<span>[[ copyTextLabel ]]</span> <i class="material-icons">content_copy</i>
+																		</button>
+																</div>
 								<div class="position-relative">
 									<div class="progress translate" v-if="loadingTranslation">
 										<div class="indeterminate"></div>
@@ -187,43 +201,43 @@
 								</div>
 							</div>
 						</div>
-                        <div class="row" v-if="translationType === 'files'">
-                            <div class="file-dropzone">
-                                <div v-if="inputFile === false" class="dropzone-content">
-                                    <span>Supported file formats: [[ supportedFilesFormatFormatted ]]</span>
-                                    <form action="#">
-                                        <div class="file-field input-field">
-                                            <div class="btn">
-                                                <span>File</span>
-                                                <input type="file" :accept="supportedFilesFormatFormatted" @change="handleInputFile" ref="fileInputRef">
-                                            </div>
-                                            <div class="file-path-wrapper hidden">
-                                                <input class="file-path validate" type="text">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div v-if="inputFile !== false" class="dropzone-content">
-                                    <div class="card">
-                                        <div class="card-content">
-                                            <div class="row mb-0">
-                                                <div class="col s12">
-                                                    [[ inputFile.name ]]
-                                                    <button v-if="loadingFileTranslation !== true" @click="removeFile" class="btn-flat">
-                                                        <i class="material-icons">close</i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button @click="translateFile" v-if="translatedFileUrl === false && loadingFileTranslation === false" class="btn">Translate</button>
-                                    <a v-if="translatedFileUrl !== false" :href="translatedFileUrl" class="btn">Download</a>
-                                    <div class="progress" v-if="loadingFileTranslation">
-                                        <div class="indeterminate"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+												<div class="row" v-if="translationType === 'files'">
+														<div class="file-dropzone">
+																<div v-if="inputFile === false" class="dropzone-content">
+																		<span>Supported file formats: [[ supportedFilesFormatFormatted ]]</span>
+																		<form action="#">
+																				<div class="file-field input-field">
+																						<div class="btn">
+																								<span>File</span>
+																								<input type="file" :accept="supportedFilesFormatFormatted" @change="handleInputFile" ref="fileInputRef">
+																						</div>
+																						<div class="file-path-wrapper hidden">
+																								<input class="file-path validate" type="text">
+																						</div>
+																				</div>
+																		</form>
+																</div>
+																<div v-if="inputFile !== false" class="dropzone-content">
+																		<div class="card">
+																				<div class="card-content">
+																						<div class="row mb-0">
+																								<div class="col s12">
+																										[[ inputFile.name ]]
+																										<button v-if="loadingFileTranslation !== true" @click="removeFile" class="btn-flat">
+																												<i class="material-icons">close</i>
+																										</button>
+																								</div>
+																						</div>
+																				</div>
+																		</div>
+																		<button @click="translateFile" v-if="translatedFileUrl === false && loadingFileTranslation === false" class="btn">Translate</button>
+																		<a v-if="translatedFileUrl !== false" :href="translatedFileUrl" class="btn">Download</a>
+																		<div class="progress" v-if="loadingFileTranslation">
+																				<div class="indeterminate"></div>
+																		</div>
+																</div>
+														</div>
+												</div>
 					</form>
 				</div>
 			</div>
@@ -251,24 +265,24 @@
 				</div>
 			</div>
 		</div>
-    {% if web_version %}
+		{% if web_version %}
 		<div class="section no-pad-bot">
 			<div class="container">
 				<div class="row center">
 					<div class="col s12 m12">
 						<h3 class="header">Open Source Machine Translation API</h3>
 						<h4 class="header">100% Self-Hosted. Offline Capable. Easy to Setup.</h4>
-            <div id="download-btn-wrapper">
-              <a id="download-btn" class="waves-effect waves-light btn btn-large teal darken-2" href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">
-                <i class="material-icons">cloud_download</i>
-                <span class="btn-text">Download</span>
-              </a>
-            </div>
+						<div id="download-btn-wrapper">
+							<a id="download-btn" class="waves-effect waves-light btn btn-large teal darken-2" href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">
+								<i class="material-icons">cloud_download</i>
+								<span class="btn-text">Download</span>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-    {% endif %}
+		{% endif %}
 	</div>
 	</main>
 
@@ -302,7 +316,7 @@
 	window.Prism.manual = true;
 	// @license-end
 	</script>
-    <script src="{{ url_for('static', filename='js/prism.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/app.js') }}?v={{ version }}"></script>
+		<script src="{{ url_for('static', filename='js/prism.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/app.js') }}?v={{ version }}"></script>
 </body>
 </html>
