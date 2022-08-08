@@ -292,6 +292,7 @@ h3.header {
   .btn-text {
     display: inline;
   }
+
 }
 
 @media (max-width: 760px) {
@@ -343,5 +344,7 @@ h3.header {
     background-color: #1e5da6;
   }
 
-  
+  .btn-switch-type{
+    width: 3rem;
+  }
 }
