@@ -343,8 +343,10 @@ h3.header {
     width:70%;
     background-color: #1e5da6;
   }
-
-  .btn-switch-type{
-    width: 3rem;
-  }
+  
+  /*
+    .btn-switch-type{
+      min-width: 12rem;
+    } 
+  */
 }
