@@ -129,6 +129,7 @@ h3.header {
   display: flex;
   align-items: center;
   margin: .5rem;
+  width: 12rem;
 }
 
 .btn-switch-type:focus {
