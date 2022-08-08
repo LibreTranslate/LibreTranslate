@@ -267,6 +267,7 @@ h3.header {
   background-color: transparent;
   border: none;
   color: white;
+  margin: 0 18px 0 0 !important;
 }
 
 @media (min-width: 993px) {
@@ -304,4 +305,42 @@ h3.header {
   .language-select span {
     display: none;
   }
+}
+
+/* All the mobile stuff go here */
+@media only screen and (hover: none) and (pointer: coarse){
+
+  .logo{
+    position:relative;
+    margin-top: 10px;
+  }
+
+  nav span {
+    margin-top: 10px;
+  }
+
+  select {
+    font-size: 14px;
+  }
+  h3 {
+    font-size: 2.1rem;
+  }
+  .container{
+    width: 95%;
+  }
+  nav .brand-logo {
+    transform: none;
+    font-size: 1.4rem;
+    left: 3rem;
+  }
+  .section {
+    padding-top:0;
+    padding-bottom: 1rem;
+  }
+  .sidenav{
+    width:70%;
+    background-color: #1e5da6;
+  }
+
+  
 }
