@@ -306,7 +306,8 @@ URL |API Key Required|Payment Link|Cost
 [translate.fortytwo-it.com](https://translate.fortytwo-it.com/)|-|-
 [translate.terraprint.co](https://translate.terraprint.co/)|-|-
 [lt.vern.cc](https://lt.vern.cc)|-|-
-
+[lt.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://lt.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/)|-|-
+[vernf45n7mxwqnp5riaax7p67pwcl7wcefdcnqqvim7ckdx4264a.b32.i2p](http://vernf45n7mxwqnp5riaax7p67pwcl7wcefdcnqqvim7ckdx4264a.b32.i2p/)|-|-
 ## Adding New Languages
 
 To add new languages you first need to train an Argos Translate model. See [this video](https://odysee.com/@argosopentech:7/training-an-Argos-Translate-model-tutorial-2022:2?r=DMnK7NqdPNHRCfwhmKY9LPow3PqVUUgw) for details.
