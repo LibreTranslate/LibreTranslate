@@ -29,6 +29,10 @@
         background-color: #5CA8FF !important;
         color: #fff;
     }
+  
+    .btn-switch-language {
+      color: #fff;
+    }
 
     /* like in textarea */
     .card-content {
