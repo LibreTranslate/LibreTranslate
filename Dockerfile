@@ -17,21 +17,9 @@ RUN python -mvenv venv && ./venv/bin/pip install --upgrade pip
 
 COPY . .
 
-
-RUN if [ "$with_models" = "true" ]; then  \
-  # install only the dependencies first
-  ./venv/bin/pip install -e .;  \
-  # initialize the language models
-  if [ ! -z "$models" ]; then \
-  ./venv/bin/python install_models.py --load_only_lang_codes "$models";   \
-  else \
-  ./venv/bin/python install_models.py;  \
-  fi \
-  fi
 # Install package from source code
 RUN ./venv/bin/pip install . \
   && ./venv/bin/pip cache purge
-
 
 
 FROM python:3.8.12-slim-bullseye
@@ -42,6 +30,15 @@ USER libretranslate
 
 COPY --from=builder --chown=libretranslate:libretranslate /app /app
 WORKDIR /app
+
+RUN if [ "$with_models" = "true" ]; then  \
+  # initialize the language models
+  if [ ! -z "$models" ]; then \
+  ./venv/bin/python install_models.py --load_only_lang_codes "$models";   \
+  else \
+  ./venv/bin/python install_models.py;  \
+  fi \
+  fi
 
 EXPOSE 5000
 ENTRYPOINT [ "./venv/bin/libretranslate", "--host", "0.0.0.0" ]
