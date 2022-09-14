@@ -1,7 +1,4 @@
-FROM python:3.8.12-slim-bullseye
-
-ARG with_models=false
-ARG models=
+FROM python:3.8.14-slim-bullseye as builder
 
 WORKDIR /app
 
@@ -13,24 +10,35 @@ RUN apt-get update -qq \
 
 RUN apt-get update && apt-get upgrade --assume-yes
 
-RUN pip install --upgrade pip
+RUN python -mvenv venv && ./venv/bin/pip install --upgrade pip
 
 COPY . .
 
+# Install package from source code
+RUN ./venv/bin/pip install . \
+  && ./venv/bin/pip cache purge
+
+
+FROM python:3.8.14-slim-bullseye
+
+ARG with_models=false
+ARG models=
+
+RUN addgroup --system --gid 1032 libretranslate && adduser --system --uid 1032 libretranslate
+RUN apt-get update -qq && apt-get -qqq install --no-install-recommends -y libicu67 && apt-get clean && rm -rf /var/lib/apt
+USER libretranslate
+
+COPY --from=builder --chown=1032:1032 /app /app
+WORKDIR /app
 
 RUN if [ "$with_models" = "true" ]; then  \
-  # install only the dependencies first
-  pip install -e .;  \
   # initialize the language models
   if [ ! -z "$models" ]; then \
-  ./install_models.py --load_only_lang_codes "$models";   \
+  ./venv/bin/python install_models.py --load_only_lang_codes "$models";   \
   else \
-  ./install_models.py;  \
+  ./venv/bin/python install_models.py;  \
   fi \
   fi
-# Install package from source code
-RUN pip install . \
-  && pip cache purge
 
 EXPOSE 5000
-ENTRYPOINT [ "libretranslate", "--host", "0.0.0.0" ]
+ENTRYPOINT [ "./venv/bin/libretranslate", "--host", "0.0.0.0" ]
