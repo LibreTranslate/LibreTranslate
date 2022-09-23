@@ -129,12 +129,12 @@ def __transliterate_line(transliterator, line_text):
         # the actual transliteration of the word
         t_word = transliterator.transliterate(orig_word.strip(string.punctuation))
 
-        t_word = improve_translation_formatting(orig_word.strip(string.punctuation), t_word, improve_punctuation=False)
-        
         # if transliteration fails, default back to the original word
         if not t_word:
             t_word = orig_word
         else:
+            t_word = improve_translation_formatting(orig_word.strip(string.punctuation), t_word, improve_punctuation=False)
+
             # add back any stripped punctuation
             if r_diff:
                 t_word = t_word + "".join(r_diff)
