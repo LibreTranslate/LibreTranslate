@@ -15,7 +15,7 @@ from translatehtml import translate_html
 from werkzeug.utils import secure_filename
 
 from app import flood, remove_translated_files, security
-from app.language import detect_languages, transliterate
+from app.language import detect_languages, transliterate, improve_translation_formatting
 
 from .api_keys import Database, RemoteDatabase
 from .suggestions import Database as SuggestionsDatabase
@@ -483,46 +483,15 @@ def create_app(args):
         if text_format not in ["text", "html"]:
             abort(400, description="%s format is not supported" % text_format)
 
-        def improve_translation(source, translation):
-            source = source.strip()
-
-            source_last_char = source[len(source) - 1]
-            translation_last_char = translation[len(translation) - 1]
-
-            punctuation_chars = ['!', '?', '.', ',', ';']
-            if source_last_char in punctuation_chars:
-                if translation_last_char != source_last_char:
-                    if translation_last_char in punctuation_chars:
-                        translation = translation[:-1]
-
-                    translation += source_last_char
-            elif translation_last_char in punctuation_chars:
-                translation = translation[:-1]
-
-            if source.islower():
-                return translation.lower()
-
-            if source.isupper():
-                return translation.upper()
-
-            if source[0].islower():
-                return translation[0].lower() + translation[1:]
-
-            if source[0].isupper():
-                return translation[0].upper() + translation[1:]
-
-            return translation
-
         try:
             if batch:
                 results = []
                 for idx, text in enumerate(q):
                     translator = src_langs[idx].get_translation(tgt_lang)
-
                     if text_format == "html":
                         translated_text = str(translate_html(translator, text))
                     else:
-                        translated_text = improve_translation(text, translator.translate(
+                        translated_text = improve_translation_formatting(text, translator.translate(
                             transliterate(text, target_lang=source_langs[idx]["language"])))
 
                     results.append(unescape(translated_text))
@@ -545,7 +514,7 @@ def create_app(args):
                 if text_format == "html":
                     translated_text = str(translate_html(translator, q))
                 else:
-                    translated_text = improve_translation(q, translator.translate(
+                    translated_text = improve_translation_formatting(q, translator.translate(
                         transliterate(q, target_lang=source_langs[0]["language"])))
 
                 if source_lang == "auto":

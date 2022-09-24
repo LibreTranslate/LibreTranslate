@@ -79,6 +79,41 @@ def detect_languages(text):
     return [{"confidence": l.confidence, "language": l.code} for l in candidate_langs]
 
 
+def improve_translation_formatting(source, translation, improve_punctuation=True):
+    source = source.strip()
+
+    if not len(source):
+        return ""
+
+    if improve_punctuation:
+        source_last_char = source[len(source) - 1]
+        translation_last_char = translation[len(translation) - 1]
+
+        punctuation_chars = ['!', '?', '.', ',', ';']
+        if source_last_char in punctuation_chars:
+            if translation_last_char != source_last_char:
+                if translation_last_char in punctuation_chars:
+                    translation = translation[:-1]
+
+                translation += source_last_char
+        elif translation_last_char in punctuation_chars:
+            translation = translation[:-1]
+
+    if source.islower():
+        return translation.lower()
+
+    if source.isupper():
+        return translation.upper()
+
+    if source[0].islower():
+        return translation[0].lower() + translation[1:]
+
+    if source[0].isupper():
+        return translation[0].upper() + translation[1:]
+
+    return translation
+
+
 def __transliterate_line(transliterator, line_text):
     new_text = []
 
@@ -98,6 +133,8 @@ def __transliterate_line(transliterator, line_text):
         if not t_word:
             t_word = orig_word
         else:
+            t_word = improve_translation_formatting(orig_word.strip(string.punctuation), t_word, improve_punctuation=False)
+
             # add back any stripped punctuation
             if r_diff:
                 t_word = t_word + "".join(r_diff)
