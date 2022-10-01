@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', function(){
             translatedText: "",
             output: "",
             charactersLimit: -1,
+            
+            detectedLangText: "",
 
             copyTextLabel: "Copy text",
 
@@ -189,6 +191,8 @@ document.addEventListener('DOMContentLoaded', function(){
                 if (this.timeout) clearTimeout(this.timeout);
                 this.timeout = null;
 
+                this.detectedLangText = "";
+                
                 if (this.inputText === ""){
                     this.translatedText = "";
                     this.output = "";
@@ -223,6 +227,9 @@ document.addEventListener('DOMContentLoaded', function(){
                                 self.translatedText = res.translatedText;
                                 self.loadingTranslation = false;
                                 self.output = JSON.stringify(res, null, 4);
+                                if(self.sourceLang == "auto" && res.detectedLanguage.length > 0){
+                                    self.detectedLangText = res.detectedLanguage.language+" ("+res.detectedLanguage.confidence+"%)";
+                                }
                             } else{
                                 throw new Error(res.error || "Unknown error");
                             }
