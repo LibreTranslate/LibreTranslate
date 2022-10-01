@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function(){
                                 self.translatedText = res.translatedText;
                                 self.loadingTranslation = false;
                                 self.output = JSON.stringify(res, null, 4);
-                                if(self.sourceLang == "auto" && res.detectedLanguage.length > 0){
+                                if(self.sourceLang == "auto" && res.detectedLanguage !== undefined){
                                     self.detectedLangText = res.detectedLanguage.language+" ("+res.detectedLanguage.confidence+"%)";
                                 }
                             } else{
