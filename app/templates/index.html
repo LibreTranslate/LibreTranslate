@@ -142,7 +142,7 @@
 						<div class="row mb-0">
 							<div class="col s6 language-select">
 								<span>Translate from</span>
-                <span><i>[[ detectedLangText ]]</i></span>
+                <span v-if="detectedLangText !== ''">[[ detectedLangText ]]</span>
 								<select class="browser-default" v-model="sourceLang" ref="sourceLangDropdown" @change="handleInput">
 									<template v-for="option in langs">
 										<option :value="option.code">[[ option.name ]]</option>
