@@ -228,7 +228,8 @@ document.addEventListener('DOMContentLoaded', function(){
                                 self.loadingTranslation = false;
                                 self.output = JSON.stringify(res, null, 4);
                                 if(self.sourceLang == "auto" && res.detectedLanguage !== undefined){
-                                    self.detectedLangText = ": " + self.langs.find(l => l.code === res.detectedLanguage.language).name+" ("+res.detectedLanguage.confidence+"%)";
+                                    let lang = self.langs.find(l => l.code === res.detectedLanguage.language)
+                                    self.detectedLangText = ": " + (lang !== undefined ? lang.name : res.detectedLanguage.language) + " (" + res.detectedLanguage.confidence + "%)";
                                 }
                             } else{
                                 throw new Error(res.error || "Unknown error");
