@@ -419,6 +419,7 @@ function handleLangsResponse(self, response) {
 
         if (defaultText) {
             self.inputText = decodeURI(defaultText)
+            self.handleInput(new Event('none'))
         }
     } else {
         self.error = "Cannot load /languages";
