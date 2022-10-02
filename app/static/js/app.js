@@ -92,6 +92,8 @@ document.addEventListener('DOMContentLoaded', function(){
             M.FormSelect.init(this.$refs.targetLangDropdown);
 
             if (this.$refs.inputTextarea){
+                this.$refs.inputTextarea.focus()
+
                 if (this.inputText === ""){
                     this.$refs.inputTextarea.style.height = this.inputTextareaHeight + "px";
                     this.$refs.translatedTextarea.style.height = this.inputTextareaHeight + "px";
