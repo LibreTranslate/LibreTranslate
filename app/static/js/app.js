@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 this.targetLang = t;
                 this.inputText = this.translatedText;
                 this.translatedText = "";
-                this.handleInput();
+                this.handleInput(e);
             },
             dismissError: function(){
                 this.error = '';
@@ -269,9 +269,10 @@ document.addEventListener('DOMContentLoaded', function(){
                 this.isSuggesting = true;
             },
             closeSuggestTranslation: function(e) {
-                this.translatedText = this.savedTanslatedText
-
-                e.preventDefault();
+                if(this.isSuggesting) {
+                    e.preventDefault();
+                    this.translatedText = this.savedTanslatedText
+                }
 
                 this.isSuggesting = false;
             },
