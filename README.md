@@ -265,6 +265,7 @@ You can use the LibreTranslate API using the following bindings:
  - PHP: https://github.com/jefs42/libretranslate
  - C++: https://github.com/argosopentech/LibreTranslate-cpp
  - Unix: https://github.com/argosopentech/LibreTranslate-sh
+ - Shell: https://github.com/Hayao0819/Hayao-Tools/tree/master/libretranslate-sh
 
 ## Discourse Plugin
 
