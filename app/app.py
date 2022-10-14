@@ -161,6 +161,7 @@ def create_app(args):
             default_limits=get_routes_limits(
                 args.req_limit, args.daily_req_limit, api_keys_db
             ),
+            storage_uri=args.req_limit_storage,
         )
     else:
         from .no_limiter import Limiter
@@ -177,9 +178,6 @@ def create_app(args):
 
             if flood.is_banned(ip):
                 abort(403, description="Too many request limits violations")
-            else:
-                if flood.has_violation(ip):
-                    flood.decrease(ip)
 
             if args.api_keys:
                 ak = get_req_api_key()
