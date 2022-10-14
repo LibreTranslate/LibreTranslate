@@ -161,6 +161,7 @@ def create_app(args):
             default_limits=get_routes_limits(
                 args.req_limit, args.daily_req_limit, api_keys_db
             ),
+            storage_uri=args.req_limit_storage,
         )
     else:
         from .no_limiter import Limiter

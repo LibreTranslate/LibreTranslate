@@ -57,6 +57,11 @@ _default_options_objects = [
         'value_type': 'int'
     },
     {
+        'name': 'REQ_LIMIT_STORAGE',
+        'default_value': 'memory://',
+        'value_type': 'str'
+    },
+    {
         'name': 'DAILY_REQ_LIMIT',
         'default_value': -1,
         'value_type': 'int'
