@@ -184,7 +184,7 @@ docker-compose -f docker-compose.cuda.yml up -d --build
 | --port                      | Set port to bind the server to                                                                              | `5000`               | LT_PORT                      |
 | --char-limit                | Set character limit                                                                                         | `No limit`               | LT_CHAR_LIMIT                |
 | --req-limit                 | Set maximum number of requests per minute per client                                                        | `No limit`               | LT_REQ_LIMIT                 |
-| --req-limit-storage         | Storage URI to use for request limit data storage. See [Flask Limiter](https://flask-limiter.readthedocs.io/en/stable/configuration.html) | `memory://` | LT_REQ_STORAGE |
+| --req-limit-storage         | Storage URI to use for request limit data storage. See [Flask Limiter](https://flask-limiter.readthedocs.io/en/stable/configuration.html) | `memory://` | LT_REQ_LIMIT_STORAGE |
 | --batch-limit               | Set maximum number of texts to translate in a batch request                                                 | `No limit`               | LT_BATCH_LIMIT               |
 | --ga-id                     | Enable Google Analytics on the API client page by providing an ID                                           | `No tracking`               | LT_GA_ID                     |
 | --debug                     | Enable debug environment                                                                                    | `False`           | LT_DEBUG                     |
