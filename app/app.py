@@ -572,7 +572,7 @@ def create_app(args):
           200:
             description: Translated file
             schema:
-              id: translate
+              id: translate-file
               type: object
               properties:
                 translatedFileUrl:
