@@ -265,6 +265,7 @@ You can use the LibreTranslate API using the following bindings:
  - Python: https://github.com/argosopentech/LibreTranslate-py
  - PHP: https://github.com/jefs42/libretranslate
  - C++: https://github.com/argosopentech/LibreTranslate-cpp
+ - Swift: https://github.com/wacumov/libretranslate
  - Unix: https://github.com/argosopentech/LibreTranslate-sh
  - Shell: https://github.com/Hayao0819/Hayao-Tools/tree/master/libretranslate-sh
 
