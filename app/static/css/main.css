@@ -64,7 +64,7 @@ h3.header {
 @-moz-document url-prefix() {
   .language-select select {
     -moz-appearance: none;
-    text-indent: -2px;
+    text-indent: 2px;
     margin-right: -8px;
   }
 }
