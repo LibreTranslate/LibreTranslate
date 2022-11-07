@@ -341,9 +341,9 @@ Help us by opening a pull request!
 
 In short, no. [You need to buy an API key](https://buy.stripe.com/3cs4j3a4u4c8d3i289). You can always run LibreTranslate for free on your own server of course.
 
-### Can I use LibreTranslate behind a reverse proxy, like Apache2?
+### Can I use LibreTranslate behind a reverse proxy, like Apache2 or Caddy?
 
-Yes, here is an example Apache2 config that redirects a subdomain (with HTTPS certificate) to LibreTranslate running on a docker at localhost. 
+Yes, here are config examples for Apache2 and Caddy that redirect a subdomain (with HTTPS certificate) to LibreTranslate running on a docker at localhost. 
 ```
 sudo docker run -ti --rm -p 127.0.0.1:5000:5000 libretranslate/libretranslate
 ```
@@ -391,6 +391,23 @@ Remove `#` on the ErrorLog and CustomLog lines to log requests.
 Add this to an existing site config, or a new file in `/etc/apache2/sites-available/new-site.conf` and run `sudo a2ensite new-site.conf`. 
 
 To get a HTTPS subdomain certificate, install `certbot` (snap), run `sudo certbot certonly --manual --preferred-challenges dns` and enter your information (with `subdomain.domain.tld` as the domain). Add a DNS TXT record with your domain registrar when asked. This will save your certificate and key to `/etc/letsencrypt/live/{subdomain.domain.tld}/`. Alternatively, comment the SSL lines out if you don't want to use HTTPS.
+</details>
+
+<details>
+<summary>Caddy config</summary>
+<br>
+
+Replace [YOUR_DOMAIN] with your full domain; for example, `translate.domain.tld` or `libretranslate.domain.tld`.
+
+```Caddyfile
+#Libretranslate
+[YOUR_DOMAIN] {
+  reverse_proxy localhost:5000
+}
+```
+
+Add this to an existing Caddyfile or save it as `Caddyfile` in any directory and run `sudo caddy reload` in that same directory.
+
 </details>
 
 ## Credits
