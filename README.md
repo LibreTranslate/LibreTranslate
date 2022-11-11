@@ -410,6 +410,95 @@ Add this to an existing Caddyfile or save it as `Caddyfile` in any directory and
 
 </details>
 
+<details>
+<summary>NGINX config</summary>
+<br>
+
+Replace [YOUR_DOMAIN] with your full domain; for example, `translate.domain.tld` or `libretranslate.domain.tld`.
+  
+Remove `#` on the `access_log` and `error_log` lines to disable logging.
+
+```NginxConf
+server {
+  listen 80;
+  server_name [YOUR_DOMAIN];
+  return 301 https://$server_name$request_uri;
+}
+
+server {
+  listen 443 http2 ssl;
+  server_name [YOUR_DOMAIN];
+
+  #access_log off;
+  #error_log off;
+  
+  # SSL Section
+  ssl_certificate /etc/letsencrypt/live/[YOUR_DOMAIN]/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/[YOUR_DOMAIN]/privkey.pem;
+  
+  ssl_protocols TLSv1.2 TLSv1.3;
+
+  # Using the recommended cipher suite from: https://wiki.mozilla.org/Security/Server_Side_TLS
+  ssl_ciphers 'ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384';
+
+  ssl_session_timeout 10m;
+  ssl_session_cache shared:MozSSL:10m;  # about 40000 sessions
+  ssl_session_tickets off;
+
+  # Specifies a curve for ECDHE ciphers.
+  ssl_ecdh_curve prime256v1;
+  # Server should determine the ciphers, not the client
+  ssl_prefer_server_ciphers on;
+
+  
+  # Header section
+  add_header Strict-Transport-Security  "max-age=31536000; includeSubDomains; preload" always;
+  add_header Referrer-Policy            "strict-origin" always;
+
+  add_header X-Frame-Options            "SAMEORIGIN"    always;
+  add_header X-XSS-Protection           "1; mode=block" always;
+  add_header X-Content-Type-Options     "nosniff"       always;
+  add_header X-Download-Options         "noopen"        always;
+  add_header X-Robots-Tag               "none"          always;
+
+  add_header Feature-Policy             "microphone 'none'; camera 'none'; geolocation 'none';"  always;
+  # Newer header but not everywhere supported
+  add_header Permissions-Policy         "microphone=(), camera=(), geolocation=()" always;
+
+  # Remove X-Powered-By, which is an information leak
+  fastcgi_hide_header X-Powered-By;
+
+  # Do not send nginx server header
+  server_tokens off;
+  
+  # GZIP Section
+  gzip on;
+  gzip_disable "msie6";
+
+  gzip_vary on;
+  gzip_proxied any;
+  gzip_comp_level 6;
+  gzip_buffers 16 8k;
+  gzip_http_version 1.1;
+  gzip_min_length 256;
+  gzip_types text/xml text/javascript font/ttf font/eot font/otf application/x-javascript application/atom+xml application/javascript application/json application/manifest+json application/rss+xml application/x-web-app-manifest+json application/xhtml+xml application/xml image/svg+xml image/x-icon text/css text/plain;
+
+  location / {
+      proxy_pass http://127.0.0.1:5000/;
+      proxy_set_header Host $http_host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Forwarded-Proto $scheme;
+      client_max_body_size 0;
+  }
+}
+
+```
+
+Add this to an existing NGINX config or save it as `libretranslate` in the `/etc/nginx/site-enabled` directory and run `sudo nginx -s reload`.cameracamera
+
+</details>
+
 ## Credits
 
 This work is largely possible thanks to [Argos Translate](https://github.com/argosopentech/argos-translate), which powers the translation engine.
