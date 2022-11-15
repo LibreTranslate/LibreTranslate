@@ -16,7 +16,8 @@ If you want to report misuse of an LibreTranslate trademark, please contact us v
 
 ## When do I need specific permission to use an LibreTranslate trademark?
 
-You may do the following without receiving specific permission from LibreTranslate (or its affiliates):
+Noting that LibreTranslate software combined with, or integrated into, any other software program, including but not limited to automation software for offering LibreTranslate as a cloud service or orchestration software for offering LibreTranslate in containers is considered "modified" LibreTranslate software, you may do the following without receiving specific permission from LibreTranslate (or its affiliates):
+
  * Use LibreTranslate wordmarks and/or logos in unmodified versions of LibreTranslate programs, products, services and technologies.
  * Use LibreTranslate wordmarks in text to truthfully refer to and/or link to unmodified LibreTranslate programs, products, services and technologies.
  * Use LibreTranslate logos in visuals to truthfully refer to and/or to link to the applicable programs, products, services and technologies hosted on LibreTranslate servers.

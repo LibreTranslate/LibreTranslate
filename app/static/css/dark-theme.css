@@ -3,16 +3,16 @@
         background-color: #111 !important;
         color: #fff;
     }
-    
+
     .blue.darken-3 {
         background-color: #1E5DA6 !important;
     }
-    
+
     /* like in btn-delete-text */
     .btn-flat {
         color: #666;
     }
-  
+
     .btn-switch-type {
         background-color: #333;
         color: #5CA8FF;
@@ -29,9 +29,14 @@
         background-color: #5CA8FF !important;
         color: #fff;
     }
-  
+
     .btn-switch-language {
       color: #fff;
+    }
+
+    .language-select:after {
+      border: solid #fff;
+      border-width: 0 2px 2px 0;
     }
 
     /* like in textarea */
@@ -40,7 +45,7 @@
         background-color: #222 !important;
         color: #fff;
     }
-  
+
     .file-dropzone {
         background: #222;
         border: 1px solid #444;
@@ -54,7 +59,7 @@
 
     option {
         color: #fff;
-        background: #222;    
+        background: #222;
     }
 
     textarea {
@@ -66,7 +71,7 @@
     .textarea-container {
         margin-top: 1rem;
     }
-    
+
     .code {
         border: 1px solid #444;
         background: #222;
@@ -76,13 +81,13 @@
         color: #fff;
         text-shadow: 0 1px #000;
     }
-    
+
     .token.atrule,
     .token.attr-value,
     .token.keyword {
         color: #40b5e8;
     }
-    
+
     .language-css .token.string,
     .style .token.string,
     .token.entity,
@@ -91,7 +96,7 @@
         color: #eecfab;
         background: hsla(0,0%,15%,.5);
     }
-    
+
     .token.attr-name,
     .token.builtin,
     .token.char,
@@ -100,7 +105,7 @@
     .token.string {
         color: #acd25f;
     }
-    
+
     .token.boolean,
     .token.constant,
     .token.deleted,
@@ -110,7 +115,7 @@
     .token.tag {
         color: #ff8bcc;
     }
-    
+
     .token.class-name, .token.function {
         color: #ff7994;
     }
