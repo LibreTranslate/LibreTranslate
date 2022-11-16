@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import argparse
-from app.init import check_and_install_models, check_and_install_transliteration
+from app.init import check_and_install_models
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -10,4 +10,3 @@ if __name__ == "__main__":
     if len(lang_codes) == 0 or lang_codes[0] == '':
         lang_codes = None
     check_and_install_models(force=True, load_only_lang_codes=lang_codes)
-    check_and_install_transliteration(force=True)
