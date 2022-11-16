@@ -1,6 +1,5 @@
 from pathlib import Path
 
-import polyglot
 from argostranslate import package, translate
 
 import app.language
@@ -9,7 +8,6 @@ import app.language
 def boot(load_only=None):
     try:
         check_and_install_models(load_only_lang_codes=load_only)
-        check_and_install_transliteration()
     except Exception as e:
         print("Cannot update models (normal if you're offline): %s" % str(e))
 
@@ -60,35 +58,3 @@ def check_and_install_models(force=False, load_only_lang_codes=None):
             "Loaded support for %s languages (%s models total)!"
             % (len(translate.get_installed_languages()), len(available_packages))
         )
-
-
-def check_and_install_transliteration(force=False):
-    # 'en' is not a supported transliteration language
-    transliteration_languages = [
-        l.code for l in app.language.load_languages() if l.code != "en"
-    ]
-
-    # check installed
-    install_needed = []
-    if not force:
-        t_packages_path = Path(polyglot.polyglot_path) / "transliteration2"
-        for lang in transliteration_languages:
-            if not (
-                t_packages_path / lang / f"transliteration.{lang}.tar.bz2"
-            ).exists():
-                install_needed.append(lang)
-    else:
-        install_needed = transliteration_languages
-
-    # install the needed transliteration packages
-    if install_needed:
-        print(
-            f"Installing transliteration models for the following languages: {', '.join(install_needed)}"
-        )
-
-        from polyglot.downloader import Downloader
-
-        downloader = Downloader()
-
-        for lang in install_needed:
-            downloader.download(f"transliteration2.{lang}")

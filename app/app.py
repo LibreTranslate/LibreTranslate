@@ -15,7 +15,7 @@ from translatehtml import translate_html
 from werkzeug.utils import secure_filename
 
 from app import flood, remove_translated_files, security
-from app.language import detect_languages, transliterate, improve_translation_formatting
+from app.language import detect_languages, improve_translation_formatting
 
 from .api_keys import Database, RemoteDatabase
 from .suggestions import Database as SuggestionsDatabase
@@ -489,8 +489,7 @@ def create_app(args):
                     if text_format == "html":
                         translated_text = str(translate_html(translator, text))
                     else:
-                        translated_text = improve_translation_formatting(text, translator.translate(
-                            transliterate(text, target_lang=source_langs[idx]["language"])))
+                        translated_text = improve_translation_formatting(text, translator.translate(text))
 
                     results.append(unescape(translated_text))
                 if source_lang == "auto":
@@ -512,8 +511,7 @@ def create_app(args):
                 if text_format == "html":
                     translated_text = str(translate_html(translator, q))
                 else:
-                    translated_text = improve_translation_formatting(q, translator.translate(
-                        transliterate(q, target_lang=source_langs[0]["language"])))
+                    translated_text = improve_translation_formatting(q, translator.translate(q))
 
                 if source_lang == "auto":
                     return jsonify(
