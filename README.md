@@ -365,7 +365,7 @@ Remove `#` on the ErrorLog and CustomLog lines to log requests.
 #Redirect http to https
 <VirtualHost *:80>
     ServerName http://[YOUR_DOMAIN]
-    Redirect / https://[YOUR_DOMAIN]
+    Redirect / https://[YOUR_DOMAIN]/
     # ErrorLog ${APACHE_LOG_DIR}/error.log
     # CustomLog ${APACHE_LOG_DIR}/tr-access.log combined
  </VirtualHost>
