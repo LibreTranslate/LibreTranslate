@@ -2,7 +2,6 @@ import string
 
 from argostranslate import translate
 from polyglot.detect.base import Detector, UnknownLanguage
-from polyglot.transliteration.base import Transliterator
 
 __languages = None
 
@@ -113,52 +112,3 @@ def improve_translation_formatting(source, translation, improve_punctuation=True
 
     return translation
 
-
-def __transliterate_line(transliterator, line_text):
-    new_text = []
-
-    # transliteration is done word by word
-    for orig_word in line_text.split(" "):
-        # remove any punctuation on the right side
-        r_word = orig_word.rstrip(string.punctuation)
-        r_diff = set(char for char in orig_word) - set(char for char in r_word)
-        # and on the left side
-        l_word = orig_word.lstrip(string.punctuation)
-        l_diff = set(char for char in orig_word) - set(char for char in l_word)
-
-        # the actual transliteration of the word
-        t_word = transliterator.transliterate(orig_word.strip(string.punctuation))
-
-        # if transliteration fails, default back to the original word
-        if not t_word:
-            t_word = orig_word
-        else:
-            t_word = improve_translation_formatting(orig_word.strip(string.punctuation), t_word, improve_punctuation=False)
-
-            # add back any stripped punctuation
-            if r_diff:
-                t_word = t_word + "".join(r_diff)
-            if l_diff:
-                t_word = "".join(l_diff) + t_word
-
-        new_text.append(t_word)
-
-    # rebuild the text
-    return " ".join(new_text)
-
-
-def transliterate(text, target_lang="en"):
-    # initialize the transliterator from polyglot
-    transliterator = Transliterator(target_lang=target_lang)
-
-    # check for multiline string
-    if "\n" in text:
-        lines = []
-        # process each line separate
-        for line in text.split("\n"):
-            lines.append(__transliterate_line(transliterator, line))
-
-        # rejoin multiline string
-        return "\n".join(lines)
-    else:
-        return __transliterate_line(transliterator, text)
