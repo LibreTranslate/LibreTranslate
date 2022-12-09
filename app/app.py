@@ -517,7 +517,7 @@ def create_app(args):
                     return jsonify(
                         {
                             "translatedText": unescape(translated_text),
-						    "detectedLanguage": source_langs[0]
+                            "detectedLanguage": source_langs[0]
                         }
                     )
                 else:
