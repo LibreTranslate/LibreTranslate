@@ -273,7 +273,7 @@ def create_app(args):
                     type: string
                     description: Human-readable language name (in English)
         """
-        return jsonify([{"code": l.code, "name": l.name, "targets": [language_pairs.get(l.code, [])]} for l in languages])
+        return jsonify([{"code": l.code, "name": l.name, "targets": language_pairs.get(l.code, [])} for l in languages])
 
     # Add cors
     @app.after_request
