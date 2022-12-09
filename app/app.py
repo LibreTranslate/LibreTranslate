@@ -501,9 +501,9 @@ def create_app(args):
                     )
                 else:
                     return jsonify(
-                         {
+                          {
                             "translatedText": results
-                         }
+                          }
                     )
             else:
                 translator = src_langs[0].get_translation(tgt_lang)
