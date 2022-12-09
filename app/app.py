@@ -112,6 +112,9 @@ def create_app(args):
     if not args.disable_files_translation:
         remove_translated_files.setup(get_upload_dir())
     languages = load_languages()
+    language_pairs = {}
+    for lang in languages:
+        language_pairs[lang.code] = [l.to_lang.code for l in lang.translations_from]
 
     # Map userdefined frontend languages to argos language object.
     if args.frontend_language_source == "auto":
@@ -269,17 +272,8 @@ def create_app(args):
                   name:
                     type: string
                     description: Human-readable language name (in English)
-          429:
-            description: Slow down
-            schema:
-              id: error-slow-down
-              type: object
-              properties:
-                error:
-                  type: string
-                  description: Reason for slow down
         """
-        return jsonify([{"code": l.code, "name": l.name} for l in languages])
+        return jsonify([{"code": l.code, "name": l.name, "targets": [language_pairs.get(l.code, [])]} for l in languages])
 
     # Add cors
     @app.after_request
@@ -940,7 +934,7 @@ def create_app(args):
         return jsonify({"success": True})
 
     swag = swagger(app)
-    swag["info"]["version"] = "1.3.0"
+    swag["info"]["version"] = "1.3.1"
     swag["info"]["title"] = "LibreTranslate"
 
     @app.route("/spec")

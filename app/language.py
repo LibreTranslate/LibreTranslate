@@ -81,8 +81,11 @@ def detect_languages(text):
 def improve_translation_formatting(source, translation, improve_punctuation=True):
     source = source.strip()
 
-    if not len(source) or not len(translation):
+    if not len(source):
         return ""
+    
+    if not len(translation):
+        return source
     
     if improve_punctuation:
         source_last_char = source[len(source) - 1]

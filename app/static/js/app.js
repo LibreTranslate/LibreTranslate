@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function(){
             isHtml: function(){
                 return htmlRegex.test(this.inputText);
             },
-            canSendSuggestion() {
+            canSendSuggestion: function(){
                 return this.translatedText.trim() !== "" && this.translatedText !== this.savedTanslatedText;
             }
         },
