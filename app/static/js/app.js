@@ -143,6 +143,14 @@ document.addEventListener('DOMContentLoaded', function(){
             },
             canSendSuggestion: function(){
                 return this.translatedText.trim() !== "" && this.translatedText !== this.savedTanslatedText;
+            },
+            targetLangs: function(){
+                if (!this.sourceLang) return this.langs;
+                else{
+                    var lang = this.langs.find(l => l.code === this.sourceLang);
+                    if (!lang) return this.langs;
+                    return lang.targets.map(t => this.langs.find(l => l.code === t));
+                }
             }
         },
         filters: {
@@ -161,7 +169,13 @@ document.addEventListener('DOMContentLoaded', function(){
                 }
             },
             swapLangs: function(e){
-                this.closeSuggestTranslation(e)
+                this.closeSuggestTranslation(e);
+
+                // Make sure that we can swap
+                // by checking that the current target language
+                // has source language as target
+                var tgtLang = this.langs.find(l => l.code === this.targetLang);
+                if (tgtLang.targets.indexOf(this.sourceLang) === -1) return; // Not supported
 
                 var t = this.sourceLang;
                 this.sourceLang = this.targetLang;

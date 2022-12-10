@@ -272,6 +272,11 @@ def create_app(args):
                   name:
                     type: string
                     description: Human-readable language name (in English)
+                  targets:
+                    type: array
+                    items:
+                      type: string
+                    description: Supported target language codes
         """
         return jsonify([{"code": l.code, "name": l.name, "targets": language_pairs.get(l.code, [])} for l in languages])
 
