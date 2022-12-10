@@ -114,7 +114,7 @@ def create_app(args):
     languages = load_languages()
     language_pairs = {}
     for lang in languages:
-        language_pairs[lang.code] = [l.to_lang.code for l in lang.translations_from]
+        language_pairs[lang.code] = sorted([l.to_lang.code for l in lang.translations_from])
 
     # Map userdefined frontend languages to argos language object.
     if args.frontend_language_source == "auto":
@@ -480,6 +480,9 @@ def create_app(args):
                 results = []
                 for idx, text in enumerate(q):
                     translator = src_langs[idx].get_translation(tgt_lang)
+                    if translator is None:
+                        abort(400, description="%s (%s) is not available as a target language from %s (%s)" % (tgt_lang.name, tgt_lang.code, src_langs[idx].name, src_langs[idx].code))
+
                     if text_format == "html":
                         translated_text = str(translate_html(translator, text))
                     else:
@@ -501,6 +504,8 @@ def create_app(args):
                     )
             else:
                 translator = src_langs[0].get_translation(tgt_lang)
+                if translator is None:
+                    abort(400, description="%s (%s) is not available as a target language from %s (%s)" % (tgt_lang.name, tgt_lang.code, src_langs[0].name, src_langs[0].code))
 
                 if text_format == "html":
                     translated_text = str(translate_html(translator, q))
