@@ -156,7 +156,7 @@
 								</a>
 								<span>Translate into</span>
 								<select class="browser-default" v-model="targetLang" ref="targetLangDropdown" @change="handleInput">
-									<template v-for="option in langs">
+									<template v-for="option in targetLangs">
 										<option v-if="option.code !== 'auto'" :value="option.code">[[ option.name ]]</option>
 									</template>
 								</select>

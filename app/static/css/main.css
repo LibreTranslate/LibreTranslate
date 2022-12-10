@@ -61,14 +61,6 @@ h3.header {
   position: relative;
 }
 
-@-moz-document url-prefix() {
-  .language-select select {
-    -moz-appearance: none;
-    text-indent: -2px;
-    margin-right: -8px;
-  }
-}
-
 .language-select:after {
   content: "";
   width: 0.5em;

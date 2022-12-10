@@ -112,6 +112,9 @@ def create_app(args):
     if not args.disable_files_translation:
         remove_translated_files.setup(get_upload_dir())
     languages = load_languages()
+    language_pairs = {}
+    for lang in languages:
+        language_pairs[lang.code] = sorted([l.to_lang.code for l in lang.translations_from])
 
     # Map userdefined frontend languages to argos language object.
     if args.frontend_language_source == "auto":
@@ -269,17 +272,13 @@ def create_app(args):
                   name:
                     type: string
                     description: Human-readable language name (in English)
-          429:
-            description: Slow down
-            schema:
-              id: error-slow-down
-              type: object
-              properties:
-                error:
-                  type: string
-                  description: Reason for slow down
+                  targets:
+                    type: array
+                    items:
+                      type: string
+                    description: Supported target language codes
         """
-        return jsonify([{"code": l.code, "name": l.name} for l in languages])
+        return jsonify([{"code": l.code, "name": l.name, "targets": language_pairs.get(l.code, [])} for l in languages])
 
     # Add cors
     @app.after_request
@@ -486,6 +485,9 @@ def create_app(args):
                 results = []
                 for idx, text in enumerate(q):
                     translator = src_langs[idx].get_translation(tgt_lang)
+                    if translator is None:
+                        abort(400, description="%s (%s) is not available as a target language from %s (%s)" % (tgt_lang.name, tgt_lang.code, src_langs[idx].name, src_langs[idx].code))
+
                     if text_format == "html":
                         translated_text = str(translate_html(translator, text))
                     else:
@@ -501,12 +503,14 @@ def create_app(args):
                     )
                 else:
                     return jsonify(
-                         {
+                          {
                             "translatedText": results
-                         }
+                          }
                     )
             else:
                 translator = src_langs[0].get_translation(tgt_lang)
+                if translator is None:
+                    abort(400, description="%s (%s) is not available as a target language from %s (%s)" % (tgt_lang.name, tgt_lang.code, src_langs[0].name, src_langs[0].code))
 
                 if text_format == "html":
                     translated_text = str(translate_html(translator, q))
@@ -517,7 +521,7 @@ def create_app(args):
                     return jsonify(
                         {
                             "translatedText": unescape(translated_text),
-						    "detectedLanguage": source_langs[0]
+                            "detectedLanguage": source_langs[0]
                         }
                     )
                 else:
@@ -940,7 +944,7 @@ def create_app(args):
         return jsonify({"success": True})
 
     swag = swagger(app)
-    swag["info"]["version"] = "1.3.0"
+    swag["info"]["version"] = "1.3.1"
     swag["info"]["title"] = "LibreTranslate"
 
     @app.route("/spec")
