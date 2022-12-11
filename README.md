@@ -301,15 +301,15 @@ Then issue `./launcher rebuild app`. From the Discourse's admin panel then selec
 
 This is a list of public LibreTranslate instances, some require an API key. If you want to add a new URL, please open a pull request.
 
-URL |API Key Required|Payment Link|Cost
---- | --- | --- | ---
-[libretranslate.com](https://libretranslate.com)|:heavy_check_mark:|[Buy](https://buy.stripe.com/3cs4j3a4u4c8d3i289)| [$19 / month](https://buy.stripe.com/3cs4j3a4u4c8d3i289), 80 requests / minute limit
-[libretranslate.de](https://libretranslate.de)|-|-
-[translate.argosopentech.com](https://translate.argosopentech.com/)|-|-
-[translate.api.skitzen.com](https://translate.api.skitzen.com/)|-|-
-[translate.fortytwo-it.com](https://translate.fortytwo-it.com/)|-|-
-[translate.terraprint.co](https://translate.terraprint.co/)|-|-
-[lt.vern.cc](https://lt.vern.cc)|-|-
+URL |API Key Required | Links
+--- | --- | ---
+[libretranslate.com](https://libretranslate.com)|:heavy_check_mark:|[Get API Key](https://buy.stripe.com/3cs4j3a4u4c8d3i289)
+[libretranslate.de](https://libretranslate.de)|-
+[translate.argosopentech.com](https://translate.argosopentech.com/)|-
+[translate.api.skitzen.com](https://translate.api.skitzen.com/)|-
+[translate.fortytwo-it.com](https://translate.fortytwo-it.com/)|-
+[translate.terraprint.co](https://translate.terraprint.co/)|-
+[lt.vern.cc](https://lt.vern.cc)|-
 
 ## TOR/i2p Mirrors
 

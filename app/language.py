@@ -1,7 +1,7 @@
 import string
 
 from argostranslate import translate
-from polyglot.detect.base import Detector, UnknownLanguage
+from app.detect import Detector, UnknownLanguage
 
 __languages = None
 

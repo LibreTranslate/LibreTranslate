@@ -5,10 +5,8 @@ flask-swagger-ui==4.11.1
 Flask-Limiter==2.6.3
 waitress==2.1.2
 expiringdict==1.2.2
-pyicu>=2.8
-pycld2==0.41
+LTpycld2==0.42
 morfessor==2.0.6
-polyglot==16.7.4
 appdirs==1.4.4
 APScheduler==3.9.1
 translatehtml==1.5.2

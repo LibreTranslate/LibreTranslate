@@ -4,7 +4,7 @@ WORKDIR /app
 
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -qq \
-  && apt-get -qqq install --no-install-recommends -y libicu-dev pkg-config gcc g++ \
+  && apt-get -qqq install --no-install-recommends -y pkg-config gcc g++ \
   && apt-get clean \
   && rm -rf /var/lib/apt
 
@@ -25,7 +25,6 @@ ARG with_models=false
 ARG models=
 
 RUN addgroup --system --gid 1032 libretranslate && adduser --system --uid 1032 libretranslate
-RUN apt-get update -qq && apt-get -qqq install --no-install-recommends -y libicu67 && apt-get clean && rm -rf /var/lib/apt
 USER libretranslate
 
 COPY --from=builder --chown=1032:1032 /app /app
