@@ -419,7 +419,7 @@ function handleLangsResponse(self, response) {
             return;
         }
 
-        self.langs.push({ name: "Auto Detect (Experimental)", code: "auto" })
+        self.langs.push({ name: "Auto Detect", code: "auto", targets: self.langs.map(l => l.code)})
 
         const sourceLanguage = self.langs.find(l => l.code === self.getQueryParam("source"))
         const targetLanguage = self.langs.find(l => l.code === self.getQueryParam("target"))
