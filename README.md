@@ -299,7 +299,7 @@ This is a list of public LibreTranslate instances, some require an API key. If y
 
 URL |API Key Required | Links
 --- | --- | ---
-[libretranslate.com](https://libretranslate.com)|:heavy_check_mark:|[Get API Key](https://buy.stripe.com/3cs4j3a4u4c8d3i289)
+[libretranslate.com](https://libretranslate.com)|:heavy_check_mark:|[Get API Key](https://portal.libretranslate.com)
 [libretranslate.de](https://libretranslate.de)|-
 [translate.argosopentech.com](https://translate.argosopentech.com/)|-
 [translate.api.skitzen.com](https://translate.api.skitzen.com/)|-
