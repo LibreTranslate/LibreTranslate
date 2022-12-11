@@ -112,8 +112,6 @@ Then open a web browser to http://localhost:5000
 
 On Ubuntu 20.04 you can also use the install script available at https://github.com/argosopentech/LibreTranslate-init
 
-If you would rather run it natively, you can follow the guide [here](https://github.com/nuttolum/LibreOnWindows).
-
 ## Build and Run
 
 If you want to make changes to the code, you can build from source, and run the API:
