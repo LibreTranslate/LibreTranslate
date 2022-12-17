@@ -264,7 +264,8 @@ You can use the LibreTranslate API using the following bindings:
  - Swift: https://github.com/wacumov/libretranslate
  - Unix: https://github.com/argosopentech/LibreTranslate-sh
  - Shell: https://github.com/Hayao0819/Hayao-Tools/tree/master/libretranslate-sh
-
+ - Java: https://github.com/suuft/libretranslate-java
+ - 
 ## Discourse Plugin
 
 You can use this [discourse translator plugin](https://github.com/LibreTranslate/discourse-translator) to translate [Discourse](https://discourse.org) topics. To install it simply modify `/var/discourse/containers/app.yml`:
