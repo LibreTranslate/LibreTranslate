@@ -138,7 +138,7 @@ Then open a web browser to http://localhost:5000
 ### Build with Docker
 
 ```bash
-docker build [--build-arg with_models=true] -t libretranslate/libretranslate .
+docker build [--build-arg with_models=true] -t libretranslate .
 ```
 
 If you want to run the Docker image in a complete offline environment, you need to add the `--build-arg with_models=true` parameter. Then the language models are downloaded during the build process of the image. Otherwise these models get downloaded on the first run of the image/container.
@@ -146,7 +146,7 @@ If you want to run the Docker image in a complete offline environment, you need 
 Run the built image:
 
 ```bash
-./lt.sh [args]
+docker run -it -p 5000:5000 libretranslate [args]
 ```
 
 Or build and run using `docker-compose`:
@@ -157,7 +157,7 @@ docker-compose up -d --build
 
 > Feel free to change the [`docker-compose.yml`](https://github.com/LibreTranslate/LibreTranslate/blob/main/docker-compose.yml) file to adapt it to your deployment needs, or use an extra `docker-compose.prod.yml` file for your deployment configuration.
 
-> The models are stored inside the container under `/root/.local/share` and `/root/.local/cache`. Feel free to use volumes if you do not want to redownload the models when the container is destroyed. Be aware that this will prevent the models from being updated!
+> The models are stored inside the container under `/home/libretranslate/.local/share` and `/home/libretranslate/.local/cache`. Feel free to use volumes if you do not want to redownload the models when the container is destroyed. To update the models, use the `--update-models` argument.
 
 ### CUDA
 
@@ -195,7 +195,7 @@ docker-compose -f docker-compose.cuda.yml up -d --build
 | --suggestions               | Allow user suggestions                                                                                      | `false`    | LT_SUGGESTIONS               |
 | --disable-files-translation | Disable files translation                                                                                   | `false`    | LT_DISABLE_FILES_TRANSLATION |
 | --disable-web-ui            | Disable web ui                                                                                              | `false`    | LT_DISABLE_WEB_UI            |
-| --update-models             | Update models at startup                                                                                    | `false`    | LT_UPDATE_MODELS            |
+| --update-models             | Update language models at startup                                                                                    | `false`    | LT_UPDATE_MODELS            |
 
 Note that each argument has an equivalent environment variable that can be used instead. The env. variables overwrite the default values but have lower priority than the command arguments and are particularly useful if used with Docker. The environment variable names are the upper-snake-case of the equivalent command argument's name with a `LT` prefix.
 
