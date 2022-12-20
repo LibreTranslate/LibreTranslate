@@ -1,12 +1,21 @@
 import sqlite3
+import os
 
 from expiringdict import ExpiringDict
 
-DEFAULT_DB_PATH = "suggestions.db"
+DEFAULT_DB_PATH = "db/suggestions.db"
 
 
 class Database:
     def __init__(self, db_path=DEFAULT_DB_PATH, max_cache_len=1000, max_cache_age=30):
+        # Legacy check - this can be removed at some point in the near future
+        if os.path.isfile("suggestions.db") and not os.path.isfile("db/suggestions.db"):
+            print("Migrating %s to %s" % ("suggestions.db", "db/suggestions.db"))
+            try:
+                os.rename("suggestions.db", "db/suggestions.db")
+            except Exception as e:
+                print(str(e))
+
         self.db_path = db_path
         self.cache = ExpiringDict(max_len=max_cache_len, max_age_seconds=max_cache_age)
 

@@ -186,7 +186,7 @@ docker-compose -f docker-compose.cuda.yml up -d --build
 | --frontend-language-target  | Set frontend default language - target                                                                      | `es`          | LT_FRONTEND_LANGUAGE_TARGET  |
 | --frontend-timeout          | Set frontend translation timeout                                                                            | `500`         | LT_FRONTEND_TIMEOUT          |
 | --api-keys                  | Enable API keys database for per-user rate limits lookup                                                    | `Don't use API keys` | LT_API_KEYS                  |
-| --api-keys-db-path          | Use a specific path inside the container for the local database. Can be absolute or relative                | `api_keys.db`                      | LT_API_KEYS_DB_PATH          |
+| --api-keys-db-path          | Use a specific path inside the container for the local database. Can be absolute or relative                | `db/api_keys.db`                      | LT_API_KEYS_DB_PATH          |
 | --api-keys-remote           | Use this remote endpoint to query for valid API keys instead of using the local database                    | `Use local API key database` | LT_API_KEYS_REMOTE                  |
 | --get-api-key-link          | Show a link in the UI where to direct users to get an API key                                               | `Don't show a link` | LT_GET_API_KEY_LINK                  |
 | --require-api-key-origin    | Require use of an API key for programmatic access to the API, unless the request origin matches this domain | `No restrictions on domain origin` | LT_REQUIRE_API_KEY_ORIGIN    |

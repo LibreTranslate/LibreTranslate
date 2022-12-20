@@ -88,6 +88,8 @@ document.addEventListener('DOMContentLoaded', function(){
             langsRequest.send();
         },
         updated: function(){
+            if (this.isSuggesting) return;
+
             M.FormSelect.init(this.$refs.sourceLangDropdown);
             M.FormSelect.init(this.$refs.targetLangDropdown);
 
@@ -283,11 +285,14 @@ document.addEventListener('DOMContentLoaded', function(){
                 this.savedTanslatedText = this.translatedText
 
                 this.isSuggesting = true;
+                this.$nextTick(() => {
+                    this.$refs.translatedTextarea.focus();
+                });
             },
             closeSuggestTranslation: function(e) {
                 if(this.isSuggesting) {
                     e.preventDefault();
-                    this.translatedText = this.savedTanslatedText
+                    // this.translatedText = this.savedTanslatedText
                 }
 
                 this.isSuggesting = false;
@@ -312,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     try{
                         var res = JSON.parse(this.response);
                         if (res.success){
-                            M.toast({html: 'Thanks for your correction.'})
+                            M.toast({html: 'Thanks for your correction. Note the suggestion will not take effect right away.'})
                             self.closeSuggestTranslation(e)
                         }else{
                             throw new Error(res.error || "Unknown error");

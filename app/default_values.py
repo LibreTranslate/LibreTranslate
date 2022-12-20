@@ -113,7 +113,7 @@ _default_options_objects = [
     },
     {
         'name': 'API_KEYS_DB_PATH',
-        'default_value': 'api_keys.db',
+        'default_value': 'db/api_keys.db',
         'value_type': 'str'
     },
     {

@@ -10,6 +10,14 @@ DEFAULT_DB_PATH = DEFARGS['API_KEYS_DB_PATH']
 
 class Database:
     def __init__(self, db_path=DEFAULT_DB_PATH, max_cache_len=1000, max_cache_age=30):
+        # Legacy check - this can be removed at some point in the near future
+        if os.path.isfile("api_keys.db") and not os.path.isfile("db/api_keys.db"):
+            print("Migrating %s to %s" % ("api_keys.db", "db/api_keys.db"))
+            try:
+                os.rename("api_keys.db", "db/api_keys.db")
+            except Exception as e:
+                print(str(e))
+
         db_dir = os.path.dirname(db_path)
         if not db_dir == "" and not os.path.exists(db_dir):
             os.makedirs(db_dir)
