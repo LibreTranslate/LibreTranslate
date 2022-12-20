@@ -130,11 +130,8 @@ Then open a web browser to http://localhost:5000
 
 ### Run with Docker
 
-Simply run:
-
-```bash
-docker run -ti --rm -p 5000:5000 libretranslate/libretranslate
-```
+Linux/MacOS: `./lt.sh`
+Windows: double-click `lt.bat`
 
 Then open a web browser to http://localhost:5000
 
