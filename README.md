@@ -159,6 +159,22 @@ docker-compose up -d --build
 
 > The models are stored inside the container under `/home/libretranslate/.local/share` and `/home/libretranslate/.local/cache`. Feel free to use volumes if you do not want to redownload the models when the container is destroyed. To update the models, use the `--update-models` argument.
 
+### Update
+
+#### Software
+
+If you installed with pip:
+
+`pip install -U libretranslate`
+
+If you're using docker:
+
+`docker pull libretranslate/libretranslate`
+
+#### Language Models
+
+Start the program with the `--update-models` argument. For example: `libretranslate --update-models` or `./run.sh --update-models`.
+
 ### CUDA
 
 You can use hardware acceleration to speed up translations on a GPU machine with CUDA 11.2 and [nvidia-docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) installed.
