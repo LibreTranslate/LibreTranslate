@@ -135,6 +135,7 @@ Windows: `run.bat [args]`
 
 Then open a web browser to http://localhost:5000
 
+
 ### Build with Docker
 
 ```bash
@@ -158,22 +159,6 @@ docker-compose up -d --build
 > Feel free to change the [`docker-compose.yml`](https://github.com/LibreTranslate/LibreTranslate/blob/main/docker-compose.yml) file to adapt it to your deployment needs, or use an extra `docker-compose.prod.yml` file for your deployment configuration.
 
 > The models are stored inside the container under `/home/libretranslate/.local/share` and `/home/libretranslate/.local/cache`. Feel free to use volumes if you do not want to redownload the models when the container is destroyed. To update the models, use the `--update-models` argument.
-
-### Update
-
-#### Software
-
-If you installed with pip:
-
-`pip install -U libretranslate`
-
-If you're using docker:
-
-`docker pull libretranslate/libretranslate`
-
-#### Language Models
-
-Start the program with the `--update-models` argument. For example: `libretranslate --update-models` or `./run.sh --update-models`.
 
 ### CUDA
 
@@ -214,6 +199,22 @@ docker-compose -f docker-compose.cuda.yml up -d --build
 | --update-models             | Update language models at startup                                                                                    | `false`    | LT_UPDATE_MODELS            |
 
 Note that each argument has an equivalent environment variable that can be used instead. The env. variables overwrite the default values but have lower priority than the command arguments and are particularly useful if used with Docker. The environment variable names are the upper-snake-case of the equivalent command argument's name with a `LT` prefix.
+
+## Update
+
+### Software
+
+If you installed with pip:
+
+`pip install -U libretranslate`
+
+If you're using docker:
+
+`docker pull libretranslate/libretranslate`
+
+### Language Models
+
+Start the program with the `--update-models` argument. For example: `libretranslate --update-models` or `./run.sh --update-models`.
 
 ## Run with WSGI and Gunicorn
 
