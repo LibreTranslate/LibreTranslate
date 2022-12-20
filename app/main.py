@@ -144,7 +144,9 @@ def get_args():
     parser.add_argument(
         "--disable-web-ui", default=DEFARGS['DISABLE_WEB_UI'], action="store_true", help="Disable web ui"
     )
-
+    parser.add_argument(
+        "--update-models", default=DEFARGS['UPDATE_MODELS'], action="store_true", help="Update language models at startup"
+    )
     return parser.parse_args()
 
 

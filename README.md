@@ -130,8 +130,8 @@ Then open a web browser to http://localhost:5000
 
 ### Run with Docker
 
-Linux/MacOS: `./lt.sh`
-Windows: double-click `lt.bat`
+Linux/MacOS: `./lt.sh [args]`
+Windows: `lt.bat [args]`
 
 Then open a web browser to http://localhost:5000
 
@@ -195,6 +195,7 @@ docker-compose -f docker-compose.cuda.yml up -d --build
 | --suggestions               | Allow user suggestions                                                                                      | `false`    | LT_SUGGESTIONS               |
 | --disable-files-translation | Disable files translation                                                                                   | `false`    | LT_DISABLE_FILES_TRANSLATION |
 | --disable-web-ui            | Disable web ui                                                                                              | `false`    | LT_DISABLE_WEB_UI            |
+| --update-models             | Update models at startup                                                                                    | `false`    | LT_UPDATE_MODELS            |
 
 Note that each argument has an equivalent environment variable that can be used instead. The env. variables overwrite the default values but have lower priority than the command arguments and are particularly useful if used with Docker. The environment variable names are the upper-snake-case of the equivalent command argument's name with a `LT` prefix.
 

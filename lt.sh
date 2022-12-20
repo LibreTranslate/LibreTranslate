@@ -14,17 +14,6 @@ case $uname in
     ;;
 esac
 
-if [[ $platform = "Windows" ]]; then
-    export COMPOSE_CONVERT_WINDOWS_PATHS=1
-fi
-
-# define realpath replacement function
-if [[ $platform = "MacOS / OSX" ]]; then
-    realpath() {
-        [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
-    }
-fi
-
 usage(){
   echo "Usage: $0 [--port N]"
   echo
@@ -50,6 +39,11 @@ case $key in
     ;;
     --debug)
     export LT_DEBUG=YES
+    ARGS+=("$1")
+    shift # past argument
+    ;;
+    --api-keys)
+    export DB_VOLUME="-v lt-db:/app/db"
     ARGS+=("$1")
     shift # past argument
     ;;
@@ -92,4 +86,4 @@ environment_check(){
 }
 
 environment_check
-docker run -ti --rm --entrypoint bash -p $LT_PORT:$LT_PORT -v lt-share:/home/libretranslate/.local/share libretranslate/libretranslate #${ARGS[@]}
+docker run -ti --rm -p $LT_PORT:$LT_PORT $DB_VOLUME -v lt-local:/home/libretranslate/.local libretranslate/libretranslate ${ARGS[@]}

@@ -5,9 +5,9 @@ from argostranslate import package, translate
 import app.language
 
 
-def boot(load_only=None):
+def boot(load_only=None, update_models=False):
     try:
-        check_and_install_models(load_only_lang_codes=load_only)
+        check_and_install_models(force=update_models, load_only_lang_codes=load_only)
     except Exception as e:
         print("Cannot update models (normal if you're offline): %s" % str(e))
 
