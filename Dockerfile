@@ -24,7 +24,7 @@ FROM python:3.8.14-slim-bullseye
 ARG with_models=false
 ARG models=
 
-RUN addgroup --system --gid 1032 libretranslate && adduser --system --uid 1032 libretranslate
+RUN addgroup --system --gid 1032 libretranslate && adduser --system --uid 1032 libretranslate && mkdir -p /home/libretranslate/.local && chown -R libretranslate:libretranslate /home/libretranslate/.local
 USER libretranslate
 
 COPY --from=builder --chown=1032:1032 /app /app

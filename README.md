@@ -130,11 +130,8 @@ Then open a web browser to http://localhost:5000
 
 ### Run with Docker
 
-Simply run:
-
-```bash
-docker run -ti --rm -p 5000:5000 libretranslate/libretranslate
-```
+Linux/MacOS: `./run.sh [args]`
+Windows: `run.bat [args]`
 
 Then open a web browser to http://localhost:5000
 
@@ -160,7 +157,7 @@ docker-compose up -d --build
 
 > Feel free to change the [`docker-compose.yml`](https://github.com/LibreTranslate/LibreTranslate/blob/main/docker-compose.yml) file to adapt it to your deployment needs, or use an extra `docker-compose.prod.yml` file for your deployment configuration.
 
-> The models are stored inside the container under `/root/.local/share` and `/root/.local/cache`. Feel free to use volumes if you do not want to redownload the models when the container is destroyed. Be aware that this will prevent the models from being updated!
+> The models are stored inside the container under `/home/libretranslate/.local/share` and `/home/libretranslate/.local/cache`. Feel free to use volumes if you do not want to redownload the models when the container is destroyed. To update the models, use the `--update-models` argument.
 
 ### CUDA
 
@@ -198,6 +195,7 @@ docker-compose -f docker-compose.cuda.yml up -d --build
 | --suggestions               | Allow user suggestions                                                                                      | `false`    | LT_SUGGESTIONS               |
 | --disable-files-translation | Disable files translation                                                                                   | `false`    | LT_DISABLE_FILES_TRANSLATION |
 | --disable-web-ui            | Disable web ui                                                                                              | `false`    | LT_DISABLE_WEB_UI            |
+| --update-models             | Update language models at startup                                                                                    | `false`    | LT_UPDATE_MODELS            |
 
 Note that each argument has an equivalent environment variable that can be used instead. The env. variables overwrite the default values but have lower priority than the command arguments and are particularly useful if used with Docker. The environment variable names are the upper-snake-case of the equivalent command argument's name with a `LT` prefix.
 

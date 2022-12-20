@@ -156,6 +156,11 @@ _default_options_objects = [
         'default_value': False,
         'value_type': 'bool'
     },
+    {
+        'name': 'UPDATE_MODELS',
+        'default_value': False,
+        'value_type': 'bool'
+    },
 ]
 
 

@@ -100,7 +100,7 @@ def get_routes_limits(default_req_limit, daily_req_limit, api_keys_db):
 def create_app(args):
     from app.init import boot
 
-    boot(args.load_only)
+    boot(args.load_only, args.update_models)
 
     from app.language import load_languages
 
