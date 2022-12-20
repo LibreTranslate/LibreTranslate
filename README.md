@@ -216,6 +216,8 @@ If you're using docker:
 
 Start the program with the `--update-models` argument. For example: `libretranslate --update-models` or `./run.sh --update-models`.
 
+Alternatively you can also run the `install_models.py` script.
+
 ## Run with WSGI and Gunicorn
 
 ```
