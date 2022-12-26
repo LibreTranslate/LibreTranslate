@@ -4,15 +4,17 @@ import tempfile
 import uuid
 from functools import wraps
 from html import unescape
+from timeit import default_timer
 
 import argostranslatefiles
 from argostranslatefiles import get_supported_formats
 from flask import (Flask, abort, jsonify, render_template, request, send_file,
-                   url_for)
+                   url_for, Response)
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
 from translatehtml import translate_html
 from werkzeug.utils import secure_filename
+from werkzeug.exceptions import HTTPException
 
 from app import flood, remove_translated_files, security
 from app.language import detect_languages, improve_translation_formatting
@@ -174,6 +176,28 @@ def create_app(args):
     if args.req_flood_threshold > 0:
         flood.setup(args.req_flood_threshold)
 
+    measure_request = None
+    gauge_request = None
+    if args.metrics:
+      from prometheus_client import CONTENT_TYPE_LATEST, Summary, Gauge, CollectorRegistry, multiprocess, generate_latest
+
+      @app.route("/metrics")
+      def prometheus_metrics():
+        if args.metrics_auth_token:
+          authorization = request.headers.get('Authorization')
+          if authorization != "Bearer " + args.metrics_auth_token:
+            abort(401, description="Unauthorized")
+
+        registry = CollectorRegistry()
+        multiprocess.MultiProcessCollector(registry)
+        return Response(generate_latest(registry), mimetype=CONTENT_TYPE_LATEST)
+
+      measure_request = Summary('request_seconds', 'Time spent on request', ['endpoint', 'status', 'request_ip', 'api_key'])
+      measure_request.labels('/translate', 200, '127.0.0.1', '')
+
+      gauge_request = Gauge('request_inprogress', 'Active requests', ['endpoint', 'request_ip', 'api_key'], multiprocess_mode='livesum')
+      gauge_request.labels('/translate', '127.0.0.1', '')
+
     def access_check(f):
         @wraps(f)
         def func(*a, **kw):
@@ -203,11 +227,30 @@ def create_app(args):
                         403,
                         description=description,
                     )
-
             return f(*a, **kw)
-
-        return func
-
+        
+        if args.metrics:
+          @wraps(func)
+          def measure_func(*a, **kw):
+              start_t = default_timer()
+              status = 200
+              ip = get_remote_address()
+              ak = get_req_api_key() or ''
+              g = gauge_request.labels(request.path, ip, ak)
+              try:
+                g.inc()
+                return func(*a, **kw)
+              except HTTPException as e:
+                status = e.code
+                raise e
+              finally:
+                duration = max(default_timer() - start_t, 0)
+                measure_request.labels(request.path, status, ip, ak).observe(duration)
+                g.dec()
+          return measure_func
+        else:
+          return func
+    
     @app.errorhandler(400)
     def invalid_api(e):
         return jsonify({"error": str(e.description)}), 400

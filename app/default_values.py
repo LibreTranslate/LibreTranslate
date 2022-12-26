@@ -160,6 +160,16 @@ _default_options_objects = [
         'name': 'UPDATE_MODELS',
         'default_value': False,
         'value_type': 'bool'
+    },    
+    {
+        'name': 'METRICS',
+        'default_value': False,
+        'value_type': 'bool'
+    },
+    {
+        'name': 'METRICS_AUTH_TOKEN',
+        'default_value': '',
+        'value_type': 'str'
     },
 ]
 
