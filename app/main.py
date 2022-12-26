@@ -147,6 +147,18 @@ def get_args():
     parser.add_argument(
         "--update-models", default=DEFARGS['UPDATE_MODELS'], action="store_true", help="Update language models at startup"
     )
+    parser.add_argument(
+        "--metrics",
+        default=DEFARGS['METRICS'],
+        action="store_true",
+        help="Enable the /metrics endpoint for exporting Prometheus usage metrics",
+    )
+    parser.add_argument(
+        "--metrics-auth-token",
+        default=DEFARGS['METRICS_AUTH_TOKEN'],
+        type=str,
+        help="Protect the /metrics endpoint by allowing only clients that have a valid Authorization Bearer token (%(default)s)",
+    )
     return parser.parse_args()
 
 

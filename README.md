@@ -193,10 +193,12 @@ docker-compose -f docker-compose.cuda.yml up -d --build
 | --require-api-key-origin    | Require use of an API key for programmatic access to the API, unless the request origin matches this domain | `No restrictions on domain origin` | LT_REQUIRE_API_KEY_ORIGIN    |
 | --load-only                 | Set available languages                                                                                     | `all from argostranslate`    | LT_LOAD_ONLY                 |
 | --threads                   | Set number of threads                                                                                       | `4`    | LT_THREADS                 |
-| --suggestions               | Allow user suggestions                                                                                      | `false`    | LT_SUGGESTIONS               |
-| --disable-files-translation | Disable files translation                                                                                   | `false`    | LT_DISABLE_FILES_TRANSLATION |
-| --disable-web-ui            | Disable web ui                                                                                              | `false`    | LT_DISABLE_WEB_UI            |
-| --update-models             | Update language models at startup                                                                                    | `false`    | LT_UPDATE_MODELS            |
+| --suggestions               | Allow user suggestions                                                                                      | `False`    | LT_SUGGESTIONS               |
+| --disable-files-translation | Disable files translation                                                                                   | `False`    | LT_DISABLE_FILES_TRANSLATION |
+| --disable-web-ui            | Disable web ui                                                                                              | `False`    | LT_DISABLE_WEB_UI            |
+| --update-models             | Update language models at startup                                                                           | `False`    | LT_UPDATE_MODELS            |
+| --metrics                   | Enable the /metrics endpoint for exporting [Prometheus](https://prometheus.io/) usage metrics               | `Disabled`    | LT_METRICS            |
+| --metrics-auth-token        | Protect the /metrics endpoint by allowing only clients that have a valid Authorization Bearer token         | `No auth`    | LT_METRICS_AUTH_TOKEN            |
 
 Note that each argument has an equivalent environment variable that can be used instead. The env. variables overwrite the default values but have lower priority than the command arguments and are particularly useful if used with Docker. The environment variable names are the upper-snake-case of the equivalent command argument's name with a `LT` prefix.
 
@@ -265,6 +267,47 @@ ltmanage keys remove <api-key>
 
 ```bash
 ltmanage keys
+```
+
+## Prometheus Metrics
+
+LibreTranslate has Prometheus [exporter](https://prometheus.io/docs/instrumenting/exporters/) capabilities when you pass the `--metrics` argument at startup (disabled by default). When metrics are enabled, a `/metrics` endpoint is mounted on the instance:
+
+http://localhost:5000/metrics
+
+```
+# HELP request_inprogress Multiprocess metric
+# TYPE request_inprogress gauge
+request_inprogress{api_key="",endpoint="/translate",request_ip="127.0.0.1"} 0.0
+# HELP request_seconds Multiprocess metric
+# TYPE request_seconds summary
+request_seconds_count{api_key="",endpoint="/translate",request_ip="127.0.0.1",status="200"} 0.0
+request_seconds_sum{api_key="",endpoint="/translate",request_ip="127.0.0.1",status="200"} 0.0
+```
+
+You can then configure `prometheus.yml` to read the metrics:
+
+```
+scrape_configs:
+  - job_name: "libretranslate"
+    
+    # Needed only if you use --metrics-auth-token
+    #authorization:
+      #credentials: "mytoken"
+    
+    static_configs:
+      - targets: ["localhost:5000"]
+```
+
+To secure the `/metrics` endpoint you can also use `--metrics-auth-token mytoken`.
+
+If you use Gunicorn, make sure to create a directory for storing multiprocess data metrics and set `PROMETHEUS_MULTIPROC_DIR`:
+
+```
+mkdir -p /tmp/prometheus_data
+rm /tmp/prometheus_data/*
+export PROMETHEUS_MULTIPROC_DIR=/tmp/prometheus_data 
+gunicorn -c gunicorn_conf.py --bind 0.0.0.0:5000 'wsgi:app(metrics=True)' 
 ```
 
 ## Language Bindings
