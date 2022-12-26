@@ -276,13 +276,13 @@ LibreTranslate has Prometheus [exporter](https://prometheus.io/docs/instrumentin
 http://localhost:5000/metrics
 
 ```
-# HELP request_inprogress Multiprocess metric
-# TYPE request_inprogress gauge
-request_inprogress{api_key="",endpoint="/translate",request_ip="127.0.0.1"} 0.0
-# HELP request_seconds Multiprocess metric
-# TYPE request_seconds summary
-request_seconds_count{api_key="",endpoint="/translate",request_ip="127.0.0.1",status="200"} 0.0
-request_seconds_sum{api_key="",endpoint="/translate",request_ip="127.0.0.1",status="200"} 0.0
+# HELP libretranslate_http_requests_in_flight Multiprocess metric
+# TYPE libretranslate_http_requests_in_flight gauge
+libretranslate_http_requests_in_flight{api_key="",endpoint="/translate",request_ip="127.0.0.1"} 0.0
+# HELP libretranslate_http_request_duration_seconds Multiprocess metric
+# TYPE libretranslate_http_request_duration_seconds summary
+libretranslate_http_request_duration_seconds_count{api_key="",endpoint="/translate",request_ip="127.0.0.1",status="200"} 0.0
+libretranslate_http_request_duration_seconds_sum{api_key="",endpoint="/translate",request_ip="127.0.0.1",status="200"} 0.0
 ```
 
 You can then configure `prometheus.yml` to read the metrics:

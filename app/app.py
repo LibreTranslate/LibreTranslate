@@ -192,10 +192,10 @@ def create_app(args):
         multiprocess.MultiProcessCollector(registry)
         return Response(generate_latest(registry), mimetype=CONTENT_TYPE_LATEST)
 
-      measure_request = Summary('request_seconds', 'Time spent on request', ['endpoint', 'status', 'request_ip', 'api_key'])
+      measure_request = Summary('libretranslate_http_request_duration_seconds', 'Time spent on request', ['endpoint', 'status', 'request_ip', 'api_key'])
       measure_request.labels('/translate', 200, '127.0.0.1', '')
 
-      gauge_request = Gauge('request_inprogress', 'Active requests', ['endpoint', 'request_ip', 'api_key'], multiprocess_mode='livesum')
+      gauge_request = Gauge('libretranslate_http_requests_in_flight', 'Active requests', ['endpoint', 'request_ip', 'api_key'], multiprocess_mode='livesum')
       gauge_request.labels('/translate', '127.0.0.1', '')
 
     def access_check(f):
