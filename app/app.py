@@ -182,6 +182,7 @@ def create_app(args):
       from prometheus_client import CONTENT_TYPE_LATEST, Summary, Gauge, CollectorRegistry, multiprocess, generate_latest
 
       @app.route("/metrics")
+      @limiter.exempt
       def prometheus_metrics():
         if args.metrics_auth_token:
           authorization = request.headers.get('Authorization')
