@@ -2,8 +2,8 @@ import argparse
 import operator
 import sys
 
-from app.app import create_app
-from app.default_values import DEFAULT_ARGUMENTS as DEFARGS
+from libretranslate.app import create_app
+from libretranslate.default_values import DEFAULT_ARGUMENTS as DEFARGS
 
 
 def get_args():

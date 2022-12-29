@@ -3,7 +3,7 @@ import sqlite3
 import uuid
 import requests
 from expiringdict import ExpiringDict
-from app.default_values import DEFAULT_ARGUMENTS as DEFARGS
+from libretranslate.default_values import DEFAULT_ARGUMENTS as DEFARGS
 
 DEFAULT_DB_PATH = DEFARGS['API_KEYS_DB_PATH']
 

@@ -9,8 +9,7 @@ on:
     paths:
     - '*.py'
     - 'requirements.txt'
-    - 'app/**'
-    - 'tests/**'
+    - 'libretranslate/**'
     - '.github/workflows/run-tests.yml'
 
 jobs:

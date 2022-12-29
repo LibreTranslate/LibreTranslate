@@ -1,9 +1,9 @@
 import sys
 import pytest
 
-from app.app import create_app
-from app.default_values import DEFAULT_ARGUMENTS
-from app.main import get_args
+from libretranslate.app import create_app
+from libretranslate.default_values import DEFAULT_ARGUMENTS
+from libretranslate.main import get_args
 
 
 @pytest.fixture()

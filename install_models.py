@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import argparse
-from app.init import check_and_install_models
+from libretranslate.init import check_and_install_models
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

@@ -17,8 +17,8 @@ setup(
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'libretranslate=app.main:main',
-            'ltmanage=app.manage:manage'
+            'libretranslate=libretranslate.main:main',
+            'ltmanage=libretranslate.manage:manage'
         ],
     },
 
