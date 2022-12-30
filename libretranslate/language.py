@@ -1,7 +1,7 @@
 import string
 
 from argostranslate import translate
-from app.detect import Detector, UnknownLanguage
+from libretranslate.detect import Detector, UnknownLanguage
 
 __languages = None
 

@@ -2,7 +2,7 @@ from pathlib import Path
 
 from argostranslate import package, translate
 
-import app.language
+import libretranslate.language
 
 
 def boot(load_only=None, update_models=False):

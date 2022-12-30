@@ -1,4 +1,4 @@
-from app import main
+from libretranslate import main
 
 def app(*args, **kwargs):
     import sys

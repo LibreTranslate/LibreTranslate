@@ -16,8 +16,8 @@ from translatehtml import translate_html
 from werkzeug.utils import secure_filename
 from werkzeug.exceptions import HTTPException
 
-from app import flood, remove_translated_files, security
-from app.language import detect_languages, improve_translation_formatting
+from libretranslate import flood, remove_translated_files, security
+from libretranslate.language import detect_languages, improve_translation_formatting
 
 from .api_keys import Database, RemoteDatabase
 from .suggestions import Database as SuggestionsDatabase
@@ -100,11 +100,11 @@ def get_routes_limits(default_req_limit, daily_req_limit, api_keys_db):
 
 
 def create_app(args):
-    from app.init import boot
+    from libretranslate.init import boot
 
     boot(args.load_only, args.update_models)
 
-    from app.language import load_languages
+    from libretranslate.language import load_languages
 
     app = Flask(__name__)
 

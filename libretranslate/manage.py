@@ -1,8 +1,8 @@
 import argparse
 import os
 
-from app.api_keys import Database
-from app.default_values import DEFAULT_ARGUMENTS as DEFARGS
+from libretranslate.api_keys import Database
+from libretranslate.default_values import DEFAULT_ARGUMENTS as DEFARGS
 
 
 def manage():

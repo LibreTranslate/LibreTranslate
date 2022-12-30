@@ -1,4 +1,4 @@
-from app.init import boot
+from libretranslate.init import boot
 from argostranslate import package
 
 
