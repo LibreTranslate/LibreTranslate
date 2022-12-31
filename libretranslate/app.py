@@ -283,7 +283,8 @@ def create_app(args):
             get_api_key_link=args.get_api_key_link,
             web_version=os.environ.get("LT_WEB") is not None,
             version=get_version(),
-            swagger_url=SWAGGER_URL
+            swagger_url=SWAGGER_URL,
+            url_prefix=args.url_prefix
         )
 
     @bp.get("/javascript-licenses")
