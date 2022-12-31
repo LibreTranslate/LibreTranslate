@@ -58,7 +58,7 @@
 					<span>LibreTranslate</span>
 				</a>
 				<ul class="right hide-on-med-and-down">
-				<li><a href="/docs">API Docs</a></li>
+			  <li><a href="{{ swagger_url }}">API Docs</a></li>
 				{% if get_api_key_link %}
 				<li><a href="{{ get_api_key_link }}">Get API Key</a></li>
 				<script>window.getApiKeyLink = "{{ get_api_key_link }}";</script>
@@ -70,7 +70,7 @@
 				</ul>
 
 				<ul id="nav-mobile" class="sidenav">
-				<li><a href="/docs">API Docs</a></li>
+				<li><a href="{{ swagger_url }}">API Docs</a></li>
 				{% if get_api_key_link %}
 				<li><a href="{{ get_api_key_link }}">Get API Key</a></li>
 				{% endif %}

@@ -106,6 +106,9 @@ def create_app(args):
 
     from libretranslate.language import load_languages
 
+    SWAGGER_URL = args.url_prefix + "/docs"  # Swagger UI (w/o trailing '/')
+    API_URL = args.url_prefix + "/spec"
+
     bp = Blueprint('Main app', __name__)
 
     if not args.disable_files_translation:
@@ -279,7 +282,8 @@ def create_app(args):
             api_keys=args.api_keys,
             get_api_key_link=args.get_api_key_link,
             web_version=os.environ.get("LT_WEB") is not None,
-            version=get_version()
+            version=get_version(),
+            swagger_url=SWAGGER_URL
         )
 
     @bp.get("/javascript-licenses")
@@ -993,21 +997,19 @@ def create_app(args):
         app.register_blueprint(bp)
 
     swag = swagger(app)
-    swag["info"]["version"] = "1.3.1"
+    swag["info"]["version"] = get_version()
     swag["info"]["title"] = "LibreTranslate"
 
-    @app.route("/spec")
+
+    @app.route(API_URL)
     @limiter.exempt
     def spec():
         return jsonify(swag)
 
-    SWAGGER_URL = "/docs"  # URL for exposing Swagger UI (without trailing '/')
-    API_URL = "/spec"
-
     # Call factory function to create our blueprint
     swaggerui_blueprint = get_swaggerui_blueprint(SWAGGER_URL, API_URL)
     if args.url_prefix:
-        app.register_blueprint(swaggerui_blueprint, url_prefix=args.url_prefix)
+        app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
     else:
         app.register_blueprint(swaggerui_blueprint)
 
