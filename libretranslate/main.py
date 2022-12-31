@@ -159,14 +159,23 @@ def get_args():
         type=str,
         help="Protect the /metrics endpoint by allowing only clients that have a valid Authorization Bearer token (%(default)s)",
     )
-    return parser.parse_args()
+    parser.add_argument(
+        "--url-prefix",
+        default=DEFARGS['URL_PREFIX'],
+        type=str,
+        help="Add prefix to URL: example.com:5000/url-prefix/",
+    )
+    args = parser.parse_args()
+    if args.url_prefix and not args.url_prefix.startswith('/'):
+        args.url_prefix = '/' + args.url_prefix
+    return args
 
 
 def main():
     args = get_args()
     app = create_app(args)
 
-    if sys.argv[0] == '--wsgi':
+    if '--wsgi' in sys.argv:
         return app
     else:
         if args.debug:
@@ -175,7 +184,7 @@ def main():
             from waitress import serve
 
             url_scheme = "https" if args.ssl else "http"
-            print("Running on %s://%s:%s" % (url_scheme, args.host, args.port))
+            print("Running on %s://%s:%s%s" % (url_scheme, args.host, args.port, args.url_prefix))
 
             serve(
                 app,

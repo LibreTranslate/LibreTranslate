@@ -8,8 +8,8 @@ from timeit import default_timer
 
 import argostranslatefiles
 from argostranslatefiles import get_supported_formats
-from flask import (Flask, abort, jsonify, render_template, request, send_file,
-                   url_for, Response)
+from flask import (abort, Blueprint, Flask, jsonify, render_template, request,
+                   Response, send_file, url_for)
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
 from translatehtml import translate_html
@@ -106,10 +106,10 @@ def create_app(args):
 
     from libretranslate.language import load_languages
 
-    app = Flask(__name__)
+    SWAGGER_URL = args.url_prefix + "/docs"  # Swagger UI (w/o trailing '/')
+    API_URL = args.url_prefix + "/spec"
 
-    if args.debug:
-        app.config["TEMPLATES_AUTO_RELOAD"] = True
+    bp = Blueprint('Main app', __name__)
 
     if not args.disable_files_translation:
         remove_translated_files.setup(get_upload_dir())
@@ -161,7 +161,7 @@ def create_app(args):
         from flask_limiter import Limiter
 
         limiter = Limiter(
-            app,
+            bp,
             key_func=get_remote_address,
             default_limits=get_routes_limits(
                 args.req_limit, args.daily_req_limit, api_keys_db
@@ -181,7 +181,7 @@ def create_app(args):
     if args.metrics:
       from prometheus_client import CONTENT_TYPE_LATEST, Summary, Gauge, CollectorRegistry, multiprocess, generate_latest
 
-      @app.route("/metrics")
+      @bp.route("/metrics")
       @limiter.exempt
       def prometheus_metrics():
         if args.metrics_auth_token:
@@ -252,24 +252,24 @@ def create_app(args):
         else:
           return func
     
-    @app.errorhandler(400)
+    @bp.errorhandler(400)
     def invalid_api(e):
         return jsonify({"error": str(e.description)}), 400
 
-    @app.errorhandler(500)
+    @bp.errorhandler(500)
     def server_error(e):
         return jsonify({"error": str(e.description)}), 500
 
-    @app.errorhandler(429)
+    @bp.errorhandler(429)
     def slow_down_error(e):
         flood.report(get_remote_address())
         return jsonify({"error": "Slowdown: " + str(e.description)}), 429
 
-    @app.errorhandler(403)
+    @bp.errorhandler(403)
     def denied(e):
         return jsonify({"error": str(e.description)}), 403
 
-    @app.route("/")
+    @bp.route("/")
     @limiter.exempt
     def index():
         if args.disable_web_ui:
@@ -282,10 +282,12 @@ def create_app(args):
             api_keys=args.api_keys,
             get_api_key_link=args.get_api_key_link,
             web_version=os.environ.get("LT_WEB") is not None,
-            version=get_version()
+            version=get_version(),
+            swagger_url=SWAGGER_URL,
+            url_prefix=args.url_prefix
         )
 
-    @app.get("/javascript-licenses")
+    @bp.get("/javascript-licenses")
     @limiter.exempt
     def javascript_licenses():
         if args.disable_web_ui:
@@ -293,7 +295,7 @@ def create_app(args):
 
         return render_template("javascript-licenses.html")
 
-    @app.get("/languages")
+    @bp.get("/languages")
     @limiter.exempt
     def langs():
         """
@@ -325,7 +327,7 @@ def create_app(args):
         return jsonify([{"code": l.code, "name": l.name, "targets": language_pairs.get(l.code, [])} for l in languages])
 
     # Add cors
-    @app.after_request
+    @bp.after_request
     def after_request(response):
         response.headers.add("Access-Control-Allow-Origin", "*")
         response.headers.add(
@@ -337,7 +339,7 @@ def create_app(args):
         response.headers.add("Access-Control-Max-Age", 60 * 60 * 24 * 20)
         return response
 
-    @app.post("/translate")
+    @bp.post("/translate")
     @access_check
     def translate():
         """
@@ -577,7 +579,7 @@ def create_app(args):
         except Exception as e:
             abort(500, description="Cannot translate text: %s" % str(e))
 
-    @app.post("/translate_file")
+    @bp.post("/translate_file")
     @access_check
     def translate_file():
         """
@@ -710,7 +712,7 @@ def create_app(args):
         except Exception as e:
             abort(500, description=e)
 
-    @app.get("/download_file/<string:filename>")
+    @bp.get("/download_file/<string:filename>")
     def download_file(filename: str):
         """
         Download a translated file
@@ -737,7 +739,7 @@ def create_app(args):
 
         return send_file(return_data, as_attachment=True, download_name=download_filename)
 
-    @app.post("/detect")
+    @bp.post("/detect")
     @access_check
     def detect():
         """
@@ -831,7 +833,7 @@ def create_app(args):
 
         return jsonify(detect_languages(q))
 
-    @app.route("/frontend/settings")
+    @bp.route("/frontend/settings")
     @limiter.exempt
     def frontend_settings():
         """
@@ -910,7 +912,7 @@ def create_app(args):
             }
         )
 
-    @app.post("/suggest")
+    @bp.post("/suggest")
     @access_check
     def suggest():
         """
@@ -987,21 +989,29 @@ def create_app(args):
         SuggestionsDatabase().add(q, s, source_lang, target_lang)
         return jsonify({"success": True})
 
+    app = Flask(__name__)
+    if args.debug:
+        app.config["TEMPLATES_AUTO_RELOAD"] = True
+    if args.url_prefix:
+        app.register_blueprint(bp, url_prefix=args.url_prefix)
+    else:
+        app.register_blueprint(bp)
+
     swag = swagger(app)
-    swag["info"]["version"] = "1.3.1"
+    swag["info"]["version"] = get_version()
     swag["info"]["title"] = "LibreTranslate"
 
-    @app.route("/spec")
+
+    @app.route(API_URL)
     @limiter.exempt
     def spec():
         return jsonify(swag)
 
-    SWAGGER_URL = "/docs"  # URL for exposing Swagger UI (without trailing '/')
-    API_URL = "/spec"
-
     # Call factory function to create our blueprint
     swaggerui_blueprint = get_swaggerui_blueprint(SWAGGER_URL, API_URL)
-
-    app.register_blueprint(swaggerui_blueprint)
+    if args.url_prefix:
+        app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
+    else:
+        app.register_blueprint(swaggerui_blueprint)
 
     return app
