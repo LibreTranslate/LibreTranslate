@@ -1,6 +1,7 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-3.0
 // API host/endpoint
-var BaseUrl = window.location.protocol + "//" + window.location.host;
+//var BaseUrl = window.location.protocol + "//" + window.location.host + window.location.pathname.length > 1 ? window.location.pathname : "" ;
+var BaseUrl = window.location.href.slice(0, -1)
 var htmlRegex = /<(.*)>.*?|<(.*)\/>/;
 document.addEventListener('DOMContentLoaded', function(){
     var sidenavElems = document.querySelectorAll('.sidenav');
