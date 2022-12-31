@@ -171,6 +171,11 @@ _default_options_objects = [
         'default_value': '',
         'value_type': 'str'
     },
+    {
+        'name': 'URL_PREFIX',
+        'default_value': '',
+        'value_type': 'str'
+    },
 ]
 
 
