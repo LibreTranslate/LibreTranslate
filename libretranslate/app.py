@@ -161,7 +161,6 @@ def create_app(args):
         from flask_limiter import Limiter
 
         limiter = Limiter(
-            bp,
             key_func=get_remote_address,
             default_limits=get_routes_limits(
                 args.req_limit, args.daily_req_limit, api_keys_db
@@ -996,6 +995,8 @@ def create_app(args):
         app.register_blueprint(bp, url_prefix=args.url_prefix)
     else:
         app.register_blueprint(bp)
+    
+    limiter.init_app(app)
 
     swag = swagger(app)
     swag["info"]["version"] = get_version()
