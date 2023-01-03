@@ -705,7 +705,7 @@ def create_app(args):
 
             return jsonify(
                 {
-                    "translatedFileUrl": url_for('download_file', filename=translated_filename, _external=True)
+                    "translatedFileUrl": url_for('Main app.download_file', filename=translated_filename, _external=True)
                 }
             )
         except Exception as e:
