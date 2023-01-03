@@ -16,11 +16,11 @@ RUN apt-get update && apt-get upgrade --assume-yes
 
 RUN pip3 install --upgrade pip && apt-get remove python3-pip --assume-yes
 
-COPY . .
-
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
 RUN pip3 install torch==1.12.0+cu116 -f https://download.pytorch.org/whl/torch_stable.html
+
+COPY . .
 
 RUN if [ "$with_models" = "true" ]; then  \
     # install only the dependencies first
