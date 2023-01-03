@@ -53,7 +53,7 @@ def check_and_install_models(force=False, load_only_lang_codes=None):
             package.install_from_path(download_path)
 
         # reload installed languages
-        app.language.languages = translate.get_installed_languages()
+        libretranslate.language.languages = translate.get_installed_languages()
         print(
             "Loaded support for %s languages (%s models total)!"
             % (len(translate.get_installed_languages()), len(available_packages))
