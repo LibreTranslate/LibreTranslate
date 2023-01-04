@@ -1,0 +1,41 @@
+# Italian translations for PROJECT.
+# Copyright (C) 2023 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2023-01-04 12:27-0500\n"
+"PO-Revision-Date: 2023-01-04 12:27-0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: it\n"
+"Language-Team: it <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: libretranslate/app.py:57
+msgid "Invalid JSON format"
+msgstr ""
+
+#: libretranslate/app.py:125
+msgid "Auto Detect"
+msgstr ""
+
+#: libretranslate/templates/app.js.template:31
+msgid "Copy text"
+msgstr "Copia testo"
+
+#: libretranslate/templates/app.js.template:72
+#, python-format
+msgid "Cannot load %(url)s"
+msgstr "Impossibile caricare' %(url)s"
+
+#: libretranslate/templates/index.html:6
+msgid "Free and Open Source Machine Translation API"
+msgstr "API di traduzione automatica open source"
+

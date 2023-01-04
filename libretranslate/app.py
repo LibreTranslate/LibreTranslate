@@ -1022,6 +1022,9 @@ def create_app(args):
         # TODO: populate from available locales
         return request.accept_languages.best_match(['en', 'it'])
 
+    def gettext_escaped(*args, **kwargs):
+      return _(*args, **kwargs).replace("'", "\\'")
+    app.jinja_env.globals.update(_e=gettext_escaped)
 
     # Call factory function to create our blueprint
     swaggerui_blueprint = get_swaggerui_blueprint(SWAGGER_URL, API_URL)
