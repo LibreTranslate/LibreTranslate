@@ -15,6 +15,7 @@ from flask_swagger_ui import get_swaggerui_blueprint
 from translatehtml import translate_html
 from werkzeug.utils import secure_filename
 from werkzeug.exceptions import HTTPException
+from flask_babel import Babel, gettext as _
 
 from libretranslate import flood, remove_translated_files, security
 from libretranslate.language import detect_languages, improve_translation_formatting
@@ -53,7 +54,7 @@ def get_req_api_key():
 def get_json_dict(request):
     d = request.get_json()
     if not isinstance(d, dict):
-        abort(400, description="Invalid JSON format")
+        abort(400, description=_("Invalid JSON format"))
     return d
 
 
@@ -121,7 +122,7 @@ def create_app(args):
     # Map userdefined frontend languages to argos language object.
     if args.frontend_language_source == "auto":
         frontend_argos_language_source = type(
-            "obj", (object,), {"code": "auto", "name": "Auto Detect"}
+            "obj", (object,), {"code": "auto", "name": _("Auto Detect")}
         )
     else:
         frontend_argos_language_source = next(
@@ -293,6 +294,14 @@ def create_app(args):
             abort(404)
 
         return render_template("javascript-licenses.html")
+
+    @bp.route("/static/js/app.js")
+    @limiter.exempt
+    def appjs():
+      if args.disable_web_ui:
+            abort(404)
+
+      return render_template("app.js.template")
 
     @bp.get("/languages")
     @limiter.exempt
@@ -1002,11 +1011,17 @@ def create_app(args):
     swag["info"]["version"] = get_version()
     swag["info"]["title"] = "LibreTranslate"
 
-
     @app.route(API_URL)
     @limiter.exempt
     def spec():
         return jsonify(swag)
+
+    babel = Babel(app)
+    @babel.localeselector
+    def get_locale():
+        # TODO: populate from available locales
+        return request.accept_languages.best_match(['en', 'it'])
+
 
     # Call factory function to create our blueprint
     swaggerui_blueprint = get_swaggerui_blueprint(SWAGGER_URL, API_URL)

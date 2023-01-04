@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function(){
             
             detectedLangText: "",
 
-            copyTextLabel: "Copy text",
+            copyTextLabel: {{ _("Copy text") }},
 
             suggestions: false,
             isSuggesting: false,
