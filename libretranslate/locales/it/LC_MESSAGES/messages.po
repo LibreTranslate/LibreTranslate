@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-04 15:34-0500\n"
+"POT-Creation-Date: 2023-01-04 16:34-0500\n"
 "PO-Revision-Date: 2023-01-04 12:27-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: it <LL@li.org>\n"
 "Language: it\n"
+"Language-Team: it <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:58
@@ -35,6 +35,24 @@ msgstr "Copia testo"
 msgid "Cannot load %(url)s"
 msgstr "Non riesco a caricare %(url)s"
 
-#: libretranslate/templates/index.html:6
-msgid "Free and Open Source Machine Translation API"
-msgstr "API di traduzione automatica open source"
+#: libretranslate/templates/index.html:6 libretranslate/templates/index.html:26
+msgid "LibreTranslate - Free and Open Source Machine Translation API"
+msgstr "API di traduzione automatica open source < ' a"
+
+#: libretranslate/templates/index.html:8 libretranslate/templates/index.html:30
+msgid ""
+"Free and Open Source Machine Translation API. Self-hosted, offline "
+"capable and easy to setup. Run your own API server in just a few minutes."
+msgstr ""
+"API di traduzione automatica gratuita e open source. Auto-hosted, offline"
+" in grado e facile da configurare. Eseguire il proprio server API in "
+"pochi minuti."
+
+#: libretranslate/templates/index.html:9
+msgid "translation"
+msgstr "traduzione"
+
+#: libretranslate/templates/index.html:9
+msgid "api"
+msgstr "api"
+

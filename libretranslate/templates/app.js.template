@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function(){
             
             detectedLangText: "",
 
-            copyTextLabel: '{{ N_("Copy text") }}',
+            copyTextLabel: '{{ _e("Copy text") }}',
 
             suggestions: false,
             isSuggesting: false,
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function(){
                         }
                     }
                 } else {
-                    self.error = '{{ N_("Cannot load %(url)s", url="/frontend/settings") }}';
+                    self.error = '{{ _e("Cannot load %(url)s", url="/frontend/settings") }}';
                     self.loading = false;
                 }
             };

@@ -7,6 +7,7 @@ from babel.messages.frontend import main as pybabel
 from libretranslate.language import load_languages, improve_translation_formatting
 from libretranslate.locales import get_available_locales
 from translatehtml import translate_html
+from libretranslate.app import get_version
 
 # Update strings
 if __name__ == "__main__":
@@ -16,7 +17,11 @@ if __name__ == "__main__":
 
     messagespot = os.path.join(locales_dir, "messages.pot")
     print("Updating %s" % messagespot)
-    sys.argv = ["", "extract", "-F", "babel.cfg", "-o", messagespot, "libretranslate"]
+    sys.argv = ["", "extract", "-F", "babel.cfg", "-k", "_e _h", 
+                "--copyright-holder", "LibreTranslate Authors",
+                "--project", "LibreTranslate",
+                "--version", get_version(),
+                "-o", messagespot, "libretranslate"]
     pybabel()
 
     # Load list of languages

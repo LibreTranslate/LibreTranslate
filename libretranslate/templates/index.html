@@ -3,10 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>LibreTranslate - {{ _("Free and Open Source Machine Translation API") }}</title>
+	<title>{{ _h("LibreTranslate - Free and Open Source Machine Translation API") }}</title>
 	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-	<meta name="description" content="Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup. Run your own API server in just a few minutes.">
-	<meta name="keywords" content="translation,api">
+	<meta name="description" content="{{ _h('Free and Open Source Machine Translation API. Self-hosted, offline capable and easy to setup. Run your own API server in just a few minutes.') }}">
+	<meta name="keywords" content="{{ _h('translation') }},{{ _h('api') }}">
 	<script type="text/javascript">
 		var url_prefix = "{{ url_prefix }}"
 	</script>
@@ -23,11 +23,11 @@
 	<link rel="preload" href="{{ url_for('static', filename='css/main.css') }}?v={{ version }}" as="style"/>
 	<link rel="preload" href="{{ url_for('static', filename='css/dark-theme.css') }}" as="style"/>
 	
-	<meta property="og:title" content="LibreTranslate - Free and Open Source Machine Translation API" />
+	<meta property="og:title" content="{{ _h('LibreTranslate - Free and Open Source Machine Translation API') }}" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://libretranslate.com" />
 	<meta property="og:image" content="https://user-images.githubusercontent.com/1951843/102724116-32a6df00-42db-11eb-8cc0-129ab39cdfb5.png" />
-	<meta property="og:description" name="description" class="swiftype" content="Free and Open Source Machine Translation API. 100% self-hosted, no limits, no ties to proprietary services. Run your own API server in just a few minutes."/>
+	<meta property="og:description" name="description" class="swiftype" content="{{ _h('Free and Open Source Machine Translation API. Self-hosted, offline capable and easy to setup. Run your own API server in just a few minutes.') }}"/>
 
 	<script src="{{ url_for('static', filename='js/vue@2.js') }}"></script>
 
@@ -58,28 +58,28 @@
 				<button data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></button>
 				<a id="logo-container" href="/" class="brand-logo">
 					<img src="{{ url_for('static', filename='icon.svg') }}" alt="Logo for LibreTranslate" class="logo">
-					<span>LibreTranslate</span>
+					<span>{{ _h("LibreTranslate") }}</span>
 				</a>
 				<ul class="right hide-on-med-and-down">
-			  <li><a href="{{ swagger_url }}">API Docs</a></li>
+			  <li><a href="{{ swagger_url }}">{{ _h("API Docs") }}</a></li>
 				{% if get_api_key_link %}
-				<li><a href="{{ get_api_key_link }}">Get API Key</a></li>
+				<li><a href="{{ get_api_key_link }}">{{ _h("Get API Key") }}</a></li>
 				<script>window.getApiKeyLink = "{{ get_api_key_link }}";</script>
 				{% endif %}
-				<li><a href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">GitHub</a></li>
+				<li><a href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">{{ _h("GitHub") }}</a></li>
 				{% if api_keys %}
 				<li><a href="javascript:setApiKey()" title="Set API Key"><i class="material-icons">vpn_key</i></a></li>
 				{% endif %}
 				</ul>
 
 				<ul id="nav-mobile" class="sidenav">
-				<li><a href="{{ swagger_url }}">API Docs</a></li>
+				<li><a href="{{ swagger_url }}">{{ _h("API Docs") }}</a></li>
 				{% if get_api_key_link %}
-				<li><a href="{{ get_api_key_link }}">Get API Key</a></li>
+				<li><a href="{{ get_api_key_link }}">{{ _h("Get API Key") }}</a></li>
 				{% endif %}
-				<li><a href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">GitHub</a></li>
+				<li><a href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">{{ _h("GitHub") }}</a></li>
 				{% if api_keys %}
-				<li><a href="javascript:setApiKey()" title="Set API Key"><i class="material-icons">vpn_key</i></a></li>
+				<li><a href="javascript:setApiKey()" title="{{ _h('Set API Key') }}"><i class="material-icons">vpn_key</i></a></li>
 				{% endif %}
 				</ul>
 			</div>
@@ -116,7 +116,7 @@
 							<i class="material-icons">warning</i><p> [[ error ]]</p>
 						</div>
 						<div class="card-action">
-							<a href="#" @click="dismissError">Dismiss</a>
+							<a href="#" @click="dismissError">{{ _h("Dismiss") }}</a>
 						</div>
 						</div>
 					</div>
@@ -130,22 +130,22 @@
 		<div class="section no-pad-bot">
 			<div class="container">
 				<div class="row">
-					<h3 class="header center">Translation API</h3>
+					<h3 class="header center">{{ _h("Translation API") }}</h3>
 					<div id="translation-type-btns" class="s12 center" v-if="filesTranslation === true">
 						<button type="button" class="btn btn-switch-type" @click="switchType('text')" :class="{'active': translationType === 'text'}">
 							<i class="material-icons">title</i>
-							<span class="btn-text">Translate Text</span>
+							<span class="btn-text">{{ _h("Translate Text") }}</span>
 						</button>
 						<button type="button" class="btn btn-switch-type" @click="switchType('files')" :class="{'active': translationType === 'files'}">
 							<i class="material-icons">description</i>
-							<span class="btn-text">Translate Files</span>
+							<span class="btn-text">{{ _h("Translate Files") }}</span>
 						</button>
 					</div>
 					<form id="translation-form" class="col s12">
 						<div class="row mb-0">
 							<div class="col s6 language-select">
-								<span>Translate from</span>
-                <span v-if="detectedLangText !== ''">[[ detectedLangText ]]</span>
+								<span>{{ _h("Translate from") }}</span>
+								<span v-if="detectedLangText !== ''">[[ detectedLangText ]]</span>
 								<select class="browser-default" v-model="sourceLang" ref="sourceLangDropdown" @change="handleInput">
 									<template v-for="option in langs">
 										<option :value="option.code">[[ option.name ]]</option>
@@ -157,7 +157,7 @@
 								<a href="javascript:void(0)" @click="swapLangs" class="btn-switch-language">
 									<i class="material-icons">swap_horiz</i>
 								</a>
-								<span>Translate into</span>
+								<span>{{ _h("Translate into") }}</span>
 								<select class="browser-default" v-model="targetLang" ref="targetLangDropdown" @change="handleInput">
 									<template v-for="option in targetLangs">
 										<option v-if="option.code !== 'auto'" :value="option.code">[[ option.name ]]</option>
@@ -169,7 +169,7 @@
 						<div class="row" v-if="translationType === 'text'">
 							<div class="input-field textarea-container col s6">
 								<label for="textarea1" class="sr-only">
-									Text to translate
+									{{ _h("Text to translate") }}
 								</label>
 								<textarea id="textarea1" v-model="inputText" @input="handleInput" ref="inputTextarea" dir="auto"></textarea>
 								<button class="btn-delete-text" title="Delete text" @click="deleteText">
@@ -181,23 +181,23 @@
 							</div>
 							<div class="input-field textarea-container col s6">
 								<label for="textarea2" class="sr-only">
-									Translated text
+									{{ _h("Translated text") }}
 								</label>
 								<textarea id="textarea2" v-model="translatedText" ref="translatedTextarea" dir="auto" v-bind:readonly="suggestions && !isSuggesting"></textarea>
-																<div class="actions">
-																		<button v-if="suggestions && !loadingTranslation && inputText.length && !isSuggesting" class="btn-action" @click="suggestTranslation">
-																				<i class="material-icons">edit</i>
-																		</button>
-																		<button v-if="suggestions && !loadingTranslation && inputText.length && isSuggesting" class="btn-action btn-blue" @click="closeSuggestTranslation">
-																				<span>Cancel</span>
-																		</button>
-																		<button v-if="suggestions && !loadingTranslation && inputText.length && isSuggesting" :disabled="!canSendSuggestion" class="btn-action btn-blue" @click="sendSuggestion">
-																				<span>Send</span>
-																		</button>
-																		<button v-if="!isSuggesting" class="btn-action btn-copy-translated" @click="copyText">
-																				<span>[[ copyTextLabel ]]</span> <i class="material-icons">content_copy</i>
-																		</button>
-																</div>
+									<div class="actions">
+										<button v-if="suggestions && !loadingTranslation && inputText.length && !isSuggesting" class="btn-action" @click="suggestTranslation">
+											<i class="material-icons">edit</i>
+										</button>
+										<button v-if="suggestions && !loadingTranslation && inputText.length && isSuggesting" class="btn-action btn-blue" @click="closeSuggestTranslation">
+											<span>{{ _h("Cancel") }}</span>
+										</button>
+										<button v-if="suggestions && !loadingTranslation && inputText.length && isSuggesting" :disabled="!canSendSuggestion" class="btn-action btn-blue" @click="sendSuggestion">
+											<span>{{ _h("Send") }}</span>
+										</button>
+										<button v-if="!isSuggesting" class="btn-action btn-copy-translated" @click="copyText">
+											<span>[[ copyTextLabel ]]</span> <i class="material-icons">content_copy</i>
+										</button>
+									</div>
 								<div class="position-relative">
 									<div class="progress translate" v-if="loadingTranslation">
 										<div class="indeterminate"></div>
@@ -205,43 +205,43 @@
 								</div>
 							</div>
 						</div>
-												<div class="row" v-if="translationType === 'files'">
-														<div class="file-dropzone">
-																<div v-if="inputFile === false" class="dropzone-content">
-																		<span>Supported file formats: [[ supportedFilesFormatFormatted ]]</span>
-																		<form action="#">
-																				<div class="file-field input-field">
-																						<div class="btn">
-																								<span>File</span>
-																								<input type="file" :accept="supportedFilesFormatFormatted" @change="handleInputFile" ref="fileInputRef">
-																						</div>
-																						<div class="file-path-wrapper hidden">
-																								<input class="file-path validate" type="text">
-																						</div>
-																				</div>
-																		</form>
-																</div>
-																<div v-if="inputFile !== false" class="dropzone-content">
-																		<div class="card">
-																				<div class="card-content">
-																						<div class="row mb-0">
-																								<div class="col s12">
-																										[[ inputFile.name ]]
-																										<button v-if="loadingFileTranslation !== true" @click="removeFile" class="btn-flat">
-																												<i class="material-icons">close</i>
-																										</button>
-																								</div>
-																						</div>
-																				</div>
-																		</div>
-																		<button @click="translateFile" v-if="translatedFileUrl === false && loadingFileTranslation === false" class="btn">Translate</button>
-																		<a v-if="translatedFileUrl !== false" :href="translatedFileUrl" class="btn">Download</a>
-																		<div class="progress" v-if="loadingFileTranslation">
-																				<div class="indeterminate"></div>
-																		</div>
-																</div>
-														</div>
+						<div class="row" v-if="translationType === 'files'">
+							<div class="file-dropzone">
+								<div v-if="inputFile === false" class="dropzone-content">
+									<span>{{ _h("Supported file formats:") }} [[ supportedFilesFormatFormatted ]]</span>
+									<form action="#">
+										<div class="file-field input-field">
+											<div class="btn">
+												<span>{{ _h("File") }}</span>
+												<input type="file" :accept="supportedFilesFormatFormatted" @change="handleInputFile" ref="fileInputRef">
+											</div>
+											<div class="file-path-wrapper hidden">
+												<input class="file-path validate" type="text">
+											</div>
+										</div>
+									</form>
+								</div>
+								<div v-if="inputFile !== false" class="dropzone-content">
+									<div class="card">
+										<div class="card-content">
+											<div class="row mb-0">
+												<div class="col s12">
+													[[ inputFile.name ]]
+													<button v-if="loadingFileTranslation !== true" @click="removeFile" class="btn-flat">
+														<i class="material-icons">close</i>
+													</button>
 												</div>
+											</div>
+										</div>
+									</div>
+									<button @click="translateFile" v-if="translatedFileUrl === false && loadingFileTranslation === false" class="btn">{{ _h("Translate") }}</button>
+									<a v-if="translatedFileUrl !== false" :href="translatedFileUrl" class="btn">{{ _h("Download") }}</a>
+									<div class="progress" v-if="loadingFileTranslation">
+										<div class="indeterminate"></div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</form>
 				</div>
 			</div>
@@ -254,12 +254,12 @@
 
 					<div class="row center">
 						<div class="col s12 m12 l6 left-align">
-							<p class="mb-0">Request</p>
+							<p class="mb-0">{{ _h("Request") }}</p>
 							<pre class="code mt-0"><code class="language-javascript" v-html="$options.filters.highlight(requestCode)">
 							</code></pre>
 						</div>
 						<div class="col s12 m12 l6 left-align">
-							<p class="mb-0">Response</p>
+							<p class="mb-0">{{ _h("Response") }}</p>
 							<pre class="code mt-0"><code class="language-javascript" v-html="$options.filters.highlight(output)">
 							</code></pre>
 						</div>
@@ -274,12 +274,12 @@
 			<div class="container">
 				<div class="row center">
 					<div class="col s12 m12">
-						<h3 class="header">Open Source Machine Translation API</h3>
-						<h4 class="header">100% Self-Hosted. Offline Capable. Easy to Setup.</h4>
+						<h3 class="header">{{ _h("Open Source Machine Translation API") }}</h3>
+						<h4 class="header">{{ _h("Self-Hosted. Offline Capable. Easy to Setup.") }}</h4>
 						<div id="download-btn-wrapper">
 							<a id="download-btn" class="waves-effect waves-light btn btn-large teal darken-2" href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">
 								<i class="material-icons">cloud_download</i>
-								<span class="btn-text">Download</span>
+								<span class="btn-text">{{ _h("Download") }}</span>
 							</a>
 						</div>
 					</div>
@@ -294,13 +294,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col l12 s12">
-					<h5 class="white-text">LibreTranslate</h5>
-					<p class="grey-text text-lighten-4">Free and Open Source Machine Translation API</p>
+					<h5 class="white-text">{{ _h("LibreTranslate") }}</h5>
+					<p class="grey-text text-lighten-4">{{ _h("Free and Open Source Machine Translation API") }}</p>
 					<p>License: <a class="grey-text text-lighten-4" href="https://www.gnu.org/licenses/agpl-3.0.en.html" rel="noopener noreferrer">AGPLv3</a></p>
-					<p><a class="grey-text text-lighten-4" href="/javascript-licenses" rel="jslicense">JavaScript license information</a></p>
 					{% if web_version %}
 					<p>
-						This public API should be used for testing, personal or infrequent use. If you're going to run an application in production, please <a href="https://github.com/LibreTranslate/LibreTranslate" class="grey-text text-lighten-4" rel="noopener noreferrer">host your own server</a> or <a class="grey-text text-lighten-4" href="{{ get_api_key_link if get_api_key_link else 'https://github.com/LibreTranslate/LibreTranslate#mirrors' }}" rel="noopener noreferrer">get an API key</a>.
+						{{ _h("This public API should be used for testing, personal or infrequent use. If you're going to run an application in production, please %(host_server)s or %(get_api_key)s.", host_server='<a href="https://github.com/LibreTranslate/LibreTranslate" class="grey-text text-lighten-4" rel="noopener noreferrer">' + _h("host your own server") + '</a>', get_api_key='<a class="grey-text text-lighten-4" href="' + (get_api_key_link if get_api_key_link else "https://github.com/LibreTranslate/LibreTranslate#mirrors") + '" rel="noopener noreferrer">' + _h("get an API key") + '</a>') }}
 					</p>
 					{% endif %}
 				</div>
@@ -308,7 +307,7 @@
 		</div>
 		<div class="footer-copyright center">
 			<p class="white-text">
-				Made with ❤ by <a class="white-text" href="https://github.com/LibreTranslate/LibreTranslate/graphs/contributors" rel="noopener noreferrer">LibreTranslate Contributors</a> and powered by <a class="white-text text-lighten-3" href="https://github.com/argosopentech/argos-translate/" rel="noopener noreferrer">Argos Translate</a>
+				{{ _h("Made with %(heart)s by %(contributors)s and powered by %(engine)s", heart='❤', contributors='<a class="white-text" href="https://github.com/LibreTranslate/LibreTranslate/graphs/contributors" rel="noopener noreferrer">%s</a>' % _h("LibreTranslate Contributors"), engine='<a class="white-text text-lighten-3" href="https://github.com/argosopentech/argos-translate/" rel="noopener noreferrer">%s</a>' % _h('Argos Translate')) }}
 			</p>
 		</div>
 	</footer>
@@ -320,7 +319,7 @@
 	window.Prism.manual = true;
 	// @license-end
 	</script>
-		<script src="{{ url_for('static', filename='js/prism.min.js') }}"></script>
-		<script src="{{ url_for('static', filename='js/app.js') }}?v={{ version }}"></script>
+	<script src="{{ url_for('static', filename='js/prism.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/app.js') }}?v={{ version }}"></script>
 </body>
 </html>
