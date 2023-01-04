@@ -19,6 +19,7 @@ from flask_babel import Babel, gettext as _
 
 from libretranslate import flood, remove_translated_files, security
 from libretranslate.language import detect_languages, improve_translation_formatting
+from libretranslate.locales import get_available_locales
 
 from .api_keys import Database, RemoteDatabase
 from .suggestions import Database as SuggestionsDatabase
@@ -1020,11 +1021,11 @@ def create_app(args):
     @babel.localeselector
     def get_locale():
         # TODO: populate from available locales
-        return request.accept_languages.best_match(['en', 'it'])
+        return request.accept_languages.best_match(get_available_locales())
 
     def gettext_escaped(*args, **kwargs):
       return _(*args, **kwargs).replace("'", "\\'")
-    app.jinja_env.globals.update(_e=gettext_escaped)
+    app.jinja_env.globals.update(N_=gettext_escaped)
 
     # Call factory function to create our blueprint
     swaggerui_blueprint = get_swaggerui_blueprint(SWAGGER_URL, API_URL)
