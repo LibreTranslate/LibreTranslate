@@ -32,3 +32,19 @@ def gettext_html(text, **variables):
 
     # Variables are assumed to be already escaped and thus safe
     return Markup(s if not v else s % v)
+
+def swag_eval(swag, func):
+    # Traverse the swag spec structure
+    # and call func on summary and description keys
+    for k in swag:
+        if k in ['summary', 'description'] and isinstance(swag[k], str) and swag[k] != "":
+            swag[k] = func(swag[k])
+        elif k == 'tags' and isinstance(swag[k], list):
+            swag[k] = [func(v) for v in swag[k]]
+        elif isinstance(swag[k], dict):
+            swag_eval(swag[k], func)
+
+    return swag
+
+def lazy_swag(swag):
+    return swag_eval(swag, _lazy)

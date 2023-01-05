@@ -19,7 +19,7 @@ from flask_babel import Babel
 
 from libretranslate import flood, remove_translated_files, security
 from libretranslate.language import detect_languages, improve_translation_formatting
-from libretranslate.locales import _, _lazy, get_available_locales, gettext_escaped, gettext_html
+from libretranslate.locales import _, _lazy, get_available_locales, gettext_escaped, gettext_html, lazy_swag
 
 from .api_keys import Database, RemoteDatabase
 from .suggestions import Database as SuggestionsDatabase
@@ -1003,7 +1003,7 @@ def create_app(args):
     @app.route(API_URL)
     @limiter.exempt
     def spec():
-        return jsonify(swag)
+        return jsonify(lazy_swag(swag))
 
 
     app.config["BABEL_TRANSLATION_DIRECTORIES"] = 'locales'

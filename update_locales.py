@@ -6,9 +6,11 @@ import polib
 import json
 from babel.messages.frontend import main as pybabel
 from libretranslate.language import load_languages, improve_translation_formatting
-from libretranslate.locales import get_available_locales
+from libretranslate.locales import get_available_locales, swag_eval
 from translatehtml import translate_html
-from libretranslate.app import get_version
+from libretranslate.app import get_version, create_app
+from libretranslate.main import get_args
+from flask_swagger import swagger
 
 # Update strings
 if __name__ == "__main__":
@@ -29,6 +31,23 @@ if __name__ == "__main__":
         for l in languages:
             f.write("_(%s)\n" % json.dumps(l.name))
     print("Wrote %s" % langs_file)
+
+    # Dump swagger strings
+    args = get_args()
+    app = create_app(args)
+    swag = swagger(app)
+
+    swag_strings = []
+    def add_swag_string(s):
+        if not s in swag_strings:
+            swag_strings.append(s)
+    swag_eval(swag, add_swag_string)
+
+    swag_file = os.path.join(locales_dir, ".swag.py")
+    with open(swag_file, 'w') as f:
+        for ss in swag_strings:
+            f.write("_(%s)\n" % json.dumps(ss))
+    print("Wrote %s" % swag_file)
 
     messagespot = os.path.join(locales_dir, "messages.pot")
     print("Updating %s" % messagespot)

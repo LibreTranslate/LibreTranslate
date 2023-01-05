@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.8\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-05 13:11-0500\n"
+"POT-Creation-Date: 2023-01-05 14:02-0500\n"
 "PO-Revision-Date: 2023-01-05 13:11-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: it <LL@li.org>\n"
@@ -235,6 +235,160 @@ msgstr "Ucraina"
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
+#: libretranslate/locales/.swag.py:1
+msgid "Retrieve list of supported languages"
+msgstr "Recuperare l'elenco delle lingue supportate"
+
+#: libretranslate/locales/.swag.py:2
+msgid "List of languages"
+msgstr "Elenco delle lingue"
+
+#: libretranslate/locales/.swag.py:3
+#, fuzzy
+msgid "translate"
+msgstr "Traduttore"
+
+#: libretranslate/locales/.swag.py:4
+msgid "Translate text from a language to another"
+msgstr "Tradurre testo da una lingua a un'altra"
+
+#: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:183
+msgid "Translated text"
+msgstr "Tradotto testo"
+
+#: libretranslate/locales/.swag.py:6
+#, fuzzy
+msgid "Invalid request"
+msgstr "Richiesta non valida: file vuoto"
+
+#: libretranslate/locales/.swag.py:7
+#, fuzzy
+msgid "Translation error"
+msgstr "traduzione"
+
+#: libretranslate/locales/.swag.py:8
+#, fuzzy
+msgid "Slow down"
+msgstr "Rallenta:"
+
+#: libretranslate/locales/.swag.py:9
+msgid "Banned"
+msgstr "Banati"
+
+#: libretranslate/locales/.swag.py:10
+msgid "Translate file from a language to another"
+msgstr "Tradurre file da una lingua a un'altra"
+
+#: libretranslate/locales/.swag.py:11
+#, fuzzy
+msgid "Translated file"
+msgstr "Traduci file"
+
+#: libretranslate/locales/.swag.py:12
+msgid "Detect the language of a single text"
+msgstr "Rileva la lingua di un singolo testo"
+
+#: libretranslate/locales/.swag.py:13
+msgid "Detections"
+msgstr "Rilevazioni"
+
+#: libretranslate/locales/.swag.py:14
+msgid "Detection error"
+msgstr "Errore di rilevamento"
+
+#: libretranslate/locales/.swag.py:15
+msgid "Retrieve frontend specific settings"
+msgstr "Recuperare le impostazioni specifiche di frontend"
+
+#: libretranslate/locales/.swag.py:16
+msgid "frontend settings"
+msgstr "impostazioni di frontend"
+
+#: libretranslate/locales/.swag.py:17
+#, fuzzy
+msgid "frontend"
+msgstr "impostazioni di frontend"
+
+#: libretranslate/locales/.swag.py:18
+msgid "Submit a suggestion to improve a translation"
+msgstr "Inviare un suggerimento per migliorare una traduzione"
+
+#: libretranslate/locales/.swag.py:19
+msgid "Success"
+msgstr "Successo"
+
+#: libretranslate/locales/.swag.py:20
+#, fuzzy
+msgid "Not authorized"
+msgstr "Non autorizzato"
+
+#: libretranslate/locales/.swag.py:21
+msgid "feedback"
+msgstr "feedback"
+
+#: libretranslate/locales/.swag.py:22
+msgid "Language code"
+msgstr "Codice linguistico"
+
+#: libretranslate/locales/.swag.py:23
+msgid "Human-readable language name (in English)"
+msgstr "Nome di lingua leggibile dall'uomo (in inglese)"
+
+#: libretranslate/locales/.swag.py:24
+msgid "Supported target language codes"
+msgstr "Codici di lingua target supportati"
+
+#: libretranslate/locales/.swag.py:25
+#, fuzzy
+msgid "Translated text(s)"
+msgstr "Tradotto testo"
+
+#: libretranslate/locales/.swag.py:26
+msgid "Error message"
+msgstr "Messaggio di errore"
+
+#: libretranslate/locales/.swag.py:27
+msgid "Reason for slow down"
+msgstr "Ragione per rallentare"
+
+#: libretranslate/locales/.swag.py:28
+#, fuzzy
+msgid "Translated file url"
+msgstr "Traduci file"
+
+#: libretranslate/locales/.swag.py:29
+msgid "Confidence value"
+msgstr "Valore di fiducia"
+
+#: libretranslate/locales/.swag.py:30
+msgid "Character input limit for this language (-1 indicates no limit)"
+msgstr "Limite di ingresso per questa lingua (-1 non indica limiti)"
+
+#: libretranslate/locales/.swag.py:31
+msgid "Frontend translation timeout"
+msgstr "Tempo di traduzione Frontend"
+
+#: libretranslate/locales/.swag.py:32
+msgid "Whether the API key database is enabled."
+msgstr "Se il database chiave API è abilitato."
+
+#: libretranslate/locales/.swag.py:33
+msgid "Whether an API key is required."
+msgstr "Se è richiesta una chiave API."
+
+#: libretranslate/locales/.swag.py:34
+msgid "Whether submitting suggestions is enabled."
+msgstr "Se presentare suggerimenti è abilitato."
+
+#: libretranslate/locales/.swag.py:35
+#, fuzzy
+msgid "Supported files format"
+msgstr "Formati di file supportati:"
+
+#: libretranslate/locales/.swag.py:36
+msgid "Whether submission was successful"
+msgstr "Se la presentazione è stata di successo"
+
 #: libretranslate/templates/app.js.template:31
 #: libretranslate/templates/app.js.template:279
 msgid "Copy text"
@@ -359,10 +513,6 @@ msgstr "Traduzione"
 #: libretranslate/templates/index.html:171
 msgid "Text to translate"
 msgstr "Testo da tradurre"
-
-#: libretranslate/templates/index.html:183
-msgid "Translated text"
-msgstr "Tradotto testo"
 
 #: libretranslate/templates/index.html:191
 msgid "Cancel"
