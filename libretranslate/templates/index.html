@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ current_locale }}">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% for al in alternate_locales %}<link rel="alternate" hreflang="{{ al.lang }}" href="{{ al.link }}" />
+	{% endfor %}
 	<title>LibreTranslate - {{ _h("Free and Open Source Machine Translation API") }}</title>
 	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 	<meta name="description" content="{{ _h('Free and Open Source Machine Translation API. Self-hosted, offline capable and easy to setup. Run your own API server in just a few minutes.') }}">

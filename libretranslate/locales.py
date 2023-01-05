@@ -13,6 +13,21 @@ def get_available_locales():
 
     return ['en'] + [os.path.basename(d) for d in dirs if os.path.isdir(os.path.join(d, 'LC_MESSAGES'))]
 
+@cache
+def get_alternate_locale_links():
+    tmpl = os.environ.get("LT_LOCALE_LINK_TEMPLATE")
+    if tmpl is None:
+        return []
+    
+    locales = get_available_locales()
+    result = []
+    for l in locales:
+        link = tmpl.replace("{LANG}", l)
+        if l == 'en':
+            link = link.replace("en.", "")
+        result.append({ 'link': link,'lang': l })
+    return result
+
 # Javascript code should use _e instead of _
 def gettext_escaped(text, **variables):
     return json.dumps(_(text, **variables))

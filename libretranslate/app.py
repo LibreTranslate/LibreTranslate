@@ -19,7 +19,8 @@ from flask_babel import Babel
 
 from libretranslate import flood, remove_translated_files, security
 from libretranslate.language import detect_languages, improve_translation_formatting
-from libretranslate.locales import _, _lazy, get_available_locales, gettext_escaped, gettext_html, lazy_swag
+from libretranslate.locales import (_, _lazy, get_available_locales, gettext_escaped, 
+        gettext_html, lazy_swag, get_alternate_locale_links)
 
 from .api_keys import Database, RemoteDatabase
 from .suggestions import Database as SuggestionsDatabase
@@ -285,7 +286,9 @@ def create_app(args):
             web_version=os.environ.get("LT_WEB") is not None,
             version=get_version(),
             swagger_url=SWAGGER_URL,
-            url_prefix=args.url_prefix
+            url_prefix=args.url_prefix,
+            current_locale=get_locale(),
+            alternate_locales=get_alternate_locale_links()
         )
 
     @bp.route("/static/js/app.js")
