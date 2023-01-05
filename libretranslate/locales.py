@@ -1,6 +1,9 @@
 import os
+import json
 from functools import cache
 from flask_babel import gettext as _
+from flask_babel import lazy_gettext as _lazy
+
 from markupsafe import escape, Markup
 
 @cache
@@ -12,7 +15,7 @@ def get_available_locales():
 
 # Javascript code should use _e instead of _
 def gettext_escaped(text, **variables):
-    return _(text, **variables).replace("'", "\\'")
+    return json.dumps(_(text, **variables))
 
 # HTML should be escaped using _h instead of _
 def gettext_html(text, **variables):

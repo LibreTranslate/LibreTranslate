@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function(){
             
             detectedLangText: "",
 
-            copyTextLabel: '{{ _e("Copy text") }}',
+            copyTextLabel: {{ _e("Copy text") }},
 
             suggestions: false,
             isSuggesting: false,
@@ -69,18 +69,18 @@ document.addEventListener('DOMContentLoaded', function(){
                         }
                     }
                 } else {
-                    self.error = '{{ _e("Cannot load %(url)s", url="/frontend/settings") }}';
+                    self.error = {{ _e("Cannot load %(url)s", url="/frontend/settings") }};
                     self.loading = false;
                 }
             };
 
             settingsRequest.onerror = function() {
-                self.error = "Error while calling /frontend/settings";
+                self.error = {{ _e("Cannot load %(url)s", url="/frontend/settings") }};
                 self.loading = false;
             };
 
             langsRequest.onerror = function() {
-                self.error = "Error while calling /languages";
+                self.error = {{ _e("Cannot load %(url)s", url="/languages") }};
                 self.loading = false;
             };
 
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function(){
                                     self.detectedLangText = ": " + (lang !== undefined ? lang.name : res.detectedLanguage.language) + " (" + res.detectedLanguage.confidence + "%)";
                                 }
                             } else{
-                                throw new Error(res.error || "Unknown error");
+                                throw new Error(res.error || {{ _e("Unknown error") }});
                             }
                         } catch (e) {
                             self.error = e.message;
@@ -259,7 +259,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     };
 
                     request.onerror = function() {
-                        self.error = "Error while calling /translate";
+                        self.error = {{ _e("Cannot load %(url)s", url="/translate") }};
                         self.loadingTranslation = false;
                     };
 
@@ -273,10 +273,10 @@ document.addEventListener('DOMContentLoaded', function(){
                 document.execCommand("copy");
 
                 if (this.copyTextLabel === "Copy text"){
-                    this.copyTextLabel = "Copied";
+                    this.copyTextLabel = {{ _e("Copied") }};
                     var self = this;
                     setTimeout(function(){
-                        self.copyTextLabel = "Copy text";
+                        self.copyTextLabel = {{ _e("Copy text") }};
                     }, 1500);
                 }
             },
@@ -317,10 +317,10 @@ document.addEventListener('DOMContentLoaded', function(){
                     try{
                         var res = JSON.parse(this.response);
                         if (res.success){
-                            M.toast({html: 'Thanks for your correction. Note the suggestion will not take effect right away.'})
+                            M.toast({html: {{ _e("Thanks for your correction. Note the suggestion will not take effect right away.") }} })
                             self.closeSuggestTranslation(e)
                         }else{
-                            throw new Error(res.error || "Unknown error");
+                            throw new Error(res.error || {{ _e("Unknown error") }});
                         }
                     }catch(e){
                         self.error = e.message;
@@ -329,7 +329,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 };
 
                 request.onerror = function() {
-                    self.error = "Error while calling /suggest";
+                    self.error = {{ _e("Cannot load %(url)s", url="/suggest") }};
                     self.loadingTranslation = false;
                 };
 
@@ -382,7 +382,7 @@ document.addEventListener('DOMContentLoaded', function(){
                                 link.href = self.translatedFileUrl;
                                 link.click();
                             }else{
-                                throw new Error(res.error || "Unknown error");
+                                throw new Error(res.error || {{ _e("Unknown error") }});
                             }
 
                         }catch(e){
@@ -392,14 +392,14 @@ document.addEventListener('DOMContentLoaded', function(){
                         }
                     }else{
                         let res = JSON.parse(this.response);
-                        self.error = res.error || "Unknown error";
+                        self.error = res.error || {{ _e("Unknown error") }};
                         self.loadingFileTranslation = false;
                         self.inputFile = false;
                     }
                 }
 
                 translateFileRequest.onerror = function() {
-                    self.error = "Error while calling /translate_file";
+                    self.error = {{ _e("Cannot load %(url)s", url="/translate_file") }};
                     self.loadingFileTranslation = false;
                     self.inputFile = false;
                 };
@@ -420,11 +420,11 @@ function handleLangsResponse(self, response) {
 
         if (self.langs.length === 0){
             self.loading = false;
-            self.error = "No languages available. Did you install the models correctly?"
+            self.error = {{ _e("No languages available. Did you install the models correctly?") }};
             return;
         }
 
-        self.langs.push({ name: "Auto Detect", code: "auto", targets: self.langs.map(l => l.code)})
+        self.langs.push({ name: {{ _e("Auto Detect") }}, code: "auto", targets: self.langs.map(l => l.code)})
 
         const sourceLanguage = self.langs.find(l => l.code === self.getQueryParam("source"))
         const targetLanguage = self.langs.find(l => l.code === self.getQueryParam("target"))
@@ -444,7 +444,7 @@ function handleLangsResponse(self, response) {
             self.handleInput(new Event('none'))
         }
     } else {
-        self.error = "Cannot load /languages";
+        self.error = {{ _e("Cannot load %(url)s", url="/languages") }};
     }
 
     self.loading = false;
@@ -476,9 +476,7 @@ function getTextWidth(text) {
 function setApiKey(){
     var prevKey = localStorage.getItem("api_key") || "";
     var newKey = "";
-    var instructions = "contact the server operator.";
-    if (window.getApiKeyLink) instructions = "press the \"Get API Key\" link."
-    newKey = window.prompt("Type in your API Key. If you need an API key, " + instructions, prevKey);
+    newKey = window.prompt({{ _e("Type in your API Key. If you need an API key, %(instructions)s", instructions=_e("press the \"Get API Key\" link.") if get_api_key_link else  _e("contact the server operator.")) }}, prevKey);
     if (newKey === null) newKey = "";
 
     localStorage.setItem("api_key", newKey);

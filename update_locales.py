@@ -3,6 +3,7 @@ import sys
 import os
 import re
 import polib
+import json
 from babel.messages.frontend import main as pybabel
 from libretranslate.language import load_languages, improve_translation_formatting
 from libretranslate.locales import get_available_locales
@@ -11,9 +12,23 @@ from libretranslate.app import get_version
 
 # Update strings
 if __name__ == "__main__":
+    print("Loading languages")
+    languages = load_languages()
+    en_lang = next((l for l in languages if l.code == 'en'), None)
+    if en_lang is None:
+        print("Error: English model not found. You need it to run this script.")
+        exit(1)
+
     locales_dir = os.path.join("libretranslate", "locales")
     if not os.path.isdir(locales_dir):
         os.makedirs(locales_dir)
+
+    # Dump language list so it gets picked up by pybabel
+    langs_file = os.path.join(locales_dir, ".langs.py")
+    with open(langs_file, 'w') as f:
+        for l in languages:
+            f.write("_(%s)\n" % json.dumps(l.name))
+    print("Wrote %s" % langs_file)
 
     messagespot = os.path.join(locales_dir, "messages.pot")
     print("Updating %s" % messagespot)
@@ -24,13 +39,7 @@ if __name__ == "__main__":
                 "-o", messagespot, "libretranslate"]
     pybabel()
 
-    # Load list of languages
-    print("Loading languages")
-    languages = load_languages()
-    en_lang = next((l for l in languages if l.code == 'en'), None)
-    if en_lang is None:
-        print("Error: English model not found. You need it to run this script.")
-        exit(1)
+
     
     lang_codes = [l.code for l in languages if l != "en"]
     lang_codes = ["it"] # TODO REMOVE
@@ -70,7 +79,7 @@ if __name__ == "__main__":
                 text = entry.msgid
                 
                 # Extract placeholders
-                placeholders = re.findall(r'%\(?.*?\)?s', text)
+                placeholders = re.findall(r'%\(?[^\)]*\)?s', text)
 
                 for p in range(0, len(placeholders)):
                     text = text.replace(placeholders[p], "<x>%s</x>" % p)
@@ -79,7 +88,7 @@ if __name__ == "__main__":
                     translated = str(translate_html(translator, text))
                 else:
                     translated = improve_translation_formatting(text, translator.translate(text))
-                
+
                 # Restore placeholders
                 for p in range(0, len(placeholders)):
                     tag = "<x>%s</x>" % p

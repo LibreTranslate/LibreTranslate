@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{{ _h("LibreTranslate - Free and Open Source Machine Translation API") }}</title>
+	<title>LibreTranslate - {{ _h("Free and Open Source Machine Translation API") }}</title>
 	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 	<meta name="description" content="{{ _h('Free and Open Source Machine Translation API. Self-hosted, offline capable and easy to setup. Run your own API server in just a few minutes.') }}">
 	<meta name="keywords" content="{{ _h('translation') }},{{ _h('api') }}">
@@ -23,7 +23,7 @@
 	<link rel="preload" href="{{ url_for('static', filename='css/main.css') }}?v={{ version }}" as="style"/>
 	<link rel="preload" href="{{ url_for('static', filename='css/dark-theme.css') }}" as="style"/>
 	
-	<meta property="og:title" content="{{ _h('LibreTranslate - Free and Open Source Machine Translation API') }}" />
+	<meta property="og:title" content="LibreTranslate - {{ _h('Free and Open Source Machine Translation API') }}" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://libretranslate.com" />
 	<meta property="og:image" content="https://user-images.githubusercontent.com/1951843/102724116-32a6df00-42db-11eb-8cc0-129ab39cdfb5.png" />
@@ -57,14 +57,13 @@
 			<div class="nav-wrapper container">
 				<button data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></button>
 				<a id="logo-container" href="/" class="brand-logo">
-					<img src="{{ url_for('static', filename='icon.svg') }}" alt="Logo for LibreTranslate" class="logo">
-					<span>{{ _h("LibreTranslate") }}</span>
+					<img src="{{ url_for('static', filename='icon.svg') }}" alt="LibreTranslate" class="logo">
+					<span>LibreTranslate</span>
 				</a>
 				<ul class="right hide-on-med-and-down">
 			  <li><a href="{{ swagger_url }}">{{ _h("API Docs") }}</a></li>
 				{% if get_api_key_link %}
 				<li><a href="{{ get_api_key_link }}">{{ _h("Get API Key") }}</a></li>
-				<script>window.getApiKeyLink = "{{ get_api_key_link }}";</script>
 				{% endif %}
 				<li><a href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">{{ _h("GitHub") }}</a></li>
 				{% if api_keys %}
@@ -296,7 +295,7 @@
 				<div class="col l12 s12">
 					<h5 class="white-text">{{ _h("LibreTranslate") }}</h5>
 					<p class="grey-text text-lighten-4">{{ _h("Free and Open Source Machine Translation API") }}</p>
-					<p>License: <a class="grey-text text-lighten-4" href="https://www.gnu.org/licenses/agpl-3.0.en.html" rel="noopener noreferrer">AGPLv3</a></p>
+					<p>{{ _h("License:") }} <a class="grey-text text-lighten-4" href="https://www.gnu.org/licenses/agpl-3.0.en.html" rel="noopener noreferrer">AGPLv3</a></p>
 					{% if web_version %}
 					<p>
 						{{ _h("This public API should be used for testing, personal or infrequent use. If you're going to run an application in production, please %(host_server)s or %(get_api_key)s.", host_server='<a href="https://github.com/LibreTranslate/LibreTranslate" class="grey-text text-lighten-4" rel="noopener noreferrer">' + _h("host your own server") + '</a>', get_api_key='<a class="grey-text text-lighten-4" href="' + (get_api_key_link if get_api_key_link else "https://github.com/LibreTranslate/LibreTranslate#mirrors") + '" rel="noopener noreferrer">' + _h("get an API key") + '</a>') }}
@@ -307,7 +306,7 @@
 		</div>
 		<div class="footer-copyright center">
 			<p class="white-text">
-				{{ _h("Made with %(heart)s by %(contributors)s and powered by %(engine)s", heart='❤', contributors='<a class="white-text" href="https://github.com/LibreTranslate/LibreTranslate/graphs/contributors" rel="noopener noreferrer">%s</a>' % _h("LibreTranslate Contributors"), engine='<a class="white-text text-lighten-3" href="https://github.com/argosopentech/argos-translate/" rel="noopener noreferrer">%s</a>' % _h('Argos Translate')) }}
+				{{ _h("Made with %(heart)s by %(contributors)s and powered by %(engine)s", heart='❤', contributors='<a class="white-text" href="https://github.com/LibreTranslate/LibreTranslate/graphs/contributors" rel="noopener noreferrer">%s</a>' % _h("%(libretranslate)s Contributors", libretranslate="LibreTranslate"), engine='<a class="white-text text-lighten-3" href="https://github.com/argosopentech/argos-translate/" rel="noopener noreferrer">Argos Translate</a>') }}
 			</p>
 		</div>
 	</footer>

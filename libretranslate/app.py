@@ -15,11 +15,11 @@ from flask_swagger_ui import get_swaggerui_blueprint
 from translatehtml import translate_html
 from werkzeug.utils import secure_filename
 from werkzeug.exceptions import HTTPException
-from flask_babel import Babel, gettext as _
+from flask_babel import Babel
 
 from libretranslate import flood, remove_translated_files, security
 from libretranslate.language import detect_languages, improve_translation_formatting
-from libretranslate.locales import get_available_locales, gettext_escaped, gettext_html
+from libretranslate.locales import _, _lazy, get_available_locales, gettext_escaped, gettext_html
 
 from .api_keys import Database, RemoteDatabase
 from .suggestions import Database as SuggestionsDatabase
@@ -188,7 +188,7 @@ def create_app(args):
         if args.metrics_auth_token:
           authorization = request.headers.get('Authorization')
           if authorization != "Bearer " + args.metrics_auth_token:
-            abort(401, description="Unauthorized")
+            abort(401, description=_("Unauthorized"))
 
         registry = CollectorRegistry()
         multiprocess.MultiProcessCollector(registry)
@@ -206,7 +206,7 @@ def create_app(args):
             ip = get_remote_address()
 
             if flood.is_banned(ip):
-                abort(403, description="Too many request limits violations")
+                abort(403, description=_("Too many request limits violations"))
 
             if args.api_keys:
                 ak = get_req_api_key()
@@ -215,16 +215,16 @@ def create_app(args):
                 ):
                     abort(
                         403,
-                        description="Invalid API key",
+                        description=_("Invalid API key"),
                     )
                 elif (
                     args.require_api_key_origin
                     and api_keys_db.lookup(ak) is None
                     and request.headers.get("Origin") != args.require_api_key_origin
                 ):
-                    description = "Please contact the server operator to get an API key"
+                    description = _("Please contact the server operator to get an API key")
                     if args.get_api_key_link:
-                        description = "Visit %s to get an API key" % args.get_api_key_link
+                        description = _("Visit %(url)s to get an API key", url=args.get_api_key_link)
                     abort(
                         403,
                         description=description,
@@ -264,7 +264,7 @@ def create_app(args):
     @bp.errorhandler(429)
     def slow_down_error(e):
         flood.report(get_remote_address())
-        return jsonify({"error": "Slowdown: " + str(e.description)}), 429
+        return jsonify({"error": _("Slowdown:") + " " + str(e.description)}), 429
 
     @bp.errorhandler(403)
     def denied(e):
@@ -294,7 +294,8 @@ def create_app(args):
       if args.disable_web_ui:
             abort(404)
 
-      return render_template("app.js.template")
+      return render_template("app.js.template", 
+            get_api_key_link=args.get_api_key_link)
 
     @bp.get("/languages")
     @limiter.exempt
@@ -325,7 +326,7 @@ def create_app(args):
                       type: string
                     description: Supported target language codes
         """
-        return jsonify([{"code": l.code, "name": l.name, "targets": language_pairs.get(l.code, [])} for l in languages])
+        return jsonify([{"code": l.code, "name": _lazy(l.name), "targets": language_pairs.get(l.code, [])} for l in languages])
 
     # Add cors
     @bp.after_request
@@ -454,11 +455,11 @@ def create_app(args):
             text_format = request.values.get("format")
 
         if not q:
-            abort(400, description="Invalid request: missing q parameter")
+            abort(400, description=_("Invalid request: missing %(name)s parameter", name='q'))
         if not source_lang:
-            abort(400, description="Invalid request: missing source parameter")
+            abort(400, description=_("Invalid request: missing %(name)s parameter", name='source'))
         if not target_lang:
-            abort(400, description="Invalid request: missing target parameter")
+            abort(400, description=_("Invalid request: missing %(name)s parameter", name='target'))
 
         batch = isinstance(q, list)
 
@@ -467,8 +468,7 @@ def create_app(args):
             if args.batch_limit < batch_size:
                 abort(
                     400,
-                    description="Invalid request: Request (%d) exceeds text limit (%d)"
-                                % (batch_size, args.batch_limit),
+                    description=_("Invalid request: request (%(size)s) exceeds text limit (%(limit)s)", size=batch_size, limit=args.batch_limit),
                 )
 
         if args.char_limit != -1:
@@ -480,8 +480,7 @@ def create_app(args):
             if args.char_limit < chars:
                 abort(
                     400,
-                    description="Invalid request: Request (%d) exceeds character limit (%d)"
-                                % (chars, args.char_limit),
+                    description=_("Invalid request: request (%(size)s) exceeds text limit (%(limit)s)", size=chars, limit=args.char_limit),
                 )
 
         if source_lang == "auto":
@@ -514,18 +513,18 @@ def create_app(args):
 
         for idx, lang in enumerate(src_langs):
             if lang is None:
-                abort(400, description="%s is not supported" % source_langs[idx])
+                abort(400, description=_("%(lang)s is not supported", lang=source_langs[idx]))
 
         tgt_lang = next(iter([l for l in languages if l.code == target_lang]), None)
 
         if tgt_lang is None:
-            abort(400, description="%s is not supported" % target_lang)
+            abort(400, description=_("%(lang)s is not supported",lang=target_lang))
 
         if not text_format:
             text_format = "text"
 
         if text_format not in ["text", "html"]:
-            abort(400, description="%s format is not supported" % text_format)
+            abort(400, description=_("%(format)s format is not supported", format=text_format))
 
         try:
             if batch:
@@ -533,7 +532,7 @@ def create_app(args):
                 for idx, text in enumerate(q):
                     translator = src_langs[idx].get_translation(tgt_lang)
                     if translator is None:
-                        abort(400, description="%s (%s) is not available as a target language from %s (%s)" % (tgt_lang.name, tgt_lang.code, src_langs[idx].name, src_langs[idx].code))
+                        abort(400, description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)", tname=_lazy(tgt_lang.name), tcode=tgt_lang.code, sname=_lazy(src_langs[idx].name), scode=src_langs[idx].code))
 
                     if text_format == "html":
                         translated_text = str(translate_html(translator, text))
@@ -557,7 +556,7 @@ def create_app(args):
             else:
                 translator = src_langs[0].get_translation(tgt_lang)
                 if translator is None:
-                    abort(400, description="%s (%s) is not available as a target language from %s (%s)" % (tgt_lang.name, tgt_lang.code, src_langs[0].name, src_langs[0].code))
+                    abort(400, description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)", tname=_lazy(tgt_lang.name), tcode=tgt_lang.code, sname=_lazy(src_langs[0].name), scode=src_langs[0].code))
 
                 if text_format == "html":
                     translated_text = str(translate_html(translator, q))
@@ -578,7 +577,7 @@ def create_app(args):
                         }
                     )
         except Exception as e:
-            abort(500, description="Cannot translate text: %s" % str(e))
+            abort(500, description=_("Cannot translate text: %(text)s", text=str(e)))
 
     @bp.post("/translate_file")
     @access_check
@@ -665,36 +664,36 @@ def create_app(args):
                   description: Error message
         """
         if args.disable_files_translation:
-            abort(403, description="Files translation are disabled on this server.")
+            abort(403, description=_("Files translation are disabled on this server."))
 
         source_lang = request.form.get("source")
         target_lang = request.form.get("target")
         file = request.files['file']
 
         if not file:
-            abort(400, description="Invalid request: missing file parameter")
+            abort(400, description=_("Invalid request: missing %(name)s parameter", name='file'))
         if not source_lang:
-            abort(400, description="Invalid request: missing source parameter")
+            abort(400, description=_("Invalid request: missing %(name)s parameter", name='source'))
         if not target_lang:
-            abort(400, description="Invalid request: missing target parameter")
+            abort(400, description=_("Invalid request: missing %(name)s parameter", name='target'))
 
         if file.filename == '':
-            abort(400, description="Invalid request: empty file")
+            abort(400, description=_("Invalid request: empty file"))
 
         if os.path.splitext(file.filename)[1] not in frontend_argos_supported_files_format:
-            abort(400, description="Invalid request: file format not supported")
+            abort(400, description=_("Invalid request: file format not supported"))
 
         source_langs = [source_lang]
         src_langs = [next(iter([l for l in languages if l.code == source_lang]), None) for source_lang in source_langs]
 
         for idx, lang in enumerate(src_langs):
             if lang is None:
-                abort(400, description="%s is not supported" % source_langs[idx])
+                abort(400, description=_("%(lang)s is not supported", lang=source_langs[idx]))
 
         tgt_lang = next(iter([l for l in languages if l.code == target_lang]), None)
 
         if tgt_lang is None:
-            abort(400, description="%s is not supported" % target_lang)
+            abort(400, description=_("%(lang)s is not supported", lang=target_lang))
 
         try:
             filename = str(uuid.uuid4()) + '.' + secure_filename(file.filename)
@@ -719,7 +718,7 @@ def create_app(args):
         Download a translated file
         """
         if args.disable_files_translation:
-            abort(400, description="Files translation are disabled on this server.")
+            abort(400, description=_("Files translation are disabled on this server."))
 
         filepath = os.path.join(get_upload_dir(), filename)
         try:
@@ -727,7 +726,7 @@ def create_app(args):
             if os.path.isfile(checked_filepath):
                 filepath = checked_filepath
         except security.SuspiciousFileOperation:
-            abort(400, description="Invalid filename")
+            abort(400, description=_("Invalid filename"))
 
         return_data = io.BytesIO()
         with open(filepath, 'rb') as fo:
@@ -820,9 +819,6 @@ def create_app(args):
                   type: string
                   description: Error message
         """
-        if flood.is_banned(get_remote_address()):
-            abort(403, description="Too many request limits violations")
-
         if request.is_json:
             json = get_json_dict(request)
             q = json.get("q")
@@ -830,7 +826,7 @@ def create_app(args):
             q = request.values.get("q")
 
         if not q:
-            abort(400, description="Invalid request: missing q parameter")
+            abort(400, description=_("Invalid request: missing %(name)s parameter", name='q'))
 
         return jsonify(detect_languages(q))
 
@@ -903,11 +899,11 @@ def create_app(args):
                 "language": {
                     "source": {
                         "code": frontend_argos_language_source.code,
-                        "name": frontend_argos_language_source.name,
+                        "name": _lazy(frontend_argos_language_source.name),
                     },
                     "target": {
                         "code": frontend_argos_language_target.code,
-                        "name": frontend_argos_language_target.name,
+                        "name": _lazy(frontend_argos_language_target.name),
                     },
                 },
             }
@@ -971,7 +967,7 @@ def create_app(args):
                   description: Error message
         """
         if not args.suggestions:
-            abort(403, description="Suggestions are disabled on this server.")
+            abort(403, description=_("Suggestions are disabled on this server."))
 
         q = request.values.get("q")
         s = request.values.get("s")
@@ -979,13 +975,13 @@ def create_app(args):
         target_lang = request.values.get("target")
 
         if not q:
-            abort(400, description="Invalid request: missing q parameter")
+            abort(400, description=_("Invalid request: missing %(name)s parameter", name='q'))
         if not s:
-            abort(400, description="Invalid request: missing s parameter")
+            abort(400, description=_("Invalid request: missing %(name)s parameter", name='s'))
         if not source_lang:
-            abort(400, description="Invalid request: missing source parameter")
+            abort(400, description=_("Invalid request: missing %(name)s parameter", name='source'))
         if not target_lang:
-            abort(400, description="Invalid request: missing target parameter")
+            abort(400, description=_("Invalid request: missing %(name)s parameter", name='target'))
 
         SuggestionsDatabase().add(q, s, source_lang, target_lang)
         return jsonify({"success": True})
@@ -1015,8 +1011,6 @@ def create_app(args):
     @babel.localeselector
     def get_locale():
         return request.accept_languages.best_match(get_available_locales())
-
- 
 
     app.jinja_env.globals.update(_e=gettext_escaped, _h=gettext_html)
 

@@ -9,7 +9,7 @@ if __name__ == "__main__":
         os.makedirs(locales_dir)
 
     print("Compiling locales")
-    sys.argv = ["", "compile", "-d", locales_dir]
+    sys.argv = ["", "compile", "-f", "-d", locales_dir]
     pybabel()
 
 
