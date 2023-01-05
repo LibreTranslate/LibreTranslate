@@ -62,7 +62,7 @@
 					<img src="{{ url_for('static', filename='icon.svg') }}" alt="LibreTranslate" class="logo">
 					<span>LibreTranslate</span>
 				</a>
-				<ul class="right hide-on-med-and-down">
+				<ul class="right hide-on-med-and-down top-nav position-relative">
 					{% set menulinks %}
 					<li><a href="{{ swagger_url }}">{{ _h("API Docs") }}</a></li>
 					{% if get_api_key_link %}
@@ -72,7 +72,15 @@
 					{% if api_keys %}
 					<li><a class="noline" href="javascript:setApiKey()" title="{{ _h('Set API Key') }}"><i class="material-icons">vpn_key</i></a></li>
 					{% endif %}
-					<li><a class="noline" href="#" title="{{ _h('Change language') }}"><i class="material-icons">language</i></a></li>
+					<li><a class="noline" href="#" title="{{ _h('Change language') }}"><i class="material-icons">language</i></a>
+					</li>
+					<li class="locale-panel">
+						<select id="locales">
+							<option value="en">English</option>
+							<option value="it">Italian</option>
+						</select>
+						<a href="#">Improve this language<i class="material-icons">create</i></a>
+					</li>
 					{% endset %}
 					{{ menulinks }}
 				</ul>
