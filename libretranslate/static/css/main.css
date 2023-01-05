@@ -11,6 +11,10 @@ a {
   text-decoration: underline;
 }
 
+a.noline{
+  text-decoration: none;
+}
+
 #app {
   min-height: 80vh;
 }
