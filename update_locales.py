@@ -59,12 +59,11 @@ if __name__ == "__main__":
     pybabel()
 
     lang_codes = [l.code for l in languages if l != "en"]
-    lang_codes = ["it", "fr"] # TODO REMOVE
 
     # Init/update
     for l in lang_codes:
         cmd = "init"
-        if os.path.isdir(os.path.join(locales_dir, l)):
+        if os.path.isdir(os.path.join(locales_dir, l, "LC_MESSAGES")):
             cmd = "update"
 
         sys.argv = ["", cmd, "-i", messagespot, "-d", locales_dir, "-l", l]
