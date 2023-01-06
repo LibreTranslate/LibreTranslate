@@ -370,10 +370,10 @@ URL |API Key Required | Links
 
 ## TOR/i2p Mirrors
 
-URL |API Key Required|Payment Link|Cost
---- | --- | --- | ---
-[lt.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://lt.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/)|-|-
-[lt.vern.i2p](http://vernf45n7mxwqnp5riaax7p67pwcl7wcefdcnqqvim7ckdx4264a.b32.i2p/)|-|-
+URL |
+--- |
+[lt.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://lt.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/)|
+[lt.vern.i2p](http://vernf45n7mxwqnp5riaax7p67pwcl7wcefdcnqqvim7ckdx4264a.b32.i2p/)|
 
 
 ## Adding New Language Models
@@ -384,7 +384,7 @@ First you need to collect data, for example from [Opus](http://opus.nlpl.eu/), t
 
 ## Localization
 
-The LibreTranslate Web UI is available in all the languages for which LibreTranslate can translate to. It can also (roughly) [translate itself!](https://github.com/LibreTranslate/LibreTranslate/blob/main/update_locales.py). Some languages might not appear in the UI since they haven't been reviewed by a human yet. You can enable all languages by turning on `--debug` mode.
+The LibreTranslate Web UI is available in all the languages for which LibreTranslate can translate to. It can also (roughly) [translate itself!](https://github.com/LibreTranslate/LibreTranslate/blob/main/update_locales.py) Some languages might not appear in the UI since they haven't been reviewed by a human yet. You can enable all languages by turning on `--debug` mode.
 
 To help improve or review the UI translations:
  - Go to https://hosted.weblate.org/projects/libretranslate/app/#translations. All changes are automatically pushed to this repository.
@@ -396,6 +396,41 @@ To help improve or review the UI translations:
 	"reviewed": true <-- Change this from false to true
 }
  ```
+
+### UI Languages
+
+Language | Reviewed | Weblate Link
+-------- | -------- | ------------
+Arabic |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ar/)
+Azerbaijani |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/az/)
+Chinese |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/zh/)
+Czech |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/cs/)
+Danish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/da/)
+Dutch |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/nl/)
+English | :heavy_check_mark: | [Edit](https://hosted.weblate.org/projects/libretranslate/app/)
+Esperanto |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/eo/)
+Finnish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/fi/)
+French |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/fr/)
+German |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/de/)
+Greek |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/el/)
+Hebrew |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/he/)
+Hindi |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/hi/)
+Hungarian |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/hu/)
+Indonesian |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/id/)
+Irish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ga/)
+Italian |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/it/)
+Japanese |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ja/)
+Korean |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ko/)
+Persian |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/fa/)
+Polish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/pl/)
+Portuguese |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/pt/)
+Russian |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ru/)
+Slovak |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/sk/)
+Spanish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/es/)
+Swedish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/sv/)
+Turkish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/tr/)
+Ukranian |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/uk/)
+Vietnamese |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/vi/)
 
 ## Roadmap
 

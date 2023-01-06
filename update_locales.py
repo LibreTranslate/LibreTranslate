@@ -58,7 +58,7 @@ if __name__ == "__main__":
                 "-o", messagespot, "libretranslate"]
     pybabel()
 
-    lang_codes = [l.code for l in languages if l != "en"]
+    lang_codes = [l.code for l in languages if l.code != "en"]
 
     # Init/update
     for l in lang_codes:

@@ -7,13 +7,16 @@ from flask_babel import lazy_gettext as _lazy
 from markupsafe import escape, Markup
 
 @lru_cache(maxsize=None)
-def get_available_locales(only_reviewed=True):
+def get_available_locales(only_reviewed=True, sort_by_name=False):
     locales_dir = os.path.join(os.path.dirname(__file__), 'locales')
     dirs = [os.path.join(locales_dir, d) for d in os.listdir(locales_dir)]
 
-    res = [{'code': 'en', 'name': 'English'}]
+    res = [{'code': 'en', 'name': 'English', 'reviewed': True}]
 
     for d in dirs:
+        if d == 'en':
+            continue
+
         meta_file = os.path.join(d, 'meta.json')
         if os.path.isdir(os.path.join(d, 'LC_MESSAGES')) and os.path.isfile(meta_file):
             try:
@@ -24,7 +27,10 @@ def get_available_locales(only_reviewed=True):
                 continue
 
             if j.get('reviewed') or not only_reviewed:
-                res.append({'code': os.path.basename(d), 'name': j.get('name', '')})
+                res.append({'code': os.path.basename(d), 'name': j.get('name', ''), 'reviewed': j.get('reviewed', False)})
+
+    if sort_by_name:
+        res.sort(key=lambda s: s['name'])
 
     return res
 
