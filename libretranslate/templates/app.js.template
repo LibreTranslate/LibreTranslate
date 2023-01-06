@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 this.$refs.translatedTextarea.setSelectionRange(0, 9999999); /* For mobile devices */
                 document.execCommand("copy");
 
-                if (this.copyTextLabel === "Copy text"){
+                if (this.copyTextLabel === {{ _e("Copy text") }}){
                     this.copyTextLabel = {{ _e("Copied") }};
                     var self = this;
                     setTimeout(function(){
