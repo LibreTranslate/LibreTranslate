@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-06 16:32-0500\n"
+"POT-Creation-Date: 2023-01-06 17:52-0500\n"
 "PO-Revision-Date: 2023-01-06 14:26-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: hu <LL@li.org>\n"
 "Language: hu\n"
+"Language-Team: hu <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -42,8 +42,8 @@ msgstr "Érvénytelen API kulcs"
 #: libretranslate/app.py:227
 msgid "Please contact the server operator to get an API key"
 msgstr ""
-"Kérjük, vegye fel a kapcsolatot a szerver-üzemeltetővel, hogy megkapja az "
-"API kulcsot"
+"Kérjük, vegye fel a kapcsolatot a szerver-üzemeltetővel, hogy megkapja az"
+" API kulcsot"
 
 #: libretranslate/app.py:229
 #, python-format
@@ -85,8 +85,8 @@ msgstr "<x>0 0</x> formátum nem támogatott %(format)s"
 #: libretranslate/app.py:544 libretranslate/app.py:568
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
-"(%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from "
+"%(sname)s (%(scode)s)"
 msgstr ""
 "<x>0 0</x> ()%(tcode)s) nem áll rendelkezésre célnyelvként %(sname)s "
 "()%(scode)s) %(tname)s"
@@ -329,132 +329,126 @@ msgid "File to translate"
 msgstr "Fordítás szövege"
 
 #: libretranslate/locales/.swag.py:21
-msgid "multipart/form-data"
-msgstr "multipart/form-data"
-
-#: libretranslate/locales/.swag.py:22
 msgid "Detect the language of a single text"
 msgstr "Védje meg egyetlen szöveg nyelvét"
 
-#: libretranslate/locales/.swag.py:23
+#: libretranslate/locales/.swag.py:22
 msgid "Detections"
 msgstr "Detections"
 
-#: libretranslate/locales/.swag.py:24
+#: libretranslate/locales/.swag.py:23
 msgid "Detection error"
 msgstr "Detection hiba"
 
-#: libretranslate/locales/.swag.py:25
+#: libretranslate/locales/.swag.py:24
 #, fuzzy
 msgid "Text to detect"
 msgstr "Auto Detect"
 
-#: libretranslate/locales/.swag.py:26
+#: libretranslate/locales/.swag.py:25
 msgid "Retrieve frontend specific settings"
 msgstr "Visszakeresni a frontend specifikus beállításokat"
 
-#: libretranslate/locales/.swag.py:27
+#: libretranslate/locales/.swag.py:26
 msgid "frontend settings"
 msgstr "frontend beállítások"
 
-#: libretranslate/locales/.swag.py:28
+#: libretranslate/locales/.swag.py:27
 msgid "frontend"
 msgstr "fénykép"
 
-#: libretranslate/locales/.swag.py:29
+#: libretranslate/locales/.swag.py:28
 msgid "Submit a suggestion to improve a translation"
 msgstr "Javaslatot nyújt be a fordítás javítására"
 
-#: libretranslate/locales/.swag.py:30
+#: libretranslate/locales/.swag.py:29
 msgid "Success"
 msgstr "Siker"
 
-#: libretranslate/locales/.swag.py:31
+#: libretranslate/locales/.swag.py:30
 msgid "Not authorized"
 msgstr "Nem engedélyezett"
 
-#: libretranslate/locales/.swag.py:32
+#: libretranslate/locales/.swag.py:31
 msgid "Original text"
 msgstr "Eredeti szöveg"
 
-#: libretranslate/locales/.swag.py:33
+#: libretranslate/locales/.swag.py:32
 #, fuzzy
 msgid "Suggested translation"
 msgstr "Legjobb fordítás"
 
-#: libretranslate/locales/.swag.py:34
+#: libretranslate/locales/.swag.py:33
 #, fuzzy
 msgid "Language of original text"
 msgstr "Védje meg egyetlen szöveg nyelvét"
 
-#: libretranslate/locales/.swag.py:35
+#: libretranslate/locales/.swag.py:34
 #, fuzzy
 msgid "Language of suggested translation"
 msgstr "Legjobb fordítás"
 
-#: libretranslate/locales/.swag.py:36
+#: libretranslate/locales/.swag.py:35
 msgid "feedback"
 msgstr "visszajelzés"
 
-#: libretranslate/locales/.swag.py:37
+#: libretranslate/locales/.swag.py:36
 msgid "Language code"
 msgstr "Nyelvkód"
 
-#: libretranslate/locales/.swag.py:38
+#: libretranslate/locales/.swag.py:37
 msgid "Human-readable language name (in English)"
 msgstr "Emberi olvasható nyelv neve (angolul)"
 
-#: libretranslate/locales/.swag.py:39
+#: libretranslate/locales/.swag.py:38
 msgid "Supported target language codes"
 msgstr "Támogatott célnyelvi kódok"
 
-#: libretranslate/locales/.swag.py:40
+#: libretranslate/locales/.swag.py:39
 msgid "Translated text(s)"
 msgstr "Fordított szöveg(ek)"
 
-#: libretranslate/locales/.swag.py:41
+#: libretranslate/locales/.swag.py:40
 msgid "Error message"
 msgstr "Hibaüzenet"
 
-#: libretranslate/locales/.swag.py:42
+#: libretranslate/locales/.swag.py:41
 msgid "Reason for slow down"
 msgstr "Oka lassú le"
 
-#: libretranslate/locales/.swag.py:43
+#: libretranslate/locales/.swag.py:42
 msgid "Translated file url"
 msgstr "Fordított fájl url"
 
-#: libretranslate/locales/.swag.py:44
+#: libretranslate/locales/.swag.py:43
 msgid "Confidence value"
 msgstr "Biztonsági érték"
 
-#: libretranslate/locales/.swag.py:45
+#: libretranslate/locales/.swag.py:44
 msgid "Character input limit for this language (-1 indicates no limit)"
-msgstr ""
-"Jellemző bemeneti határértéke ennek a nyelvnek (-1 nem jelzi a határt)"
+msgstr "Jellemző bemeneti határértéke ennek a nyelvnek (-1 nem jelzi a határt)"
 
-#: libretranslate/locales/.swag.py:46
+#: libretranslate/locales/.swag.py:45
 msgid "Frontend translation timeout"
 msgstr "Frontend fordítási idő"
 
-#: libretranslate/locales/.swag.py:47
+#: libretranslate/locales/.swag.py:46
 msgid "Whether the API key database is enabled."
-msgstr ""
-"Függetlenül attól, hogy az API kulcsfontosságú adatbázisa engedélyezett-e."
+msgstr "Függetlenül attól, hogy az API kulcsfontosságú adatbázisa engedélyezett-e."
 
-#: libretranslate/locales/.swag.py:48
+#: libretranslate/locales/.swag.py:47
 msgid "Whether an API key is required."
 msgstr "Függetlenül attól, hogy egy API kulcsra van szükség."
 
-#: libretranslate/locales/.swag.py:49
+#: libretranslate/locales/.swag.py:48
 msgid "Whether submitting suggestions is enabled."
 msgstr "Akár javaslatok benyújtása engedélyezett."
 
-#: libretranslate/locales/.swag.py:50
+#: libretranslate/locales/.swag.py:49
 msgid "Supported files format"
 msgstr "Támogatott fájlformátum"
 
-#: libretranslate/locales/.swag.py:51
+#: libretranslate/locales/.swag.py:50
 msgid "Whether submission was successful"
 msgstr "Akár sikeres volt a benyújtás"
 
@@ -488,11 +482,11 @@ msgstr "Második"
 
 #: libretranslate/templates/app.js.template:320
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect right "
-"away."
+"Thanks for your correction. Note the suggestion will not take effect "
+"right away."
 msgstr ""
-"Köszönöm a korrekciót. Ne feledje, hogy a javaslat nem fog azonnal hatályba "
-"lépni."
+"Köszönöm a korrekciót. Ne feledje, hogy a javaslat nem fog azonnal "
+"hatályba lépni."
 
 #: libretranslate/templates/app.js.template:423
 msgid "No languages available. Did you install the models correctly?"
@@ -513,8 +507,7 @@ msgstr "nyomja meg a \"Get API Key\" linket."
 msgid "contact the server operator."
 msgstr "lépjen kapcsolatba a szerver-üzemeltetővel."
 
-#: libretranslate/templates/index.html:8
-#: libretranslate/templates/index.html:25
+#: libretranslate/templates/index.html:8 libretranslate/templates/index.html:25
 #: libretranslate/templates/index.html:333
 msgid "Free and Open Source Machine Translation API"
 msgstr "Ingyenes és nyílt forráskódú gép fordítás API"
@@ -522,8 +515,8 @@ msgstr "Ingyenes és nyílt forráskódú gép fordítás API"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:29
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline capable "
-"and easy to setup. Run your own API server in just a few minutes."
+"Free and Open Source Machine Translation API. Self-hosted, offline "
+"capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
 "Ingyenes és nyílt forráskódú gép fordítás API. Önálló, offline képes és "
 "könnyen telepíthető. Futtassa saját API szerverét néhány perc alatt."
@@ -656,13 +649,13 @@ msgstr "Engedély:"
 #: libretranslate/templates/index.html:337
 #, python-format
 msgid ""
-"This public API should be used for testing, personal or infrequent use. If "
-"you're going to run an application in production, please %(host_server)s or "
-"%(get_api_key)s."
+"This public API should be used for testing, personal or infrequent use. "
+"If you're going to run an application in production, please "
+"%(host_server)s or %(get_api_key)s."
 msgstr ""
-"Ezt a nyilvános API-t tesztelésre, személyes vagy gyakori használatra kell "
-"használni. Ha egy alkalmazást fog futtatni a termelésben, kérjük, <x>0 0</x>"
-" vagy %(get_api_key)s... %(host_server)s"
+"Ezt a nyilvános API-t tesztelésre, személyes vagy gyakori használatra "
+"kell használni. Ha egy alkalmazást fog futtatni a termelésben, kérjük, "
+"<x>0 0</x> vagy %(get_api_key)s... %(host_server)s"
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
@@ -683,3 +676,7 @@ msgstr ""
 #, python-format
 msgid "%(libretranslate)s Contributors"
 msgstr "<x>0 0</x> Hozzájárulók %(libretranslate)s"
+
+#~ msgid "multipart/form-data"
+#~ msgstr "multipart/form-data"
+

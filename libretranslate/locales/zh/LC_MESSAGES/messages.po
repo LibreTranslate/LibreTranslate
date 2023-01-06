@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-06 16:32-0500\n"
+"POT-Creation-Date: 2023-01-06 17:52-0500\n"
 "PO-Revision-Date: 2023-01-06 14:26-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: zh <LL@li.org>\n"
 "Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -81,20 +81,20 @@ msgstr "<x>0%</x> 格式不支持 %(format)s"
 #: libretranslate/app.py:544 libretranslate/app.py:568
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
-"(%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from "
+"%(sname)s (%(scode)s)"
 msgstr ""
-"<x>0%</x> (a) (b) (a) (b) (b) (b) (b) (b) (b) (b) (b) (c) (b) (c) (c) (b) "
-"(c) (b) (c) (c) (b) (c) (c) (c) (b) (c) (c) (c) (b) (c) (c) (b) (c) (c) (c) "
-"(b) (c) (c) (c) (c) (b) (c) (b) (c) (c) (b) (c) (c) (c) (c) (c) (c) (c) (c) "
-"(c) (c) (b) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (b) (c) (c) "
-"(c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (<x>导 言</x>不能作为目标语文提供 <x>2 2"
-" 2</x> (a) (b) (a) (b) (b) (b) (b) (b) (b) (b) (b) (c) (b) (c) (c) (b) (c) "
-"(b) (c) (c) (b) (c) (c) (c) (b) (c) (c) (c) (b) (c) (c) (b) (c) (c) (c) (b) "
-"(c) (c) (c) (c) (b) (c) (b) (c) (c) (b) (c) (c) (c) (c) (c) (c) (c) (c) (c) "
-"(c) (b) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (b) (c) (c) (c) "
-"(c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (%(scode)s评 注 %(tname)s "
-"%(tcode)s %(sname)s"
+"<x>0%</x> (a) (b) (a) (b) (b) (b) (b) (b) (b) (b) (b) (c) (b) (c) (c) (b)"
+" (c) (b) (c) (c) (b) (c) (c) (c) (b) (c) (c) (c) (b) (c) (c) (b) (c) (c) "
+"(c) (b) (c) (c) (c) (c) (b) (c) (b) (c) (c) (b) (c) (c) (c) (c) (c) (c) "
+"(c) (c) (c) (c) (b) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) "
+"(b) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (<x>导 "
+"言</x>不能作为目标语文提供 <x>2 2 2</x> (a) (b) (a) (b) (b) (b) (b) (b) (b) (b) (b) "
+"(c) (b) (c) (c) (b) (c) (b) (c) (c) (b) (c) (c) (c) (b) (c) (c) (c) (b) "
+"(c) (c) (b) (c) (c) (c) (b) (c) (c) (c) (c) (b) (c) (b) (c) (c) (b) (c) "
+"(c) (c) (c) (c) (c) (c) (c) (c) (c) (b) (c) (c) (c) (c) (c) (c) (c) (c) "
+"(c) (c) (c) (c) (c) (b) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) (c) "
+"(c) (c) (%(scode)s评 注 %(tname)s %(tcode)s %(sname)s"
 
 #: libretranslate/app.py:589
 #, python-format
@@ -334,130 +334,126 @@ msgid "File to translate"
 msgstr "翻译案文"
 
 #: libretranslate/locales/.swag.py:21
-msgid "multipart/form-data"
-msgstr "多部分/非正式数据"
-
-#: libretranslate/locales/.swag.py:22
 msgid "Detect the language of a single text"
 msgstr "删除单一案文的措词"
 
-#: libretranslate/locales/.swag.py:23
+#: libretranslate/locales/.swag.py:22
 msgid "Detections"
 msgstr "解雇"
 
-#: libretranslate/locales/.swag.py:24
+#: libretranslate/locales/.swag.py:23
 msgid "Detection error"
 msgstr "错误"
 
-#: libretranslate/locales/.swag.py:25
+#: libretranslate/locales/.swag.py:24
 #, fuzzy
 msgid "Text to detect"
 msgstr "自动化"
 
-#: libretranslate/locales/.swag.py:26
+#: libretranslate/locales/.swag.py:25
 msgid "Retrieve frontend specific settings"
 msgstr "B. 前沿特定环境"
 
-#: libretranslate/locales/.swag.py:27
+#: libretranslate/locales/.swag.py:26
 msgid "frontend settings"
 msgstr "前沿环境"
 
-#: libretranslate/locales/.swag.py:28
+#: libretranslate/locales/.swag.py:27
 msgid "frontend"
 msgstr "前沿"
 
-#: libretranslate/locales/.swag.py:29
+#: libretranslate/locales/.swag.py:28
 msgid "Submit a suggestion to improve a translation"
 msgstr "提出改进翻译的建议"
 
-#: libretranslate/locales/.swag.py:30
+#: libretranslate/locales/.swag.py:29
 msgid "Success"
 msgstr "成功"
 
-#: libretranslate/locales/.swag.py:31
+#: libretranslate/locales/.swag.py:30
 msgid "Not authorized"
 msgstr "核准"
 
-#: libretranslate/locales/.swag.py:32
+#: libretranslate/locales/.swag.py:31
 msgid "Original text"
 msgstr "原文:"
 
-#: libretranslate/locales/.swag.py:33
+#: libretranslate/locales/.swag.py:32
 #, fuzzy
 msgid "Suggested translation"
 msgstr "建议翻译"
 
-#: libretranslate/locales/.swag.py:34
+#: libretranslate/locales/.swag.py:33
 #, fuzzy
 msgid "Language of original text"
 msgstr "删除单一案文的措词"
 
-#: libretranslate/locales/.swag.py:35
+#: libretranslate/locales/.swag.py:34
 #, fuzzy
 msgid "Language of suggested translation"
 msgstr "建议翻译"
 
-#: libretranslate/locales/.swag.py:36
+#: libretranslate/locales/.swag.py:35
 msgid "feedback"
 msgstr "反馈"
 
-#: libretranslate/locales/.swag.py:37
+#: libretranslate/locales/.swag.py:36
 msgid "Language code"
 msgstr "语文守则"
 
-#: libretranslate/locales/.swag.py:38
+#: libretranslate/locales/.swag.py:37
 msgid "Human-readable language name (in English)"
 msgstr "可以使用的语文名称(英文)"
 
-#: libretranslate/locales/.swag.py:39
+#: libretranslate/locales/.swag.py:38
 msgid "Supported target language codes"
 msgstr "支持目标语文守则"
 
-#: libretranslate/locales/.swag.py:40
+#: libretranslate/locales/.swag.py:39
 msgid "Translated text(s)"
 msgstr "修改案文"
 
-#: libretranslate/locales/.swag.py:41
+#: libretranslate/locales/.swag.py:40
 msgid "Error message"
 msgstr "讯息"
 
-#: libretranslate/locales/.swag.py:42
+#: libretranslate/locales/.swag.py:41
 msgid "Reason for slow down"
 msgstr "减缓缓慢"
 
-#: libretranslate/locales/.swag.py:43
+#: libretranslate/locales/.swag.py:42
 msgid "Translated file url"
 msgstr "笔译档案"
 
-#: libretranslate/locales/.swag.py:44
+#: libretranslate/locales/.swag.py:43
 msgid "Confidence value"
 msgstr "信任价值"
 
-#: libretranslate/locales/.swag.py:45
+#: libretranslate/locales/.swag.py:44
 msgid "Character input limit for this language (-1 indicates no limit)"
 msgstr "这种语文的实践投入限制(-1显示没有限制)"
 
-#: libretranslate/locales/.swag.py:46
+#: libretranslate/locales/.swag.py:45
 msgid "Frontend translation timeout"
 msgstr "除名"
 
-#: libretranslate/locales/.swag.py:47
+#: libretranslate/locales/.swag.py:46
 msgid "Whether the API key database is enabled."
 msgstr "是否能够建立投资市场的关键数据库。."
 
-#: libretranslate/locales/.swag.py:48
+#: libretranslate/locales/.swag.py:47
 msgid "Whether an API key is required."
 msgstr "是否需要一个单一化方案的关键。."
 
-#: libretranslate/locales/.swag.py:49
+#: libretranslate/locales/.swag.py:48
 msgid "Whether submitting suggestions is enabled."
 msgstr "是否能够提出建议。."
 
-#: libretranslate/locales/.swag.py:50
+#: libretranslate/locales/.swag.py:49
 msgid "Supported files format"
 msgstr "支助档案格式"
 
-#: libretranslate/locales/.swag.py:51
+#: libretranslate/locales/.swag.py:50
 msgid "Whether submission was successful"
 msgstr "划界案是否成功"
 
@@ -491,8 +487,8 @@ msgstr "汇编"
 
 #: libretranslate/templates/app.js.template:320
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect right "
-"away."
+"Thanks for your correction. Note the suggestion will not take effect "
+"right away."
 msgstr "谢你的更正。 注."
 
 #: libretranslate/templates/app.js.template:423
@@ -512,8 +508,7 @@ msgstr "宣传“全球定位系统的关键”联系。."
 msgid "contact the server operator."
 msgstr "与服务器经营者联系。."
 
-#: libretranslate/templates/index.html:8
-#: libretranslate/templates/index.html:25
+#: libretranslate/templates/index.html:8 libretranslate/templates/index.html:25
 #: libretranslate/templates/index.html:333
 msgid "Free and Open Source Machine Translation API"
 msgstr "自由与开放源化"
@@ -521,8 +516,8 @@ msgstr "自由与开放源化"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:29
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline capable "
-"and easy to setup. Run your own API server in just a few minutes."
+"Free and Open Source Machine Translation API. Self-hosted, offline "
+"capable and easy to setup. Run your own API server in just a few minutes."
 msgstr "免费和开放的源库。 自我主办的、能够和容易形成的线。 仅几分钟。."
 
 #: libretranslate/templates/index.html:11
@@ -653,9 +648,9 @@ msgstr "License:"
 #: libretranslate/templates/index.html:337
 #, python-format
 msgid ""
-"This public API should be used for testing, personal or infrequent use. If "
-"you're going to run an application in production, please %(host_server)s or "
-"%(get_api_key)s."
+"This public API should be used for testing, personal or infrequent use. "
+"If you're going to run an application in production, please "
+"%(host_server)s or %(get_api_key)s."
 msgstr ""
 "应该利用这种公众协会进行试验、个人或非法使用。 如果你愿意实施生产申请,请请请 <x>0%</x> 或 <x>导 言</x>评 注 "
 "%(host_server)s %(get_api_key)s"
@@ -679,3 +674,7 @@ msgstr ""
 #, python-format
 msgid "%(libretranslate)s Contributors"
 msgstr "<x>0%</x> 导 言 %(libretranslate)s"
+
+#~ msgid "multipart/form-data"
+#~ msgstr "多部分/非正式数据"
+

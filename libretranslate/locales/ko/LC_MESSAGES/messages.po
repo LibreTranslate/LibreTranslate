@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-06 16:32-0500\n"
+"POT-Creation-Date: 2023-01-06 17:52-0500\n"
 "PO-Revision-Date: 2023-01-06 14:26-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: ko <LL@li.org>\n"
 "Language: ko\n"
+"Language-Team: ko <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -81,8 +81,8 @@ msgstr "<x>0 댓글</x> 형식은 지원되지 않습니다. %(format)s"
 #: libretranslate/app.py:544 libretranslate/app.py:568
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
-"(%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from "
+"%(sname)s (%(scode)s)"
 msgstr ""
 "<x>0 댓글</x> (주)<x>1명 1명</x>) 대상 언어로 사용할 수 없습니다 <x>2개</x> (주)<x>3개</x>· "
 "%(tname)s %(tcode)s %(sname)s %(scode)s"
@@ -325,130 +325,126 @@ msgid "File to translate"
 msgstr "텍스트 번역"
 
 #: libretranslate/locales/.swag.py:21
-msgid "multipart/form-data"
-msgstr "multipart/form 자료"
-
-#: libretranslate/locales/.swag.py:22
 msgid "Detect the language of a single text"
 msgstr "단일 텍스트의 언어를 감지"
 
-#: libretranslate/locales/.swag.py:23
+#: libretranslate/locales/.swag.py:22
 msgid "Detections"
 msgstr "제품정보"
 
-#: libretranslate/locales/.swag.py:24
+#: libretranslate/locales/.swag.py:23
 msgid "Detection error"
 msgstr "표시 오류"
 
-#: libretranslate/locales/.swag.py:25
+#: libretranslate/locales/.swag.py:24
 #, fuzzy
 msgid "Text to detect"
 msgstr "자동차 감지"
 
-#: libretranslate/locales/.swag.py:26
+#: libretranslate/locales/.swag.py:25
 msgid "Retrieve frontend specific settings"
 msgstr "프론트엔드 특정 설정"
 
-#: libretranslate/locales/.swag.py:27
+#: libretranslate/locales/.swag.py:26
 msgid "frontend settings"
 msgstr "frontend 설정"
 
-#: libretranslate/locales/.swag.py:28
+#: libretranslate/locales/.swag.py:27
 msgid "frontend"
 msgstr "이름 *"
 
-#: libretranslate/locales/.swag.py:29
+#: libretranslate/locales/.swag.py:28
 msgid "Submit a suggestion to improve a translation"
 msgstr "번역을 개선하기 위해 제안을 제출"
 
-#: libretranslate/locales/.swag.py:30
+#: libretranslate/locales/.swag.py:29
 msgid "Success"
 msgstr "지원하다"
 
-#: libretranslate/locales/.swag.py:31
+#: libretranslate/locales/.swag.py:30
 msgid "Not authorized"
 msgstr "이름 *"
 
-#: libretranslate/locales/.swag.py:32
+#: libretranslate/locales/.swag.py:31
 msgid "Original text"
 msgstr "원문"
 
-#: libretranslate/locales/.swag.py:33
+#: libretranslate/locales/.swag.py:32
 #, fuzzy
 msgid "Suggested translation"
 msgstr "자주 묻는 질문"
 
-#: libretranslate/locales/.swag.py:34
+#: libretranslate/locales/.swag.py:33
 #, fuzzy
 msgid "Language of original text"
 msgstr "단일 텍스트의 언어를 감지"
 
-#: libretranslate/locales/.swag.py:35
+#: libretranslate/locales/.swag.py:34
 #, fuzzy
 msgid "Language of suggested translation"
 msgstr "자주 묻는 질문"
 
-#: libretranslate/locales/.swag.py:36
+#: libretranslate/locales/.swag.py:35
 msgid "feedback"
 msgstr "제품 정보"
 
-#: libretranslate/locales/.swag.py:37
+#: libretranslate/locales/.swag.py:36
 msgid "Language code"
 msgstr "언어 코드"
 
-#: libretranslate/locales/.swag.py:38
+#: libretranslate/locales/.swag.py:37
 msgid "Human-readable language name (in English)"
 msgstr "한국어 (Korean)"
 
-#: libretranslate/locales/.swag.py:39
+#: libretranslate/locales/.swag.py:38
 msgid "Supported target language codes"
 msgstr "지원 대상 언어 코드"
 
-#: libretranslate/locales/.swag.py:40
+#: libretranslate/locales/.swag.py:39
 msgid "Translated text(s)"
 msgstr "Translated 텍스트(s)"
 
-#: libretranslate/locales/.swag.py:41
+#: libretranslate/locales/.swag.py:40
 msgid "Error message"
 msgstr "오류 메시지"
 
-#: libretranslate/locales/.swag.py:42
+#: libretranslate/locales/.swag.py:41
 msgid "Reason for slow down"
 msgstr "느려지는 이유"
 
-#: libretranslate/locales/.swag.py:43
+#: libretranslate/locales/.swag.py:42
 msgid "Translated file url"
 msgstr "Translated 파일 URL"
 
-#: libretranslate/locales/.swag.py:44
+#: libretranslate/locales/.swag.py:43
 msgid "Confidence value"
 msgstr "Confidence 가치"
 
-#: libretranslate/locales/.swag.py:45
+#: libretranslate/locales/.swag.py:44
 msgid "Character input limit for this language (-1 indicates no limit)"
 msgstr "이 언어의 문자 입력 제한 (-1은 제한을 나타냅니다)"
 
-#: libretranslate/locales/.swag.py:46
+#: libretranslate/locales/.swag.py:45
 msgid "Frontend translation timeout"
 msgstr "번역 시간표"
 
-#: libretranslate/locales/.swag.py:47
+#: libretranslate/locales/.swag.py:46
 msgid "Whether the API key database is enabled."
 msgstr "API 키 데이터베이스가 활성화되었는지 여부."
 
-#: libretranslate/locales/.swag.py:48
+#: libretranslate/locales/.swag.py:47
 msgid "Whether an API key is required."
 msgstr "API 키가 필요하든."
 
-#: libretranslate/locales/.swag.py:49
+#: libretranslate/locales/.swag.py:48
 msgid "Whether submitting suggestions is enabled."
 msgstr "자주 묻는 질문."
 
-#: libretranslate/locales/.swag.py:50
+#: libretranslate/locales/.swag.py:49
 msgid "Supported files format"
 msgstr "지원된 파일 형식"
 
-#: libretranslate/locales/.swag.py:51
+#: libretranslate/locales/.swag.py:50
 msgid "Whether submission was successful"
 msgstr "제출이 성공했는지 여부"
 
@@ -482,8 +478,8 @@ msgstr "뚱 베어"
 
 #: libretranslate/templates/app.js.template:320
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect right "
-"away."
+"Thanks for your correction. Note the suggestion will not take effect "
+"right away."
 msgstr "당신의 개정을 위한 감사합니다. 제안은 즉시 효력을 가지고 갈 것입니다."
 
 #: libretranslate/templates/app.js.template:423
@@ -503,8 +499,7 @@ msgstr "\"Get API Key\" 링크를 누릅니다."
 msgid "contact the server operator."
 msgstr "서버 연산자에 문의."
 
-#: libretranslate/templates/index.html:8
-#: libretranslate/templates/index.html:25
+#: libretranslate/templates/index.html:8 libretranslate/templates/index.html:25
 #: libretranslate/templates/index.html:333
 msgid "Free and Open Source Machine Translation API"
 msgstr "무료 및 오픈 소스 기계 번역 API"
@@ -512,10 +507,11 @@ msgstr "무료 및 오픈 소스 기계 번역 API"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:29
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline capable "
-"and easy to setup. Run your own API server in just a few minutes."
+"Free and Open Source Machine Translation API. Self-hosted, offline "
+"capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"무료 및 오픈 소스 기계 번역 API. 셀프 호스팅, 오프라인 가능 및 설치가 쉽습니다. 몇 분 만에 자신의 API 서버를 실행하십시오."
+"무료 및 오픈 소스 기계 번역 API. 셀프 호스팅, 오프라인 가능 및 설치가 쉽습니다. 몇 분 만에 자신의 API 서버를 "
+"실행하십시오."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -645,12 +641,12 @@ msgstr "인증:"
 #: libretranslate/templates/index.html:337
 #, python-format
 msgid ""
-"This public API should be used for testing, personal or infrequent use. If "
-"you're going to run an application in production, please %(host_server)s or "
-"%(get_api_key)s."
+"This public API should be used for testing, personal or infrequent use. "
+"If you're going to run an application in production, please "
+"%(host_server)s or %(get_api_key)s."
 msgstr ""
-"이 공개 API는 테스트, 개인 또는 간접적인 사용을 위해 사용되어야 합니다. 생산에 응용 프로그램을 실행 하려고 하는 경우, 제발 "
-"<x>0 댓글</x> 또는 <x>1명 1명</x>· %(host_server)s %(get_api_key)s"
+"이 공개 API는 테스트, 개인 또는 간접적인 사용을 위해 사용되어야 합니다. 생산에 응용 프로그램을 실행 하려고 하는 경우, 제발"
+" <x>0 댓글</x> 또는 <x>1명 1명</x>· %(host_server)s %(get_api_key)s"
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
@@ -671,3 +667,7 @@ msgstr ""
 #, python-format
 msgid "%(libretranslate)s Contributors"
 msgstr "<x>0 댓글</x> 관련 기사 %(libretranslate)s"
+
+#~ msgid "multipart/form-data"
+#~ msgstr "multipart/form 자료"
+
