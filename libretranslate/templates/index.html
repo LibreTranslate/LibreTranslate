@@ -75,7 +75,7 @@
 						<select id="locales" onchange="changeLocale(this)">
 							{% for l in available_locales %}<option value="{{ l['code'] }}" {{ 'selected' if current_locale == l['code'] else ''}}>{{ l['name'] }}</option>{% endfor %}
 						</select>
-						<a href="#TODO">{{ _h("Edit") }}<i class="material-icons">create</i></a>
+						<a href="https://hosted.weblate.org/projects/libretranslate/app/{{ current_locale }}/">{{ _h("Edit") }}<i class="material-icons">create</i></a>
 					</li>
 					{% endset %}
 					{{ menulinks }}

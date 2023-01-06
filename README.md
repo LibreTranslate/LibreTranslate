@@ -376,11 +376,26 @@ URL |API Key Required|Payment Link|Cost
 [lt.vern.i2p](http://vernf45n7mxwqnp5riaax7p67pwcl7wcefdcnqqvim7ckdx4264a.b32.i2p/)|-|-
 
 
-## Adding New Languages
+## Adding New Language Models
 
 To add new languages you first need to train an Argos Translate model. See [this video](https://odysee.com/@argosopentech:7/training-an-Argos-Translate-model-tutorial-2022:2?r=DMnK7NqdPNHRCfwhmKY9LPow3PqVUUgw) for details.
 
 First you need to collect data, for example from [Opus](http://opus.nlpl.eu/), then you need to add the data to [data-index.json](https://github.com/argosopentech/argos-train/blob/master/data-index.json) in the [Argos Train](https://github.com/argosopentech/argos-train) repo.
+
+## Localization
+
+The LibreTranslate Web UI is available in all the languages for which LibreTranslate can translate to. It can also (roughly) [translate itself!](https://github.com/LibreTranslate/LibreTranslate/blob/main/update_locales.py). Some languages might not appear in the UI since they haven't been reviewed by a human yet. You can enable all languages by turning on `--debug` mode.
+
+To help improve or review the UI translations:
+ - Go to https://hosted.weblate.org/projects/libretranslate/app/#translations. All changes are automatically pushed to this repository.
+ - Once all strings have been reviewed/edited, open a pull request and change `libretranslate/locales/{code}/meta.json`:
+
+ ```json
+{
+	"name": "<Language>",
+	"reviewed": true <-- Change this from false to true
+}
+ ```
 
 ## Roadmap
 
