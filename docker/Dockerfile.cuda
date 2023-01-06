@@ -35,7 +35,8 @@ RUN if [ "$with_models" = "true" ]; then  \
 
 # Install package from source code
 RUN pip3 install . \
-    && pip3 cache purge
+    && pip3 cache purge \
+    && python3 compile_locales.py
 
 # Depending on your cuda install you may need to uncomment this line to allow the container to access the cuda libraries
 # See: https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions

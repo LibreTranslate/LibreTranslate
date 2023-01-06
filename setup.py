@@ -13,7 +13,7 @@ setup(
     packages=find_packages(),
     # packages=find_packages(include=['openpredict']),
     # package_dir={'openpredict': 'openpredict'},
-    package_data={'': ['static/*', 'static/**/*', 'templates/*']},
+    package_data={'': ['static/*', 'static/**/*', 'templates/*', 'locales/**/meta.json', 'locales/**/.mo']},
     include_package_data=True,
     entry_points={
         'console_scripts': [

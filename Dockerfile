@@ -14,9 +14,10 @@ RUN python -mvenv venv && ./venv/bin/pip install --upgrade pip
 
 COPY . .
 
-# Install package from source code
+# Install package from source code, compile translations
 RUN ./venv/bin/pip install . \
-  && ./venv/bin/pip cache purge
+  && ./venv/bin/pip cache purge \
+  && ./venv/bin/python compile_locales.py
 
 
 FROM python:3.8.14-slim-bullseye
