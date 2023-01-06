@@ -9,15 +9,12 @@
 	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 	<meta name="description" content="{{ _h('Free and Open Source Machine Translation API. Self-hosted, offline capable and easy to setup. Run your own API server in just a few minutes.') }}">
 	<meta name="keywords" content="{{ _h('translation') }},{{ _h('api') }}">
-	<script type="text/javascript">
-		var url_prefix = "{{ url_prefix }}"
-	</script>
 
 	<link rel="preload" href="{{ url_for('static', filename='icon.svg') }}" as="image" />
 	<link rel="preload" href="{{ url_for('static', filename='js/vue@2.js') }}" as="script">
 	<link rel="preload" href="{{ url_for('static', filename='js/materialize.min.js') }}" as="script">
 	<link rel="preload" href="{{ url_for('static', filename='js/prism.min.js') }}" as="script">
-	<link rel="preload" href="{{ url_for('static', filename='js/app.js') }}?v={{ version }}" as="script">
+	<link rel="preload" href="js/app.js?v={{ version }}" as="script">
 
 	<link rel="preload" href="{{ url_for('static', filename='css/materialize.min.css') }}" as="style"/>
 	<link rel="preload" href="{{ url_for('static', filename='css/material-icons.css') }}" as="style"/>
@@ -75,7 +72,7 @@
 					<li id="change-language"><a class="noline" href="javascript:void(0)" title="{{ _h('Change language') }}"><i class="material-icons">language</i></a>
 					</li>
 					<li class="locale-panel" id="locale-panel">
-						<select id="locales">
+						<select id="locales" onchange="changeLocale(this)">
 							{% for l in available_locales %}<option value="{{ l['code'] }}" {{ 'selected' if current_locale == l['code'] else ''}}>{{ l['name'] }}</option>{% endfor %}
 						</select>
 						<a href="#TODO">{{ _h("Edit") }}<i class="material-icons">create</i></a>
@@ -83,6 +80,18 @@
 					{% endset %}
 					{{ menulinks }}
 				</ul>
+				<script>
+				var localeLinks = {
+					{% for al in alternate_locales %}"{{ al.lang }}": "{{ al.link }}"{% if not loop.last %},{% endif %}
+					{% endfor %}
+				};
+
+				function changeLocale(slt){
+					var lang = slt.value;
+					if (localeLinks[lang]) location.href = localeLinks[lang];
+					else location.href = '?lang=' + slt.value;
+				}
+				</script>
 
 				<ul id="nav-mobile" class="sidenav">
 					{{ menulinks }}
@@ -325,6 +334,6 @@
 	// @license-end
 	</script>
 	<script src="{{ url_for('static', filename='js/prism.min.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/app.js') }}?v={{ version }}"></script>
+	<script src="js/app.js?v={{ version }}"></script>
 </body>
 </html>

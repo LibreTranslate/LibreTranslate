@@ -9,9 +9,10 @@ from timeit import default_timer
 import argostranslatefiles
 from argostranslatefiles import get_supported_formats
 from flask import (abort, Blueprint, Flask, jsonify, render_template, request,
-                   Response, send_file, url_for)
+                   Response, send_file, url_for, session)
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
+from flask_session import Session
 from translatehtml import translate_html
 from werkzeug.utils import secure_filename
 from werkzeug.exceptions import HTTPException
@@ -277,6 +278,10 @@ def create_app(args):
         if args.disable_web_ui:
             abort(404)
 
+        langcode = request.args.get('lang')
+        if langcode and langcode in get_available_locale_codes(not args.debug):
+            session.update(preferred_lang=langcode)
+
         return render_template(
             "index.html",
             gaId=args.ga_id,
@@ -286,19 +291,19 @@ def create_app(args):
             web_version=os.environ.get("LT_WEB") is not None,
             version=get_version(),
             swagger_url=SWAGGER_URL,
-            url_prefix=args.url_prefix,
-            available_locales=[{'code': l['code'], 'name': _lazy(l['name'])} for l in get_available_locales()],
+            available_locales=[{'code': l['code'], 'name': _lazy(l['name'])} for l in get_available_locales(not args.debug)],
             current_locale=get_locale(),
             alternate_locales=get_alternate_locale_links()
         )
 
-    @bp.route("/static/js/app.js")
+    @bp.route("/js/app.js")
     @limiter.exempt
     def appjs():
       if args.disable_web_ui:
             abort(404)
 
       return render_template("app.js.template", 
+            url_prefix=args.url_prefix,
             get_api_key_link=args.get_api_key_link)
 
     @bp.get("/languages")
@@ -991,6 +996,11 @@ def create_app(args):
         return jsonify({"success": True})
 
     app = Flask(__name__)
+
+    app.config["SESSION_TYPE"] = "filesystem"
+    app.config["SESSION_FILE_DIR"] = os.path.join("db", "sessions")
+    Session(app)
+
     if args.debug:
         app.config["TEMPLATES_AUTO_RELOAD"] = True
     if args.url_prefix:
@@ -1009,12 +1019,14 @@ def create_app(args):
     def spec():
         return jsonify(lazy_swag(swag))
 
-
     app.config["BABEL_TRANSLATION_DIRECTORIES"] = 'locales'
     babel = Babel(app)
     @babel.localeselector
     def get_locale():
-        return request.accept_languages.best_match(get_available_locale_codes())
+        override_lang = request.headers.get('X-Override-Accept-Language')
+        if override_lang and override_lang in get_available_locale_codes():
+            return override_lang
+        return session.get('preferred_lang', request.accept_languages.best_match(get_available_locale_codes()))
 
     app.jinja_env.globals.update(_e=gettext_escaped, _h=gettext_html)
 
