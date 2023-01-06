@@ -1,12 +1,12 @@
 import os
 import json
-from functools import cache
+from functools import lru_cache
 from flask_babel import gettext as _
 from flask_babel import lazy_gettext as _lazy
 
 from markupsafe import escape, Markup
 
-@cache
+@lru_cache(maxsize=None)
 def get_available_locales(only_reviewed=True):
     locales_dir = os.path.join(os.path.dirname(__file__), 'locales')
     dirs = [os.path.join(locales_dir, d) for d in os.listdir(locales_dir)]
@@ -28,11 +28,11 @@ def get_available_locales(only_reviewed=True):
 
     return res
 
-@cache
+@lru_cache(maxsize=None)
 def get_available_locale_codes(only_reviewed=True):
     return [l['code'] for l in get_available_locales(only_reviewed=only_reviewed)]
 
-@cache
+@lru_cache(maxsize=None)
 def get_alternate_locale_links():
     tmpl = os.environ.get("LT_LOCALE_LINK_TEMPLATE")
     if tmpl is None:
