@@ -39,13 +39,11 @@ h3.header {
   position: relative;
 }
 
-
-
 .top-nav .locale-panel{
   position: absolute;
   top: 64px;
   height: 68px;
-  left: -9px;
+  right: 0;
   padding: 0 16px;
   width: 240px;
   border-bottom-left-radius: 4px;
