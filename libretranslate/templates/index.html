@@ -144,7 +144,7 @@
 					<form id="translation-form" class="col s12">
 						<div class="row mb-0">
 							<div class="col s6 language-select">
-								<span id="sourceLangLabel>Translate from</span>
+								<span id="sourceLangLabel">Translate from</span>
                 <span v-if="detectedLangText !== ''">[[ detectedLangText ]]</span>
 								<select aria-labelledby="sourceLangLabel" class="browser-default" v-model="sourceLang" ref="sourceLangDropdown" @change="handleInput">
 									<template v-for="option in langs">
