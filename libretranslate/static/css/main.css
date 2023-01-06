@@ -56,8 +56,9 @@ h3.header {
   display: none;
 }
 
-#nav:hover #change-language:hover + .locale-panel, 
-#nav-mobile:hover #change-language:hover + .locale-panel{
+#nav:hover .change-language:hover + .locale-panel,
+#nav-mobile:hover .change-language:hover + .locale-panel,
+.change-language.clicked + .locale-panel{
   display: block;
 }
 

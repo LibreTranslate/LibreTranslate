@@ -69,9 +69,9 @@
 					{% if api_keys %}
 					<li><a class="noline" href="javascript:setApiKey()" title="{{ _h('Set API Key') }}" aria-label="{{ _h('Set API Key') }}"><i class="material-icons">vpn_key</i></a></li>
 					{% endif %}
-					<li id="change-language"><a class="noline" href="javascript:void(0)" title="{{ _h('Change language') }}"><i class="material-icons">language</i></a>
+					<li class="change-language"><a class="noline" href="javascript:void(0)" title="{{ _h('Change language') }}"><i class="material-icons">language</i></a>
 					</li>
-					<li class="locale-panel" id="locale-panel">
+					<li class="locale-panel">
 						<select id="locales" onchange="changeLocale(this)">
 							{% for l in available_locales %}<option value="{{ l['code'] }}" {{ 'selected' if current_locale == l['code'] else ''}}>{{ l['name'] }}</option>{% endfor %}
 						</select>
@@ -80,22 +80,43 @@
 					{% endset %}
 					{{ menulinks }}
 				</ul>
-				<script>
-				var localeLinks = {
-					{% for al in alternate_locales %}"{{ al.lang }}": "{{ al.link }}"{% if not loop.last %},{% endif %}
-					{% endfor %}
-				};
-
-				function changeLocale(slt){
-					var lang = slt.value;
-					if (localeLinks[lang]) location.href = localeLinks[lang];
-					else location.href = '?lang=' + slt.value;
-				}
-				</script>
-
 				<ul id="nav-mobile" class="sidenav">
 					{{ menulinks }}
 				</ul>
+				<script>
+					var localeLinks = {
+						{% for al in alternate_locales %}"{{ al.lang }}": "{{ al.link }}"{% if not loop.last %},{% endif %}
+						{% endfor %}
+					};
+	
+					function changeLocale(slt){
+						var lang = slt.value;
+						if (localeLinks[lang]) location.href = localeLinks[lang];
+						else location.href = '?lang=' + slt.value;
+					}
+	
+					var btnChangeLangs = document.getElementsByClassName("change-language");
+					var localePanels = document.getElementsByClassName("locale-panel");
+					console.log(btnChangeLangs);
+					for (var i = 0; i < btnChangeLangs.length; i++){
+						(function(btn){
+							btn.addEventListener('click', function(e){
+								e.stopPropagation();
+								btn.classList.toggle('clicked');
+							});
+						})(btnChangeLangs[i]);
+					}
+					for (var i = 0; i < localePanels.length; i++){
+						localePanels[i].addEventListener('click', function(e){
+							e.stopPropagation();
+						});
+					}
+					document.addEventListener('click', function(){
+						for (var i = 0; i < btnChangeLangs.length; i++){
+							btnChangeLangs[i].classList.remove('clicked');
+						}
+					});
+				</script>
 			</div>
 		</nav>
 	</header>
