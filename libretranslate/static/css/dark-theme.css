@@ -52,7 +52,7 @@
         margin-top: 1rem;
     }
 
-    select {
+    select, select#locales{
         color: #fff;
         background: #111;
     }

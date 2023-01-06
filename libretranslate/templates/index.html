@@ -71,7 +71,7 @@
 					{% endif %}
 					<li class="change-language"><a class="noline" href="javascript:void(0)" title="{{ _h('Change language') }}"><i class="material-icons">language</i></a>
 					</li>
-					<li class="locale-panel">
+					<li class="locale-panel blue darken-3">
 						<select id="locales" onchange="changeLocale(this)">
 							{% for l in available_locales %}<option value="{{ l['code'] }}" {{ 'selected' if current_locale == l['code'] else ''}}>{{ l['name'] }}</option>{% endfor %}
 						</select>
@@ -80,7 +80,7 @@
 					{% endset %}
 					{{ menulinks }}
 				</ul>
-				<ul id="nav-mobile" class="sidenav">
+				<ul id="nav-mobile" class="sidenav blue darken-3">
 					{{ menulinks }}
 				</ul>
 				<script>
