@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-06 15:25-0500\n"
+"POT-Creation-Date: 2023-01-06 16:32-0500\n"
 "PO-Revision-Date: 2023-01-06 14:26-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: tr\n"
 "Language-Team: tr <LL@li.org>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -66,8 +66,8 @@ msgstr "geçersiz istek: eksik %(name)s parametre"
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
-"geçersiz istek: istek (%(size)s) metin limitini aşır (<x>1 "
-"XHamster</x>Menü %(limit)s"
+"geçersiz istek: istek (%(size)s) metin limitini aşır (<x>1 XHamster</x>Menü "
+"%(limit)s"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
 #: libretranslate/app.py:700 libretranslate/app.py:705
@@ -83,8 +83,8 @@ msgstr "%(format)s format desteklenmez"
 #: libretranslate/app.py:544 libretranslate/app.py:568
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from "
-"%(sname)s (%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
+"(%(scode)s)"
 msgstr ""
 "%(tname)s ()<x>1 XHamster</x>) hedef dil olarak mevcut değildir <x>2 "
 "XHamster</x> ()<x>XHamster</x>Menü %(tcode)s %(sname)s %(scode)s"
@@ -271,110 +271,186 @@ msgid "Banned"
 msgstr "Menü"
 
 #: libretranslate/locales/.swag.py:10
+msgid "Hello world!"
+msgstr "Merhaba dünya!"
+
+#: libretranslate/locales/.swag.py:11
+#, fuzzy
+msgid "Text(s) to translate"
+msgstr "Çevirmek için metin"
+
+#: libretranslate/locales/.swag.py:12
+#, fuzzy
+msgid "Source language code"
+msgstr "Dil kodu"
+
+#: libretranslate/locales/.swag.py:13
+#, fuzzy
+msgid "Target language code"
+msgstr "Desteklenen hedef dil kodları"
+
+#: libretranslate/locales/.swag.py:14
+#, fuzzy
+msgid "text"
+msgstr "Metin kopyası"
+
+#: libretranslate/locales/.swag.py:15
+msgid "html"
+msgstr "html"
+
+#: libretranslate/locales/.swag.py:16
+msgid ""
+"Format of source text:\n"
+" * `text` - Plain text\n"
+" * `html` - HTML markup\n"
+msgstr ""
+"Kaynak metnin formatı:\n"
+"* `text` - Düz metin\n"
+"* `html` - HTML işaretleme\n"
+
+#: libretranslate/locales/.swag.py:17
+#, fuzzy
+msgid "API key"
+msgstr "api"
+
+#: libretranslate/locales/.swag.py:18
 msgid "Translate file from a language to another"
 msgstr "Bir dilden diğerine dosya çevirin"
 
-#: libretranslate/locales/.swag.py:11
+#: libretranslate/locales/.swag.py:19
 msgid "Translated file"
 msgstr "Translated dosyası"
 
-#: libretranslate/locales/.swag.py:12
+#: libretranslate/locales/.swag.py:20
+#, fuzzy
+msgid "File to translate"
+msgstr "Çevirmek için metin"
+
+#: libretranslate/locales/.swag.py:21
+msgid "multipart/form-data"
+msgstr "çoklu bölüm/form-data"
+
+#: libretranslate/locales/.swag.py:22
 msgid "Detect the language of a single text"
 msgstr "Tek bir metin dilini tespit edin"
 
-#: libretranslate/locales/.swag.py:13
+#: libretranslate/locales/.swag.py:23
 msgid "Detections"
 msgstr "Algılamalar"
 
-#: libretranslate/locales/.swag.py:14
+#: libretranslate/locales/.swag.py:24
 msgid "Detection error"
 msgstr "Algılama hatası"
 
-#: libretranslate/locales/.swag.py:15
+#: libretranslate/locales/.swag.py:25
+#, fuzzy
+msgid "Text to detect"
+msgstr "Otomatik Algılama"
+
+#: libretranslate/locales/.swag.py:26
 msgid "Retrieve frontend specific settings"
 msgstr "Ön ayarlardan yararlanın"
 
-#: libretranslate/locales/.swag.py:16
+#: libretranslate/locales/.swag.py:27
 msgid "frontend settings"
 msgstr "ön ayarlar"
 
-#: libretranslate/locales/.swag.py:17
+#: libretranslate/locales/.swag.py:28
 msgid "frontend"
 msgstr "menü"
 
-#: libretranslate/locales/.swag.py:18
+#: libretranslate/locales/.swag.py:29
 msgid "Submit a suggestion to improve a translation"
 msgstr "Bir çeviri geliştirmek için bir öneri gönderin"
 
-#: libretranslate/locales/.swag.py:19
+#: libretranslate/locales/.swag.py:30
 msgid "Success"
 msgstr "Başarı"
 
-#: libretranslate/locales/.swag.py:20
+#: libretranslate/locales/.swag.py:31
 msgid "Not authorized"
 msgstr "Yetkili değil"
 
-#: libretranslate/locales/.swag.py:21
+#: libretranslate/locales/.swag.py:32
+msgid "Original text"
+msgstr "Orijinal metin"
+
+#: libretranslate/locales/.swag.py:33
+#, fuzzy
+msgid "Suggested translation"
+msgstr "Çeviri öner"
+
+#: libretranslate/locales/.swag.py:34
+#, fuzzy
+msgid "Language of original text"
+msgstr "Tek bir metin dilini tespit edin"
+
+#: libretranslate/locales/.swag.py:35
+#, fuzzy
+msgid "Language of suggested translation"
+msgstr "Çeviri öner"
+
+#: libretranslate/locales/.swag.py:36
 msgid "feedback"
 msgstr "geribildirim"
 
-#: libretranslate/locales/.swag.py:22
+#: libretranslate/locales/.swag.py:37
 msgid "Language code"
 msgstr "Dil kodu"
 
-#: libretranslate/locales/.swag.py:23
+#: libretranslate/locales/.swag.py:38
 msgid "Human-readable language name (in English)"
 msgstr "İnsan okunabilir dil adı (İngilizce)"
 
-#: libretranslate/locales/.swag.py:24
+#: libretranslate/locales/.swag.py:39
 msgid "Supported target language codes"
 msgstr "Desteklenen hedef dil kodları"
 
-#: libretranslate/locales/.swag.py:25
+#: libretranslate/locales/.swag.py:40
 msgid "Translated text(s)"
 msgstr "Çevirilmiş metin(ler)"
 
-#: libretranslate/locales/.swag.py:26
+#: libretranslate/locales/.swag.py:41
 msgid "Error message"
 msgstr "Hata mesajı"
 
-#: libretranslate/locales/.swag.py:27
+#: libretranslate/locales/.swag.py:42
 msgid "Reason for slow down"
 msgstr "Yavaşlama için neden"
 
-#: libretranslate/locales/.swag.py:28
+#: libretranslate/locales/.swag.py:43
 msgid "Translated file url"
 msgstr "Translated dosya url"
 
-#: libretranslate/locales/.swag.py:29
+#: libretranslate/locales/.swag.py:44
 msgid "Confidence value"
 msgstr "Gizlilik değeri"
 
-#: libretranslate/locales/.swag.py:30
+#: libretranslate/locales/.swag.py:45
 msgid "Character input limit for this language (-1 indicates no limit)"
 msgstr "Bu dil için karakter giriş limiti (-1 sınırı gösterir)"
 
-#: libretranslate/locales/.swag.py:31
+#: libretranslate/locales/.swag.py:46
 msgid "Frontend translation timeout"
 msgstr "Frontend çeviri süresi"
 
-#: libretranslate/locales/.swag.py:32
+#: libretranslate/locales/.swag.py:47
 msgid "Whether the API key database is enabled."
 msgstr "API anahtar veri tabanı etkin olsun."
 
-#: libretranslate/locales/.swag.py:33
+#: libretranslate/locales/.swag.py:48
 msgid "Whether an API key is required."
 msgstr "Bir API anahtarı gereklidir."
 
-#: libretranslate/locales/.swag.py:34
+#: libretranslate/locales/.swag.py:49
 msgid "Whether submitting suggestions is enabled."
 msgstr "Teklif gönderme önerileri etkinleştirilir."
 
-#: libretranslate/locales/.swag.py:35
+#: libretranslate/locales/.swag.py:50
 msgid "Supported files format"
 msgstr "Desteklenen dosya formatı"
 
-#: libretranslate/locales/.swag.py:36
+#: libretranslate/locales/.swag.py:51
 msgid "Whether submission was successful"
 msgstr "Gönderim başarılı ol"
 
@@ -408,8 +484,8 @@ msgstr "Türkçe"
 
 #: libretranslate/templates/app.js.template:320
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect "
-"right away."
+"Thanks for your correction. Note the suggestion will not take effect right "
+"away."
 msgstr "Düzeltme için teşekkürler. Önerinin hemen etkilemeyeceğini unutmayın."
 
 #: libretranslate/templates/app.js.template:423
@@ -420,8 +496,7 @@ msgstr "Hiçbir dil mevcut değildir. Modelleri doğru şekilde yüklediniz mi?"
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
 msgstr ""
-"API Key'nizde yazın. Bir API anahtarına ihtiyacınız varsa, "
-"%(instructions)s"
+"API Key'nizde yazın. Bir API anahtarına ihtiyacınız varsa, %(instructions)s"
 
 #: libretranslate/templates/app.js.template:479
 msgid "press the \"Get API Key\" link."
@@ -431,7 +506,8 @@ msgstr "\"Get API Key\" bağlantısını basın."
 msgid "contact the server operator."
 msgstr "sunucu operatörü ile iletişime geçin."
 
-#: libretranslate/templates/index.html:8 libretranslate/templates/index.html:25
+#: libretranslate/templates/index.html:8
+#: libretranslate/templates/index.html:25
 #: libretranslate/templates/index.html:333
 msgid "Free and Open Source Machine Translation API"
 msgstr "Ücretsiz ve Açık Kaynak Makinesi Çeviri API"
@@ -439,8 +515,8 @@ msgstr "Ücretsiz ve Açık Kaynak Makinesi Çeviri API"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:29
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline "
-"capable and easy to setup. Run your own API server in just a few minutes."
+"Free and Open Source Machine Translation API. Self-hosted, offline capable "
+"and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
 "Ücretsiz ve Açık Kaynak Makinesi Çeviri API. Self-hosted, çevrimdışı "
 "yetenekli ve kurulumu kolay. Sadece birkaç dakika içinde kendi API "
@@ -574,9 +650,9 @@ msgstr "Lisans:"
 #: libretranslate/templates/index.html:337
 #, python-format
 msgid ""
-"This public API should be used for testing, personal or infrequent use. "
-"If you're going to run an application in production, please "
-"%(host_server)s or %(get_api_key)s."
+"This public API should be used for testing, personal or infrequent use. If "
+"you're going to run an application in production, please %(host_server)s or "
+"%(get_api_key)s."
 msgstr ""
 "Bu kamu API test, kişisel veya yetersiz kullanım için kullanılmalıdır. "
 "Üretimde bir uygulama çalıştırırsanız, lütfen %(host_server)s veya <x>1 "
@@ -601,4 +677,3 @@ msgstr ""
 #, python-format
 msgid "%(libretranslate)s Contributors"
 msgstr "%(libretranslate)s Katkılar"
-

@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-06 15:25-0500\n"
+"POT-Creation-Date: 2023-01-06 16:32-0500\n"
 "PO-Revision-Date: 2023-01-06 14:26-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: eo\n"
 "Language-Team: eo <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -83,12 +83,11 @@ msgstr "<x>0 0 0 0</x> formato ne estas apogita %(format)s"
 #: libretranslate/app.py:544 libretranslate/app.py:568
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from "
-"%(sname)s (%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
+"(%(scode)s)"
 msgstr ""
-"<x>0 0 0 0</x> ([redakti]<x>1 1 1 1</x>ne estas havebla kiel cellingvo de"
-" <x>2 2</x> ([redakti]<x>3 3 3 3</x>) %(tname)s %(tcode)s %(sname)s "
-"%(scode)s"
+"<x>0 0 0 0</x> ([redakti]<x>1 1 1 1</x>ne estas havebla kiel cellingvo de "
+"<x>2 2</x> ([redakti]<x>3 3 3 3</x>) %(tname)s %(tcode)s %(sname)s %(scode)s"
 
 #: libretranslate/app.py:589
 #, python-format
@@ -272,110 +271,186 @@ msgid "Banned"
 msgstr "Banned"
 
 #: libretranslate/locales/.swag.py:10
+msgid "Hello world!"
+msgstr "Saluton mondo!"
+
+#: libretranslate/locales/.swag.py:11
+#, fuzzy
+msgid "Text(s) to translate"
+msgstr "Teksto por traduki"
+
+#: libretranslate/locales/.swag.py:12
+#, fuzzy
+msgid "Source language code"
+msgstr "Lingvokodo"
+
+#: libretranslate/locales/.swag.py:13
+#, fuzzy
+msgid "Target language code"
+msgstr "Subtenitaj cellingvokodoj"
+
+#: libretranslate/locales/.swag.py:14
+#, fuzzy
+msgid "text"
+msgstr "Kopioteksto"
+
+#: libretranslate/locales/.swag.py:15
+msgid "html"
+msgstr "html"
+
+#: libretranslate/locales/.swag.py:16
+msgid ""
+"Format of source text:\n"
+" * `text` - Plain text\n"
+" * `html` - HTML markup\n"
+msgstr ""
+"Pormato de fontteksto:\n"
+"\"teksto\" - Simpla teksto\n"
+"'html ' - HTML-markado\n"
+
+#: libretranslate/locales/.swag.py:17
+#, fuzzy
+msgid "API key"
+msgstr "api"
+
+#: libretranslate/locales/.swag.py:18
 msgid "Translate file from a language to another"
 msgstr "Traduki dosieron de lingvo ĝis alia"
 
-#: libretranslate/locales/.swag.py:11
+#: libretranslate/locales/.swag.py:19
 msgid "Translated file"
 msgstr "Tradukita dosiero"
 
-#: libretranslate/locales/.swag.py:12
+#: libretranslate/locales/.swag.py:20
+#, fuzzy
+msgid "File to translate"
+msgstr "Teksto por traduki"
+
+#: libretranslate/locales/.swag.py:21
+msgid "multipart/form-data"
+msgstr "multiparta/forma-datumoj"
+
+#: libretranslate/locales/.swag.py:22
 msgid "Detect the language of a single text"
 msgstr "La lingvo de ununura teksto"
 
-#: libretranslate/locales/.swag.py:13
+#: libretranslate/locales/.swag.py:23
 msgid "Detections"
 msgstr "Detections"
 
-#: libretranslate/locales/.swag.py:14
+#: libretranslate/locales/.swag.py:24
 msgid "Detection error"
 msgstr "Detekcio eraro"
 
-#: libretranslate/locales/.swag.py:15
+#: libretranslate/locales/.swag.py:25
+#, fuzzy
+msgid "Text to detect"
+msgstr "Auto Detectect"
+
+#: libretranslate/locales/.swag.py:26
 msgid "Retrieve frontend specific settings"
 msgstr "Retrieve frontas specifajn valorojn"
 
-#: libretranslate/locales/.swag.py:16
+#: libretranslate/locales/.swag.py:27
 msgid "frontend settings"
 msgstr "antaŭaj agordoj"
 
-#: libretranslate/locales/.swag.py:17
+#: libretranslate/locales/.swag.py:28
 msgid "frontend"
 msgstr "antaŭlasta"
 
-#: libretranslate/locales/.swag.py:18
+#: libretranslate/locales/.swag.py:29
 msgid "Submit a suggestion to improve a translation"
 msgstr "Submetas sugeston por plibonigi tradukon"
 
-#: libretranslate/locales/.swag.py:19
+#: libretranslate/locales/.swag.py:30
 msgid "Success"
 msgstr "Sukceso"
 
-#: libretranslate/locales/.swag.py:20
+#: libretranslate/locales/.swag.py:31
 msgid "Not authorized"
 msgstr "Ne rajtigita"
 
-#: libretranslate/locales/.swag.py:21
+#: libretranslate/locales/.swag.py:32
+msgid "Original text"
+msgstr "Originala teksto"
+
+#: libretranslate/locales/.swag.py:33
+#, fuzzy
+msgid "Suggested translation"
+msgstr "Proponita traduko"
+
+#: libretranslate/locales/.swag.py:34
+#, fuzzy
+msgid "Language of original text"
+msgstr "La lingvo de ununura teksto"
+
+#: libretranslate/locales/.swag.py:35
+#, fuzzy
+msgid "Language of suggested translation"
+msgstr "Proponita traduko"
+
+#: libretranslate/locales/.swag.py:36
 msgid "feedback"
 msgstr "religo"
 
-#: libretranslate/locales/.swag.py:22
+#: libretranslate/locales/.swag.py:37
 msgid "Language code"
 msgstr "Lingvokodo"
 
-#: libretranslate/locales/.swag.py:23
+#: libretranslate/locales/.swag.py:38
 msgid "Human-readable language name (in English)"
 msgstr "Homa-legebla lingvonomo (en la angla)"
 
-#: libretranslate/locales/.swag.py:24
+#: libretranslate/locales/.swag.py:39
 msgid "Supported target language codes"
 msgstr "Subtenitaj cellingvokodoj"
 
-#: libretranslate/locales/.swag.py:25
+#: libretranslate/locales/.swag.py:40
 msgid "Translated text(s)"
 msgstr "Tradukita teksto (j)"
 
-#: libretranslate/locales/.swag.py:26
+#: libretranslate/locales/.swag.py:41
 msgid "Error message"
 msgstr "Eraro mesaĝo"
 
-#: libretranslate/locales/.swag.py:27
+#: libretranslate/locales/.swag.py:42
 msgid "Reason for slow down"
 msgstr "Kaŭzo de malrapida"
 
-#: libretranslate/locales/.swag.py:28
+#: libretranslate/locales/.swag.py:43
 msgid "Translated file url"
 msgstr "Tradukita dosiero url"
 
-#: libretranslate/locales/.swag.py:29
+#: libretranslate/locales/.swag.py:44
 msgid "Confidence value"
 msgstr "Konfidencvaloro"
 
-#: libretranslate/locales/.swag.py:30
+#: libretranslate/locales/.swag.py:45
 msgid "Character input limit for this language (-1 indicates no limit)"
 msgstr "Karakterizaĵo por tiu lingvo (-1 indikas neniun limon)"
 
-#: libretranslate/locales/.swag.py:31
+#: libretranslate/locales/.swag.py:46
 msgid "Frontend translation timeout"
 msgstr "Ĉefa traduko"
 
-#: libretranslate/locales/.swag.py:32
+#: libretranslate/locales/.swag.py:47
 msgid "Whether the API key database is enabled."
 msgstr "Ĉu la API-esenca datumbazo estas permesita."
 
-#: libretranslate/locales/.swag.py:33
+#: libretranslate/locales/.swag.py:48
 msgid "Whether an API key is required."
 msgstr "Ĉu API-ŝlosilo estas postulata."
 
-#: libretranslate/locales/.swag.py:34
+#: libretranslate/locales/.swag.py:49
 msgid "Whether submitting suggestions is enabled."
 msgstr "Ĉu submeti proponojn estas ebligitaj."
 
-#: libretranslate/locales/.swag.py:35
+#: libretranslate/locales/.swag.py:50
 msgid "Supported files format"
 msgstr "Subtenita dosierojn formato"
 
-#: libretranslate/locales/.swag.py:36
+#: libretranslate/locales/.swag.py:51
 msgid "Whether submission was successful"
 msgstr "Ĉu submetado estis sukcesa"
 
@@ -409,8 +484,8 @@ msgstr "→ Eventoj:"
 
 #: libretranslate/templates/app.js.template:320
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect "
-"right away."
+"Thanks for your correction. Note the suggestion will not take effect right "
+"away."
 msgstr "Dankon pro via korekto. Notu ke la propono ne ekvalidos tuj."
 
 #: libretranslate/templates/app.js.template:423
@@ -432,7 +507,8 @@ msgstr "premu la \"Get API Key\" ligon."
 msgid "contact the server operator."
 msgstr "kontaktu la servilo operatoro."
 
-#: libretranslate/templates/index.html:8 libretranslate/templates/index.html:25
+#: libretranslate/templates/index.html:8
+#: libretranslate/templates/index.html:25
 #: libretranslate/templates/index.html:333
 msgid "Free and Open Source Machine Translation API"
 msgstr "Libera kaj Open Source Machine Translation API"
@@ -440,12 +516,12 @@ msgstr "Libera kaj Open Source Machine Translation API"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:29
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline "
-"capable and easy to setup. Run your own API server in just a few minutes."
+"Free and Open Source Machine Translation API. Self-hosted, offline capable "
+"and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
 "Libera kaj Open Source Machine Translation API. Mem-gastigita, offline "
-"kapabla kaj facile instali. Akiri vian propran API-servilon en nur kelkaj"
-" minutoj."
+"kapabla kaj facile instali. Akiri vian propran API-servilon en nur kelkaj "
+"minutoj."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -575,12 +651,12 @@ msgstr "Permesilo:"
 #: libretranslate/templates/index.html:337
 #, python-format
 msgid ""
-"This public API should be used for testing, personal or infrequent use. "
-"If you're going to run an application in production, please "
-"%(host_server)s or %(get_api_key)s."
+"This public API should be used for testing, personal or infrequent use. If "
+"you're going to run an application in production, please %(host_server)s or "
+"%(get_api_key)s."
 msgstr ""
-"Tiu publika API devus esti uzita por testado, persona aŭ malofta uzo. Se "
-"vi kuras en produktado, bonvolu <x>0 0 0 0</x> aŭ aŭ <x>1 1 1 1</x>. "
+"Tiu publika API devus esti uzita por testado, persona aŭ malofta uzo. Se vi "
+"kuras en produktado, bonvolu <x>0 0 0 0</x> aŭ aŭ <x>1 1 1 1</x>. "
 "%(host_server)s %(get_api_key)s"
 
 #: libretranslate/templates/index.html:337
@@ -595,11 +671,10 @@ msgstr "akiri API-ŝlosilon"
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
 msgstr ""
-"Farita kun <x>0 0 0 0</x> per <x>1 1 1 1</x> kaj funkciigita far <x>2 "
-"2</x> %(heart)s %(contributors)s %(engine)s"
+"Farita kun <x>0 0 0 0</x> per <x>1 1 1 1</x> kaj funkciigita far <x>2 2</x> "
+"%(heart)s %(contributors)s %(engine)s"
 
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "%(libretranslate)s Contributors"
 msgstr "<x>0 0 0 0</x> Kontribuantoj %(libretranslate)s"
-

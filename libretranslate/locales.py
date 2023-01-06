@@ -83,6 +83,12 @@ def swag_eval(swag, func):
             swag[k] = [func(v) for v in swag[k]]
         elif isinstance(swag[k], dict):
             swag_eval(swag[k], func)
+        elif isinstance(swag[k], list):
+            for i in swag[k]:
+                if isinstance(i, str):
+                    func(i)
+                elif isinstance(i, dict):
+                    swag_eval(i, func)
 
     return swag
 
