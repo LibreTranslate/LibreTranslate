@@ -57,7 +57,7 @@
 			<div class="nav-wrapper container">
 				<button data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></button>
 				<a id="logo-container" href="/" class="brand-logo">
-					<img src="{{ url_for('static', filename='icon.svg') }}" alt="Logo for LibreTranslate" class="logo">
+					<img src="{{ url_for('static', filename='icon.svg') }}" alt="" class="logo">
 					<span>LibreTranslate</span>
 				</a>
 				<ul class="right hide-on-med-and-down">
@@ -68,7 +68,7 @@
 				{% endif %}
 				<li><a href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">GitHub</a></li>
 				{% if api_keys %}
-				<li><a href="javascript:setApiKey()" title="Set API Key"><i class="material-icons">vpn_key</i></a></li>
+				<li><a href="javascript:setApiKey()" title="Set API Key" aria-label="Set API Key"><i class="material-icons">vpn_key</i></a></li>
 				{% endif %}
 				</ul>
 
@@ -79,7 +79,7 @@
 				{% endif %}
 				<li><a href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">GitHub</a></li>
 				{% if api_keys %}
-				<li><a href="javascript:setApiKey()" title="Set API Key"><i class="material-icons">vpn_key</i></a></li>
+				<li><a href="javascript:setApiKey()" title="Set API Key" aria-label="Set API Key"><i class="material-icons">vpn_key</i></a></li>
 				{% endif %}
 				</ul>
 			</div>
@@ -133,20 +133,20 @@
 					<h3 class="header center">Translation API</h3>
 					<div id="translation-type-btns" class="s12 center" v-if="filesTranslation === true">
 						<button type="button" class="btn btn-switch-type" @click="switchType('text')" :class="{'active': translationType === 'text'}">
-							<i class="material-icons">title</i>
+							<i aria-hidden="true" class="material-icons">title</i>
 							<span class="btn-text">Translate Text</span>
 						</button>
 						<button type="button" class="btn btn-switch-type" @click="switchType('files')" :class="{'active': translationType === 'files'}">
-							<i class="material-icons">description</i>
+							<i aria-hidden="true" class="material-icons">description</i>
 							<span class="btn-text">Translate Files</span>
 						</button>
 					</div>
 					<form id="translation-form" class="col s12">
 						<div class="row mb-0">
 							<div class="col s6 language-select">
-								<span>Translate from</span>
+								<span id="sourceLangLabel>Translate from</span>
                 <span v-if="detectedLangText !== ''">[[ detectedLangText ]]</span>
-								<select class="browser-default" v-model="sourceLang" ref="sourceLangDropdown" @change="handleInput">
+								<select aria-labelledby="sourceLangLabel" class="browser-default" v-model="sourceLang" ref="sourceLangDropdown" @change="handleInput">
 									<template v-for="option in langs">
 										<option :value="option.code">[[ option.name ]]</option>
 									</template>
@@ -154,11 +154,11 @@
 							</div>
 
 							<div class="col s6 language-select">
-								<a href="javascript:void(0)" @click="swapLangs" class="btn-switch-language">
+								<a href="javascript:void(0)" @click="swapLangs" class="btn-switch-language" aria-label="Swap source and target languages">
 									<i class="material-icons">swap_horiz</i>
 								</a>
-								<span>Translate into</span>
-								<select class="browser-default" v-model="targetLang" ref="targetLangDropdown" @change="handleInput">
+								<span id="targetLangLabel">Translate into</span>
+								<select aria-labelledby="targetLangLabel" class="browser-default" v-model="targetLang" ref="targetLangDropdown" @change="handleInput">
 									<template v-for="option in targetLangs">
 										<option v-if="option.code !== 'auto'" :value="option.code">[[ option.name ]]</option>
 									</template>
@@ -172,7 +172,7 @@
 									Text to translate
 								</label>
 								<textarea id="textarea1" v-model="inputText" @input="handleInput" ref="inputTextarea" dir="auto"></textarea>
-								<button class="btn-delete-text" title="Delete text" @click="deleteText">
+								<button class="btn-delete-text" title="Delete text" aria-label="Delete text" @click="deleteText">
 									<i class="material-icons">close</i>
 								</button>
 								<div class="characters-limit-container" v-if="charactersLimit !== -1">
@@ -185,7 +185,7 @@
 								</label>
 								<textarea id="textarea2" v-model="translatedText" ref="translatedTextarea" dir="auto" v-bind:readonly="suggestions && !isSuggesting"></textarea>
 																<div class="actions">
-																		<button v-if="suggestions && !loadingTranslation && inputText.length && !isSuggesting" class="btn-action" @click="suggestTranslation">
+																		<button v-if="suggestions && !loadingTranslation && inputText.length && !isSuggesting" class="btn-action" @click="suggestTranslation" aria-label="Suggest translation">
 																				<i class="material-icons">edit</i>
 																		</button>
 																		<button v-if="suggestions && !loadingTranslation && inputText.length && isSuggesting" class="btn-action btn-blue" @click="closeSuggestTranslation">
@@ -195,7 +195,7 @@
 																				<span>Send</span>
 																		</button>
 																		<button v-if="!isSuggesting" class="btn-action btn-copy-translated" @click="copyText">
-																				<span>[[ copyTextLabel ]]</span> <i class="material-icons">content_copy</i>
+																				<span>[[ copyTextLabel ]]</span> <i class="material-icons" aria-hidden="true">content_copy</i>
 																		</button>
 																</div>
 								<div class="position-relative">
@@ -212,8 +212,8 @@
 																		<form action="#">
 																				<div class="file-field input-field">
 																						<div class="btn">
-																								<span>File</span>
-																								<input type="file" :accept="supportedFilesFormatFormatted" @change="handleInputFile" ref="fileInputRef">
+																								<span id="fileLabel">File</span>
+																								<input aria-labelledby="fileLabel" type="file" :accept="supportedFilesFormatFormatted" @change="handleInputFile" ref="fileInputRef">
 																						</div>
 																						<div class="file-path-wrapper hidden">
 																								<input class="file-path validate" type="text">
@@ -227,7 +227,7 @@
 																						<div class="row mb-0">
 																								<div class="col s12">
 																										[[ inputFile.name ]]
-																										<button v-if="loadingFileTranslation !== true" @click="removeFile" class="btn-flat">
+																										<button v-if="loadingFileTranslation !== true" @click="removeFile" class="btn-flat" aria-label="Remove file">
 																												<i class="material-icons">close</i>
 																										</button>
 																								</div>
@@ -278,7 +278,7 @@
 						<h4 class="header">100% Self-Hosted. Offline Capable. Easy to Setup.</h4>
 						<div id="download-btn-wrapper">
 							<a id="download-btn" class="waves-effect waves-light btn btn-large teal darken-2" href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">
-								<i class="material-icons">cloud_download</i>
+								<i aria-hidden="true" class="material-icons">cloud_download</i>
 								<span class="btn-text">Download</span>
 							</a>
 						</div>
