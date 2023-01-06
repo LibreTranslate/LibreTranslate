@@ -19,7 +19,7 @@ from flask_babel import Babel
 
 from libretranslate import flood, remove_translated_files, security
 from libretranslate.language import detect_languages, improve_translation_formatting
-from libretranslate.locales import (_, _lazy, get_available_locales, gettext_escaped, 
+from libretranslate.locales import (_, _lazy, get_available_locales, get_available_locale_codes, gettext_escaped, 
         gettext_html, lazy_swag, get_alternate_locale_links)
 
 from .api_keys import Database, RemoteDatabase
@@ -287,6 +287,7 @@ def create_app(args):
             version=get_version(),
             swagger_url=SWAGGER_URL,
             url_prefix=args.url_prefix,
+            available_locales=[{'code': l['code'], 'name': _lazy(l['name'])} for l in get_available_locales()],
             current_locale=get_locale(),
             alternate_locales=get_alternate_locale_links()
         )
@@ -1013,7 +1014,7 @@ def create_app(args):
     babel = Babel(app)
     @babel.localeselector
     def get_locale():
-        return request.accept_languages.best_match(get_available_locales())
+        return request.accept_languages.best_match(get_available_locale_codes())
 
     app.jinja_env.globals.update(_e=gettext_escaped, _h=gettext_html)
 

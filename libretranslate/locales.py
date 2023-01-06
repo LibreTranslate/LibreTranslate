@@ -7,11 +7,30 @@ from flask_babel import lazy_gettext as _lazy
 from markupsafe import escape, Markup
 
 @cache
-def get_available_locales():
+def get_available_locales(only_reviewed=True):
     locales_dir = os.path.join(os.path.dirname(__file__), 'locales')
     dirs = [os.path.join(locales_dir, d) for d in os.listdir(locales_dir)]
 
-    return ['en'] + [os.path.basename(d) for d in dirs if os.path.isdir(os.path.join(d, 'LC_MESSAGES'))]
+    res = [{'code': 'en', 'name': 'English'}]
+
+    for d in dirs:
+        meta_file = os.path.join(d, 'meta.json')
+        if os.path.isdir(os.path.join(d, 'LC_MESSAGES')) and os.path.isfile(meta_file):
+            try:
+                with open(meta_file) as f:
+                    j = json.loads(f.read())
+            except Exception as e:
+                print(e)
+                continue
+
+            if j.get('reviewed') or not only_reviewed:
+                res.append({'code': os.path.basename(d), 'name': j.get('name', '')})
+
+    return res
+
+@cache
+def get_available_locale_codes(only_reviewed=True):
+    return [l['code'] for l in get_available_locales(only_reviewed=only_reviewed)]
 
 @cache
 def get_alternate_locale_links():
@@ -19,7 +38,7 @@ def get_alternate_locale_links():
     if tmpl is None:
         return []
     
-    locales = get_available_locales()
+    locales = get_available_locale_codes()
     result = []
     for l in locales:
         link = tmpl.replace("{LANG}", l)

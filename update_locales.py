@@ -6,7 +6,7 @@ import polib
 import json
 from babel.messages.frontend import main as pybabel
 from libretranslate.language import load_languages, improve_translation_formatting
-from libretranslate.locales import get_available_locales, swag_eval
+from libretranslate.locales import get_available_locale_codes, swag_eval
 from translatehtml import translate_html
 from libretranslate.app import get_version, create_app
 from libretranslate.main import get_args
@@ -58,10 +58,8 @@ if __name__ == "__main__":
                 "-o", messagespot, "libretranslate"]
     pybabel()
 
-
-    
     lang_codes = [l.code for l in languages if l != "en"]
-    lang_codes = ["it"] # TODO REMOVE
+    lang_codes = ["it", "fr"] # TODO REMOVE
 
     # Init/update
     for l in lang_codes:
@@ -71,14 +69,24 @@ if __name__ == "__main__":
 
         sys.argv = ["", cmd, "-i", messagespot, "-d", locales_dir, "-l", l]
         pybabel()
+
+        meta_file = os.path.join(locales_dir, l, "meta.json")
+        if not os.path.isfile(meta_file):
+            with open(meta_file, 'w') as f:
+                f.write(json.dumps({
+                    'name': next((lang.name for lang in languages if lang.code == l)),
+                    'reviewed': False
+                }, indent=4))
+                print("Wrote %s" % meta_file)
     
     # Automatically translate strings with libretranslate
     # when a language model is available and a string is empty
 
-    locales = get_available_locales()
+    locales = get_available_locale_codes(only_reviewed=False)
+    print(locales)
     for locale in locales:
         if locale == 'en':
-            continue 
+            continue
 
         tgt_lang = next((l for l in languages if l.code == locale), None)
 

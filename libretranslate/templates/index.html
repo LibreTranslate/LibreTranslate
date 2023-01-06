@@ -62,7 +62,7 @@
 					<img src="{{ url_for('static', filename='icon.svg') }}" alt="LibreTranslate" class="logo">
 					<span>LibreTranslate</span>
 				</a>
-				<ul class="right hide-on-med-and-down top-nav position-relative">
+				<ul id="nav" class="right hide-on-med-and-down top-nav position-relative">
 					{% set menulinks %}
 					<li><a href="{{ swagger_url }}">{{ _h("API Docs") }}</a></li>
 					{% if get_api_key_link %}
@@ -72,14 +72,13 @@
 					{% if api_keys %}
 					<li><a class="noline" href="javascript:setApiKey()" title="{{ _h('Set API Key') }}"><i class="material-icons">vpn_key</i></a></li>
 					{% endif %}
-					<li><a class="noline" href="#" title="{{ _h('Change language') }}"><i class="material-icons">language</i></a>
+					<li id="change-language"><a class="noline" href="javascript:void(0)" title="{{ _h('Change language') }}"><i class="material-icons">language</i></a>
 					</li>
-					<li class="locale-panel">
+					<li class="locale-panel" id="locale-panel">
 						<select id="locales">
-							<option value="en">English</option>
-							<option value="it">Italian</option>
+							{% for l in available_locales %}<option value="{{ l['code'] }}" {{ 'selected' if current_locale == l['code'] else ''}}>{{ l['name'] }}</option>{% endfor %}
 						</select>
-						<a href="#">Improve this language<i class="material-icons">create</i></a>
+						<a href="#TODO">{{ _h("Edit") }}<i class="material-icons">create</i></a>
 					</li>
 					{% endset %}
 					{{ menulinks }}

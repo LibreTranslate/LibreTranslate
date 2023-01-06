@@ -52,6 +52,21 @@ h3.header {
   box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0px 4px 5px 0 rgb(0 0 0 / 20%);
 }
 
+.locale-panel{
+  display: none;
+}
+
+#nav:hover #change-language:hover + .locale-panel, 
+#nav-mobile:hover #change-language:hover + .locale-panel{
+  display: block;
+}
+
+#nav:hover .locale-panel:hover,
+#nav-mobile .locale-panel:hover{
+  display: block;
+}
+
+
 .locale-panel select{
   display: block;
   height: 32px;
@@ -65,6 +80,12 @@ h3.header {
   padding: 0;
   margin-top: 6px;
   text-align: right;
+  text-decoration: none;
+  height: 28px;
+}
+
+.locale-panel a:hover{
+  text-decoration: underline;
 }
 
 .locale-panel a i.material-icons{
@@ -84,6 +105,7 @@ h3.header {
 #nav-mobile .locale-panel{
   color: rgba(0,0,0,0.87);
   padding: 0 32px;
+  padding-top: 12px;
 }
 
 #nav-mobile .locale-panel a{
