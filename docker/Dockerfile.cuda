@@ -34,7 +34,8 @@ RUN if [ "$with_models" = "true" ]; then  \
     fi
 
 # Install package from source code
-RUN pip3 install . \
+RUN pip3 install Babel==2.11.0 && python3 compile_locales.py \
+    && pip3 install . \
     && pip3 cache purge
 
 # Depending on your cuda install you may need to uncomment this line to allow the container to access the cuda libraries

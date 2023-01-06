@@ -14,10 +14,10 @@ RUN python -mvenv venv && ./venv/bin/pip install --upgrade pip
 
 COPY . .
 
-# Install package from source code
-RUN ./venv/bin/pip install . \
+# Install package from source code, compile translations
+RUN ./venv/bin/pip install Babel==2.11.0 && ./venv/bin/python compile_locales.py \
+  && ./venv/bin/pip install . \
   && ./venv/bin/pip cache purge
-
 
 FROM python:3.8.14-slim-bullseye
 
