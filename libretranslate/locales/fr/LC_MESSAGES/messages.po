@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
 "PO-Revision-Date: 2023-01-07 13:03+0000\n"
-"Last-Translator: dingedi <contact@dingedi.com>\n"
+"Last-Translator: ButterflyOfFire <ButterflyOfFire@protonmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/libretranslate/"
 "app/fr/>\n"
 "Language: fr\n"
@@ -348,7 +348,7 @@ msgstr "paramètres de frontend"
 
 #: libretranslate/locales/.swag.py:27
 msgid "frontend"
-msgstr "frontend"
+msgstr "interface"
 
 #: libretranslate/locales/.swag.py:28
 msgid "Submit a suggestion to improve a translation"
