@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
 "PO-Revision-Date: 2023-01-09 05:44+0000\n"
-"Last-Translator: R_SACI <rgebbid@gmail.com>\n"
+"Last-Translator: ButterflyOfFire <ButterflyOfFire@protonmail.com>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/libretranslate/"
 "app/kab/>\n"
 "Language: kab\n"
@@ -406,7 +406,7 @@ msgstr "Ssebba n taẓayt"
 
 #: libretranslate/locales/.swag.py:42
 msgid "Translated file url"
-msgstr "URL n tutlayt i yettwasuqqlen"
+msgstr "URL n ufaylu i yettwasuqqlen"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Confidence value"
