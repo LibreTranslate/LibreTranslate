@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-07 14:07+0000\n"
+"PO-Revision-Date: 2023-01-09 05:44+0000\n"
 "Last-Translator: R_SACI <rgebbid@gmail.com>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/libretranslate/"
 "app/kab/>\n"
@@ -35,7 +35,7 @@ msgstr "Ur yettusireg ara"
 
 #: libretranslate/app.py:211
 msgid "Too many request limits violations"
-msgstr ""
+msgstr "Aṭas n uɛeddi deg tilas n ussuter"
 
 #: libretranslate/app.py:220
 msgid "Invalid API key"
@@ -43,16 +43,16 @@ msgstr "Tasarut API d tarameɣtut"
 
 #: libretranslate/app.py:227
 msgid "Please contact the server operator to get an API key"
-msgstr ""
+msgstr "Ttxil-k·m, nermes amahal n uqeddac i wawway n tsarut API"
 
 #: libretranslate/app.py:229
 #, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr ""
+msgstr "Rzu ɣer %(url)s i wawway n tsarut"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
-msgstr ""
+msgstr "Taẓayt:"
 
 #: libretranslate/app.py:467 libretranslate/app.py:469
 #: libretranslate/app.py:471 libretranslate/app.py:683
@@ -62,23 +62,23 @@ msgstr ""
 #: libretranslate/app.py:993
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr ""
+msgstr "Assuter arameɣtu: ixuṣṣ uɣewwar %(name)s"
 
 #: libretranslate/app.py:480 libretranslate/app.py:492
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
-msgstr ""
+msgstr "Assuter d arameɣtu: assuter(%(size)s) iɛedda tilas n uḍris (%(limit)s)"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
 #: libretranslate/app.py:700 libretranslate/app.py:705
 #, python-format
 msgid "%(lang)s is not supported"
-msgstr ""
+msgstr "%(lang)s ur yettusefrak ara"
 
 #: libretranslate/app.py:536
 #, python-format
 msgid "%(format)s format is not supported"
-msgstr ""
+msgstr "Amasal %(format)s ur yettusefrak ara"
 
 #: libretranslate/app.py:544 libretranslate/app.py:568
 #, python-format
@@ -86,6 +86,8 @@ msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
 msgstr ""
+"%(tname)s (%(tcode)s) ur yelli ara am tutlayt tasaḍast n %(sname)s "
+"(%(scode)s)"
 
 #: libretranslate/app.py:589
 #, python-format
@@ -94,15 +96,15 @@ msgstr ""
 
 #: libretranslate/app.py:676 libretranslate/app.py:730
 msgid "Files translation are disabled on this server."
-msgstr ""
+msgstr "Asuqqel n yifuyla yensa ɣef uqeddac-a."
 
 #: libretranslate/app.py:690
 msgid "Invalid request: empty file"
-msgstr ""
+msgstr "Assuter arameɣtu: afaylu d ilem"
 
 #: libretranslate/app.py:693
 msgid "Invalid request: file format not supported"
-msgstr ""
+msgstr "Assuter d arameɣtu: amasal n ufaylu ur yettusefrak ara"
 
 #: libretranslate/app.py:738
 msgid "Invalid filename"
@@ -110,11 +112,11 @@ msgstr "Isem n ufaylu d armeɣtu"
 
 #: libretranslate/app.py:979
 msgid "Suggestions are disabled on this server."
-msgstr ""
+msgstr "Isumar nsan ɣef uqeddac-a."
 
 #: libretranslate/locales/.langs.py:1
 msgid "English"
-msgstr ""
+msgstr "Taglizit"
 
 #: libretranslate/locales/.langs.py:2
 msgid "Arabic"
@@ -122,7 +124,7 @@ msgstr "Taɛrabt"
 
 #: libretranslate/locales/.langs.py:3
 msgid "Azerbaijani"
-msgstr ""
+msgstr "Tazerbiǧanit"
 
 #: libretranslate/locales/.langs.py:4
 msgid "Chinese"
@@ -130,23 +132,23 @@ msgstr "Tacinwatt"
 
 #: libretranslate/locales/.langs.py:5
 msgid "Czech"
-msgstr ""
+msgstr "Tačikit"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Danish"
-msgstr ""
+msgstr "Tadanit"
 
 #: libretranslate/locales/.langs.py:7
 msgid "Dutch"
-msgstr ""
+msgstr "Tahulandit"
 
 #: libretranslate/locales/.langs.py:8
 msgid "Esperanto"
-msgstr ""
+msgstr "Taspirantit"
 
 #: libretranslate/locales/.langs.py:9
 msgid "Finnish"
-msgstr "Finnish"
+msgstr "Tafinit"
 
 #: libretranslate/locales/.langs.py:10
 msgid "French"
@@ -162,7 +164,7 @@ msgstr "Tagrigit"
 
 #: libretranslate/locales/.langs.py:13
 msgid "Hebrew"
-msgstr ""
+msgstr "Taɛebranit"
 
 #: libretranslate/locales/.langs.py:14
 msgid "Hindi"
@@ -170,15 +172,15 @@ msgstr "Tahendit"
 
 #: libretranslate/locales/.langs.py:15
 msgid "Hungarian"
-msgstr ""
+msgstr "Tahungaṛit"
 
 #: libretranslate/locales/.langs.py:16
 msgid "Indonesian"
-msgstr ""
+msgstr "Tandunizit"
 
 #: libretranslate/locales/.langs.py:17
 msgid "Irish"
-msgstr ""
+msgstr "Tirlandit"
 
 #: libretranslate/locales/.langs.py:18
 msgid "Italian"
@@ -190,11 +192,11 @@ msgstr "Tajapunit"
 
 #: libretranslate/locales/.langs.py:20
 msgid "Korean"
-msgstr ""
+msgstr "Takurit"
 
 #: libretranslate/locales/.langs.py:21
 msgid "Persian"
-msgstr ""
+msgstr "Tafarsit"
 
 #: libretranslate/locales/.langs.py:22
 msgid "Polish"
@@ -210,7 +212,7 @@ msgstr "Tarusit"
 
 #: libretranslate/locales/.langs.py:25
 msgid "Slovak"
-msgstr ""
+msgstr "Tasluvakt"
 
 #: libretranslate/locales/.langs.py:26
 msgid "Spanish"
@@ -218,23 +220,23 @@ msgstr "Taspenyulit"
 
 #: libretranslate/locales/.langs.py:27
 msgid "Swedish"
-msgstr ""
+msgstr "Taswidit"
 
 #: libretranslate/locales/.langs.py:28
 msgid "Turkish"
-msgstr ""
+msgstr "Taṭurkit"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Ukranian"
-msgstr ""
+msgstr "Takrinit"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Vietnamese"
-msgstr ""
+msgstr "Tavyiṭnamit"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
-msgstr ""
+msgstr "Tabdart n tutlayin yettwasefraken"
 
 #: libretranslate/locales/.swag.py:2
 msgid "List of languages"
@@ -246,15 +248,15 @@ msgstr "suqel"
 
 #: libretranslate/locales/.swag.py:4
 msgid "Translate text from a language to another"
-msgstr ""
+msgstr "Asuqqel n uḍris seg tutlayt ɣer tayeḍ"
 
 #: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:219
 msgid "Translated text"
-msgstr ""
+msgstr "Aḍris yettwasuqqlen"
 
 #: libretranslate/locales/.swag.py:6
 msgid "Invalid request"
-msgstr ""
+msgstr "Assuter arameɣtu"
 
 #: libretranslate/locales/.swag.py:7
 msgid "Translation error"
@@ -262,11 +264,11 @@ msgstr "Tuccḍa deg tsuqilt"
 
 #: libretranslate/locales/.swag.py:8
 msgid "Slow down"
-msgstr ""
+msgstr "S ttawil"
 
 #: libretranslate/locales/.swag.py:9
 msgid "Banned"
-msgstr ""
+msgstr "Yettwagdel"
 
 #: libretranslate/locales/.swag.py:10
 msgid "Hello world!"
@@ -274,15 +276,15 @@ msgstr "Azul !"
 
 #: libretranslate/locales/.swag.py:11
 msgid "Text(s) to translate"
-msgstr ""
+msgstr "Aḍris(iḍrisen) ara yettwasuqqlen"
 
 #: libretranslate/locales/.swag.py:12
 msgid "Source language code"
-msgstr ""
+msgstr "Tangalt n tutlayt taɣbalut"
 
 #: libretranslate/locales/.swag.py:13
 msgid "Target language code"
-msgstr ""
+msgstr "Tangalt n tutlayt tasaḍast"
 
 #: libretranslate/locales/.swag.py:14
 msgid "text"
@@ -298,6 +300,9 @@ msgid ""
 " * `text` - Plain text\n"
 " * `html` - HTML markup\n"
 msgstr ""
+"Amasal n uḍris aɣbalu:\n"
+" * `text` - Aḍris aččaran\n"
+" * `html` - Taṛekkazt HTML\n"
 
 #: libretranslate/locales/.swag.py:17
 msgid "API key"
@@ -305,7 +310,7 @@ msgstr "Tasarutt API"
 
 #: libretranslate/locales/.swag.py:18
 msgid "Translate file from a language to another"
-msgstr ""
+msgstr "Asuqqel n ufaylu seg tutlayt ɣer tayeḍ"
 
 #: libretranslate/locales/.swag.py:19
 msgid "Translated file"
@@ -313,31 +318,31 @@ msgstr "Afaylu yettwasuqqlen"
 
 #: libretranslate/locales/.swag.py:20
 msgid "File to translate"
-msgstr ""
+msgstr "Afaylu ara yettwasuqqlen"
 
 #: libretranslate/locales/.swag.py:21
 msgid "Detect the language of a single text"
-msgstr ""
+msgstr "Tifin n tutlayt n kra n uḍris"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Detections"
-msgstr ""
+msgstr "Tifin"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Detection error"
-msgstr ""
+msgstr "Tuccḍa deg tifin"
 
 #: libretranslate/locales/.swag.py:24
 msgid "Text to detect"
-msgstr ""
+msgstr "Aḍris ara yettwafen"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Retrieve frontend specific settings"
-msgstr ""
+msgstr "Err-d iɣewwaren imaẓlayen n ugrudem"
 
 #: libretranslate/locales/.swag.py:26
 msgid "frontend settings"
-msgstr ""
+msgstr "iɣewwaren n ugrudem"
 
 #: libretranslate/locales/.swag.py:27
 msgid "frontend"
@@ -345,11 +350,11 @@ msgstr "agrudem"
 
 #: libretranslate/locales/.swag.py:28
 msgid "Submit a suggestion to improve a translation"
-msgstr ""
+msgstr "Azen asumer i usnerni n tsuqqilt"
 
 #: libretranslate/locales/.swag.py:29
 msgid "Success"
-msgstr ""
+msgstr "Awwaḍ"
 
 #: libretranslate/locales/.swag.py:30
 msgid "Not authorized"
@@ -381,11 +386,11 @@ msgstr "Tangalt n tutlayt"
 
 #: libretranslate/locales/.swag.py:37
 msgid "Human-readable language name (in English)"
-msgstr ""
+msgstr "Isem n tutlayt igezzu umdan (s teglizit)"
 
 #: libretranslate/locales/.swag.py:38
 msgid "Supported target language codes"
-msgstr ""
+msgstr "Tingalin n tutlayin tisaḍasin i yettwasefraken"
 
 #: libretranslate/locales/.swag.py:39
 msgid "Translated text(s)"
@@ -405,19 +410,19 @@ msgstr "URL n tutlayt i yettwasuqqlen"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Confidence value"
-msgstr ""
+msgstr "Azal n teflest"
 
 #: libretranslate/locales/.swag.py:44
 msgid "Character input limit for this language (-1 indicates no limit)"
-msgstr ""
+msgstr "Talast n unekcum n yisekkilen i tutlayt-a (-1 ur d-iskan kra n talast)"
 
 #: libretranslate/locales/.swag.py:45
 msgid "Frontend translation timeout"
-msgstr ""
+msgstr "Akud n tsuqqilt ɣef ugrudem"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Whether the API key database is enabled."
-msgstr ""
+msgstr "Yeskan ma yella taffa n yisefka n tsura API termed."
 
 #: libretranslate/locales/.swag.py:47
 msgid "Whether an API key is required."
@@ -425,21 +430,21 @@ msgstr "Yeskan-d ma tettwasra tasarut n API."
 
 #: libretranslate/locales/.swag.py:48
 msgid "Whether submitting suggestions is enabled."
-msgstr ""
+msgstr "Yeskan ma yella tuzna n yisumar termed."
 
 #: libretranslate/locales/.swag.py:49
 msgid "Supported files format"
-msgstr ""
+msgstr "Imasalen n yifuyla i yettwasefraken"
 
 #: libretranslate/locales/.swag.py:50
 msgid "Whether submission was successful"
-msgstr ""
+msgstr "Ma yella tuzna tɛedda"
 
 #: libretranslate/templates/app.js.template:31
 #: libretranslate/templates/app.js.template:275
 #: libretranslate/templates/app.js.template:279
 msgid "Copy text"
-msgstr ""
+msgstr "Nɣel aḍris"
 
 #: libretranslate/templates/app.js.template:72
 #: libretranslate/templates/app.js.template:78
@@ -450,46 +455,46 @@ msgstr ""
 #: libretranslate/templates/app.js.template:447
 #, python-format
 msgid "Cannot load %(url)s"
-msgstr ""
+msgstr "D awezɣi asali n %(url)s"
 
 #: libretranslate/templates/app.js.template:253
 #: libretranslate/templates/app.js.template:323
 #: libretranslate/templates/app.js.template:385
 #: libretranslate/templates/app.js.template:395
 msgid "Unknown error"
-msgstr ""
+msgstr "Tuccḍa d tarussint"
 
 #: libretranslate/templates/app.js.template:276
 msgid "Copied"
-msgstr ""
+msgstr "Yettwanɣel"
 
 #: libretranslate/templates/app.js.template:320
 msgid ""
 "Thanks for your correction. Note the suggestion will not take effect "
 "right away."
-msgstr ""
+msgstr "Tanemmirt ɣef useɣti. Ẓer belli asumer ur iteṭṭef ara imir kan."
 
 #: libretranslate/templates/app.js.template:423
 msgid "No languages available. Did you install the models correctly?"
-msgstr ""
+msgstr "Ulac tutlayin i yellan. Tesbeddeḍ tineɣrufin akken iwata?"
 
 #: libretranslate/templates/app.js.template:479
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
-msgstr ""
+msgstr "Sekcem tasarut-ik•im API. Ma yella tesriḍ tasarut API, %(instructions)s"
 
 #: libretranslate/templates/app.js.template:479
 msgid "press the \"Get API Key\" link."
-msgstr ""
+msgstr "sit ɣef useɣwen \"Awi tasarut API\"."
 
 #: libretranslate/templates/app.js.template:479
 msgid "contact the server operator."
-msgstr ""
+msgstr "nermes amahal n uqeddac."
 
 #: libretranslate/templates/index.html:8 libretranslate/templates/index.html:25
 #: libretranslate/templates/index.html:333
 msgid "Free and Open Source Machine Translation API"
-msgstr ""
+msgstr "API n tsuqqilt tawurmant tilellit, n uɣbalu yeldin"
 
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:29
@@ -497,131 +502,133 @@ msgid ""
 "Free and Open Source Machine Translation API. Self-hosted, offline "
 "capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
+"API n tsuqqilt tawurmant tilellit, n uɣbalu yeldin. Yezdeɣ i yiman-is, s war "
+"tuqqna, fessus i usebded. Senker aqeddac-ik•im API deg kra n tesdatin."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
-msgstr ""
+msgstr "tasuqqilt"
 
 #: libretranslate/templates/index.html:11
 msgid "api"
-msgstr ""
+msgstr "api"
 
 #: libretranslate/templates/index.html:64
 msgid "API Docs"
-msgstr ""
+msgstr "Tasemlit API"
 
 #: libretranslate/templates/index.html:66
 msgid "Get API Key"
-msgstr ""
+msgstr "Awi tasarut API"
 
 #: libretranslate/templates/index.html:68
 msgid "GitHub"
-msgstr ""
+msgstr "GitHub"
 
 #: libretranslate/templates/index.html:70
 msgid "Set API Key"
-msgstr ""
+msgstr "Sbadu tasarut API"
 
 #: libretranslate/templates/index.html:72
 msgid "Change language"
-msgstr ""
+msgstr "Beddel tutlayt"
 
 #: libretranslate/templates/index.html:78
 msgid "Edit"
-msgstr ""
+msgstr "Ẓreg"
 
 #: libretranslate/templates/index.html:154
 msgid "Dismiss"
-msgstr ""
+msgstr "Zgel"
 
 #: libretranslate/templates/index.html:168
 msgid "Translation API"
-msgstr ""
+msgstr "API n usuqqel"
 
 #: libretranslate/templates/index.html:172
 msgid "Translate Text"
-msgstr ""
+msgstr "Suqqel aḍris"
 
 #: libretranslate/templates/index.html:176
 msgid "Translate Files"
-msgstr ""
+msgstr "Suqqel ifuyla"
 
 #: libretranslate/templates/index.html:182
 msgid "Translate from"
-msgstr ""
+msgstr "Suqqel seg"
 
 #: libretranslate/templates/index.html:192
 msgid "Swap source and target languages"
-msgstr ""
+msgstr "Semmeskel aɣbalu d tutlayt tasaḍast"
 
 #: libretranslate/templates/index.html:195
 msgid "Translate into"
-msgstr ""
+msgstr "Suqqel deg"
 
 #: libretranslate/templates/index.html:207
 msgid "Text to translate"
-msgstr ""
+msgstr "Aḍris ara yettwasuqqlen"
 
 #: libretranslate/templates/index.html:210
 msgid "Delete text"
-msgstr ""
+msgstr "Kkes aḍris"
 
 #: libretranslate/templates/index.html:223
 msgid "Suggest translation"
-msgstr ""
+msgstr "Sumer tasuqqilt"
 
 #: libretranslate/templates/index.html:227
 msgid "Cancel"
-msgstr ""
+msgstr "Sefsex"
 
 #: libretranslate/templates/index.html:230
 msgid "Send"
-msgstr ""
+msgstr "Azen"
 
 #: libretranslate/templates/index.html:246
 msgid "Supported file formats:"
-msgstr ""
+msgstr "Imasalen n ufaylu i yettwasefraken:"
 
 #: libretranslate/templates/index.html:250
 msgid "File"
-msgstr ""
+msgstr "Afaylu"
 
 #: libretranslate/templates/index.html:265
 msgid "Remove file"
-msgstr ""
+msgstr "Kkes afaylu"
 
 #: libretranslate/templates/index.html:272
 msgid "Translate"
-msgstr ""
+msgstr "Suqqel"
 
 #: libretranslate/templates/index.html:273
 #: libretranslate/templates/index.html:317
 msgid "Download"
-msgstr ""
+msgstr "Sader"
 
 #: libretranslate/templates/index.html:292
 msgid "Request"
-msgstr ""
+msgstr "Assuter"
 
 #: libretranslate/templates/index.html:297
 msgid "Response"
-msgstr ""
+msgstr "Tiririt"
 
 #: libretranslate/templates/index.html:312
 msgid "Open Source Machine Translation API"
-msgstr ""
+msgstr "API n usuqqel awurman n uɣbalu yeldin"
 
 #: libretranslate/templates/index.html:313
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
-msgstr ""
+msgstr "Yettwasezdeɣ i yiman-is. Iteddu s war tuqqna. Fessus i usesteb."
 
 #: libretranslate/templates/index.html:332
 msgid "LibreTranslate"
-msgstr ""
+msgstr "LibreTranslate"
 
 #: libretranslate/templates/index.html:334
 msgid "License:"
-msgstr ""
+msgstr "Turagt:"
 
 #: libretranslate/templates/index.html:337
 #, python-format
@@ -630,19 +637,23 @@ msgid ""
 "If you're going to run an application in production, please "
 "%(host_server)s or %(get_api_key)s."
 msgstr ""
+"API-a azayaz ilaq ad yettuseqdec i usekyed, i useqdec uslig neɣ i useqdec ur "
+"negzi. Ma yella tesnekkreḍ asnas id-yettfarasen , ttxil-k·m seqdec "
+"%(host_server)s neɣ %(get_api_key)s."
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
-msgstr ""
+msgstr "Sezdeɣ aqeddac inek•inem"
 
 #: libretranslate/templates/index.html:337
 msgid "get an API key"
-msgstr ""
+msgstr "Awi tasarut API"
 
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
 msgstr ""
+"Yettufeṣṣel s %(heart)s s %(contributors)s, yella-d s lmendad n %(engine)s"
 
 #: libretranslate/templates/index.html:345
 #, python-format
