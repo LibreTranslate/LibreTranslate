@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
 "PO-Revision-Date: 2023-01-07 14:07+0000\n"
-"Last-Translator: ButterflyOfFire <ButterflyOfFire@protonmail.com>\n"
+"Last-Translator: R_SACI <rgebbid@gmail.com>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/libretranslate/"
 "app/kab/>\n"
 "Language: kab\n"
@@ -23,15 +23,15 @@ msgstr ""
 
 #: libretranslate/app.py:60
 msgid "Invalid JSON format"
-msgstr ""
+msgstr "Amasal JSON d arameɣtu"
 
 #: libretranslate/app.py:128 libretranslate/templates/app.js.template:427
 msgid "Auto Detect"
-msgstr ""
+msgstr "Tifin tawurmant"
 
 #: libretranslate/app.py:193
 msgid "Unauthorized"
-msgstr ""
+msgstr "Ur yettusireg ara"
 
 #: libretranslate/app.py:211
 msgid "Too many request limits violations"
@@ -39,7 +39,7 @@ msgstr ""
 
 #: libretranslate/app.py:220
 msgid "Invalid API key"
-msgstr ""
+msgstr "Tasarut API d tarameɣtut"
 
 #: libretranslate/app.py:227
 msgid "Please contact the server operator to get an API key"
@@ -146,7 +146,7 @@ msgstr ""
 
 #: libretranslate/locales/.langs.py:9
 msgid "Finnish"
-msgstr ""
+msgstr "Finnish"
 
 #: libretranslate/locales/.langs.py:10
 msgid "French"
@@ -341,7 +341,7 @@ msgstr ""
 
 #: libretranslate/locales/.swag.py:27
 msgid "frontend"
-msgstr ""
+msgstr "agrudem"
 
 #: libretranslate/locales/.swag.py:28
 msgid "Submit a suggestion to improve a translation"
@@ -353,31 +353,31 @@ msgstr ""
 
 #: libretranslate/locales/.swag.py:30
 msgid "Not authorized"
-msgstr ""
+msgstr "Ur yettusireg ara"
 
 #: libretranslate/locales/.swag.py:31
 msgid "Original text"
-msgstr ""
+msgstr "Aḍris aɣbalu"
 
 #: libretranslate/locales/.swag.py:32
 msgid "Suggested translation"
-msgstr ""
+msgstr "Tasuqqilt i d-yettwasumren"
 
 #: libretranslate/locales/.swag.py:33
 msgid "Language of original text"
-msgstr ""
+msgstr "Tutlayt n uḍris aɣbalu"
 
 #: libretranslate/locales/.swag.py:34
 msgid "Language of suggested translation"
-msgstr ""
+msgstr "Tutlayt n tsuqqilt i d-yettwasumren"
 
 #: libretranslate/locales/.swag.py:35
 msgid "feedback"
-msgstr ""
+msgstr "tamawt"
 
 #: libretranslate/locales/.swag.py:36
 msgid "Language code"
-msgstr ""
+msgstr "Tangalt n tutlayt"
 
 #: libretranslate/locales/.swag.py:37
 msgid "Human-readable language name (in English)"
@@ -389,19 +389,19 @@ msgstr ""
 
 #: libretranslate/locales/.swag.py:39
 msgid "Translated text(s)"
-msgstr ""
+msgstr "Aḍris(iḍrisen) yettwasuqqlen"
 
 #: libretranslate/locales/.swag.py:40
 msgid "Error message"
-msgstr ""
+msgstr "Izen n tuccḍa"
 
 #: libretranslate/locales/.swag.py:41
 msgid "Reason for slow down"
-msgstr ""
+msgstr "Ssebba n taẓayt"
 
 #: libretranslate/locales/.swag.py:42
 msgid "Translated file url"
-msgstr ""
+msgstr "URL n tutlayt i yettwasuqqlen"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Confidence value"
@@ -421,7 +421,7 @@ msgstr ""
 
 #: libretranslate/locales/.swag.py:47
 msgid "Whether an API key is required."
-msgstr ""
+msgstr "Yeskan-d ma tettwasra tasarut n API."
 
 #: libretranslate/locales/.swag.py:48
 msgid "Whether submitting suggestions is enabled."
@@ -647,4 +647,4 @@ msgstr ""
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr ""
+msgstr "%(libretranslate)s Imttekkiyen"
