@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-09 05:44+0000\n"
+"PO-Revision-Date: 2023-01-10 09:57+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/libretranslate/"
 "app/oc/>\n"
@@ -52,7 +52,7 @@ msgstr "Consultatz %(url)s per obténer una clau API"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
-msgstr "Alentissètz :"
+msgstr "Alentissètz :"
 
 #: libretranslate/app.py:467 libretranslate/app.py:469
 #: libretranslate/app.py:471 libretranslate/app.py:683
@@ -62,13 +62,13 @@ msgstr "Alentissètz :"
 #: libretranslate/app.py:993
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr "Requèsta invalida : paramètre %(name)s mancant"
+msgstr "Requèsta invalida : paramètre %(name)s mancant"
 
 #: libretranslate/app.py:480 libretranslate/app.py:492
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
-"Demanda non valida : requèsta (%(size)s) despassa la limita de tèxte "
+"Demanda non valida : requèsta (%(size)s) despassa la limita de tèxte "
 "(%(limit)s)"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
@@ -94,7 +94,7 @@ msgstr ""
 #: libretranslate/app.py:589
 #, python-format
 msgid "Cannot translate text: %(text)s"
-msgstr "Impossible de traduire lo tèxte : %(text)s"
+msgstr "Impossible de traduire lo tèxte : %(text)s"
 
 #: libretranslate/app.py:676 libretranslate/app.py:730
 msgid "Files translation are disabled on this server."
@@ -102,11 +102,11 @@ msgstr "La traduccion de fichièrs es desactivada sus aqueste servidor."
 
 #: libretranslate/app.py:690
 msgid "Invalid request: empty file"
-msgstr "Requèsta invalida : fichièr void"
+msgstr "Requèsta invalida : fichièr void"
 
 #: libretranslate/app.py:693
 msgid "Invalid request: file format not supported"
-msgstr "Requèsta invalida : format de fichièr pas pres en carga"
+msgstr "Requèsta invalida : format de fichièr pas pres en carga"
 
 #: libretranslate/app.py:738
 msgid "Invalid filename"
@@ -302,7 +302,7 @@ msgid ""
 " * `text` - Plain text\n"
 " * `html` - HTML markup\n"
 msgstr ""
-"Format del tèxt font :\n"
+"Format del tèxt font :\n"
 " * `text` - Tèxte brut\n"
 " * `html` - Balisatge HTM\n"
 
@@ -328,7 +328,7 @@ msgstr "Detectar la lenga d’un sol tèxte"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Detections"
-msgstr "Detections"
+msgstr "Deteccions"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Detection error"
@@ -476,28 +476,30 @@ msgid ""
 "Thanks for your correction. Note the suggestion will not take effect "
 "right away."
 msgstr ""
+"Mercés de vòstra correccion. Notatz que la suggestion serà pas presa en "
+"compte immediatament."
 
 #: libretranslate/templates/app.js.template:423
 msgid "No languages available. Did you install the models correctly?"
-msgstr ""
+msgstr "Cap de lenga pas disponibla. Avètz installats los modèls corrèctament ?"
 
 #: libretranslate/templates/app.js.template:479
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
-msgstr ""
+msgstr "Picatz vòstra clau API. Se vos cal una clau API, %(instructions)s"
 
 #: libretranslate/templates/app.js.template:479
 msgid "press the \"Get API Key\" link."
-msgstr ""
+msgstr "quichatz lo ligam « Obténer una clau API »."
 
 #: libretranslate/templates/app.js.template:479
 msgid "contact the server operator."
-msgstr ""
+msgstr "contactatz l’operator del servidor."
 
 #: libretranslate/templates/index.html:8 libretranslate/templates/index.html:25
 #: libretranslate/templates/index.html:333
 msgid "Free and Open Source Machine Translation API"
-msgstr ""
+msgstr "API de traduccion automatica gratuita e liura"
 
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:29
@@ -505,6 +507,8 @@ msgid ""
 "Free and Open Source Machine Translation API. Self-hosted, offline "
 "capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
+"API de traduccion automatica liura e dobèrta. Auto-albergada, fòra linha, de "
+"bon installar. Lançatz vòstre pròpri servidor API en qualques minutas."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -588,7 +592,7 @@ msgstr "Enviar"
 
 #: libretranslate/templates/index.html:246
 msgid "Supported file formats:"
-msgstr ""
+msgstr "Formats de fichièrs preses en carga :"
 
 #: libretranslate/templates/index.html:250
 msgid "File"
@@ -617,11 +621,11 @@ msgstr "Responsa"
 
 #: libretranslate/templates/index.html:312
 msgid "Open Source Machine Translation API"
-msgstr ""
+msgstr "API de traduccion automatica liura"
 
 #: libretranslate/templates/index.html:313
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
-msgstr ""
+msgstr "Auto albergat. Pòt foncionar fòra connexion. De bon configurar."
 
 #: libretranslate/templates/index.html:332
 msgid "LibreTranslate"
@@ -629,7 +633,7 @@ msgstr "LibreTranslate"
 
 #: libretranslate/templates/index.html:334
 msgid "License:"
-msgstr "Licéncia :"
+msgstr "Licéncia :"
 
 #: libretranslate/templates/index.html:337
 #, python-format
@@ -638,19 +642,22 @@ msgid ""
 "If you're going to run an application in production, please "
 "%(host_server)s or %(get_api_key)s."
 msgstr ""
+"Aquesta API publica deuriá èsser utilizada per d’ensages, l’utilizacion "
+"personala o ocasionala. Se sètz per executar una aplicacion en produccion, "
+"se vos plai %(host_server)s o %(get_api_key)s."
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
-msgstr ""
+msgstr "albergatz vòstre pròpri servidor"
 
 #: libretranslate/templates/index.html:337
 msgid "get an API key"
-msgstr ""
+msgstr "obténer una clau API"
 
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
-msgstr ""
+msgstr "Concebut amb %(heart)s pels %(contributors)s e propulsat per %(engine)s"
 
 #: libretranslate/templates/index.html:345
 #, python-format
