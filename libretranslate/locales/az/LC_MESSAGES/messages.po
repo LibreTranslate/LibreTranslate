@@ -9,14 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-06 14:26-0500\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2023-01-10 09:57+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/"
+"libretranslate/app/az/>\n"
 "Language: az\n"
-"Language-Team: az <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -46,7 +48,7 @@ msgstr "Bir API əsas almaq üçün server operatorla əlaqə edin"
 #: libretranslate/app.py:229
 #, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr "Bakı <x> 0</x> Bir API əsas almaq %(url)s"
+msgstr "Bakı %(url)s Bir API əsas almaq"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
@@ -60,37 +62,35 @@ msgstr "Daxil ol"
 #: libretranslate/app.py:993
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr "Invalid tərəfindən: eksik <x> 0</x> Qeydiyyat %(name)s"
+msgstr "Invalid tərəfindən: eksik %(name)s Qeydiyyat"
 
 #: libretranslate/app.py:480 libretranslate/app.py:492
-#, python-format
+#, fuzzy, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
-msgstr "Invalid tərəfindən:  request<x> 0</x> )  )%(limit)s ) %(size)s"
+msgstr "Invalid tərəfindən: (%(size)s) / (%(limit)s)"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
 #: libretranslate/app.py:700 libretranslate/app.py:705
 #, python-format
 msgid "%(lang)s is not supported"
-msgstr "<x> 0</x> Yadda saxla %(lang)s"
+msgstr "%(lang)s Yadda saxla"
 
 #: libretranslate/app.py:536
 #, python-format
 msgid "%(format)s format is not supported"
-msgstr "<x> 0</x> format dəstəkləmir %(format)s"
+msgstr "%(format)s format dəstəkləmir"
 
 #: libretranslate/app.py:544 libretranslate/app.py:568
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
-msgstr ""
-"<x> 0</x> (%(tcode)sƏtraf dili kimi mövcud deyil %(sname)s (%(scode)s ) "
-"%(tname)s"
+msgstr "%(tname)s (%(tcode)s Ətraf dili kimi mövcud deyil %(sname)s (%(scode)s)"
 
 #: libretranslate/app.py:589
 #, python-format
 msgid "Cannot translate text: %(text)s"
-msgstr "Qeyd çevirmə: <x> 0</x> %(text)s"
+msgstr "Qeyd çevirmə: %(text)s"
 
 #: libretranslate/app.py:676 libretranslate/app.py:730
 msgid "Files translation are disabled on this server."
@@ -129,8 +129,9 @@ msgid "Chinese"
 msgstr "Çin"
 
 #: libretranslate/locales/.langs.py:5
+#, fuzzy
 msgid "Czech"
-msgstr " Czech"
+msgstr "Çex dili"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Danish"
@@ -142,7 +143,7 @@ msgstr "Rusiya"
 
 #: libretranslate/locales/.langs.py:8
 msgid "Esperanto"
-msgstr " Esperanto"
+msgstr "Esperanto"
 
 #: libretranslate/locales/.langs.py:9
 msgid "Finnish"
@@ -202,7 +203,7 @@ msgstr "Bakı"
 
 #: libretranslate/locales/.langs.py:23
 msgid "Portuguese"
-msgstr " Portuguese"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:24
 msgid "Russian"
@@ -226,11 +227,11 @@ msgstr "Türkiyə"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Ukranian"
-msgstr " U"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:30
 msgid "Vietnamese"
-msgstr " Vietnamese"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
@@ -242,7 +243,7 @@ msgstr "Dillərin siyahısı"
 
 #: libretranslate/locales/.swag.py:3
 msgid "translate"
-msgstr " translate"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:4
 msgid "Translate text from a language to another"
@@ -258,7 +259,7 @@ msgstr "Ad Soyad"
 
 #: libretranslate/locales/.swag.py:7
 msgid "Translation error"
-msgstr " Translation  error"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:8
 msgid "Slow down"
@@ -307,9 +308,8 @@ msgstr ""
 "* 'html' - HTML qeydiyyat\n"
 
 #: libretranslate/locales/.swag.py:17
-#, fuzzy
 msgid "API key"
-msgstr " a"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:18
 msgid "Translate file from a language to another"
@@ -347,11 +347,11 @@ msgstr "Yadda saxla"
 
 #: libretranslate/locales/.swag.py:26
 msgid "frontend settings"
-msgstr " front"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:27
 msgid "frontend"
-msgstr " front"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:28
 msgid "Submit a suggestion to improve a translation"
@@ -367,12 +367,11 @@ msgstr "Qeyd olun"
 
 #: libretranslate/locales/.swag.py:31
 msgid "Original text"
-msgstr " Original"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:32
-#, fuzzy
 msgid "Suggested translation"
-msgstr " Suggest"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:33
 #, fuzzy
@@ -380,13 +379,12 @@ msgid "Language of original text"
 msgstr "Bir məhsul dilinin tanınması"
 
 #: libretranslate/locales/.swag.py:34
-#, fuzzy
 msgid "Language of suggested translation"
-msgstr " Suggest"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:35
 msgid "feedback"
-msgstr " feedback"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:36
 msgid "Language code"
@@ -463,7 +461,7 @@ msgstr "Elanlar"
 #: libretranslate/templates/app.js.template:447
 #, python-format
 msgid "Cannot load %(url)s"
-msgstr "Qeydiyyat <x> 0</x> %(url)s"
+msgstr "Qeydiyyat %(url)s"
 
 #: libretranslate/templates/app.js.template:253
 #: libretranslate/templates/app.js.template:323
@@ -487,9 +485,9 @@ msgid "No languages available. Did you install the models correctly?"
 msgstr "Heç bir dil mövcuddur. Siz modelləri düzgün quraşdırdı?"
 
 #: libretranslate/templates/app.js.template:479
-#, python-format
+#, fuzzy, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
-msgstr "API Key növü növü. Bir API əsas lazım varsa, <x> 0</x> %(instructions)s"
+msgstr "API key növü. Bir API əsas lazım varsa, %(instructions)s"
 
 #: libretranslate/templates/app.js.template:479
 msgid "press the \"Get API Key\" link."
@@ -515,11 +513,11 @@ msgstr ""
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
-msgstr " translation"
+msgstr ""
 
 #: libretranslate/templates/index.html:11
 msgid "api"
-msgstr " a"
+msgstr ""
 
 #: libretranslate/templates/index.html:64
 msgid "API Docs"
@@ -583,7 +581,7 @@ msgstr "Delete"
 
 #: libretranslate/templates/index.html:223
 msgid "Suggest translation"
-msgstr " Suggest"
+msgstr ""
 
 #: libretranslate/templates/index.html:227
 msgid "Cancel"
@@ -620,7 +618,7 @@ msgstr "Qeydiyyat"
 
 #: libretranslate/templates/index.html:297
 msgid "Response"
-msgstr " Response"
+msgstr ""
 
 #: libretranslate/templates/index.html:312
 msgid "Open Source Machine Translation API"
@@ -639,15 +637,15 @@ msgid "License:"
 msgstr "Lisenziya:"
 
 #: libretranslate/templates/index.html:337
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "This public API should be used for testing, personal or infrequent use. "
 "If you're going to run an application in production, please "
 "%(host_server)s or %(get_api_key)s."
 msgstr ""
 "Bu ictimai API test üçün istifadə olunmalıdır, xüsusi və ya infrequent "
-"istifadə. istehsalda bir proqram işləyirsinizsə, lütfen <x> 0</x> və ya "
-"%(get_api_key)s. %(host_server)s"
+"istifadə. istehsalda bir proqram işləyirsinizsə, lütfen %(host_server)s ya "
+"%(get_api_key)s."
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
@@ -658,15 +656,14 @@ msgid "get an API key"
 msgstr "bir API əsas almaq"
 
 #: libretranslate/templates/index.html:345
-#, python-format
+#, fuzzy, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
-msgstr "Yaponiya <x> 0</x> by %(contributors)s və tərəfdaşlıq %(engine)s %(heart)s"
+msgstr "Yaponiya %(heart)s by %(contributors)s və tərəfdaşlıq %(engine)s"
 
 #: libretranslate/templates/index.html:345
-#, python-format
+#, fuzzy, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr "<x> 0</x> Kontributors %(libretranslate)s"
+msgstr "%(libretranslate)s Kontributors"
 
 #~ msgid "multipart/form-data"
 #~ msgstr "multipart/form-data"
-
