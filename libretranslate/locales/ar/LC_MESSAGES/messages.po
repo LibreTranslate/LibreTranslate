@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-07 13:03+0000\n"
-"Last-Translator: ButterflyOfFire <ButterflyOfFire@protonmail.com>\n"
+"PO-Revision-Date: 2023-01-10 09:57+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/libretranslate/"
 "app/ar/>\n"
 "Language: ar\n"
@@ -47,9 +47,9 @@ msgid "Please contact the server operator to get an API key"
 msgstr "يرجى الاتصال بمشغل الخادم للحصول على مفتاح API"
 
 #: libretranslate/app.py:229
-#, python-format
+#, fuzzy, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr "زيارة <x>صفر</x> للحصول على مفتاح %(url)s"
+msgstr "زيارة %(url)s للحصول على مفتاح"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
@@ -61,41 +61,37 @@ msgstr "التباطؤ:"
 #: libretranslate/app.py:838 libretranslate/app.py:987
 #: libretranslate/app.py:989 libretranslate/app.py:991
 #: libretranslate/app.py:993
-#, python-format
+#, fuzzy, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr "عدم وجود طلب: مفقود <x>صفر</x> البارامترات %(name)s"
+msgstr "عدم وجود طلب: مفقود %(name)s البارامترات"
 
 #: libretranslate/app.py:480 libretranslate/app.py:492
-#, python-format
+#, fuzzy, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
-msgstr ""
-"الطلب غير المستوفى: الطلب (<x>صفر</x>(أ) تتجاوز حدود النص (%(limit)s) "
-"%(size)s"
+msgstr "الطلب غير المستوفى: الطلب (%(size)s) تتجاوز حدود النص (%(limit)s)"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
 #: libretranslate/app.py:700 libretranslate/app.py:705
-#, python-format
+#, fuzzy, python-format
 msgid "%(lang)s is not supported"
-msgstr "<x>صفر</x> غير مدعوم %(lang)s"
+msgstr "%(lang)s غير مدعوم‬"
 
 #: libretranslate/app.py:536
-#, python-format
+#, fuzzy, python-format
 msgid "%(format)s format is not supported"
-msgstr "<x>صفر</x> الشكل غير مدعم %(format)s"
+msgstr "%(format)s الشكل غير مدعم"
 
 #: libretranslate/app.py:544 libretranslate/app.py:568
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
-msgstr ""
-"<x>صفر</x> )أ(%(tcode)sغير متاح كلغة مستهدفة %(sname)s )أ(%(scode)s) "
-"%(tname)s"
+msgstr "%(tname)s %(tcode)sغير متاح كلغة مستهدفة%(sname)s %(scode)s"
 
 #: libretranslate/app.py:589
-#, python-format
+#, fuzzy, python-format
 msgid "Cannot translate text: %(text)s"
-msgstr "لا يمكن ترجمة النص: <x>صفر</x> %(text)s"
+msgstr "لا يمكن ترجمة النص: %(text)s"
 
 #: libretranslate/app.py:676 libretranslate/app.py:730
 msgid "Files translation are disabled on this server."
@@ -456,9 +452,9 @@ msgstr "نسخة"
 #: libretranslate/templates/app.js.template:332
 #: libretranslate/templates/app.js.template:402
 #: libretranslate/templates/app.js.template:447
-#, python-format
+#, fuzzy, python-format
 msgid "Cannot load %(url)s"
-msgstr "لا يمكن تحميل <x>صفر</x> %(url)s"
+msgstr "لا يمكن تحميل صفر %(url)s"
 
 #: libretranslate/templates/app.js.template:253
 #: libretranslate/templates/app.js.template:323
@@ -482,9 +478,9 @@ msgid "No languages available. Did you install the models correctly?"
 msgstr "لا توجد لغات متاحة. هل وضعت النماذج بشكل صحيح؟?"
 
 #: libretranslate/templates/app.js.template:479
-#, python-format
+#, fuzzy, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
-msgstr "نوع في مفتاحك إذا كنت بحاجة إلى مفتاح API، <x>صفر</x> %(instructions)s"
+msgstr "نوع في مفتاحك إذا كنت بحاجة إلى مفتاح API، صفر %(instructions)s"
 
 #: libretranslate/templates/app.js.template:479
 msgid "press the \"Get API Key\" link."
@@ -653,14 +649,14 @@ msgid "get an API key"
 msgstr "الحصول على مفتاح API"
 
 #: libretranslate/templates/index.html:345
-#, python-format
+#, fuzzy, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
-msgstr "مصنوعة <x>صفر</x> من قبل %(contributors)s وقوّة %(engine)s %(heart)s"
+msgstr "مصنوعة %(heart)s من قبل %(contributors)s وقوّة %(engine)s"
 
 #: libretranslate/templates/index.html:345
-#, python-format
+#, fuzzy, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr "<x>صفر</x> المساهمون %(libretranslate)s"
+msgstr "%(libretranslate)s المساهمون"
 
 #~ msgid "multipart/form-data"
 #~ msgstr "البيانات المتعددة الجوانب/الرسمية"
