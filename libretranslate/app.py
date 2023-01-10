@@ -302,9 +302,9 @@ def create_app(args):
       if args.disable_web_ui:
             abort(404)
 
-      return render_template("app.js.template", 
+      return Response(render_template("app.js.template", 
             url_prefix=args.url_prefix,
-            get_api_key_link=args.get_api_key_link)
+            get_api_key_link=args.get_api_key_link), content_type='application/javascript; charset=utf-8')
 
     @bp.get("/languages")
     @limiter.exempt
