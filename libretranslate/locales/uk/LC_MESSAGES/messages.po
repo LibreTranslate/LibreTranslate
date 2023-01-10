@@ -9,15 +9,17 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-06 14:26-0500\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2023-01-10 09:57+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/libretranslate/"
+"app/uk/>\n"
 "Language: uk\n"
-"Language-Team: uk <LL@li.org>\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -47,7 +49,7 @@ msgstr "Будь ласка, зв'яжіться з оператором сер�
 #: libretranslate/app.py:229
 #, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr "Зареєструватися <x>0 товар(ов) - 0.00 р.</x> щоб отримати ключ API %(url)s"
+msgstr "Зареєструватися %(url)s щоб отримати ключ API"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
@@ -61,40 +63,37 @@ msgstr "Подача:"
 #: libretranslate/app.py:993
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr "Недійсний запит: відсутні <x>0 товар(ов) - 0.00 р.</x> параметр %(name)s"
+msgstr "Недійсний запит: відсутні %(name)s параметр"
 
 #: libretranslate/app.py:480 libretranslate/app.py:492
-#, python-format
+#, fuzzy, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
-"Заявка на неоплату: запит<x>0 товар(ов) - 0.00 р.</x>) перевищує "
-"текстовий ліміт (<x>1 час</x>й %(size)s %(limit)s"
+"Заявка на неоплату: запит (%(size)s) перевищує текстовий ліміт %(limit)s"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
 #: libretranslate/app.py:700 libretranslate/app.py:705
 #, python-format
 msgid "%(lang)s is not supported"
-msgstr "<x>0 товар(ов) - 0.00 р.</x> не підтримується %(lang)s"
+msgstr "%(lang)s не підтримується"
 
 #: libretranslate/app.py:536
-#, python-format
+#, fuzzy, python-format
 msgid "%(format)s format is not supported"
-msgstr "<x>0 товар(ов) - 0.00 р.</x> не підтримується %(format)s"
+msgstr "%(format)s не підтримується"
 
 #: libretranslate/app.py:544 libretranslate/app.py:568
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
 msgstr ""
-"<x>0 товар(ов) - 0.00 р.</x> (Українська)<x>1 час</x>) не доступна як "
-"цільова мова з <x>1 час</x> (Українська)<x>3 хв</x>й %(tname)s %(tcode)s "
-"%(sname)s %(scode)s"
+"%(tname)s (%(tcode)s) не доступна як цільова мова з %(sname)s (%(scode)s)"
 
 #: libretranslate/app.py:589
 #, python-format
 msgid "Cannot translate text: %(text)s"
-msgstr "Не перекладати текст: <x>0 товар(ов) - 0.00 р.</x> %(text)s"
+msgstr "Не перекладати текст: %(text)s"
 
 #: libretranslate/app.py:676 libretranslate/app.py:730
 msgid "Files translation are disabled on this server."
@@ -465,9 +464,9 @@ msgstr "Статус на сервери"
 #: libretranslate/templates/app.js.template:332
 #: libretranslate/templates/app.js.template:402
 #: libretranslate/templates/app.js.template:447
-#, python-format
+#, fuzzy, python-format
 msgid "Cannot load %(url)s"
-msgstr "Навантаження <x>0 товар(ов) - 0.00 р.</x> %(url)s"
+msgstr "Навантаження %(url)s"
 
 #: libretranslate/templates/app.js.template:253
 #: libretranslate/templates/app.js.template:323
@@ -491,11 +490,9 @@ msgid "No languages available. Did you install the models correctly?"
 msgstr "Немає доступних мов. Чи правильно встановити моделі?"
 
 #: libretranslate/templates/app.js.template:479
-#, python-format
+#, fuzzy, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
-msgstr ""
-"Тип у ключі API. Якщо вам потрібен ключ API, <x>0 товар(ов) - 0.00 р.</x>"
-" %(instructions)s"
+msgstr "Тип у ключі API. Якщо вам потрібен ключ API, %(instructions)s"
 
 #: libretranslate/templates/app.js.template:479
 msgid "press the \"Get API Key\" link."
@@ -645,16 +642,15 @@ msgid "License:"
 msgstr "Ліцензія:"
 
 #: libretranslate/templates/index.html:337
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "This public API should be used for testing, personal or infrequent use. "
 "If you're going to run an application in production, please "
 "%(host_server)s or %(get_api_key)s."
 msgstr ""
-"Цей публічний API повинен бути використаний для тестування, особистого "
-"або непрямого використання. Якщо ви збираєтеся працювати на виробництві, "
-"будь ласка, <x>0 товар(ов) - 0.00 р.</x> або <x>1 час</x>й "
-"%(host_server)s %(get_api_key)s"
+"Цей публічний API повинен бути використаний для тестування, особистого або "
+"непрямого використання. Якщо ви збираєтеся працювати на виробництві, будь "
+"ласка, %(host_server)s або %(get_api_key)s."
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
@@ -667,15 +663,12 @@ msgstr "отримати ключ API"
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
-msgstr ""
-"Виготовлений з <x>0 товар(ов) - 0.00 р.</x> від <x>1 час</x> і живлення "
-"<x>1 час</x> %(heart)s %(contributors)s %(engine)s"
+msgstr "Виготовлений з %(heart)s від %(contributors)s і живлення %(engine)s"
 
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr "<x>0 товар(ов) - 0.00 р.</x> Внески %(libretranslate)s"
+msgstr ""
 
 #~ msgid "multipart/form-data"
 #~ msgstr "мультипарт/форм-дані"
-

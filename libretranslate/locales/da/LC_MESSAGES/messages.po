@@ -9,14 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-06 14:26-0500\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2023-01-10 09:57+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/libretranslate/"
+"app/da/>\n"
 "Language: da\n"
-"Language-Team: da <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -46,7 +48,7 @@ msgstr "Kontakt serveroperatøren for at få en API-nøgle"
 #: libretranslate/app.py:229
 #, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr "Besøg Besøg %(url)s at få en API-nøgle"
+msgstr "Besøg %(url)s at få en API-nøgle"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
@@ -60,16 +62,14 @@ msgstr "Langlægning:"
 #: libretranslate/app.py:993
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr ""
-"Ugyldig anmodning: manglende %(name)s parameter parameter parameter "
-"parameter parameter"
+msgstr "Ugyldig anmodning: manglende %(name)s-parameter"
 
 #: libretranslate/app.py:480 libretranslate/app.py:492
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
-"Ugyldig anmodning: anmodning (%(size)s) overskrider tekstgrænse (<x>1 1 1"
-" 1</x>) %(limit)s"
+"Ugyldig anmodning: anmodningen (%(size)s) overskrider tekstgrænsen "
+"(%(limit)s)"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
 #: libretranslate/app.py:700 libretranslate/app.py:705
@@ -88,8 +88,8 @@ msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
 msgstr ""
-"%(tname)s (()<x>1 1 1 1</x>) er ikke tilgængelig som et målsprog fra <x>2"
-" 2 2</x> (()%(scode)s) %(tcode)s %(sname)s"
+"%(tname)s (%(tcode)s) er ikke tilgængelig som målsprog fra %(sname)s "
+"(%(scode)s)"
 
 #: libretranslate/app.py:589
 #, python-format
@@ -118,11 +118,11 @@ msgstr "Forslag er deaktiveret på denne server."
 
 #: libretranslate/locales/.langs.py:1
 msgid "English"
-msgstr "Engelsk engelsk"
+msgstr "Engelsk"
 
 #: libretranslate/locales/.langs.py:2
 msgid "Arabic"
-msgstr "Arabisk arabisk arabisk"
+msgstr "Arabisk"
 
 #: libretranslate/locales/.langs.py:3
 msgid "Azerbaijani"
@@ -130,43 +130,43 @@ msgstr "Aserbajdsjan"
 
 #: libretranslate/locales/.langs.py:4
 msgid "Chinese"
-msgstr "Kinesisk kinesisk"
+msgstr "Kinesisk"
 
 #: libretranslate/locales/.langs.py:5
 msgid "Czech"
-msgstr "Tjekkisk tjekkisk"
+msgstr "Tjekkisk"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Danish"
-msgstr "Dansk dansk dansk dansk dansk"
+msgstr "Dansk"
 
 #: libretranslate/locales/.langs.py:7
 msgid "Dutch"
-msgstr "Hollandske hollandske"
+msgstr "Hollandske"
 
 #: libretranslate/locales/.langs.py:8
 msgid "Esperanto"
-msgstr "Esperan"
+msgstr "Esperanto"
 
 #: libretranslate/locales/.langs.py:9
 msgid "Finnish"
-msgstr "Finsk finsk"
+msgstr "Finsk"
 
 #: libretranslate/locales/.langs.py:10
 msgid "French"
-msgstr "Fransk fransk fransk"
+msgstr "Fransk"
 
 #: libretranslate/locales/.langs.py:11
 msgid "German"
-msgstr "Tysk tysk"
+msgstr "Tysk"
 
 #: libretranslate/locales/.langs.py:12
 msgid "Greek"
-msgstr "Græsk Græsk"
+msgstr "Græsk"
 
 #: libretranslate/locales/.langs.py:13
 msgid "Hebrew"
-msgstr "Hebræisk hebræisk"
+msgstr "Hebræisk"
 
 #: libretranslate/locales/.langs.py:14
 msgid "Hindi"
@@ -182,45 +182,35 @@ msgstr "Indonesisk"
 
 #: libretranslate/locales/.langs.py:17
 msgid "Irish"
-msgstr "Irsk Irsk"
+msgstr "Irsk"
 
 #: libretranslate/locales/.langs.py:18
 msgid "Italian"
-msgstr "Italiensk Italiensk Italiensk"
+msgstr "Italiensk"
 
 #: libretranslate/locales/.langs.py:19
 msgid "Japanese"
-msgstr "Japansk japansk"
+msgstr "Japansk"
 
 #: libretranslate/locales/.langs.py:20
 msgid "Korean"
-msgstr "Koreansk koreansk"
+msgstr "Koreansk"
 
 #: libretranslate/locales/.langs.py:21
 msgid "Persian"
-msgstr ""
-"Persisk persisk persisk persisk persisk persisk persisk persisk persisk "
-"persisk persisk persisk persisk persisk persisk persisk persisk persisk "
-"persisk persisk persisk persisk persisk persisk persisk persisk persisk "
-"persisk persisk pers persisk persisk pers pers pers pers pers pers pers "
-"pers pers persisk persisk pers pers pers pers pers pers pers pers pers "
-"pers pers pers pers pers pers pers pers pers pers pers pers pers pers "
-"pers per pers pers pers per pers per per per per per per pers pers pers "
-"pers pers pers pers pers pers pers pers pers pers pers pers pers pers "
-"pers pers pers pers pers pers pers pers pers pers pers per per per per "
-"per per pers per per per per per per per per per"
+msgstr "Persisk"
 
 #: libretranslate/locales/.langs.py:22
 msgid "Polish"
-msgstr "Polsk polsk"
+msgstr "Polsk"
 
 #: libretranslate/locales/.langs.py:23
 msgid "Portuguese"
-msgstr "Portugisisk portugisisk"
+msgstr "Portugisisk"
 
 #: libretranslate/locales/.langs.py:24
 msgid "Russian"
-msgstr "Russisk russisk"
+msgstr "Russisk"
 
 #: libretranslate/locales/.langs.py:25
 msgid "Slovak"
@@ -228,15 +218,15 @@ msgstr "Slovakisk"
 
 #: libretranslate/locales/.langs.py:26
 msgid "Spanish"
-msgstr "Spansk spansk spansk spansk"
+msgstr "Spansk"
 
 #: libretranslate/locales/.langs.py:27
 msgid "Swedish"
-msgstr "Svensk svensk"
+msgstr "Svensk"
 
 #: libretranslate/locales/.langs.py:28
 msgid "Turkish"
-msgstr "Tyrkisk tyrkisk"
+msgstr "Tyrkisk"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Ukranian"
@@ -244,7 +234,7 @@ msgstr "Ukranian"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Vietnamese"
-msgstr "Vietnamesisk Vietnamesisk"
+msgstr "Vietnamesisk"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
@@ -256,15 +246,16 @@ msgstr "Liste over sprog"
 
 #: libretranslate/locales/.swag.py:3
 msgid "translate"
-msgstr "oversætter oversætte"
+msgstr "oversætter"
 
 #: libretranslate/locales/.swag.py:4
+#, fuzzy
 msgid "Translate text from a language to another"
-msgstr "Oversæt tekst fra et sprog til en anden"
+msgstr "Oversæt tekst fra et sprog til et andet"
 
 #: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:219
 msgid "Translated text"
-msgstr "Oversætt tekst"
+msgstr "Oversat tekst"
 
 #: libretranslate/locales/.swag.py:6
 msgid "Invalid request"
@@ -272,19 +263,20 @@ msgstr "Ugyldig anmodning"
 
 #: libretranslate/locales/.swag.py:7
 msgid "Translation error"
-msgstr "Oversættelse fejl"
+msgstr "Oversættelsesfejl"
 
 #: libretranslate/locales/.swag.py:8
+#, fuzzy
 msgid "Slow down"
 msgstr "Langsomt ned"
 
 #: libretranslate/locales/.swag.py:9
 msgid "Banned"
-msgstr "Banned"
+msgstr "Bandlyst"
 
 #: libretranslate/locales/.swag.py:10
 msgid "Hello world!"
-msgstr "Hej Verden!"
+msgstr "Hej verden!"
 
 #: libretranslate/locales/.swag.py:11
 #, fuzzy
@@ -292,19 +284,16 @@ msgid "Text(s) to translate"
 msgstr "Tekst til at oversætte"
 
 #: libretranslate/locales/.swag.py:12
-#, fuzzy
 msgid "Source language code"
-msgstr "Sprogkode"
+msgstr "Kildesprogkode"
 
 #: libretranslate/locales/.swag.py:13
-#, fuzzy
 msgid "Target language code"
-msgstr "Understøttede sprogkoder"
+msgstr "Målsprogkoder"
 
 #: libretranslate/locales/.swag.py:14
-#, fuzzy
 msgid "text"
-msgstr "Kopier tekst"
+msgstr "tekst"
 
 #: libretranslate/locales/.swag.py:15
 msgid "html"
@@ -321,13 +310,12 @@ msgstr ""
 "* `html' - HTML-markup\n"
 
 #: libretranslate/locales/.swag.py:17
-#, fuzzy
 msgid "API key"
-msgstr "api"
+msgstr "API-nøgle"
 
 #: libretranslate/locales/.swag.py:18
 msgid "Translate file from a language to another"
-msgstr "Oversæt fil fra et sprog til en anden"
+msgstr "Oversæt fil fra et sprog til et andet"
 
 #: libretranslate/locales/.swag.py:19
 msgid "Translated file"
@@ -336,7 +324,7 @@ msgstr "Oversat fil"
 #: libretranslate/locales/.swag.py:20
 #, fuzzy
 msgid "File to translate"
-msgstr "Tekst til at oversætte"
+msgstr "Tekst at oversætte"
 
 #: libretranslate/locales/.swag.py:21
 msgid "Detect the language of a single text"
@@ -568,11 +556,11 @@ msgstr "Begrænsninger"
 
 #: libretranslate/templates/index.html:168
 msgid "Translation API"
-msgstr "Oversættelse API"
+msgstr "Oversættelses-API"
 
 #: libretranslate/templates/index.html:172
 msgid "Translate Text"
-msgstr "Oversæt Tekst"
+msgstr "Oversæt tekst"
 
 #: libretranslate/templates/index.html:176
 msgid "Translate Files"
@@ -588,15 +576,17 @@ msgstr "Skift kilde- og målsprog"
 
 #: libretranslate/templates/index.html:195
 msgid "Translate into"
-msgstr "Oversæt ind"
+msgstr "Oversæt til"
 
 #: libretranslate/templates/index.html:207
+#, fuzzy
 msgid "Text to translate"
-msgstr "Tekst til at oversætte"
+msgstr "Tekst at oversætte"
 
 #: libretranslate/templates/index.html:210
+#, fuzzy
 msgid "Delete text"
-msgstr "Slette tekst"
+msgstr "Slet tekst"
 
 #: libretranslate/templates/index.html:223
 msgid "Suggest translation"
@@ -604,16 +594,11 @@ msgstr "Foreslå oversættelse"
 
 #: libretranslate/templates/index.html:227
 msgid "Cancel"
-msgstr "Annuller Annuller Annuller Annuller Annuller"
+msgstr "Annuller"
 
 #: libretranslate/templates/index.html:230
 msgid "Send"
-msgstr ""
-"Send Send Send en Send Send Send Send Send Send Send Send Send Send Send "
-"Send Send Send Send Send Send Send Send Send Send Send Send Send Send "
-"Send Send Send Send Send Send Send Send Send Send Send Send Send Send "
-"Send Send Send Send Send Send Send Send Send Send Send Send Send Send "
-"Send Send Send Send Send Send Send Send Send Send Send Send Send Send"
+msgstr "Send"
 
 #: libretranslate/templates/index.html:246
 msgid "Supported file formats:"
@@ -621,7 +606,7 @@ msgstr "Understøttede filformater:"
 
 #: libretranslate/templates/index.html:250
 msgid "File"
-msgstr "Filen fil"
+msgstr "Fil"
 
 #: libretranslate/templates/index.html:265
 msgid "Remove file"
@@ -634,7 +619,7 @@ msgstr "Oversæt"
 #: libretranslate/templates/index.html:273
 #: libretranslate/templates/index.html:317
 msgid "Download"
-msgstr "Download Download Download Download"
+msgstr "Download"
 
 #: libretranslate/templates/index.html:292
 msgid "Request"
@@ -645,8 +630,9 @@ msgid "Response"
 msgstr "Svar"
 
 #: libretranslate/templates/index.html:312
+#, fuzzy
 msgid "Open Source Machine Translation API"
-msgstr "Åbn Source Machine Oversættelse API"
+msgstr "Frit maskinoversættelses-API"
 
 #: libretranslate/templates/index.html:313
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
@@ -654,7 +640,7 @@ msgstr "Self-Hosted. Offline Capable. Nem at konfigurere."
 
 #: libretranslate/templates/index.html:332
 msgid "LibreTranslate"
-msgstr "Oversættelse af LibreTranslate"
+msgstr "LibreTranslate"
 
 #: libretranslate/templates/index.html:334
 msgid "License:"
@@ -667,11 +653,12 @@ msgid ""
 "If you're going to run an application in production, please "
 "%(host_server)s or %(get_api_key)s."
 msgstr ""
-"Denne offentlige API skal bruges til test, personlig eller infrequent "
-"brug. Hvis du vil køre en ansøgning i produktionen, bedes du venligst "
-"%(host_server)s eller eller eller <x>1 1 1 1</x>. %(get_api_key)s"
+"Denne offentlige API skal bruges til test, personlig eller sjælden brug. "
+"Hvis du vil køre en ansøgning i produktionen, bedes du venligst "
+"%(host_server)s eller %(get_api_key)s"
 
 #: libretranslate/templates/index.html:337
+#, fuzzy
 msgid "host your own server"
 msgstr "værts din egen server"
 
@@ -682,15 +669,12 @@ msgstr "få en API-nøgle"
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
-msgstr ""
-"Lavet med %(heart)s af by <x>1 1 1 1</x> og drevet af <x>2 2 2</x> "
-"%(contributors)s %(engine)s"
+msgstr "Lavet med %(heart)s af by %(contributors)s og drevet af %(engine)s"
 
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr "%(libretranslate)s Bidragsydere"
+msgstr "%(libretranslate)s-bidragsydere"
 
 #~ msgid "multipart/form-data"
 #~ msgstr "multipart/form-data"
-

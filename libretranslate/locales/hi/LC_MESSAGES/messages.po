@@ -9,14 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-06 14:26-0500\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2023-01-10 09:57+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Hindi <https://hosted.weblate.org/projects/libretranslate/app/"
+"hi/>\n"
 "Language: hi\n"
-"Language-Team: hi <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -660,7 +662,7 @@ msgid "get an API key"
 msgstr "एपीआई कुंजी प्राप्त करें"
 
 #: libretranslate/templates/index.html:345
-#, python-format
+#, fuzzy, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
 msgstr "साथ %(heart)s द्वारा %(contributors)s द्वारा संचालित %(engine)s"
 
@@ -671,4 +673,3 @@ msgstr "%(libretranslate)s योगदानकर्ता"
 
 #~ msgid "multipart/form-data"
 #~ msgstr "multipart/form-data"
-

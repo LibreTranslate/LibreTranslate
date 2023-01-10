@@ -9,14 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-06 14:26-0500\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2023-01-10 09:57+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/libretranslate/app/"
+"nl/>\n"
 "Language: nl\n"
-"Language-Team: nl <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -46,7 +48,7 @@ msgstr "Neem contact op met de server-operator om een API sleutel te krijgen"
 #: libretranslate/app.py:229
 #, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr "Bezoek <x>_</x> Om een API sleutel te krijgen %(url)s"
+msgstr "Bezoek %(url)s om een API sleutel te krijgen"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
@@ -58,25 +60,25 @@ msgstr "Rustig aan"
 #: libretranslate/app.py:838 libretranslate/app.py:987
 #: libretranslate/app.py:989 libretranslate/app.py:991
 #: libretranslate/app.py:993
-#, python-format
+#, fuzzy, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr "Ongeldige verzoek: <x>_</x> Parameter %(name)s"
+msgstr "Ongeldige verzoek: %(name)s parameter"
 
 #: libretranslate/app.py:480 libretranslate/app.py:492
-#, python-format
+#, fuzzy, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
-msgstr "Invalide verzoek:<x>_</x>_%(limit)s♪ %(size)s"
+msgstr "Invalide verzoek: (%(size)s) / (%(limit)s)"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
 #: libretranslate/app.py:700 libretranslate/app.py:705
 #, python-format
 msgid "%(lang)s is not supported"
-msgstr "<x>_</x> is niet gesteund %(lang)s"
+msgstr "%(lang)s is niet gesteund"
 
 #: libretranslate/app.py:536
 #, python-format
 msgid "%(format)s format is not supported"
-msgstr "<x>_</x> formaat is niet gesteund %(format)s"
+msgstr "%(format)s formaat is niet gesteund"
 
 #: libretranslate/app.py:544 libretranslate/app.py:568
 #, python-format
@@ -84,13 +86,13 @@ msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
 msgstr ""
-"<x>_</x> ()%(tcode)sIs niet beschikbaar als een doeltaal van %(sname)s "
-"()%(scode)s♪ %(tname)s"
+"%(tname)s (%(tcode)s) Is niet beschikbaar als een doeltaal van %(sname)s "
+"(%(scode)s)"
 
 #: libretranslate/app.py:589
 #, python-format
 msgid "Cannot translate text: %(text)s"
-msgstr "Kan niet vertaalen tekst: <x>_</x> %(text)s"
+msgstr "Kan niet vertaalen tekst: %(text)s"
 
 #: libretranslate/app.py:676 libretranslate/app.py:730
 msgid "Files translation are disabled on this server."
@@ -463,7 +465,7 @@ msgstr "Begrepen"
 #: libretranslate/templates/app.js.template:447
 #, python-format
 msgid "Cannot load %(url)s"
-msgstr "Kan niet laden <x>_</x> %(url)s"
+msgstr "Kan niet laden %(url)s"
 
 #: libretranslate/templates/app.js.template:253
 #: libretranslate/templates/app.js.template:323
@@ -487,11 +489,9 @@ msgid "No languages available. Did you install the models correctly?"
 msgstr "Geen talen beschikbaar. Heb je de modellen correct geïnstalleerd?"
 
 #: libretranslate/templates/app.js.template:479
-#, python-format
+#, fuzzy, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
-msgstr ""
-"Type in je API Key. Als je een API sleutel nodig hebt, <x>_</x> "
-"%(instructions)s"
+msgstr "Type in je API key. Als je een API sleutel nodig hebt, %(instructions)s"
 
 #: libretranslate/templates/app.js.template:479
 msgid "press the \"Get API Key\" link."
@@ -642,15 +642,15 @@ msgid "License:"
 msgstr "License:"
 
 #: libretranslate/templates/index.html:337
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "This public API should be used for testing, personal or infrequent use. "
 "If you're going to run an application in production, please "
 "%(host_server)s or %(get_api_key)s."
 msgstr ""
-"Deze openbare aanklager moet worden gebruikt voor testen, persoonlijk of "
-"in gebruik. Als je een aanvraag in de productie doet, alsjeblieft. "
-"<x>_</x> Of... %(get_api_key)s. %(host_server)s"
+"Deze openbare aanklager moet worden gebruikt voor testen, persoonlijk of in "
+"gebruik. Als je een aanvraag in de productie doet, alsjeblieft. "
+"%(host_server)s of... %(get_api_key)s."
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
@@ -661,15 +661,14 @@ msgid "get an API key"
 msgstr "haal een API sleutel"
 
 #: libretranslate/templates/index.html:345
-#, python-format
+#, fuzzy, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
-msgstr "Gemaakt met <x>_</x> ♪ %(contributors)s _ %(engine)s %(heart)s"
+msgstr "Gemaakt met %(heart)s ♪ %(contributors)s %(engine)s"
 
 #: libretranslate/templates/index.html:345
-#, python-format
+#, fuzzy, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr "<x>_</x> Verboden %(libretranslate)s"
+msgstr "%(libretranslate)s Verboden"
 
 #~ msgid "multipart/form-data"
 #~ msgstr "multipart/form-data"
-

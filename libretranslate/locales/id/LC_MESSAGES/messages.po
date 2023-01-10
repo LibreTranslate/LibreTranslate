@@ -9,14 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-06 14:26-0500\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2023-01-10 09:57+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
+"libretranslate/app/id/>\n"
 "Language: id\n"
-"Language-Team: id <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -29,7 +31,7 @@ msgstr "Deteksi Otomatis"
 
 #: libretranslate/app.py:193
 msgid "Unauthorized"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/app.py:211
 msgid "Too many request limits violations"
@@ -44,13 +46,13 @@ msgid "Please contact the server operator to get an API key"
 msgstr "Silakan hubungi operator server untuk mendapatkan kunci API"
 
 #: libretranslate/app.py:229
-#, python-format
+#, fuzzy, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr "Sitemap <x>Sitemap</x> untuk mendapatkan kunci API %(url)s"
+msgstr "Sitemap %(url)s untuk mendapatkan kunci API"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
-msgstr "Login:"
+msgstr ""
 
 #: libretranslate/app.py:467 libretranslate/app.py:469
 #: libretranslate/app.py:471 libretranslate/app.py:683
@@ -58,27 +60,26 @@ msgstr "Login:"
 #: libretranslate/app.py:838 libretranslate/app.py:987
 #: libretranslate/app.py:989 libretranslate/app.py:991
 #: libretranslate/app.py:993
-#, python-format
+#, fuzzy, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr "permintaan tidak valid: hilang <x>Sitemap</x> Login %(name)s"
+msgstr "permintaan tidak valid: hilang %(name)s"
 
 #: libretranslate/app.py:480 libretranslate/app.py:492
-#, python-format
+#, fuzzy, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
-"permintaan tidak valid: permintaan (<x>Sitemap</x>) melebihi batas teks "
-"(<x>1 Artikel</x>Sitemap %(size)s %(limit)s"
+"Permintaan tidak valid: permintaan (%(size)s) melebihi batas teks (%(limit)s)"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
 #: libretranslate/app.py:700 libretranslate/app.py:705
 #, python-format
 msgid "%(lang)s is not supported"
-msgstr "<x>Sitemap</x> tidak didukung %(lang)s"
+msgstr "%(lang)s tidak didukung"
 
 #: libretranslate/app.py:536
-#, python-format
+#, fuzzy, python-format
 msgid "%(format)s format is not supported"
-msgstr "<x>Sitemap</x> format tidak didukung %(format)s"
+msgstr "%(format)s format tidak didukung"
 
 #: libretranslate/app.py:544 libretranslate/app.py:568
 #, python-format
@@ -86,14 +87,13 @@ msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
 msgstr ""
-"<x>Sitemap</x> Sitemap<x>1 Artikel</x>) tidak tersedia sebagai bahasa "
-"target dari <x>1 Artikel</x> Sitemap<x>Sitemap</x>Sitemap %(tname)s "
-"%(tcode)s %(sname)s %(scode)s"
+"%(tname)s (%(tcode)s) tidak tersedia sebagai bahasa target dari %(sname)s "
+"(%(scode)s)"
 
 #: libretranslate/app.py:589
 #, python-format
 msgid "Cannot translate text: %(text)s"
-msgstr "Tidak dapat menerjemahkan teks: <x>Sitemap</x> %(text)s"
+msgstr "Tidak dapat menerjemahkan teks: %(text)s"
 
 #: libretranslate/app.py:676 libretranslate/app.py:730
 msgid "Files translation are disabled on this server."
@@ -117,63 +117,64 @@ msgstr "Saran dinonaktifkan pada server ini."
 
 #: libretranslate/locales/.langs.py:1
 msgid "English"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:2
 msgid "Arabic"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:3
 msgid "Azerbaijani"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:4
 msgid "Chinese"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:5
 msgid "Czech"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:6
 msgid "Danish"
-msgstr "Login"
+msgstr "Bahasa Denmark"
 
 #: libretranslate/locales/.langs.py:7
 msgid "Dutch"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:8
 msgid "Esperanto"
-msgstr "Login"
+msgstr "Bahasa Esperanto"
 
 #: libretranslate/locales/.langs.py:9
 msgid "Finnish"
-msgstr "Login"
+msgstr "Bahasa Suomi"
 
 #: libretranslate/locales/.langs.py:10
 msgid "French"
-msgstr "Login"
+msgstr "Bahasa Prancis"
 
 #: libretranslate/locales/.langs.py:11
+#, fuzzy
 msgid "German"
-msgstr "Login"
+msgstr "Bahasa Jerman"
 
 #: libretranslate/locales/.langs.py:12
 msgid "Greek"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:13
 msgid "Hebrew"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:14
 msgid "Hindi"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:15
 msgid "Hungarian"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:16
 msgid "Indonesian"
@@ -181,15 +182,15 @@ msgstr "Indonesia"
 
 #: libretranslate/locales/.langs.py:17
 msgid "Irish"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:18
 msgid "Italian"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:19
 msgid "Japanese"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:20
 msgid "Korean"
@@ -197,15 +198,15 @@ msgstr "Korea"
 
 #: libretranslate/locales/.langs.py:21
 msgid "Persian"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:22
 msgid "Polish"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:23
 msgid "Portuguese"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:24
 msgid "Russian"
@@ -213,27 +214,27 @@ msgstr "Rusia"
 
 #: libretranslate/locales/.langs.py:25
 msgid "Slovak"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:26
 msgid "Spanish"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:27
 msgid "Swedish"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:28
 msgid "Turkish"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:29
 msgid "Ukranian"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.langs.py:30
 msgid "Vietnamese"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
@@ -245,7 +246,7 @@ msgstr "Daftar bahasa"
 
 #: libretranslate/locales/.swag.py:3
 msgid "translate"
-msgstr "login"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:4
 msgid "Translate text from a language to another"
@@ -265,11 +266,11 @@ msgstr "Database"
 
 #: libretranslate/locales/.swag.py:8
 msgid "Slow down"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:9
 msgid "Banned"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:10
 msgid "Hello world!"
@@ -297,7 +298,7 @@ msgstr "Fotokopi"
 
 #: libretranslate/locales/.swag.py:15
 msgid "html"
-msgstr "login"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:16
 msgid ""
@@ -310,9 +311,8 @@ msgstr ""
 "* `html` - HTML markup\n"
 
 #: libretranslate/locales/.swag.py:17
-#, fuzzy
 msgid "API key"
-msgstr "login"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:18
 msgid "Translate file from a language to another"
@@ -333,7 +333,7 @@ msgstr "Mendeteksi bahasa teks tunggal"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Detections"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:23
 msgid "Detection error"
@@ -354,7 +354,7 @@ msgstr "pengaturan frontend"
 
 #: libretranslate/locales/.swag.py:27
 msgid "frontend"
-msgstr "login"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:28
 msgid "Submit a suggestion to improve a translation"
@@ -389,7 +389,7 @@ msgstr "Terjemahan yang disarankan"
 
 #: libretranslate/locales/.swag.py:35
 msgid "feedback"
-msgstr "login"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:36
 msgid "Language code"
@@ -466,7 +466,7 @@ msgstr "Fotokopi"
 #: libretranslate/templates/app.js.template:447
 #, python-format
 msgid "Cannot load %(url)s"
-msgstr "Tidak dapat memuat <x>Sitemap</x> %(url)s"
+msgstr "Tidak dapat memuat %(url)s"
 
 #: libretranslate/templates/app.js.template:253
 #: libretranslate/templates/app.js.template:323
@@ -477,7 +477,7 @@ msgstr "Kesalahan tidak diketahui"
 
 #: libretranslate/templates/app.js.template:276
 msgid "Copied"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/templates/app.js.template:320
 msgid ""
@@ -492,9 +492,9 @@ msgid "No languages available. Did you install the models correctly?"
 msgstr "Tidak ada bahasa yang tersedia. Apakah Anda menginstal model dengan benar?"
 
 #: libretranslate/templates/app.js.template:479
-#, python-format
+#, fuzzy, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
-msgstr "API Key Jika Anda membutuhkan kunci API, <x>Sitemap</x> %(instructions)s"
+msgstr "API key Jika Anda membutuhkan kunci API, %(instructions)s"
 
 #: libretranslate/templates/app.js.template:479
 msgid "press the \"Get API Key\" link."
@@ -525,7 +525,7 @@ msgstr "sitemap"
 
 #: libretranslate/templates/index.html:11
 msgid "api"
-msgstr "login"
+msgstr ""
 
 #: libretranslate/templates/index.html:64
 msgid "API Docs"
@@ -533,15 +533,15 @@ msgstr "API Documents"
 
 #: libretranslate/templates/index.html:66
 msgid "Get API Key"
-msgstr "API Login"
+msgstr ""
 
 #: libretranslate/templates/index.html:68
 msgid "GitHub"
-msgstr "Login"
+msgstr "GitHub"
 
 #: libretranslate/templates/index.html:70
 msgid "Set API Key"
-msgstr "API Login"
+msgstr ""
 
 #: libretranslate/templates/index.html:72
 msgid "Change language"
@@ -549,11 +549,11 @@ msgstr "Mengubah bahasa"
 
 #: libretranslate/templates/index.html:78
 msgid "Edit"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/templates/index.html:154
 msgid "Dismiss"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/templates/index.html:168
 msgid "Translation API"
@@ -593,7 +593,7 @@ msgstr "Terjemahan yang disarankan"
 
 #: libretranslate/templates/index.html:227
 msgid "Cancel"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/templates/index.html:230
 msgid "Send"
@@ -605,7 +605,7 @@ msgstr "Format file yang didukung:"
 
 #: libretranslate/templates/index.html:250
 msgid "File"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/templates/index.html:265
 msgid "Remove file"
@@ -613,16 +613,16 @@ msgstr "Hapus file"
 
 #: libretranslate/templates/index.html:272
 msgid "Translate"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/templates/index.html:273
 #: libretranslate/templates/index.html:317
 msgid "Download"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/templates/index.html:292
 msgid "Request"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/templates/index.html:297
 msgid "Response"
@@ -633,19 +633,20 @@ msgid "Open Source Machine Translation API"
 msgstr "API documentation"
 
 #: libretranslate/templates/index.html:313
+#, fuzzy
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
-msgstr "Login Offline Mudah Pengaturan."
+msgstr "Offline Mudah Pengaturan."
 
 #: libretranslate/templates/index.html:332
 msgid "LibreTranslate"
-msgstr "Login"
+msgstr ""
 
 #: libretranslate/templates/index.html:334
 msgid "License:"
 msgstr "Lisensi:"
 
 #: libretranslate/templates/index.html:337
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "This public API should be used for testing, personal or infrequent use. "
 "If you're going to run an application in production, please "
@@ -653,8 +654,7 @@ msgid ""
 msgstr ""
 "API publik ini harus digunakan untuk pengujian, penggunaan pribadi atau "
 "jarang. Jika Anda akan menjalankan aplikasi dalam produksi, silakan "
-"<x>Sitemap</x> Sitemap <x>1 Artikel</x>Sitemap %(host_server)s "
-"%(get_api_key)s"
+"%(host_server)s %(get_api_key)s."
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
@@ -668,14 +668,11 @@ msgstr "aPI"
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
 msgstr ""
-"Sitemap <x>Sitemap</x> Sitemap <x>1 Artikel</x> Sitemap <x>1 Artikel</x> "
-"%(heart)s %(contributors)s %(engine)s"
 
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr "<x>Sitemap</x> Login %(libretranslate)s"
+msgstr ""
 
 #~ msgid "multipart/form-data"
 #~ msgstr "multipart/form-data"
-
