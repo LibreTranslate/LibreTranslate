@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-10 09:57+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2023-01-11 05:33+0000\n"
+"Last-Translator: Dan <denqwerta@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/libretranslate/"
 "app/uk/>\n"
 "Language: uk\n"
@@ -69,7 +69,7 @@ msgstr "Недійсний запит: відсутні %(name)s парамет�
 #, fuzzy, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
-"Заявка на неоплату: запит (%(size)s) перевищує текстовий ліміт %(limit)s"
+"Заявка на не оплату: запит (%(size)s) перевищує текстовий ліміт %(limit)s"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
 #: libretranslate/app.py:700 libretranslate/app.py:705
@@ -310,9 +310,8 @@ msgstr ""
 "* `html` - HTML розмітка\n"
 
 #: libretranslate/locales/.swag.py:17
-#, fuzzy
 msgid "API key"
-msgstr "апа"
+msgstr "API ключ"
 
 #: libretranslate/locales/.swag.py:18
 msgid "Translate file from a language to another"
@@ -642,15 +641,15 @@ msgid "License:"
 msgstr "Ліцензія:"
 
 #: libretranslate/templates/index.html:337
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "This public API should be used for testing, personal or infrequent use. "
 "If you're going to run an application in production, please "
 "%(host_server)s or %(get_api_key)s."
 msgstr ""
 "Цей публічний API повинен бути використаний для тестування, особистого або "
-"непрямого використання. Якщо ви збираєтеся працювати на виробництві, будь "
-"ласка, %(host_server)s або %(get_api_key)s."
+"нечастого використання. Якщо ви збираєтеся запустити застосунок у "
+"виробництві, будь ласка %(host_server)s або %(get_api_key)s."
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
