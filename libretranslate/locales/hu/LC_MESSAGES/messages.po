@@ -9,14 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-06 14:26-0500\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2023-01-10 09:57+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/libretranslate/"
+"app/hu/>\n"
 "Language: hu\n"
-"Language-Team: hu <LL@li.org>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -48,7 +50,7 @@ msgstr ""
 #: libretranslate/app.py:229
 #, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr "Látogatás <x>0 0</x> API kulcsot kapni %(url)s"
+msgstr "Látogatás %(url)s API kulcsot kapni"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
@@ -60,27 +62,26 @@ msgstr "Lassulás:"
 #: libretranslate/app.py:838 libretranslate/app.py:987
 #: libretranslate/app.py:989 libretranslate/app.py:991
 #: libretranslate/app.py:993
-#, python-format
+#, fuzzy, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr "Érvénytelen kérés: hiányzik <x>0 0</x> paraméter %(name)s"
+msgstr "Érvénytelen kérés: hiányzik %(name)s paraméter"
 
 #: libretranslate/app.py:480 libretranslate/app.py:492
-#, python-format
+#, fuzzy, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
-"Érvénytelen kérés: kérés (<x>0 0</x>) meghaladja a szövegkorlátot "
-"(%(limit)s) %(size)s"
+"Érvénytelen kérés: kérés (%(size)s) meghaladja a szövegkorlátot (%(limit)s)"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
 #: libretranslate/app.py:700 libretranslate/app.py:705
 #, python-format
 msgid "%(lang)s is not supported"
-msgstr "<x>0 0</x> nem támogatott %(lang)s"
+msgstr "%(lang)s nem támogatott"
 
 #: libretranslate/app.py:536
-#, python-format
+#, fuzzy, python-format
 msgid "%(format)s format is not supported"
-msgstr "<x>0 0</x> formátum nem támogatott %(format)s"
+msgstr "%(format)s-formátum nem támogatott"
 
 #: libretranslate/app.py:544 libretranslate/app.py:568
 #, python-format
@@ -88,13 +89,13 @@ msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
 msgstr ""
-"<x>0 0</x> ()%(tcode)s) nem áll rendelkezésre célnyelvként %(sname)s "
-"()%(scode)s) %(tname)s"
+"%(tname)s (%(tcode)s) nem áll rendelkezésre célnyelvként %(sname)s "
+"(%(scode)s)"
 
 #: libretranslate/app.py:589
 #, python-format
 msgid "Cannot translate text: %(text)s"
-msgstr "Nem fordítható szöveg: <x>0 0</x> %(text)s"
+msgstr "Nem fordítható szöveg: %(text)s"
 
 #: libretranslate/app.py:676 libretranslate/app.py:730
 msgid "Files translation are disabled on this server."
@@ -467,7 +468,7 @@ msgstr "Másolás szöveg"
 #: libretranslate/templates/app.js.template:447
 #, python-format
 msgid "Cannot load %(url)s"
-msgstr "Nem tölthet <x>0 0</x> %(url)s"
+msgstr "Nem tölthet %(url)s"
 
 #: libretranslate/templates/app.js.template:253
 #: libretranslate/templates/app.js.template:323
@@ -496,8 +497,7 @@ msgstr "Nincsenek nyelvek. Helyesen telepítette a modelleket?"
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
 msgstr ""
-"Típus az API kulcsodban. Ha szüksége van egy API kulcsra, <x>0 0</x> "
-"%(instructions)s"
+"Típus az API kulcsodban. Ha szüksége van egy API kulcsra, %(instructions)s"
 
 #: libretranslate/templates/app.js.template:479
 msgid "press the \"Get API Key\" link."
@@ -647,15 +647,15 @@ msgid "License:"
 msgstr "Engedély:"
 
 #: libretranslate/templates/index.html:337
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "This public API should be used for testing, personal or infrequent use. "
 "If you're going to run an application in production, please "
 "%(host_server)s or %(get_api_key)s."
 msgstr ""
-"Ezt a nyilvános API-t tesztelésre, személyes vagy gyakori használatra "
-"kell használni. Ha egy alkalmazást fog futtatni a termelésben, kérjük, "
-"<x>0 0</x> vagy %(get_api_key)s... %(host_server)s"
+"Ezt a nyilvános API-t tesztelésre, személyes vagy gyakori használatra kell "
+"használni. Ha egy alkalmazást fog futtatni a termelésben, kérjük, "
+"%(host_server)s vagy %(get_api_key)s."
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
@@ -668,15 +668,12 @@ msgstr "kap egy API kulcsot"
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
-msgstr ""
-"Made with <x>0 0</x> által %(contributors)s és erőteljes %(engine)s "
-"%(heart)s"
+msgstr "Made with %(heart)s által %(contributors)s és erőteljes %(engine)s"
 
 #: libretranslate/templates/index.html:345
-#, python-format
+#, fuzzy, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr "<x>0 0</x> Hozzájárulók %(libretranslate)s"
+msgstr "%(libretranslate)s Hozzájárulók"
 
 #~ msgid "multipart/form-data"
 #~ msgstr "multipart/form-data"
-
