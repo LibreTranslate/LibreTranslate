@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-10 09:57+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2023-01-13 15:53+0000\n"
+"Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
 "libretranslate/app/pt/>\n"
 "Language: pt\n"
@@ -96,19 +96,19 @@ msgstr "Não pode traduzir texto: %(text)s"
 
 #: libretranslate/app.py:676 libretranslate/app.py:730
 msgid "Files translation are disabled on this server."
-msgstr "A tradução de arquivos é desativada neste servidor."
+msgstr "A tradução de ficheiros é desativada neste servidor."
 
 #: libretranslate/app.py:690
 msgid "Invalid request: empty file"
-msgstr "Pedido inválido: arquivo vazio"
+msgstr "Pedido inválido: ficheiro vazio"
 
 #: libretranslate/app.py:693
 msgid "Invalid request: file format not supported"
-msgstr "Pedido inválido: formato de arquivo não suportado"
+msgstr "Pedido inválido: formato de ficheiro não suportado"
 
 #: libretranslate/app.py:738
 msgid "Invalid filename"
-msgstr "Nome de arquivo inválido"
+msgstr "Nome de ficheiro inválido"
 
 #: libretranslate/app.py:979
 msgid "Suggestions are disabled on this server."
@@ -315,7 +315,7 @@ msgstr "api"
 
 #: libretranslate/locales/.swag.py:18
 msgid "Translate file from a language to another"
-msgstr "Traduzir arquivo de uma língua para outro"
+msgstr "Traduzir ficheiro de uma língua para outro"
 
 #: libretranslate/locales/.swag.py:19
 msgid "Translated file"
@@ -444,7 +444,7 @@ msgstr "Se enviar sugestões está ativado."
 
 #: libretranslate/locales/.swag.py:49
 msgid "Supported files format"
-msgstr "Formato de arquivos suportados"
+msgstr "Formato de ficheiros suportados"
 
 #: libretranslate/locales/.swag.py:50
 msgid "Whether submission was successful"
@@ -564,7 +564,7 @@ msgstr "Traduzir texto"
 
 #: libretranslate/templates/index.html:176
 msgid "Translate Files"
-msgstr "Traduzir arquivos"
+msgstr "Traduzir ficheiros"
 
 #: libretranslate/templates/index.html:182
 msgid "Translate from"
@@ -600,7 +600,7 @@ msgstr "Enviar"
 
 #: libretranslate/templates/index.html:246
 msgid "Supported file formats:"
-msgstr "Formatos de arquivo suportados:"
+msgstr "Formatos de ficheiro suportados:"
 
 #: libretranslate/templates/index.html:250
 msgid "File"
@@ -608,7 +608,7 @@ msgstr "Arquivo"
 
 #: libretranslate/templates/index.html:265
 msgid "Remove file"
-msgstr "Remover arquivo"
+msgstr "Remover ficheiro"
 
 #: libretranslate/templates/index.html:272
 msgid "Translate"
