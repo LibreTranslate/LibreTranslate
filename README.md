@@ -307,7 +307,7 @@ If you use Gunicorn, make sure to create a directory for storing multiprocess da
 mkdir -p /tmp/prometheus_data
 rm /tmp/prometheus_data/*
 export PROMETHEUS_MULTIPROC_DIR=/tmp/prometheus_data 
-gunicorn -c gunicorn_conf.py --bind 0.0.0.0:5000 'wsgi:app(metrics=True)' 
+gunicorn -c scripts/gunicorn_conf.py --bind 0.0.0.0:5000 'wsgi:app(metrics=True)' 
 ```
 
 ## Language Bindings
