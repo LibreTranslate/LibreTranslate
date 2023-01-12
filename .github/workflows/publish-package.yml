@@ -26,7 +26,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest flake8
         pip install .
-        python compile_locales.py
+        python scripts/compile_locales.py
 
     - name: Check code style with flake8 (lint)
       run: |
@@ -61,6 +61,6 @@ jobs:
         TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: |
-        python compile_locales.py
+        python scripts/compile_locales.py
         python setup.py sdist bdist_wheel
         twine upload dist/*

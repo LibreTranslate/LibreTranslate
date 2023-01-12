@@ -130,8 +130,8 @@ Then open a web browser to http://localhost:5000
 
 ### Run with Docker
 
-Linux/MacOS: `./run.sh [args]`
-Windows: `run.bat [args]`
+Linux/MacOS: `./scripts/run.sh [args]`
+Windows: `scripts/run.bat [args]`
 
 Then open a web browser to http://localhost:5000
 
@@ -218,7 +218,7 @@ If you're using docker:
 
 Start the program with the `--update-models` argument. For example: `libretranslate --update-models` or `./run.sh --update-models`.
 
-Alternatively you can also run the `install_models.py` script.
+Alternatively you can also run the `scripts/install_models.py` script.
 
 ## Run with WSGI and Gunicorn
 
@@ -384,7 +384,7 @@ First you need to collect data, for example from [Opus](http://opus.nlpl.eu/), t
 
 ## Localization
 
-The LibreTranslate Web UI is available in all the languages for which LibreTranslate can translate to. It can also (roughly) [translate itself!](https://github.com/LibreTranslate/LibreTranslate/blob/main/update_locales.py) Some languages might not appear in the UI since they haven't been reviewed by a human yet. You can enable all languages by turning on `--debug` mode.
+The LibreTranslate Web UI is available in all the languages for which LibreTranslate can translate to. It can also (roughly) [translate itself!](https://github.com/LibreTranslate/LibreTranslate/blob/main/scripts/update_locales.py) Some languages might not appear in the UI since they haven't been reviewed by a human yet. You can enable all languages by turning on `--debug` mode.
 
 To help improve or review the UI translations:
  - Go to https://hosted.weblate.org/projects/libretranslate/app/#translations. All changes are automatically pushed to this repository.
