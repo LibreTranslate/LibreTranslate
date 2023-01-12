@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-09 05:44+0000\n"
-"Last-Translator: ButterflyOfFire <ButterflyOfFire@protonmail.com>\n"
+"PO-Revision-Date: 2023-01-13 15:53+0000\n"
+"Last-Translator: Piero Toffanin <pt@masseranolabs.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/libretranslate/"
 "app/fr/>\n"
 "Language: fr\n"
@@ -62,13 +62,13 @@ msgstr "Ralentissez :"
 #: libretranslate/app.py:993
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr "Requête invalide : paramètre %(name)s manquant"
+msgstr "Requête invalide  : le paramètre %(name)s est manquant"
 
 #: libretranslate/app.py:480 libretranslate/app.py:492
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
-"Demande non valide : demande (%(size)s) dépasse la limite de texte "
+"Demande non valide : la demande (%(size)s) dépasse la limite de texte "
 "(%(limit)s)"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
@@ -88,7 +88,7 @@ msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
 msgstr ""
-"%(tname)s (%(tcode)s) n'est pas disponible comme langue cible de "
+"%(tname)s (%(tcode)s) n'est pas disponible comme langue de cible pour "
 "%(sname)s (%(scode)s)"
 
 #: libretranslate/app.py:589
@@ -102,11 +102,11 @@ msgstr "La traduction de fichiers est désactivée sur ce serveur."
 
 #: libretranslate/app.py:690
 msgid "Invalid request: empty file"
-msgstr "Requête invalide : fichier vide"
+msgstr "Requête invalide : le fichier est vide"
 
 #: libretranslate/app.py:693
 msgid "Invalid request: file format not supported"
-msgstr "Requête non valide : format de fichier non pris en charge"
+msgstr "Requête non valide : le format de ce fichier n'est pas pris en charge"
 
 #: libretranslate/app.py:738
 msgid "Invalid filename"
