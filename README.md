@@ -139,7 +139,7 @@ Then open a web browser to http://localhost:5000
 ### Build with Docker
 
 ```bash
-docker build -f .docker/Dockerfile [--build-arg with_models=true] -t libretranslate .
+docker build -f docker/Dockerfile [--build-arg with_models=true] -t libretranslate .
 ```
 
 If you want to run the Docker image in a complete offline environment, you need to add the `--build-arg with_models=true` parameter. Then the language models are downloaded during the build process of the image. Otherwise these models get downloaded on the first run of the image/container.
