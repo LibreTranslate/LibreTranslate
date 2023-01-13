@@ -130,8 +130,8 @@ Then open a web browser to http://localhost:5000
 
 ### Run with Docker
 
-Linux/MacOS: `./scripts/run.sh [args]`
-Windows: `scripts/run.bat [args]`
+Linux/MacOS: `./run.sh [args]`
+Windows: `run.bat [args]`
 
 Then open a web browser to http://localhost:5000
 
