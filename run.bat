@@ -33,7 +33,7 @@ docker run -ti --rm -p %LT_PORT%:%LT_PORT% %DB_VOLUME% -v lt-local:/home/libretr
 GOTO :done
 
 :install_docker
-ECHO Cannot find docker! Go to https://docs.docker.com/desktop/install/windows-install/ and install docker before running this script (pressing Enter will open the page) 
+ECHO Cannot find docker! Go to https://docs.docker.com/desktop/install/windows-install/ and install docker before running this script (pressing Enter will open the page)
 pause
 start "" https://docs.docker.com/desktop/install/windows-install/
 GOTO :done

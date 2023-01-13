@@ -11,7 +11,7 @@ if __name__ == "__main__":
         type=str,
         nargs=1,
         help="Path to suggestions.db file",
-        default='suggestions.db'
+        default='db/suggestions.db'
     )
     parser.add_argument(
         "--clear",

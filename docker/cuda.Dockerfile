@@ -2,7 +2,7 @@ FROM nvidia/cuda:11.2.2-devel-ubuntu20.04
 
 ENV ARGOS_DEVICE_TYPE cuda
 ARG with_models=true
-ARG models=
+ARG models=""
 
 WORKDIR /app
 
@@ -27,14 +27,14 @@ RUN if [ "$with_models" = "true" ]; then  \
     pip3 install -e .;  \
     # initialize the language models
     if [ ! -z "$models" ]; then \
-    ./install_models.py --load_only_lang_codes "$models";   \
+    ./scripts/install_models.py --load_only_lang_codes "$models";   \
     else \
-    ./install_models.py;  \
+    ./scripts/install_models.py;  \
     fi \
     fi
 
 # Install package from source code
-RUN pip3 install Babel==2.11.0 && python3 compile_locales.py \
+RUN pip3 install Babel==2.11.0 && python3 scripts/compile_locales.py \
     && pip3 install . \
     && pip3 cache purge
 

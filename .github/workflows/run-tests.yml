@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['3.7', '3.8', '3.9', '3.10']
+        python-version: ['3.8', '3.9', '3.10']
 
     steps:
     - uses: actions/checkout@v2
@@ -51,7 +51,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Docker build
-        run: docker build -t libretranslate .
+        run: docker build -f docker/Dockerfile -t libretranslate .
 
       - name: Docker build with some models
-        run: docker build -t libretranslate --build-arg models=en,es  .
+        run: docker build -f docker/Dockerfile -t libretranslate --build-arg models=en,es  .

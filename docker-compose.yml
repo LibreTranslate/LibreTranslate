@@ -3,10 +3,12 @@ version: "3"
 services:
   libretranslate:
     container_name: libretranslate
-    build: .
+    build:
+      context: .
+      dockerfile: docker/cuda.Dockerfile
     restart: unless-stopped
     ports:
-      - 5000:5000
+      - "5000:5000"
     ## Uncomment above command and define your args if necessary
     # command: --ssl --ga-id MY-GA-ID --req-limit 100 --char-limit 500
     ## Uncomment this section and the `volumes` section if you want to backup your API keys

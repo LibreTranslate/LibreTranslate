@@ -139,7 +139,7 @@ Then open a web browser to http://localhost:5000
 ### Build with Docker
 
 ```bash
-docker build [--build-arg with_models=true] -t libretranslate .
+docker build -f docker/Dockerfile [--build-arg with_models=true] -t libretranslate .
 ```
 
 If you want to run the Docker image in a complete offline environment, you need to add the `--build-arg with_models=true` parameter. Then the language models are downloaded during the build process of the image. Otherwise these models get downloaded on the first run of the image/container.
@@ -218,7 +218,7 @@ If you're using docker:
 
 Start the program with the `--update-models` argument. For example: `libretranslate --update-models` or `./run.sh --update-models`.
 
-Alternatively you can also run the `install_models.py` script.
+Alternatively you can also run the `scripts/install_models.py` script.
 
 ## Run with WSGI and Gunicorn
 
@@ -307,7 +307,7 @@ If you use Gunicorn, make sure to create a directory for storing multiprocess da
 mkdir -p /tmp/prometheus_data
 rm /tmp/prometheus_data/*
 export PROMETHEUS_MULTIPROC_DIR=/tmp/prometheus_data 
-gunicorn -c gunicorn_conf.py --bind 0.0.0.0:5000 'wsgi:app(metrics=True)' 
+gunicorn -c scripts/gunicorn_conf.py --bind 0.0.0.0:5000 'wsgi:app(metrics=True)' 
 ```
 
 ## Language Bindings
@@ -384,7 +384,7 @@ First you need to collect data, for example from [Opus](http://opus.nlpl.eu/), t
 
 ## Localization
 
-The LibreTranslate Web UI is available in all the languages for which LibreTranslate can translate to. It can also (roughly) [translate itself!](https://github.com/LibreTranslate/LibreTranslate/blob/main/update_locales.py) Some languages might not appear in the UI since they haven't been reviewed by a human yet. You can enable all languages by turning on `--debug` mode.
+The LibreTranslate Web UI is available in all the languages for which LibreTranslate can translate to. It can also (roughly) [translate itself!](https://github.com/LibreTranslate/LibreTranslate/blob/main/scripts/update_locales.py) Some languages might not appear in the UI since they haven't been reviewed by a human yet. You can enable all languages by turning on `--debug` mode.
 
 To help improve or review the UI translations:
  - Go to https://hosted.weblate.org/projects/libretranslate/app/#translations. All changes are automatically pushed to this repository.
