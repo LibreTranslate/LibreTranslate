@@ -11,7 +11,7 @@ IF NOT "%1"=="" (
         SHIFT
     )
     IF "%1"=="--help" (
-        echo Usage: scripts/run.bat [--port N]
+        echo Usage: run.bat [--port N]
         echo:
         echo Run LibreTranslate using docker.
         echo:
