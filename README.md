@@ -183,8 +183,8 @@ docker-compose -f docker-compose.cuda.yml up -d --build
 | --ga-id                     | Enable Google Analytics on the API client page by providing an ID                                           | `No tracking`               | LT_GA_ID                     |
 | --debug                     | Enable debug environment                                                                                    | `False`           | LT_DEBUG                     |
 | --ssl                       | Whether to enable SSL                                                                                       | `False`               | LT_SSL                       |
-| --frontend-language-source  | Set frontend default language - source                                                                      | `en`          | LT_FRONTEND_LANGUAGE_SOURCE  |
-| --frontend-language-target  | Set frontend default language - target                                                                      | `es`          | LT_FRONTEND_LANGUAGE_TARGET  |
+| --frontend-language-source  | Set frontend default language - source                                                                      | `auto`        | LT_FRONTEND_LANGUAGE_SOURCE  |
+| --frontend-language-target  | Set frontend default language - target                                                                      | `locale` (match site's locale)   | LT_FRONTEND_LANGUAGE_TARGET  |
 | --frontend-timeout          | Set frontend translation timeout                                                                            | `500`         | LT_FRONTEND_TIMEOUT          |
 | --api-keys                  | Enable API keys database for per-user rate limits lookup                                                    | `Don't use API keys` | LT_API_KEYS                  |
 | --api-keys-db-path          | Use a specific path inside the container for the local database. Can be absolute or relative                | `db/api_keys.db`                      | LT_API_KEYS_DB_PATH          |
