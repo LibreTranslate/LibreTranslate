@@ -170,6 +170,15 @@ Run this version with:
 docker-compose -f docker-compose.cuda.yml up -d --build
 ```
 
+### Running Healthchecks
+
+You can enable healthchecks by including this in your docker-compose.yml file:
+
+```
+healthcheck:
+  test: ['CMD-SHELL', './venv/bin/python healthcheck.py']
+```
+
 ## Arguments
 
 | Argument                    | Description                                                                                                 | Default              | Env. name                    |
