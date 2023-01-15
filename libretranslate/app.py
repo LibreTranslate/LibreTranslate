@@ -132,25 +132,39 @@ def create_app(args):
             iter([l for l in languages if l.code == args.frontend_language_source]),
             None,
         )
+    if frontend_argos_language_source is None:
+        frontend_argos_language_source = languages[0]
 
-    frontend_argos_language_target = next(
-        iter([l for l in languages if l.code == args.frontend_language_target]), None
-    )
+    
+    if len(languages) >= 2:
+        language_target_fallback = languages[1]
+    else:
+        language_target_fallback = languages[0]
+
+    if args.frontend_language_target == "locale":
+      def resolve_language_locale():
+          loc = get_locale()
+          language_target = next(
+              iter([l for l in languages if l.code == loc]), None
+          )
+          if language_target is None:
+            language_target = language_target_fallback
+          return language_target
+
+      frontend_argos_language_target = resolve_language_locale
+    else:
+      language_target = next(
+          iter([l for l in languages if l.code == args.frontend_language_target]), None
+      )
+      if language_target is None:
+        language_target = language_target_fallback
+      frontend_argos_language_target = lambda: language_target
 
     frontend_argos_supported_files_format = []
 
     for file_format in get_supported_formats():
         for ff in file_format.supported_file_extensions:
             frontend_argos_supported_files_format.append(ff)
-
-    # Raise AttributeError to prevent app startup if user input is not valid.
-    if frontend_argos_language_source is None:
-        frontend_argos_language_source = languages[0]
-    if frontend_argos_language_target is None:
-        if len(languages) >= 2:
-            frontend_argos_language_target = languages[1]
-        else:
-            frontend_argos_language_target = languages[0]
 
     api_keys_db = None
 
@@ -896,6 +910,8 @@ def create_app(args):
                           type: string
                           description: Human-readable language name (in English)
         """
+        target_lang = frontend_argos_language_target()
+
         return jsonify(
             {
                 "charLimit": args.char_limit,
@@ -911,8 +927,8 @@ def create_app(args):
                         "name": _lazy(frontend_argos_language_source.name),
                     },
                     "target": {
-                        "code": frontend_argos_language_target.code,
-                        "name": _lazy(frontend_argos_language_target.name),
+                        "code": target_lang.code,
+                        "name": _lazy(target_lang.name),
                     },
                 },
             }

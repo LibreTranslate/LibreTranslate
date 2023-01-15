@@ -93,12 +93,12 @@ _default_options_objects = [
     },
     {
         'name': 'FRONTEND_LANGUAGE_SOURCE',
-        'default_value': 'en',
+        'default_value': 'auto',
         'value_type': 'str'
     },
     {
         'name': 'FRONTEND_LANGUAGE_TARGET',
-        'default_value': 'es',
+        'default_value': 'locale',
         'value_type': 'str'
     },
     {
