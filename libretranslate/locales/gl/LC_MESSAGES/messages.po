@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-16 06:47+0000\n"
-"Last-Translator: josé m. <correoxm@disroot.org>\n"
+"PO-Revision-Date: 2023-01-17 09:47+0000\n"
+"Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/libretranslate/"
 "app/gl/>\n"
 "Language: gl\n"
@@ -52,7 +52,7 @@ msgstr "Visite %(url)s para obter unha chave API"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
-msgstr ""
+msgstr "Máis amodo:"
 
 #: libretranslate/app.py:467 libretranslate/app.py:469
 #: libretranslate/app.py:471 libretranslate/app.py:683
@@ -266,7 +266,7 @@ msgstr "Erro na tradución"
 
 #: libretranslate/locales/.swag.py:8
 msgid "Slow down"
-msgstr ""
+msgstr "Máis amodo"
 
 #: libretranslate/locales/.swag.py:9
 msgid "Banned"
@@ -404,7 +404,7 @@ msgstr "Mensaxe de erro"
 
 #: libretranslate/locales/.swag.py:41
 msgid "Reason for slow down"
-msgstr ""
+msgstr "Motivo da ralentización"
 
 #: libretranslate/locales/.swag.py:42
 msgid "Translated file url"
