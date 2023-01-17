@@ -64,8 +64,6 @@ class BaseDetector(ABC):
             if lang.code in self.allowed_languages
         ]
         self.language: "Language | None" = self.languages[0] if self.languages else None
-        if self.language.confidence < 0.4:
-            self.reliable = False
 
     def __str__(self) -> str:
         text = "Prediction is reliable: {}\n".format(self.reliable)
