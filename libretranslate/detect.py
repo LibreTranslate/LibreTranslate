@@ -133,8 +133,6 @@ class Detector(BaseDetector):
 
     def detect(self, text: str) -> "list[Language]":
         """Decide which language is used to write the text.
-        The method tries first to detect the language with high reliability. If
-        that is not possible, the method switches to the best effort strategy.
         Args:
           text (string): A snippet of text, the longer it is the more reliable we
                          can detect the language used to write the text.
