@@ -3,7 +3,7 @@
 from abc import ABC
 from collections.abc import Iterable
 
-import pycld2 as cld2
+import lingua
 
 class UnknownLanguage(Exception):
     pass
@@ -77,13 +77,13 @@ class BaseDetector(ABC):
         raise NotImplementedError()
 
 
-class Detector(BaseDetector):
+class _DeprecatedCld2Detector(BaseDetector):
     """Detect the language used in a snippet of text."""
 
     @staticmethod
     def supported_languages() -> "list[str]":
         """Returns a list of the languages that can be detected by pycld2."""
-        return [name.capitalize() for name, code in cld2.LANGUAGES if not name.startswith("X_")]
+        import pycld2 as cld2
         return [
             name.capitalize()
             for name, code in cld2.LANGUAGES
@@ -98,6 +98,7 @@ class Detector(BaseDetector):
           text (string): A snippet of text, the longer it is the more reliable we
                          can detect the language used to write the text.
         """
+        import pycld2 as cld2
         reliable, index, top_3_choices = cld2.detect(text, bestEffort=False)
 
         if not reliable:
@@ -109,3 +110,48 @@ class Detector(BaseDetector):
                     raise UnknownLanguage("Try passing a longer snippet of text")
 
         return [Language(x) for x in top_3_choices]
+
+
+class Detector(BaseDetector):
+    """Detect the language used in a snippet of text."""
+
+    @staticmethod
+    def supported_languages() -> "list[str]":
+        """Returns a list of the languages that can be detected by pycld2."""
+        return [
+            lang.iso_code_639_1.name
+            for lang in lingua.Language.all()
+        ]
+
+    def detect(self, text: str) -> "list[Language]":
+        """Decide which language is used to write the text.
+        The method tries first to detect the language with high reliability. If
+        that is not possible, the method switches to the best effort strategy.
+        Args:
+          text (string): A snippet of text, the longer it is the more reliable we
+                         can detect the language used to write the text.
+        """
+        languages = [
+            lingua.Language.from_iso_code_639_1(lingua.IsoCode639_1[lang])
+            for lang in self.allowed_languages
+        ]
+        detector = lingua.LanguageDetectorBuilder.from_languages(*languages).build()
+        confidence_values: "list[tuple[lingua.Language, float]]" = detector.compute_language_confidence_values(text)
+
+        return [
+            Language((language.name.title(), language.iso_code_639_1.name, confidence, 0))
+            for language, confidence in confidence_values
+        ]
+
+
+def test_LinguaDetector():
+    for lang in Detector.supported_languages():
+        assert len(lang) == 2 and lang.upper() == lang, lang
+    assert Detector("Neuland").language.code == "DE"
+    # https://github.com/LibreTranslate/LibreTranslate/issues/247
+    assert Detector("Tout philosophe a deux philosophies : la sienne et celle de Spinoza.").language.code == "FR"
+
+
+
+if __name__ == "__main__":
+    test_LinguaDetector()
