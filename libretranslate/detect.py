@@ -41,7 +41,9 @@ class BaseDetector(ABC):
           text (string): unicode string.
         """
         self.allowed_languages: "frozenset[str]" = frozenset(
-            self.supported_languages() if allowed_languages is None else allowed_languages
+            self.supported_languages()
+            if allowed_languages is None
+            else [string.upper() for string in allowed_languages]
         )
         # self.__text = text
         self.reliable: bool = True
@@ -139,7 +141,7 @@ class Detector(BaseDetector):
         confidence_values: "list[tuple[lingua.Language, float]]" = detector.compute_language_confidence_values(text)
 
         return [
-            Language((language.name.title(), language.iso_code_639_1.name, confidence, 0))
+            Language((language.name.title(), language.iso_code_639_1.name, confidence, len(text)))
             for language, confidence in confidence_values
         ]
 
