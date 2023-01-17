@@ -13,7 +13,7 @@ def load_languages():
 
     return __languages
 
-def detect_languages(text: str, allowed_languages: "list[str] | None" = None):
+def detect_languages(text: "str | list[str]", allowed_languages: "list[str] | None" = None):
     # detect batch processing
     if isinstance(text, list):
         is_batch = True
