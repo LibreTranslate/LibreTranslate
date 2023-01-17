@@ -22,6 +22,14 @@ class Language(object):
             self.name, self.code, self.confidence, self.read_bytes
         )
 
+    def __repr__(self) -> str:
+        return "Language((%r, %r, %r, %r))" % (
+            self.name, self.code, self.confidence, self.read_bytes
+        )
+
+    def to_dict(self) -> "dict[str, str | int]":
+        return {"confidence": self.confidence, "language": self.code.lower()}
+
     @staticmethod
     def from_code(code: str) -> "Language":
         return Language(("", code, 100, 0))
