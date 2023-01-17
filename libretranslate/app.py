@@ -512,12 +512,12 @@ def create_app(args):
                 auto_detect_texts = q
             else:
                 auto_detect_texts = [q]
-
-            overall_candidates = detect_languages(q)
+            allowed_languages = [_l.code for _l in languages]
+            overall_candidates = detect_languages(q, allowed_languages=allowed_languages)
 
             for text_to_check in auto_detect_texts:
                 if len(text_to_check) > 40:
-                    candidate_langs = detect_languages(text_to_check)
+                    candidate_langs = detect_languages(text_to_check, allowed_languages=allowed_languages)
                 else:
                     # Unable to accurately detect languages for short texts
                     candidate_langs = overall_candidates

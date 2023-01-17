@@ -13,7 +13,7 @@ def load_languages():
 
     return __languages
 
-def detect_languages(text):
+def detect_languages(text: str, allowed_languages: "list[str] | None" = None):
     # detect batch processing
     if isinstance(text, list):
         is_batch = True
@@ -25,7 +25,7 @@ def detect_languages(text):
     candidates = []
     for t in text:
         try:
-            d = Detector(t).languages
+            d = Detector(t, allowed_languages=allowed_languages).languages
             for i in range(len(d)):
                 d[i].text_length = len(t)
             candidates.extend(d)
