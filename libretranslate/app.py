@@ -24,6 +24,7 @@ from libretranslate.locales import (_, _lazy, get_available_locales, get_availab
         gettext_html, lazy_swag, get_alternate_locale_links)
 
 from .api_keys import Database, RemoteDatabase
+from .detect import Detector
 from .suggestions import Database as SuggestionsDatabase
 
 
@@ -506,31 +507,18 @@ def create_app(args):
                     description=_("Invalid request: request (%(size)s) exceeds text limit (%(limit)s)", size=chars, limit=args.char_limit),
                 )
 
+        texts_to_translate: "list[str]" = q if batch else [q]
         if source_lang == "auto":
-            source_langs = []
-            if batch:
-                auto_detect_texts = q
-            else:
-                auto_detect_texts = [q]
             allowed_languages = [_l.code for _l in languages]
-            overall_candidates = detect_languages(q, allowed_languages=allowed_languages)
-
-            for text_to_check in auto_detect_texts:
-                if len(text_to_check) > 40:
-                    candidate_langs = detect_languages(text_to_check, allowed_languages=allowed_languages)
-                else:
-                    # Unable to accurately detect languages for short texts
-                    candidate_langs = overall_candidates
-                source_langs.append(candidate_langs[0])
-
-                if args.debug:
-                    print(text_to_check, candidate_langs)
-                    print("Auto detected: %s" % candidate_langs[0]["language"])
+            source_langs = [
+                (_l.to_dict() if _l else {"confidence": 0, "language": "en"})
+                for _l in (
+                    Detector(text, allowed_languages=allowed_languages).language
+                    for text in texts_to_translate
+                )
+            ]
         else:
-            if batch:
-                source_langs = [ {"confidence": 100.0, "language": source_lang} for text in q]
-            else:
-                source_langs = [ {"confidence": 100.0, "language": source_lang} ]
+            source_langs = [{"confidence": 100.0, "language": source_lang} for _ in texts_to_translate]
 
         src_langs = [next(iter([l for l in languages if l.code == source_lang["language"]]), None) for source_lang in source_langs]
 
