@@ -47,7 +47,13 @@ def detect_languages(text: "str | list[str]", allowed_languages: "list[str] | No
     # this happens if no language could be detected
     if not candidate_langs:
         # use language "en" by default but with zero confidence
-        return [{"confidence": 0.0, "language": "en"}]
+        lang = (
+            "en"
+            if allowed_languages is None or "en" in allowed_languages
+            else allowed_languages[0]
+        )
+        return [{"confidence": 0.0, "language": lang}]
+
 
     # for multiple occurrences of the same language (can happen on batch detection)
     # calculate the average confidence for each language
