@@ -143,10 +143,11 @@ class Detector(BaseDetector):
         ]
         detector = lingua.LanguageDetectorBuilder.from_languages(*languages).build()
         confidence_values: "list[tuple[lingua.Language, float]]" = detector.compute_language_confidence_values(text)
-
+        filter_no_confidence = max(c for _, c in confidence_values) > 0
         return [
             Language((language.name.title(), language.iso_code_639_1.name, confidence * 100.0, len(text)))
             for language, confidence in confidence_values
+            if not filter_no_confidence or confidence
         ]
 
 
