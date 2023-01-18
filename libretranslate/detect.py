@@ -145,7 +145,7 @@ class Detector(BaseDetector):
         confidence_values: "list[tuple[lingua.Language, float]]" = detector.compute_language_confidence_values(text)
 
         return [
-            Language((language.name.title(), language.iso_code_639_1.name, confidence, len(text)))
+            Language((language.name.title(), language.iso_code_639_1.name, confidence * 100.0, len(text)))
             for language, confidence in confidence_values
         ]
 
