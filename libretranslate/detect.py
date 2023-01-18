@@ -27,8 +27,11 @@ class Language(object):
             self.name, self.code, self.confidence, self.read_bytes
         )
 
-    def to_dict(self) -> "dict[str, str | int]":
-        return {"confidence": self.confidence, "language": self.code.lower()}
+    def to_dict(self, confidence_digits: int = 2) -> "dict[str, str | int]":
+        return {
+            "confidence": round(self.confidence, confidence_digits),
+            "language": self.code.lower()
+        }
 
     @staticmethod
     def from_code(code: str) -> "Language":
