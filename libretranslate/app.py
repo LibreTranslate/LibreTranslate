@@ -123,6 +123,13 @@ def create_app(args):
     for lang in languages:
         language_pairs[lang.code] = sorted([l.to_lang.code for l in lang.translations_from])
 
+    def get_language_by_code(code: str, *, fail: bool):
+        for language in languages:
+            if language.code == code:
+                return language
+        if fail:
+            abort(400, description=_("%(lang)s is not supported", lang=code))
+
     # Map userdefined frontend languages to argos language object.
     if args.frontend_language_source == "auto":
         frontend_argos_language_source = type(
@@ -510,8 +517,9 @@ def create_app(args):
         texts_to_translate: "list[str]" = q if batch else [q]
         if source_lang == "auto":
             allowed_languages = [_l.code for _l in languages]
+            default_language = "en" if not allowed_languages or "en" in allowed_languages else allowed_languages[0]
             source_langs = [
-                (_l.to_dict() if _l else {"confidence": 0, "language": "en"})
+                (_l.to_dict() if _l else {"confidence": 0, "language": default_language})
                 for _l in (
                     Detector(text, allowed_languages=allowed_languages).language
                     for text in texts_to_translate
@@ -519,22 +527,14 @@ def create_app(args):
             ]
         else:
             source_langs = [{"confidence": 100.0, "language": source_lang} for _text in texts_to_translate]
+        src_langs = [get_language_by_code(source_lang["language"], fail=True) for source_lang in source_langs]
 
-        src_langs = [next(iter([l for l in languages if l.code == source_lang["language"]]), None) for source_lang in source_langs]
-
-        for idx, lang in enumerate(src_langs):
-            if lang is None:
-                abort(400, description=_("%(lang)s is not supported", lang=source_langs[idx]))
-
-        tgt_lang = next(iter([l for l in languages if l.code == target_lang]), None)
-
-        if tgt_lang is None:
-            abort(400, description=_("%(lang)s is not supported",lang=target_lang))
+        tgt_lang = get_language_by_code(target_lang, fail=True)
 
         if not text_format:
             text_format = "text"
 
-        if text_format not in ["text", "html"]:
+        if text_format not in {"text", "html"}:
             abort(400, description=_("%(format)s format is not supported", format=text_format))
 
         try:
@@ -543,7 +543,14 @@ def create_app(args):
                 for idx, text in enumerate(q):
                     translator = src_langs[idx].get_translation(tgt_lang)
                     if translator is None:
-                        abort(400, description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)", tname=_lazy(tgt_lang.name), tcode=tgt_lang.code, sname=_lazy(src_langs[idx].name), scode=src_langs[idx].code))
+                        abort(
+                            400,
+                            description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)",
+                            tname=_lazy(tgt_lang.name),
+                            tcode=tgt_lang.code,
+                            sname=_lazy(src_langs[idx].name),
+                            scode=src_langs[idx].code),
+                        )
 
                     if text_format == "html":
                         translated_text = str(translate_html(translator, text))
@@ -567,7 +574,14 @@ def create_app(args):
             else:
                 translator = src_langs[0].get_translation(tgt_lang)
                 if translator is None:
-                    abort(400, description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)", tname=_lazy(tgt_lang.name), tcode=tgt_lang.code, sname=_lazy(src_langs[0].name), scode=src_langs[0].code))
+                    abort(
+                        400,
+                        description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)",
+                        tname=_lazy(tgt_lang.name),
+                        tcode=tgt_lang.code,
+                        sname=_lazy(src_langs[0].name),
+                        scode=src_langs[0].code)
+                    )
 
                 if text_format == "html":
                     translated_text = str(translate_html(translator, q))
