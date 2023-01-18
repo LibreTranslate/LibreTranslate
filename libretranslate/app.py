@@ -518,7 +518,7 @@ def create_app(args):
                 )
             ]
         else:
-            source_langs = [{"confidence": 100.0, "language": source_lang} for _ in texts_to_translate]
+            source_langs = [{"confidence": 100.0, "language": source_lang} for _text in texts_to_translate]
 
         src_langs = [next(iter([l for l in languages if l.code == source_lang["language"]]), None) for source_lang in source_langs]
 
