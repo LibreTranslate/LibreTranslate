@@ -44,17 +44,15 @@ class BaseDetector(ABC):
     def __init__(
         self,
         text: str,
+        allowed_languages: "list[str]",
         quiet: bool = False,
-        allowed_languages: "Iterable[str] | None" = None,
     ) -> None:
         """Detector of the language used in `text`.
         Args:
           text (string): unicode string.
         """
         self.allowed_languages: "frozenset[str]" = frozenset(
-            self.supported_languages()
-            if allowed_languages is None
-            else [string.upper() for string in allowed_languages]
+            [string.upper() for string in allowed_languages]
         )
         # self.__text = text
         self.reliable: bool = True
@@ -127,7 +125,7 @@ class LinguaDetector(BaseDetector):
     def supported_languages(cls) -> "list[str]":
         """Returns a list of the languages that can be detected by pycld2."""
         return [
-            lang.iso_code_639_1.name
+            lang.name.capitalize()
             for lang in lingua.Language.all()
         ]
 
@@ -188,10 +186,10 @@ class Detector(BaseDetector):
 
 def test_Detector():
     for lang in Detector.supported_languages():
-        assert len(lang) == 2 and lang.upper() == lang, lang
-    assert Detector("Neuland").language.code == "DE"
+        assert lang.capitalize() == lang, lang
+    assert Detector("Neuland", allowed_languages=["de", "en", "it", "fr"]).language.code == "DE"
     # https://github.com/LibreTranslate/LibreTranslate/issues/247
-    assert Detector("Tout philosophe a deux philosophies : la sienne et celle de Spinoza.").language.code == "FR"
+    assert Detector("Tout philosophe a deux philosophies : la sienne et celle de Spinoza.", allowed_languages=["de", "en", "it", "fr"]).language.code == "FR"
 
 
 if __name__ == "__main__":
