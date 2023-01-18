@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-10 09:57+0000\n"
+"PO-Revision-Date: 2023-01-19 10:35+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/libretranslate/"
 "app/oc/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.15.1\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -68,7 +68,7 @@ msgstr "Requèsta invalida : paramètre %(name)s mancant"
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
-"Demanda non valida : requèsta (%(size)s) despassa la limita de tèxte "
+"Demanda non valida : requèsta (%(size)s) despassa lo limit de tèxte "
 "(%(limit)s)"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
@@ -416,8 +416,7 @@ msgstr "Valor de fisança"
 
 #: libretranslate/locales/.swag.py:44
 msgid "Character input limit for this language (-1 indicates no limit)"
-msgstr ""
-"Limita d’entrada de caractèrs per aquesta lenga (-1 indica cap de limita)"
+msgstr "Limit d’entrada de caractèrs per aquesta lenga (-1 indica cap de limit)"
 
 #: libretranslate/locales/.swag.py:45
 msgid "Frontend translation timeout"
