@@ -81,7 +81,7 @@ def detect_languages(text: "str | list[str]", allowed_languages: "list[str] | No
         key=lambda l: (l.confidence * l.text_length) / text_length_total, reverse=True
     )
 
-    return [{"confidence": l.confidence, "language": l.code} for l in candidate_langs]
+    return [l.to_dict() for l in candidate_langs]
 
 
 def improve_translation_formatting(source, translation, improve_punctuation=True):
