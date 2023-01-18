@@ -8,6 +8,7 @@ Flask-Session==0.4.0
 waitress==2.1.2
 expiringdict==1.2.2
 lingua-language-detector==1.3.1
+LTpycld2==0.42
 morfessor==2.0.6
 appdirs==1.4.4
 APScheduler==3.9.1

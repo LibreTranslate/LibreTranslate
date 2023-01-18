@@ -1,9 +1,9 @@
 # Originally adapted from https://github.com/aboSamoor/polyglot/blob/master/polyglot/base.py
 
 from abc import ABC
-from collections.abc import Iterable
 
 import lingua
+import pycld2 as cld2
 
 class UnknownLanguage(Exception):
     pass
@@ -64,7 +64,7 @@ class BaseDetector(ABC):
         self.languages: "list[Language]" = [
             lang
             for lang in self.detect(text)
-            if lang.code in self.allowed_languages
+            if lang.code.upper() in self.allowed_languages
         ]
         self.language: "Language | None" = self.languages[0] if self.languages else None
 
@@ -78,8 +78,8 @@ class BaseDetector(ABC):
         )
         return text
 
-    @staticmethod
-    def supported_languages() -> "list[str]":
+    @classmethod
+    def supported_languages(cls) -> "list[str]":
         """Returns a list of the languages that this Detector can detect."""
         raise NotImplementedError()
 
@@ -88,13 +88,12 @@ class BaseDetector(ABC):
         raise NotImplementedError()
 
 
-class _DeprecatedCld2Detector(BaseDetector):
+class Cld2Detector(BaseDetector):
     """Detect the language used in a snippet of text."""
 
-    @staticmethod
-    def supported_languages() -> "list[str]":
+    @classmethod
+    def supported_languages(cls) -> "list[str]":
         """Returns a list of the languages that can be detected by pycld2."""
-        import pycld2 as cld2
         return [
             name.capitalize()
             for name, code in cld2.LANGUAGES
@@ -109,25 +108,23 @@ class _DeprecatedCld2Detector(BaseDetector):
           text (string): A snippet of text, the longer it is the more reliable we
                          can detect the language used to write the text.
         """
-        import pycld2 as cld2
         reliable, index, top_3_choices = cld2.detect(text, bestEffort=False)
 
         if not reliable:
             self.reliable = False
-            reliable, index, top_3_choices = cld2.detect(text, bestEffort=True)
-
+            reliable, index, _top_3_choices = cld2.detect(text, bestEffort=True)
             if not self.quiet:
                 if not reliable:
                     raise UnknownLanguage("Try passing a longer snippet of text")
+            top_3_choices = _top_3_choices
+        return [Language(x) for x in top_3_choices if x[0] != "Unknown"]
 
-        return [Language(x) for x in top_3_choices]
 
-
-class Detector(BaseDetector):
+class LinguaDetector(BaseDetector):
     """Detect the language used in a snippet of text."""
 
-    @staticmethod
-    def supported_languages() -> "list[str]":
+    @classmethod
+    def supported_languages(cls) -> "list[str]":
         """Returns a list of the languages that can be detected by pycld2."""
         return [
             lang.iso_code_639_1.name
@@ -154,7 +151,42 @@ class Detector(BaseDetector):
         ]
 
 
-def test_LinguaDetector():
+class Detector(BaseDetector):
+    @classmethod
+    def detectors(cls) -> "tuple[type[BaseDetector], ...]":
+        return Cld2Detector, LinguaDetector
+
+    @classmethod
+    def supported_languages(cls) -> "list[str]":
+        """Returns a list of the languages that this Detector can detect."""
+        languages = set()
+        for detector in cls.detectors():
+            languages.update(detector.supported_languages())
+        return list(languages)
+
+    def detect(self, text: str) -> "list[Language]":
+        """Decide which language is used to write the text."""
+        languages = []
+        failed = 0
+        for detector in self.detectors():
+            try:
+                languages.extend(
+                    detector(
+                        text,
+                        quiet=self.quiet,
+                        allowed_languages=self.allowed_languages,
+                    ).languages
+                )
+            except UnknownLanguage:
+                failed += 1
+        if not self.quiet and failed == len(self.detectors()):
+            raise UnknownLanguage("Try passing a longer snippet of text")
+        languages.sort(key=lambda l: l.confidence, reverse=True)
+        print(languages)
+        return languages
+
+
+def test_Detector():
     for lang in Detector.supported_languages():
         assert len(lang) == 2 and lang.upper() == lang, lang
     assert Detector("Neuland").language.code == "DE"
@@ -162,6 +194,5 @@ def test_LinguaDetector():
     assert Detector("Tout philosophe a deux philosophies : la sienne et celle de Spinoza.").language.code == "FR"
 
 
-
 if __name__ == "__main__":
-    test_LinguaDetector()
+    test_Detector()
