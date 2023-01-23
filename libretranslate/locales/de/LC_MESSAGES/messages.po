@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-23 15:12+0000\n"
-"Last-Translator: georgina odusanya <georginaodusanya@gmail.com>\n"
+"PO-Revision-Date: 2023-01-23 18:11+0000\n"
+"Last-Translator: Piero Toffanin <pt@masseranolabs.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/libretranslate/"
 "app/de/>\n"
 "Language: de\n"
@@ -70,7 +70,7 @@ msgstr "Ungültige Anfrage: fehlende %(name)s-Parameter"
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
-"Ungültige Anfrage: Anfrage (%(Größe)s) überschreitet Textgrenze (%(Grenze)s)"
+"Ungültige Anfrage: Anfrage (%(size)s) überschreitet Textgrenze (%(limit)s)"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
 #: libretranslate/app.py:700 libretranslate/app.py:705
@@ -632,7 +632,7 @@ msgstr "Selbstgehostet. Offline-fähig. Einfach einzurichten."
 
 #: libretranslate/templates/index.html:332
 msgid "LibreTranslate"
-msgstr "LibreTranslation"
+msgstr "LibreTranslate"
 
 #: libretranslate/templates/index.html:334
 msgid "License:"
