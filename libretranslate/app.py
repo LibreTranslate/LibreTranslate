@@ -1,6 +1,7 @@
 import io
 import os
 import tempfile
+import re
 import uuid
 from functools import wraps
 from html import unescape
@@ -236,7 +237,7 @@ def create_app(args):
                 elif (
                     args.require_api_key_origin
                     and api_keys_db.lookup(ak) is None
-                    and request.headers.get("Origin") != args.require_api_key_origin
+                    and not re.match(args.require_api_key_origin, request.headers.get("Origin"))
                 ):
                     description = _("Please contact the server operator to get an API key")
                     if args.get_api_key_link:
