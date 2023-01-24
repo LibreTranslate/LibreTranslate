@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-24 03:29+0000\n"
-"Last-Translator: Piero Toffanin <pt@masseranolabs.com>\n"
+"PO-Revision-Date: 2023-01-25 02:06+0000\n"
+"Last-Translator: José Alberto Justiniani <justiniani@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/libretranslate/"
 "app/es/>\n"
 "Language: es\n"
@@ -39,7 +39,7 @@ msgstr "Demasiadas violaciones a los límites de la solicitud"
 
 #: libretranslate/app.py:220
 msgid "Invalid API key"
-msgstr "Clave de API inválida"
+msgstr "Clave API inválida"
 
 #: libretranslate/app.py:227
 msgid "Please contact the server operator to get an API key"
@@ -144,7 +144,7 @@ msgstr "Danés"
 
 #: libretranslate/locales/.langs.py:7
 msgid "Dutch"
-msgstr "Dutch"
+msgstr "Holandés"
 
 #: libretranslate/locales/.langs.py:8
 msgid "Esperanto"
@@ -236,7 +236,7 @@ msgstr "Ucraniano"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Vietnamese"
-msgstr "Vietnamitas"
+msgstr "Vietnamita"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
@@ -358,7 +358,7 @@ msgstr "Presentar una sugerencia para mejorar la traducción"
 
 #: libretranslate/locales/.swag.py:29
 msgid "Success"
-msgstr "Éxito"
+msgstr "Todo salió bien"
 
 #: libretranslate/locales/.swag.py:30
 msgid "Not authorized"
@@ -430,7 +430,7 @@ msgstr "Si la base de datos clave API está habilitada."
 
 #: libretranslate/locales/.swag.py:47
 msgid "Whether an API key is required."
-msgstr "Si se necesita una clave de API."
+msgstr "Si se necesita una clave API."
 
 #: libretranslate/locales/.swag.py:48
 msgid "Whether submitting suggestions is enabled."
@@ -492,7 +492,7 @@ msgstr ""
 
 #: libretranslate/templates/app.js.template:479
 msgid "press the \"Get API Key\" link."
-msgstr "presiona el enlace \"Get API Key\"."
+msgstr "presiona el enlace \"Obtener Clave API\"."
 
 #: libretranslate/templates/app.js.template:479
 msgid "contact the server operator."
@@ -510,8 +510,8 @@ msgid ""
 "capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
 "API de traducción automática gratuita y de código abierto. Autónoma, con "
-"capacidad para trabajar sin conexión y fácil de configurar. Pon en marcha tu "
-"propio servidor API en sólo unos minutos."
+"capacidad para trabajar sin conexión y fácil de configurar. Aloja tu propio "
+"servidor API en sólo unos minutos."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -551,7 +551,7 @@ msgstr "Desestimar"
 
 #: libretranslate/templates/index.html:168
 msgid "Translation API"
-msgstr "API de traducción"
+msgstr "API de Traducción"
 
 #: libretranslate/templates/index.html:172
 msgid "Translate Text"
@@ -624,7 +624,7 @@ msgstr "Respuesta"
 
 #: libretranslate/templates/index.html:312
 msgid "Open Source Machine Translation API"
-msgstr "API de Traducción Open Source"
+msgstr "API de Traducción de Código Abierto"
 
 #: libretranslate/templates/index.html:313
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
@@ -645,9 +645,9 @@ msgid ""
 "If you're going to run an application in production, please "
 "%(host_server)s or %(get_api_key)s."
 msgstr ""
-"Esta API pública debe ser utilizada para hacer pruebas, darle un uso "
+"Esta API pública debería ser utilizada sólo para hacer pruebas y para el uso "
 "personal o poco frecuente. Si vas a ejecutar una aplicación en producción, "
-"por favor %(host_server)s o %(get_api_key)s."
+"por favor %(host_server)s u %(get_api_key)s."
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
@@ -655,7 +655,7 @@ msgstr "aloja tu propio servidor"
 
 #: libretranslate/templates/index.html:337
 msgid "get an API key"
-msgstr "obtén una clave de API"
+msgstr "obtén una clave API"
 
 #: libretranslate/templates/index.html:345
 #, python-format
