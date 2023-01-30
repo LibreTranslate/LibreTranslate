@@ -199,6 +199,7 @@ docker-compose -f docker-compose.cuda.yml up -d --build
 | --update-models             | Update language models at startup                                                                           | `False`    | LT_UPDATE_MODELS            |
 | --metrics                   | Enable the /metrics endpoint for exporting [Prometheus](https://prometheus.io/) usage metrics               | `Disabled`    | LT_METRICS            |
 | --metrics-auth-token        | Protect the /metrics endpoint by allowing only clients that have a valid Authorization Bearer token         | `No auth`    | LT_METRICS_AUTH_TOKEN            |
+| --url-prefix                | Add prefix to URL: example.com:5000/url-prefix/                                                             | `/`    | LT_URL_PREFIX            |
 
 Note that each argument has an equivalent environment variable that can be used instead. The env. variables overwrite the default values but have lower priority than the command arguments and are particularly useful if used with Docker. The environment variable names are the upper-snake-case of the equivalent command argument's name with a `LT` prefix.
 
