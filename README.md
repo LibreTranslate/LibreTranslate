@@ -362,10 +362,7 @@ This is a list of public LibreTranslate instances, some require an API key. If y
 URL |API Key Required | Links
 --- | --- | ---
 [libretranslate.com](https://libretranslate.com)|:heavy_check_mark:|[Get API Key](https://portal.libretranslate.com)
-[libretranslate.de](https://libretranslate.de)|-
 [translate.argosopentech.com](https://translate.argosopentech.com/)|-
-[translate.api.skitzen.com](https://translate.api.skitzen.com/)|-
-[translate.fortytwo-it.com](https://translate.fortytwo-it.com/)|-
 [translate.terraprint.co](https://translate.terraprint.co/)|-
 [lt.vern.cc](https://lt.vern.cc)|-
 
@@ -412,7 +409,7 @@ English | :heavy_check_mark: | [Edit](https://hosted.weblate.org/projects/libret
 Esperanto |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/eo/)
 Finnish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/fi/)
 French |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/fr/)
-German |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/de/)
+German | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/de/)
 Greek |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/el/)
 Hebrew |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/he/)
 Hindi |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/hi/)
@@ -429,7 +426,7 @@ Polish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/pl/)
 Portuguese |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/pt/)
 Russian |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ru/)
 Slovak |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/sk/)
-Spanish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/es/)
+Spanish | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/es/)
 Swedish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/sv/)
 Turkish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/tr/)
 Ukranian |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/uk/)
