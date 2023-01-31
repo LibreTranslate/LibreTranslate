@@ -5,7 +5,7 @@ services:
     container_name: libretranslate
     build:
       context: .
-      dockerfile: docker/cuda.Dockerfile
+      dockerfile: docker/Dockerfile
     restart: unless-stopped
     ports:
       - "5000:5000"
