@@ -49,8 +49,7 @@ def check_and_install_models(force=False, load_only_lang_codes=None):
                 "Downloading %s (%s) ..."
                 % (available_package, available_package.package_version)
             )
-            download_path = available_package.download()
-            package.install_from_path(download_path)
+            available_package.install()
 
         # reload installed languages
         libretranslate.language.languages = translate.get_installed_languages()
