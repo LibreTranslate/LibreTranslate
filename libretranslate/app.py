@@ -197,6 +197,12 @@ def create_app(args):
     measure_request = None
     gauge_request = None
     if args.metrics:
+      if os.environ.get("PROMETHEUS_MULTIPROC_DIR") is None:
+          default_mp_dir = os.path.abspath(os.path.join("db", "prometheus"))
+          if not os.path.isdir(default_mp_dir):
+            os.mkdir(default_mp_dir)
+          os.environ["PROMETHEUS_MULTIPROC_DIR"] = default_mp_dir
+        
       from prometheus_client import CONTENT_TYPE_LATEST, Summary, Gauge, CollectorRegistry, multiprocess, generate_latest
 
       @bp.route("/metrics")
@@ -206,7 +212,7 @@ def create_app(args):
           authorization = request.headers.get('Authorization')
           if authorization != "Bearer " + args.metrics_auth_token:
             abort(401, description=_("Unauthorized"))
-
+        
         registry = CollectorRegistry()
         multiprocess.MultiProcessCollector(registry)
         return Response(generate_latest(registry), mimetype=CONTENT_TYPE_LATEST)
