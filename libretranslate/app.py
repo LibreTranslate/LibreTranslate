@@ -212,6 +212,7 @@ def create_app(args):
           authorization = request.headers.get('Authorization')
           if authorization != "Bearer " + args.metrics_auth_token:
             abort(401, description=_("Unauthorized"))
+        
         registry = CollectorRegistry()
         multiprocess.MultiProcessCollector(registry)
         return Response(generate_latest(registry), mimetype=CONTENT_TYPE_LATEST)
