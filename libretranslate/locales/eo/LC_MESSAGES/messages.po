@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-10 09:57+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2023-02-07 01:46+0000\n"
+"Last-Translator: Jorge Maldonado Ventura <jorgesumle@freakspot.net>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/libretranslate/"
 "app/eo/>\n"
 "Language: eo\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -46,9 +46,9 @@ msgid "Please contact the server operator to get an API key"
 msgstr "Bonvolu kontakti la servilo operatoro akiri API ŝlosilo"
 
 #: libretranslate/app.py:229
-#, fuzzy, python-format
+#, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr "Vizito %(url)s Akiri API-ŝlosilon"
+msgstr "Vizitu %(url)s por akiri API-ŝlosilon"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
@@ -60,25 +60,25 @@ msgstr "Malrapidiĝo:"
 #: libretranslate/app.py:838 libretranslate/app.py:987
 #: libretranslate/app.py:989 libretranslate/app.py:991
 #: libretranslate/app.py:993
-#, fuzzy, python-format
+#, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr "Invalida peto: mankanta %(name)s parametro"
+msgstr "Nevalida peto: mankas %(name)s parametro"
 
 #: libretranslate/app.py:480 libretranslate/app.py:492
-#, fuzzy, python-format
+#, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
-msgstr "Invalida peto: peto (%(size)s) superas tekstlimon (%(limit)s)"
+msgstr "Nevalida peto: peto (%(size)s) superas tekstlimon (%(limit)s)"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
 #: libretranslate/app.py:700 libretranslate/app.py:705
-#, fuzzy, python-format
+#, python-format
 msgid "%(lang)s is not supported"
-msgstr "%(lang)s ne estas apogita"
+msgstr "%(lang)s ne estas subtenata"
 
 #: libretranslate/app.py:536
-#, fuzzy, python-format
+#, python-format
 msgid "%(format)s format is not supported"
-msgstr "%(format)s formato ne estas apogita"
+msgstr "%(format)s-aranĝo ne estas subtenata"
 
 #: libretranslate/app.py:544 libretranslate/app.py:568
 #, fuzzy, python-format
@@ -115,12 +115,10 @@ msgid "Suggestions are disabled on this server."
 msgstr "Sugestoj estas handikapitaj sur tiu servilo."
 
 #: libretranslate/locales/.langs.py:1
-#, fuzzy
 msgid "English"
 msgstr "Angla"
 
 #: libretranslate/locales/.langs.py:2
-#, fuzzy
 msgid "Arabic"
 msgstr "Araba"
 
@@ -137,7 +135,6 @@ msgid "Czech"
 msgstr "Ĉeĥa"
 
 #: libretranslate/locales/.langs.py:6
-#, fuzzy
 msgid "Danish"
 msgstr "Dana"
 
@@ -278,9 +275,8 @@ msgid "Hello world!"
 msgstr "Saluton mondo!"
 
 #: libretranslate/locales/.swag.py:11
-#, fuzzy
 msgid "Text(s) to translate"
-msgstr "Teksto por traduki"
+msgstr "Teksto(j) por traduki"
 
 #: libretranslate/locales/.swag.py:12
 #, fuzzy
@@ -312,9 +308,8 @@ msgstr ""
 "'html ' - HTML-markado\n"
 
 #: libretranslate/locales/.swag.py:17
-#, fuzzy
 msgid "API key"
-msgstr "api"
+msgstr "API-ŝlosilo"
 
 #: libretranslate/locales/.swag.py:18
 msgid "Translate file from a language to another"
@@ -325,9 +320,8 @@ msgid "Translated file"
 msgstr "Tradukita dosiero"
 
 #: libretranslate/locales/.swag.py:20
-#, fuzzy
 msgid "File to translate"
-msgstr "Teksto por traduki"
+msgstr "Dosiero por traduki"
 
 #: libretranslate/locales/.swag.py:21
 msgid "Detect the language of a single text"
