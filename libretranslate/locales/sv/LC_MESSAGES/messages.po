@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-10 09:57+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2023-02-11 10:36+0000\n"
+"Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/libretranslate/"
 "app/sv/>\n"
 "Language: sv\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -275,24 +275,20 @@ msgid "Hello world!"
 msgstr "Hello världen!"
 
 #: libretranslate/locales/.swag.py:11
-#, fuzzy
 msgid "Text(s) to translate"
-msgstr "Text att översätta"
+msgstr "Text(er) att översätta"
 
 #: libretranslate/locales/.swag.py:12
-#, fuzzy
 msgid "Source language code"
-msgstr "Språkkod"
+msgstr "Källspråkskod"
 
 #: libretranslate/locales/.swag.py:13
-#, fuzzy
 msgid "Target language code"
-msgstr "Stödda målspråkskoder"
+msgstr "Målspråkskod"
 
 #: libretranslate/locales/.swag.py:14
-#, fuzzy
 msgid "text"
-msgstr "Kopiera text"
+msgstr "text"
 
 #: libretranslate/locales/.swag.py:15
 msgid "html"
@@ -309,9 +305,8 @@ msgstr ""
 "\"html\" - HTML-märkning\n"
 
 #: libretranslate/locales/.swag.py:17
-#, fuzzy
 msgid "API key"
-msgstr "api"
+msgstr "API-nyckel"
 
 #: libretranslate/locales/.swag.py:18
 msgid "Translate file from a language to another"
@@ -322,9 +317,8 @@ msgid "Translated file"
 msgstr "Översatt fil"
 
 #: libretranslate/locales/.swag.py:20
-#, fuzzy
 msgid "File to translate"
-msgstr "Text att översätta"
+msgstr "Fil att översätta"
 
 #: libretranslate/locales/.swag.py:21
 msgid "Detect the language of a single text"
@@ -339,9 +333,8 @@ msgid "Detection error"
 msgstr "Detektering fel"
 
 #: libretranslate/locales/.swag.py:24
-#, fuzzy
 msgid "Text to detect"
-msgstr "Auto Detect"
+msgstr "Text att upptäcka"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Retrieve frontend specific settings"
@@ -372,22 +365,18 @@ msgid "Original text"
 msgstr "Originaltext"
 
 #: libretranslate/locales/.swag.py:32
-#, fuzzy
 msgid "Suggested translation"
-msgstr "Föreslå översättning"
+msgstr "Föreslagen översättning"
 
 #: libretranslate/locales/.swag.py:33
-#, fuzzy
 msgid "Language of original text"
-msgstr "Upptäck språket i en enda text"
+msgstr "Språk av originaltext"
 
 #: libretranslate/locales/.swag.py:34
-#, fuzzy
 msgid "Language of suggested translation"
-msgstr "Föreslå översättning"
+msgstr "Språk av föreslagen översättning"
 
 #: libretranslate/locales/.swag.py:35
-#, fuzzy
 msgid "feedback"
 msgstr "feedback"
 
@@ -669,9 +658,9 @@ msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
 msgstr "Tillverkad med %(heart)s av %(contributors)s och drivs av %(engine)s"
 
 #: libretranslate/templates/index.html:345
-#, fuzzy, python-format
+#, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr "%(libretranslate)s-bidragsgivare"
+msgstr "%(libretranslate)s Bidragsgivare"
 
 #~ msgid "multipart/form-data"
 #~ msgstr "multipart/form-data"
