@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-10 09:57+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2023-02-18 07:37+0000\n"
+"Last-Translator: Yi Yunseok <ironyunseok@protonmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/libretranslate/"
 "app/ko/>\n"
 "Language: ko\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -27,15 +27,15 @@ msgstr "잘못된 JSON 형식"
 
 #: libretranslate/app.py:128 libretranslate/templates/app.js.template:427
 msgid "Auto Detect"
-msgstr "자동차 감지"
+msgstr "자동 감지"
 
 #: libretranslate/app.py:193
 msgid "Unauthorized"
-msgstr "기타 제품"
+msgstr "인증되지 않음"
 
 #: libretranslate/app.py:211
 msgid "Too many request limits violations"
-msgstr "너무 많은 요청 제한 위반"
+msgstr "요청이 너무 많음"
 
 #: libretranslate/app.py:220
 msgid "Invalid API key"
@@ -46,9 +46,9 @@ msgid "Please contact the server operator to get an API key"
 msgstr "API 키를 얻기 위해 서버 연산자에 문의하시기 바랍니다"
 
 #: libretranslate/app.py:229
-#, fuzzy, python-format
+#, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr "- 연혁 %(url)s API 키 받기"
+msgstr "%(url)s 에서 API 키 받기"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
@@ -60,14 +60,14 @@ msgstr "공급 능력:"
 #: libretranslate/app.py:838 libretranslate/app.py:987
 #: libretranslate/app.py:989 libretranslate/app.py:991
 #: libretranslate/app.py:993
-#, fuzzy, python-format
+#, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr "잘못된 요청: 누락 %(name)s 이름 *"
+msgstr "잘못된 요청: %(name)s 파라미터 누락"
 
 #: libretranslate/app.py:480 libretranslate/app.py:492
-#, fuzzy, python-format
+#, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
-msgstr "잘못된 요청: 요청 (%(size)s) 텍스트 제한을 초과 (%(limit)s)"
+msgstr "잘못된 요청: 텍스트 제한 (%(limit)s) 초과하는 요청 (%(size)s)"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
 #: libretranslate/app.py:700 libretranslate/app.py:705
