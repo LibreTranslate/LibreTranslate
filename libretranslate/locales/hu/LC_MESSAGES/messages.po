@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-10 09:57+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2023-02-25 11:36+0000\n"
+"Last-Translator: ebela <bela@dandre.hu>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/libretranslate/"
 "app/hu/>\n"
 "Language: hu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -27,7 +27,7 @@ msgstr "Érvénytelen JSON formátum"
 
 #: libretranslate/app.py:128 libretranslate/templates/app.js.template:427
 msgid "Auto Detect"
-msgstr "Auto Detect"
+msgstr "Automatikus felismerés"
 
 #: libretranslate/app.py:193
 msgid "Unauthorized"
@@ -62,12 +62,12 @@ msgstr "Lassulás:"
 #: libretranslate/app.py:838 libretranslate/app.py:987
 #: libretranslate/app.py:989 libretranslate/app.py:991
 #: libretranslate/app.py:993
-#, fuzzy, python-format
+#, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr "Érvénytelen kérés: hiányzik %(name)s paraméter"
+msgstr "Érvénytelen kérés: hiányzik a(z) %(name)s paraméter"
 
 #: libretranslate/app.py:480 libretranslate/app.py:492
-#, fuzzy, python-format
+#, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
 "Érvénytelen kérés: kérés (%(size)s) meghaladja a szövegkorlátot (%(limit)s)"
@@ -79,9 +79,9 @@ msgid "%(lang)s is not supported"
 msgstr "%(lang)s nem támogatott"
 
 #: libretranslate/app.py:536
-#, fuzzy, python-format
+#, python-format
 msgid "%(format)s format is not supported"
-msgstr "%(format)s-formátum nem támogatott"
+msgstr "%(format)s formátum nem támogatott"
 
 #: libretranslate/app.py:544 libretranslate/app.py:568
 #, python-format
@@ -278,24 +278,20 @@ msgid "Hello world!"
 msgstr "Hello világ!"
 
 #: libretranslate/locales/.swag.py:11
-#, fuzzy
 msgid "Text(s) to translate"
-msgstr "Fordítás szövege"
+msgstr "Lefordítandó szöveg(ek)"
 
 #: libretranslate/locales/.swag.py:12
-#, fuzzy
 msgid "Source language code"
-msgstr "Nyelvkód"
+msgstr "Forrás nyelv kódja"
 
 #: libretranslate/locales/.swag.py:13
-#, fuzzy
 msgid "Target language code"
-msgstr "Támogatott célnyelvi kódok"
+msgstr "Cél nyelv kódja"
 
 #: libretranslate/locales/.swag.py:14
-#, fuzzy
 msgid "text"
-msgstr "Másolás szöveg"
+msgstr "szöveg"
 
 #: libretranslate/locales/.swag.py:15
 msgid "html"
@@ -312,9 +308,8 @@ msgstr ""
 "* `html' - HTML markup\n"
 
 #: libretranslate/locales/.swag.py:17
-#, fuzzy
 msgid "API key"
-msgstr "api"
+msgstr "API kulcs"
 
 #: libretranslate/locales/.swag.py:18
 msgid "Translate file from a language to another"
@@ -325,9 +320,8 @@ msgid "Translated file"
 msgstr "Fordított fájl"
 
 #: libretranslate/locales/.swag.py:20
-#, fuzzy
 msgid "File to translate"
-msgstr "Fordítás szövege"
+msgstr "Fájl fordítása"
 
 #: libretranslate/locales/.swag.py:21
 msgid "Detect the language of a single text"
@@ -335,16 +329,15 @@ msgstr "Védje meg egyetlen szöveg nyelvét"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Detections"
-msgstr "Detections"
+msgstr "Észlelések"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Detection error"
 msgstr "Detection hiba"
 
 #: libretranslate/locales/.swag.py:24
-#, fuzzy
 msgid "Text to detect"
-msgstr "Auto Detect"
+msgstr "Felismerendő szöveg"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Retrieve frontend specific settings"
@@ -375,19 +368,16 @@ msgid "Original text"
 msgstr "Eredeti szöveg"
 
 #: libretranslate/locales/.swag.py:32
-#, fuzzy
 msgid "Suggested translation"
-msgstr "Legjobb fordítás"
+msgstr "Javasolt fordítás"
 
 #: libretranslate/locales/.swag.py:33
-#, fuzzy
 msgid "Language of original text"
-msgstr "Védje meg egyetlen szöveg nyelvét"
+msgstr "Eredeti szöveg nyelve"
 
 #: libretranslate/locales/.swag.py:34
-#, fuzzy
 msgid "Language of suggested translation"
-msgstr "Legjobb fordítás"
+msgstr "A javasolt fordítás nyelve"
 
 #: libretranslate/locales/.swag.py:35
 msgid "feedback"
@@ -551,7 +541,7 @@ msgstr "Változási nyelv"
 
 #: libretranslate/templates/index.html:78
 msgid "Edit"
-msgstr "Edit"
+msgstr "Szerkesztés"
 
 #: libretranslate/templates/index.html:154
 msgid "Dismiss"
@@ -571,7 +561,7 @@ msgstr "Fordító fájlok"
 
 #: libretranslate/templates/index.html:182
 msgid "Translate from"
-msgstr "Forrás:"
+msgstr "Fordítsd le"
 
 #: libretranslate/templates/index.html:192
 msgid "Swap source and target languages"
@@ -579,7 +569,7 @@ msgstr "Swap forrás és célnyelvek"
 
 #: libretranslate/templates/index.html:195
 msgid "Translate into"
-msgstr "Forrás:"
+msgstr "Fordítsd le"
 
 #: libretranslate/templates/index.html:207
 msgid "Text to translate"
@@ -632,7 +622,7 @@ msgstr "Válasz"
 
 #: libretranslate/templates/index.html:312
 msgid "Open Source Machine Translation API"
-msgstr "Open Source Machine Translation API"
+msgstr "Nyilt Forráskódú Gépi Fordító API"
 
 #: libretranslate/templates/index.html:313
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
@@ -647,15 +637,15 @@ msgid "License:"
 msgstr "Engedély:"
 
 #: libretranslate/templates/index.html:337
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "This public API should be used for testing, personal or infrequent use. "
 "If you're going to run an application in production, please "
 "%(host_server)s or %(get_api_key)s."
 msgstr ""
-"Ezt a nyilvános API-t tesztelésre, személyes vagy gyakori használatra kell "
-"használni. Ha egy alkalmazást fog futtatni a termelésben, kérjük, "
-"%(host_server)s vagy %(get_api_key)s."
+"Ezt a nyilvános API-t tesztelésre, személyes vagy alkalmankénti használatra "
+"használhatod. Amennyiben az alkalmazásod éles környezetben fogod használni "
+"úgy használd a %(host_server)s-t vagy %(get_api_key)s-t."
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
@@ -671,9 +661,9 @@ msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
 msgstr "Made with %(heart)s által %(contributors)s és erőteljes %(engine)s"
 
 #: libretranslate/templates/index.html:345
-#, fuzzy, python-format
+#, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr "%(libretranslate)s Hozzájárulók"
+msgstr "%(libretranslate)s Közreműködők"
 
 #~ msgid "multipart/form-data"
 #~ msgstr "multipart/form-data"
