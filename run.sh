@@ -73,6 +73,9 @@ check_command(){
         else
             check_msg_result="\033[91m can't find $1! Check that the program is installed and that you have added the proper path to the program to your PATH environment variable before launching the program. If you change your PATH environment variable, remember to close and reopen your terminal. $2\033[39m"
         fi
+    else
+        check_msg_prefix="Checking for $1... "
+        check_msg_result="\033[92m found\033[39m"
     fi
 
     echo -e "$check_msg_prefix $check_msg_result"
