@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-10 09:57+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2023-02-27 19:38+0000\n"
+"Last-Translator: Marko Korhonen <github@functionalhacker.korhonen.cc>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/libretranslate/"
 "app/fi/>\n"
 "Language: fi\n"
@@ -18,16 +18,16 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
 msgid "Invalid JSON format"
-msgstr "Invalid JSON formaatti"
+msgstr "Virheellinen JSON formaatti"
 
 #: libretranslate/app.py:128 libretranslate/templates/app.js.template:427
 msgid "Auto Detect"
-msgstr "Auton havaitseminen"
+msgstr "Automaattinen havaitseminen"
 
 #: libretranslate/app.py:193
 msgid "Unauthorized"
@@ -39,20 +39,20 @@ msgstr "Liikaa pyyntöjä rajoittaa rikkomuksia"
 
 #: libretranslate/app.py:220
 msgid "Invalid API key"
-msgstr "Invalid API avain"
+msgstr "Virheellinen API avain"
 
 #: libretranslate/app.py:227
 msgid "Please contact the server operator to get an API key"
-msgstr "Ota yhteyttä palvelimeen saadaksesi API-avaimen"
+msgstr "Ota yhteyttä palvelimen ylläpitäjään saadaksesi API-avaimen"
 
 #: libretranslate/app.py:229
 #, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr "Vierailu %(url)s API avain"
+msgstr "Vieraile %(url)s hankkiaksesi API avaimen"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
-msgstr "Slowdown:"
+msgstr "Hidasta:"
 
 #: libretranslate/app.py:467 libretranslate/app.py:469
 #: libretranslate/app.py:471 libretranslate/app.py:683
@@ -62,26 +62,26 @@ msgstr "Slowdown:"
 #: libretranslate/app.py:993
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr "Invalid-pyyntö: Kadonnut %(name)s parametri"
+msgstr "Virheellinen pyyntö: Kadonnut %(name)s parametri"
 
 #: libretranslate/app.py:480 libretranslate/app.py:492
-#, fuzzy, python-format
+#, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
-msgstr "Välttämätön pyyntö: pyyntö (%(size)s ylittää tekstin rajan (%(limit)s)"
+msgstr "Virheellinen pyyntö: pyyntö (%(size)s ylittää tekstin rajan (%(limit)s)"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
 #: libretranslate/app.py:700 libretranslate/app.py:705
 #, python-format
 msgid "%(lang)s is not supported"
-msgstr "%(lang)s ei tueta"
+msgstr "%(lang)s ei ole tuettu"
 
 #: libretranslate/app.py:536
 #, python-format
 msgid "%(format)s format is not supported"
-msgstr "%(format)s Formaattia ei tueta"
+msgstr "%(format)s formaattia ei tueta"
 
 #: libretranslate/app.py:544 libretranslate/app.py:568
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
@@ -95,7 +95,7 @@ msgstr "Ei voi kääntää tekstiä: %(text)s"
 
 #: libretranslate/app.py:676 libretranslate/app.py:730
 msgid "Files translation are disabled on this server."
-msgstr "Tiedostojen käännös on poistettu käytöstä tällä palvelimella."
+msgstr "Tiedostojen kääntäminen on poistettu käytöstä tällä palvelimella."
 
 #: libretranslate/app.py:690
 msgid "Invalid request: empty file"
@@ -103,11 +103,11 @@ msgstr "Virheellinen pyyntö: tyhjä tiedosto"
 
 #: libretranslate/app.py:693
 msgid "Invalid request: file format not supported"
-msgstr "Invalid-pyyntö: tiedostomuoto, jota ei tueta"
+msgstr "Virheellinen pyyntö: tiedostomuotoa ei tueta"
 
 #: libretranslate/app.py:738
 msgid "Invalid filename"
-msgstr "Invalid-tiedostonimi"
+msgstr "Virheellinen tiedostonimi"
 
 #: libretranslate/app.py:979
 msgid "Suggestions are disabled on this server."
@@ -119,7 +119,7 @@ msgstr "Englanti"
 
 #: libretranslate/locales/.langs.py:2
 msgid "Arabic"
-msgstr "Arabiankielinen"
+msgstr "Arabian kieli"
 
 #: libretranslate/locales/.langs.py:3
 msgid "Azerbaijani"
@@ -127,7 +127,7 @@ msgstr "Azerbaidžanin"
 
 #: libretranslate/locales/.langs.py:4
 msgid "Chinese"
-msgstr "Kiinalaiset"
+msgstr "Kiina"
 
 #: libretranslate/locales/.langs.py:5
 msgid "Czech"
@@ -135,7 +135,7 @@ msgstr "Tšekki"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Danish"
-msgstr "Tanskalaiset"
+msgstr "Tanska"
 
 #: libretranslate/locales/.langs.py:7
 msgid "Dutch"
@@ -147,23 +147,23 @@ msgstr "Esperanto"
 
 #: libretranslate/locales/.langs.py:9
 msgid "Finnish"
-msgstr "Suomalaista suomalaista"
+msgstr "Suomi"
 
 #: libretranslate/locales/.langs.py:10
 msgid "French"
-msgstr "Ranskaksi ranskaksi"
+msgstr "Ranska"
 
 #: libretranslate/locales/.langs.py:11
 msgid "German"
-msgstr "Saksan Saksa"
+msgstr "Saksa"
 
 #: libretranslate/locales/.langs.py:12
 msgid "Greek"
-msgstr "Kreikkalainen kreikkalainen"
+msgstr "Kreikka"
 
 #: libretranslate/locales/.langs.py:13
 msgid "Hebrew"
-msgstr "Hepreaa"
+msgstr "Heprea"
 
 #: libretranslate/locales/.langs.py:14
 msgid "Hindi"
@@ -171,43 +171,43 @@ msgstr "Hindi"
 
 #: libretranslate/locales/.langs.py:15
 msgid "Hungarian"
-msgstr "Unkarin"
+msgstr "Unkari"
 
 #: libretranslate/locales/.langs.py:16
 msgid "Indonesian"
-msgstr "Indonesialaiset"
+msgstr "Indonesia"
 
 #: libretranslate/locales/.langs.py:17
 msgid "Irish"
-msgstr "Irlantilaiset"
+msgstr "Irlanti"
 
 #: libretranslate/locales/.langs.py:18
 msgid "Italian"
-msgstr "Italian italialaiset"
+msgstr "Italia"
 
 #: libretranslate/locales/.langs.py:19
 msgid "Japanese"
-msgstr "Japanilaiset japanilaiset"
+msgstr "Japani"
 
 #: libretranslate/locales/.langs.py:20
 msgid "Korean"
-msgstr "Korealaiset"
+msgstr "Korea"
 
 #: libretranslate/locales/.langs.py:21
 msgid "Persian"
-msgstr "Persian"
+msgstr "Persia"
 
 #: libretranslate/locales/.langs.py:22
 msgid "Polish"
-msgstr "Puolalaiset"
+msgstr "Puola"
 
 #: libretranslate/locales/.langs.py:23
 msgid "Portuguese"
-msgstr "Portugalilainen"
+msgstr "Portugali"
 
 #: libretranslate/locales/.langs.py:24
 msgid "Russian"
-msgstr "Venäjän Venäjä"
+msgstr "Venäjä"
 
 #: libretranslate/locales/.langs.py:25
 msgid "Slovak"
@@ -215,23 +215,23 @@ msgstr "Slovakia"
 
 #: libretranslate/locales/.langs.py:26
 msgid "Spanish"
-msgstr "Espanja espanja espanjaksi"
+msgstr "Espanja"
 
 #: libretranslate/locales/.langs.py:27
 msgid "Swedish"
-msgstr "Ruotsalainen"
+msgstr "Ruotsi"
 
 #: libretranslate/locales/.langs.py:28
 msgid "Turkish"
-msgstr "Turkkilaiset"
+msgstr "Turkki"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Ukranian"
-msgstr "Ukrainalaiset"
+msgstr "Ukraina"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Vietnamese"
-msgstr "Vietnamilaiset"
+msgstr "Vietnami"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
@@ -255,7 +255,7 @@ msgstr "Käännetty teksti"
 
 #: libretranslate/locales/.swag.py:6
 msgid "Invalid request"
-msgstr "Invalid-pyyntö"
+msgstr "Virheellinen pyyntö"
 
 #: libretranslate/locales/.swag.py:7
 msgid "Translation error"
@@ -263,7 +263,7 @@ msgstr "Käännösvirhe"
 
 #: libretranslate/locales/.swag.py:8
 msgid "Slow down"
-msgstr "Hitaasti alas"
+msgstr "Hidasta"
 
 #: libretranslate/locales/.swag.py:9
 msgid "Banned"
@@ -274,24 +274,20 @@ msgid "Hello world!"
 msgstr "Hei maailma!"
 
 #: libretranslate/locales/.swag.py:11
-#, fuzzy
 msgid "Text(s) to translate"
-msgstr "Teksti kääntää"
+msgstr "Käännettävä teksti"
 
 #: libretranslate/locales/.swag.py:12
-#, fuzzy
 msgid "Source language code"
-msgstr "Kielikoodi"
+msgstr "Lähdekielikoodi"
 
 #: libretranslate/locales/.swag.py:13
-#, fuzzy
 msgid "Target language code"
-msgstr "Tuettu kohdekielikoodi"
+msgstr "Kohdekielen koodi"
 
 #: libretranslate/locales/.swag.py:14
-#, fuzzy
 msgid "text"
-msgstr "Kopioi teksti"
+msgstr "teksti"
 
 #: libretranslate/locales/.swag.py:15
 msgid "html"
@@ -308,9 +304,8 @@ msgstr ""
 "HTML-merkintä\n"
 
 #: libretranslate/locales/.swag.py:17
-#, fuzzy
 msgid "API key"
-msgstr "api"
+msgstr "API-avain"
 
 #: libretranslate/locales/.swag.py:18
 msgid "Translate file from a language to another"
@@ -321,9 +316,8 @@ msgid "Translated file"
 msgstr "Käännetty tiedosto"
 
 #: libretranslate/locales/.swag.py:20
-#, fuzzy
 msgid "File to translate"
-msgstr "Teksti kääntää"
+msgstr "Käännettävä tiedosto"
 
 #: libretranslate/locales/.swag.py:21
 msgid "Detect the language of a single text"
@@ -335,12 +329,11 @@ msgstr "Havainnot"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Detection error"
-msgstr "Huomautusvirhe"
+msgstr "Tunnistusvirhe"
 
 #: libretranslate/locales/.swag.py:24
-#, fuzzy
 msgid "Text to detect"
-msgstr "Auton havaitseminen"
+msgstr "Tunnistettava teksti"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Retrieve frontend specific settings"
@@ -356,38 +349,35 @@ msgstr "etusivu"
 
 #: libretranslate/locales/.swag.py:28
 msgid "Submit a suggestion to improve a translation"
-msgstr "Ehdotus käännöksen parantamiseksi"
+msgstr "Ehdota parannusta käännökseen"
 
 #: libretranslate/locales/.swag.py:29
 msgid "Success"
-msgstr "Menestystä"
+msgstr "Onnistui"
 
 #: libretranslate/locales/.swag.py:30
 msgid "Not authorized"
-msgstr "Ei sallittua"
+msgstr "Ei todennettu"
 
 #: libretranslate/locales/.swag.py:31
 msgid "Original text"
 msgstr "Alkuperäinen teksti"
 
 #: libretranslate/locales/.swag.py:32
-#, fuzzy
 msgid "Suggested translation"
 msgstr "Käännösehdotus"
 
 #: libretranslate/locales/.swag.py:33
-#, fuzzy
 msgid "Language of original text"
-msgstr "Tunnista yhden tekstin kieli"
+msgstr "Alkuperäisen tekstin kieli"
 
 #: libretranslate/locales/.swag.py:34
-#, fuzzy
 msgid "Language of suggested translation"
-msgstr "Käännösehdotus"
+msgstr "Ehdotetun käännöksen kieli"
 
 #: libretranslate/locales/.swag.py:35
 msgid "feedback"
-msgstr "palautetta"
+msgstr "palaute"
 
 #: libretranslate/locales/.swag.py:36
 msgid "Language code"
@@ -403,31 +393,31 @@ msgstr "Tuettu kohdekielikoodi"
 
 #: libretranslate/locales/.swag.py:39
 msgid "Translated text(s)"
-msgstr "Käännetty teksti (s)"
+msgstr "Käännetty teksti"
 
 #: libretranslate/locales/.swag.py:40
 msgid "Error message"
-msgstr "Virheellinen viesti"
+msgstr "Virheviesti"
 
 #: libretranslate/locales/.swag.py:41
 msgid "Reason for slow down"
-msgstr "Syy hidastua"
+msgstr "Hidastuksen syy"
 
 #: libretranslate/locales/.swag.py:42
 msgid "Translated file url"
-msgstr "Käännetty URL"
+msgstr "Käännetyn tiedoston URL"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Confidence value"
-msgstr "Luottamuksen arvo"
+msgstr "Luottamusarvo"
 
 #: libretranslate/locales/.swag.py:44
 msgid "Character input limit for this language (-1 indicates no limit)"
-msgstr "Tämän kielen käyttöraja (-1 ei ilmoita rajaa)"
+msgstr "Merkkien syöttörajoitus tälle kielelle (-1 = ei rajaa)"
 
 #: libretranslate/locales/.swag.py:45
 msgid "Frontend translation timeout"
-msgstr "Frontent Translation Timeout (käytetty)"
+msgstr "Käyttöliittymän käännöksen aikakatkaisu"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Whether the API key database is enabled."
@@ -439,7 +429,7 @@ msgstr "Tarvitaanko API-avain."
 
 #: libretranslate/locales/.swag.py:48
 msgid "Whether submitting suggestions is enabled."
-msgstr "Olipa ehdotusten esittäminen mahdollista."
+msgstr "Onko ehdotusten esittäminen mahdollista."
 
 #: libretranslate/locales/.swag.py:49
 msgid "Supported files format"
@@ -447,7 +437,7 @@ msgstr "Tuettu tiedostomuoto"
 
 #: libretranslate/locales/.swag.py:50
 msgid "Whether submission was successful"
-msgstr "Toimitus onnistui"
+msgstr "Onnistuiko lähetys"
 
 #: libretranslate/templates/app.js.template:31
 #: libretranslate/templates/app.js.template:275
@@ -475,7 +465,7 @@ msgstr "Tuntematon virhe"
 
 #: libretranslate/templates/app.js.template:276
 msgid "Copied"
-msgstr "Kopioiminen"
+msgstr "Kopioitiin"
 
 #: libretranslate/templates/app.js.template:320
 msgid ""
@@ -498,12 +488,12 @@ msgstr "paina \"Get API Key\" -linkkiä."
 
 #: libretranslate/templates/app.js.template:479
 msgid "contact the server operator."
-msgstr "ota yhteyttä palvelimen operaattoriin."
+msgstr "ota yhteyttä palvelimen ylläpitäjään."
 
 #: libretranslate/templates/index.html:8 libretranslate/templates/index.html:25
 #: libretranslate/templates/index.html:333
 msgid "Free and Open Source Machine Translation API"
-msgstr "Ilmainen ja avoimen lähdekoodin koneen käännös API"
+msgstr "Ilmainen ja avoimen lähdekoodin konekäännösrajapinta"
 
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:29
@@ -511,13 +501,13 @@ msgid ""
 "Free and Open Source Machine Translation API. Self-hosted, offline "
 "capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"Ilmainen ja avoimen lähdekoodin koneen käännös API. Self isännöi, offline"
-" pystyy ja helppo asentaa. Käynnistä oma API-palvelin muutamassa "
+"Ilmainen ja avoimen lähdekoodin konekäännösrajapinta. Itseisännöity, offline-"
+"tilassa toimiva ja helppo asentaa. Käytä omaa API-palvelintasi muutamassa "
 "minuutissa."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
-msgstr "käännöksen käännös"
+msgstr "käännös"
 
 #: libretranslate/templates/index.html:11
 msgid "api"
@@ -525,11 +515,11 @@ msgstr "api"
 
 #: libretranslate/templates/index.html:64
 msgid "API Docs"
-msgstr "API Docs"
+msgstr "API Dokumentaatio"
 
 #: libretranslate/templates/index.html:66
 msgid "Get API Key"
-msgstr "Hanki API Keskeinen"
+msgstr "Hanki API-avain"
 
 #: libretranslate/templates/index.html:68
 msgid "GitHub"
@@ -537,19 +527,19 @@ msgstr "GitHub"
 
 #: libretranslate/templates/index.html:70
 msgid "Set API Key"
-msgstr "Aseta API Keskeinen"
+msgstr "Aseta API-avain"
 
 #: libretranslate/templates/index.html:72
 msgid "Change language"
-msgstr "Muuta kieltä"
+msgstr "Vaihda kieltä"
 
 #: libretranslate/templates/index.html:78
 msgid "Edit"
-msgstr "Edit"
+msgstr "Muokkaa"
 
 #: libretranslate/templates/index.html:154
 msgid "Dismiss"
-msgstr "Erottaa"
+msgstr "Hylkää"
 
 #: libretranslate/templates/index.html:168
 msgid "Translation API"
@@ -557,11 +547,11 @@ msgstr "Käännös API"
 
 #: libretranslate/templates/index.html:172
 msgid "Translate Text"
-msgstr "Käännösteksti"
+msgstr "Käännä teksti"
 
 #: libretranslate/templates/index.html:176
 msgid "Translate Files"
-msgstr "Käännöstiedostot"
+msgstr "Käännä tiedosto"
 
 #: libretranslate/templates/index.html:182
 msgid "Translate from"
@@ -573,11 +563,11 @@ msgstr "Vaihda lähde ja kohdekielet"
 
 #: libretranslate/templates/index.html:195
 msgid "Translate into"
-msgstr "Käännökset"
+msgstr "Käännä kielelle"
 
 #: libretranslate/templates/index.html:207
 msgid "Text to translate"
-msgstr "Teksti kääntää"
+msgstr "Käännettävä teksti"
 
 #: libretranslate/templates/index.html:210
 msgid "Delete text"
@@ -585,11 +575,11 @@ msgstr "Poista teksti"
 
 #: libretranslate/templates/index.html:223
 msgid "Suggest translation"
-msgstr "Käännösehdotus"
+msgstr "Ehdota käännöstä"
 
 #: libretranslate/templates/index.html:227
 msgid "Cancel"
-msgstr "Peruu peruutus"
+msgstr "Peru"
 
 #: libretranslate/templates/index.html:230
 msgid "Send"
@@ -605,7 +595,7 @@ msgstr "Tiedosto"
 
 #: libretranslate/templates/index.html:265
 msgid "Remove file"
-msgstr "Poista tiedostot"
+msgstr "Poista tiedosto"
 
 #: libretranslate/templates/index.html:272
 msgid "Translate"
@@ -613,9 +603,8 @@ msgstr "Käännökset"
 
 #: libretranslate/templates/index.html:273
 #: libretranslate/templates/index.html:317
-#, fuzzy
 msgid "Download"
-msgstr "Download"
+msgstr "Lataa"
 
 #: libretranslate/templates/index.html:292
 msgid "Request"
@@ -627,11 +616,11 @@ msgstr "Vastaus"
 
 #: libretranslate/templates/index.html:312
 msgid "Open Source Machine Translation API"
-msgstr "Avoin lähdekoodi: API"
+msgstr "Avoimen lähdekoodin käännös konekäännösrajapinta"
 
 #: libretranslate/templates/index.html:313
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
-msgstr "Itsekäs. Offline pystyy. Helppo asentaa."
+msgstr "Itseisännöity. Offline-yhteensopiva. Helppo asentaa."
 
 #: libretranslate/templates/index.html:332
 msgid "LibreTranslate"
@@ -642,23 +631,23 @@ msgid "License:"
 msgstr "Lisenssi:"
 
 #: libretranslate/templates/index.html:337
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "This public API should be used for testing, personal or infrequent use. "
 "If you're going to run an application in production, please "
 "%(host_server)s or %(get_api_key)s."
 msgstr ""
-"Tämä julkinen API on käytettävä testaamiseen, henkilökohtaiseen tai harvoin. "
-"Jos aiot tehdä hakemuksen tuotannossa, ole hyvä. %(host_server)s tai "
-"%(get_api_key)s."
+"Tämä julkinen API on käytettävissä testaamiseen, henkilökohtaiseen tai "
+"harvaan käyttöön. Jos aiot käyttää sovellusta tuotannossa, ole hyvä "
+"%(host_server)s tai %(get_api_key)s."
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
-msgstr "isännöi omaa palvelintasi"
+msgstr "isännöi oma palvelin"
 
 #: libretranslate/templates/index.html:337
 msgid "get an API key"
-msgstr "aPI avain"
+msgstr "hanki API-avain"
 
 #: libretranslate/templates/index.html:345
 #, fuzzy, python-format
