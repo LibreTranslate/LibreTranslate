@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-28 14:45+0000\n"
-"Last-Translator: hzrbasaran <hzrbasaran@hotmail.com>\n"
+"PO-Revision-Date: 2023-02-27 19:38+0000\n"
+"Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/libretranslate/"
 "app/tr/>\n"
 "Language: tr\n"
@@ -30,14 +30,12 @@ msgid "Auto Detect"
 msgstr "Otomatik Algıla"
 
 #: libretranslate/app.py:193
-#, fuzzy
 msgid "Unauthorized"
 msgstr "Yetkisiz İşlem"
 
 #: libretranslate/app.py:211
-#, fuzzy
 msgid "Too many request limits violations"
-msgstr "Çok fazla istekte bulunarak, istek limiti aşıldı"
+msgstr "Çok fazla istekte bulunarak, istek sınırı aşıldı"
 
 #: libretranslate/app.py:220
 msgid "Invalid API key"
