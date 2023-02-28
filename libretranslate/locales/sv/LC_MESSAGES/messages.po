@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-02-11 10:36+0000\n"
-"Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
+"PO-Revision-Date: 2023-03-01 08:36+0000\n"
+"Last-Translator: tygyh <jonis9898@hotmail.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/libretranslate/"
 "app/sv/>\n"
 "Language: sv\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.16-rc\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -27,11 +27,11 @@ msgstr "Invalid JSON-format"
 
 #: libretranslate/app.py:128 libretranslate/templates/app.js.template:427
 msgid "Auto Detect"
-msgstr "Auto Detect"
+msgstr "Identifiera Automatiskt"
 
 #: libretranslate/app.py:193
 msgid "Unauthorized"
-msgstr "Unauthorized"
+msgstr "Obehörig"
 
 #: libretranslate/app.py:211
 msgid "Too many request limits violations"
@@ -48,11 +48,11 @@ msgstr "Kontakta serveroperatören för att få en API-nyckel"
 #: libretranslate/app.py:229
 #, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr "Besök %(url)s för att få en API-nyckel %(url)s"
+msgstr "Besök %(url)s för att få en API-nyckel"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
-msgstr "Slowdown:"
+msgstr "Nedsaktning:"
 
 #: libretranslate/app.py:467 libretranslate/app.py:469
 #: libretranslate/app.py:471 libretranslate/app.py:683
@@ -268,7 +268,7 @@ msgstr "Sakta ner"
 
 #: libretranslate/locales/.swag.py:9
 msgid "Banned"
-msgstr "Banned"
+msgstr "Bannad"
 
 #: libretranslate/locales/.swag.py:10
 msgid "Hello world!"
@@ -378,7 +378,7 @@ msgstr "Språk av föreslagen översättning"
 
 #: libretranslate/locales/.swag.py:35
 msgid "feedback"
-msgstr "feedback"
+msgstr "återkoppling"
 
 #: libretranslate/locales/.swag.py:36
 msgid "Language code"
@@ -538,7 +538,7 @@ msgstr "Ändra språk"
 
 #: libretranslate/templates/index.html:78
 msgid "Edit"
-msgstr "Edit"
+msgstr "Redigera"
 
 #: libretranslate/templates/index.html:154
 msgid "Dismiss"
@@ -619,7 +619,7 @@ msgstr "Svar"
 
 #: libretranslate/templates/index.html:312
 msgid "Open Source Machine Translation API"
-msgstr "Open Source Machine Translation API"
+msgstr "API för maskinöversättning med öppen källkod"
 
 #: libretranslate/templates/index.html:313
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
