@@ -6,6 +6,7 @@ import uuid
 from functools import wraps
 from html import unescape
 from timeit import default_timer
+from datetime import datetime
 
 import argostranslatefiles
 from argostranslatefiles import get_supported_formats
@@ -17,6 +18,7 @@ from flask_session import Session
 from translatehtml import translate_html
 from werkzeug.utils import secure_filename
 from werkzeug.exceptions import HTTPException
+from werkzeug.http import http_date
 from flask_babel import Babel
 
 from libretranslate import flood, remove_translated_files, security
@@ -51,6 +53,15 @@ def get_req_api_key():
         ak = json.get("api_key")
     else:
         ak = request.values.get("api_key")
+
+    return ak
+
+def get_req_secret():
+    if request.is_json:
+        json = get_json_dict(request)
+        ak = json.get("secret")
+    else:
+        ak = request.values.get("secret")
 
     return ak
 
@@ -233,18 +244,28 @@ def create_app(args):
 
             if args.api_keys:
                 ak = get_req_api_key()
-                if (
-                    ak and api_keys_db.lookup(ak) is None
-                ):
+                if ak and api_keys_db.lookup(ak) is None:
                     abort(
                         403,
                         description=_("Invalid API key"),
                     )
-                elif (
-                    args.require_api_key_origin
-                    and api_keys_db.lookup(ak) is None
-                    and not re.match(args.require_api_key_origin, request.headers.get("Origin", ""))
-                ):
+                else:
+                  need_key = False
+                  key_missing = api_keys_db.lookup(ak) is None
+                  
+                  if (args.require_api_key_origin
+                      and key_missing
+                      and not re.match(args.require_api_key_origin, request.headers.get("Origin", ""))
+                  ):
+                    need_key = True
+                  
+                  if (args.require_api_key_secret
+                    and key_missing
+                    and not flood.secret_match(get_req_secret())
+                  ):
+                    need_key = True
+                  
+                  if need_key:
                     description = _("Please contact the server operator to get an API key")
                     if args.get_api_key_link:
                         description = _("Visit %(url)s to get an API key", url=args.get_api_key_link)
@@ -323,9 +344,18 @@ def create_app(args):
       if args.disable_web_ui:
             abort(404)
 
-      return Response(render_template("app.js.template", 
+      response = Response(render_template("app.js.template", 
             url_prefix=args.url_prefix,
-            get_api_key_link=args.get_api_key_link), content_type='application/javascript; charset=utf-8')
+            get_api_key_link=args.get_api_key_link,
+            api_secret=flood.get_current_secret() if args.require_api_key_secret else ""), content_type='application/javascript; charset=utf-8')
+      
+      if args.require_api_key_secret:
+        response.headers['Last-Modified'] = http_date(datetime.now())
+        response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
+        response.headers['Pragma'] = 'no-cache'
+        response.headers['Expires'] = '-1'
+      
+      return response
 
     @bp.get("/languages")
     @limiter.exempt

@@ -39,7 +39,9 @@ document.addEventListener('DOMContentLoaded', function(){
             loadingFileTranslation: false,
             translatedFileUrl: false,
             filesTranslation: true,
-            frontendTimeout: 500
+            frontendTimeout: 500,
+
+            apiSecret: "{{ api_secret }}"
         },
         mounted: function() {
             const self = this;
@@ -234,11 +236,19 @@ document.addEventListener('DOMContentLoaded', function(){
                     data.append("target", self.targetLang);
                     data.append("format", self.isHtml ? "html" : "text");
                     data.append("api_key", localStorage.getItem("api_key") || "");
+                    if (self.apiSecret) data.append("secret", self.apiSecret);
 
                     request.open('POST', BaseUrl + '/translate', true);
 
                     request.onload = function() {
                         try{
+                            {% if api_secret != "" %}
+                            if (this.status === 403){
+                                window.location.reload(true);
+                                return;
+                            }
+                            {% endif %}
+                            
                             var res = JSON.parse(this.response);
                             // Success!
                             if (res.translatedText !== undefined){
@@ -365,12 +375,19 @@ document.addEventListener('DOMContentLoaded', function(){
                 data.append("source", this.sourceLang);
                 data.append("target", this.targetLang);
                 data.append("api_key", localStorage.getItem("api_key") || "");
+                if (self.apiSecret) data.append("secret", self.apiSecret);
 
                 this.loadingFileTranslation = true
 
                 translateFileRequest.onload = function()  {
                     if (translateFileRequest.readyState === 4 && translateFileRequest.status === 200) {
                         try{
+                            {% if api_secret != "" %}
+                            if (this.status === 403){
+                                window.location.reload(true);
+                                return;
+                            }
+                            {% endif %}
                             self.loadingFileTranslation = false;
 
                             let res = JSON.parse(this.response);
