@@ -21,7 +21,7 @@ from werkzeug.exceptions import HTTPException
 from werkzeug.http import http_date
 from flask_babel import Babel
 
-from libretranslate import flood, remove_translated_files, security
+from libretranslate import flood, secret, remove_translated_files, security, storage
 from libretranslate.language import detect_languages, improve_translation_formatting
 from libretranslate.locales import (_, _lazy, get_available_locales, get_available_locale_codes, gettext_escaped, 
         gettext_html, lazy_swag, get_alternate_locale_links)
@@ -127,6 +127,8 @@ def create_app(args):
 
     bp = Blueprint('Main app', __name__)
 
+    storage.setup(args.shared_storage)
+
     if not args.disable_files_translation:
         remove_translated_files.setup(get_upload_dir())
     languages = load_languages()
@@ -204,6 +206,9 @@ def create_app(args):
 
     if args.req_flood_threshold > 0:
         flood.setup(args.req_flood_threshold)
+    if args.api_keys and args.require_api_key_secret:
+        secret.setup()
+    
 
     measure_request = None
     gauge_request = None
@@ -261,9 +266,11 @@ def create_app(args):
                   
                   if (args.require_api_key_secret
                     and key_missing
-                    and not flood.secret_match(get_req_secret())
+                    and not secret.secret_match(get_req_secret())
                   ):
                     need_key = True
+
+                    # TODO: find a way to send a "refresh" error key?
                   
                   if need_key:
                     description = _("Please contact the server operator to get an API key")
@@ -347,7 +354,7 @@ def create_app(args):
       response = Response(render_template("app.js.template", 
             url_prefix=args.url_prefix,
             get_api_key_link=args.get_api_key_link,
-            api_secret=flood.get_current_secret() if args.require_api_key_secret else ""), content_type='application/javascript; charset=utf-8')
+            api_secret=secret.get_current_secret() if args.require_api_key_secret else ""), content_type='application/javascript; charset=utf-8')
       
       if args.require_api_key_secret:
         response.headers['Last-Modified'] = http_date(datetime.now())

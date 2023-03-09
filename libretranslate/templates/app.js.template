@@ -244,8 +244,8 @@ document.addEventListener('DOMContentLoaded', function(){
                         try{
                             {% if api_secret != "" %}
                             if (this.status === 403){
-                                window.location.reload(true);
-                                return;
+                                //window.location.reload(true);
+                                //return;
                             }
                             {% endif %}
                             

@@ -127,6 +127,13 @@ def get_args():
         help="Require use of an API key for programmatic access to the API, unless the client also sends a secret match",
     )
     parser.add_argument(
+        "--shared-storage",
+        type=str,
+        default=DEFARGS['SHARED_STORAGE'],
+        metavar="<Storage URI>",
+        help="Shared storage URI to use for multi-process data sharing (e.g. via gunicorn)",
+    )
+    parser.add_argument(
         "--load-only",
         type=operator.methodcaller("split", ","),
         default=DEFARGS['LOAD_ONLY'],

@@ -137,6 +137,11 @@ _default_options_objects = [
         'value_type': 'bool'
     },
     {
+        'name': 'SHARED_STORAGE',
+        'default_value': 'memory://',
+        'value_type': 'str'
+    },
+    {
         'name': 'LOAD_ONLY',
         'default_value': None,
         'value_type': 'str'
