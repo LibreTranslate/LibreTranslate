@@ -132,6 +132,11 @@ _default_options_objects = [
         'value_type': 'str'
     },
     {
+        'name': 'REQUIRE_API_KEY_SECRET',
+        'default_value': False,
+        'value_type': 'bool'
+    },
+    {
         'name': 'LOAD_ONLY',
         'default_value': None,
         'value_type': 'str'

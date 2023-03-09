@@ -121,6 +121,12 @@ def get_args():
         help="Require use of an API key for programmatic access to the API, unless the request origin matches this domain",
     )
     parser.add_argument(
+        "--require-api-key-secret",
+        default=DEFARGS['REQUIRE_API_KEY_SECRET'],
+        action="store_true",
+        help="Require use of an API key for programmatic access to the API, unless the client also sends a secret match",
+    )
+    parser.add_argument(
         "--load-only",
         type=operator.methodcaller("split", ","),
         default=DEFARGS['LOAD_ONLY'],
