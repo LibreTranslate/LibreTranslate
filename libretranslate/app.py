@@ -18,6 +18,7 @@ from flask_session import Session
 from translatehtml import translate_html
 from werkzeug.utils import secure_filename
 from werkzeug.exceptions import HTTPException
+from werkzeug.http import http_date
 from flask_babel import Babel
 
 from libretranslate import flood, remove_translated_files, security
@@ -349,7 +350,7 @@ def create_app(args):
             api_secret=flood.get_current_secret() if args.require_api_key_secret else ""), content_type='application/javascript; charset=utf-8')
       
       if args.require_api_key_secret:
-        response.headers['Last-Modified'] = datetime.now()
+        response.headers['Last-Modified'] = http_date(datetime.now())
         response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
         response.headers['Pragma'] = 'no-cache'
         response.headers['Expires'] = '-1'
