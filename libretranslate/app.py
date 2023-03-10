@@ -270,14 +270,12 @@ def create_app(args):
                   ):
                     need_key = True
 
-                    # TODO: find a way to send a "refresh" error key?
-                  
                   if need_key:
                     description = _("Please contact the server operator to get an API key")
                     if args.get_api_key_link:
                         description = _("Visit %(url)s to get an API key", url=args.get_api_key_link)
                     abort(
-                        403,
+                        400,
                         description=description,
                     )
             return f(*a, **kw)

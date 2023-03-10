@@ -38,7 +38,7 @@ def setup(violations_threshold=100):
 
         scheduler = BackgroundScheduler()
         scheduler.add_job(func=forgive_banned, trigger="interval", minutes=30)
-        
+
         scheduler.start()
 
         # Shut down the scheduler when exiting the app
