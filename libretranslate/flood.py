@@ -1,75 +1,47 @@
-import atexit
-import random
-import string
+from libretranslate.storage import get_storage
 
-from apscheduler.schedulers.background import BackgroundScheduler
-
-def generate_secret():
-    return ''.join(random.choices(string.ascii_uppercase + string.digits, k=7))
-
-banned = {}
 active = False
 threshold = -1
-secrets = [generate_secret(), generate_secret()]
 
 def forgive_banned():
-    global banned
     global threshold
 
     clear_list = []
+    s = get_storage()
+    banned = s.get_all_hash_int("banned")
 
     for ip in banned:
         if banned[ip] <= 0:
             clear_list.append(ip)
         else:
-            banned[ip] = min(threshold, banned[ip]) - 1
+            s.set_hash_int("banned", ip, min(threshold, banned[ip]) - 1)
 
     for ip in clear_list:
-        del banned[ip]
+        s.del_hash("banned", ip)
 
-def rotate_secrets():
-    global secrets
-    secrets[0] = secrets[1]
-    secrets[1] = generate_secret()
-
-def secret_match(s):
-    return s in secrets
-
-def get_current_secret():
-    return secrets[1]
-
-def setup(violations_threshold=100):
+def setup(args):
     global active
     global threshold
 
-    active = True
-    threshold = violations_threshold
-
-    scheduler = BackgroundScheduler()
-    scheduler.add_job(func=forgive_banned, trigger="interval", minutes=30)
-    scheduler.add_job(func=rotate_secrets, trigger="interval", minutes=30)
-    
-    scheduler.start()
-
-    # Shut down the scheduler when exiting the app
-    atexit.register(lambda: scheduler.shutdown())
-
+    if args.req_flood_threshold > 0:
+        active = True
+        threshold = args.req_flood_threshold
 
 def report(request_ip):
     if active:
-        banned[request_ip] = banned.get(request_ip, 0)
-        banned[request_ip] += 1
-
+        get_storage().inc_hash_int("banned", request_ip)
 
 def decrease(request_ip):
-    if banned[request_ip] > 0:
-        banned[request_ip] -= 1
-
+    s = get_storage()
+    if s.get_hash_int("banned", request_ip) > 0:
+        s.dec_hash_int("banned", request_ip)
 
 def has_violation(request_ip):
-    return request_ip in banned and banned[request_ip] > 0
-
+    s = get_storage()
+    return s.get_hash_int("banned", request_ip) > 0
 
 def is_banned(request_ip):
+    s = get_storage()
+
     # More than X offences?
-    return active and banned.get(request_ip, 0) >= threshold
+    return active and s.get_hash_int("banned", request_ip) >= threshold

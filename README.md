@@ -192,6 +192,7 @@ docker-compose -f docker-compose.cuda.yml up -d --build
 | --get-api-key-link          | Show a link in the UI where to direct users to get an API key                                               | `Don't show a link` | LT_GET_API_KEY_LINK                  |
 | --require-api-key-origin    | Require use of an API key for programmatic access to the API, unless the request origin matches this domain | `No restrictions on domain origin` | LT_REQUIRE_API_KEY_ORIGIN    |
 | --require-api-key-secret    | Require use of an API key for programmatic access to the API, unless the client also sends a secret match   | `No secrets required` | LT_REQUIRE_API_KEY_SECRET    |
+| --shared-storage            | Shared storage URI to use for multi-process data sharing (e.g. when using gunicorn)                         | `memory://` | LT_SHARED_STORAGE    |
 | --load-only                 | Set available languages                                                                                     | `all from argostranslate`    | LT_LOAD_ONLY                 |
 | --threads                   | Set number of threads                                                                                       | `4`    | LT_THREADS                 |
 | --suggestions               | Allow user suggestions                                                                                      | `False`    | LT_SUGGESTIONS               |

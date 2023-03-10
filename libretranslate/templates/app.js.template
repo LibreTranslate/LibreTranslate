@@ -243,9 +243,8 @@ document.addEventListener('DOMContentLoaded', function(){
                     request.onload = function() {
                         try{
                             {% if api_secret != "" %}
-                            if (this.status === 403){
-                                window.location.reload(true);
-                                return;
+                            if (this.status === 400){
+                                if (self.refreshOnce()) return;
                             }
                             {% endif %}
                             
@@ -362,6 +361,15 @@ document.addEventListener('DOMContentLoaded', function(){
               this.translatedFileUrl = false;
               this.loadingFileTranslation = false;
             },
+            refreshOnce: function(){
+                var lastRefreshed = parseInt(localStorage.getItem("refreshed") || 0);
+                var now = new Date().getTime();
+                if (now - lastRefreshed > 1000 * 60 * 1){
+                    localStorage.setItem("refreshed", now);
+                    window.location.reload();
+                    return true;
+                }
+            },
             translateFile: function(e) {
                 e.preventDefault();
 
@@ -383,9 +391,8 @@ document.addEventListener('DOMContentLoaded', function(){
                     if (translateFileRequest.readyState === 4 && translateFileRequest.status === 200) {
                         try{
                             {% if api_secret != "" %}
-                            if (this.status === 403){
-                                window.location.reload(true);
-                                return;
+                            if (this.status === 400){
+                                if (self.refreshOnce()) return;
                             }
                             {% endif %}
                             self.loadingFileTranslation = false;
