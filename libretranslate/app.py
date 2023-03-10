@@ -21,7 +21,7 @@ from werkzeug.exceptions import HTTPException
 from werkzeug.http import http_date
 from flask_babel import Babel
 
-from libretranslate import flood, secret, remove_translated_files, security, storage
+from libretranslate import scheduler, flood, secret, remove_translated_files, security, storage
 from libretranslate.language import detect_languages, improve_translation_formatting
 from libretranslate.locales import (_, _lazy, get_available_locales, get_available_locale_codes, gettext_escaped, 
         gettext_html, lazy_swag, get_alternate_locale_links)
@@ -204,11 +204,12 @@ def create_app(args):
 
         limiter = Limiter()
 
-    if args.req_flood_threshold > 0:
-        flood.setup(args.req_flood_threshold)
-    if args.api_keys and args.require_api_key_secret:
-        secret.setup()
-    
+    if not "gunicorn" in os.environ.get("SERVER_SOFTWARE", ""):
+      # Gunicorn starts the scheduler in the master process
+      scheduler.setup(args)
+
+    flood.setup(args)
+    secret.setup(args)
 
     measure_request = None
     gauge_request = None

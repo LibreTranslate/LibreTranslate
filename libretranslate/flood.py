@@ -1,11 +1,5 @@
-import atexit
-from multiprocessing import Value
-
 from libretranslate.storage import get_storage
-from apscheduler.schedulers.background import BackgroundScheduler
 
-
-setup_scheduler = Value('b', False)
 active = False
 threshold = -1
 
@@ -20,30 +14,18 @@ def forgive_banned():
         if banned[ip] <= 0:
             clear_list.append(ip)
         else:
-            banned[ip] = min(threshold, banned[ip]) - 1
+            s.set_hash_int("banned", ip, min(threshold, banned[ip]) - 1)
 
     for ip in clear_list:
         s.del_hash("banned", ip)
 
-def setup(violations_threshold=100):
+def setup(args):
     global active
     global threshold
 
-    active = True
-    threshold = violations_threshold
-
-    # Only setup the scheduler and secrets on one process
-    if not setup_scheduler.value:
-        setup_scheduler.value = True
-
-        scheduler = BackgroundScheduler()
-        scheduler.add_job(func=forgive_banned, trigger="interval", minutes=30)
-
-        scheduler.start()
-
-        # Shut down the scheduler when exiting the app
-        atexit.register(lambda: scheduler.shutdown())
-
+    if args.req_flood_threshold > 0:
+        active = True
+        threshold = args.req_flood_threshold
 
 def report(request_ip):
     if active:

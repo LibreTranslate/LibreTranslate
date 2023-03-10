@@ -20,7 +20,7 @@ class Storage:
     def get_str(self, key):
         raise Exception("not implemented")
 
-    def set_hash_value(self, ns, key, value):
+    def set_hash_int(self, ns, key, value):
         raise Exception("not implemented")
     def get_hash_int(self, ns, key):
         raise Exception("not implemented")
@@ -56,6 +56,11 @@ class MemoryStorage(Storage):
     def get_str(self, key):
         return str(self.store.get(key, ""))
 
+    def set_hash_int(self, ns, key, value):
+        if ns not in self.store:
+            self.store[ns] = {}
+        self.store[ns][key] = int(value)
+
     def get_hash_int(self, ns, key):
         d = self.store.get(ns, {})
         return int(d.get(key, 0))
@@ -79,7 +84,10 @@ class MemoryStorage(Storage):
             self.store[ns][key] -= 1
 
     def get_all_hash_int(self, ns):
-        return [{str(k): int(v)} for k,v in self.store[ns].items()]
+        if ns in self.store:
+            return [{str(k): int(v)} for k,v in self.store[ns].items()]
+        else:
+            return []
 
     def del_hash(self, ns, key):
         del self.store[ns][key]
@@ -115,13 +123,16 @@ class RedisStorage(Storage):
             return ""
         else:
             return v.decode('utf-8')
-
+    
     def get_hash_int(self, ns, key):
         v = self.conn.hget(ns, key)
         if v is None:
             return 0
         else:
             return int(v)
+    
+    def set_hash_int(self, ns, key, value):
+        self.conn.hset(ns, key, value)
 
     def inc_hash_int(self, ns, key):
         return int(self.conn.hincrby(ns, key))
@@ -130,10 +141,10 @@ class RedisStorage(Storage):
         return int(self.conn.hincrby(ns, key, -1))
 
     def get_all_hash_int(self, ns):
-        return [{k.decode("utf-8"): int(v)} for k,v in self.conn.hgetall(ns).items()]
+        return {k.decode("utf-8"): int(v) for k,v in self.conn.hgetall(ns).items()}
 
     def del_hash(self, ns, key):
-        conn.hdel(ns, key)
+        self.conn.hdel(ns, key)
 
 def setup(storage_uri):
     global storage
