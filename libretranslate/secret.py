@@ -24,5 +24,9 @@ def get_current_secret():
 def setup(args):
     if args.api_keys and args.require_api_key_secret:
         s = get_storage()
-        s.set_str("secret_0", generate_secret())
-        s.set_str("secret_1", generate_secret())
+
+        if not s.exists("secret_0"):
+            s.set_str("secret_0", generate_secret())
+
+        if not s.exists("secret_1"):
+            s.set_str("secret_1", generate_secret())

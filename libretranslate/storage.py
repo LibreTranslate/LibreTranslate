@@ -5,6 +5,9 @@ def get_storage():
     return storage
 
 class Storage:
+    def exists(self, key):
+        raise Exception("not implemented")
+
     def set_bool(self, key, value):
         raise Exception("not implemented")
     def get_bool(self, key):
@@ -37,6 +40,9 @@ class Storage:
 class MemoryStorage(Storage):
     def __init__(self):
         self.store = {}
+    
+    def exists(self, key):
+        return key in self.store
 
     def set_bool(self, key, value):
         self.store[key] = bool(value)
@@ -97,6 +103,9 @@ class RedisStorage(Storage):
     def __init__(self, redis_uri):
         self.conn = redis.from_url(redis_uri)
         self.conn.ping()
+    
+    def exists(self, key):
+        return bool(self.conn.exists(key))
 
     def set_bool(self, key, value):
         self.conn.set(key, "1" if value else "0")
