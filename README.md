@@ -364,7 +364,6 @@ URL |API Key Required | Links
 [libretranslate.com](https://libretranslate.com)|:heavy_check_mark:|[Get API Key](https://portal.libretranslate.com)
 [translate.argosopentech.com](https://translate.argosopentech.com/)|-
 [translate.terraprint.co](https://translate.terraprint.co/)|-
-[lt.vern.cc](https://lt.vern.cc)|-
 
 ## TOR/i2p Mirrors
 
