@@ -8,11 +8,9 @@ Free and Open Source Machine Translation API, entirely self-hosted. Unlike other
 
 ![image](https://user-images.githubusercontent.com/64697405/139015751-279f31ac-36f1-4950-9ea7-87e76bf65f51.png)
 
-
 [Try it online!](https://libretranslate.com) | [API Docs](https://libretranslate.com/docs)
 
 ## API Examples
-
 
 ### Simple
 
@@ -20,13 +18,13 @@ Request:
 
 ```javascript
 const res = await fetch("https://libretranslate.com/translate", {
-	method: "POST",
-	body: JSON.stringify({
-		q: "Hello!",
-		source: "en",
-		target: "es"
-	}),
-	headers: { "Content-Type": "application/json" }
+  method: "POST",
+  body: JSON.stringify({
+    q: "Hello!",
+    source: "en",
+    target: "es"
+  }),
+  headers: { "Content-Type": "application/json" }
 });
 
 console.log(await res.json());
@@ -46,13 +44,13 @@ Request:
 
 ```javascript
 const res = await fetch("https://libretranslate.com/translate", {
-	method: "POST",
-	body: JSON.stringify({
-		q: "Ciao!",
-		source: "auto",
-		target: "en"
-	}),
-	headers: { "Content-Type": "application/json" }
+  method: "POST",
+  body: JSON.stringify({
+    q: "Ciao!",
+    source: "auto",
+    target: "en"
+  }),
+  headers: { "Content-Type": "application/json" }
 });
 
 console.log(await res.json());
@@ -76,14 +74,14 @@ Request:
 
 ```javascript
 const res = await fetch("https://libretranslate.com/translate", {
-	method: "POST",
-	body: JSON.stringify({
-		q: '<p class="green">Hello!</p>',
-		source: "en",
-		target: "es",
-		format: "html"
-	}),
-	headers: { "Content-Type": "application/json" }
+  method: "POST",
+  body: JSON.stringify({
+    q: '<p class="green">Hello!</p>',
+    source: "en",
+    target: "es",
+    format: "html"
+  }),
+  headers: { "Content-Type": "application/json" }
 });
 
 console.log(await res.json());
@@ -108,9 +106,9 @@ pip install libretranslate
 libretranslate [args]
 ```
 
-Then open a web browser to http://localhost:5000
+Then open a web browser to <http://localhost:5000>
 
-On Ubuntu 20.04 you can also use the install script available at https://github.com/argosopentech/LibreTranslate-init
+On Ubuntu 20.04 you can also use the install script available at <https://github.com/argosopentech/LibreTranslate-init>
 
 ## Build and Run
 
@@ -126,15 +124,14 @@ libretranslate [args]
 python main.py [args]
 ```
 
-Then open a web browser to http://localhost:5000
+Then open a web browser to <http://localhost:5000>
 
 ### Run with Docker
 
 Linux/MacOS: `./run.sh [args]`
 Windows: `run.bat [args]`
 
-Then open a web browser to http://localhost:5000
-
+Then open a web browser to <http://localhost:5000>
 
 ### Build with Docker
 
@@ -157,7 +154,7 @@ docker-compose up -d --build
 ```
 
 > Feel free to change the [`docker-compose.yml`](https://github.com/LibreTranslate/LibreTranslate/blob/main/docker-compose.yml) file to adapt it to your deployment needs, or use an extra `docker-compose.prod.yml` file for your deployment configuration.
-
+>
 > The models are stored inside the container under `/home/libretranslate/.local/share` and `/home/libretranslate/.local/cache`. Feel free to use volumes if you do not want to redownload the models when the container is destroyed. To update the models, use the `--update-models` argument.
 
 ### CUDA
@@ -225,15 +222,14 @@ Alternatively you can also run the `scripts/install_models.py` script.
 
 ## Run with WSGI and Gunicorn
 
-```
+```bash
 pip install gunicorn
 gunicorn --bind 0.0.0.0:5000 'wsgi:app'
 ```
 
 You can pass application arguments directly to Gunicorn via:
 
-
-```
+```bash
 gunicorn --bind 0.0.0.0:5000 'wsgi:app(api_keys=True)'
 ```
 
@@ -245,7 +241,7 @@ See ["LibreTranslate: your own translation service on Kubernetes" by JM Robles](
 
 LibreTranslate supports per-user limit quotas, e.g. you can issue API keys to users so that they can enjoy higher requests limits per minute (if you also set `--req-limit`). By default all users are rate-limited based on `--req-limit`, but passing an optional `api_key` parameter to the REST endpoints allows a user to enjoy higher request limits.
 
-To use API keys simply start LibreTranslate with the `--api-keys` option. If you modified the API keys database path with the option `--api-keys-db-path`, you must specify the path with the same argument flag when using the `ltmanage keys` command. 
+To use API keys simply start LibreTranslate with the `--api-keys` option. If you modified the API keys database path with the option `--api-keys-db-path`, you must specify the path with the same argument flag when using the `ltmanage keys` command.
 
 ### Add New Keys
 
@@ -256,6 +252,7 @@ ltmanage keys add 120
 ```
 
 If you changed the API keys database path:
+
 ```bash
 ltmanage keys --api-keys-db-path path/to/db/dbName.db add 120
 ```
@@ -276,9 +273,9 @@ ltmanage keys
 
 LibreTranslate has Prometheus [exporter](https://prometheus.io/docs/instrumenting/exporters/) capabilities when you pass the `--metrics` argument at startup (disabled by default). When metrics are enabled, a `/metrics` endpoint is mounted on the instance:
 
-http://localhost:5000/metrics
+<http://localhost:5000/metrics>
 
-```
+```promql
 # HELP libretranslate_http_requests_in_flight Multiprocess metric
 # TYPE libretranslate_http_requests_in_flight gauge
 libretranslate_http_requests_in_flight{api_key="",endpoint="/translate",request_ip="127.0.0.1"} 0.0
@@ -290,14 +287,14 @@ libretranslate_http_request_duration_seconds_sum{api_key="",endpoint="/translate
 
 You can then configure `prometheus.yml` to read the metrics:
 
-```
+```yaml
 scrape_configs:
   - job_name: "libretranslate"
-    
+
     # Needed only if you use --metrics-auth-token
     #authorization:
       #credentials: "mytoken"
-    
+
     static_configs:
       - targets: ["localhost:5000"]
 ```
@@ -306,34 +303,34 @@ To secure the `/metrics` endpoint you can also use `--metrics-auth-token mytoken
 
 If you use Gunicorn, make sure to create a directory for storing multiprocess data metrics and set `PROMETHEUS_MULTIPROC_DIR`:
 
-```
+```bash
 mkdir -p /tmp/prometheus_data
 rm /tmp/prometheus_data/*
-export PROMETHEUS_MULTIPROC_DIR=/tmp/prometheus_data 
-gunicorn -c scripts/gunicorn_conf.py --bind 0.0.0.0:5000 'wsgi:app(metrics=True)' 
+export PROMETHEUS_MULTIPROC_DIR=/tmp/prometheus_data
+gunicorn -c scripts/gunicorn_conf.py --bind 0.0.0.0:5000 'wsgi:app(metrics=True)'
 ```
 
 ## Language Bindings
 
 You can use the LibreTranslate API using the following bindings:
 
- - Rust: https://github.com/DefunctLizard/libretranslate-rs
- - Node.js: https://github.com/franciscop/translate
- - .Net: https://github.com/sigaloid/LibreTranslate.Net
- - Go: https://github.com/SnakeSel/libretranslate
- - Python: https://github.com/argosopentech/LibreTranslate-py
- - PHP: https://github.com/jefs42/libretranslate
- - C++: https://github.com/argosopentech/LibreTranslate-cpp
- - Swift: https://github.com/wacumov/libretranslate
- - Unix: https://github.com/argosopentech/LibreTranslate-sh
- - Shell: https://github.com/Hayao0819/Hayao-Tools/tree/master/libretranslate-sh
- - Java: https://github.com/suuft/libretranslate-java
- - 
+- Rust: <https://github.com/DefunctLizard/libretranslate-rs>
+- Node.js: <https://github.com/franciscop/translate>
+- .Net: <https://github.com/sigaloid/LibreTranslate.Net>
+- Go: <https://github.com/SnakeSel/libretranslate>
+- Python: <https://github.com/argosopentech/LibreTranslate-py>
+- PHP: <https://github.com/jefs42/libretranslate>
+- C++: <https://github.com/argosopentech/LibreTranslate-cpp>
+- Swift: <https://github.com/wacumov/libretranslate>
+- Unix: <https://github.com/argosopentech/LibreTranslate-sh>
+- Shell: <https://github.com/Hayao0819/Hayao-Tools/tree/master/libretranslate-sh>
+- Java: <https://github.com/suuft/libretranslate-java>
+
 ## Discourse Plugin
 
 You can use this [discourse translator plugin](https://github.com/LibreTranslate/discourse-translator) to translate [Discourse](https://discourse.org) topics. To install it simply modify `/var/discourse/containers/app.yml`:
 
-```
+```yaml
 ## Plugins go here
 ## see https://meta.discourse.org/t/19157 for details
 hooks:
@@ -343,17 +340,18 @@ hooks:
         cmd:
           - git clone https://github.com/discourse/docker_manager.git
           - git clone https://github.com/LibreTranslate/discourse-translator
-	  ...
+    ...
 ```
 
 Then issue `./launcher rebuild app`. From the Discourse's admin panel then select "LibreTranslate" as a translation provider and set the relevant endpoint configurations.
 
 ## Mobile Apps
 
-- [LibreTranslator](https://gitlab.com/BeoCode/libretranslator) is an Android app [available on the Play Store](https://play.google.com/store/apps/details?id=de.beowulf.libretranslater) and [in the F-Droid store](https://f-droid.org/packages/de.beowulf.libretranslater/) that uses the LibreTranslate API.
+- [LibreTranslator](https://codeberg.org/BeoCode/LibreTranslator) is an Android app [available on the Play Store](https://play.google.com/store/apps/details?id=de.beowulf.libretranslater) and [in the F-Droid store](https://f-droid.org/packages/de.beowulf.libretranslater/) that uses the LibreTranslate API.
 - [LiTranslate](https://github.com/viktorkalyniuk/LiTranslate-iOS) is an iOS app [available on the App Store](https://apps.apple.com/us/app/litranslate/id1644385339) that uses the LibreTranslate API.
 
 ## Web browser
+
 - [minbrowser](https://minbrowser.org/) is a web browser with [integrated LibreTranslate support](https://github.com/argosopentech/argos-translate/discussions/158#discussioncomment-1141551).
 - A LibreTranslate Firefox addon is [currently a work in progress](https://github.com/LibreTranslate/LibreTranslate/issues/55).
 
@@ -375,7 +373,6 @@ URL |
 [lt.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://lt.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/)|
 [lt.vern.i2p](http://vernf45n7mxwqnp5riaax7p67pwcl7wcefdcnqqvim7ckdx4264a.b32.i2p/)|
 
-
 ## Adding New Language Models
 
 To add new languages you first need to train an Argos Translate model. See [this video](https://odysee.com/@argosopentech:7/training-an-Argos-Translate-model-tutorial-2022:2?r=DMnK7NqdPNHRCfwhmKY9LPow3PqVUUgw) for details.
@@ -387,13 +384,14 @@ First you need to collect data, for example from [Opus](http://opus.nlpl.eu/), t
 The LibreTranslate Web UI is available in all the languages for which LibreTranslate can translate to. It can also (roughly) [translate itself!](https://github.com/LibreTranslate/LibreTranslate/blob/main/scripts/update_locales.py) Some languages might not appear in the UI since they haven't been reviewed by a human yet. You can enable all languages by turning on `--debug` mode.
 
 To help improve or review the UI translations:
- - Go to https://hosted.weblate.org/projects/libretranslate/app/#translations. All changes are automatically pushed to this repository.
- - Once all strings have been reviewed/edited, open a pull request and change `libretranslate/locales/{code}/meta.json`:
+
+- Go to <https://hosted.weblate.org/projects/libretranslate/app/#translations>. All changes are automatically pushed to this repository.
+- Once all strings have been reviewed/edited, open a pull request and change `libretranslate/locales/{code}/meta.json`:
 
  ```json
 {
-	"name": "<Language>",
-	"reviewed": true <-- Change this from false to true
+  "name": "<Language>",
+  "reviewed": true <-- Change this from false to true
 }
  ```
 
@@ -452,11 +450,13 @@ In short, no. [You need to buy an API key](https://portal.libretranslate.com). Y
 
 ### Can I use LibreTranslate behind a reverse proxy, like Apache2 or Caddy?
 
-Yes, here are config examples for Apache2 and Caddy that redirect a subdomain (with HTTPS certificate) to LibreTranslate running on a docker at localhost. 
-```
+Yes, here are config examples for Apache2 and Caddy that redirect a subdomain (with HTTPS certificate) to LibreTranslate running on a docker at localhost.
+
+```bash
 sudo docker run -ti --rm -p 127.0.0.1:5000:5000 libretranslate/libretranslate
 ```
-You can remove `127.0.0.1` on the above command if you want to be able to access it from `domain.tld:5000`, in addition to `subdomain.domain.tld` (this can be helpful to determine if there is an issue with Apache2 or the docker container). 
+
+You can remove `127.0.0.1` on the above command if you want to be able to access it from `domain.tld:5000`, in addition to `subdomain.domain.tld` (this can be helpful to determine if there is an issue with Apache2 or the docker container).
 
 Add `--restart unless-stopped` if you want this docker to start on boot, unless manually stopped.
 
@@ -464,7 +464,7 @@ Add `--restart unless-stopped` if you want this docker to start on boot, unless 
 <summary>Apache config</summary>
 <br>
 
-Replace [YOUR_DOMAIN] with your full domain; for example, `translate.domain.tld` or `libretranslate.domain.tld`. 
+Replace [YOUR_DOMAIN] with your full domain; for example, `translate.domain.tld` or `libretranslate.domain.tld`.
 
 Remove `#` on the ErrorLog and CustomLog lines to log requests.
 
@@ -482,22 +482,22 @@ Remove `#` on the ErrorLog and CustomLog lines to log requests.
 #https
 <VirtualHost *:443>
     ServerName https://[YOUR_DOMAIN]
-    
+
     ProxyPass / http://127.0.0.1:5000/
     ProxyPassReverse / http://127.0.0.1:5000/
     ProxyPreserveHost On
-   
+
     SSLEngine on
     SSLCertificateFile /etc/letsencrypt/live/[YOUR_DOMAIN]/fullchain.pem
     SSLCertificateKeyFile /etc/letsencrypt/live/[YOUR_DOMAIN]/privkey.pem
     SSLCertificateChainFile /etc/letsencrypt/live/[YOUR_DOMAIN]/fullchain.pem
-    
+
     # ErrorLog ${APACHE_LOG_DIR}/tr-error.log
     # CustomLog ${APACHE_LOG_DIR}/tr-access.log combined
 </VirtualHost>
 ```
 
-Add this to an existing site config, or a new file in `/etc/apache2/sites-available/new-site.conf` and run `sudo a2ensite new-site.conf`. 
+Add this to an existing site config, or a new file in `/etc/apache2/sites-available/new-site.conf` and run `sudo a2ensite new-site.conf`.
 
 To get a HTTPS subdomain certificate, install `certbot` (snap), run `sudo certbot certonly --manual --preferred-challenges dns` and enter your information (with `subdomain.domain.tld` as the domain). Add a DNS TXT record with your domain registrar when asked. This will save your certificate and key to `/etc/letsencrypt/live/{subdomain.domain.tld}/`. Alternatively, comment the SSL lines out if you don't want to use HTTPS.
 </details>
@@ -524,7 +524,7 @@ Add this to an existing Caddyfile or save it as `Caddyfile` in any directory and
 <br>
 
 Replace [YOUR_DOMAIN] with your full domain; for example, `translate.domain.tld` or `libretranslate.domain.tld`.
-  
+
 Remove `#` on the `access_log` and `error_log` lines to disable logging.
 
 ```NginxConf
@@ -540,11 +540,11 @@ server {
 
   #access_log off;
   #error_log off;
-  
+
   # SSL Section
   ssl_certificate /etc/letsencrypt/live/[YOUR_DOMAIN]/fullchain.pem;
   ssl_certificate_key /etc/letsencrypt/live/[YOUR_DOMAIN]/privkey.pem;
-  
+
   ssl_protocols TLSv1.2 TLSv1.3;
 
   # Using the recommended cipher suite from: https://wiki.mozilla.org/Security/Server_Side_TLS
@@ -559,7 +559,7 @@ server {
   # Server should determine the ciphers, not the client
   ssl_prefer_server_ciphers on;
 
-  
+
   # Header section
   add_header Strict-Transport-Security  "max-age=31536000; includeSubDomains; preload" always;
   add_header Referrer-Policy            "strict-origin" always;
@@ -579,7 +579,7 @@ server {
 
   # Do not send nginx server header
   server_tokens off;
-  
+
   # GZIP Section
   gzip on;
   gzip_disable "msie6";
