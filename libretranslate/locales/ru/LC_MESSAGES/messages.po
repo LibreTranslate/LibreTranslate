@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-03-12 18:38+0000\n"
+"PO-Revision-Date: 2023-03-19 23:38+0000\n"
 "Last-Translator: Blueberry <igory.ygr200@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/libretranslate/"
 "app/ru/>\n"
@@ -28,7 +28,7 @@ msgstr "Недействительный формат JSON"
 
 #: libretranslate/app.py:128 libretranslate/templates/app.js.template:427
 msgid "Auto Detect"
-msgstr "Автоопределение"
+msgstr "автоопределённого языка"
 
 #: libretranslate/app.py:193
 msgid "Unauthorized"
@@ -238,7 +238,7 @@ msgstr "вьетнамский"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
-msgstr "Получить список поддерживаемых языков"
+msgstr "Получение списка поддерживаемых языков"
 
 #: libretranslate/locales/.swag.py:2
 msgid "List of languages"
@@ -258,19 +258,19 @@ msgstr "Перевод текста"
 
 #: libretranslate/locales/.swag.py:6
 msgid "Invalid request"
-msgstr "Недействительный запрос"
+msgstr "При недействительном запросе"
 
 #: libretranslate/locales/.swag.py:7
 msgid "Translation error"
-msgstr "Ошибка перевода"
+msgstr "При ошибке перевода"
 
 #: libretranslate/locales/.swag.py:8
 msgid "Slow down"
-msgstr "Притормозите"
+msgstr "При замедлении"
 
 #: libretranslate/locales/.swag.py:9
 msgid "Banned"
-msgstr "Заблокировано"
+msgstr "При блокировке"
 
 #: libretranslate/locales/.swag.py:10
 msgid "Hello world!"
@@ -290,7 +290,7 @@ msgstr "Код целевого языка"
 
 #: libretranslate/locales/.swag.py:14
 msgid "text"
-msgstr "txt"
+msgstr "text"
 
 #: libretranslate/locales/.swag.py:15
 msgid "html"
@@ -303,7 +303,7 @@ msgid ""
 " * `html` - HTML markup\n"
 msgstr ""
 "Формат исходного текста:\n"
-" * `txt` - Простой текст\n"
+" * `text` - Простой текст\n"
 " * `html` - HTML-разметка\n"
 
 #: libretranslate/locales/.swag.py:17
@@ -316,7 +316,7 @@ msgstr "Перевести файл с языка на другой"
 
 #: libretranslate/locales/.swag.py:19
 msgid "Translated file"
-msgstr "Переведённый файл"
+msgstr "При переведённом файле"
 
 #: libretranslate/locales/.swag.py:20
 msgid "File to translate"
@@ -332,7 +332,7 @@ msgstr "Обнаружения"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Detection error"
-msgstr "Ошибка обнаружения"
+msgstr "При ошибке обнаружения"
 
 #: libretranslate/locales/.swag.py:24
 msgid "Text to detect"
@@ -340,11 +340,11 @@ msgstr "Текст для обнаружения"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Retrieve frontend specific settings"
-msgstr "Получить конкретные настройки интерфейса (frontend)"
+msgstr "Получение конкретных настроек интерфейса (frontend)"
 
 #: libretranslate/locales/.swag.py:26
 msgid "frontend settings"
-msgstr "настройки интерфейса (frontend)"
+msgstr "При настройке интерфейса (frontend)"
 
 #: libretranslate/locales/.swag.py:27
 msgid "frontend"
@@ -356,11 +356,11 @@ msgstr "Подать предложение для улучшения перев
 
 #: libretranslate/locales/.swag.py:29
 msgid "Success"
-msgstr "Выполнено"
+msgstr "При отправке"
 
 #: libretranslate/locales/.swag.py:30
 msgid "Not authorized"
-msgstr "Не авторизован"
+msgstr "Если пользователь не авторизован"
 
 #: libretranslate/locales/.swag.py:31
 msgid "Original text"
@@ -420,7 +420,7 @@ msgstr "Предел вводимых символов для этого язы�
 
 #: libretranslate/locales/.swag.py:45
 msgid "Frontend translation timeout"
-msgstr "Превышено время ожидания перевода интерфейса (frontend)"
+msgstr "Превышаемое время ожидания перевода интерфейса (frontend)"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Whether the API key database is enabled."
