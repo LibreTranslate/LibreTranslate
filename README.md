@@ -169,38 +169,57 @@ docker-compose -f docker-compose.cuda.yml up -d --build
 
 ## Arguments
 
-| Argument                    | Description                                                                                                 | Default              | Env. name                    |
+Arguments passed to the process or set via environment variables are split into two kinds.
+
+- Settings or runtime flags used to toggle specific runmodes or disable parts of the application. These act as toggle when added or removed.
+
+- Configuration parameters to set various limits and configure the application. These require a parameter to be passed to function, if removed the default parameters are used.
+
+### Settings / Flags
+
+| Argument                    | Description                                                                                                 | Default Setting      | Env. name                    |
+|-----------------------------|-------------------------------------------------------------------------------------------------------------| -------------------- |------------------------------|
+| --debug                     | Enable debug environment                                                                                    | `Disabled`           | LT_DEBUG                     |
+| --ssl                       | Whether to enable SSL                                                                                       | `Disabled`               | LT_SSL                       |
+| --api-keys                  | Enable API keys database for per-client rate limits when --req-limit is reached                             | `Don't use API keys` | LT_API_KEYS                  |
+| --require-api-key-origin    | Require use of an API key for programmatic access to the API, unless the request origin matches this domain | `No restrictions on domain origin` | LT_REQUIRE_API_KEY_ORIGIN    |
+| --require-api-key-secret    | Require use of an API key for programmatic access to the API, unless the client also sends a secret match   | `No secrets required` | LT_REQUIRE_API_KEY_SECRET    |
+| --suggestions               | Allow user suggestions                                                                                      | `Disabled`    | LT_SUGGESTIONS               |
+| --disable-files-translation | Disable files translation                                                                                   | `File translation allowed`    | LT_DISABLE_FILES_TRANSLATION |
+| --disable-web-ui            | Disable web ui                                                                                              | `Web Ui enabled`    | LT_DISABLE_WEB_UI            |
+| --update-models             | Update language models at startup                                                                           | `Only on if no models found`    | LT_UPDATE_MODELS            |
+| --metrics                   | Enable the /metrics endpoint for exporting [Prometheus](https://prometheus.io/) usage metrics               | `Disabled`    | LT_METRICS            |
+
+### Configuration Parameters
+
+| Argument                    | Description                                                                                                 | Default Parameter    | Env. name                    |
 |-----------------------------|-------------------------------------------------------------------------------------------------------------| -------------------- |------------------------------|
 | --host                      | Set host to bind the server to                                                                              | `127.0.0.1`          | LT_HOST                      |
 | --port                      | Set port to bind the server to                                                                              | `5000`               | LT_PORT                      |
 | --char-limit                | Set character limit                                                                                         | `No limit`               | LT_CHAR_LIMIT                |
-| --req-limit                 | Set maximum number of requests per minute per client                                                        | `No limit`               | LT_REQ_LIMIT                 |
+| --req-limit                 | Set maximum number of requests per minute per client (outside of limits set by api keys)                    | `No limit`               | LT_REQ_LIMIT                 |
 | --req-limit-storage         | Storage URI to use for request limit data storage. See [Flask Limiter](https://flask-limiter.readthedocs.io/en/stable/configuration.html) | `memory://` | LT_REQ_LIMIT_STORAGE |
 | --batch-limit               | Set maximum number of texts to translate in a batch request                                                 | `No limit`               | LT_BATCH_LIMIT               |
-| --ga-id                     | Enable Google Analytics on the API client page by providing an ID                                           | `No tracking`               | LT_GA_ID                     |
-| --debug                     | Enable debug environment                                                                                    | `False`           | LT_DEBUG                     |
-| --ssl                       | Whether to enable SSL                                                                                       | `False`               | LT_SSL                       |
+| --ga-id                     | Enable Google Analytics on the API client page by providing an ID                                           | `Empty (no tracking)`               | LT_GA_ID                     |
 | --frontend-language-source  | Set frontend default language - source                                                                      | `auto`        | LT_FRONTEND_LANGUAGE_SOURCE  |
 | --frontend-language-target  | Set frontend default language - target                                                                      | `locale` (match site's locale)   | LT_FRONTEND_LANGUAGE_TARGET  |
 | --frontend-timeout          | Set frontend translation timeout                                                                            | `500`         | LT_FRONTEND_TIMEOUT          |
-| --api-keys                  | Enable API keys database for per-user rate limits lookup                                                    | `Don't use API keys` | LT_API_KEYS                  |
 | --api-keys-db-path          | Use a specific path inside the container for the local database. Can be absolute or relative                | `db/api_keys.db`                      | LT_API_KEYS_DB_PATH          |
-| --api-keys-remote           | Use this remote endpoint to query for valid API keys instead of using the local database                    | `Use local API key database` | LT_API_KEYS_REMOTE                  |
-| --get-api-key-link          | Show a link in the UI where to direct users to get an API key                                               | `Don't show a link` | LT_GET_API_KEY_LINK                  |
-| --require-api-key-origin    | Require use of an API key for programmatic access to the API, unless the request origin matches this domain | `No restrictions on domain origin` | LT_REQUIRE_API_KEY_ORIGIN    |
-| --require-api-key-secret    | Require use of an API key for programmatic access to the API, unless the client also sends a secret match   | `No secrets required` | LT_REQUIRE_API_KEY_SECRET    |
+| --api-keys-remote           | Use this remote endpoint to query for valid API keys instead of using the local database                    | `Empty (use local db instead)` | LT_API_KEYS_REMOTE                  |
+| --get-api-key-link          | Show a link in the UI where to direct users to get an API key                                               | `Empty (no link shown on web ui)` | LT_GET_API_KEY_LINK                  |
 | --shared-storage            | Shared storage URI to use for multi-process data sharing (e.g. when using gunicorn)                         | `memory://` | LT_SHARED_STORAGE    |
-| --load-only                 | Set available languages                                                                                     | `all from argostranslate`    | LT_LOAD_ONLY                 |
+| --load-only                 | Set available languages                                                                                     | `Empty (use all from argostranslate)`    | LT_LOAD_ONLY                 |
 | --threads                   | Set number of threads                                                                                       | `4`    | LT_THREADS                 |
-| --suggestions               | Allow user suggestions                                                                                      | `False`    | LT_SUGGESTIONS               |
-| --disable-files-translation | Disable files translation                                                                                   | `False`    | LT_DISABLE_FILES_TRANSLATION |
-| --disable-web-ui            | Disable web ui                                                                                              | `False`    | LT_DISABLE_WEB_UI            |
-| --update-models             | Update language models at startup                                                                           | `False`    | LT_UPDATE_MODELS            |
-| --metrics                   | Enable the /metrics endpoint for exporting [Prometheus](https://prometheus.io/) usage metrics               | `Disabled`    | LT_METRICS            |
-| --metrics-auth-token        | Protect the /metrics endpoint by allowing only clients that have a valid Authorization Bearer token         | `No auth`    | LT_METRICS_AUTH_TOKEN            |
+| --metrics-auth-token        | Protect the /metrics endpoint by allowing only clients that have a valid Authorization Bearer token         | `Empty (no auth required)`    | LT_METRICS_AUTH_TOKEN            |
 | --url-prefix                | Add prefix to URL: example.com:5000/url-prefix/                                                             | `/`    | LT_URL_PREFIX            |
 
-Note that each argument has an equivalent environment variable that can be used instead. The env. variables overwrite the default values but have lower priority than the command arguments and are particularly useful if used with Docker. The environment variable names are the upper-snake-case of the equivalent command argument's name with a `LT` prefix.
+### Notes:
+
+- Each argument has an equivalent environment variable that can be used instead. The env. variables overwrite the default values but have lower priority than the command arguments and are particularly useful if used with Docker. The environment variable names are the upper-snake-case of the equivalent command argument's name with a `LT` prefix.
+
+- To configure requirement for api key to use, set `--req-limit` to `0` and add the `--api-keys` flag. Requests made without a proper api key will be rejected.
+
+- Setting `--update-models` will update models regardless of whether updates are available or not.
 
 ## Update
 
