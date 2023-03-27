@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-11 05:33+0000\n"
-"Last-Translator: Dan <denqwerta@gmail.com>\n"
+"PO-Revision-Date: 2023-03-28 12:37+0000\n"
+"Last-Translator: CakesTwix <cakestwix1@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/libretranslate/"
 "app/uk/>\n"
 "Language: uk\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -66,10 +66,9 @@ msgid "Invalid request: missing %(name)s parameter"
 msgstr "Недійсний запит: відсутні %(name)s параметр"
 
 #: libretranslate/app.py:480 libretranslate/app.py:492
-#, fuzzy, python-format
+#, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
-msgstr ""
-"Заявка на не оплату: запит (%(size)s) перевищує текстовий ліміт %(limit)s"
+msgstr "Неправильний запит: запит (%(size)s) перевищує ліміт тексту (%(limit)s)"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
 #: libretranslate/app.py:700 libretranslate/app.py:705
@@ -78,12 +77,12 @@ msgid "%(lang)s is not supported"
 msgstr "%(lang)s не підтримується"
 
 #: libretranslate/app.py:536
-#, fuzzy, python-format
+#, python-format
 msgid "%(format)s format is not supported"
 msgstr "%(format)s не підтримується"
 
 #: libretranslate/app.py:544 libretranslate/app.py:568
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
@@ -276,24 +275,20 @@ msgid "Hello world!"
 msgstr "Привіт світ!"
 
 #: libretranslate/locales/.swag.py:11
-#, fuzzy
 msgid "Text(s) to translate"
-msgstr "Текст перекладу"
+msgstr "Текст(и) для перекладу"
 
 #: libretranslate/locales/.swag.py:12
-#, fuzzy
 msgid "Source language code"
-msgstr "Код мови"
+msgstr "Код мови джерела"
 
 #: libretranslate/locales/.swag.py:13
-#, fuzzy
 msgid "Target language code"
-msgstr "Коди цільової мови"
+msgstr "Код цільової мови"
 
 #: libretranslate/locales/.swag.py:14
-#, fuzzy
 msgid "text"
-msgstr "Статус на сервери"
+msgstr "текст"
 
 #: libretranslate/locales/.swag.py:15
 msgid "html"
@@ -322,9 +317,8 @@ msgid "Translated file"
 msgstr "Друкований файл"
 
 #: libretranslate/locales/.swag.py:20
-#, fuzzy
 msgid "File to translate"
-msgstr "Текст перекладу"
+msgstr "Файл для перекладу"
 
 #: libretranslate/locales/.swag.py:21
 msgid "Detect the language of a single text"
@@ -339,9 +333,8 @@ msgid "Detection error"
 msgstr "Похибка виявлення"
 
 #: libretranslate/locales/.swag.py:24
-#, fuzzy
 msgid "Text to detect"
-msgstr "Автоматика"
+msgstr "Текст для виявлення"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Retrieve frontend specific settings"
@@ -372,19 +365,16 @@ msgid "Original text"
 msgstr "Оригінальний текст"
 
 #: libretranslate/locales/.swag.py:32
-#, fuzzy
 msgid "Suggested translation"
-msgstr "Найсучасніший переклад"
+msgstr "Пропонований переклад"
 
 #: libretranslate/locales/.swag.py:33
-#, fuzzy
 msgid "Language of original text"
-msgstr "Визначити мову одного тексту"
+msgstr "Мова оригінального тексту"
 
 #: libretranslate/locales/.swag.py:34
-#, fuzzy
 msgid "Language of suggested translation"
-msgstr "Найсучасніший переклад"
+msgstr "Мова запропонованого перекладу"
 
 #: libretranslate/locales/.swag.py:35
 msgid "feedback"
@@ -463,9 +453,9 @@ msgstr "Статус на сервери"
 #: libretranslate/templates/app.js.template:332
 #: libretranslate/templates/app.js.template:402
 #: libretranslate/templates/app.js.template:447
-#, fuzzy, python-format
+#, python-format
 msgid "Cannot load %(url)s"
-msgstr "Навантаження %(url)s"
+msgstr "Не вдається завантажити %(url)s"
 
 #: libretranslate/templates/app.js.template:253
 #: libretranslate/templates/app.js.template:323
@@ -489,9 +479,9 @@ msgid "No languages available. Did you install the models correctly?"
 msgstr "Немає доступних мов. Чи правильно встановити моделі?"
 
 #: libretranslate/templates/app.js.template:479
-#, fuzzy, python-format
+#, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
-msgstr "Тип у ключі API. Якщо вам потрібен ключ API, %(instructions)s"
+msgstr "Введіть свій API-ключ. Якщо вам потрібен ключ API, %(instructions)s"
 
 #: libretranslate/templates/app.js.template:479
 msgid "press the \"Get API Key\" link."
@@ -626,7 +616,7 @@ msgstr "Відправити"
 
 #: libretranslate/templates/index.html:312
 msgid "Open Source Machine Translation API"
-msgstr "English, Українська, Français.."
+msgstr "API машинного перекладу з відкритим програмним кодом"
 
 #: libretranslate/templates/index.html:313
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
@@ -667,7 +657,7 @@ msgstr "Виготовлений з %(heart)s від %(contributors)s і жив�
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr ""
+msgstr "учасникам, які зробили внесок у розробку %(libretranslate)s"
 
 #~ msgid "multipart/form-data"
 #~ msgstr "мультипарт/форм-дані"
