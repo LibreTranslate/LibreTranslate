@@ -15,7 +15,8 @@ RUN python -mvenv venv && ./venv/bin/pip install --upgrade pip
 COPY . .
 
 # Install package from source code, compile translations
-RUN ./venv/bin/pip install Babel==2.11.0 && ./venv/bin/python scripts/compile_locales.py \
+RUN ./venv/bin/pip install Babel==2.12.1 && ./venv/bin/python scripts/compile_locales.py \
+  && ./venv/bin/pip install torch --extra-index-url https://download.pytorch.org/whl/cpu \
   && ./venv/bin/pip install . \
   && ./venv/bin/pip cache purge
 
