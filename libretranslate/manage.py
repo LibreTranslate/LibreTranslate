@@ -24,7 +24,7 @@ def manage():
 
     keys_add_parser = keys_subparser.add_parser("add", help="Add API keys to database")
     keys_add_parser.add_argument(
-        "req_limit", type=int, help="Request Limits (per second)"
+        "req_limit", type=int, help="Request Limits (per minute)"
     )
     keys_add_parser.add_argument(
         "--key", type=str, default="auto", required=False, help="API Key"
