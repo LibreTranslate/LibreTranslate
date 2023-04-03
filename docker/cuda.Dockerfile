@@ -1,7 +1,7 @@
 FROM nvidia/cuda:11.2.2-devel-ubuntu20.04
 
 ENV ARGOS_DEVICE_TYPE cuda
-ARG with_models=true
+ARG with_models=false
 ARG models=""
 
 WORKDIR /app
