@@ -441,7 +441,7 @@ Korean | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libret
 Occitan |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/oc/)
 Persian |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/fa/)
 Polish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/pl/)
-Portuguese |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/pt/)
+Portuguese | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/pt/)
 Russian | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ru/)
 Slovak |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/sk/)
 Spanish | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/es/)
