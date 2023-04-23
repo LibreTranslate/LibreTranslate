@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-04-21 06:08+0000\n"
+"PO-Revision-Date: 2023-04-24 19:53+0000\n"
 "Last-Translator: oTalDoNexus <fakedunexus@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
 "libretranslate/app/pt/>\n"
@@ -406,7 +406,7 @@ msgstr "Motivo da lentidão"
 
 #: libretranslate/locales/.swag.py:42
 msgid "Translated file url"
-msgstr "Url do arquivo traduzida"
+msgstr "Url do arquivo traduzido"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Confidence value"
@@ -659,7 +659,7 @@ msgstr "Feito com %(heart)s por %(contributors)s e alimentado por %(engine)s"
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr "%(libretranslate)s Contribuintes"
+msgstr "Contribuintes %(libretranslate)s"
 
 #~ msgid "multipart/form-data"
 #~ msgstr "multipart/form-data"
