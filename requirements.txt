@@ -3,7 +3,7 @@ Flask==2.2.2
 flask-swagger==0.2.14
 flask-swagger-ui==4.11.1
 Flask-Limiter==2.6.3
-Flask-Babel==2.0.0
+Flask-Babel==3.1.0
 Flask-Session==0.4.0
 waitress==2.1.2
 expiringdict==1.2.2
