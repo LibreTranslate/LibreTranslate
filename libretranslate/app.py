@@ -1079,13 +1079,14 @@ def create_app(args):
         return jsonify(lazy_swag(swag))
 
     app.config["BABEL_TRANSLATION_DIRECTORIES"] = 'locales'
-    babel = Babel(app)
-    @babel.localeselector
+
     def get_locale():
         override_lang = request.headers.get('X-Override-Accept-Language')
         if override_lang and override_lang in get_available_locale_codes():
             return override_lang
         return session.get('preferred_lang', request.accept_languages.best_match(get_available_locale_codes()))
+
+    babel = Babel(app, locale_selector=get_locale)
 
     app.jinja_env.globals.update(_e=gettext_escaped, _h=gettext_html)
 
