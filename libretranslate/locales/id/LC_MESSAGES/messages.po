@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-03-06 08:38+0000\n"
-"Last-Translator: Fireman733 <firmansyahgaul82@gmail.com>\n"
+"PO-Revision-Date: 2023-05-01 11:52+0000\n"
+"Last-Translator: GpixeL <gamesfire313@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/"
 "libretranslate/app/id/>\n"
 "Language: id\n"
@@ -18,12 +18,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
+#, fuzzy
 msgid "Invalid JSON format"
-msgstr "Format JSON yang tidak valid"
+msgstr "Format JSON tidak valid"
 
 #: libretranslate/app.py:128 libretranslate/templates/app.js.template:427
 msgid "Auto Detect"
