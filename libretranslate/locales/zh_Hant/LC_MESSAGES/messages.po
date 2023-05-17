@@ -9,47 +9,50 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-05-18 17:53+0000\n"
+"Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
+"libretranslate/app/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.18-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
 msgid "Invalid JSON format"
-msgstr ""
+msgstr "無效的 JSON 格式"
 
 #: libretranslate/app.py:128 libretranslate/templates/app.js.template:427
 msgid "Auto Detect"
-msgstr ""
+msgstr "自動偵測"
 
 #: libretranslate/app.py:193
 msgid "Unauthorized"
-msgstr ""
+msgstr "未經授權"
 
 #: libretranslate/app.py:211
 msgid "Too many request limits violations"
-msgstr ""
+msgstr "請求次數過多超過限制"
 
 #: libretranslate/app.py:220
 msgid "Invalid API key"
-msgstr ""
+msgstr "無效的 API 金鑰"
 
 #: libretranslate/app.py:227
 msgid "Please contact the server operator to get an API key"
-msgstr ""
+msgstr "請聯絡伺服器管理員以取得 API 金鑰"
 
 #: libretranslate/app.py:229
 #, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr ""
+msgstr "造訪 %(url)s 以取得 API 金鑰"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
-msgstr ""
+msgstr "慢一點："
 
 #: libretranslate/app.py:467 libretranslate/app.py:469
 #: libretranslate/app.py:471 libretranslate/app.py:683
@@ -59,235 +62,235 @@ msgstr ""
 #: libretranslate/app.py:993
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr ""
+msgstr "無效的請求：遺失 %(name)s 參數"
 
 #: libretranslate/app.py:480 libretranslate/app.py:492
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
-msgstr ""
+msgstr "無效的請求：請求（%(size)s）超過文字限制（%(limit)s）"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
 #: libretranslate/app.py:700 libretranslate/app.py:705
 #, python-format
 msgid "%(lang)s is not supported"
-msgstr ""
+msgstr "不支援 %(lang)s"
 
 #: libretranslate/app.py:536
 #, python-format
 msgid "%(format)s format is not supported"
-msgstr ""
+msgstr "不支援 %(format)s 格式"
 
 #: libretranslate/app.py:544 libretranslate/app.py:568
 #, python-format
 msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
-msgstr ""
+msgstr "%(tname)s（%(tcode)s）不能作為 %(sname)s（%(scode)s）的目標語言"
 
 #: libretranslate/app.py:589
 #, python-format
 msgid "Cannot translate text: %(text)s"
-msgstr ""
+msgstr "無法翻譯文字：%(text)s"
 
 #: libretranslate/app.py:676 libretranslate/app.py:730
 msgid "Files translation are disabled on this server."
-msgstr ""
+msgstr "此伺服器上已停用檔案翻譯功能。"
 
 #: libretranslate/app.py:690
 msgid "Invalid request: empty file"
-msgstr ""
+msgstr "無效的請求：空檔案"
 
 #: libretranslate/app.py:693
 msgid "Invalid request: file format not supported"
-msgstr ""
+msgstr "無效的請求：不支援的檔案格式"
 
 #: libretranslate/app.py:738
 msgid "Invalid filename"
-msgstr ""
+msgstr "無效的檔案名稱"
 
 #: libretranslate/app.py:979
 msgid "Suggestions are disabled on this server."
-msgstr ""
+msgstr "此伺服器上已停用建議功能。"
 
 #: libretranslate/locales/.langs.py:1
 msgid "English"
-msgstr ""
+msgstr "英文"
 
 #: libretranslate/locales/.langs.py:2
 msgid "Arabic"
-msgstr ""
+msgstr "阿拉伯文"
 
 #: libretranslate/locales/.langs.py:3
 msgid "Azerbaijani"
-msgstr ""
+msgstr "阿塞拜疆語"
 
 #: libretranslate/locales/.langs.py:4
 msgid "Chinese"
-msgstr ""
+msgstr "中文"
 
 #: libretranslate/locales/.langs.py:5
 msgid "Czech"
-msgstr ""
+msgstr "捷克語"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Danish"
-msgstr ""
+msgstr "丹麥文"
 
 #: libretranslate/locales/.langs.py:7
 msgid "Dutch"
-msgstr ""
+msgstr "荷蘭文"
 
 #: libretranslate/locales/.langs.py:8
 msgid "Esperanto"
-msgstr ""
+msgstr "世界語"
 
 #: libretranslate/locales/.langs.py:9
 msgid "Finnish"
-msgstr ""
+msgstr "芬蘭文"
 
 #: libretranslate/locales/.langs.py:10
 msgid "French"
-msgstr ""
+msgstr "法文"
 
 #: libretranslate/locales/.langs.py:11
 msgid "German"
-msgstr ""
+msgstr "德文"
 
 #: libretranslate/locales/.langs.py:12
 msgid "Greek"
-msgstr ""
+msgstr "希臘文"
 
 #: libretranslate/locales/.langs.py:13
 msgid "Hebrew"
-msgstr ""
+msgstr "希伯來文"
 
 #: libretranslate/locales/.langs.py:14
 msgid "Hindi"
-msgstr ""
+msgstr "印地語"
 
 #: libretranslate/locales/.langs.py:15
 msgid "Hungarian"
-msgstr ""
+msgstr "匈牙利文"
 
 #: libretranslate/locales/.langs.py:16
 msgid "Indonesian"
-msgstr ""
+msgstr "印尼文"
 
 #: libretranslate/locales/.langs.py:17
 msgid "Irish"
-msgstr ""
+msgstr "愛爾蘭文"
 
 #: libretranslate/locales/.langs.py:18
 msgid "Italian"
-msgstr ""
+msgstr "意大利文"
 
 #: libretranslate/locales/.langs.py:19
 msgid "Japanese"
-msgstr ""
+msgstr "日文"
 
 #: libretranslate/locales/.langs.py:20
 msgid "Korean"
-msgstr ""
+msgstr "韓文"
 
 #: libretranslate/locales/.langs.py:21
 msgid "Persian"
-msgstr ""
+msgstr "波斯文"
 
 #: libretranslate/locales/.langs.py:22
 msgid "Polish"
-msgstr ""
+msgstr "波蘭文"
 
 #: libretranslate/locales/.langs.py:23
 msgid "Portuguese"
-msgstr ""
+msgstr "葡萄牙文"
 
 #: libretranslate/locales/.langs.py:24
 msgid "Russian"
-msgstr ""
+msgstr "俄文"
 
 #: libretranslate/locales/.langs.py:25
 msgid "Slovak"
-msgstr ""
+msgstr "斯洛伐克語"
 
 #: libretranslate/locales/.langs.py:26
 msgid "Spanish"
-msgstr ""
+msgstr "西班牙文"
 
 #: libretranslate/locales/.langs.py:27
 msgid "Swedish"
-msgstr ""
+msgstr "瑞典文"
 
 #: libretranslate/locales/.langs.py:28
 msgid "Turkish"
-msgstr ""
+msgstr "土耳其文"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Ukranian"
-msgstr ""
+msgstr "烏克蘭文"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Vietnamese"
-msgstr ""
+msgstr "越南文"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
-msgstr ""
+msgstr "檢索支援語言的列表"
 
 #: libretranslate/locales/.swag.py:2
 msgid "List of languages"
-msgstr ""
+msgstr "語言列表"
 
 #: libretranslate/locales/.swag.py:3
 msgid "translate"
-msgstr ""
+msgstr "翻譯"
 
 #: libretranslate/locales/.swag.py:4
 msgid "Translate text from a language to another"
-msgstr ""
+msgstr "將文字從一種語言翻譯成另一種語言"
 
 #: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:219
 msgid "Translated text"
-msgstr ""
+msgstr "已翻譯文字"
 
 #: libretranslate/locales/.swag.py:6
 msgid "Invalid request"
-msgstr ""
+msgstr "無效的請求"
 
 #: libretranslate/locales/.swag.py:7
 msgid "Translation error"
-msgstr ""
+msgstr "翻譯錯誤"
 
 #: libretranslate/locales/.swag.py:8
 msgid "Slow down"
-msgstr ""
+msgstr "慢一點"
 
 #: libretranslate/locales/.swag.py:9
 msgid "Banned"
-msgstr ""
+msgstr "已封鎖"
 
 #: libretranslate/locales/.swag.py:10
 msgid "Hello world!"
-msgstr ""
+msgstr "你好世界！"
 
 #: libretranslate/locales/.swag.py:11
 msgid "Text(s) to translate"
-msgstr ""
+msgstr "需要翻譯的文字"
 
 #: libretranslate/locales/.swag.py:12
 msgid "Source language code"
-msgstr ""
+msgstr "來源語言代碼"
 
 #: libretranslate/locales/.swag.py:13
 msgid "Target language code"
-msgstr ""
+msgstr "目標語言代碼"
 
 #: libretranslate/locales/.swag.py:14
 msgid "text"
-msgstr ""
+msgstr "文字"
 
 #: libretranslate/locales/.swag.py:15
 msgid "html"
-msgstr ""
+msgstr "html"
 
 #: libretranslate/locales/.swag.py:16
 msgid ""
@@ -295,148 +298,151 @@ msgid ""
 " * `text` - Plain text\n"
 " * `html` - HTML markup\n"
 msgstr ""
+"來源文字的格式：\n"
+" *`text` - 純文字\n"
+" *`html` - html 標記\n"
 
 #: libretranslate/locales/.swag.py:17
 msgid "API key"
-msgstr ""
+msgstr "API 金鑰"
 
 #: libretranslate/locales/.swag.py:18
 msgid "Translate file from a language to another"
-msgstr ""
+msgstr "將檔案從一種語言翻譯成另一種語言"
 
 #: libretranslate/locales/.swag.py:19
 msgid "Translated file"
-msgstr ""
+msgstr "已翻譯檔案"
 
 #: libretranslate/locales/.swag.py:20
 msgid "File to translate"
-msgstr ""
+msgstr "需要翻譯的檔案"
 
 #: libretranslate/locales/.swag.py:21
 msgid "Detect the language of a single text"
-msgstr ""
+msgstr "檢測單一文字的語言"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Detections"
-msgstr ""
+msgstr "偵測"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Detection error"
-msgstr ""
+msgstr "錯誤偵測"
 
 #: libretranslate/locales/.swag.py:24
 msgid "Text to detect"
-msgstr ""
+msgstr "需要檢測的文字"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Retrieve frontend specific settings"
-msgstr ""
+msgstr "檢索前端特定設定"
 
 #: libretranslate/locales/.swag.py:26
 msgid "frontend settings"
-msgstr ""
+msgstr "前端設定"
 
 #: libretranslate/locales/.swag.py:27
 msgid "frontend"
-msgstr ""
+msgstr "前端"
 
 #: libretranslate/locales/.swag.py:28
 msgid "Submit a suggestion to improve a translation"
-msgstr ""
+msgstr "提交建議以改善翻譯"
 
 #: libretranslate/locales/.swag.py:29
 msgid "Success"
-msgstr ""
+msgstr "成功"
 
 #: libretranslate/locales/.swag.py:30
 msgid "Not authorized"
-msgstr ""
+msgstr "未經授權"
 
 #: libretranslate/locales/.swag.py:31
 msgid "Original text"
-msgstr ""
+msgstr "原文"
 
 #: libretranslate/locales/.swag.py:32
 msgid "Suggested translation"
-msgstr ""
+msgstr "建議譯文"
 
 #: libretranslate/locales/.swag.py:33
 msgid "Language of original text"
-msgstr ""
+msgstr "原始文字的語言"
 
 #: libretranslate/locales/.swag.py:34
 msgid "Language of suggested translation"
-msgstr ""
+msgstr "建議譯文的語言"
 
 #: libretranslate/locales/.swag.py:35
 msgid "feedback"
-msgstr ""
+msgstr "意見回饋"
 
 #: libretranslate/locales/.swag.py:36
 msgid "Language code"
-msgstr ""
+msgstr "語言代碼"
 
 #: libretranslate/locales/.swag.py:37
 msgid "Human-readable language name (in English)"
-msgstr ""
+msgstr "人類可讀的語言名稱（英文）"
 
 #: libretranslate/locales/.swag.py:38
 msgid "Supported target language codes"
-msgstr ""
+msgstr "支援的目標語言代碼"
 
 #: libretranslate/locales/.swag.py:39
 msgid "Translated text(s)"
-msgstr ""
+msgstr "已翻譯文字"
 
 #: libretranslate/locales/.swag.py:40
 msgid "Error message"
-msgstr ""
+msgstr "錯誤訊息"
 
 #: libretranslate/locales/.swag.py:41
 msgid "Reason for slow down"
-msgstr ""
+msgstr "速度下降的原因"
 
 #: libretranslate/locales/.swag.py:42
 msgid "Translated file url"
-msgstr ""
+msgstr "已翻譯檔案的連結"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Confidence value"
-msgstr ""
+msgstr "信心值"
 
 #: libretranslate/locales/.swag.py:44
 msgid "Character input limit for this language (-1 indicates no limit)"
-msgstr ""
+msgstr "此語言的字元輸入限制（-1 表示無限制）"
 
 #: libretranslate/locales/.swag.py:45
 msgid "Frontend translation timeout"
-msgstr ""
+msgstr "前端翻譯逾時"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Whether the API key database is enabled."
-msgstr ""
+msgstr "是否啟用了 API 金鑰資料庫。"
 
 #: libretranslate/locales/.swag.py:47
 msgid "Whether an API key is required."
-msgstr ""
+msgstr "是否需要 API 金鑰。"
 
 #: libretranslate/locales/.swag.py:48
 msgid "Whether submitting suggestions is enabled."
-msgstr ""
+msgstr "是否啟用了支援提交建議。"
 
 #: libretranslate/locales/.swag.py:49
 msgid "Supported files format"
-msgstr ""
+msgstr "支援的檔案格式"
 
 #: libretranslate/locales/.swag.py:50
 msgid "Whether submission was successful"
-msgstr ""
+msgstr "送出是否成功"
 
 #: libretranslate/templates/app.js.template:31
 #: libretranslate/templates/app.js.template:275
 #: libretranslate/templates/app.js.template:279
 msgid "Copy text"
-msgstr ""
+msgstr "複製文字"
 
 #: libretranslate/templates/app.js.template:72
 #: libretranslate/templates/app.js.template:78
@@ -447,178 +453,179 @@ msgstr ""
 #: libretranslate/templates/app.js.template:447
 #, python-format
 msgid "Cannot load %(url)s"
-msgstr ""
+msgstr "無法載入 %(url)s"
 
 #: libretranslate/templates/app.js.template:253
 #: libretranslate/templates/app.js.template:323
 #: libretranslate/templates/app.js.template:385
 #: libretranslate/templates/app.js.template:395
 msgid "Unknown error"
-msgstr ""
+msgstr "未知錯誤"
 
 #: libretranslate/templates/app.js.template:276
 msgid "Copied"
-msgstr ""
+msgstr "已複製"
 
 #: libretranslate/templates/app.js.template:320
 msgid ""
 "Thanks for your correction. Note the suggestion will not take effect "
 "right away."
-msgstr ""
+msgstr "感謝您的更正。注意此建議將不會立即生效。"
 
 #: libretranslate/templates/app.js.template:423
 msgid "No languages available. Did you install the models correctly?"
-msgstr ""
+msgstr "無可用的語言。您是否正確安裝了模型？"
 
 #: libretranslate/templates/app.js.template:479
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
-msgstr ""
+msgstr "輸入您的 API 金鑰。如果您需要 API 金鑰，%(instructions)s"
 
 #: libretranslate/templates/app.js.template:479
 msgid "press the \"Get API Key\" link."
-msgstr ""
+msgstr "點選“取得 API 金鑰”連結。"
 
 #: libretranslate/templates/app.js.template:479
 msgid "contact the server operator."
-msgstr ""
+msgstr "聯絡伺服器管理員。"
 
 #: libretranslate/templates/index.html:8 libretranslate/templates/index.html:25
 #: libretranslate/templates/index.html:333
 msgid "Free and Open Source Machine Translation API"
-msgstr ""
+msgstr "免費開源的機器翻譯 API"
 
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:29
 msgid ""
 "Free and Open Source Machine Translation API. Self-hosted, offline "
 "capable and easy to setup. Run your own API server in just a few minutes."
-msgstr ""
+msgstr "免費開源的機器翻譯 API。自建，支援離線且易於設定。只需幾分鐘即可運行您自己的 "
+"API 伺服器。"
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
-msgstr ""
+msgstr "翻譯"
 
 #: libretranslate/templates/index.html:11
 msgid "api"
-msgstr ""
+msgstr "API"
 
 #: libretranslate/templates/index.html:64
 msgid "API Docs"
-msgstr ""
+msgstr "API 文件"
 
 #: libretranslate/templates/index.html:66
 msgid "Get API Key"
-msgstr ""
+msgstr "取得 API 金鑰"
 
 #: libretranslate/templates/index.html:68
 msgid "GitHub"
-msgstr ""
+msgstr "GitHub"
 
 #: libretranslate/templates/index.html:70
 msgid "Set API Key"
-msgstr ""
+msgstr "設定 API 金鑰"
 
 #: libretranslate/templates/index.html:72
 msgid "Change language"
-msgstr ""
+msgstr "更改語言"
 
 #: libretranslate/templates/index.html:78
 msgid "Edit"
-msgstr ""
+msgstr "編輯"
 
 #: libretranslate/templates/index.html:154
 msgid "Dismiss"
-msgstr ""
+msgstr "忽略"
 
 #: libretranslate/templates/index.html:168
 msgid "Translation API"
-msgstr ""
+msgstr "翻譯 API"
 
 #: libretranslate/templates/index.html:172
 msgid "Translate Text"
-msgstr ""
+msgstr "翻譯文字"
 
 #: libretranslate/templates/index.html:176
 msgid "Translate Files"
-msgstr ""
+msgstr "翻譯檔案"
 
 #: libretranslate/templates/index.html:182
 msgid "Translate from"
-msgstr ""
+msgstr "翻譯自"
 
 #: libretranslate/templates/index.html:192
 msgid "Swap source and target languages"
-msgstr ""
+msgstr "來源語言與目標語言互換"
 
 #: libretranslate/templates/index.html:195
 msgid "Translate into"
-msgstr ""
+msgstr "翻譯成"
 
 #: libretranslate/templates/index.html:207
 msgid "Text to translate"
-msgstr ""
+msgstr "需要翻譯的文字"
 
 #: libretranslate/templates/index.html:210
 msgid "Delete text"
-msgstr ""
+msgstr "刪除文字"
 
 #: libretranslate/templates/index.html:223
 msgid "Suggest translation"
-msgstr ""
+msgstr "建議翻譯"
 
 #: libretranslate/templates/index.html:227
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: libretranslate/templates/index.html:230
 msgid "Send"
-msgstr ""
+msgstr "送出"
 
 #: libretranslate/templates/index.html:246
 msgid "Supported file formats:"
-msgstr ""
+msgstr "支援的檔案格式："
 
 #: libretranslate/templates/index.html:250
 msgid "File"
-msgstr ""
+msgstr "檔案"
 
 #: libretranslate/templates/index.html:265
 msgid "Remove file"
-msgstr ""
+msgstr "移除檔案"
 
 #: libretranslate/templates/index.html:272
 msgid "Translate"
-msgstr ""
+msgstr "翻譯"
 
 #: libretranslate/templates/index.html:273
 #: libretranslate/templates/index.html:317
 msgid "Download"
-msgstr ""
+msgstr "下載"
 
 #: libretranslate/templates/index.html:292
 msgid "Request"
-msgstr ""
+msgstr "請求"
 
 #: libretranslate/templates/index.html:297
 msgid "Response"
-msgstr ""
+msgstr "回應"
 
 #: libretranslate/templates/index.html:312
 msgid "Open Source Machine Translation API"
-msgstr ""
+msgstr "開源的機器翻譯 API"
 
 #: libretranslate/templates/index.html:313
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
-msgstr ""
+msgstr "自建。可離線。容易設定。"
 
 #: libretranslate/templates/index.html:332
 msgid "LibreTranslate"
-msgstr ""
+msgstr "LibreTranslate"
 
 #: libretranslate/templates/index.html:334
 msgid "License:"
-msgstr ""
+msgstr "授權："
 
 #: libretranslate/templates/index.html:337
 #, python-format
@@ -627,21 +634,23 @@ msgid ""
 "If you're going to run an application in production, please "
 "%(host_server)s or %(get_api_key)s."
 msgstr ""
+"此公共 API 僅適用於測試、個人或不經常使用。如果您將在正式環境中使用，請 "
+"%(host_server)s 或 %(get_api_key)s。"
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
-msgstr ""
+msgstr "建立自己的伺服器"
 
 #: libretranslate/templates/index.html:337
 msgid "get an API key"
-msgstr ""
+msgstr "取得 API 金鑰"
 
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
-msgstr ""
+msgstr "由 %(contributors)s 用 %(heart)s 製作並且由 %(engine)s 驅動"
 
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr ""
+msgstr "%(libretranslate)s 貢獻者"
