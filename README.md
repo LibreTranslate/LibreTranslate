@@ -420,6 +420,7 @@ Language | Reviewed | Weblate Link
 Arabic |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ar/)
 Azerbaijani |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/az/)
 Chinese |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/zh/)
+Chinese (Traditional) |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/zh_Hant/)
 Czech |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/cs/)
 Danish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/da/)
 Dutch |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/nl/)
