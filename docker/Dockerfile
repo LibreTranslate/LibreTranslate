@@ -5,10 +5,9 @@ WORKDIR /app
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -qq \
   && apt-get -qqq install --no-install-recommends -y pkg-config gcc g++ \
+  && apt-get upgrade --assume-yes \
   && apt-get clean \
   && rm -rf /var/lib/apt
-
-RUN apt-get update && apt-get upgrade --assume-yes
 
 RUN python -mvenv venv && ./venv/bin/pip install --upgrade pip
 
