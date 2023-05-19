@@ -9,7 +9,7 @@ RUN apt-get update -qq \
   && apt-get clean \
   && rm -rf /var/lib/apt
 
-RUN python -mvenv venv && ./venv/bin/pip install --upgrade pip
+RUN python -mvenv venv && ./venv/bin/pip install --no-cache-dir --upgrade pip
 
 COPY . .
 
