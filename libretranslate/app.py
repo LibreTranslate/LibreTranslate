@@ -1058,6 +1058,7 @@ def create_app(args):
 
     app.config["SESSION_TYPE"] = "filesystem"
     app.config["SESSION_FILE_DIR"] = os.path.join("db", "sessions")
+    app.config["JSON_AS_ASCII"] = False
     Session(app)
 
     if args.debug:
