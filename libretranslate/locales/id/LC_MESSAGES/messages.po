@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
 "PO-Revision-Date: 2023-05-30 07:04+0000\n"
-"Last-Translator: Locid <btq83grk@duck.com>\n"
+"Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/"
 "libretranslate/app/id/>\n"
 "Language: id\n"
@@ -265,7 +265,7 @@ msgstr "Database"
 
 #: libretranslate/locales/.swag.py:8
 msgid "Slow down"
-msgstr ""
+msgstr "Pelan-pelan"
 
 #: libretranslate/locales/.swag.py:9
 msgid "Banned"
@@ -327,7 +327,7 @@ msgstr "Mendeteksi bahasa teks tunggal"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Detections"
-msgstr ""
+msgstr "Deteksi"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Detection error"
@@ -347,7 +347,7 @@ msgstr "pengaturan frontend"
 
 #: libretranslate/locales/.swag.py:27
 msgid "frontend"
-msgstr ""
+msgstr "frontend"
 
 #: libretranslate/locales/.swag.py:28
 msgid "Submit a suggestion to improve a translation"
@@ -379,7 +379,7 @@ msgstr "Bahasa terjemahan yang disarankan"
 
 #: libretranslate/locales/.swag.py:35
 msgid "feedback"
-msgstr ""
+msgstr "umpan balik"
 
 #: libretranslate/locales/.swag.py:36
 msgid "Language code"
@@ -467,7 +467,7 @@ msgstr "Kesalahan tidak diketahui"
 
 #: libretranslate/templates/app.js.template:276
 msgid "Copied"
-msgstr ""
+msgstr "Disalin"
 
 #: libretranslate/templates/app.js.template:320
 msgid ""
@@ -515,7 +515,7 @@ msgstr "sitemap"
 
 #: libretranslate/templates/index.html:11
 msgid "api"
-msgstr ""
+msgstr "api"
 
 #: libretranslate/templates/index.html:64
 msgid "API Docs"
@@ -523,7 +523,7 @@ msgstr "API Documents"
 
 #: libretranslate/templates/index.html:66
 msgid "Get API Key"
-msgstr ""
+msgstr "Dapatkan Kunci API"
 
 #: libretranslate/templates/index.html:68
 msgid "GitHub"
@@ -543,7 +543,7 @@ msgstr "Edit"
 
 #: libretranslate/templates/index.html:154
 msgid "Dismiss"
-msgstr ""
+msgstr "Tutup"
 
 #: libretranslate/templates/index.html:168
 msgid "Translation API"
@@ -583,7 +583,7 @@ msgstr "Terjemahan yang disarankan"
 
 #: libretranslate/templates/index.html:227
 msgid "Cancel"
-msgstr ""
+msgstr "Batal"
 
 #: libretranslate/templates/index.html:230
 msgid "Send"
@@ -608,7 +608,7 @@ msgstr "Terjemahkan"
 #: libretranslate/templates/index.html:273
 #: libretranslate/templates/index.html:317
 msgid "Download"
-msgstr ""
+msgstr "Unduh"
 
 #: libretranslate/templates/index.html:292
 msgid "Request"
@@ -628,7 +628,7 @@ msgstr "Hosting mandiri. Bisa Offline. Mudah Disiapkan."
 
 #: libretranslate/templates/index.html:332
 msgid "LibreTranslate"
-msgstr ""
+msgstr "LibreTranslate"
 
 #: libretranslate/templates/index.html:334
 msgid "License:"
@@ -657,11 +657,12 @@ msgstr "aPI"
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
 msgstr ""
+"Dibuat dengan %(heart)s oleh %(contributors)s dan didukung oleh %(engine)s"
 
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr ""
+msgstr "Kontributor %(libretranslate)s"
 
 #~ msgid "multipart/form-data"
 #~ msgstr "multipart/form-data"
