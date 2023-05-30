@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-05-30 07:04+0000\n"
+"PO-Revision-Date: 2023-05-31 07:48+0000\n"
 "Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/"
 "libretranslate/app/id/>\n"
@@ -97,7 +97,7 @@ msgstr "Tidak dapat menerjemahkan teks: %(text)s"
 
 #: libretranslate/app.py:676 libretranslate/app.py:730
 msgid "Files translation are disabled on this server."
-msgstr "File terjemahan dinonaktifkan pada server ini."
+msgstr "Terjemahan file dinonaktifkan di server ini."
 
 #: libretranslate/app.py:690
 msgid "Invalid request: empty file"
@@ -113,7 +113,7 @@ msgstr "Nama file tidak valid"
 
 #: libretranslate/app.py:979
 msgid "Suggestions are disabled on this server."
-msgstr "Saran dinonaktifkan pada server ini."
+msgstr "Saran dinonaktifkan di server ini."
 
 #: libretranslate/locales/.langs.py:1
 msgid "English"
@@ -253,7 +253,7 @@ msgstr "Terjemahkan teks dari bahasa ke bahasa lain"
 
 #: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:219
 msgid "Translated text"
-msgstr "Terjemahkan teks"
+msgstr "Teks yang diterjemahkan"
 
 #: libretranslate/locales/.swag.py:6
 msgid "Invalid request"
@@ -261,7 +261,7 @@ msgstr "Permintaan tidak valid"
 
 #: libretranslate/locales/.swag.py:7
 msgid "Translation error"
-msgstr "Database"
+msgstr "Kesalahan terjemahan"
 
 #: libretranslate/locales/.swag.py:8
 msgid "Slow down"
@@ -273,7 +273,7 @@ msgstr "Diblokir"
 
 #: libretranslate/locales/.swag.py:10
 msgid "Hello world!"
-msgstr "Sitemap!"
+msgstr "Halo dunia!"
 
 #: libretranslate/locales/.swag.py:11
 msgid "Text(s) to translate"
@@ -355,7 +355,7 @@ msgstr "Kirim saran untuk meningkatkan terjemahan"
 
 #: libretranslate/locales/.swag.py:29
 msgid "Success"
-msgstr "Sitemap"
+msgstr "Berhasil"
 
 #: libretranslate/locales/.swag.py:30
 msgid "Not authorized"
@@ -395,7 +395,7 @@ msgstr "Mendukung kode bahasa target"
 
 #: libretranslate/locales/.swag.py:39
 msgid "Translated text(s)"
-msgstr "Terjemahkan teks"
+msgstr "Teks yang telah diterjemahkan"
 
 #: libretranslate/locales/.swag.py:40
 msgid "Error message"
@@ -456,7 +456,7 @@ msgstr "Fotokopi"
 #: libretranslate/templates/app.js.template:447
 #, python-format
 msgid "Cannot load %(url)s"
-msgstr "Tidak dapat memuat %(url)s"
+msgstr "Tidak bisa memuat %(url)s"
 
 #: libretranslate/templates/app.js.template:253
 #: libretranslate/templates/app.js.template:323
@@ -551,7 +551,7 @@ msgstr "API"
 
 #: libretranslate/templates/index.html:172
 msgid "Translate Text"
-msgstr "Sitemap"
+msgstr "Terjemahkan Teks"
 
 #: libretranslate/templates/index.html:176
 msgid "Translate Files"
@@ -559,7 +559,7 @@ msgstr "Database"
 
 #: libretranslate/templates/index.html:182
 msgid "Translate from"
-msgstr "Sitemap"
+msgstr "Terjemahkan dari"
 
 #: libretranslate/templates/index.html:192
 msgid "Swap source and target languages"
@@ -567,11 +567,11 @@ msgstr "Sumber swap dan bahasa target"
 
 #: libretranslate/templates/index.html:195
 msgid "Translate into"
-msgstr "Sitemap"
+msgstr "Terjemahkan ke"
 
 #: libretranslate/templates/index.html:207
 msgid "Text to translate"
-msgstr "Teks untuk menerjemahkan"
+msgstr "Teks untuk diterjemahkan"
 
 #: libretranslate/templates/index.html:210
 msgid "Delete text"
@@ -579,7 +579,7 @@ msgstr "Hapus teks"
 
 #: libretranslate/templates/index.html:223
 msgid "Suggest translation"
-msgstr "Terjemahan yang disarankan"
+msgstr "Sarankan terjemahan"
 
 #: libretranslate/templates/index.html:227
 msgid "Cancel"
@@ -587,7 +587,7 @@ msgstr "Batal"
 
 #: libretranslate/templates/index.html:230
 msgid "Send"
-msgstr "Sitemap"
+msgstr "Kirim"
 
 #: libretranslate/templates/index.html:246
 msgid "Supported file formats:"
@@ -651,7 +651,7 @@ msgstr "host server anda sendiri"
 
 #: libretranslate/templates/index.html:337
 msgid "get an API key"
-msgstr "aPI"
+msgstr "dapatkan kunci API"
 
 #: libretranslate/templates/index.html:345
 #, python-format
