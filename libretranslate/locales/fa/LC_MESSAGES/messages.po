@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-06-01 13:49+0000\n"
+"PO-Revision-Date: 2023-06-03 02:40+0000\n"
 "Last-Translator: Surena <Arsinad93@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/libretranslate/"
 "app/fa/>\n"
@@ -35,20 +35,20 @@ msgstr "مجاز نیست"
 
 #: libretranslate/app.py:211
 msgid "Too many request limits violations"
-msgstr "بسیاری از درخواست ها نقض را محدود می کنند"
+msgstr "تعداد درخواست‌ها بیش از حد مجاز است"
 
 #: libretranslate/app.py:220
 msgid "Invalid API key"
-msgstr "کلید Invalid API"
+msgstr "کلید API نامعتبر است"
 
 #: libretranslate/app.py:227
 msgid "Please contact the server operator to get an API key"
-msgstr "لطفا با اپراتور سرور تماس بگیرید تا یک کلید API را دریافت کنید"
+msgstr "لطفاً برای دریافت کلید API با كارپرداز سرور تماس بگیرید"
 
 #: libretranslate/app.py:229
 #, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr "برای گرفتن کلید API %(url)s را ببینید"
+msgstr "برای دریافت کلید API از %(url)s بازدید نمایید"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
@@ -62,57 +62,58 @@ msgstr "آهسته:"
 #: libretranslate/app.py:993
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr "درخواست نامعتبر: فاقد پارامتر %(name)s"
+msgstr "درخواست نامعتبر است: پارامتر %(name)s وجود ندارد"
 
 #: libretranslate/app.py:480 libretranslate/app.py:492
-#, fuzzy, python-format
+#, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
-msgstr "درخواست (%(size)s) از محدودیت متن (%(limit)s)"
+msgstr ""
+"درخواست نامعتبر است: درخواست (%(size)s) از محدودیت متنی (%(limit)s) فراتر رفت"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
 #: libretranslate/app.py:700 libretranslate/app.py:705
 #, python-format
 msgid "%(lang)s is not supported"
-msgstr "%(lang)s پشتیبانی نمی شود"
+msgstr "%(lang)s پشتیبانی نمی‌شود"
 
 #: libretranslate/app.py:536
 #, python-format
 msgid "%(format)s format is not supported"
-msgstr "%(format)s فرمت پشتیبانی نمی شود"
+msgstr "فرمت %(format)s پشتیبانی نمی‌شود"
 
 #: libretranslate/app.py:544 libretranslate/app.py:568
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
 msgstr ""
-"(%(tname)s) (%(tcode)s) به عنوان یک زبان هدف در دسترس نیست (%(sname)s) "
-"(%(scode)s)"
+"(%(tcode)s) (%(tname)s) از (%(scode)s) (%(sname)s)به‌عنوان یک زبان هدف در "
+"دسترس نیست"
 
 #: libretranslate/app.py:589
 #, python-format
 msgid "Cannot translate text: %(text)s"
-msgstr "نمی توان متن را ترجمه کرد: %(text)s"
+msgstr "متن قابل ترجمه نیست: %(text)s"
 
 #: libretranslate/app.py:676 libretranslate/app.py:730
 msgid "Files translation are disabled on this server."
-msgstr "ترجمه فایل ها در این سرور غیرفعال هستند."
+msgstr "ترجمه فایل در این سرور غیرفعال است."
 
 #: libretranslate/app.py:690
 msgid "Invalid request: empty file"
-msgstr "درخواست Invalid: فایل خالی"
+msgstr "درخواست نامعتبر است: فایل خالی است"
 
 #: libretranslate/app.py:693
 msgid "Invalid request: file format not supported"
-msgstr "درخواست Invalid: فرمت فایل پشتیبانی نمی شود"
+msgstr "درخواست نامعتبر است: فرمت فایل پشتیبانی نمی‌شود"
 
 #: libretranslate/app.py:738
 msgid "Invalid filename"
-msgstr "نام فایل Invalid"
+msgstr "نام فایل نامعتبر است"
 
 #: libretranslate/app.py:979
 msgid "Suggestions are disabled on this server."
-msgstr "پیشنهادات در این سرور غیرفعال هستند."
+msgstr "پیشنهادات در این سرور غیرفعال است."
 
 #: libretranslate/locales/.langs.py:1
 msgid "English"
@@ -124,7 +125,7 @@ msgstr "عربی"
 
 #: libretranslate/locales/.langs.py:3
 msgid "Azerbaijani"
-msgstr "آذربایجانی"
+msgstr "آذری"
 
 #: libretranslate/locales/.langs.py:4
 msgid "Chinese"
@@ -144,7 +145,7 @@ msgstr "هلندی"
 
 #: libretranslate/locales/.langs.py:8
 msgid "Esperanto"
-msgstr "اسپرانتو"
+msgstr "اسپرانتور"
 
 #: libretranslate/locales/.langs.py:9
 msgid "Finnish"
@@ -192,7 +193,7 @@ msgstr "ژاپنی"
 
 #: libretranslate/locales/.langs.py:20
 msgid "Korean"
-msgstr "کره ای"
+msgstr "کره‌ای"
 
 #: libretranslate/locales/.langs.py:21
 msgid "Persian"
@@ -236,11 +237,11 @@ msgstr "ویتنامی"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
-msgstr "دریافت فهرست زبان های پشتیبانی شده"
+msgstr "بازیابی فهرست زبان‌های پشتیبانی شده"
 
 #: libretranslate/locales/.swag.py:2
 msgid "List of languages"
-msgstr "فهرست زبان ها"
+msgstr "فهرست زبان‌ها"
 
 #: libretranslate/locales/.swag.py:3
 msgid "translate"
@@ -256,7 +257,7 @@ msgstr "متن ترجمه شده"
 
 #: libretranslate/locales/.swag.py:6
 msgid "Invalid request"
-msgstr "درخواست Invalid"
+msgstr "درخواست نامعتبر است"
 
 #: libretranslate/locales/.swag.py:7
 msgid "Translation error"
@@ -264,34 +265,31 @@ msgstr "خطای ترجمه"
 
 #: libretranslate/locales/.swag.py:8
 msgid "Slow down"
-msgstr "آهسته کردن"
+msgstr "آهسته"
 
 #: libretranslate/locales/.swag.py:9
 msgid "Banned"
-msgstr "ممنوعیت"
+msgstr "ممنوع است"
 
 #: libretranslate/locales/.swag.py:10
 msgid "Hello world!"
 msgstr "سلام دنیا!"
 
 #: libretranslate/locales/.swag.py:11
-#, fuzzy
 msgid "Text(s) to translate"
-msgstr "متن ترجمه"
+msgstr "متن (ها) برای ترجمه"
 
 #: libretranslate/locales/.swag.py:12
 msgid "Source language code"
 msgstr "کد زبان منبع"
 
 #: libretranslate/locales/.swag.py:13
-#, fuzzy
 msgid "Target language code"
-msgstr "پشتیبانی از کدهای زبان هدف"
+msgstr "کد زبان هدف"
 
 #: libretranslate/locales/.swag.py:14
-#, fuzzy
 msgid "text"
-msgstr "کپی رایت"
+msgstr "متن"
 
 #: libretranslate/locales/.swag.py:15
 msgid "html"
@@ -305,12 +303,11 @@ msgid ""
 msgstr ""
 "فرمت متن منبع:\n"
 "* متن - متن ساده\n"
-"* html - نشانه گذاری HTML\n"
+"* html - نشانه‌گذاری HTML\n"
 
 #: libretranslate/locales/.swag.py:17
-#, fuzzy
 msgid "API key"
-msgstr "api"
+msgstr "کلید API"
 
 #: libretranslate/locales/.swag.py:18
 msgid "Translate file from a language to another"
@@ -321,46 +318,44 @@ msgid "Translated file"
 msgstr "فایل ترجمه شده"
 
 #: libretranslate/locales/.swag.py:20
-#, fuzzy
 msgid "File to translate"
-msgstr "متن ترجمه"
+msgstr "فایل برای ترجمه"
 
 #: libretranslate/locales/.swag.py:21
 msgid "Detect the language of a single text"
-msgstr "زبان یک متن واحد را تشخیص دهید"
+msgstr "تشخیص زبان یک متن"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Detections"
-msgstr "تشخیص"
+msgstr "تشخیص‌ها"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Detection error"
-msgstr "خطای خطا"
+msgstr "خطای شناسایی"
 
 #: libretranslate/locales/.swag.py:24
-#, fuzzy
 msgid "Text to detect"
-msgstr "Auto Detect"
+msgstr "متن برای شناسایی"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Retrieve frontend specific settings"
-msgstr "تنظیمات خاص Retrieve"
+msgstr "بازیابی تنظیمات زبان اولیه"
 
 #: libretranslate/locales/.swag.py:26
 msgid "frontend settings"
-msgstr "تنظیمات frontend"
+msgstr "تنظیمات اولیه"
 
 #: libretranslate/locales/.swag.py:27
 msgid "frontend"
-msgstr "frontend"
+msgstr "اولیه"
 
 #: libretranslate/locales/.swag.py:28
 msgid "Submit a suggestion to improve a translation"
-msgstr "پیشنهاد برای بهبود ترجمه"
+msgstr "پیشنهادی برای بهبود ترجمه ثبت نمایید"
 
 #: libretranslate/locales/.swag.py:29
 msgid "Success"
-msgstr "موفقیت"
+msgstr "موفقیت‌آمیز بود"
 
 #: libretranslate/locales/.swag.py:30
 msgid "Not authorized"
@@ -371,19 +366,16 @@ msgid "Original text"
 msgstr "متن اصلی"
 
 #: libretranslate/locales/.swag.py:32
-#, fuzzy
 msgid "Suggested translation"
 msgstr "ترجمه پیشنهادی"
 
 #: libretranslate/locales/.swag.py:33
-#, fuzzy
 msgid "Language of original text"
-msgstr "زبان یک متن واحد را تشخیص دهید"
+msgstr "زبان متن اصلی"
 
 #: libretranslate/locales/.swag.py:34
-#, fuzzy
 msgid "Language of suggested translation"
-msgstr "ترجمه پیشنهادی"
+msgstr "زبان ترجمه پیشنهادی"
 
 #: libretranslate/locales/.swag.py:35
 msgid "feedback"
@@ -395,15 +387,15 @@ msgstr "کد زبان"
 
 #: libretranslate/locales/.swag.py:37
 msgid "Human-readable language name (in English)"
-msgstr "نام زبان قابل خواندن انسان (به زبان انگلیسی)"
+msgstr "نام زبان قابل خواندن برای انسان (به انگلیسی)"
 
 #: libretranslate/locales/.swag.py:38
 msgid "Supported target language codes"
-msgstr "پشتیبانی از کدهای زبان هدف"
+msgstr "کدهای زبان هدف پشتیبانی شده"
 
 #: libretranslate/locales/.swag.py:39
 msgid "Translated text(s)"
-msgstr "ترجمه متن (s)"
+msgstr "متن‌(های) ترجمه شده"
 
 #: libretranslate/locales/.swag.py:40
 msgid "Error message"
@@ -411,49 +403,49 @@ msgstr "پیام خطا"
 
 #: libretranslate/locales/.swag.py:41
 msgid "Reason for slow down"
-msgstr "دلیل کاهش آهسته"
+msgstr "دلیل کاهش سزعت"
 
 #: libretranslate/locales/.swag.py:42
 msgid "Translated file url"
-msgstr "ترجمه فایل url"
+msgstr "تارنشانی فایل ترجمه شده"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Confidence value"
-msgstr "اعتماد به نفس"
+msgstr "ضریب اطمینان"
 
 #: libretranslate/locales/.swag.py:44
 msgid "Character input limit for this language (-1 indicates no limit)"
-msgstr "محدودیت ورودی شخصیتی برای این زبان (-1 نشان دهنده هیچ محدودیتی نیست)"
+msgstr "محدودیت ورودی نویسه برای این زبان (تا -1 محدودیتی نیست)"
 
 #: libretranslate/locales/.swag.py:45
 msgid "Frontend translation timeout"
-msgstr "توزیع زمان ترجمه"
+msgstr "پایان زمان ترجمه مقدماتی"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Whether the API key database is enabled."
-msgstr "آیا پایگاه داده کلیدی API فعال است."
+msgstr "اینکه آیا پایگاه داده کلید API فعال است یا خیر."
 
 #: libretranslate/locales/.swag.py:47
 msgid "Whether an API key is required."
-msgstr "آیا یک کلید API لازم است."
+msgstr "اینکه آیا کلید API مورد نیاز است یا خیر."
 
 #: libretranslate/locales/.swag.py:48
 msgid "Whether submitting suggestions is enabled."
-msgstr "این که آیا ارسال پیشنهادات امکان پذیر است."
+msgstr "اینکه آیا ارسال پیشنهادات ممکن است یا خیر."
 
 #: libretranslate/locales/.swag.py:49
 msgid "Supported files format"
-msgstr "پشتیبانی فایل های فرمت"
+msgstr "قالب فایل‌های پشتیبانی شده"
 
 #: libretranslate/locales/.swag.py:50
 msgid "Whether submission was successful"
-msgstr "آیا ارسال موفقیت آمیز بود"
+msgstr "اینکه آیا ارسال موفقیت‌آمیز بود یا خیر"
 
 #: libretranslate/templates/app.js.template:31
 #: libretranslate/templates/app.js.template:275
 #: libretranslate/templates/app.js.template:279
 msgid "Copy text"
-msgstr "کپی رایت"
+msgstr "روگرفت متن"
 
 #: libretranslate/templates/app.js.template:72
 #: libretranslate/templates/app.js.template:78
@@ -464,7 +456,7 @@ msgstr "کپی رایت"
 #: libretranslate/templates/app.js.template:447
 #, python-format
 msgid "Cannot load %(url)s"
-msgstr "دانلود آهنگ Cant Load %(url)s"
+msgstr "%(url)s بارگیری نمی‌شود"
 
 #: libretranslate/templates/app.js.template:253
 #: libretranslate/templates/app.js.template:323
@@ -475,35 +467,38 @@ msgstr "خطای ناشناخته"
 
 #: libretranslate/templates/app.js.template:276
 msgid "Copied"
-msgstr "اخراج"
+msgstr "روگرفت شد"
 
 #: libretranslate/templates/app.js.template:320
 msgid ""
 "Thanks for your correction. Note the suggestion will not take effect "
 "right away."
-msgstr "ممنون از اصلاحات توجه داشته باشید که پیشنهاد بلافاصله اجرا نخواهد شد."
+msgstr ""
+"از تصحیح شما سپاس‌گزاریم. توجه داشته باشید که این پیشنهاد بلافاصله اجرا "
+"نخواهد شد."
 
 #: libretranslate/templates/app.js.template:423
 msgid "No languages available. Did you install the models correctly?"
-msgstr "هیچ زبان در دسترس نیست. آیا مدل ها را به درستی نصب کرده اید؟?"
+msgstr "هیچ زبانی در دسترس نیست. آیا مدل‌ها را به‌درستی نصب کرده‌اید؟"
 
 #: libretranslate/templates/app.js.template:479
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
-msgstr "نوع در کلید API شما اگر به یک کلید API نیاز دارید، %(instructions)s"
+msgstr ""
+"کلید API خود را وارد نمایید. اگر به یک کلید API نیاز دارید، %(instructions)s"
 
 #: libretranslate/templates/app.js.template:479
 msgid "press the \"Get API Key\" link."
-msgstr "لینک “Get API Key” را فشار دهید."
+msgstr "تارپیوند \"دریافت کلید API\" را فشار دهید."
 
 #: libretranslate/templates/app.js.template:479
 msgid "contact the server operator."
-msgstr "با اپراتور سرور تماس بگیرید."
+msgstr "با كارپرداز سرور تماس بگیرید."
 
 #: libretranslate/templates/index.html:8 libretranslate/templates/index.html:25
 #: libretranslate/templates/index.html:333
 msgid "Free and Open Source Machine Translation API"
-msgstr "Free and Open Source Translation API"
+msgstr "API ترجمه ماشینی رایگان و متن باز"
 
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:29
@@ -511,8 +506,8 @@ msgid ""
 "Free and Open Source Machine Translation API. Self-hosted, offline "
 "capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"Free and Open Source Translation API خود میزبان، توانایی آفلاین و آسان "
-"برای راه اندازی. سرور API خود را فقط در چند دقیقه اجرا کنید."
+"API ترجمه ماشینی رایگان و متن باز. خود میزبان، قابلیت کار آفلاین و با قابلیت "
+"راه‌اندازی آسان. سرور API خود را تنها در چند دقیقه اجرا کنید."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -524,11 +519,11 @@ msgstr "api"
 
 #: libretranslate/templates/index.html:64
 msgid "API Docs"
-msgstr "API Docs"
+msgstr "پرونده‌های API"
 
 #: libretranslate/templates/index.html:66
 msgid "Get API Key"
-msgstr "دریافت API کلید کلیدی"
+msgstr "دریافت کلید API"
 
 #: libretranslate/templates/index.html:68
 msgid "GitHub"
@@ -536,7 +531,7 @@ msgstr "GitHub"
 
 #: libretranslate/templates/index.html:70
 msgid "Set API Key"
-msgstr "Set API کلید کلیدی"
+msgstr "تنظیم کلید API"
 
 #: libretranslate/templates/index.html:72
 msgid "Change language"
@@ -544,15 +539,15 @@ msgstr "تغییر زبان"
 
 #: libretranslate/templates/index.html:78
 msgid "Edit"
-msgstr "Edit"
+msgstr "ویرایش"
 
 #: libretranslate/templates/index.html:154
 msgid "Dismiss"
-msgstr "شکست"
+msgstr "انصراف"
 
 #: libretranslate/templates/index.html:168
 msgid "Translation API"
-msgstr "ترجمه API"
+msgstr "API ترجمه"
 
 #: libretranslate/templates/index.html:172
 msgid "Translate Text"
@@ -560,35 +555,33 @@ msgstr "ترجمه متن"
 
 #: libretranslate/templates/index.html:176
 msgid "Translate Files"
-msgstr "فایل های ترجمه"
+msgstr "فایل‌های ترجمه"
 
 #: libretranslate/templates/index.html:182
 msgid "Translate from"
-msgstr "ترجمه از ترجمه"
+msgstr "ترجمه از"
 
 #: libretranslate/templates/index.html:192
 msgid "Swap source and target languages"
-msgstr "منبع و زبان های هدف"
+msgstr "جابجایی زبان مبدا و هدف"
 
 #: libretranslate/templates/index.html:195
 msgid "Translate into"
-msgstr "ترجمه به ترجمه"
+msgstr "ترجمه به"
 
 #: libretranslate/templates/index.html:207
 msgid "Text to translate"
-msgstr "متن ترجمه"
+msgstr "متن برای ترجمه"
 
 #: libretranslate/templates/index.html:210
-#, fuzzy
 msgid "Delete text"
 msgstr "حذف متن"
 
 #: libretranslate/templates/index.html:223
 msgid "Suggest translation"
-msgstr "ترجمه پیشنهادی"
+msgstr "پیشنهاد ترجمه"
 
 #: libretranslate/templates/index.html:227
-#, fuzzy
 msgid "Cancel"
 msgstr "لغو"
 
@@ -598,7 +591,7 @@ msgstr "ارسال"
 
 #: libretranslate/templates/index.html:246
 msgid "Supported file formats:"
-msgstr "فرمت های فایل پشتیبانی شده:"
+msgstr "فرمت‌های فایل پشتیبانی شده:"
 
 #: libretranslate/templates/index.html:250
 msgid "File"
@@ -609,17 +602,15 @@ msgid "Remove file"
 msgstr "حذف فایل"
 
 #: libretranslate/templates/index.html:272
-#, fuzzy
 msgid "Translate"
-msgstr "ترجمه"
+msgstr "ترجمه کن"
 
 #: libretranslate/templates/index.html:273
 #: libretranslate/templates/index.html:317
 msgid "Download"
-msgstr "Download"
+msgstr "بارگیری"
 
 #: libretranslate/templates/index.html:292
-#, fuzzy
 msgid "Request"
 msgstr "درخواست"
 
@@ -629,11 +620,11 @@ msgstr "پاسخ"
 
 #: libretranslate/templates/index.html:312
 msgid "Open Source Machine Translation API"
-msgstr "Open Source Machine Translation API"
+msgstr "API ترجمه ماشینی متن باز"
 
 #: libretranslate/templates/index.html:313
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
-msgstr "خود میزبان Offline Capable آسان برای راه اندازی."
+msgstr "خود میزبان. قابلیت کار آفلاین. با قابلیت راه‌اندازی آسان."
 
 #: libretranslate/templates/index.html:332
 msgid "LibreTranslate"
@@ -644,33 +635,32 @@ msgid "License:"
 msgstr "مجوز:"
 
 #: libretranslate/templates/index.html:337
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "This public API should be used for testing, personal or infrequent use. "
 "If you're going to run an application in production, please "
 "%(host_server)s or %(get_api_key)s."
 msgstr ""
-"این API عمومی باید برای تست، استفاده شخصی یا بی سابقه استفاده شود. اگر قصد "
-"دارید یک برنامه را در تولید اجرا کنید، لطفا %(host_server)s یا ... "
-"%(get_api_key)s"
+"این API عمومی باید برای آزمایش، استفاده شخصی یا گذری استفاده شود. اگر قرار "
+"است برنامه‌ای در حال ساخت اجرا کنید، لطفا %(host_server)s یا %(get_api_key)s."
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
-msgstr "میزبان سرور خود"
+msgstr "سرور خود را میزبانی کنید"
 
 #: libretranslate/templates/index.html:337
 msgid "get an API key"
-msgstr "یک کلید API"
+msgstr "دریافت یک کلید API"
 
 #: libretranslate/templates/index.html:345
-#, fuzzy, python-format
+#, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
-msgstr "ساخته شده با %(heart)s سوگند %(contributors)s سوگند به نفس %(engine)s"
+msgstr "ساخته شده با %(heart)s توسط %(contributors)s و بر آمده از %(engine)s"
 
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr "%(libretranslate)s مشارکت کنندگان"
+msgstr "مشارکت‌‌کنندگان %(libretranslate)s"
 
 #~ msgid "multipart/form-data"
 #~ msgstr "multipart/form-data"
