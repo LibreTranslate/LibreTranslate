@@ -157,6 +157,7 @@ docker-compose up -d --build
 >
 > The models are stored inside the container under `/home/libretranslate/.local/share` and `/home/libretranslate/.local/cache`. Feel free to use volumes if you do not want to redownload the models when the container is destroyed. To update the models, use the `--update-models` argument.
 
+
 ### CUDA
 
 You can use hardware acceleration to speed up translations on a GPU machine with CUDA 11.2 and [nvidia-docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) installed.
@@ -166,6 +167,18 @@ Run this version with:
 ```bash
 docker-compose -f docker-compose.cuda.yml up -d --build
 ```
+## Installation using Easypanel
+
+Easypanel is a modern server control panel. If you [run Easypanel](https://easypanel.io/docs) on your server, you can deploy LibreTranslate with 1 click on it.
+
+[![Deploy to Easypanel](https://easypanel.io/img/deploy-on-easypanel-40.svg)](https://easypanel.io/docs/templates/libretranslate)
+
+### Instructions
+
+1. Create a VM that runs Ubuntu on your cloud provider.
+2. Install Easypanel using the instructions from the website.
+3. Create a new project.
+4. Install LibreTranslate using the dedicated template.
 
 ## Arguments
 
