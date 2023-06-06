@@ -384,6 +384,7 @@ URL |API Key Required | Links
 [translate.argosopentech.com](https://translate.argosopentech.com/)|-
 [translate.foxhaven.cyou](https://translate.foxhaven.cyou/)|-
 [translate.terraprint.co](https://translate.terraprint.co/)|-
+[opentranslate.monster](https://opentranslate.monster/)|-
 
 ## TOR/i2p Mirrors
 
