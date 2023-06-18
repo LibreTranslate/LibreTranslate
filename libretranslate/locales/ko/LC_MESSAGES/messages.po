@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-04-03 18:22+0000\n"
-"Last-Translator: \"박현준 (천의유)\" <chunuiyu@gmail.com>\n"
+"PO-Revision-Date: 2023-06-19 20:49+0000\n"
+"Last-Translator: Sungjoon Moon <sumoon@seoulsaram.org>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/libretranslate/"
 "app/ko/>\n"
 "Language: ko\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.18.1\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -492,7 +492,7 @@ msgstr "서버 운영자에게 문의하세요."
 #: libretranslate/templates/index.html:8 libretranslate/templates/index.html:25
 #: libretranslate/templates/index.html:333
 msgid "Free and Open Source Machine Translation API"
-msgstr "무료로 사용 가능한 오픈 소스 기계 번역 API"
+msgstr "자유 오픈 소스 기계 번역 API"
 
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:29
@@ -500,8 +500,8 @@ msgid ""
 "Free and Open Source Machine Translation API. Self-hosted, offline "
 "capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"무료로 사용 가능한 오픈 소스 기계 번역 API. 셀프 호스팅, 오프라인에서 사용이 "
-"가능하며, 설치가 쉽습니다. 단 몇 분 만 투자하여 자신의 API 서버를 돌려보세요."
+"자유 오픈 소스 기계 번역 API. 셀프 호스팅, 오프라인에서 사용이 가능하며, "
+"설치가 쉽습니다. 단 몇 분 만 투자하여 자신의 API 서버를 돌려보세요."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
