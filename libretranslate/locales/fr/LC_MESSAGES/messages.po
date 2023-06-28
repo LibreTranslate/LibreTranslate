@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-13 15:53+0000\n"
-"Last-Translator: Piero Toffanin <pt@masseranolabs.com>\n"
+"PO-Revision-Date: 2023-06-29 02:45+0000\n"
+"Last-Translator: \"J. Lavoie\" <j.lavoie@net-c.ca>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/libretranslate/"
 "app/fr/>\n"
 "Language: fr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.18.1\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -166,7 +166,7 @@ msgstr "Grec"
 
 #: libretranslate/locales/.langs.py:13
 msgid "Hebrew"
-msgstr "Hébreux"
+msgstr "Hébreu"
 
 #: libretranslate/locales/.langs.py:14
 msgid "Hindi"
@@ -198,7 +198,7 @@ msgstr "Coréen"
 
 #: libretranslate/locales/.langs.py:21
 msgid "Persian"
-msgstr "Perse"
+msgstr "Persan"
 
 #: libretranslate/locales/.langs.py:22
 msgid "Polish"
@@ -226,7 +226,7 @@ msgstr "Suédois"
 
 #: libretranslate/locales/.langs.py:28
 msgid "Turkish"
-msgstr "Turque"
+msgstr "Turc"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Ukranian"
