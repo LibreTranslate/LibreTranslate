@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-10 09:57+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2023-07-02 13:53+0000\n"
+"Last-Translator: jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/libretranslate/"
 "app/ar/>\n"
 "Language: ar\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=0 && n%100<=2 ? 4 : 5);\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -47,9 +47,9 @@ msgid "Please contact the server operator to get an API key"
 msgstr "يرجى الاتصال بمشغل الخادم للحصول على مفتاح API"
 
 #: libretranslate/app.py:229
-#, fuzzy, python-format
+#, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr "زيارة %(url)s للحصول على مفتاح"
+msgstr "قم بزيارة  %(url) للحصول على مفتاح API"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
