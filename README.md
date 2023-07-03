@@ -112,50 +112,7 @@ On Ubuntu 20.04 you can also use the install script available at <https://github
 
 ## Build and Run
 
-If you want to make changes to the code, you can build from source, and run the API:
-
-```bash
-git clone https://github.com/LibreTranslate/LibreTranslate
-cd LibreTranslate
-pip install -e .
-libretranslate [args]
-
-# Or
-python main.py [args]
-```
-
-Then open a web browser to <http://localhost:5000>
-
-### Run with Docker
-
-Linux/MacOS: `./run.sh [args]`
-Windows: `run.bat [args]`
-
-Then open a web browser to <http://localhost:5000>
-
-### Build with Docker
-
-```bash
-docker build -f docker/Dockerfile [--build-arg with_models=true] -t libretranslate .
-```
-
-If you want to run the Docker image in a complete offline environment, you need to add the `--build-arg with_models=true` parameter. Then the language models are downloaded during the build process of the image. Otherwise these models get downloaded on the first run of the image/container.
-
-Run the built image:
-
-```bash
-docker run -it -p 5000:5000 libretranslate [args]
-```
-
-Or build and run using `docker-compose`:
-
-```bash
-docker-compose up -d --build
-```
-
-> Feel free to change the [`docker-compose.yml`](https://github.com/LibreTranslate/LibreTranslate/blob/main/docker-compose.yml) file to adapt it to your deployment needs, or use an extra `docker-compose.prod.yml` file for your deployment configuration.
->
-> The models are stored inside the container under `/home/libretranslate/.local/share` and `/home/libretranslate/.local/cache`. Feel free to use volumes if you do not want to redownload the models when the container is destroyed. To update the models, use the `--update-models` argument.
+See [CONTIRBUTING.md](./CONTRIBUTING.md) for information on how to build and run the project yourself.
 
 ### CUDA
 
@@ -164,7 +121,7 @@ You can use hardware acceleration to speed up translations on a GPU machine with
 Run this version with:
 
 ```bash
-docker-compose -f docker-compose.cuda.yml up -d --build
+docker compose -f docker-compose.cuda.yml up -d --build
 ```
 
 ## Arguments
