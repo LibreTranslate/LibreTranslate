@@ -11,7 +11,7 @@
 	<meta name="description" content="{{ _h('Free and Open Source Machine Translation API. Self-hosted, offline capable and easy to setup. Run your own API server in just a few minutes.') }}">
 	<meta name="keywords" content="{{ _h('translation') }},{{ _h('api') }}">
 	{% endif %}
-	
+
 	<link rel="preload" href="{{ url_for('static', filename='icon.svg') }}" as="image" />
 	<link rel="preload" href="{{ url_for('static', filename='js/vue@2.js') }}" as="script">
 	<link rel="preload" href="{{ url_for('static', filename='js/materialize.min.js') }}" as="script">
@@ -22,8 +22,7 @@
 	<link rel="preload" href="{{ url_for('static', filename='css/material-icons.css') }}" as="style"/>
 	<link rel="preload" href="{{ url_for('static', filename='css/prism.min.css') }}" as="style"/>
 	<link rel="preload" href="{{ url_for('static', filename='css/main.css') }}?v={{ version }}" as="style"/>
-	<link rel="preload" href="{{ url_for('static', filename='css/dark-theme.css') }}" as="style"/>
-	
+
 	<meta property="og:title" content="LibreTranslate - {{ _h('Free and Open Source Machine Translation API') }}" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://libretranslate.com" />
@@ -49,15 +48,14 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/material-icons.css') }}" />
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/prism.min.css') }}" />
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}?v={{ version }}" />
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/dark-theme.css') }}" />	
 </head>
 
-<body class="white">
+<body>
 	<header>
-		<nav class="blue darken-3" role="navigation">
+		<nav role="navigation">
 			<div class="nav-wrapper container">
 				<button data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></button>
-				<a id="logo-container" href="/" class="brand-logo">
+				<a id="logo-container" href="/" class="brand-logo noline">
 					<img src="{{ url_for('static', filename='icon.svg') }}" alt="" class="logo">
 					<span>LibreTranslate</span>
 				</a>
@@ -73,7 +71,7 @@
 					{% endif %}
 					<li class="change-language"><a class="noline" href="javascript:void(0)" title="{{ _h('Change language') }}"><i class="material-icons">language</i></a>
 					</li>
-					<li class="locale-panel blue darken-3">
+					<li class="locale-panel">
 						<select id="locales" onchange="changeLocale(this)">
 							{% for l in available_locales %}<option value="{{ l['code'] }}" {{ 'selected' if current_locale == l['code'] else ''}}>{{ l['name'] }}</option>{% endfor %}
 						</select>
@@ -82,7 +80,7 @@
 					{% endset %}
 					{{ menulinks }}
 				</ul>
-				<ul id="nav-mobile" class="sidenav blue darken-3">
+				<ul id="nav-mobile" class="sidenav">
 					{{ menulinks }}
 				</ul>
 				<script>
@@ -90,13 +88,13 @@
 						{% for al in alternate_locales %}"{{ al.lang }}": "{{ al.link }}"{% if not loop.last %},{% endif %}
 						{% endfor %}
 					};
-	
+
 					function changeLocale(slt){
 						var lang = slt.value;
 						if (localeLinks[lang]) location.href = localeLinks[lang];
 						else location.href = '?lang=' + slt.value;
 					}
-	
+
 					var btnChangeLangs = document.getElementsByClassName("change-language");
 					var localePanels = document.getElementsByClassName("locale-panel");
 
@@ -327,7 +325,7 @@
 	</div>
 	</main>
 
-	<footer class="page-footer blue darken-3">
+	<footer class="page-footer">
 		<div class="container">
 			<div class="row">
 				<div class="col l12 s12">
