@@ -1,18 +1,73 @@
 /* Custom styles for LibreTranslate page */
 
-html,
-body,
-select {
+:root {
+  --pri-bg-color: #fff;
+  --sec-bg-color: #f3f3f3;
+  --code-bg-color: #fbfbfb;
+  --border-color: #ccc;
+  --fg-color: #000;
+  --nav-fg-color: #fff;
+  --accent-color: #1565c0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --pri-bg-color: #111;
+    --sec-bg-color: #222;
+    --code-bg-color: #222;
+    --border-color: #444;
+    --fg-color: #fff;
+  }
+
+  .token.atrule, .token.attr-value, .token.keyword {
+    color: #40b5e8;
+  }
+
+  .language-css .token.string, .style .token.string,
+  .token.entity, .token.operator, .token.url {
+    color: #eecfab;
+    background: hsla(0,0%, 15%, .5);
+  }
+
+  .token.attr-name, .token.builtin, .token.char,
+  .token.inserted, .token.selector, .token.string {
+    color: #acd25f;
+  }
+
+  .token.boolean, .token.constant, .token.deleted, .token.number,
+  .token.property, .token.symbol, .token.tag {
+    color: #ff8bcc;
+  }
+
+  .token.class-name, .token.function {
+    color: #ff7994;
+  }
+}
+
+html, body, select {
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif !important;
 }
 
-a {
-  text-decoration: underline;
+body {
+  background-color: var(--pri-bg-color);
+  color: var(--fg-color);
 }
 
-a.noline{
-  text-decoration: none;
+nav, #nav, #nav-mobile, .locale-panel, .page-footer {
+  background-color: var(--accent-color);
+}
+
+nav, nav .material-icons {
+  color: var(--nav-fg-color);
+}
+
+.material-icons {
+  color: var(--fg-color);
+}
+
+a:not(.noline) {
+  text-decoration: underline;
 }
 
 #app {
@@ -39,7 +94,7 @@ h3.header {
   position: relative;
 }
 
-.top-nav .locale-panel{
+.top-nav .locale-panel {
   position: absolute;
   top: 64px;
   height: 68px;
@@ -65,7 +120,6 @@ h3.header {
 #nav-mobile .locale-panel:hover{
   display: block;
 }
-
 
 .locale-panel select{
   display: block;
@@ -121,6 +175,10 @@ h3.header {
   float: none;
 }
 
+select {
+  color: var(--fg-color);
+}
+
 .language-select {
   display: inline-flex;
   align-items: center;
@@ -152,7 +210,7 @@ h3.header {
   width: 0.5em;
   height: 0.5em;
   margin: 0 0 0.25rem -0.75rem;
-  border: solid black;
+  border: solid var(--fg-color);
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 3px;
@@ -169,6 +227,10 @@ h3.header {
 .textarea-container {
   margin-top: 0;
   position: relative;
+}
+
+.textarea-container .material-icons {
+  color: #666;
 }
 
 .btn-delete-text {
@@ -202,8 +264,8 @@ h3.header {
 }
 
 .btn-switch-type {
-  background-color: #fff;
-  color: #1565C0;
+  background-color: var(--sec-bg-color);
+  color: var(--fg-color);
   display: flex;
   align-items: center;
   margin: .5rem;
@@ -214,19 +276,22 @@ h3.header {
 }
 
 .btn-switch-type:hover {
-    background-color: #eee !important;
-    color: #1565C0;
+  background-color: var(--sec-bg-color);
 }
 
 .btn-switch-type.active {
-    background-color: #1565C0 !important;
-    color: #fff;
+  background-color: var(--accent-color);
+  color: #FFF;
+}
+
+.btn-switch-type.active .material-icons {
+  color: #FFF;
 }
 
 .file-dropzone {
   font-size: 1.1rem;
-  border: 1px solid #ccc;
-  background: #f3f3f3;
+  background: var(--sec-bg-color);
+  border: 1px solid var(--border-color);
   padding: 1rem 2rem 1rem 1.5rem;
   min-height: 220px;
   position: relative;
@@ -253,8 +318,9 @@ h3.header {
 .btn-blue {
   color: #1565C0;
 }
+
 .btn-action:disabled {
-    color: #666;
+  color: #666;
 }
 
 .btn-action span {
@@ -296,8 +362,8 @@ h3.header {
 .textarea-container textarea {
   font-size: 1.25rem;
   resize: none;
-  border: 1px solid #ccc;
-  background: #f3f3f3;
+  background: var(--sec-bg-color);
+  border: 1px solid var(--border-color);
   padding: 1rem 2rem 1rem 1.5rem;
   overflow-y: hidden;
 }
@@ -316,13 +382,18 @@ h3.header {
 .code {
   font-size: 90%;
   padding: 1rem 1.5rem;
-  border: 1px solid #ccc;
-  background: #fbfbfb;
+  background: var(--code-bg-color);
+  border: 1px solid var(--border-color);
   overflow: auto;
   font-family: monospace;
   min-height: 280px;
   width: 100%;
   overflow: auto;
+}
+
+code[class*="language-"], pre[class*="language-"] {
+  color: var(--fg-color);
+  text-shadow: 0 1px var(--pri-bg-color);
 }
 
 .page-footer .footer-copyright {
@@ -346,12 +417,6 @@ h3.header {
   background-color: transparent;
   border: none;
   color: white;
-}
-
-@media (min-width: 993px) {
-  nav button.sidenav-trigger {
-    display: none;
-  }
 }
 
 #download-btn-wrapper {
@@ -381,6 +446,12 @@ h3.header {
     content: none;
   }
   .language-select span {
+    display: none;
+  }
+}
+
+@media (min-width: 993px) {
+  nav button.sidenav-trigger {
     display: none;
   }
 }
