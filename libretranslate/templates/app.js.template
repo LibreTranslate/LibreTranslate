@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function(){
             translatedText: "",
             output: "",
             charactersLimit: -1,
-            
+
             detectedLangText: "",
 
             copyTextLabel: {{ _e("Copy text") }},
@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 this.timeout = null;
 
                 this.detectedLangText = "";
-                
+
                 if (this.inputText === ""){
                     this.translatedText = "";
                     this.output = "";
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function(){
                                 if (self.refreshOnce()) return;
                             }
                             {% endif %}
-                            
+
                             var res = JSON.parse(this.response);
                             // Success!
                             if (res.translatedText !== undefined){
@@ -405,6 +405,7 @@ document.addEventListener('DOMContentLoaded', function(){
                                 link.target = "_blank";
                                 link.href = self.translatedFileUrl;
                                 link.click();
+                                handleNotification("Translation Complete", "Finished translating " + self.inputFile.name + ".");
                             }else{
                                 throw new Error(res.error || {{ _e("Unknown error") }});
                             }
@@ -413,22 +414,27 @@ document.addEventListener('DOMContentLoaded', function(){
                             self.error = e.message;
                             self.loadingFileTranslation = false;
                             self.inputFile = false;
+                            handleNotification("Translation Failed", e.message);
                         }
                     }else{
                         let res = JSON.parse(this.response);
                         self.error = res.error || {{ _e("Unknown error") }};
                         self.loadingFileTranslation = false;
                         self.inputFile = false;
+                        handleNotification("Translation Failed", self.error);
                     }
                 }
 
                 translateFileRequest.onerror = function() {
-                    self.error = {{ _e("Cannot load %(url)s", url="/translate_file") }};
+                    const message = {{ _e("Cannot load %(url)s", url="/translate_file") }};
+                    self.error = message;
                     self.loadingFileTranslation = false;
                     self.inputFile = false;
+                    handleNotification("Translation Failed", message);
                 };
 
                 translateFileRequest.send(data);
+                Notification.requestPermission();
             }
         }
     });
@@ -472,6 +478,17 @@ function handleLangsResponse(self, response) {
     }
 
     self.loading = false;
+}
+
+/**
+ * @param {string} title
+ * @param {string} body
+ */
+function handleNotification(title, body) {
+  new Notification(title, {
+      body,
+      tag: 'libretranslate'
+  });
 }
 
 /**
