@@ -402,8 +402,8 @@ document.addEventListener('DOMContentLoaded', function(){
                                 self.translatedFileUrl = res.translatedFileUrl;
 
                                 let link = document.createElement("a");
-                                link.target = "_blank";
                                 link.href = self.translatedFileUrl;
+                                link.download = "";
                                 link.click();
                                 handleNotification("Translation Complete", "Finished translating " + self.inputFile.name + ".");
                             }else{
