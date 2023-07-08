@@ -121,11 +121,12 @@ h3.header {
   display: block;
 }
 
-.locale-panel select{
+.locale-panel select {
   display: block;
   height: 32px;
   font-size: 14px;
-  background-color: #fff;
+  color: var(--fg-color);
+  background-color: var(--pri-bg-color);
   border: none;
 }
 
@@ -362,6 +363,7 @@ select {
 .textarea-container textarea {
   font-size: 1.25rem;
   resize: none;
+  color: var(--fg-color);
   background: var(--sec-bg-color);
   border: 1px solid var(--border-color);
   padding: 1rem 2rem 1rem 1.5rem;
@@ -428,6 +430,14 @@ code[class*="language-"], pre[class*="language-"] {
 #download-btn {
   display: flex;
   align-items: center;
+}
+
+.card-content {
+  background-color: var(--pri-bg-color);
+}
+
+.card-stacked {
+  background-color: var(--sec-bg-color)
 }
 
 @media (min-width: 280px) {
