@@ -436,7 +436,7 @@ code[class*="language-"], pre[class*="language-"] {
   background-color: var(--pri-bg-color);
 }
 
-.card-stacked {
+.card-stacked, .card-stacked .card-content {
   background-color: var(--sec-bg-color)
 }
 
