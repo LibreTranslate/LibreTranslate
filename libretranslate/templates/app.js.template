@@ -108,10 +108,6 @@ document.addEventListener('DOMContentLoaded', function(){
                 }
             }
 
-            if (this.charactersLimit !== -1 && this.inputText.length >= this.charactersLimit){
-                this.inputText = this.inputText.substring(0, this.charactersLimit);
-            }
-
             // Update "selected" attribute (to overcome a vue.js limitation)
             // but properly display checkmarks on supported browsers.
             // Also change the <select> width value depending on the <option> length
