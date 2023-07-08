@@ -121,11 +121,12 @@ h3.header {
   display: block;
 }
 
-.locale-panel select{
+.locale-panel select {
   display: block;
   height: 32px;
   font-size: 14px;
-  background-color: #fff;
+  color: var(--fg-color);
+  background-color: var(--pri-bg-color);
   border: none;
 }
 
@@ -429,6 +430,14 @@ code[class*="language-"], pre[class*="language-"] {
 #download-btn {
   display: flex;
   align-items: center;
+}
+
+.card-content {
+  background-color: var(--pri-bg-color);
+}
+
+.card-stacked {
+  background-color: var(--sec-bg-color)
 }
 
 @media (min-width: 280px) {
