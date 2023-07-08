@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function(){
             translatedText: "",
             output: "",
             charactersLimit: -1,
-            
+
             detectedLangText: "",
 
             copyTextLabel: {{ _e("Copy text") }},
@@ -206,13 +206,13 @@ document.addEventListener('DOMContentLoaded', function(){
 
                 this.updateQueryParam('source', this.sourceLang)
                 this.updateQueryParam('target', this.targetLang)
-                this.updateQueryParam('q', encodeURI(this.inputText))
+                this.updateQueryParam('q', this.inputText)
 
                 if (this.timeout) clearTimeout(this.timeout);
                 this.timeout = null;
 
                 this.detectedLangText = "";
-                
+
                 if (this.inputText === ""){
                     this.translatedText = "";
                     this.output = "";
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function(){
                                 if (self.refreshOnce()) return;
                             }
                             {% endif %}
-                            
+
                             var res = JSON.parse(this.response);
                             // Success!
                             if (res.translatedText !== undefined){
@@ -464,7 +464,7 @@ function handleLangsResponse(self, response) {
         const defaultText = self.getQueryParam("q")
 
         if (defaultText) {
-            self.inputText = decodeURI(defaultText)
+            self.inputText = defaultText
             self.handleInput(new Event('none'))
         }
     } else {
