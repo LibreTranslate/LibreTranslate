@@ -10,11 +10,11 @@ insert_final_newline = true
 curly_bracket_next_line = false
 spaces_around_operators = true
 
-[*.{js,py}]
-indent_size = 4
-
-[*.{js,ts}]
+[*.js]
 quote_type = double
+
+[*.{js,js.template,py}]
+indent_size = 4
 
 [*.{markdown,md}]
 trim_trailing_whitespace = false
