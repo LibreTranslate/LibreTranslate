@@ -206,7 +206,7 @@
 								<label for="textarea1" class="sr-only">
 									{{ _h("Text to translate") }}
 								</label>
-								<textarea id="textarea1" v-model="inputText" @input="handleInput" ref="inputTextarea" dir="auto"></textarea>
+								<textarea id="textarea1" :maxLength="charactersLimit" v-model="inputText" @input="handleInput" ref="inputTextarea" dir="auto"></textarea>
 								<button class="btn-delete-text" title="{{ _h('Delete text') }}" aria-label="{{ _h('Delete text') }}" aria-label="Delete text" @click="deleteText">
 									<i class="material-icons">close</i>
 								</button>

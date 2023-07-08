@@ -23,7 +23,7 @@ from flask_babel import Babel
 
 from libretranslate import scheduler, flood, secret, remove_translated_files, security, storage
 from libretranslate.language import detect_languages, improve_translation_formatting
-from libretranslate.locales import (_, _lazy, get_available_locales, get_available_locale_codes, gettext_escaped, 
+from libretranslate.locales import (_, _lazy, get_available_locales, get_available_locale_codes, gettext_escaped,
         gettext_html, lazy_swag, get_alternate_locale_links)
 
 from .api_keys import Database, RemoteDatabase
@@ -149,7 +149,7 @@ def create_app(args):
     if frontend_argos_language_source is None:
         frontend_argos_language_source = languages[0]
 
-    
+
     if len(languages) >= 2:
         language_target_fallback = languages[1]
     else:
@@ -219,7 +219,7 @@ def create_app(args):
           if not os.path.isdir(default_mp_dir):
             os.mkdir(default_mp_dir)
           os.environ["PROMETHEUS_MULTIPROC_DIR"] = default_mp_dir
-        
+
       from prometheus_client import CONTENT_TYPE_LATEST, Summary, Gauge, CollectorRegistry, multiprocess, generate_latest
 
       @bp.route("/metrics")
@@ -229,7 +229,7 @@ def create_app(args):
           authorization = request.headers.get('Authorization')
           if authorization != "Bearer " + args.metrics_auth_token:
             abort(401, description=_("Unauthorized"))
-        
+
         registry = CollectorRegistry()
         multiprocess.MultiProcessCollector(registry)
         return Response(generate_latest(registry), mimetype=CONTENT_TYPE_LATEST)
@@ -258,13 +258,13 @@ def create_app(args):
                 else:
                   need_key = False
                   key_missing = api_keys_db.lookup(ak) is None
-                  
+
                   if (args.require_api_key_origin
                       and key_missing
                       and not re.match(args.require_api_key_origin, request.headers.get("Origin", ""))
                   ):
                     need_key = True
-                  
+
                   if (args.require_api_key_secret
                     and key_missing
                     and not secret.secret_match(get_req_secret())
@@ -280,7 +280,7 @@ def create_app(args):
                         description=description,
                     )
             return f(*a, **kw)
-        
+
         if args.metrics:
           @wraps(func)
           def measure_func(*a, **kw):
@@ -302,7 +302,7 @@ def create_app(args):
           return measure_func
         else:
           return func
-    
+
     @bp.errorhandler(400)
     def invalid_api(e):
         return jsonify({"error": str(e.description)}), 400
@@ -350,17 +350,17 @@ def create_app(args):
       if args.disable_web_ui:
             abort(404)
 
-      response = Response(render_template("app.js.template", 
+      response = Response(render_template("app.js.template",
             url_prefix=args.url_prefix,
             get_api_key_link=args.get_api_key_link,
             api_secret=secret.get_current_secret() if args.require_api_key_secret else ""), content_type='application/javascript; charset=utf-8')
-      
+
       if args.require_api_key_secret:
         response.headers['Last-Modified'] = http_date(datetime.now())
         response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
         response.headers['Pragma'] = 'no-cache'
         response.headers['Expires'] = '-1'
-      
+
       return response
 
     @bp.get("/languages")
@@ -526,6 +526,12 @@ def create_app(args):
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='source'))
         if not target_lang:
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='target'))
+
+        if not request.is_json:
+            # Normalize line endings to UNIX style (LF) only so we can consistently
+            # enforce character limits.
+            # https://www.rfc-editor.org/rfc/rfc2046#section-4.1.1
+            q = "\n".join(q.splitlines())
 
         batch = isinstance(q, list)
 
@@ -1067,7 +1073,7 @@ def create_app(args):
         app.register_blueprint(bp, url_prefix=args.url_prefix)
     else:
         app.register_blueprint(bp)
-    
+
     limiter.init_app(app)
 
     swag = swagger(app)

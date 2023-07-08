@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function(){
             translatedText: "",
             output: "",
             charactersLimit: -1,
-            
+
             detectedLangText: "",
 
             copyTextLabel: {{ _e("Copy text") }},
@@ -106,10 +106,6 @@ document.addEventListener('DOMContentLoaded', function(){
                     this.$refs.inputTextarea.style.height = Math.max(this.inputTextareaHeight, this.$refs.inputTextarea.scrollHeight + 32) + "px";
                     this.$refs.translatedTextarea.style.height = Math.max(this.inputTextareaHeight, this.$refs.translatedTextarea.scrollHeight + 32) + "px";
                 }
-            }
-
-            if (this.charactersLimit !== -1 && this.inputText.length >= this.charactersLimit){
-                this.inputText = this.inputText.substring(0, this.charactersLimit);
             }
 
             // Update "selected" attribute (to overcome a vue.js limitation)
@@ -212,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 this.timeout = null;
 
                 this.detectedLangText = "";
-                
+
                 if (this.inputText === ""){
                     this.translatedText = "";
                     this.output = "";
@@ -247,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function(){
                                 if (self.refreshOnce()) return;
                             }
                             {% endif %}
-                            
+
                             var res = JSON.parse(this.response);
                             // Success!
                             if (res.translatedText !== undefined){
