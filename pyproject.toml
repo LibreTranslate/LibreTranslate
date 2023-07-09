@@ -87,14 +87,15 @@ features = [
 [tool.hatch.envs.default.scripts]
 dev = "python main.py {args}"
 lint = [
-    "flake8 . --count --exit-zero --select=E9,F63,F7,F82 --show-source --statistics",
-    "flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics",
-    # "ruff libretranslate scripts --fix",
+    # "flake8 . --count --exit-zero --select=E9,F63,F7,F82 --show-source --statistics",
+    # "flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics",
+    "ruff libretranslate scripts",
 ]
 fmt = [
     "ruff libretranslate scripts --fix",
 ]
 test = [
+    # "fmt",
     "pytest {args}",
 ]
 cov = [
@@ -135,19 +136,19 @@ select = [
     "A",     # flake8-builtins
     "YTT",   # flake8-2020
     "B",     # flake8-bugbear
-    "C",     # flake8-comprehensions
+    # "C",     # flake8-comprehensions
     "ICN",   # flake8-import-conventions
     "SIM",   # flake8-simplify
     "TID",   # flake8-tidy-imports
-    "Q",     # flake8-quotes
+    # "Q",     # flake8-quotes
     "FBT",   # flake8-boolean-trap
     "F",     # pyflakes
     "UP",    # pyupgrade
-    "E",     # pycodestyle errors
-    "W",     # pycodestyle warnings
+    # "E",     # pycodestyle errors
+    # "W",     # pycodestyle warnings
     "PLC",   # pylint convention
     "PLE",   # pylint error
-    "PLR",   # pylint refactor
+    # "PLR",   # pylint refactor
     "PLW",   # pylint warning
     "RUF",   # ruff specific
     "T",
