@@ -1,4 +1,5 @@
 import sys
+
 import pytest
 
 from libretranslate.app import create_app

@@ -138,18 +138,18 @@ select = [
     "B",     # flake8-bugbear
     # "C",     # flake8-comprehensions
     "ICN",   # flake8-import-conventions
-    "SIM",   # flake8-simplify
+    # "SIM",   # flake8-simplify
     "TID",   # flake8-tidy-imports
     # "Q",     # flake8-quotes
-    "FBT",   # flake8-boolean-trap
+    # "FBT",   # flake8-boolean-trap
     "F",     # pyflakes
     "UP",    # pyupgrade
     # "E",     # pycodestyle errors
     # "W",     # pycodestyle warnings
-    "PLC",   # pylint convention
+    # "PLC",   # pylint convention
     "PLE",   # pylint error
     # "PLR",   # pylint refactor
-    "PLW",   # pylint warning
+    # "PLW",   # pylint warning
     "RUF",   # ruff specific
     "T",
 ]
@@ -158,8 +158,9 @@ ignore = [
     # "E741", # From original flake8 ignore
     # "B008", # do not perform function calls in argument defaults (required for FastAPI afaik)
     "E501", # line too long
-    # "C901", # too complex
+    "A003", # Class attribute is shadowing a python builtin
     "S101", # Use of `assert` detected
+    "S311", # Standard pseudo-random generators are not suitable for cryptographic purposes
     "T201", "T203", # remove print and pprint
     "E402", # Module level import not at top of file
 ]

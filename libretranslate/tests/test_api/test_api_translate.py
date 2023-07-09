@@ -43,7 +43,7 @@ def test_api_translate_unsupported_language(client):
     response_json = json.loads(response.data)
 
     assert "error" in response_json
-    assert "zz is not supported" == response_json["error"]
+    assert response_json["error"] == "zz is not supported"
     assert response.status_code == 400
 
 
@@ -57,5 +57,5 @@ def test_api_translate_missing_parameter(client):
     response_json = json.loads(response.data)
 
     assert "error" in response_json
-    assert "Invalid request: missing q parameter" == response_json["error"]
+    assert response_json["error"] == "Invalid request: missing q parameter"
     assert response.status_code == 400

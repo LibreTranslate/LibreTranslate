@@ -49,7 +49,7 @@ def manage():
                 print("There are no API keys")
             else:
                 for item in keys:
-                    print("%s: %s" % item)
+                    print("{}: {}".format(*item))
 
         elif args.sub_command == "add":
             print(db.add(args.req_limit, args.key)[0])

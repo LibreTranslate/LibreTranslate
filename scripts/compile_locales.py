@@ -1,6 +1,7 @@
 #!/usr/bin/env python
-import sys
 import os
+import sys
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from babel.messages.frontend import main as pybabel
 
@@ -15,7 +16,7 @@ if __name__ == "__main__":
             link = "https://hosted.weblate.org/translate/libretranslate/app/%s/" % l['code']
             if l['code'] == 'en':
                 link = "https://hosted.weblate.org/projects/libretranslate/app/"
-            print("%s | %s | %s" % (l['name'], ':heavy_check_mark:' if l['reviewed'] else '', "[Edit](%s)" % link))
+            print("{} | {} | {}".format(l['name'], ':heavy_check_mark:' if l['reviewed'] else '', "[Edit](%s)" % link))
     else:
         locales_dir = os.path.join("libretranslate", "locales")
         if not os.path.isdir(locales_dir):

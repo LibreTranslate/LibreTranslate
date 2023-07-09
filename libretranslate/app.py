@@ -1,30 +1,37 @@
 import io
 import os
-import tempfile
 import re
+import tempfile
 import uuid
+from datetime import datetime
 from functools import wraps
 from html import unescape
 from timeit import default_timer
-from datetime import datetime
 
 import argostranslatefiles
 from argostranslatefiles import get_supported_formats
-from flask import (abort, Blueprint, Flask, jsonify, render_template, request,
-                   Response, send_file, url_for, session)
+from flask import Blueprint, Flask, Response, abort, jsonify, render_template, request, send_file, session, url_for
+from flask_babel import Babel
+from flask_session import Session
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
-from flask_session import Session
 from translatehtml import translate_html
-from werkzeug.utils import secure_filename
 from werkzeug.exceptions import HTTPException
 from werkzeug.http import http_date
-from flask_babel import Babel
+from werkzeug.utils import secure_filename
 
-from libretranslate import scheduler, flood, secret, remove_translated_files, security, storage
+from libretranslate import flood, remove_translated_files, scheduler, secret, security, storage
 from libretranslate.language import detect_languages, improve_translation_formatting
-from libretranslate.locales import (_, _lazy, get_available_locales, get_available_locale_codes, gettext_escaped,
-        gettext_html, lazy_swag, get_alternate_locale_links)
+from libretranslate.locales import (
+    _,
+    _lazy,
+    get_alternate_locale_links,
+    get_available_locale_codes,
+    get_available_locales,
+    gettext_escaped,
+    gettext_html,
+    lazy_swag,
+)
 
 from .api_keys import Database, RemoteDatabase
 from .suggestions import Database as SuggestionsDatabase
@@ -150,10 +157,7 @@ def create_app(args):
         frontend_argos_language_source = languages[0]
 
 
-    if len(languages) >= 2:
-        language_target_fallback = languages[1]
-    else:
-        language_target_fallback = languages[0]
+    language_target_fallback = languages[1] if len(languages) >= 2 else languages[0]
 
     if args.frontend_language_target == "locale":
       def resolve_language_locale():
@@ -185,10 +189,7 @@ def create_app(args):
     if args.req_limit > 0 or args.api_keys or args.daily_req_limit > 0:
         api_keys_db = None
         if args.api_keys:
-            if args.api_keys_remote:
-                api_keys_db = RemoteDatabase(args.api_keys_remote)
-            else:
-                api_keys_db = Database(args.api_keys_db_path)
+            api_keys_db = RemoteDatabase(args.api_keys_remote) if args.api_keys_remote else Database(args.api_keys_db_path)
 
         from flask_limiter import Limiter
 
@@ -220,7 +221,7 @@ def create_app(args):
             os.mkdir(default_mp_dir)
           os.environ["PROMETHEUS_MULTIPROC_DIR"] = default_mp_dir
 
-      from prometheus_client import CONTENT_TYPE_LATEST, Summary, Gauge, CollectorRegistry, multiprocess, generate_latest
+      from prometheus_client import CONTENT_TYPE_LATEST, CollectorRegistry, Gauge, Summary, generate_latest, multiprocess
 
       @bp.route("/metrics")
       @limiter.exempt
@@ -544,10 +545,7 @@ def create_app(args):
                 )
 
         if args.char_limit != -1:
-            if batch:
-                chars = sum([len(text) for text in q])
-            else:
-                chars = len(q)
+            chars = sum([len(text) for text in q]) if batch else len(q)
 
             if args.char_limit < chars:
                 abort(
@@ -557,10 +555,7 @@ def create_app(args):
 
         if source_lang == "auto":
             source_langs = []
-            if batch:
-                auto_detect_texts = q
-            else:
-                auto_detect_texts = [q]
+            auto_detect_texts = q if batch else [q]
 
             overall_candidates = detect_languages(q)
 
@@ -1093,7 +1088,7 @@ def create_app(args):
             return override_lang
         return session.get('preferred_lang', request.accept_languages.best_match(get_available_locale_codes()))
 
-    babel = Babel(app, locale_selector=get_locale)
+    Babel(app, locale_selector=get_locale)
 
     app.jinja_env.globals.update(_e=gettext_escaped, _h=gettext_html)
 

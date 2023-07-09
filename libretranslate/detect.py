@@ -2,10 +2,11 @@
 
 import pycld2 as cld2
 
+
 class UnknownLanguage(Exception):
   pass
 
-class Language(object):
+class Language:
   def __init__(self, choice):
     name, code, confidence, bytesize = choice
     self.code = code
@@ -23,7 +24,7 @@ class Language(object):
     return Language(("", code, 100, 0))
 
 
-class Detector(object):
+class Detector:
   """ Detect the language used in a snippet of text."""
 
   def __init__(self, text, quiet=False):
@@ -57,16 +58,15 @@ class Detector(object):
       self.reliable = False
       reliable, index, top_3_choices = cld2.detect(text, bestEffort=True)
       
-      if not self.quiet:
-        if not reliable:
-          raise UnknownLanguage("Try passing a longer snippet of text")
+      if not self.quiet and not reliable:
+        raise UnknownLanguage("Try passing a longer snippet of text")
 
     self.languages = [Language(x) for x in top_3_choices]
     self.language = self.languages[0]
     return self.language
 
   def __str__(self):
-    text = "Prediction is reliable: {}\n".format(self.reliable)
-    text += u"\n".join(["Language {}: {}".format(i+1, str(l))
+    text = f"Prediction is reliable: {self.reliable}\n"
+    text += "\n".join([f"Language {i+1}: {str(l)}"
                         for i,l in enumerate(self.languages)])
     return text

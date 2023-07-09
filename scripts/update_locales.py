@@ -1,17 +1,19 @@
 #!/usr/bin/env python
-import sys
 import os
+import sys
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-import re
-import polib
 import json
+import re
+
+import polib
 from babel.messages.frontend import main as pybabel
-from libretranslate.language import load_languages, improve_translation_formatting
-from libretranslate.locales import get_available_locale_codes, swag_eval
-from translatehtml import translate_html
-from libretranslate.app import get_version, create_app
-from libretranslate.main import get_args
 from flask_swagger import swagger
+from libretranslate.app import create_app, get_version
+from libretranslate.language import improve_translation_formatting, load_languages
+from libretranslate.locales import get_available_locale_codes, swag_eval
+from libretranslate.main import get_args
+from translatehtml import translate_html
 
 # Update strings
 if __name__ == "__main__":
@@ -74,7 +76,7 @@ if __name__ == "__main__":
         if not os.path.isfile(meta_file):
             with open(meta_file, 'w') as f:
                 f.write(json.dumps({
-                    'name': next((lang.name for lang in languages if lang.code == l)),
+                    'name': next(lang.name for lang in languages if lang.code == l),
                     'reviewed': False
                 }, indent=4))
                 print("Wrote %s" % meta_file)
