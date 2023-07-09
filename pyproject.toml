@@ -1,0 +1,191 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+requires-python = ">=3.8"
+name = "libretranslate"
+description = "Free and Open Source Machine Translation API. Self-hosted, no limits, no ties to proprietary services."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Piero Toffanin", email = "pt@uav4geo.com" },
+    { name = "LibreTranslate Authors" },
+]
+maintainers = [
+    { name = "Piero Toffanin", email = "pt@uav4geo.com" },
+    { name = "LibreTranslate Authors" },
+]
+keywords = [
+    "Python",
+    "Translate",
+    "Translation",
+]
+classifiers = [
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: GNU Affero General Public License v3 ",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10"
+]
+dynamic = ["version"]
+
+dependencies = [
+    "argostranslate ==1.8.0",
+    # "argos-translate-files",
+    "Flask ==2.2.2",
+    "flask-swagger ==0.2.14",
+    "flask-swagger-ui ==4.11.1",
+    "Flask-Limiter ==2.6.3",
+    "Flask-Babel ==3.1.0",
+    "Flask-Session ==0.4.0",
+    "waitress ==2.1.2",
+    "expiringdict ==1.2.2",
+    " LTpycld2==0.42",
+    "morfessor ==2.0.6",
+    "appdirs ==1.4.4",
+    "APScheduler ==3.9.1",
+    "translatehtml ==1.5.2",
+    "argos-translate-files ==1.1.1",
+    "itsdangerous ==2.1.2",
+    "Werkzeug ==2.2.2",
+    "requests ==2.28.1",
+    "redis ==4.3.4",
+    "prometheus-client ==0.15.0",
+    "polib ==1.1.1",
+]
+# package_data={'': ['static/*', 'static/**/*', 'templates/*', 'locales/**/meta.json', 'locales/**/**/*.mo']},
+
+[project.scripts]
+libretranslate = "libretranslate.main:main"
+ltmanage = "libretranslate.manage:manage"
+
+
+[project.optional-dependencies]
+test = [
+    "pytest >=7.2.0",
+    "pytest-runner",
+    "pytest-cov",
+    # "mypy >=1.4.1",
+    "types-requests",
+]
+
+
+[project.urls]
+Homepage = "https://libretranslate.com"
+Source = "https://github.com/LibreTranslate/LibreTranslate"
+Documentation = "https://github.com/LibreTranslate/LibreTranslate"
+Tracker = "https://github.com/LibreTranslate/LibreTranslate/issues"
+History = "https://github.com/LibreTranslate/LibreTranslate/releases"
+
+
+# ENVIRONMENTS AND SCRIPTS
+[tool.hatch.envs.default]
+features = [
+    "test",
+]
+
+[tool.hatch.envs.default.scripts]
+dev = "python main.py {args}"
+lint = [
+    "flake8 . --count --exit-zero --select=E9,F63,F7,F82 --show-source --statistics",
+    "flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics",
+    # "ruff --fix",
+]
+fmt = [
+    "ruff --fix",
+    # "mypy",
+]
+test = [
+    "pytest {args}",
+]
+cov = [
+    "pytest --cov-report html {args}",
+    "python -c 'import webbrowser; webbrowser.open(\"http://0.0.0.0:3000\")'",
+    "python -m http.server 3000 --directory ./htmlcov",
+]
+
+
+[[tool.hatch.envs.all.matrix]]
+python = ["3.8", "3.9", "3.10", "3.11"]
+
+
+# TOOLS
+[tool.hatch.version]
+path = "VERSION"
+pattern = "^([0-9]*.[0-9]*.[0-9]*)$"
+
+
+[tool.pytest.ini_options]
+addopts = [
+    "-v",
+    "--cov=libretranslate",
+    "--color=yes",
+    "--cov-report=term-missing",
+]
+
+
+# https://github.com/charliermarsh/ruff#supported-rules
+[tool.ruff]
+src = ["libretranslate", "scripts"]
+target-version = "py38"
+line-length = 136
+select = [
+    "A",     # flake8-builtins
+    "B",     # flake8-bugbear
+    "C",     # flake8-comprehensions
+    "E",     # pycodestyle errors
+    "F",     # pyflakes
+    # "FBT", # flake8-boolean-trap
+    "I",     # isort
+    "ICN",   # flake8-import-conventions
+    "N",     # pep8-naming
+    "PLC",   # pylint convention
+    "PLE",   # pylint error
+    # "PLR", # pylint refactor Magic value used in comparison, consider replacing 400 with a constant variable
+    "PLW",   # pylint warning
+    "Q",     # flake8-quotes
+    "RUF",   # ruff specific
+    "S",     # bandit
+    "SIM",   # flake8-simplify
+    "T",
+    "TID",   # flake8-tidy-imports
+    "UP",    # pyupgrade
+    "W",     # pycodestyle warnings
+    "YTT",   # flake8-2020
+]
+
+ignore = [
+    # "E741",
+    # "B008", # do not perform function calls in argument defaults (required for FastAPI afaik)
+    # "E501", # line too long
+    # "C901", # too complex
+    # "S101", # Use of `assert` detected
+    # "T201", "T203", # remove print and pprint
+]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["I", "F401"] # module imported but unused
+
+
+[tool.ruff.mccabe]
+max-complexity = 10
+
+# [flake8] ignore = E741
+
+
+# [tool.mypy]
+# files = ["src/"]
+# strict = true
+# implicit_reexport = true
+# follow_imports = "normal"
+# ignore_missing_imports = true
+# pretty = true
+# show_column_numbers = true
+# warn_no_return = true
+# warn_unused_ignores = true
+# warn_redundant_casts = true
+# disallow_untyped_defs = true
+# disallow_any_generics = true
+# disallow_untyped_calls = false # needed due to _eval() not being typed in rdflib
