@@ -23,7 +23,7 @@ keywords = [
 ]
 classifiers = [
     "Operating System :: OS Independent",
-    "License :: OSI Approved :: GNU Affero General Public License v3 ",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
@@ -33,7 +33,6 @@ dynamic = ["version"]
 
 dependencies = [
     "argostranslate ==1.8.0",
-    # "argos-translate-files",
     "Flask ==2.2.2",
     "flask-swagger ==0.2.14",
     "flask-swagger-ui ==4.11.1",
@@ -66,9 +65,8 @@ test = [
     "pytest >=7.2.0",
     "pytest-cov",
     "flake8",
-    # "pytest-runner",
-    # "mypy >=1.4.1",
     "types-requests",
+    # "mypy >=1.4.1",
 ]
 
 
@@ -91,11 +89,10 @@ dev = "python main.py {args}"
 lint = [
     "flake8 . --count --exit-zero --select=E9,F63,F7,F82 --show-source --statistics",
     "flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics",
-    # "ruff --fix",
+    # "ruff libretranslate scripts --fix",
 ]
 fmt = [
     "ruff libretranslate scripts --fix",
-    # "mypy",
 ]
 test = [
     "pytest {args}",
@@ -114,7 +111,7 @@ python = ["3.8", "3.9", "3.10", "3.11"]
 # TOOLS
 [tool.hatch.version]
 path = "VERSION"
-pattern = "^([0-9]*.[0-9]*.[0-9]*)$"
+pattern = "^(?P<version>[0-9]*.[0-9]*.[0-9]*)$"
 
 
 [tool.pytest.ini_options]
@@ -132,32 +129,32 @@ src = ["libretranslate", "scripts"]
 target-version = "py38"
 line-length = 136
 select = [
+    "I",     # isort
+    "N",     # pep8-naming
+    "S",     # bandit
     "A",     # flake8-builtins
+    "YTT",   # flake8-2020
     "B",     # flake8-bugbear
     "C",     # flake8-comprehensions
-    "E",     # pycodestyle errors
-    "F",     # pyflakes
-    # "FBT", # flake8-boolean-trap
-    "I",     # isort
     "ICN",   # flake8-import-conventions
-    "N",     # pep8-naming
+    "SIM",   # flake8-simplify
+    "TID",   # flake8-tidy-imports
+    "Q",     # flake8-quotes
+    "FBT",   # flake8-boolean-trap
+    "F",     # pyflakes
+    "UP",    # pyupgrade
+    "E",     # pycodestyle errors
+    "W",     # pycodestyle warnings
     "PLC",   # pylint convention
     "PLE",   # pylint error
-    # "PLR", # pylint refactor Magic value used in comparison, consider replacing 400 with a constant variable
+    "PLR",   # pylint refactor
     "PLW",   # pylint warning
-    "Q",     # flake8-quotes
     "RUF",   # ruff specific
-    "S",     # bandit
-    "SIM",   # flake8-simplify
     "T",
-    "TID",   # flake8-tidy-imports
-    "UP",    # pyupgrade
-    "W",     # pycodestyle warnings
-    "YTT",   # flake8-2020
 ]
 
 ignore = [
-    # "E741",
+    # "E741", # From original flake8 ignore
     # "B008", # do not perform function calls in argument defaults (required for FastAPI afaik)
     "E501", # line too long
     # "C901", # too complex
@@ -172,21 +169,3 @@ ignore = [
 
 [tool.ruff.mccabe]
 max-complexity = 12
-
-# [flake8] ignore = E741
-
-
-# [tool.mypy]
-# files = ["src/"]
-# strict = true
-# implicit_reexport = true
-# follow_imports = "normal"
-# ignore_missing_imports = true
-# pretty = true
-# show_column_numbers = true
-# warn_no_return = true
-# warn_unused_ignores = true
-# warn_redundant_casts = true
-# disallow_untyped_defs = true
-# disallow_any_generics = true
-# disallow_untyped_calls = false # needed due to _eval() not being typed in rdflib
