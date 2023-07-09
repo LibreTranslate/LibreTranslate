@@ -55,7 +55,6 @@ dependencies = [
     "prometheus-client ==0.15.0",
     "polib ==1.1.1",
 ]
-# package_data={'': ['static/*', 'static/**/*', 'templates/*', 'locales/**/meta.json', 'locales/**/**/*.mo']},
 
 [project.scripts]
 libretranslate = "libretranslate.main:main"
@@ -65,8 +64,9 @@ ltmanage = "libretranslate.manage:manage"
 [project.optional-dependencies]
 test = [
     "pytest >=7.2.0",
-    "pytest-runner",
     "pytest-cov",
+    "flake8",
+    # "pytest-runner",
     # "mypy >=1.4.1",
     "types-requests",
 ]
@@ -94,7 +94,7 @@ lint = [
     # "ruff --fix",
 ]
 fmt = [
-    "ruff --fix",
+    "ruff libretranslate scripts --fix",
     # "mypy",
 ]
 test = [
@@ -159,10 +159,11 @@ select = [
 ignore = [
     # "E741",
     # "B008", # do not perform function calls in argument defaults (required for FastAPI afaik)
-    # "E501", # line too long
+    "E501", # line too long
     # "C901", # too complex
-    # "S101", # Use of `assert` detected
-    # "T201", "T203", # remove print and pprint
+    "S101", # Use of `assert` detected
+    "T201", "T203", # remove print and pprint
+    "E402", # Module level import not at top of file
 ]
 
 [tool.ruff.per-file-ignores]
@@ -170,7 +171,7 @@ ignore = [
 
 
 [tool.ruff.mccabe]
-max-complexity = 10
+max-complexity = 12
 
 # [flake8] ignore = E741
 
