@@ -3,7 +3,7 @@
 import pycld2 as cld2
 
 
-class UnknownLanguage(Exception):
+class UnknownLanguageError(Exception):
   pass
 
 class Language:
@@ -57,9 +57,9 @@ class Detector:
     if not reliable:
       self.reliable = False
       reliable, index, top_3_choices = cld2.detect(text, bestEffort=True)
-      
+
       if not self.quiet and not reliable:
-        raise UnknownLanguage("Try passing a longer snippet of text")
+        raise UnknownLanguageError("Try passing a longer snippet of text")
 
     self.languages = [Language(x) for x in top_3_choices]
     self.language = self.languages[0]

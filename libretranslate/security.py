@@ -1,7 +1,7 @@
 import os
 
 
-class SuspiciousFileOperation(Exception):
+class SuspiciousFileOperationError(Exception):
     pass
 
 
@@ -10,7 +10,7 @@ def path_traversal_check(unsafe_path, known_safe_path):
     unsafe_path = os.path.abspath(unsafe_path)
 
     if (os.path.commonprefix([known_safe_path, unsafe_path]) != known_safe_path):
-        raise SuspiciousFileOperation(f"{unsafe_path} is not safe")
+        raise SuspiciousFileOperationError(f"{unsafe_path} is not safe")
 
     # Passes the check
     return unsafe_path

@@ -87,7 +87,7 @@ class RemoteDatabase:
         req_limit = self.cache.get(api_key)
         if req_limit is None:
             try:
-                r = requests.post(self.url, data={'api_key': api_key})
+                r = requests.post(self.url, data={'api_key': api_key}, timeout=60)
                 res = r.json()
             except Exception as e:
                 print("Cannot authenticate API key: " + str(e))

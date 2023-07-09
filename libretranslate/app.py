@@ -129,8 +129,8 @@ def create_app(args):
 
     from libretranslate.language import load_languages
 
-    SWAGGER_URL = args.url_prefix + "/docs"  # Swagger UI (w/o trailing '/')
-    API_URL = args.url_prefix + "/spec"
+    swagger_url = args.url_prefix + "/docs"  # Swagger UI (w/o trailing '/')
+    api_url = args.url_prefix + "/spec"
 
     bp = Blueprint('Main app', __name__)
 
@@ -339,7 +339,7 @@ def create_app(args):
             get_api_key_link=args.get_api_key_link,
             web_version=os.environ.get("LT_WEB") is not None,
             version=get_version(),
-            swagger_url=SWAGGER_URL,
+            swagger_url=swagger_url,
             available_locales=[{'code': l['code'], 'name': _lazy(l['name'])} for l in get_available_locales(not args.debug)],
             current_locale=get_locale(),
             alternate_locales=get_alternate_locale_links()
@@ -792,7 +792,7 @@ def create_app(args):
             checked_filepath = security.path_traversal_check(filepath, get_upload_dir())
             if os.path.isfile(checked_filepath):
                 filepath = checked_filepath
-        except security.SuspiciousFileOperation:
+        except security.SuspiciousFileOperationError:
             abort(400, description=_("Invalid filename"))
 
         return_data = io.BytesIO()
@@ -1075,7 +1075,7 @@ def create_app(args):
     swag["info"]["version"] = get_version()
     swag["info"]["title"] = "LibreTranslate"
 
-    @app.route(API_URL)
+    @app.route(api_url)
     @limiter.exempt
     def spec():
         return jsonify(lazy_swag(swag))
@@ -1093,9 +1093,9 @@ def create_app(args):
     app.jinja_env.globals.update(_e=gettext_escaped, _h=gettext_html)
 
     # Call factory function to create our blueprint
-    swaggerui_blueprint = get_swaggerui_blueprint(SWAGGER_URL, API_URL)
+    swaggerui_blueprint = get_swaggerui_blueprint(swagger_url, api_url)
     if args.url_prefix:
-        app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
+        app.register_blueprint(swaggerui_blueprint, url_prefix=swagger_url)
     else:
         app.register_blueprint(swaggerui_blueprint)
 

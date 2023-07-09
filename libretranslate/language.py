@@ -1,7 +1,7 @@
 
 from argostranslate import translate
 
-from libretranslate.detect import Detector, UnknownLanguage
+from libretranslate.detect import Detector, UnknownLanguageError
 
 __languages = None
 
@@ -29,7 +29,7 @@ def detect_languages(text):
             for i in range(len(d)):
                 d[i].text_length = len(t)
             candidates.extend(d)
-        except UnknownLanguage:
+        except UnknownLanguageError:
             pass
 
     # total read bytes of the provided text
@@ -83,10 +83,10 @@ def improve_translation_formatting(source, translation, improve_punctuation=True
 
     if not len(source):
         return ""
-    
+
     if not len(translation):
         return source
-    
+
     if improve_punctuation:
         source_last_char = source[len(source) - 1]
         translation_last_char = translation[len(translation) - 1]

@@ -20,6 +20,7 @@ keywords = [
     "Python",
     "Translate",
     "Translation",
+    "API",
 ]
 classifiers = [
     "Operating System :: OS Independent",
@@ -64,9 +65,8 @@ ltmanage = "libretranslate.manage:manage"
 test = [
     "pytest >=7.2.0",
     "pytest-cov",
-    "flake8",
+    "ruff ==0.0.277",
     "types-requests",
-    # "mypy >=1.4.1",
 ]
 
 
@@ -86,16 +86,11 @@ features = [
 
 [tool.hatch.envs.default.scripts]
 dev = "python main.py {args}"
-lint = [
-    # "flake8 . --count --exit-zero --select=E9,F63,F7,F82 --show-source --statistics",
-    # "flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics",
-    "ruff libretranslate scripts",
-]
 fmt = [
     "ruff libretranslate scripts --fix",
 ]
 test = [
-    # "fmt",
+    "fmt",
     "pytest {args}",
 ]
 cov = [
@@ -124,7 +119,7 @@ addopts = [
 ]
 
 
-# https://github.com/charliermarsh/ruff#supported-rules
+# https://beta.ruff.rs/docs/rules
 [tool.ruff]
 src = ["libretranslate", "scripts"]
 target-version = "py38"
@@ -155,8 +150,6 @@ select = [
 ]
 
 ignore = [
-    # "E741", # From original flake8 ignore
-    # "B008", # do not perform function calls in argument defaults (required for FastAPI afaik)
     "E501", # line too long
     "A003", # Class attribute is shadowing a python builtin
     "S101", # Use of `assert` detected
