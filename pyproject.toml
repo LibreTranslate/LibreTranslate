@@ -84,8 +84,10 @@ features = [
     "test",
 ]
 
+
 [tool.hatch.envs.default.scripts]
 dev = "python main.py {args}"
+locales = "python scripts/compile_locales.py"
 fmt = [
     "ruff libretranslate scripts --fix",
 ]
@@ -145,8 +147,7 @@ select = [
     "PLE",   # pylint error
     # "PLR",   # pylint refactor
     # "PLW",   # pylint warning
-    "RUF",   # ruff specific
-    "T",
+    # "RUF",   # ruff specific
 ]
 
 ignore = [

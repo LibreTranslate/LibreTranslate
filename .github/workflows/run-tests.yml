@@ -2,6 +2,7 @@ name: Run tests
 # Run test at each push to main, if changes to package or tests files
 on:
   workflow_dispatch:
+  workflow_call:
   pull_request:
     branches: [ main ]
   push:
@@ -29,18 +30,11 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install ".[test]"
-
-    - name: Check code style with flake8 (lint)
-      run: |
-        # warnings if there are Python syntax errors or undefined names
-        # (remove --exit-zero to fail when syntax error)
-        flake8 . --count --exit-zero --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        pipx install hatch
+        hatch run locales
 
     - name: Test with pytest
-      run: pytest -v
+      run: hatch run test
 
 
   test_docker_build:
