@@ -20,7 +20,7 @@ sudo dnf install cmake
 
 ## Getting Started
 
-Install `hatch` to manage the projects dependencies and run dev scripts:
+Install [`hatch`](https://hatch.pypa.io) to manage the projects dependencies and run dev scripts:
 
 ```bash
 pipx install hatch

@@ -25,7 +25,7 @@ jobs:
         python-version: '3.8'
     - name: Install dependencies
       run: |
-        pipx install build
+        pip install build
 
     - name: Build
       run: |
