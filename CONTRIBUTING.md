@@ -36,7 +36,7 @@ cd LibreTranslate
 Run in development:
 
 ```bash
-hatch run dev
+hatch run dev --debug
 ```
 
 Then open a web browser to <http://localhost:5000>
