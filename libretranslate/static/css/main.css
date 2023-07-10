@@ -381,6 +381,16 @@ select {
   border: 0;
 }
 
+.code-row-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.code-box {
+  display: flex;
+  flex-direction: column;
+}
+
 .code {
   font-size: 90%;
   padding: 1rem 1.5rem;
@@ -391,6 +401,7 @@ select {
   min-height: 280px;
   width: 100%;
   overflow: auto;
+  flex-grow: 1;
 }
 
 code[class*="language-"], pre[class*="language-"] {
