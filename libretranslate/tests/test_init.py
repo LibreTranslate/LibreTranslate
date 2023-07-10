@@ -1,5 +1,6 @@
-from libretranslate.init import boot
 from argostranslate import package
+
+from libretranslate.init import boot
 
 
 def test_boot_argos():

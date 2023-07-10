@@ -1,8 +1,8 @@
-import atexit
 import random
 import string
 
 from libretranslate.storage import get_storage
+
 
 def generate_secret():
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=7))

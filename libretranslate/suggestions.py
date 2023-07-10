@@ -1,5 +1,5 @@
-import sqlite3
 import os
+import sqlite3
 
 from expiringdict import ExpiringDict
 
@@ -10,7 +10,7 @@ class Database:
     def __init__(self, db_path=DEFAULT_DB_PATH, max_cache_len=1000, max_cache_age=30):
         # Legacy check - this can be removed at some point in the near future
         if os.path.isfile("suggestions.db") and not os.path.isfile("db/suggestions.db"):
-            print("Migrating %s to %s" % ("suggestions.db", "db/suggestions.db"))
+            print("Migrating {} to {}".format("suggestions.db", "db/suggestions.db"))
             try:
                 os.rename("suggestions.db", "db/suggestions.db")
             except Exception as e:

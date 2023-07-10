@@ -1,0 +1,167 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+requires-python = ">=3.8"
+name = "libretranslate"
+description = "Free and Open Source Machine Translation API. Self-hosted, no limits, no ties to proprietary services."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Piero Toffanin", email = "pt@uav4geo.com" },
+    { name = "LibreTranslate Authors" },
+]
+maintainers = [
+    { name = "Piero Toffanin", email = "pt@uav4geo.com" },
+    { name = "LibreTranslate Authors" },
+]
+keywords = [
+    "Python",
+    "Translate",
+    "Translation",
+    "API",
+]
+classifiers = [
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10"
+]
+dynamic = ["version"]
+
+dependencies = [
+    "argostranslate ==1.8.0",
+    "Flask ==2.2.2",
+    "flask-swagger ==0.2.14",
+    "flask-swagger-ui ==4.11.1",
+    "Flask-Limiter ==2.6.3",
+    "Flask-Babel ==3.1.0",
+    "Flask-Session ==0.4.0",
+    "waitress ==2.1.2",
+    "expiringdict ==1.2.2",
+    " LTpycld2==0.42",
+    "morfessor ==2.0.6",
+    "appdirs ==1.4.4",
+    "APScheduler ==3.9.1",
+    "translatehtml ==1.5.2",
+    "argos-translate-files ==1.1.1",
+    "itsdangerous ==2.1.2",
+    "Werkzeug ==2.2.2",
+    "requests ==2.28.1",
+    "redis ==4.3.4",
+    "prometheus-client ==0.15.0",
+    "polib ==1.1.1",
+]
+
+[project.scripts]
+libretranslate = "libretranslate.main:main"
+ltmanage = "libretranslate.manage:manage"
+
+
+[project.optional-dependencies]
+test = [
+    "pytest >=7.2.0",
+    "pytest-cov",
+    "ruff ==0.0.277",
+    "types-requests",
+]
+
+
+[project.urls]
+Homepage = "https://libretranslate.com"
+Source = "https://github.com/LibreTranslate/LibreTranslate"
+Documentation = "https://github.com/LibreTranslate/LibreTranslate"
+Tracker = "https://github.com/LibreTranslate/LibreTranslate/issues"
+History = "https://github.com/LibreTranslate/LibreTranslate/releases"
+
+
+# ENVIRONMENTS AND SCRIPTS
+[tool.hatch.envs.default]
+features = [
+    "test",
+]
+
+
+[tool.hatch.envs.default.scripts]
+dev = "python main.py {args}"
+locales = "python scripts/compile_locales.py"
+fmt = [
+    "ruff libretranslate scripts --fix",
+]
+test = [
+    "fmt",
+    "pytest {args}",
+]
+cov = [
+    "pytest --cov-report html {args}",
+    "python -c 'import webbrowser; webbrowser.open(\"http://0.0.0.0:3000\")'",
+    "python -m http.server 3000 --directory ./htmlcov",
+]
+
+
+[[tool.hatch.envs.all.matrix]]
+python = ["3.8", "3.9", "3.10", "3.11"]
+
+
+# TOOLS
+[tool.hatch.version]
+path = "VERSION"
+pattern = "^(?P<version>[0-9]*.[0-9]*.[0-9]*)$"
+
+
+[tool.pytest.ini_options]
+addopts = [
+    "-v",
+    "--cov=libretranslate",
+    "--color=yes",
+    "--cov-report=term-missing",
+]
+
+
+# https://beta.ruff.rs/docs/rules
+[tool.ruff]
+src = ["libretranslate", "scripts"]
+target-version = "py38"
+line-length = 136
+select = [
+    "I",     # isort
+    "N",     # pep8-naming
+    "S",     # bandit
+    "A",     # flake8-builtins
+    "YTT",   # flake8-2020
+    "B",     # flake8-bugbear
+    # "C",     # flake8-comprehensions
+    "ICN",   # flake8-import-conventions
+    # "SIM",   # flake8-simplify
+    "TID",   # flake8-tidy-imports
+    # "Q",     # flake8-quotes
+    # "FBT",   # flake8-boolean-trap
+    "F",     # pyflakes
+    "UP",    # pyupgrade
+    # "E",     # pycodestyle errors
+    # "W",     # pycodestyle warnings
+    # "PLC",   # pylint convention
+    "PLE",   # pylint error
+    # "PLR",   # pylint refactor
+    # "PLW",   # pylint warning
+    # "RUF",   # ruff specific
+]
+
+ignore = [
+    "E501", # line too long
+    "A003", # Class attribute is shadowing a python builtin
+    "S101", # Use of `assert` detected
+    "S311", # Standard pseudo-random generators are not suitable for cryptographic purposes
+    "T201", "T203", # remove print and pprint
+    "E402", # Module level import not at top of file
+]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["I", "F401"] # module imported but unused
+
+
+[tool.ruff.mccabe]
+max-complexity = 12

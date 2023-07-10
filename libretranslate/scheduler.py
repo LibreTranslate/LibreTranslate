@@ -1,5 +1,7 @@
 import atexit
+
 from apscheduler.schedulers.background import BackgroundScheduler
+
 scheduler = None
 
 def setup(args):

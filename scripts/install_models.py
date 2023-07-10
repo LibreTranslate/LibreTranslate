@@ -1,8 +1,10 @@
 #!/usr/bin/env python
-import sys
 import os
+import sys
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import argparse
+
 from libretranslate.init import check_and_install_models
 
 if __name__ == "__main__":

@@ -20,17 +20,57 @@ sudo dnf install cmake
 
 ## Getting Started
 
+Install [`hatch`](https://hatch.pypa.io) to manage the projects dependencies and run dev scripts:
+
+```bash
+pipx install hatch
+```
+
+Clone the repository:
+
 ```bash
 git clone https://github.com/LibreTranslate/LibreTranslate.git
 cd LibreTranslate
-pip install -e .
-libretranslate [args]
+```
 
+Run in development:
+
+```bash
+hatch run dev
+```
+
+Then open a web browser to <http://localhost:5000>
+
+You can also start a new shell in a virtual environment with libretranslate installed:
+
+```bash
+hatch shell
+libretranslate [args]
 # Or
 python main.py [args]
 ```
 
-Then open a web browser to <http://localhost:5000>
+> You can still use `pip install -e ".[test]"` directly if you don't want to use hatch.
+
+## Run the tests
+
+Run the test suite and linting checks:
+
+```bash
+hatch run test
+```
+
+To display all `print()` when debugging:
+
+```bash
+hatch run test -s
+```
+
+You can also run the tests on multiple python versions:
+
+```bash
+hatch run all:test
+```
 
 ## Run with Docker
 

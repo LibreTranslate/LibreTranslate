@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 import argparse
-import time
-import sqlite3
 import json
+import sqlite3
+import time
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Program to generate JSONL files from a LibreTranslate's suggestions.db")

@@ -1,8 +1,10 @@
 import os
 import sqlite3
 import uuid
+
 import requests
 from expiringdict import ExpiringDict
+
 from libretranslate.default_values import DEFAULT_ARGUMENTS as DEFARGS
 
 DEFAULT_DB_PATH = DEFARGS['API_KEYS_DB_PATH']
@@ -12,14 +14,14 @@ class Database:
     def __init__(self, db_path=DEFAULT_DB_PATH, max_cache_len=1000, max_cache_age=30):
         # Legacy check - this can be removed at some point in the near future
         if os.path.isfile("api_keys.db") and not os.path.isfile("db/api_keys.db"):
-            print("Migrating %s to %s" % ("api_keys.db", "db/api_keys.db"))
+            print("Migrating {} to {}".format("api_keys.db", "db/api_keys.db"))
             try:
                 os.rename("api_keys.db", "db/api_keys.db")
             except Exception as e:
                 print(str(e))
 
         db_dir = os.path.dirname(db_path)
-        if not db_dir == "" and not os.path.exists(db_dir):
+        if db_dir != '' and not os.path.exists(db_dir):
             os.makedirs(db_dir)
         self.db_path = db_path
         self.cache = ExpiringDict(max_len=max_cache_len, max_age_seconds=max_cache_age)
@@ -85,16 +87,13 @@ class RemoteDatabase:
         req_limit = self.cache.get(api_key)
         if req_limit is None:
             try:
-                r = requests.post(self.url, data={'api_key': api_key})
+                r = requests.post(self.url, data={'api_key': api_key}, timeout=60)
                 res = r.json()
             except Exception as e:
                 print("Cannot authenticate API key: " + str(e))
                 return None
 
-            if res.get('error', None) is None:
-                req_limit = res.get('req_limit', None)
-            else:
-                req_limit = None
+            req_limit = res.get('req_limit', None) if res.get('error', None) is None else None
             self.cache[api_key] = req_limit
 
         return req_limit

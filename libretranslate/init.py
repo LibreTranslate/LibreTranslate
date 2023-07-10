@@ -1,4 +1,3 @@
-from pathlib import Path
 
 from argostranslate import package, translate
 
@@ -46,14 +45,12 @@ def check_and_install_models(force=False, load_only_lang_codes=None):
         # Download and install all available packages
         for available_package in available_packages:
             print(
-                "Downloading %s (%s) ..."
-                % (available_package, available_package.package_version)
+                f"Downloading {available_package} ({available_package.package_version}) ..."
             )
             available_package.install()
 
         # reload installed languages
         libretranslate.language.languages = translate.get_installed_languages()
         print(
-            "Loaded support for %s languages (%s models total)!"
-            % (len(translate.get_installed_languages()), len(available_packages))
+            f"Loaded support for {len(translate.get_installed_languages())} languages ({len(available_packages)} models total)!"
         )
