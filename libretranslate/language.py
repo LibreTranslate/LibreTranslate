@@ -91,7 +91,7 @@ def improve_translation_formatting(source, translation, improve_punctuation=True
         source_last_char = source[len(source) - 1]
         translation_last_char = translation[len(translation) - 1]
 
-        punctuation_chars = ['!', '?', '.', ',', ';']
+        punctuation_chars = ['!', '?', '.', ',', ';', '。']
         if source_last_char in punctuation_chars:
             if translation_last_char != source_last_char:
                 if translation_last_char in punctuation_chars:
