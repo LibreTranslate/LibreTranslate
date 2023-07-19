@@ -441,6 +441,7 @@ code[class*="language-"], pre[class*="language-"] {
 #download-btn {
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .card-content {
