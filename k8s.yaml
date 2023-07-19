@@ -1,0 +1,84 @@
+# kubernetes deployment template 
+# prepare a namespace on your cluster first like libretranslate-prod
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: libretranslate-config
+data:
+# list loaded languages or leave empty to load all
+  langs: "es,de,it,en,fr,cs,da,nl,hu,pl,pt,sk,ru,tr,uk,fi,eo"
+  ltapikey: "yoursecretapikey"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: libretranslate
+spec:
+  selector:
+    matchLabels:
+      app: libretranslate
+  template:
+    metadata:
+      labels:
+        app: libretranslate
+    spec:
+      containers:
+      - name: libretranslate
+        image: libretranslate/libretranslate:latest
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5000
+        env:
+        - name: "LT_LOAD_ONLY"
+          valueFrom:
+            configMapKeyRef:
+              name: libretranslate-config
+              key: langs
+        - name: "TRANSLATE_KEY"
+          valueFrom:
+            configMapKeyRef:
+              name: libretranslate-config
+              key: ltapikey              
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: libretranslate-svc
+  namespace: libretranslate-prod
+spec:
+  selector:
+    app: libretranslate
+  ports:
+  - port: 5000
+    targetPort: 5000
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/proxy-body-size: 5m
+  name: libretranslate-ingress
+  namespace: libretranslate-prod
+  labels:
+    app: libretranslate
+spec:
+  tls:
+  - hosts:
+    - libretranslate.mydomain.net
+    secretName: libretranslate-mydomain-net
+  rules:
+  - host: libretranslate.mydomain.net
+    http:
+      paths:
+      - backend:
+          service:
+            name: libretranslate-svc
+            port:
+              number: 5000
+        path: /
+        pathType: Prefix
