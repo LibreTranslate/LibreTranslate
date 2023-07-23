@@ -8,6 +8,6 @@ class Limiter:
             return f(*args, **kwargs)
 
         return wrapper
-    
+
     def init_app(self, app):
         pass

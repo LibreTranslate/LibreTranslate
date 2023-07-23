@@ -25,19 +25,19 @@ if __name__ == "__main__":
 
     con = sqlite3.connect(args.db, check_same_thread=False)
     cur = con.cursor()
-    
+
     with open(output_file, 'w', encoding="utf-8") as f:
         for row in cur.execute('SELECT q, s, source, target FROM suggestions WHERE source != "auto" ORDER BY source'):
             q, s, source, target = row
             obj = {
                 'q': q,
-                's': s, 
+                's': s,
                 'source': source,
                 'target': target
             }
             json.dump(obj, f, ensure_ascii=False)
             f.write('\n')
-    
+
     print("Wrote %s" % output_file)
 
     if args.clear:

@@ -33,6 +33,8 @@ git clone https://github.com/LibreTranslate/LibreTranslate.git
 cd LibreTranslate
 ```
 
+Hatch will automatically install the required dependencies in a virtual environment, and enable [`pre-commit`](https://pre-commit.com/), which will run before each commit to run formatting. You can ignore `pre-commit` checks when committing if necessary: `git commit --no-verify -m "Fix"`
+
 Run in development:
 
 ```bash
@@ -70,6 +72,12 @@ You can also run the tests on multiple python versions:
 
 ```bash
 hatch run all:test
+```
+
+You can clean the virtual environment with:
+
+```bash
+hatch env prune
 ```
 
 ## Run with Docker
@@ -125,4 +133,4 @@ This occurs when your operating system depends on and manages Python for core fu
 This prevents pip packages from being installed system-wide. This way, there are no risks of pip packages conflicting between multiple projects or the operating system.
 
 References:
-* [Python venv documentation](https://docs.python.org/library/venv.html) 
+* [Python venv documentation](https://docs.python.org/library/venv.html)

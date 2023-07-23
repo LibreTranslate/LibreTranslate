@@ -65,7 +65,7 @@ ltmanage = "libretranslate.manage:manage"
 test = [
     "pytest >=7.2.0",
     "pytest-cov",
-    "ruff ==0.0.277",
+    "pre-commit >=3.0.0",
     "types-requests",
 ]
 
@@ -83,13 +83,16 @@ History = "https://github.com/LibreTranslate/LibreTranslate/releases"
 features = [
     "test",
 ]
+post-install-commands = [
+    "pre-commit install",
+]
 
 
 [tool.hatch.envs.default.scripts]
 dev = "python main.py {args}"
 locales = "python scripts/compile_locales.py"
 fmt = [
-    "ruff libretranslate scripts --fix",
+    "pre-commit run --all --all-files",
 ]
 test = [
     "fmt",
