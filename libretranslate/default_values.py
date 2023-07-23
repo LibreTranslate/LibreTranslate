@@ -170,7 +170,7 @@ _default_options_objects = [
         'name': 'UPDATE_MODELS',
         'default_value': False,
         'value_type': 'bool'
-    },    
+    },
     {
         'name': 'METRICS',
         'default_value': False,

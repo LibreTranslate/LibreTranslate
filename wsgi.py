@@ -1,5 +1,6 @@
 from libretranslate import main
 
+
 def app(*args, **kwargs):
     import sys
     sys.argv = ['--wsgi']

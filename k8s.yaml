@@ -1,4 +1,4 @@
-# kubernetes deployment template 
+# kubernetes deployment template
 # prepare a namespace on your cluster first like libretranslate-prod
 apiVersion: v1
 kind: ConfigMap
@@ -41,7 +41,7 @@ spec:
           valueFrom:
             configMapKeyRef:
               name: libretranslate-config
-              key: ltapikey              
+              key: ltapikey
 ---
 apiVersion: v1
 kind: Service

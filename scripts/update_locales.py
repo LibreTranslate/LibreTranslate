@@ -54,7 +54,7 @@ if __name__ == "__main__":
 
     messagespot = os.path.join(locales_dir, "messages.pot")
     print("Updating %s" % messagespot)
-    sys.argv = ["", "extract", "-F", "babel.cfg", "-k", "_e _h", 
+    sys.argv = ["", "extract", "-F", "babel.cfg", "-k", "_e _h",
                 "--copyright-holder", "LibreTranslate Authors",
                 "--project", "LibreTranslate",
                 "--version", get_version(),
@@ -80,7 +80,7 @@ if __name__ == "__main__":
                     'reviewed': False
                 }, indent=4))
                 print("Wrote %s" % meta_file)
-    
+
     # Automatically translate strings with libretranslate
     # when a language model is available and a string is empty
 
@@ -103,10 +103,10 @@ if __name__ == "__main__":
             print("Translating '%s'" % locale)
             pofile = polib.pofile(messages_file)
             c = 0
-            
+
             for entry in pofile.untranslated_entries():
                 text = entry.msgid
-                
+
                 # Extract placeholders
                 placeholders = re.findall(r'%\(?[^\)]*\)?s', text)
 
@@ -126,11 +126,11 @@ if __name__ == "__main__":
                     else:
                         # Meh, append
                         translated += " " + placeholders[p]
-                
+
                 print(entry.msgid, " --> ", translated)
                 entry.msgstr = translated
                 c += 1
-            
+
             if c > 0:
                 pofile.save(messages_file)
                 print("Saved %s" % messages_file)

@@ -31,22 +31,22 @@ class Storage:
         raise Exception("not implemented")
     def dec_hash_int(self, ns, key):
         raise Exception("not implemented")
-    
+
     def get_hash_keys(self, ns):
         raise Exception("not implemented")
     def del_hash(self, ns, key):
         raise Exception("not implemented")
-    
+
 class MemoryStorage(Storage):
     def __init__(self):
         self.store = {}
-    
+
     def exists(self, key):
         return key in self.store
 
     def set_bool(self, key, value):
         self.store[key] = bool(value)
-    
+
     def get_bool(self, key):
         return bool(self.store[key])
 
@@ -55,10 +55,10 @@ class MemoryStorage(Storage):
 
     def get_int(self, key):
         return int(self.store.get(key, 0))
-    
+
     def set_str(self, key, value):
         self.store[key] = value
-    
+
     def get_str(self, key):
         return str(self.store.get(key, ""))
 
@@ -74,7 +74,7 @@ class MemoryStorage(Storage):
     def inc_hash_int(self, ns, key):
         if ns not in self.store:
             self.store[ns] = {}
-        
+
         if key not in self.store[ns]:
             self.store[ns][key] = 0
         else:
@@ -83,7 +83,7 @@ class MemoryStorage(Storage):
     def dec_hash_int(self, ns, key):
         if ns not in self.store:
             self.store[ns] = {}
-        
+
         if key not in self.store[ns]:
             self.store[ns][key] = 0
         else:
@@ -103,13 +103,13 @@ class RedisStorage(Storage):
     def __init__(self, redis_uri):
         self.conn = redis.from_url(redis_uri)
         self.conn.ping()
-    
+
     def exists(self, key):
         return bool(self.conn.exists(key))
 
     def set_bool(self, key, value):
         self.conn.set(key, "1" if value else "0")
-    
+
     def get_bool(self, key):
         return bool(self.conn.get(key))
 
@@ -122,24 +122,24 @@ class RedisStorage(Storage):
             return 0
         else:
             return v
-    
+
     def set_str(self, key, value):
         self.conn.set(key, value)
-    
+
     def get_str(self, key):
         v = self.conn.get(key)
         if v is None:
             return ""
         else:
             return v.decode('utf-8')
-    
+
     def get_hash_int(self, ns, key):
         v = self.conn.hget(ns, key)
         if v is None:
             return 0
         else:
             return int(v)
-    
+
     def set_hash_int(self, ns, key, value):
         self.conn.hset(ns, key, value)
 

@@ -36,7 +36,7 @@ def on_starting(server):
             sys.argv.append(kwargs[k])
 
     args = get_args()
-    
+
     from libretranslate import flood, scheduler, secret, storage
     storage.setup(args.shared_storage)
     scheduler.setup(args)

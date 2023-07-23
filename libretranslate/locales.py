@@ -44,7 +44,7 @@ def get_alternate_locale_links():
     tmpl = os.environ.get("LT_LOCALE_LINK_TEMPLATE")
     if tmpl is None:
         return []
-    
+
     locales = get_available_locale_codes()
     result = []
     for l in locales:
