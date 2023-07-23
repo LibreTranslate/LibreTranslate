@@ -33,7 +33,7 @@ git clone https://github.com/LibreTranslate/LibreTranslate.git
 cd LibreTranslate
 ```
 
-Hatch will automatically install the required dependencies in a virtual environment, and enable [`pre-commit`](https://pre-commit.com/), which will run before each commit to run formatting.
+Hatch will automatically install the required dependencies in a virtual environment, and enable [`pre-commit`](https://pre-commit.com/), which will run before each commit to run formatting. You can ignore `pre-commit` checks when committing if necessary: `git commit --no-verify -m "Fix"`
 
 Run in development:
 
