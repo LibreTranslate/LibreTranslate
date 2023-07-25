@@ -1,11 +1,14 @@
 version: "3"
 
 services:
-  libretranslate:
-    container_name: libretranslate
+  lt:
+    container_name: translate
     build:
       context: .
       dockerfile: docker/Dockerfile
+      args:
+        with_models: true #activated only for specific models
+        models: "en,es" #example model English <> Spanish
     restart: unless-stopped
     ports:
       - "5000:5000"
