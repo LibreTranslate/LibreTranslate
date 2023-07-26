@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-07-02 13:53+0000\n"
-"Last-Translator: jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2023-07-26 20:09+0000\n"
+"Last-Translator: Rex_sa <rex.sa@pm.me>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/libretranslate/"
 "app/ar/>\n"
 "Language: ar\n"
@@ -32,24 +32,24 @@ msgstr "اكتشاف تلقائي"
 
 #: libretranslate/app.py:193
 msgid "Unauthorized"
-msgstr "غير المأذون به"
+msgstr "غير مصرح به"
 
 #: libretranslate/app.py:211
 msgid "Too many request limits violations"
-msgstr "عدد كبير من طلبات الحد من الانتهاكات"
+msgstr "تم تجاوز عدد الطلبات المسموح بها"
 
 #: libretranslate/app.py:220
 msgid "Invalid API key"
-msgstr "مفتاح نظام المعلومات المسبقة عن علم"
+msgstr "مفتاح API غير صحيح"
 
 #: libretranslate/app.py:227
 msgid "Please contact the server operator to get an API key"
-msgstr "يرجى الاتصال بمشغل الخادم للحصول على مفتاح API"
+msgstr "يرجى الاتصال بالسيرفر للحصول على مفتاح API"
 
 #: libretranslate/app.py:229
 #, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr "قم بزيارة  %(url) للحصول على مفتاح API"
+msgstr "زيارة%(url)s للحصول على مفتاح API"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
@@ -61,49 +61,49 @@ msgstr "التباطؤ:"
 #: libretranslate/app.py:838 libretranslate/app.py:987
 #: libretranslate/app.py:989 libretranslate/app.py:991
 #: libretranslate/app.py:993
-#, fuzzy, python-format
+#, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr "عدم وجود طلب: مفقود %(name)s البارامترات"
+msgstr "طلب غير صالح: المعامل ‭%(name)s ‮مفقود"
 
 #: libretranslate/app.py:480 libretranslate/app.py:492
-#, fuzzy, python-format
+#, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
-msgstr "الطلب غير المستوفى: الطلب (%(size)s) تتجاوز حدود النص (%(limit)s)"
+msgstr "الطلب خاطئ: الطلب (%(size)s) تتجاوز حدود النص (%(limit)s)"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
 #: libretranslate/app.py:700 libretranslate/app.py:705
-#, fuzzy, python-format
+#, python-format
 msgid "%(lang)s is not supported"
-msgstr "%(lang)s غير مدعوم‬"
+msgstr "%(lang)s غير مدعوم‬ة"
 
 #: libretranslate/app.py:536
-#, fuzzy, python-format
+#, python-format
 msgid "%(format)s format is not supported"
-msgstr "%(format)s الشكل غير مدعم"
+msgstr "%(format)s الشكل غير مدعوم"
 
 #: libretranslate/app.py:544 libretranslate/app.py:568
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
-msgstr "%(tname)s %(tcode)sغير متاح كلغة مستهدفة%(sname)s %(scode)s"
+msgstr "%(tname)s %(tcode)sغير متاحة كلغة هدف%(sname)s %(scode)s"
 
 #: libretranslate/app.py:589
-#, fuzzy, python-format
+#, python-format
 msgid "Cannot translate text: %(text)s"
 msgstr "لا يمكن ترجمة النص: %(text)s"
 
 #: libretranslate/app.py:676 libretranslate/app.py:730
 msgid "Files translation are disabled on this server."
-msgstr "ترجمة الملفات معاقه على هذا الخادم."
+msgstr "ترجمة الملفات معطلة على هذا الخادم."
 
 #: libretranslate/app.py:690
 msgid "Invalid request: empty file"
-msgstr "طلب غير مستوفى: ملف فارغ"
+msgstr "طلب خاطئ: ملف فارغ"
 
 #: libretranslate/app.py:693
 msgid "Invalid request: file format not supported"
-msgstr "الطلب غير المستوفى: لم يُدعم شكل الملف"
+msgstr "طلب غير صحيح: صيغة الملف غير مدعومة"
 
 #: libretranslate/app.py:738
 msgid "Invalid filename"
@@ -115,7 +115,7 @@ msgstr "الاقتراحات معطلة على هذا الخادم."
 
 #: libretranslate/locales/.langs.py:1
 msgid "English"
-msgstr "الإنكليزية"
+msgstr "الإنجليزية"
 
 #: libretranslate/locales/.langs.py:2
 msgid "Arabic"
@@ -135,7 +135,7 @@ msgstr "التشيكية"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Danish"
-msgstr "الدانمرك"
+msgstr "الدنمارك"
 
 #: libretranslate/locales/.langs.py:7
 msgid "Dutch"
@@ -159,15 +159,15 @@ msgstr "ألمانيا"
 
 #: libretranslate/locales/.langs.py:12
 msgid "Greek"
-msgstr "اليونانيون"
+msgstr "يوناني"
 
 #: libretranslate/locales/.langs.py:13
 msgid "Hebrew"
-msgstr "Hebrew"
+msgstr "العبرية"
 
 #: libretranslate/locales/.langs.py:14
 msgid "Hindi"
-msgstr "Hindi"
+msgstr "الهندية"
 
 #: libretranslate/locales/.langs.py:15
 msgid "Hungarian"
@@ -175,7 +175,7 @@ msgstr "هنغاريا"
 
 #: libretranslate/locales/.langs.py:16
 msgid "Indonesian"
-msgstr "إندونيسيا"
+msgstr "الإندونيسية"
 
 #: libretranslate/locales/.langs.py:17
 msgid "Irish"
@@ -243,7 +243,7 @@ msgstr "قائمة اللغات"
 
 #: libretranslate/locales/.swag.py:3
 msgid "translate"
-msgstr "الترجمة التحريرية"
+msgstr "ترجمة"
 
 #: libretranslate/locales/.swag.py:4
 msgid "Translate text from a language to another"
@@ -341,11 +341,11 @@ msgstr "استرداد إعدادات محددة للواجهة الأمامية
 
 #: libretranslate/locales/.swag.py:26
 msgid "frontend settings"
-msgstr "الجبهات الأمامية"
+msgstr "اعدادات الواجهة الأمامية"
 
 #: libretranslate/locales/.swag.py:27
 msgid "frontend"
-msgstr "المقدمة"
+msgstr "الواجهة"
 
 #: libretranslate/locales/.swag.py:28
 msgid "Submit a suggestion to improve a translation"
@@ -353,11 +353,11 @@ msgstr "تقديم اقتراح لتحسين الترجمة"
 
 #: libretranslate/locales/.swag.py:29
 msgid "Success"
-msgstr "النجاح"
+msgstr "تم بنجاح"
 
 #: libretranslate/locales/.swag.py:30
 msgid "Not authorized"
-msgstr "غير مأذون به"
+msgstr "غيرمرخص به"
 
 #: libretranslate/locales/.swag.py:31
 msgid "Original text"
@@ -393,11 +393,11 @@ msgstr "رموز اللغات المستهدفة المدعومة"
 
 #: libretranslate/locales/.swag.py:39
 msgid "Translated text(s)"
-msgstr "النص المترجمة (النصان)"
+msgstr "النص/النثوص المترجمة"
 
 #: libretranslate/locales/.swag.py:40
 msgid "Error message"
-msgstr "رسالة خاطئة"
+msgstr "رسالة خطأ"
 
 #: libretranslate/locales/.swag.py:41
 msgid "Reason for slow down"
@@ -405,7 +405,7 @@ msgstr "سبب التباطؤ"
 
 #: libretranslate/locales/.swag.py:42
 msgid "Translated file url"
-msgstr "ملف مترجمة"
+msgstr "عنوان ملف مترجمة"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Confidence value"
@@ -417,15 +417,15 @@ msgstr "الحد الأقصى للمدخلات التعريفية لهذه ال�
 
 #: libretranslate/locales/.swag.py:45
 msgid "Frontend translation timeout"
-msgstr "وقت الترجمة"
+msgstr "وقت واجهة الترجمة"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Whether the API key database is enabled."
-msgstr "(ب) ما إذا كانت قاعدة البيانات الرئيسية للمبادرة متاحة."
+msgstr "ما إذا كانت قاعدة البيانات الرئيسية متاحة."
 
 #: libretranslate/locales/.swag.py:47
 msgid "Whether an API key is required."
-msgstr "(ب) ما إذا كان من المطلوب وجود مفتاح للمبادرة."
+msgstr "ما إذا كان من المطلوب وجود مفتاح."
 
 #: libretranslate/locales/.swag.py:48
 msgid "Whether submitting suggestions is enabled."
@@ -443,7 +443,7 @@ msgstr "ما إذا كان التقديم ناجحاً"
 #: libretranslate/templates/app.js.template:275
 #: libretranslate/templates/app.js.template:279
 msgid "Copy text"
-msgstr "نسخة"
+msgstr "نسخ النص"
 
 #: libretranslate/templates/app.js.template:72
 #: libretranslate/templates/app.js.template:78
@@ -452,9 +452,9 @@ msgstr "نسخة"
 #: libretranslate/templates/app.js.template:332
 #: libretranslate/templates/app.js.template:402
 #: libretranslate/templates/app.js.template:447
-#, fuzzy, python-format
+#, python-format
 msgid "Cannot load %(url)s"
-msgstr "لا يمكن تحميل صفر %(url)s"
+msgstr "لا يمكن تحميل %(url)s"
 
 #: libretranslate/templates/app.js.template:253
 #: libretranslate/templates/app.js.template:323
@@ -471,20 +471,20 @@ msgstr "تم نسخه"
 msgid ""
 "Thanks for your correction. Note the suggestion will not take effect "
 "right away."
-msgstr "شكراً على تصحيحك ملاحظة أن الاقتراح لن يبدأ نفاذه في الحال."
+msgstr "شكراً على تصحيحك ملاحظة الاقتراح لن يبدأ تطبيقه في الحال."
 
 #: libretranslate/templates/app.js.template:423
 msgid "No languages available. Did you install the models correctly?"
-msgstr "لا توجد لغات متاحة. هل وضعت النماذج بشكل صحيح؟?"
+msgstr "لا توجد لغات متاحة. هل قمت بتثبيت النماذج بشكل صحيح؟?"
 
 #: libretranslate/templates/app.js.template:479
-#, fuzzy, python-format
+#, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
-msgstr "نوع في مفتاحك إذا كنت بحاجة إلى مفتاح API، صفر %(instructions)s"
+msgstr "ادخل مفتاحك إذا كنت بحاجة إلى مفتاح API، %(instructions)s"
 
 #: libretranslate/templates/app.js.template:479
 msgid "press the \"Get API Key\" link."
-msgstr "اضغطي على وصلة \"المفاتيح\"."
+msgstr "اضغط على رابط \"المفاتيح\"."
 
 #: libretranslate/templates/app.js.template:479
 msgid "contact the server operator."
@@ -506,7 +506,7 @@ msgstr ""
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
-msgstr "الترجمة التحريرية"
+msgstr "ترجمة"
 
 #: libretranslate/templates/index.html:11
 msgid "api"
@@ -514,11 +514,11 @@ msgstr "api"
 
 #: libretranslate/templates/index.html:64
 msgid "API Docs"
-msgstr "API Docs"
+msgstr "API مستندات"
 
 #: libretranslate/templates/index.html:66
 msgid "Get API Key"
-msgstr "الحصول على API المفتاح"
+msgstr "الحصول على مفتاح API"
 
 #: libretranslate/templates/index.html:68
 msgid "GitHub"
@@ -526,7 +526,7 @@ msgstr "GitHub"
 
 #: libretranslate/templates/index.html:70
 msgid "Set API Key"
-msgstr "Set API المفتاح"
+msgstr "تعيين مفتاح API"
 
 #: libretranslate/templates/index.html:72
 msgid "Change language"
@@ -538,15 +538,15 @@ msgstr "تعديل"
 
 #: libretranslate/templates/index.html:154
 msgid "Dismiss"
-msgstr "الانصراف"
+msgstr "تجاهل"
 
 #: libretranslate/templates/index.html:168
 msgid "Translation API"
-msgstr "نظام الإحالة"
+msgstr "الترجمة API"
 
 #: libretranslate/templates/index.html:172
 msgid "Translate Text"
-msgstr "النص"
+msgstr "ترجمة النص"
 
 #: libretranslate/templates/index.html:176
 msgid "Translate Files"
@@ -554,15 +554,15 @@ msgstr "ترجمة الملفات"
 
 #: libretranslate/templates/index.html:182
 msgid "Translate from"
-msgstr "Translated By"
+msgstr "ترجمة من"
 
 #: libretranslate/templates/index.html:192
 msgid "Swap source and target languages"
-msgstr "المصدر واللغات المستهدفة"
+msgstr "تبديل المصدر واللغات المستهدفة"
 
 #: libretranslate/templates/index.html:195
 msgid "Translate into"
-msgstr "ترجمة"
+msgstr "ترجمة الى"
 
 #: libretranslate/templates/index.html:207
 msgid "Text to translate"
@@ -570,11 +570,11 @@ msgstr "نص للترجمة"
 
 #: libretranslate/templates/index.html:210
 msgid "Delete text"
-msgstr "يحذف النص"
+msgstr "حذف النص"
 
 #: libretranslate/templates/index.html:223
 msgid "Suggest translation"
-msgstr "الترجمة المقترحة"
+msgstr "اقتراح ترجمة"
 
 #: libretranslate/templates/index.html:227
 msgid "Cancel"
@@ -590,15 +590,15 @@ msgstr "صيغ الملفات المدعومة:"
 
 #: libretranslate/templates/index.html:250
 msgid "File"
-msgstr "File"
+msgstr "ملف"
 
 #: libretranslate/templates/index.html:265
 msgid "Remove file"
-msgstr "ملف نقل"
+msgstr "حذف الملف"
 
 #: libretranslate/templates/index.html:272
 msgid "Translate"
-msgstr "التحويل"
+msgstr "ترجمة"
 
 #: libretranslate/templates/index.html:273
 #: libretranslate/templates/index.html:317
@@ -615,15 +615,15 @@ msgstr "الرد"
 
 #: libretranslate/templates/index.html:312
 msgid "Open Source Machine Translation API"
-msgstr "المصدر المفتوح"
+msgstr "api ترجمة آلي مفتوح المصدر"
 
 #: libretranslate/templates/index.html:313
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
-msgstr "موهوب ذاتياً غير قابل للقدرة على مهلك."
+msgstr "استضافة شخصية. غيرمتصل سهل الاعداد."
 
 #: libretranslate/templates/index.html:332
 msgid "LibreTranslate"
-msgstr "LibreTranslate"
+msgstr "ترجمة حرة"
 
 #: libretranslate/templates/index.html:334
 msgid "License:"
@@ -637,8 +637,8 @@ msgid ""
 "%(host_server)s or %(get_api_key)s."
 msgstr ""
 "يجب استخدام واجهة برمجة التطبيقات العامة هذه للاختبار أو للاستخدام الشخصي أو "
-"غير المتكرر. إذا كنت تريد تشغيل تطبيق قيد الإنتاج ، من فضلك استخدم "
-"%(host_server)s أو %(get_api_key)s."
+"غير المتكرر. إذا كنت تريد تشغيل تطبيق إنتاجي ، من فضلك استخدم %(host_server)"
+"s أو %(get_api_key)s."
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
@@ -649,12 +649,12 @@ msgid "get an API key"
 msgstr "الحصول على مفتاح API"
 
 #: libretranslate/templates/index.html:345
-#, fuzzy, python-format
+#, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
-msgstr "مصنوعة %(heart)s من قبل %(contributors)s وقوّة %(engine)s"
+msgstr "مصنوعة %(heart)s من قبل %(contributors)s ومدعومة بواسطة %(engine)s"
 
 #: libretranslate/templates/index.html:345
-#, fuzzy, python-format
+#, python-format
 msgid "%(libretranslate)s Contributors"
 msgstr "%(libretranslate)s المساهمون"
 
