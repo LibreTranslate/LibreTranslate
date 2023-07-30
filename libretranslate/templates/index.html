@@ -7,10 +7,11 @@
 	{% endfor %}
 	{% if web_version %}
 	<title>LibreTranslate - {{ _h("Free and Open Source Machine Translation API") }}</title>
-	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 	<meta name="description" content="{{ _h('Free and Open Source Machine Translation API. Self-hosted, offline capable and easy to setup. Run your own API server in just a few minutes.') }}">
 	<meta name="keywords" content="{{ _h('translation') }},{{ _h('api') }}">
 	{% endif %}
+
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
 	<link rel="preload" href="{{ url_for('static', filename='icon.svg') }}" as="image" />
 	<link rel="preload" href="{{ url_for('static', filename='js/vue@2.js') }}" as="script">
