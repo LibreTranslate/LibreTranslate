@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-10 09:57+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2023-08-10 21:59+0000\n"
+"Last-Translator: Milan Šalka <salka.milan@googlemail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/libretranslate/"
 "app/sk/>\n"
 "Language: sk\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -35,7 +35,7 @@ msgstr "Neoprávnené"
 
 #: libretranslate/app.py:211
 msgid "Too many request limits violations"
-msgstr "Príliš veľa porušení žiadosti"
+msgstr "Príliš veľa porušení limitov žiadostí"
 
 #: libretranslate/app.py:220
 msgid "Invalid API key"
@@ -116,15 +116,15 @@ msgstr "Návrhy sú zakázané na tomto serveri."
 
 #: libretranslate/locales/.langs.py:1
 msgid "English"
-msgstr "Slovenčina"
+msgstr "Angličtina"
 
 #: libretranslate/locales/.langs.py:2
 msgid "Arabic"
-msgstr "Slovenčina"
+msgstr "Arabčina"
 
 #: libretranslate/locales/.langs.py:3
 msgid "Azerbaijani"
-msgstr "Slovenčina"
+msgstr "Azerbaština"
 
 #: libretranslate/locales/.langs.py:4
 msgid "Chinese"
@@ -140,27 +140,27 @@ msgstr "Dánčina"
 
 #: libretranslate/locales/.langs.py:7
 msgid "Dutch"
-msgstr "Slovenčina"
+msgstr "Dánština"
 
 #: libretranslate/locales/.langs.py:8
 msgid "Esperanto"
-msgstr "Slovenčina"
+msgstr "Esperanto"
 
 #: libretranslate/locales/.langs.py:9
 msgid "Finnish"
-msgstr "Slovenčina"
+msgstr "Fínština"
 
 #: libretranslate/locales/.langs.py:10
 msgid "French"
-msgstr "Slovenčina"
+msgstr "Francúzština"
 
 #: libretranslate/locales/.langs.py:11
 msgid "German"
-msgstr "Slovenčina"
+msgstr "Nemčina"
 
 #: libretranslate/locales/.langs.py:12
 msgid "Greek"
-msgstr "Slovenčina"
+msgstr "Gréčtina"
 
 #: libretranslate/locales/.langs.py:13
 msgid "Hebrew"
@@ -172,7 +172,7 @@ msgstr "Všeobecný"
 
 #: libretranslate/locales/.langs.py:15
 msgid "Hungarian"
-msgstr "Slovenčina"
+msgstr "Madarčina"
 
 #: libretranslate/locales/.langs.py:16
 msgid "Indonesian"
@@ -180,35 +180,35 @@ msgstr "Indonézske"
 
 #: libretranslate/locales/.langs.py:17
 msgid "Irish"
-msgstr "Slovenčina"
+msgstr "Írština"
 
 #: libretranslate/locales/.langs.py:18
 msgid "Italian"
-msgstr "Slovenčina"
+msgstr "Taliančina"
 
 #: libretranslate/locales/.langs.py:19
 msgid "Japanese"
-msgstr "Slovenčina"
+msgstr "Japonština"
 
 #: libretranslate/locales/.langs.py:20
 msgid "Korean"
-msgstr "Slovenčina"
+msgstr "Kórejština"
 
 #: libretranslate/locales/.langs.py:21
 msgid "Persian"
-msgstr "Slovenčina"
+msgstr "Perzština"
 
 #: libretranslate/locales/.langs.py:22
 msgid "Polish"
-msgstr "Slovenčina"
+msgstr "Polština"
 
 #: libretranslate/locales/.langs.py:23
 msgid "Portuguese"
-msgstr "Slovenčina"
+msgstr "Portugalština"
 
 #: libretranslate/locales/.langs.py:24
 msgid "Russian"
-msgstr "Slovenčina"
+msgstr "Ruština"
 
 #: libretranslate/locales/.langs.py:25
 msgid "Slovak"
@@ -216,19 +216,19 @@ msgstr "Slovenčina"
 
 #: libretranslate/locales/.langs.py:26
 msgid "Spanish"
-msgstr "Slovenčina"
+msgstr "Španiečina"
 
 #: libretranslate/locales/.langs.py:27
 msgid "Swedish"
-msgstr "Slovenčina"
+msgstr "Švédština"
 
 #: libretranslate/locales/.langs.py:28
 msgid "Turkish"
-msgstr "Slovenčina"
+msgstr "Turečtina"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Ukranian"
-msgstr "Ukranian"
+msgstr "Ukrajinčina"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Vietnamese"
@@ -275,24 +275,20 @@ msgid "Hello world!"
 msgstr "Dobrý deň, svet!"
 
 #: libretranslate/locales/.swag.py:11
-#, fuzzy
 msgid "Text(s) to translate"
-msgstr "Text preložiť"
+msgstr "Text(y) na preloženie"
 
 #: libretranslate/locales/.swag.py:12
-#, fuzzy
 msgid "Source language code"
-msgstr "Jazykový kód"
+msgstr "Kód zdrojového jazyka"
 
 #: libretranslate/locales/.swag.py:13
-#, fuzzy
 msgid "Target language code"
-msgstr "Podporované cieľové jazykové kódy"
+msgstr "Kód cieľového jazyka"
 
 #: libretranslate/locales/.swag.py:14
-#, fuzzy
 msgid "text"
-msgstr "Kopírovať text"
+msgstr "text"
 
 #: libretranslate/locales/.swag.py:15
 msgid "html"
@@ -305,51 +301,48 @@ msgid ""
 " * `html` - HTML markup\n"
 msgstr ""
 "Formát zdrojového textu:\n"
-"* `text` - Jednoduchý text\n"
-"* `html` - HTML markup\n"
+" * `text` - Jednoduchý text\n"
+" * `html` - HTML markup\n"
 
 #: libretranslate/locales/.swag.py:17
-#, fuzzy
 msgid "API key"
-msgstr "api"
+msgstr "API kľúč"
 
 #: libretranslate/locales/.swag.py:18
 msgid "Translate file from a language to another"
-msgstr "Preložiť súbor z jazyka do iného"
+msgstr "Preložiť súbor z jedného jazyka do iného"
 
 #: libretranslate/locales/.swag.py:19
 msgid "Translated file"
 msgstr "Preložený súbor"
 
 #: libretranslate/locales/.swag.py:20
-#, fuzzy
 msgid "File to translate"
-msgstr "Text preložiť"
+msgstr "Súbor na preloženie"
 
 #: libretranslate/locales/.swag.py:21
 msgid "Detect the language of a single text"
-msgstr "Detect jazyk jedného textu"
+msgstr "Detegovať jazyk jedného kusu textu"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Detections"
-msgstr "Detekcia"
+msgstr "Detekcie"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Detection error"
-msgstr "Detekcia chyba"
+msgstr "Chyba detekcie"
 
 #: libretranslate/locales/.swag.py:24
-#, fuzzy
 msgid "Text to detect"
-msgstr "Auto Detect"
+msgstr "Text na detekciu"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Retrieve frontend specific settings"
-msgstr "Zdroj predné nastavenia"
+msgstr "Získať nastavenia špecifické pre rozhranie"
 
 #: libretranslate/locales/.swag.py:26
 msgid "frontend settings"
-msgstr "frontend nastavenia"
+msgstr "Nastavenia rozhrania"
 
 #: libretranslate/locales/.swag.py:27
 msgid "frontend"
@@ -357,7 +350,7 @@ msgstr "frontend"
 
 #: libretranslate/locales/.swag.py:28
 msgid "Submit a suggestion to improve a translation"
-msgstr "Predložiť návrh na zlepšenie prekladu"
+msgstr "Poslať návrh na zlepšenie prekladu"
 
 #: libretranslate/locales/.swag.py:29
 msgid "Success"
@@ -365,26 +358,23 @@ msgstr "Úspech"
 
 #: libretranslate/locales/.swag.py:30
 msgid "Not authorized"
-msgstr "Nie je povolený"
+msgstr "Chýba oprávnenie"
 
 #: libretranslate/locales/.swag.py:31
 msgid "Original text"
 msgstr "Pôvodný text"
 
 #: libretranslate/locales/.swag.py:32
-#, fuzzy
 msgid "Suggested translation"
-msgstr "Navrhnúť preklad"
+msgstr "Navrhnutý preklad"
 
 #: libretranslate/locales/.swag.py:33
-#, fuzzy
 msgid "Language of original text"
-msgstr "Detect jazyk jedného textu"
+msgstr "Jazyk pôvodného textu"
 
 #: libretranslate/locales/.swag.py:34
-#, fuzzy
 msgid "Language of suggested translation"
-msgstr "Navrhnúť preklad"
+msgstr "Jazyk navrhovaného prekladu"
 
 #: libretranslate/locales/.swag.py:35
 msgid "feedback"
@@ -392,7 +382,7 @@ msgstr "spätná väzba"
 
 #: libretranslate/locales/.swag.py:36
 msgid "Language code"
-msgstr "Jazykový kód"
+msgstr "Kód jazyka"
 
 #: libretranslate/locales/.swag.py:37
 msgid "Human-readable language name (in English)"
@@ -404,35 +394,35 @@ msgstr "Podporované cieľové jazykové kódy"
 
 #: libretranslate/locales/.swag.py:39
 msgid "Translated text(s)"
-msgstr "Preložený text (y)"
+msgstr "Preložený text(y)"
 
 #: libretranslate/locales/.swag.py:40
 msgid "Error message"
-msgstr "Správa chýb"
+msgstr "Chybová správa"
 
 #: libretranslate/locales/.swag.py:41
 msgid "Reason for slow down"
-msgstr "Dôvod pre spomalenie"
+msgstr "Dôvod spomalenia"
 
 #: libretranslate/locales/.swag.py:42
 msgid "Translated file url"
-msgstr "Preložený súbor url"
+msgstr "Url preloženého súboru"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Confidence value"
-msgstr "Hodnota dôvery"
+msgstr "Miera istoty"
 
 #: libretranslate/locales/.swag.py:44
 msgid "Character input limit for this language (-1 indicates no limit)"
-msgstr "Formát vstupného limitu pre tento jazyk (-1 označuje žiadny limit)"
+msgstr "Limit vloženia znakov pre tento jazyk (-1 označuje žiadny limit)"
 
 #: libretranslate/locales/.swag.py:45
 msgid "Frontend translation timeout"
-msgstr "Predpredajný čas"
+msgstr "Časový limit prekladu rozhrania"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Whether the API key database is enabled."
-msgstr "Či je povolená databáza API."
+msgstr "Či je povolená databáza API kľúčov."
 
 #: libretranslate/locales/.swag.py:47
 msgid "Whether an API key is required."
@@ -440,7 +430,7 @@ msgstr "Či je potrebný API kľúč."
 
 #: libretranslate/locales/.swag.py:48
 msgid "Whether submitting suggestions is enabled."
-msgstr "Či už sú povolené návrhy."
+msgstr "Či je povolené posielanie návrhov."
 
 #: libretranslate/locales/.swag.py:49
 msgid "Supported files format"
@@ -448,7 +438,7 @@ msgstr "Podporovaný formát súborov"
 
 #: libretranslate/locales/.swag.py:50
 msgid "Whether submission was successful"
-msgstr "Či už bolo úspešné podanie"
+msgstr "Či bolo podanie úspešné"
 
 #: libretranslate/templates/app.js.template:31
 #: libretranslate/templates/app.js.template:275
@@ -476,7 +466,7 @@ msgstr "Neznáma chyba"
 
 #: libretranslate/templates/app.js.template:276
 msgid "Copied"
-msgstr "Copied"
+msgstr "Skopírované"
 
 #: libretranslate/templates/app.js.template:320
 msgid ""
@@ -486,7 +476,7 @@ msgstr "Vďaka za vašu korekciu. Všimnite si, že návrh nebude mať vplyv hne
 
 #: libretranslate/templates/app.js.template:423
 msgid "No languages available. Did you install the models correctly?"
-msgstr "K dispozícii nie sú žiadne jazyky. Ste správne nainštalovať modely?"
+msgstr "K dispozícii nie sú žiadne jazyky. Nainštalovali ste modely správne?"
 
 #: libretranslate/templates/app.js.template:479
 #, python-format
@@ -495,7 +485,7 @@ msgstr "Zadajte svoje API kľúč. Ak potrebujete kľúč API, %(instructions)s"
 
 #: libretranslate/templates/app.js.template:479
 msgid "press the \"Get API Key\" link."
-msgstr "stlačte odkaz \"Get API Key\"."
+msgstr "stlačte odkaz „Get API Key“."
 
 #: libretranslate/templates/app.js.template:479
 msgid "contact the server operator."
@@ -504,7 +494,7 @@ msgstr "kontaktujte operátora servera."
 #: libretranslate/templates/index.html:8 libretranslate/templates/index.html:25
 #: libretranslate/templates/index.html:333
 msgid "Free and Open Source Machine Translation API"
-msgstr "Zadarmo a Open Source Machine preklad API"
+msgstr "Zadarmo a Open Source strojový preklad API"
 
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:29
@@ -517,7 +507,7 @@ msgstr ""
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
-msgstr "preklady"
+msgstr "preklad"
 
 #: libretranslate/templates/index.html:11
 msgid "api"
@@ -525,11 +515,11 @@ msgstr "api"
 
 #: libretranslate/templates/index.html:64
 msgid "API Docs"
-msgstr "API Docs"
+msgstr "API dokumentácia"
 
 #: libretranslate/templates/index.html:66
 msgid "Get API Key"
-msgstr "Získať API Kľúčové slovo"
+msgstr "Získať API kľúč"
 
 #: libretranslate/templates/index.html:68
 msgid "GitHub"
@@ -537,7 +527,7 @@ msgstr "GitHub"
 
 #: libretranslate/templates/index.html:70
 msgid "Set API Key"
-msgstr "Nastaviť API Kľúčové slovo"
+msgstr "Nastaviť API kľúč"
 
 #: libretranslate/templates/index.html:72
 msgid "Change language"
@@ -549,11 +539,11 @@ msgstr "Upraviť"
 
 #: libretranslate/templates/index.html:154
 msgid "Dismiss"
-msgstr "Aktuality"
+msgstr "Odmietnuť"
 
 #: libretranslate/templates/index.html:168
 msgid "Translation API"
-msgstr "Preklad API"
+msgstr "Prekladové API"
 
 #: libretranslate/templates/index.html:172
 msgid "Translate Text"
@@ -569,7 +559,7 @@ msgstr "Preložiť z"
 
 #: libretranslate/templates/index.html:192
 msgid "Swap source and target languages"
-msgstr "Swap zdroj a cieľové jazyky"
+msgstr "Zameniť zdrojový a cieľový jazyk"
 
 #: libretranslate/templates/index.html:195
 msgid "Translate into"
@@ -577,7 +567,7 @@ msgstr "Preložiť do"
 
 #: libretranslate/templates/index.html:207
 msgid "Text to translate"
-msgstr "Text preložiť"
+msgstr "Text na preloženie"
 
 #: libretranslate/templates/index.html:210
 msgid "Delete text"
@@ -601,7 +591,7 @@ msgstr "Podporované formáty súborov:"
 
 #: libretranslate/templates/index.html:250
 msgid "File"
-msgstr "Aktuality"
+msgstr "Súbor"
 
 #: libretranslate/templates/index.html:265
 msgid "Remove file"
@@ -614,7 +604,7 @@ msgstr "Preložiť"
 #: libretranslate/templates/index.html:273
 #: libretranslate/templates/index.html:317
 msgid "Download"
-msgstr "Na stiahnutie"
+msgstr "Stiahnuť"
 
 #: libretranslate/templates/index.html:292
 msgid "Request"
@@ -638,7 +628,7 @@ msgstr "LibreTranslate"
 
 #: libretranslate/templates/index.html:334
 msgid "License:"
-msgstr "Licencie:"
+msgstr "Licencia:"
 
 #: libretranslate/templates/index.html:337
 #, python-format
@@ -647,9 +637,9 @@ msgid ""
 "If you're going to run an application in production, please "
 "%(host_server)s or %(get_api_key)s."
 msgstr ""
-"Toto verejné API by malo byť použité pre testovanie, osobné alebo časté "
-"použitie. Ak sa chystáte spustiť aplikáciu vo výrobe, prosím "
-"%(host_server)s alebo %(get_api_key)s."
+"Toto verejné API by malo byť použité pre testovanie, osobné alebo zriedkavé "
+"použitie. Ak sa chystáte spustiť aplikáciu vo výrobe, prosím %(host_server)s "
+"alebo %(get_api_key)s."
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
@@ -657,12 +647,12 @@ msgstr "hostiť svoj vlastný server"
 
 #: libretranslate/templates/index.html:337
 msgid "get an API key"
-msgstr "dostať API kľúč"
+msgstr "získať API kľúč"
 
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
-msgstr "Vyrobené s %(heart)s podľa %(contributors)s a poháňaný %(engine)s"
+msgstr "Vyrobené s %(heart)s za pomoci %(contributors)s a poháňaný %(engine)s"
 
 #: libretranslate/templates/index.html:345
 #, python-format
