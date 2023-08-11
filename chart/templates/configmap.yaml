@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: libretranslate-config
+data:
+  host: {{ .Values.appConfig.host | squote }}
+  port: {{ .Values.appConfig.port | squote }}
+  charLimit: {{ .Values.appConfig.charLimit | squote }}
+  reqLimit: {{ .Values.appConfig.reqLimit | squote }}
+  reqLimitStorage: {{ .Values.appConfig.reqLimitStorage | squote }}
+  batchLimit: {{ .Values.appConfig.batchLimit | squote }}
+  gaId: {{ .Values.appConfig.gaId | squote }}
+  frontendLanguageSource: {{ .Values.appConfig.frontendLanguageSource | squote }}
+  frontendLanguageTarget: {{ .Values.appConfig.frontendLanguageTarget | squote }}
+  frontendTimeout: {{ .Values.appConfig.frontendTimeout | squote }}
+  apiKeysDbPath: {{ .Values.appConfig.apiKeysDbPath | squote }}
+  apiKeysRemote: {{ .Values.appConfig.apiKeysRemote | squote }}
+  getApiKeyLink: {{ .Values.appConfig.getApiKeyLink | squote }}
+  sharedStorage: {{ .Values.appConfig.sharedStorage | squote }}
+  loadOnly: {{ .Values.appConfig.loadOnly | squote }}
+  threads: {{ .Values.appConfig.threads | squote }}
+  metricsAuthToken: {{ .Values.appConfig.metricsAuthToken | squote }}
+  urlPrefix: {{ .Values.appConfig.urlPrefix | squote }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: libretranslate-appsettings
+data:
+  debug: {{ .Values.appSettings.debug | squote }}
+  ssl: {{ .Values.appSettings.ssl | squote }}
+  apiKeys: {{ .Values.appSettings.apiKeys | squote }}
+  requireApiKeyOrigin: {{ .Values.appSettings.requireApiKeyOrigin | squote }}
+  requireApiKeySecret: {{ .Values.appSettings.requireApiKeySecret | squote }}
+  suggestions: {{ .Values.appSettings.suggestions | squote }}
+  disableFilesTranslation: {{ .Values.appSettings.disableFilesTranslation | squote }}
+  disableWebUi: {{ .Values.appSettings.disableWebUi | squote }}
+  updateModels: {{ .Values.appSettings.updateModels | squote }}
+  metrics: {{ .Values.appSettings.metrics | squote }}
