@@ -1,0 +1,36 @@
+{{- if and .Values.persistence.enabled (eq .Values.persistence.db.accessMode "ReadWriteMany") }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: db-volume
+  labels:
+    app.kubernetes.io/name: {{ include "libretranslate.name" . }}-pv
+spec:
+  accessModes:
+    - {{ .Values.persistence.db.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.db.size }}
+  {{- if .Values.persistence.db.storageClass }}
+  storageClassName: {{ .Values.persistence.db.storageClass | quote }}
+  {{- end }}
+{{- end }}
+{{- if and .Values.persistence.enabled (eq .Values.persistence.models.accessMode "ReadWriteMany") }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: models-volume
+  labels:
+    app.kubernetes.io/name: {{ include "libretranslate.name" . }}-pvc
+spec:
+  accessModes:
+    - {{ .Values.persistence.models.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.models.size }}
+  {{- if .Values.persistence.models.storageClass }}
+  storageClassName: {{ .Values.persistence.models.storageClass | quote }}
+  {{- end }}
+{{- end }}
