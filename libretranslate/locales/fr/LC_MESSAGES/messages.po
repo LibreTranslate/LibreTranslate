@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-06-29 02:45+0000\n"
-"Last-Translator: \"J. Lavoie\" <j.lavoie@net-c.ca>\n"
+"PO-Revision-Date: 2023-08-22 04:41+0000\n"
+"Last-Translator: Dimitri Hauet <dimitrihauet@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/libretranslate/"
 "app/fr/>\n"
 "Language: fr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.18.1\n"
+"X-Generator: Weblate 5.0-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -35,11 +35,11 @@ msgstr "Non autorisé"
 
 #: libretranslate/app.py:211
 msgid "Too many request limits violations"
-msgstr "Trop de dépassements de limites de requêtes"
+msgstr "Dépassement du nombre limite de requêtes"
 
 #: libretranslate/app.py:220
 msgid "Invalid API key"
-msgstr "Clé API invalide"
+msgstr "Clé API incorrecte"
 
 #: libretranslate/app.py:227
 msgid "Please contact the server operator to get an API key"
@@ -80,7 +80,7 @@ msgstr "%(lang)s n'est pas pris en charge"
 #: libretranslate/app.py:536
 #, python-format
 msgid "%(format)s format is not supported"
-msgstr "%(format)s n'est pas pris en charge"
+msgstr "le format %(format)s n'est pas pris en charge"
 
 #: libretranslate/app.py:544 libretranslate/app.py:568
 #, python-format
@@ -88,8 +88,8 @@ msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
 msgstr ""
-"%(tname)s (%(tcode)s) n'est pas disponible comme langue de cible pour "
-"%(sname)s (%(scode)s)"
+"%(tname)s (%(tcode)s) n'est pas disponible comme langue cible pour %(sname)s "
+"(%(scode)s)"
 
 #: libretranslate/app.py:589
 #, python-format
@@ -274,7 +274,7 @@ msgstr "Banni"
 
 #: libretranslate/locales/.swag.py:10
 msgid "Hello world!"
-msgstr "Bonjour !"
+msgstr "Bonjour le monde !"
 
 #: libretranslate/locales/.swag.py:11
 msgid "Text(s) to translate"
@@ -416,13 +416,11 @@ msgstr "Valeur de confiance"
 
 #: libretranslate/locales/.swag.py:44
 msgid "Character input limit for this language (-1 indicates no limit)"
-msgstr ""
-"Limite d'entrée de caractères pour cette langue (-1 n'indique aucune "
-"limite)"
+msgstr "Limite de caractères pour cette langue (-1 indique aucune limite)"
 
 #: libretranslate/locales/.swag.py:45
 msgid "Frontend translation timeout"
-msgstr "Expiration de la traduction sur l’interface"
+msgstr "Expiration de la traduction affichée"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Whether the API key database is enabled."
@@ -491,7 +489,7 @@ msgstr "Entrez votre clé API. Si vous avez besoin d'une clé API, %(instruction
 
 #: libretranslate/templates/app.js.template:479
 msgid "press the \"Get API Key\" link."
-msgstr "appuyez sur le lien \"Get API Key\"."
+msgstr "appuyez sur le lien « Obtenir une clé d'API »."
 
 #: libretranslate/templates/app.js.template:479
 msgid "contact the server operator."
@@ -614,7 +612,7 @@ msgstr "Télécharger"
 
 #: libretranslate/templates/index.html:292
 msgid "Request"
-msgstr "Demande"
+msgstr "Demander"
 
 #: libretranslate/templates/index.html:297
 msgid "Response"
@@ -622,11 +620,11 @@ msgstr "Réponse"
 
 #: libretranslate/templates/index.html:312
 msgid "Open Source Machine Translation API"
-msgstr "API de traduction automatique à code source ouvert"
+msgstr "API ouverte de traduction automatique"
 
 #: libretranslate/templates/index.html:313
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
-msgstr "Auto-hébergé. Capable de fonctionner hors ligne. Facile à configurer."
+msgstr "Auto-hébergé. Mode hors ligne. Facile à configurer."
 
 #: libretranslate/templates/index.html:332
 msgid "LibreTranslate"
@@ -645,15 +643,15 @@ msgid ""
 msgstr ""
 "Cette API publique devrait être utilisée pour les tests, l'utilisation "
 "personnelle ou occasionnelle. Si vous allez exécuter une demande en "
-"production, s'il vous plaît %(host_server)s ou %(get_api_key)s."
+"production, veuillez  %(host_server)s ou %(get_api_key)s."
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
-msgstr "hébergez votre propre serveur"
+msgstr "héberger votre propre serveur"
 
 #: libretranslate/templates/index.html:337
 msgid "get an API key"
-msgstr "obtenir une clé API"
+msgstr "obtenir une clé d'API"
 
 #: libretranslate/templates/index.html:345
 #, python-format
