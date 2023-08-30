@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-30 01:16+0000\n"
-"Last-Translator: Michał Mateusz <wumekk@gmail.com>\n"
+"PO-Revision-Date: 2023-08-31 07:05+0000\n"
+"Last-Translator: Eryk Michalak <gnu.ewm@protonmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/libretranslate/"
 "app/pl/>\n"
 "Language: pl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -28,7 +28,7 @@ msgstr "Nieprawidłowy format JSON"
 
 #: libretranslate/app.py:128 libretranslate/templates/app.js.template:427
 msgid "Auto Detect"
-msgstr "Wykryj"
+msgstr "Wykryj automatycznie"
 
 #: libretranslate/app.py:193
 msgid "Unauthorized"
@@ -53,7 +53,7 @@ msgstr "Przejdź do %(url)s aby uzyskać klucz API"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
-msgstr "Slowdown:"
+msgstr "Zwolnij:"
 
 #: libretranslate/app.py:467 libretranslate/app.py:469
 #: libretranslate/app.py:471 libretranslate/app.py:683
@@ -376,9 +376,8 @@ msgid "Language of original text"
 msgstr "Język tekstu oryginalnego"
 
 #: libretranslate/locales/.swag.py:34
-#, fuzzy
 msgid "Language of suggested translation"
-msgstr "Język zasugerowanego tłumaczenia"
+msgstr "Język sugerowanego tłumaczenia"
 
 #: libretranslate/locales/.swag.py:35
 msgid "feedback"
@@ -409,9 +408,8 @@ msgid "Reason for slow down"
 msgstr "Powód"
 
 #: libretranslate/locales/.swag.py:42
-#, fuzzy
 msgid "Translated file url"
-msgstr "Przetłumaczony plik"
+msgstr "Przetłumaczony url pliku"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Confidence value"
@@ -484,11 +482,10 @@ msgid "No languages available. Did you install the models correctly?"
 msgstr "Żadne języki nie są dostępne. Czy można poprawnie stosować modele?"
 
 #: libretranslate/templates/app.js.template:479
-#, fuzzy, python-format
+#, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
 msgstr ""
-"Typ w swoim API Key. Jeśli potrzebujesz klucza API, API będzie kluczem API. "
-"%(instructions)s"
+"Wprowadź swój klucz API. Jeśli potrzebujesz klucza API, %(instructions)s"
 
 #: libretranslate/templates/app.js.template:479
 msgid "press the \"Get API Key\" link."
@@ -636,19 +633,18 @@ msgstr "LibreTranslation"
 
 #: libretranslate/templates/index.html:334
 msgid "License:"
-msgstr "Licencja"
+msgstr "Licencja:"
 
 #: libretranslate/templates/index.html:337
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "This public API should be used for testing, personal or infrequent use. "
 "If you're going to run an application in production, please "
 "%(host_server)s or %(get_api_key)s."
 msgstr ""
-"Takie publiczne interfejsy powinny być wykorzystywane do testowania, "
-"osobistego lub rzadkiego użytku. Jeśli zamierzasz uruchomić aplikację w "
-"produkcji, proszę o to, że będziesz brać udział w produkcji. %(host_server)s "
-"lub %(get_api_key)s."
+"To publiczne API powinno być wykorzystywane do testowania, osobistego lub "
+"rzadkiego użytku. Jeśli zamierzasz uruchomić aplikację w produkcji, proszę "
+"%(host_server)s lub %(get_api_key)s."
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
@@ -656,7 +652,7 @@ msgstr "serwer"
 
 #: libretranslate/templates/index.html:337
 msgid "get an API key"
-msgstr "get the API key"
+msgstr "uzyskaj klucz API"
 
 #: libretranslate/templates/index.html:345
 #, python-format
