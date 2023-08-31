@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-08-31 10:59+0000\n"
-"Last-Translator: Maciej Olko <maciej.olko@gmail.com>\n"
+"PO-Revision-Date: 2023-09-01 11:56+0000\n"
+"Last-Translator: Wojtek Jurkowlaniec <wojtek.jurkowlaniec@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/libretranslate/"
 "app/pl/>\n"
 "Language: pl\n"
@@ -36,7 +36,7 @@ msgstr "Brak uwierzytelnienia"
 
 #: libretranslate/app.py:211
 msgid "Too many request limits violations"
-msgstr "Za dużo naruszeń ograniczenia zapytań"
+msgstr "Przekroczono limit ilości zapytań"
 
 #: libretranslate/app.py:220
 msgid "Invalid API key"
@@ -267,7 +267,7 @@ msgstr "Błąd tłumaczenia"
 
 #: libretranslate/locales/.swag.py:8
 msgid "Slow down"
-msgstr "Slow down"
+msgstr "Zwolnij"
 
 #: libretranslate/locales/.swag.py:9
 msgid "Banned"
@@ -381,7 +381,7 @@ msgstr "Język sugerowanego tłumaczenia"
 
 #: libretranslate/locales/.swag.py:35
 msgid "feedback"
-msgstr "feedback"
+msgstr "informacja zwrotna"
 
 #: libretranslate/locales/.swag.py:36
 msgid "Language code"
@@ -469,7 +469,7 @@ msgstr "Nieznany błąd"
 
 #: libretranslate/templates/app.js.template:276
 msgid "Copied"
-msgstr "Copied"
+msgstr "Skopiowano"
 
 #: libretranslate/templates/app.js.template:320
 msgid ""
@@ -532,7 +532,7 @@ msgstr "GitHub"
 
 #: libretranslate/templates/index.html:70
 msgid "Set API Key"
-msgstr "Set API Key"
+msgstr "Ustaw klucz API"
 
 #: libretranslate/templates/index.html:72
 msgid "Change language"
@@ -584,7 +584,7 @@ msgstr "Suggest"
 
 #: libretranslate/templates/index.html:227
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "Anuluj"
 
 #: libretranslate/templates/index.html:230
 msgid "Send"
@@ -613,11 +613,11 @@ msgstr "Download"
 
 #: libretranslate/templates/index.html:292
 msgid "Request"
-msgstr "Request"
+msgstr "Zapytanie"
 
 #: libretranslate/templates/index.html:297
 msgid "Response"
-msgstr "Response"
+msgstr "Odpowiedź"
 
 #: libretranslate/templates/index.html:312
 msgid "Open Source Machine Translation API"
