@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-08-31 07:05+0000\n"
-"Last-Translator: Eryk Michalak <gnu.ewm@protonmail.com>\n"
+"PO-Revision-Date: 2023-08-31 10:59+0000\n"
+"Last-Translator: Maciej Olko <maciej.olko@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/libretranslate/"
 "app/pl/>\n"
 "Language: pl\n"
@@ -32,11 +32,11 @@ msgstr "Wykryj automatycznie"
 
 #: libretranslate/app.py:193
 msgid "Unauthorized"
-msgstr "Brak autoryzacji"
+msgstr "Brak uwierzytelnienia"
 
 #: libretranslate/app.py:211
 msgid "Too many request limits violations"
-msgstr "Za dużo zapytań"
+msgstr "Za dużo naruszeń ograniczenia zapytań"
 
 #: libretranslate/app.py:220
 msgid "Invalid API key"
@@ -53,7 +53,7 @@ msgstr "Przejdź do %(url)s aby uzyskać klucz API"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
-msgstr "Zwolnij:"
+msgstr "Spowolnienie:"
 
 #: libretranslate/app.py:467 libretranslate/app.py:469
 #: libretranslate/app.py:471 libretranslate/app.py:683
@@ -81,7 +81,7 @@ msgstr "%(lang)s nie jest wspierany"
 #: libretranslate/app.py:536
 #, python-format
 msgid "%(format)s format is not supported"
-msgstr "%(format)s format nie jest wspierany"
+msgstr "format %(format)s nie jest wspierany"
 
 #: libretranslate/app.py:544 libretranslate/app.py:568
 #, python-format
