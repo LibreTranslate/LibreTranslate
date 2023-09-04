@@ -352,9 +352,9 @@ URL |
 
 ## Adding New Language Models
 
-To add new languages you first need to train an Argos Translate model. See [this video](https://odysee.com/@argosopentech:7/training-an-Argos-Translate-model-tutorial-2022:2?r=DMnK7NqdPNHRCfwhmKY9LPow3PqVUUgw) for details.
+To add new languages train an Argos Translate model using the [Argos Train](https://github.com/argosopentech/argos-train) training scripts. See [this video tutorial](https://www.youtube.com/watch?v=Vj_qgnhOEwg) for details.
 
-First you need to collect data, for example from [Opus](http://opus.nlpl.eu/), then you need to add the data to [data-index.json](https://github.com/argosopentech/argos-train/blob/master/data-index.json) in the [Argos Train](https://github.com/argosopentech/argos-train) repo.
+Most of the training data is from [Opus](http://opus.nlpl.eu/), which is an open source parallel corpus.
 
 ## Localization
 
