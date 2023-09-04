@@ -229,6 +229,14 @@ msgstr ""
 msgid "Vietnamese"
 msgstr ""
 
+#: libretranslate/locales/.langs.py:31
+msgid "Catalan"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:32
+msgid "Kabyle"
+msgstr ""
+
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
 msgstr ""
