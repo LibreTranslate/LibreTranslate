@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-05-31 07:48+0000\n"
-"Last-Translator: Locid <btq83grk@duck.com>\n"
+"PO-Revision-Date: 2023-09-06 11:02+0000\n"
+"Last-Translator: Reza Almanda <rezaalmanda27@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/"
 "libretranslate/app/id/>\n"
 "Language: id\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -277,7 +277,7 @@ msgstr "Halo dunia!"
 
 #: libretranslate/locales/.swag.py:11
 msgid "Text(s) to translate"
-msgstr "Teks untuk diterjemahkan"
+msgstr "Teks-teks untuk diterjemahkan"
 
 #: libretranslate/locales/.swag.py:12
 msgid "Source language code"
@@ -315,7 +315,7 @@ msgstr "Terjemahkan file dari bahasa ke bahasa lain"
 
 #: libretranslate/locales/.swag.py:19
 msgid "Translated file"
-msgstr "Database"
+msgstr "File yang diterjemahkan"
 
 #: libretranslate/locales/.swag.py:20
 msgid "File to translate"
@@ -539,7 +539,7 @@ msgstr "Mengubah bahasa"
 
 #: libretranslate/templates/index.html:78
 msgid "Edit"
-msgstr "Edit"
+msgstr "Sunting"
 
 #: libretranslate/templates/index.html:154
 msgid "Dismiss"
@@ -555,7 +555,7 @@ msgstr "Terjemahkan Teks"
 
 #: libretranslate/templates/index.html:176
 msgid "Translate Files"
-msgstr "Database"
+msgstr "Terjemahkan File"
 
 #: libretranslate/templates/index.html:182
 msgid "Translate from"
