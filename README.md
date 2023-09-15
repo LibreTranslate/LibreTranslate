@@ -110,6 +110,22 @@ Then open a web browser to <http://localhost:5000>
 
 On Ubuntu 20.04 you can also use the install script available at <https://github.com/argosopentech/LibreTranslate-init>
 
+## Run with Docker
+
+You can also run the application with [docker](https://docker.com):
+
+### Linux/macOS
+
+```bash
+./run.sh [args]
+```
+
+### Windows
+
+```bash
+run.bat [args]
+```
+
 ## Build and Run
 
 See [CONTIRBUTING.md](./CONTRIBUTING.md) for information on how to build and run the project yourself.
