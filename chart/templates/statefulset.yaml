@@ -20,7 +20,7 @@ spec:
         {{- toYaml .Values.podAnnotations | nindent 8 }}
         {{- end }}
         checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
-        checksum/secret: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}      
+        checksum/secret: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
       labels:
         {{- include "libretranslate.selectorLabels" . | nindent 8 }}
     spec:
@@ -294,12 +294,12 @@ spec:
       - name: db-volume
         persistentVolumeClaim:
           claimName: db-volume
-      {{- end }}  
+      {{- end }}
       {{- if eq .Values.persistence.models.accessMode "ReadWriteMany" }}
       - name: models-volume
         persistentVolumeClaim:
           claimName: models-volume
-      {{- end }}  
+      {{- end }}
       {{- end }}
       {{- if .Values.tolerations }}
       tolerations:

@@ -115,11 +115,11 @@ livenessProbe:
   periodSeconds: 5
 
 # Auth secret for basic authentication
-# generate base64-user-password-pair with: 
+# generate base64-user-password-pair with:
 #   htpasswd -nb <username> <password> | base64
 #
 # e.g.:
-#     
+#
 #     htpasswd -nb admin mySecretPassword | base64
 # This is used by the nginx ingress controller to enable basic auth for the whole site.
 # It will create a secret with the name libretranslate-auth.
