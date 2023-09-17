@@ -180,6 +180,10 @@ select {
   color: var(--fg-color);
 }
 
+select option {
+  color: var(--pri-bg-color);
+}
+
 .language-select {
   display: inline-flex;
   align-items: center;
