@@ -33,7 +33,7 @@
 
   # this will add an api key with a limit of 120 requests per minute
   kubectl exec -it {{ include "libretranslate.fullname" . }}-0 -c {{ include "libretranslate.fullname" . }} -- /bin/bash -c "source ./venv/bin/activate && ltmanage keys add --key req-limit-120 120"
-  
+
   # returns a list of all api keys
   kubectl exec -it {{ include "libretranslate.fullname" . }}-0 -c {{ include "libretranslate.fullname" . }} -- /bin/bash -c "source ./venv/bin/activate && ltmanage keys"
 
