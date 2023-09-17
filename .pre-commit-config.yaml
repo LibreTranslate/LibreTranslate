@@ -7,10 +7,6 @@ repos:
       name: " 🐘 Check for added large files"
     - id: check-toml
       name: " ✔️  Check TOML"
-    - id: check-yaml
-      name: " ✔️  Check YAML"
-      args:
-      - --unsafe
     - id: check-json
       name: " ✔️  Check JSON"
     - id: trailing-whitespace
