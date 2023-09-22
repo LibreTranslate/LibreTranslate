@@ -369,9 +369,11 @@ URL |
 
 ## Adding New Language Models
 
-To add new languages train an Argos Translate model using the [Argos Train](https://github.com/argosopentech/argos-train) training scripts. See [this video tutorial](https://www.youtube.com/watch?v=Vj_qgnhOEwg) for details.
+You have two options to create new language models:
+ * [Locomotive](https://github.com/LibreTranslate/Locomotive)
+ * [Argos Train](https://github.com/argosopentech/argos-train) ([video tutorial](https://www.youtube.com/watch?v=Vj_qgnhOEwg))
 
-Most of the training data is from [Opus](http://opus.nlpl.eu/), which is an open source parallel corpus.
+Most of the training data is from [Opus](http://opus.nlpl.eu/), which is an open source parallel corpus. Check also [NLLU](https://nllu.libretranslate.com)
 
 ## Localization
 
