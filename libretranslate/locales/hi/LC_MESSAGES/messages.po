@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-10 09:57+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2023-09-23 14:04+0000\n"
+"Last-Translator: ShareASmile <aapshergill@gmail.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/libretranslate/app/"
 "hi/>\n"
 "Language: hi\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 5.1-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -275,24 +275,20 @@ msgid "Hello world!"
 msgstr "नमस्कार!"
 
 #: libretranslate/locales/.swag.py:11
-#, fuzzy
 msgid "Text(s) to translate"
 msgstr "अनुवाद करने के लिए पाठ"
 
 #: libretranslate/locales/.swag.py:12
-#, fuzzy
 msgid "Source language code"
-msgstr "भाषा कोड"
+msgstr "स्रोत भाषा का कोड"
 
 #: libretranslate/locales/.swag.py:13
-#, fuzzy
 msgid "Target language code"
-msgstr "समर्थित लक्ष्य भाषा कोड"
+msgstr "लक्ष्य भाषा का कोड"
 
 #: libretranslate/locales/.swag.py:14
-#, fuzzy
 msgid "text"
-msgstr "पाठ कॉपी करें"
+msgstr "पाठ"
 
 #: libretranslate/locales/.swag.py:15
 msgid "html"
@@ -309,9 +305,8 @@ msgstr ""
 "एचटीएमएल\n"
 
 #: libretranslate/locales/.swag.py:17
-#, fuzzy
 msgid "API key"
-msgstr "एपीआई"
+msgstr "API कुंजी"
 
 #: libretranslate/locales/.swag.py:18
 msgid "Translate file from a language to another"
@@ -322,9 +317,8 @@ msgid "Translated file"
 msgstr "अनुवादित फाइल"
 
 #: libretranslate/locales/.swag.py:20
-#, fuzzy
 msgid "File to translate"
-msgstr "अनुवाद करने के लिए पाठ"
+msgstr "अनुवाद करने के लिए फाइल"
 
 #: libretranslate/locales/.swag.py:21
 msgid "Detect the language of a single text"
@@ -339,9 +333,8 @@ msgid "Detection error"
 msgstr "जांच त्रुटि"
 
 #: libretranslate/locales/.swag.py:24
-#, fuzzy
 msgid "Text to detect"
-msgstr "ऑटो"
+msgstr "डिटेक्ट करने के लिए पाठ"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Retrieve frontend specific settings"
@@ -372,19 +365,16 @@ msgid "Original text"
 msgstr "मूल पाठ"
 
 #: libretranslate/locales/.swag.py:32
-#, fuzzy
 msgid "Suggested translation"
-msgstr "अनुवाद सुझाव"
+msgstr "सुझाया गया अनुवाद"
 
 #: libretranslate/locales/.swag.py:33
-#, fuzzy
 msgid "Language of original text"
-msgstr "एकल पाठ की भाषा का पता लगाएं"
+msgstr "मूल पाठ की भाषा"
 
 #: libretranslate/locales/.swag.py:34
-#, fuzzy
 msgid "Language of suggested translation"
-msgstr "अनुवाद सुझाव"
+msgstr "सुझाए गए अनुवाद की भाषा"
 
 #: libretranslate/locales/.swag.py:35
 msgid "feedback"
@@ -662,9 +652,11 @@ msgid "get an API key"
 msgstr "एपीआई कुंजी प्राप्त करें"
 
 #: libretranslate/templates/index.html:345
-#, fuzzy, python-format
+#, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
-msgstr "साथ %(heart)s द्वारा %(contributors)s द्वारा संचालित %(engine)s"
+msgstr ""
+"%(contributors)s द्वारा %(heart)s के साथ बनाया गया और %(engine)s द्वारा "
+"संचालित"
 
 #: libretranslate/templates/index.html:345
 #, python-format
