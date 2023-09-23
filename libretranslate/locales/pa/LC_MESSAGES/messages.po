@@ -1,0 +1,655 @@
+# Translations template for LibreTranslate.
+# Copyright (C) 2023 LibreTranslate Authors
+# This file is distributed under the same license as the LibreTranslate
+# project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LibreTranslate 1.3.9\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2023-01-06 17:52-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: libretranslate/app.py:60
+msgid "Invalid JSON format"
+msgstr ""
+
+#: libretranslate/app.py:128 libretranslate/templates/app.js.template:427
+msgid "Auto Detect"
+msgstr ""
+
+#: libretranslate/app.py:193
+msgid "Unauthorized"
+msgstr ""
+
+#: libretranslate/app.py:211
+msgid "Too many request limits violations"
+msgstr ""
+
+#: libretranslate/app.py:220
+msgid "Invalid API key"
+msgstr ""
+
+#: libretranslate/app.py:227
+msgid "Please contact the server operator to get an API key"
+msgstr ""
+
+#: libretranslate/app.py:229
+#, python-format
+msgid "Visit %(url)s to get an API key"
+msgstr ""
+
+#: libretranslate/app.py:269
+msgid "Slowdown:"
+msgstr ""
+
+#: libretranslate/app.py:467 libretranslate/app.py:469
+#: libretranslate/app.py:471 libretranslate/app.py:683
+#: libretranslate/app.py:685 libretranslate/app.py:687
+#: libretranslate/app.py:838 libretranslate/app.py:987
+#: libretranslate/app.py:989 libretranslate/app.py:991
+#: libretranslate/app.py:993
+#, python-format
+msgid "Invalid request: missing %(name)s parameter"
+msgstr ""
+
+#: libretranslate/app.py:480 libretranslate/app.py:492
+#, python-format
+msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
+msgstr ""
+
+#: libretranslate/app.py:525 libretranslate/app.py:530
+#: libretranslate/app.py:700 libretranslate/app.py:705
+#, python-format
+msgid "%(lang)s is not supported"
+msgstr ""
+
+#: libretranslate/app.py:536
+#, python-format
+msgid "%(format)s format is not supported"
+msgstr ""
+
+#: libretranslate/app.py:544 libretranslate/app.py:568
+#, python-format
+msgid ""
+"%(tname)s (%(tcode)s) is not available as a target language from "
+"%(sname)s (%(scode)s)"
+msgstr ""
+
+#: libretranslate/app.py:589
+#, python-format
+msgid "Cannot translate text: %(text)s"
+msgstr ""
+
+#: libretranslate/app.py:676 libretranslate/app.py:730
+msgid "Files translation are disabled on this server."
+msgstr ""
+
+#: libretranslate/app.py:690
+msgid "Invalid request: empty file"
+msgstr ""
+
+#: libretranslate/app.py:693
+msgid "Invalid request: file format not supported"
+msgstr ""
+
+#: libretranslate/app.py:738
+msgid "Invalid filename"
+msgstr ""
+
+#: libretranslate/app.py:979
+msgid "Suggestions are disabled on this server."
+msgstr ""
+
+#: libretranslate/locales/.langs.py:1
+msgid "English"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:2
+msgid "Arabic"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:3
+msgid "Azerbaijani"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:4
+msgid "Chinese"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:5
+msgid "Czech"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:6
+msgid "Danish"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:7
+msgid "Dutch"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:8
+msgid "Esperanto"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:9
+msgid "Finnish"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:10
+msgid "French"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:11
+msgid "German"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:12
+msgid "Greek"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:13
+msgid "Hebrew"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:14
+msgid "Hindi"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:15
+msgid "Hungarian"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:16
+msgid "Indonesian"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:17
+msgid "Irish"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:18
+msgid "Italian"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:19
+msgid "Japanese"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:20
+msgid "Korean"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:21
+msgid "Persian"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:22
+msgid "Polish"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:23
+msgid "Portuguese"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:24
+msgid "Russian"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:25
+msgid "Slovak"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:26
+msgid "Spanish"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:27
+msgid "Swedish"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:28
+msgid "Turkish"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:29
+msgid "Ukranian"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:30
+msgid "Vietnamese"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:31
+msgid "Catalan"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:32
+msgid "Kabyle"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:1
+msgid "Retrieve list of supported languages"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:2
+msgid "List of languages"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:3
+msgid "translate"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:4
+msgid "Translate text from a language to another"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:219
+msgid "Translated text"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:6
+msgid "Invalid request"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:7
+msgid "Translation error"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:8
+msgid "Slow down"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:9
+msgid "Banned"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:10
+msgid "Hello world!"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:11
+msgid "Text(s) to translate"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:12
+msgid "Source language code"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:13
+msgid "Target language code"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:14
+msgid "text"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:15
+msgid "html"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:16
+msgid ""
+"Format of source text:\n"
+" * `text` - Plain text\n"
+" * `html` - HTML markup\n"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:17
+msgid "API key"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:18
+msgid "Translate file from a language to another"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:19
+msgid "Translated file"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:20
+msgid "File to translate"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:21
+msgid "Detect the language of a single text"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:22
+msgid "Detections"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:23
+msgid "Detection error"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:24
+msgid "Text to detect"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:25
+msgid "Retrieve frontend specific settings"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:26
+msgid "frontend settings"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:27
+msgid "frontend"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:28
+msgid "Submit a suggestion to improve a translation"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:29
+msgid "Success"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:30
+msgid "Not authorized"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:31
+msgid "Original text"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:32
+msgid "Suggested translation"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:33
+msgid "Language of original text"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:34
+msgid "Language of suggested translation"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:35
+msgid "feedback"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:36
+msgid "Language code"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:37
+msgid "Human-readable language name (in English)"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:38
+msgid "Supported target language codes"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:39
+msgid "Translated text(s)"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:40
+msgid "Error message"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:41
+msgid "Reason for slow down"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:42
+msgid "Translated file url"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:43
+msgid "Confidence value"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:44
+msgid "Character input limit for this language (-1 indicates no limit)"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:45
+msgid "Frontend translation timeout"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:46
+msgid "Whether the API key database is enabled."
+msgstr ""
+
+#: libretranslate/locales/.swag.py:47
+msgid "Whether an API key is required."
+msgstr ""
+
+#: libretranslate/locales/.swag.py:48
+msgid "Whether submitting suggestions is enabled."
+msgstr ""
+
+#: libretranslate/locales/.swag.py:49
+msgid "Supported files format"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:50
+msgid "Whether submission was successful"
+msgstr ""
+
+#: libretranslate/templates/app.js.template:31
+#: libretranslate/templates/app.js.template:275
+#: libretranslate/templates/app.js.template:279
+msgid "Copy text"
+msgstr ""
+
+#: libretranslate/templates/app.js.template:72
+#: libretranslate/templates/app.js.template:78
+#: libretranslate/templates/app.js.template:83
+#: libretranslate/templates/app.js.template:262
+#: libretranslate/templates/app.js.template:332
+#: libretranslate/templates/app.js.template:402
+#: libretranslate/templates/app.js.template:447
+#, python-format
+msgid "Cannot load %(url)s"
+msgstr ""
+
+#: libretranslate/templates/app.js.template:253
+#: libretranslate/templates/app.js.template:323
+#: libretranslate/templates/app.js.template:385
+#: libretranslate/templates/app.js.template:395
+msgid "Unknown error"
+msgstr ""
+
+#: libretranslate/templates/app.js.template:276
+msgid "Copied"
+msgstr ""
+
+#: libretranslate/templates/app.js.template:320
+msgid ""
+"Thanks for your correction. Note the suggestion will not take effect "
+"right away."
+msgstr ""
+
+#: libretranslate/templates/app.js.template:423
+msgid "No languages available. Did you install the models correctly?"
+msgstr ""
+
+#: libretranslate/templates/app.js.template:479
+#, python-format
+msgid "Type in your API Key. If you need an API key, %(instructions)s"
+msgstr ""
+
+#: libretranslate/templates/app.js.template:479
+msgid "press the \"Get API Key\" link."
+msgstr ""
+
+#: libretranslate/templates/app.js.template:479
+msgid "contact the server operator."
+msgstr ""
+
+#: libretranslate/templates/index.html:8 libretranslate/templates/index.html:25
+#: libretranslate/templates/index.html:333
+msgid "Free and Open Source Machine Translation API"
+msgstr ""
+
+#: libretranslate/templates/index.html:10
+#: libretranslate/templates/index.html:29
+msgid ""
+"Free and Open Source Machine Translation API. Self-hosted, offline "
+"capable and easy to setup. Run your own API server in just a few minutes."
+msgstr ""
+
+#: libretranslate/templates/index.html:11
+msgid "translation"
+msgstr ""
+
+#: libretranslate/templates/index.html:11
+msgid "api"
+msgstr ""
+
+#: libretranslate/templates/index.html:64
+msgid "API Docs"
+msgstr ""
+
+#: libretranslate/templates/index.html:66
+msgid "Get API Key"
+msgstr ""
+
+#: libretranslate/templates/index.html:68
+msgid "GitHub"
+msgstr ""
+
+#: libretranslate/templates/index.html:70
+msgid "Set API Key"
+msgstr ""
+
+#: libretranslate/templates/index.html:72
+msgid "Change language"
+msgstr ""
+
+#: libretranslate/templates/index.html:78
+msgid "Edit"
+msgstr ""
+
+#: libretranslate/templates/index.html:154
+msgid "Dismiss"
+msgstr ""
+
+#: libretranslate/templates/index.html:168
+msgid "Translation API"
+msgstr ""
+
+#: libretranslate/templates/index.html:172
+msgid "Translate Text"
+msgstr ""
+
+#: libretranslate/templates/index.html:176
+msgid "Translate Files"
+msgstr ""
+
+#: libretranslate/templates/index.html:182
+msgid "Translate from"
+msgstr ""
+
+#: libretranslate/templates/index.html:192
+msgid "Swap source and target languages"
+msgstr ""
+
+#: libretranslate/templates/index.html:195
+msgid "Translate into"
+msgstr ""
+
+#: libretranslate/templates/index.html:207
+msgid "Text to translate"
+msgstr ""
+
+#: libretranslate/templates/index.html:210
+msgid "Delete text"
+msgstr ""
+
+#: libretranslate/templates/index.html:223
+msgid "Suggest translation"
+msgstr ""
+
+#: libretranslate/templates/index.html:227
+msgid "Cancel"
+msgstr ""
+
+#: libretranslate/templates/index.html:230
+msgid "Send"
+msgstr ""
+
+#: libretranslate/templates/index.html:246
+msgid "Supported file formats:"
+msgstr ""
+
+#: libretranslate/templates/index.html:250
+msgid "File"
+msgstr ""
+
+#: libretranslate/templates/index.html:265
+msgid "Remove file"
+msgstr ""
+
+#: libretranslate/templates/index.html:272
+msgid "Translate"
+msgstr ""
+
+#: libretranslate/templates/index.html:273
+#: libretranslate/templates/index.html:317
+msgid "Download"
+msgstr ""
+
+#: libretranslate/templates/index.html:292
+msgid "Request"
+msgstr ""
+
+#: libretranslate/templates/index.html:297
+msgid "Response"
+msgstr ""
+
+#: libretranslate/templates/index.html:312
+msgid "Open Source Machine Translation API"
+msgstr ""
+
+#: libretranslate/templates/index.html:313
+msgid "Self-Hosted. Offline Capable. Easy to Setup."
+msgstr ""
+
+#: libretranslate/templates/index.html:332
+msgid "LibreTranslate"
+msgstr ""
+
+#: libretranslate/templates/index.html:334
+msgid "License:"
+msgstr ""
+
+#: libretranslate/templates/index.html:337
+#, python-format
+msgid ""
+"This public API should be used for testing, personal or infrequent use. "
+"If you're going to run an application in production, please "
+"%(host_server)s or %(get_api_key)s."
+msgstr ""
+
+#: libretranslate/templates/index.html:337
+msgid "host your own server"
+msgstr ""
+
+#: libretranslate/templates/index.html:337
+msgid "get an API key"
+msgstr ""
+
+#: libretranslate/templates/index.html:345
+#, python-format
+msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
+msgstr ""
+
+#: libretranslate/templates/index.html:345
+#, python-format
+msgid "%(libretranslate)s Contributors"
+msgstr ""
