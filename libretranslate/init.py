@@ -1,5 +1,6 @@
 
 from argostranslate import package, translate
+from packaging import version
 
 import libretranslate.language
 
@@ -55,7 +56,7 @@ def check_and_install_models(force=False, load_only_lang_codes=None,update=False
                             and pack.to_code == available_package.to_code
                         ):
                         update = True
-                        if pack.package_version < available_package.package_version:
+                        if version.parse(pack.package_version) < version.parse(available_package.package_version):
                             print(
                                 f"Updating {available_package} ({pack.package_version}->{available_package.package_version}) ..."
                             )

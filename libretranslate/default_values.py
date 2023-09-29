@@ -172,7 +172,7 @@ _default_options_objects = [
         'value_type': 'bool'
     },
     {
-        'name': 'INSTALL_MODELS',
+        'name': 'FORCE_UPDATE_MODELS',
         'default_value': False,
         'value_type': 'bool'
     },
