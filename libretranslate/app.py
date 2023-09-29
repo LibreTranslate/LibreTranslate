@@ -1038,10 +1038,17 @@ def create_app(args):
         if not args.suggestions:
             abort(403, description=_("Suggestions are disabled on this server."))
 
-        q = request.values.get("q")
-        s = request.values.get("s")
-        source_lang = request.values.get("source")
-        target_lang = request.values.get("target")
+        if request.is_json:
+            json = get_json_dict(request)
+            q = json.get("q")
+            s = json.get("s")
+            source_lang = json.get("source")
+            target_lang = json.get("target")
+        else:
+            q = request.values.get("q")
+            s = request.values.get("s")
+            source_lang = request.values.get("source")
+            target_lang = request.values.get("target")
 
         if not q:
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='q'))
