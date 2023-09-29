@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-09-13 07:54+0000\n"
+"PO-Revision-Date: 2023-09-30 09:00+0000\n"
 "Last-Translator: Michael Lewnton <michaellewnton@gmail.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/libretranslate/app/"
 "el/>\n"
@@ -18,37 +18,37 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.1-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
 msgid "Invalid JSON format"
-msgstr "Invalid JSON μορφή"
+msgstr "Άκυρη JSON μορφή"
 
 #: libretranslate/app.py:128 libretranslate/templates/app.js.template:427
 msgid "Auto Detect"
-msgstr "Auto Detect"
+msgstr "Αυτόματη Ανίχνευση"
 
 #: libretranslate/app.py:193
 msgid "Unauthorized"
-msgstr "Μη εξουσιοδοτημένος"
+msgstr "Μη εξουσιοδοτημένο"
 
 #: libretranslate/app.py:211
 msgid "Too many request limits violations"
-msgstr "Πάρα πολλά όρια αιτημάτων"
+msgstr "Υπερβολικά αιτημάτα, περιορισμός παραβιάσεων"
 
 #: libretranslate/app.py:220
 msgid "Invalid API key"
-msgstr "Invalid API κλειδί"
+msgstr "Μη έγκυρο κλειδί API"
 
 #: libretranslate/app.py:227
 msgid "Please contact the server operator to get an API key"
-msgstr "Επικοινωνήστε με τον διαχειριστή server για να πάρετε ένα API κλειδί"
+msgstr "Επικοινωνήστε με τον χειριστή server για να πάρετε ένα API κλειδί"
 
 #: libretranslate/app.py:229
 #, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr "Επισκεφθείτε επίσκεψη %(url)s να πάρετε ένα API κλειδί %(url)s"
+msgstr "Επισκεφθείτε τον σύνδεσμο %(url)s για να πάρετε ένα κλειδί API"
 
 #: libretranslate/app.py:269
 msgid "Slowdown:"
@@ -68,13 +68,14 @@ msgstr "Άκυρο αίτημα: ελλιπής παράμετρος %(name)s"
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
-"Άκυρο αίτημα: η αίτηση (%(size)s) υπερβαίνει το όριο κειμένου (%(limit)s)"
+"Άκυρο αίτημα: το αίτημα(%(size)s) υπερβαίνει το όριο χαρακτήρων του κειμένου "
+"(%(limit)s)"
 
 #: libretranslate/app.py:525 libretranslate/app.py:530
 #: libretranslate/app.py:700 libretranslate/app.py:705
-#, fuzzy, python-format
+#, python-format
 msgid "%(lang)s is not supported"
-msgstr "%(lang)s δεν υποστηρίζεται"
+msgstr "Δεν υποστηρίζoνται %(lang)s"
 
 #: libretranslate/app.py:536
 #, python-format
@@ -82,7 +83,7 @@ msgid "%(format)s format is not supported"
 msgstr "Η μορφή %(format)s δεν υποστηρίζεται"
 
 #: libretranslate/app.py:544 libretranslate/app.py:568
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
@@ -93,15 +94,15 @@ msgstr ""
 #: libretranslate/app.py:589
 #, python-format
 msgid "Cannot translate text: %(text)s"
-msgstr "Δεν μπορεί να μεταφράσει κείμενο: %(text)s"
+msgstr "Το κείμενο: %(text)s δεν μπορεί να μεταφράστει"
 
 #: libretranslate/app.py:676 libretranslate/app.py:730
 msgid "Files translation are disabled on this server."
-msgstr "Η μετάφραση αρχείων απενεργοποιείται σε αυτόν τον server."
+msgstr "Η μετάφραση αρχείων ειναί απενεργοποιημένη σε αυτόν τον διακομιστή."
 
 #: libretranslate/app.py:690
 msgid "Invalid request: empty file"
-msgstr "Ακυρωμένο αίτημα: άδειο αρχείο"
+msgstr "Μη έγκυρο αίτημα: Το αρχείο είναι άδειο"
 
 #: libretranslate/app.py:693
 msgid "Invalid request: file format not supported"
@@ -109,7 +110,7 @@ msgstr "Ακυρωμένη αίτηση: μορφή αρχείου που δεν
 
 #: libretranslate/app.py:738
 msgid "Invalid filename"
-msgstr "Invalid filename"
+msgstr "Μη έγκυρο όνομα αρχείου"
 
 #: libretranslate/app.py:979
 msgid "Suggestions are disabled on this server."
@@ -245,7 +246,7 @@ msgstr "Κατάλογος γλωσσών"
 
 #: libretranslate/locales/.swag.py:3
 msgid "translate"
-msgstr "μετάφραση"
+msgstr "μετέφρασε"
 
 #: libretranslate/locales/.swag.py:4
 msgid "Translate text from a language to another"
@@ -280,19 +281,16 @@ msgid "Text(s) to translate"
 msgstr "Κείμενο(-α) για μετάφραση"
 
 #: libretranslate/locales/.swag.py:12
-#, fuzzy
 msgid "Source language code"
-msgstr "Κωδικός γλώσσας"
+msgstr "Κωδικός γλώσσας πηγής"
 
 #: libretranslate/locales/.swag.py:13
-#, fuzzy
 msgid "Target language code"
-msgstr "Υποστηριζόμενη γλώσσα-στόχος"
+msgstr "Κωδικός γλώσσας στόχου"
 
 #: libretranslate/locales/.swag.py:14
-#, fuzzy
 msgid "text"
-msgstr "Αντιγραφή κειμένου"
+msgstr "Κείμενο"
 
 #: libretranslate/locales/.swag.py:15
 msgid "html"
@@ -309,9 +307,8 @@ msgstr ""
 "* \"html\" - HTML markup\n"
 
 #: libretranslate/locales/.swag.py:17
-#, fuzzy
 msgid "API key"
-msgstr "api"
+msgstr "Κλειδί API"
 
 #: libretranslate/locales/.swag.py:18
 msgid "Translate file from a language to another"
@@ -322,9 +319,8 @@ msgid "Translated file"
 msgstr "Μεταφρασμένο αρχείο"
 
 #: libretranslate/locales/.swag.py:20
-#, fuzzy
 msgid "File to translate"
-msgstr "Κείμενο για μετάφραση"
+msgstr "Αρχείο για μετάφραση"
 
 #: libretranslate/locales/.swag.py:21
 msgid "Detect the language of a single text"
@@ -339,9 +335,8 @@ msgid "Detection error"
 msgstr "Ανίχνευση σφάλματος"
 
 #: libretranslate/locales/.swag.py:24
-#, fuzzy
 msgid "Text to detect"
-msgstr "Auto Detect"
+msgstr "Κείμενο για ανίχνευση"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Retrieve frontend specific settings"
@@ -352,9 +347,8 @@ msgid "frontend settings"
 msgstr "ρυθμίσεις frontend"
 
 #: libretranslate/locales/.swag.py:27
-#, fuzzy
 msgid "frontend"
-msgstr "frontend"
+msgstr "πρόσωψη"
 
 #: libretranslate/locales/.swag.py:28
 msgid "Submit a suggestion to improve a translation"
@@ -373,19 +367,16 @@ msgid "Original text"
 msgstr "Πρωτότυπο κείμενο"
 
 #: libretranslate/locales/.swag.py:32
-#, fuzzy
 msgid "Suggested translation"
 msgstr "Προτεινόμενη μετάφραση"
 
 #: libretranslate/locales/.swag.py:33
-#, fuzzy
 msgid "Language of original text"
-msgstr "Περιγράψτε τη γλώσσα ενός ενιαίου κειμένου"
+msgstr "Γλώσσα αρχικού κειμένου"
 
 #: libretranslate/locales/.swag.py:34
-#, fuzzy
 msgid "Language of suggested translation"
-msgstr "Προτεινόμενη μετάφραση"
+msgstr "Γλώσσα προτεινόμενης μετάφρασης"
 
 #: libretranslate/locales/.swag.py:35
 msgid "feedback"
@@ -533,7 +524,7 @@ msgstr "API Docs"
 
 #: libretranslate/templates/index.html:66
 msgid "Get API Key"
-msgstr ""
+msgstr "Λήψη κλειδιού API"
 
 #: libretranslate/templates/index.html:68
 msgid "GitHub"
@@ -541,7 +532,7 @@ msgstr "GitHub"
 
 #: libretranslate/templates/index.html:70
 msgid "Set API Key"
-msgstr ""
+msgstr "Ορισμός κλειδιού API"
 
 #: libretranslate/templates/index.html:72
 msgid "Change language"
@@ -589,7 +580,7 @@ msgstr "Διαγράψτε κείμενο"
 
 #: libretranslate/templates/index.html:223
 msgid "Suggest translation"
-msgstr "Προτεινόμενη μετάφραση"
+msgstr "Πρότεινε μετάφραση"
 
 #: libretranslate/templates/index.html:227
 msgid "Cancel"
@@ -613,12 +604,12 @@ msgstr "Αφαιρέστε αρχείο αρχείων"
 
 #: libretranslate/templates/index.html:272
 msgid "Translate"
-msgstr ""
+msgstr "Μετάφρασε"
 
 #: libretranslate/templates/index.html:273
 #: libretranslate/templates/index.html:317
 msgid "Download"
-msgstr ""
+msgstr "Λήψη"
 
 #: libretranslate/templates/index.html:292
 msgid "Request"
@@ -630,7 +621,7 @@ msgstr "Απάντηση"
 
 #: libretranslate/templates/index.html:312
 msgid "Open Source Machine Translation API"
-msgstr "Open Source Machine Translation API"
+msgstr "Άνοιγμα API Πηγιαίου Μηχανίματος Μετάφρασης"
 
 #: libretranslate/templates/index.html:313
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
@@ -645,7 +636,7 @@ msgid "License:"
 msgstr "Άδεια:"
 
 #: libretranslate/templates/index.html:337
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "This public API should be used for testing, personal or infrequent use. "
 "If you're going to run an application in production, please "
@@ -664,14 +655,16 @@ msgid "get an API key"
 msgstr "πάρετε ένα API key"
 
 #: libretranslate/templates/index.html:345
-#, fuzzy, python-format
+#, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
-msgstr "%(heart)s με %(contributors)s και τροφοδοτείται με %(engine)s"
+msgstr ""
+"Δημιουργήθηκε με %(heart)s από %(contributors)s και τροφοδοτείται από "
+"%(engine)s"
 
 #: libretranslate/templates/index.html:345
-#, fuzzy, python-format
+#, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr "%(libretranslate)s Συνεισφορές"
+msgstr "%(libretranslate)s Συμβαλλόμενοι"
 
 #~ msgid "multipart/form-data"
 #~ msgstr "multipart/form-data"
