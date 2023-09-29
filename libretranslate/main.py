@@ -161,6 +161,9 @@ def get_args():
         "--update-models", default=DEFARGS['UPDATE_MODELS'], action="store_true", help="Update language models at startup"
     )
     parser.add_argument(
+        "--install-models", default=DEFARGS['INSTALL_MODELS'], action="store_true", help="Install language models at startup"
+    )
+    parser.add_argument(
         "--metrics",
         default=DEFARGS['METRICS'],
         action="store_true",

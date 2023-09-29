@@ -172,6 +172,11 @@ _default_options_objects = [
         'value_type': 'bool'
     },
     {
+        'name': 'INSTALL_MODELS',
+        'default_value': False,
+        'value_type': 'bool'
+    },
+    {
         'name': 'METRICS',
         'default_value': False,
         'value_type': 'bool'

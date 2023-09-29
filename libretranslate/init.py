@@ -4,23 +4,26 @@ from argostranslate import package, translate
 import libretranslate.language
 
 
-def boot(load_only=None, update_models=False):
+def boot(load_only=None, update_models=False, install_models=False):
     try:
-        check_and_install_models(force=update_models, load_only_lang_codes=load_only)
+        if update_models:
+            check_and_install_models(load_only_lang_codes=load_only, update=update_models)
+        else:
+            check_and_install_models(force=install_models, load_only_lang_codes=load_only)
     except Exception as e:
         print("Cannot update models (normal if you're offline): %s" % str(e))
 
 
-def check_and_install_models(force=False, load_only_lang_codes=None):
-    if len(package.get_installed_packages()) < 2 or force:
+def check_and_install_models(force=False, load_only_lang_codes=None,update=False):
+    if len(package.get_installed_packages()) < 2 or force or update:
         # Update package definitions from remote
         print("Updating language models")
         package.update_package_index()
 
         # Load available packages from local package index
         available_packages = package.get_available_packages()
+        installed_packages = package.get_installed_packages()
         print("Found %s models" % len(available_packages))
-
         if load_only_lang_codes is not None:
             # load_only_lang_codes: List[str] (codes)
             # Ensure the user does not use any unavailable language code.
@@ -44,10 +47,24 @@ def check_and_install_models(force=False, load_only_lang_codes=None):
 
         # Download and install all available packages
         for available_package in available_packages:
-            print(
-                f"Downloading {available_package} ({available_package.package_version}) ..."
-            )
-            available_package.install()
+            update = False
+            if not force:
+                for pack in installed_packages:
+                    if (
+                            pack.from_code == available_package.from_code
+                            and pack.to_code == available_package.to_code
+                        ):
+                        update = True
+                        if pack.package_version < available_package.package_version:
+                            print(
+                                f"Updating {available_package} ({pack.package_version}->{available_package.package_version}) ..."
+                            )
+                            pack.update()
+            if not update:
+                print(
+                    f"Downloading {available_package} ({available_package.package_version}) ..."
+                )
+                available_package.install()
 
         # reload installed languages
         libretranslate.language.languages = translate.get_installed_languages()

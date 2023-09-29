@@ -125,7 +125,7 @@ def get_routes_limits(default_req_limit, daily_req_limit, api_keys_db):
 def create_app(args):
     from libretranslate.init import boot
 
-    boot(args.load_only, args.update_models)
+    boot(args.load_only, args.update_models, args.install_models)
 
     from libretranslate.language import load_languages
 
@@ -1042,7 +1042,6 @@ def create_app(args):
         s = request.values.get("s")
         source_lang = request.values.get("source")
         target_lang = request.values.get("target")
-
         if not q:
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='q'))
         if not s:
