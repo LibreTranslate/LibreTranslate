@@ -54,6 +54,7 @@ dependencies = [
     "redis ==4.3.4",
     "prometheus-client ==0.15.0",
     "polib ==1.1.1",
+    "packaging ==23.1"
 ]
 
 [project.scripts]
