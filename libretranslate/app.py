@@ -979,7 +979,6 @@ def create_app(args):
         )
 
     @bp.post("/suggest")
-    @access_check
     def suggest():
         """
         Submit a suggestion to improve a translation
