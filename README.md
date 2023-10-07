@@ -358,7 +358,6 @@ URL |API Key Required | Links
 [translate.foxhaven.cyou](https://translate.foxhaven.cyou/)|-
 [translate.terraprint.co](https://translate.terraprint.co/)|-
 [trans.zillyhuhn.com](https://trans.zillyhuhn.com/)|-
-[lt.psf.lt](https://lt.psf.lt/)|-
 [libretranslate.eownerdead.dedyn.io](https://libretranslate.eownerdead.dedyn.io)|-
 
 ## TOR/i2p Mirrors
