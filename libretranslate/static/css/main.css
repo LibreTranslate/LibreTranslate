@@ -162,7 +162,7 @@ h3.header {
   left: 2px;
 }
 
-.locale-panel a:hovselecter{
+.locale-panel a:hover{
   background-color: transparent !important;
 }
 
