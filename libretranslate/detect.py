@@ -1,5 +1,7 @@
 # Originally adapted from https://github.com/aboSamoor/polyglot/blob/master/polyglot/base.py
 
+import unicodedata
+
 import pycld2 as cld2
 
 
@@ -52,7 +54,16 @@ class Detector:
       text (string): A snippet of text, the longer it is the more reliable we
                      can detect the language used to write the text.
     """
-    reliable, index, top_3_choices = cld2.detect(text, bestEffort=False)
+    try:
+      reliable, index, top_3_choices = cld2.detect(text, bestEffort=False)
+    except cld2.error as e:
+      if "input contains invalid UTF-8" in str(e):
+        # Fix for https://github.com/LibreTranslate/LibreTranslate/issues/514
+        # related to https://github.com/aboSamoor/polyglot/issues/71#issuecomment-707997790
+        text = ''.join([l for l in text if unicodedata.category(str(l))[0] not in ('S', 'M', 'C')])
+        reliable, index, top_3_choices = cld2.detect(text, bestEffort=False)
+      else:
+        raise e
 
     if not reliable:
       self.reliable = False

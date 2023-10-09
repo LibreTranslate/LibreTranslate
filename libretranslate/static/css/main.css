@@ -74,6 +74,14 @@ a:not(.noline) {
   min-height: 80vh;
 }
 
+.component{
+  visibility: hidden;
+}
+
+#app.loaded .component{
+  visibility: visible;
+}
+
 h3.header {
   margin-bottom: 2.5rem;
 }
@@ -178,10 +186,7 @@ h3.header {
 
 select {
   color: var(--fg-color);
-}
-
-select option {
-  color: var(--pri-bg-color);
+  background-color: var(--pri-bg-color);
 }
 
 .language-select {
@@ -198,7 +203,6 @@ select option {
   text-decoration: underline;
   -webkit-appearance: none;
   appearance: none;
-  background-color: transparent;
   padding: 0;
   text-indent: 0.01px;
   text-overflow: "";

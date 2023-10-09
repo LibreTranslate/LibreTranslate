@@ -8,81 +8,80 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-01-06 17:52-0500\n"
+"POT-Creation-Date: 2023-10-09 15:17-0400\n"
 "PO-Revision-Date: 2023-09-30 09:00+0000\n"
 "Last-Translator: Michael Lewnton <michaellewnton@gmail.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/libretranslate/app/"
-"el/>\n"
 "Language: el\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/libretranslate/app/el/>\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.1-dev\n"
-"Generated-By: Babel 2.11.0\n"
+"Generated-By: Babel 2.12.1\n"
 
-#: libretranslate/app.py:60
+#: libretranslate/app.py:79
 msgid "Invalid JSON format"
 msgstr "Άκυρη JSON μορφή"
 
-#: libretranslate/app.py:128 libretranslate/templates/app.js.template:427
+#: libretranslate/app.py:149 libretranslate/templates/app.js.template:459
 msgid "Auto Detect"
 msgstr "Αυτόματη Ανίχνευση"
 
-#: libretranslate/app.py:193
+#: libretranslate/app.py:232
 msgid "Unauthorized"
 msgstr "Μη εξουσιοδοτημένο"
 
-#: libretranslate/app.py:211
+#: libretranslate/app.py:250
 msgid "Too many request limits violations"
 msgstr "Υπερβολικά αιτημάτα, περιορισμός παραβιάσεων"
 
-#: libretranslate/app.py:220
+#: libretranslate/app.py:257
 msgid "Invalid API key"
 msgstr "Μη έγκυρο κλειδί API"
 
-#: libretranslate/app.py:227
+#: libretranslate/app.py:276
 msgid "Please contact the server operator to get an API key"
 msgstr "Επικοινωνήστε με τον χειριστή server για να πάρετε ένα API κλειδί"
 
-#: libretranslate/app.py:229
+#: libretranslate/app.py:278
 #, python-format
 msgid "Visit %(url)s to get an API key"
 msgstr "Επισκεφθείτε τον σύνδεσμο %(url)s για να πάρετε ένα κλειδί API"
 
-#: libretranslate/app.py:269
+#: libretranslate/app.py:318
 msgid "Slowdown:"
 msgstr "Επιβράδυνση:"
 
-#: libretranslate/app.py:467 libretranslate/app.py:469
-#: libretranslate/app.py:471 libretranslate/app.py:683
-#: libretranslate/app.py:685 libretranslate/app.py:687
-#: libretranslate/app.py:838 libretranslate/app.py:987
-#: libretranslate/app.py:989 libretranslate/app.py:991
-#: libretranslate/app.py:993
+#: libretranslate/app.py:525 libretranslate/app.py:527
+#: libretranslate/app.py:529 libretranslate/app.py:741
+#: libretranslate/app.py:743 libretranslate/app.py:745
+#: libretranslate/app.py:896 libretranslate/app.py:1053
+#: libretranslate/app.py:1055 libretranslate/app.py:1057
+#: libretranslate/app.py:1059
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
 msgstr "Άκυρο αίτημα: ελλιπής παράμετρος %(name)s"
 
-#: libretranslate/app.py:480 libretranslate/app.py:492
+#: libretranslate/app.py:544 libretranslate/app.py:553
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
-"Άκυρο αίτημα: το αίτημα(%(size)s) υπερβαίνει το όριο χαρακτήρων του κειμένου "
-"(%(limit)s)"
+"Άκυρο αίτημα: το αίτημα(%(size)s) υπερβαίνει το όριο χαρακτήρων του "
+"κειμένου (%(limit)s)"
 
-#: libretranslate/app.py:525 libretranslate/app.py:530
-#: libretranslate/app.py:700 libretranslate/app.py:705
+#: libretranslate/app.py:583 libretranslate/app.py:588
+#: libretranslate/app.py:758 libretranslate/app.py:763
 #, python-format
 msgid "%(lang)s is not supported"
 msgstr "Δεν υποστηρίζoνται %(lang)s"
 
-#: libretranslate/app.py:536
+#: libretranslate/app.py:594
 #, python-format
 msgid "%(format)s format is not supported"
 msgstr "Η μορφή %(format)s δεν υποστηρίζεται"
 
-#: libretranslate/app.py:544 libretranslate/app.py:568
+#: libretranslate/app.py:602 libretranslate/app.py:626
 #, python-format
 msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
@@ -91,28 +90,28 @@ msgstr ""
 "%(tname)s (%(tcode)s) δεν είναι διαθέσιμη ως γλώσσα-στόχος από %(sname)s "
 "(%(scode)s)"
 
-#: libretranslate/app.py:589
+#: libretranslate/app.py:647
 #, python-format
 msgid "Cannot translate text: %(text)s"
 msgstr "Το κείμενο: %(text)s δεν μπορεί να μεταφράστει"
 
-#: libretranslate/app.py:676 libretranslate/app.py:730
+#: libretranslate/app.py:734 libretranslate/app.py:788
 msgid "Files translation are disabled on this server."
 msgstr "Η μετάφραση αρχείων ειναί απενεργοποιημένη σε αυτόν τον διακομιστή."
 
-#: libretranslate/app.py:690
+#: libretranslate/app.py:748
 msgid "Invalid request: empty file"
 msgstr "Μη έγκυρο αίτημα: Το αρχείο είναι άδειο"
 
-#: libretranslate/app.py:693
+#: libretranslate/app.py:751
 msgid "Invalid request: file format not supported"
 msgstr "Ακυρωμένη αίτηση: μορφή αρχείου που δεν υποστηρίζεται"
 
-#: libretranslate/app.py:738
+#: libretranslate/app.py:796
 msgid "Invalid filename"
 msgstr "Μη έγκυρο όνομα αρχείου"
 
-#: libretranslate/app.py:979
+#: libretranslate/app.py:1038
 msgid "Suggestions are disabled on this server."
 msgstr "Οι προτάσεις απενεργοποιούνται σε αυτόν τον server."
 
@@ -252,7 +251,7 @@ msgstr "μετέφρασε"
 msgid "Translate text from a language to another"
 msgstr "Μεταφράστε κείμενο από γλώσσα σε άλλη"
 
-#: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:219
+#: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:222
 msgid "Translated text"
 msgstr "Μεταφρασμένο κείμενο"
 
@@ -443,34 +442,34 @@ msgid "Whether submission was successful"
 msgstr "Είτε η υποβολή ήταν επιτυχής"
 
 #: libretranslate/templates/app.js.template:31
-#: libretranslate/templates/app.js.template:275
-#: libretranslate/templates/app.js.template:279
+#: libretranslate/templates/app.js.template:286
+#: libretranslate/templates/app.js.template:290
 msgid "Copy text"
 msgstr "Αντιγραφή κειμένου"
 
-#: libretranslate/templates/app.js.template:72
-#: libretranslate/templates/app.js.template:78
-#: libretranslate/templates/app.js.template:83
-#: libretranslate/templates/app.js.template:262
-#: libretranslate/templates/app.js.template:332
-#: libretranslate/templates/app.js.template:402
-#: libretranslate/templates/app.js.template:447
+#: libretranslate/templates/app.js.template:80
+#: libretranslate/templates/app.js.template:86
+#: libretranslate/templates/app.js.template:91
+#: libretranslate/templates/app.js.template:273
+#: libretranslate/templates/app.js.template:343
+#: libretranslate/templates/app.js.template:431
+#: libretranslate/templates/app.js.template:479
 #, python-format
 msgid "Cannot load %(url)s"
 msgstr "Δεν μπορεί να φορτώσει φορτίο %(url)s"
 
-#: libretranslate/templates/app.js.template:253
-#: libretranslate/templates/app.js.template:323
-#: libretranslate/templates/app.js.template:385
-#: libretranslate/templates/app.js.template:395
+#: libretranslate/templates/app.js.template:264
+#: libretranslate/templates/app.js.template:334
+#: libretranslate/templates/app.js.template:412
+#: libretranslate/templates/app.js.template:423
 msgid "Unknown error"
 msgstr "Άγνωστο λάθος"
 
-#: libretranslate/templates/app.js.template:276
+#: libretranslate/templates/app.js.template:287
 msgid "Copied"
 msgstr "Συνήγοροι"
 
-#: libretranslate/templates/app.js.template:320
+#: libretranslate/templates/app.js.template:331
 msgid ""
 "Thanks for your correction. Note the suggestion will not take effect "
 "right away."
@@ -478,30 +477,30 @@ msgstr ""
 "Χάρη στη διόρθωση σας. Σημειώστε ότι η πρόταση δεν θα τεθεί σε ισχύ "
 "αμέσως."
 
-#: libretranslate/templates/app.js.template:423
+#: libretranslate/templates/app.js.template:455
 msgid "No languages available. Did you install the models correctly?"
 msgstr "Δεν υπάρχουν διαθέσιμες γλώσσες. εγκαταστήσετε σωστά τα μοντέλα?"
 
-#: libretranslate/templates/app.js.template:479
+#: libretranslate/templates/app.js.template:522
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
 msgstr "Τύπος στο API Key. Εάν χρειάζεστε ένα API key, %(instructions)s"
 
-#: libretranslate/templates/app.js.template:479
+#: libretranslate/templates/app.js.template:522
 msgid "press the \"Get API Key\" link."
 msgstr "πατήστε το σύνδεσμο \"Get API Key\"."
 
-#: libretranslate/templates/app.js.template:479
+#: libretranslate/templates/app.js.template:522
 msgid "contact the server operator."
 msgstr "επικοινωνήστε με τον διαχειριστή server."
 
-#: libretranslate/templates/index.html:8 libretranslate/templates/index.html:25
-#: libretranslate/templates/index.html:333
+#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
+#: libretranslate/templates/index.html:336
 msgid "Free and Open Source Machine Translation API"
 msgstr "Δωρεάν και Open Source Machine μετάφραση API"
 
 #: libretranslate/templates/index.html:10
-#: libretranslate/templates/index.html:29
+#: libretranslate/templates/index.html:31
 msgid ""
 "Free and Open Source Machine Translation API. Self-hosted, offline "
 "capable and easy to setup. Run your own API server in just a few minutes."
@@ -518,153 +517,158 @@ msgstr "μετάφραση"
 msgid "api"
 msgstr "api"
 
-#: libretranslate/templates/index.html:64
+#: libretranslate/templates/index.html:65
 msgid "API Docs"
 msgstr "API Docs"
 
-#: libretranslate/templates/index.html:66
+#: libretranslate/templates/index.html:67
 msgid "Get API Key"
 msgstr "Λήψη κλειδιού API"
 
-#: libretranslate/templates/index.html:68
+#: libretranslate/templates/index.html:69
 msgid "GitHub"
 msgstr "GitHub"
 
-#: libretranslate/templates/index.html:70
+#: libretranslate/templates/index.html:71
 msgid "Set API Key"
 msgstr "Ορισμός κλειδιού API"
 
-#: libretranslate/templates/index.html:72
+#: libretranslate/templates/index.html:73
 msgid "Change language"
 msgstr "Αλλαγή γλώσσας"
 
-#: libretranslate/templates/index.html:78
+#: libretranslate/templates/index.html:79
 msgid "Edit"
 msgstr "Επεξεργασία επεξεργασίας"
 
-#: libretranslate/templates/index.html:154
+#: libretranslate/templates/index.html:81
+msgid "Toggle dark/light mode"
+msgstr "Toggle dark/light mode"
+
+#: libretranslate/templates/index.html:157
 msgid "Dismiss"
 msgstr "Απ"
 
-#: libretranslate/templates/index.html:168
+#: libretranslate/templates/index.html:171
 msgid "Translation API"
 msgstr "Μετάφραση API"
 
-#: libretranslate/templates/index.html:172
+#: libretranslate/templates/index.html:175
 msgid "Translate Text"
 msgstr "Μετάφραση κειμένου"
 
-#: libretranslate/templates/index.html:176
+#: libretranslate/templates/index.html:179
 msgid "Translate Files"
 msgstr "Αρχεία μετάφρασης"
 
-#: libretranslate/templates/index.html:182
+#: libretranslate/templates/index.html:185
 msgid "Translate from"
 msgstr "Μεταφράστε από"
 
-#: libretranslate/templates/index.html:192
+#: libretranslate/templates/index.html:195
 msgid "Swap source and target languages"
 msgstr "Η πηγή Swap και οι γλώσσες-στόχος"
 
-#: libretranslate/templates/index.html:195
+#: libretranslate/templates/index.html:198
 msgid "Translate into"
 msgstr "Μετάβαση σε"
 
-#: libretranslate/templates/index.html:207
+#: libretranslate/templates/index.html:210
 msgid "Text to translate"
 msgstr "Κείμενο για μετάφραση"
 
-#: libretranslate/templates/index.html:210
+#: libretranslate/templates/index.html:213
 msgid "Delete text"
 msgstr "Διαγράψτε κείμενο"
 
-#: libretranslate/templates/index.html:223
+#: libretranslate/templates/index.html:226
 msgid "Suggest translation"
 msgstr "Πρότεινε μετάφραση"
 
-#: libretranslate/templates/index.html:227
+#: libretranslate/templates/index.html:230
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-#: libretranslate/templates/index.html:230
+#: libretranslate/templates/index.html:233
 msgid "Send"
 msgstr "Αποστολή"
 
-#: libretranslate/templates/index.html:246
+#: libretranslate/templates/index.html:249
 msgid "Supported file formats:"
 msgstr "Υποστηριζόμενη μορφή αρχείων:"
 
-#: libretranslate/templates/index.html:250
+#: libretranslate/templates/index.html:253
 msgid "File"
 msgstr "File"
 
-#: libretranslate/templates/index.html:265
+#: libretranslate/templates/index.html:268
 msgid "Remove file"
 msgstr "Αφαιρέστε αρχείο αρχείων"
 
-#: libretranslate/templates/index.html:272
+#: libretranslate/templates/index.html:275
 msgid "Translate"
 msgstr "Μετάφρασε"
 
-#: libretranslate/templates/index.html:273
-#: libretranslate/templates/index.html:317
+#: libretranslate/templates/index.html:276
+#: libretranslate/templates/index.html:320
 msgid "Download"
 msgstr "Λήψη"
 
-#: libretranslate/templates/index.html:292
+#: libretranslate/templates/index.html:295
 msgid "Request"
 msgstr "Αίτηση αιτήματος"
 
-#: libretranslate/templates/index.html:297
+#: libretranslate/templates/index.html:300
 msgid "Response"
 msgstr "Απάντηση"
 
-#: libretranslate/templates/index.html:312
+#: libretranslate/templates/index.html:315
 msgid "Open Source Machine Translation API"
 msgstr "Άνοιγμα API Πηγιαίου Μηχανίματος Μετάφρασης"
 
-#: libretranslate/templates/index.html:313
+#: libretranslate/templates/index.html:316
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
 msgstr "Αυτο-Hosted. Offline Capable. Εύκολο στη ρύθμιση."
 
-#: libretranslate/templates/index.html:332
+#: libretranslate/templates/index.html:335
 msgid "LibreTranslate"
 msgstr "LibreTranslate"
 
-#: libretranslate/templates/index.html:334
+#: libretranslate/templates/index.html:337
 msgid "License:"
 msgstr "Άδεια:"
 
-#: libretranslate/templates/index.html:337
+#: libretranslate/templates/index.html:340
 #, python-format
 msgid ""
 "This public API should be used for testing, personal or infrequent use. "
 "If you're going to run an application in production, please "
 "%(host_server)s or %(get_api_key)s."
 msgstr ""
-"Αυτό το δημόσιο API θα πρέπει να χρησιμοποιείται για δοκιμές, προσωπική ή "
-"σπάνια χρήση. Εάν πρόκειται να εκτελέσετε μια εφαρμογή στην παραγωγή, "
+"Αυτό το δημόσιο API θα πρέπει να χρησιμοποιείται για δοκιμές, προσωπική ή"
+" σπάνια χρήση. Εάν πρόκειται να εκτελέσετε μια εφαρμογή στην παραγωγή, "
 "παρακαλούμε %(host_server)s ή %(get_api_key)s."
 
-#: libretranslate/templates/index.html:337
+#: libretranslate/templates/index.html:340
 msgid "host your own server"
 msgstr "φιλοξενήσει το δικό σας διακομιστή"
 
-#: libretranslate/templates/index.html:337
+#: libretranslate/templates/index.html:340
 msgid "get an API key"
 msgstr "πάρετε ένα API key"
 
-#: libretranslate/templates/index.html:345
+#: libretranslate/templates/index.html:348
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
 msgstr ""
 "Δημιουργήθηκε με %(heart)s από %(contributors)s και τροφοδοτείται από "
 "%(engine)s"
 
-#: libretranslate/templates/index.html:345
+#: libretranslate/templates/index.html:348
 #, python-format
 msgid "%(libretranslate)s Contributors"
 msgstr "%(libretranslate)s Συμβαλλόμενοι"
 
 #~ msgid "multipart/form-data"
 #~ msgstr "multipart/form-data"
+
