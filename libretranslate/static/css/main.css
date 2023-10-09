@@ -452,6 +452,10 @@ code[class*="language-"], pre[class*="language-"] {
   text-decoration: none;
 }
 
+#download-btn i{
+  color: #fff;
+}
+
 .card-content {
   background-color: var(--pri-bg-color);
 }
