@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function(){
         },
         mounted: function() {
             const self = this;
+            self.$el.classList.add("loaded");
 
             const settingsRequest = new XMLHttpRequest();
             settingsRequest.open("GET", BaseUrl + "/frontend/settings", true);
@@ -68,6 +69,11 @@ document.addEventListener('DOMContentLoaded', function(){
                     } else {
                         langsRequest.onload = function() {
                             handleLangsResponse(self, this);
+
+                            var hostname = window.location.hostname.toLowerCase();
+                            if (hostname.indexOf("libretranslate.") === 0 && !hostname.endsWith(".com")){
+                                self.error = "This website might be in violation of our trademark guidelines: https://github.com/LibreTranslate/LibreTranslate/blob/main/TRADEMARK.md";
+                            }
                         }
                     }
                 } else {

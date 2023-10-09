@@ -74,6 +74,14 @@ a:not(.noline) {
   min-height: 80vh;
 }
 
+.component{
+  visibility: hidden;
+}
+
+#app.loaded .component{
+  visibility: visible;
+}
+
 h3.header {
   margin-bottom: 2.5rem;
 }
