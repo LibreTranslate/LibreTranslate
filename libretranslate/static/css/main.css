@@ -162,7 +162,7 @@ h3.header {
   left: 2px;
 }
 
-.locale-panel a:hover{
+.locale-panel a:hovselecter{
   background-color: transparent !important;
 }
 
@@ -186,10 +186,7 @@ h3.header {
 
 select {
   color: var(--fg-color);
-}
-
-select option {
-  color: var(--pri-bg-color);
+  background-color: var(--pri-bg-color);
 }
 
 .language-select {
@@ -206,7 +203,6 @@ select option {
   text-decoration: underline;
   -webkit-appearance: none;
   appearance: none;
-  background-color: transparent;
   padding: 0;
   text-indent: 0.01px;
   text-overflow: "";
