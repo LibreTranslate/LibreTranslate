@@ -426,7 +426,7 @@ Slovak |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/sk/)
 Spanish | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/es/)
 Swedish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/sv/)
 Turkish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/tr/)
-Ukranian |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/uk/)
+Ukranian | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/uk/)
 Vietnamese |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/vi/)
 
 ## Roadmap
