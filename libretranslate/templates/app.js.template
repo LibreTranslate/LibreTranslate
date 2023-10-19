@@ -155,7 +155,11 @@ document.addEventListener('DOMContentLoaded', function(){
                 else{
                     var lang = this.langs.find(l => l.code === this.sourceLang);
                     if (!lang) return this.langs;
-                    return lang.targets.map(t => this.langs.find(l => l.code === t));
+                    var tgtLangs = lang.targets.map(t => this.langs.find(l => l.code === t));
+                    tgtLangs.sort(function(a, b){
+                        return a.name.localeCompare(b.name);
+                    });
+                    return tgtLangs;
                 }
             }
         },
