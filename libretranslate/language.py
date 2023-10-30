@@ -18,7 +18,7 @@ def load_languages():
 @lru_cache(maxsize=None)
 def load_lang_codes():
     languages = load_languages()
-    return (l.code for l in languages)
+    return tuple(l.code for l in languages)
 
 def detect_languages(text):
     # detect batch processing

@@ -1,6 +1,7 @@
 from functools import lru_cache
 
 import linguars
+from lexilang.detector import detect as lldetect
 
 
 class Language:
@@ -26,9 +27,15 @@ def load_detector(langcodes = ()):
 
 class Detector:
   def __init__(self, langcodes = ()):
+    self.langcodes = langcodes
     self.detector = load_detector(langcodes)
 
   def detect(self, text):
+    if len(text) < 18:
+      code, conf = lldetect(text, self.langcodes)
+      if conf > 0:
+        return [Language(code, round(conf * 100))]
+
     top_3_choices = self.detector.confidence(text)[:3]
     if top_3_choices[0][1] == 0:
       return [Language("en", 0)]
