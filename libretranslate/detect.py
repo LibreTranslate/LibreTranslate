@@ -17,7 +17,8 @@ def load_detector(langcodes = ()):
   for lc in langcodes:
     try:
       languages.append(linguars.Language.from_iso_code_639_1(lc))
-    except:
+    except Exception as e:
+      print(f"{lc} is not supported by lingua")
       pass # Not supported
   
   return linguars.LanguageDetector(languages=languages)
@@ -29,7 +30,6 @@ class Detector:
 
   def detect(self, text):
     top_3_choices = self.detector.confidence(text)[:3]
-    print(top_3_choices)
     if top_3_choices[0][1] == 0:
       return [Language("en", 0)]
     return [Language(lang.iso_code_639_1, round(conf * 100)) for lang, conf in top_3_choices]
