@@ -20,7 +20,7 @@ def load_detector(langcodes = ()):
     except Exception:
       print(f"{lc} is not supported by lingua")
       pass # Not supported
-  
+
   return linguars.LanguageDetector(languages=languages)
 
 
