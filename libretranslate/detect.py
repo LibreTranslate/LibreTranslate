@@ -1,5 +1,7 @@
-import linguars
 from functools import lru_cache
+
+import linguars
+
 
 class Language:
   def __init__(self, code, confidence):
@@ -7,9 +9,7 @@ class Language:
     self.confidence = float(confidence)
 
   def __str__(self):
-    return ("code: {:<9} confidence: {:>5.1f} ".format(
-                self.code,
-                self.confidence))
+    return (f"code: {self.code:<9} confidence: {self.confidence:>5.1f} ")
 
 @lru_cache(maxsize=None)
 def load_detector(langcodes = ()):
@@ -17,7 +17,7 @@ def load_detector(langcodes = ()):
   for lc in langcodes:
     try:
       languages.append(linguars.Language.from_iso_code_639_1(lc))
-    except Exception as e:
+    except Exception:
       print(f"{lc} is not supported by lingua")
       pass # Not supported
   

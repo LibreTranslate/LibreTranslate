@@ -1,6 +1,7 @@
 
-from argostranslate import translate
 from functools import lru_cache
+
+from argostranslate import translate
 
 from libretranslate.detect import Detector
 
