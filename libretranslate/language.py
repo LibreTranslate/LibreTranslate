@@ -107,6 +107,9 @@ def improve_translation_formatting(source, translation, improve_punctuation=True
     if source.isupper():
         return translation.upper()
 
+    if len(translation) == 0:
+        return source
+
     if source[0].islower():
         return translation[0].lower() + translation[1:]
 
