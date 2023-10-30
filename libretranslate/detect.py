@@ -16,6 +16,8 @@ class Language:
 def load_detector(langcodes = ()):
   languages = []
   for lc in langcodes:
+    if lc == 'zt':
+      continue
     try:
       languages.append(linguars.Language.from_iso_code_639_1(lc))
     except Exception:
