@@ -554,22 +554,8 @@ def create_app(args):
                 )
 
         if source_lang == "auto":
-            source_langs = []
-            auto_detect_texts = q if batch else [q]
-
-            overall_candidates = detect_languages(q)
-
-            for text_to_check in auto_detect_texts:
-                if len(text_to_check) > 40:
-                    candidate_langs = detect_languages(text_to_check)
-                else:
-                    # Unable to accurately detect languages for short texts
-                    candidate_langs = overall_candidates
-                source_langs.append(candidate_langs[0])
-
-                if args.debug:
-                    print(text_to_check, candidate_langs)
-                    print("Auto detected: %s" % candidate_langs[0]["language"])
+            candidate_langs = detect_languages(q if batch else [q])
+            source_langs = [candidate_langs[0]]
         else:
             if batch:
                 source_langs = [ {"confidence": 100.0, "language": source_lang} for text in q]

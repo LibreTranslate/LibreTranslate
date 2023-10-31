@@ -1,6 +1,9 @@
-from functools import lru_cache
 
-import linguars
+from langdetect import DetectorFactory
+
+DetectorFactory.seed = 0
+
+from langdetect import detect_langs
 from lexilang.detector import detect as lldetect
 
 
@@ -12,34 +15,31 @@ class Language:
   def __str__(self):
     return (f"code: {self.code:<9} confidence: {self.confidence:>5.1f} ")
 
-@lru_cache(maxsize=None)
-def load_detector(langcodes = ()):
-  languages = []
-  for lc in langcodes:
-    if lc == 'zt':
-      continue
-    try:
-      languages.append(linguars.Language.from_iso_code_639_1(lc))
-    except Exception:
-      print(f"{lc} is not supported by lingua")
-      pass # Not supported
+def check_lang(langcodes, lang):
+  return normalized_lang_code(lang) in langcodes
 
-  return linguars.LanguageDetector(languages=languages)
-
+def normalized_lang_code(lang):
+  code = lang.lang
+  # Handle zh-cn
+  if code.startswith("zh"):
+    code = "zh"
+  return code
 
 class Detector:
   def __init__(self, langcodes = ()):
     self.langcodes = langcodes
-    self.detector = load_detector(langcodes)
 
   def detect(self, text):
-    if len(text) < 18:
+    if len(text) < 20:
       code, conf = lldetect(text, self.langcodes)
       if conf > 0:
         return [Language(code, round(conf * 100))]
 
-    top_3_choices = self.detector.confidence(text)[:3]
-    if top_3_choices[0][1] == 0:
+    top_3_choices = [lang for lang in detect_langs(text) if check_lang(self.langcodes, lang)][:3]
+    if not len(top_3_choices):
       return [Language("en", 0)]
-    return [Language(lang.iso_code_639_1, round(conf * 100)) for lang, conf in top_3_choices]
+    if top_3_choices[0].prob == 0:
+      return [Language("en", 0)]
+
+    return [Language(normalized_lang_code(lang), round(lang.prob * 100)) for lang in top_3_choices]
 
