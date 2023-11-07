@@ -1,0 +1,30 @@
+name: Issue Triage
+on:
+  issues:
+    types:
+      - opened
+jobs:
+  issue_triage:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: pierotofy/issuewhiz@v1
+        with:
+          ghToken: ${{ secrets.GITHUB_TOKEN }}
+          openAI: ${{ secrets.OPENAI_TOKEN }}
+          filter: |
+            - "#"
+          variables: |
+            - Q: "A question about using a software or seeking guidance on doing something?"
+            - B: "Reporting an issue or a software bug?"
+            - T: "Reporting a problem with an inaccurate, awkward or erroneous translation?"
+            - E: "Contains a suggestion for an improvement or a feature request?"
+            - SC: "Describes an issue related to compiling or building source code?"
+          logic: |
+            - "Q and (not B) and (not E) and (not SC)": [comment: "Could we move this conversation over to the forum at https://community.libretranslate.com? :pray: The forum is the right place to ask questions (we try to keep the GitHub issue tracker for feature requests and bugs only). Thank you! :+1:", close: true, stop: true]
+            - "B and (not T) and (not E) and (not SC)": [label: "possible bug", stop: true]
+            - "T or E": [label: "enhancement", stop: true]
+            - "SC": [label: "possible bug"]
+
+          signature: "p.s. I'm just an automated script, not a human being."
