@@ -17,7 +17,7 @@ jobs:
             - "#"
           variables: |
             - Q: "A question about using a software or seeking guidance on doing something?"
-            - B: "Reporting an issue or a software bug?"
+            - B: "Reporting an issue, an exception, a stack trace, or a software bug?"
             - T: "Reporting a problem with an inaccurate, awkward or erroneous translation?"
             - E: "Contains a suggestion for an improvement or a feature request?"
             - SC: "Describes an issue related to compiling or building source code?"
