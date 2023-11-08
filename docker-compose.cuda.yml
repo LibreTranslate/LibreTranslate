@@ -6,13 +6,17 @@ services:
     build:
       context: .
       dockerfile: docker/cuda.Dockerfile
+    runtime: nvidia
     restart: unless-stopped
+    environment:
+      - LT_DEBUG=True
+      - FLASK_DEBUG=True
     ports:
-      - "5000:5000"
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
+      - "5001:5000"
+#    deploy:
+#      resources:
+#        reservations:
+#          devices:
+#            - driver: nvidia
+#              count: 1
+#              capabilities: [gpu]

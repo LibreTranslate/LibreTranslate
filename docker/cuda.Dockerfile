@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.2.2-devel-ubuntu20.04
+FROM nubitic/l4t-pytorch:r35.1.0-pth1.12-py3
 
 ENV ARGOS_DEVICE_TYPE cuda
 ARG with_models=false
@@ -14,10 +14,21 @@ RUN apt-get update -qq \
     && rm -rf /var/lib/apt
 
 RUN pip3 install --no-cache-dir --upgrade pip && apt-get remove python3-pip --assume-yes
-
+RUN rm -rf /usr/bin/python
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
-RUN pip3 install --no-cache-dir torch==1.12.0+cu116 -f https://download.pytorch.org/whl/torch_stable.html
+RUN git clone --recursive https://github.com/OpenNMT/CTranslate2.git
+RUN rm /app/CTranslate2/CMakeLists.txt
+COPY CMakeLists-CTranslate2.txt CTranslate2/CMakeLists.txt
+RUN mkdir /app/CTranslate2/build
+RUN cd /app/CTranslate2/build && cmake -DWITH_CUDA=ON -DWITH_MKL=OFF -DWITH_CUDNN=ON ..
+RUN cd /app/CTranslate2/build && make -j4
+RUN cd /app/CTranslate2/build && sudo make install
+RUN sudo ldconfig
+RUN sudo apt-get install python3-dev
+RUN cd /app/CTranslate2/python && pip install -r install_requirements.txt
+RUN cd /app/CTranslate2/python && python setup.py bdist_wheel
+RUN cd /app/CTranslate2/python && pip install dist/*.whl
 
 COPY . .
 
@@ -40,6 +51,6 @@ RUN pip3 install Babel==2.12.1 && python3 scripts/compile_locales.py \
 # Depending on your cuda install you may need to uncomment this line to allow the container to access the cuda libraries
 # See: https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions
 # ENV LD_LIBRARY_PATH=/usr/local/cuda/lib:/usr/local/cuda/lib64
-
+ENV LT_DEBUG YES
 EXPOSE 5000
-ENTRYPOINT [ "libretranslate", "--host", "0.0.0.0" ]
+ENTRYPOINT [ "libretranslate", "--debug", "--host", "0.0.0.0" ]

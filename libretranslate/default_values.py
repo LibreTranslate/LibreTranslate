@@ -83,7 +83,7 @@ _default_options_objects = [
     },
     {
         'name': 'DEBUG',
-        'default_value': False,
+        'default_value': True,
         'value_type': 'bool'
     },
     {
