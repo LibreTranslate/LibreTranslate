@@ -356,7 +356,6 @@ This is a list of public LibreTranslate instances, some require an API key. If y
 URL |API Key Required | Links
 --- | --- | ---
 [libretranslate.com](https://libretranslate.com)|:heavy_check_mark:|[ [Get API Key](https://portal.libretranslate.com) ] [ [Service Status](https://status.libretranslate.com/) ]
-[translate.argosopentech.com](https://translate.argosopentech.com/)|-
 [translate.foxhaven.cyou](https://translate.foxhaven.cyou/)|-
 [translate.terraprint.co](https://translate.terraprint.co/)|-
 [trans.zillyhuhn.com](https://trans.zillyhuhn.com/)|-
