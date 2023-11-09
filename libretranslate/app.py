@@ -578,7 +578,7 @@ def create_app(args):
         try:
             if batch:
                 results = []
-                for _idx, text in enumerate(q):
+                for text in q:
                     translator = src_lang.get_translation(tgt_lang)
                     if translator is None:
                         abort(400, description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)", tname=_lazy(tgt_lang.name), tcode=tgt_lang.code, sname=_lazy(src_lang.name), scode=src_lang.code))
