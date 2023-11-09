@@ -733,12 +733,10 @@ def create_app(args):
         if os.path.splitext(file.filename)[1] not in frontend_argos_supported_files_format:
             abort(400, description=_("Invalid request: file format not supported"))
 
-        source_langs = [source_lang]
-        src_langs = [next(iter([l for l in languages if l.code == source_lang]), None) for source_lang in source_langs]
+        src_lang = next(iter([l for l in languages if l.code == source_lang]), None)
 
-        for idx, lang in enumerate(src_langs):
-            if lang is None:
-                abort(400, description=_("%(lang)s is not supported", lang=source_langs[idx]))
+        if src_lang is None:
+            abort(400, description=_("%(lang)s is not supported", lang=source_lang))
 
         tgt_lang = next(iter([l for l in languages if l.code == target_lang]), None)
 
@@ -751,7 +749,7 @@ def create_app(args):
 
             file.save(filepath)
 
-            translated_file_path = argostranslatefiles.translate_file(src_langs[0].get_translation(tgt_lang), filepath)
+            translated_file_path = argostranslatefiles.translate_file(src_lang.get_translation(tgt_lang), filepath)
             translated_filename = os.path.basename(translated_file_path)
 
             return jsonify(
