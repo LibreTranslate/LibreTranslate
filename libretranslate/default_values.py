@@ -62,6 +62,11 @@ _default_options_objects = [
         'value_type': 'str'
     },
     {
+        'name': 'HOURLY_REQ_LIMIT',
+        'default_value': -1,
+        'value_type': 'int'
+    },
+    {
         'name': 'DAILY_REQ_LIMIT',
         'default_value': -1,
         'value_type': 'int'

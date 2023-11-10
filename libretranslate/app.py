@@ -103,7 +103,7 @@ def get_req_limits(default_limit, api_keys_db, multiplier=1):
     return req_limit
 
 
-def get_routes_limits(default_req_limit, daily_req_limit, api_keys_db):
+def get_routes_limits(default_req_limit, hourly_req_limit, daily_req_limit, api_keys_db):
     if default_req_limit == -1:
         # TODO: better way?
         default_req_limit = 9999999999999
@@ -111,10 +111,16 @@ def get_routes_limits(default_req_limit, daily_req_limit, api_keys_db):
     def minute_limits():
         return "%s per minute" % get_req_limits(default_req_limit, api_keys_db)
 
+    def hourly_limits():
+        return "%s per hour" % get_req_limits(hourly_req_limit, api_keys_db, int(os.environ.get("LT_HOURLY_REQ_LIMIT_MULTIPLIER", 60)))
+
     def daily_limits():
-        return "%s per day" % get_req_limits(daily_req_limit, api_keys_db, 1440)
+        return "%s per day" % get_req_limits(daily_req_limit, api_keys_db, int(os.environ.get("LT_DAILY_REQ_LIMIT_MULTIPLIER", 1440)))
 
     res = [minute_limits]
+
+    if hourly_req_limit > 0:
+      res.append(hourly_limits)
 
     if daily_req_limit > 0:
         res.append(daily_limits)
@@ -186,7 +192,7 @@ def create_app(args):
 
     api_keys_db = None
 
-    if args.req_limit > 0 or args.api_keys or args.daily_req_limit > 0:
+    if args.req_limit > 0 or args.api_keys or args.daily_req_limit > 0 or args.hourly_req_limit > 0:
         api_keys_db = None
         if args.api_keys:
             api_keys_db = RemoteDatabase(args.api_keys_remote) if args.api_keys_remote else Database(args.api_keys_db_path)
@@ -196,7 +202,7 @@ def create_app(args):
         limiter = Limiter(
             key_func=get_remote_address,
             default_limits=get_routes_limits(
-                args.req_limit, args.daily_req_limit, api_keys_db
+                args.req_limit, args.hourly_req_limit, args.daily_req_limit, api_keys_db
             ),
             storage_uri=args.req_limit_storage,
         )
