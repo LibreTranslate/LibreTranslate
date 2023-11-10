@@ -36,6 +36,13 @@ def get_args():
         help="Storage URI to use for request limit data storage. See https://flask-limiter.readthedocs.io/en/stable/configuration.html. (%(default)s)",
     )
     parser.add_argument(
+        "--hourly-req-limit",
+        default=DEFARGS['HOURLY_REQ_LIMIT'],
+        type=int,
+        metavar="<number>",
+        help="Set the default maximum number of requests per hour per client, in addition to req-limit. (%(default)s)",
+    )
+    parser.add_argument(
         "--daily-req-limit",
         default=DEFARGS['DAILY_REQ_LIMIT'],
         type=int,
