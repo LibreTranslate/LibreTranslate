@@ -517,7 +517,6 @@ def create_app(args):
                   type: string
                   description: Error message
         """
-        print("/translate")
         if request.is_json:
             json = get_json_dict(request)
             q = json.get("q")
@@ -553,20 +552,21 @@ def create_app(args):
                     description=_("Invalid request: request (%(size)s) exceeds text limit (%(limit)s)", size=batch_size, limit=args.batch_limit),
                 )
 
+        src_texts = q if batch else [q]
+
+        if args.char_limit != -1:
+            for text in src_texts:
+                if len(text) > args.char_limit:
+                    abort(
+                        400,
+                        description=_("Invalid request: request (%(size)s) exceeds text limit (%(limit)s)", size=len(text), limit=args.char_limit),
+                    )
+
         if batch:
             request.req_cost = max(1, len(q))
 
-        if args.char_limit != -1:
-            chars = sum([len(text) for text in q]) if batch else len(q)
-
-            if args.char_limit < chars:
-                abort(
-                    400,
-                    description=_("Invalid request: request (%(size)s) exceeds text limit (%(limit)s)", size=chars, limit=args.char_limit),
-                )
-
         if source_lang == "auto":
-            candidate_langs = detect_languages(q if batch else [q])
+            candidate_langs = detect_languages(src_texts)
             detected_src_lang = candidate_langs[0]
         else:
             detected_src_lang = {"confidence": 100.0, "language": source_lang}
