@@ -767,7 +767,7 @@ def create_app(args):
             # roughly equivalent to a batch process of N batches assuming
             # each batch uses all available limits
             if args.char_limit != -1:
-              request.req_cost = max(1, int(os.path.getsize(filepath) / args.char_limit))
+                request.req_cost = max(1, int(os.path.getsize(filepath) / args.char_limit))
 
             translated_file_path = argostranslatefiles.translate_file(src_lang.get_translation(tgt_lang), filepath)
             translated_filename = os.path.basename(translated_file_path)
