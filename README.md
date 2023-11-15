@@ -606,6 +606,30 @@ Add this to an existing NGINX config or save it as `libretranslate` in the `/etc
 
 </details>
 
+### Can I do batch translations?
+
+Yes, pass an array of strings instead of a string to the `q` field:
+
+```javascript
+const res = await fetch("https://libretranslate.com/translate", {
+  method: "POST",
+  body: JSON.stringify({
+    q: ["Hello", "world"],
+    source: "en",
+    target: "es"
+  }),
+  headers: { "Content-Type": "application/json" }
+});
+
+console.log(await res.json());
+// {
+//     "translatedText": [
+//         "Hola",
+//         "mundo"
+//     ]
+// }
+```
+
 ## Credits
 
 This work is largely possible thanks to [Argos Translate](https://github.com/argosopentech/argos-translate), which powers the translation engine.
