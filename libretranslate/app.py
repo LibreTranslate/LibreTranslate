@@ -205,6 +205,8 @@ def create_app(args):
                 args.req_limit, args.hourly_req_limit, args.daily_req_limit, api_keys_db
             ),
             storage_uri=args.req_limit_storage,
+            default_limits_deduct_when=lambda req: True, # Force cost to be called after the request
+            default_limits_cost=lambda: getattr(request, 'req_cost', 1)
         )
     else:
         from .no_limiter import Limiter
@@ -550,17 +552,21 @@ def create_app(args):
                     description=_("Invalid request: request (%(size)s) exceeds text limit (%(limit)s)", size=batch_size, limit=args.batch_limit),
                 )
 
-        if args.char_limit != -1:
-            chars = sum([len(text) for text in q]) if batch else len(q)
+        src_texts = q if batch else [q]
 
-            if args.char_limit < chars:
-                abort(
-                    400,
-                    description=_("Invalid request: request (%(size)s) exceeds text limit (%(limit)s)", size=chars, limit=args.char_limit),
-                )
+        if args.char_limit != -1:
+            for text in src_texts:
+                if len(text) > args.char_limit:
+                    abort(
+                        400,
+                        description=_("Invalid request: request (%(size)s) exceeds text limit (%(limit)s)", size=len(text), limit=args.char_limit),
+                    )
+
+        if batch:
+            request.req_cost = max(1, len(q))
 
         if source_lang == "auto":
-            candidate_langs = detect_languages(q if batch else [q])
+            candidate_langs = detect_languages(src_texts)
             detected_src_lang = candidate_langs[0]
         else:
             detected_src_lang = {"confidence": 100.0, "language": source_lang}
@@ -754,6 +760,14 @@ def create_app(args):
             filepath = os.path.join(get_upload_dir(), filename)
 
             file.save(filepath)
+
+            # Not an exact science: take the number of bytes and divide by
+            # the character limit. Assuming a plain text file, this will
+            # set the cost of the request to N = bytes / char_limit, which is
+            # roughly equivalent to a batch process of N batches assuming
+            # each batch uses all available limits
+            if args.char_limit != -1:
+                request.req_cost = max(1, int(os.path.getsize(filepath) / args.char_limit))
 
             translated_file_path = argostranslatefiles.translate_file(src_lang.get_translation(tgt_lang), filepath)
             translated_filename = os.path.basename(translated_file_path)
