@@ -9,15 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-09 15:17-0400\n"
-"PO-Revision-Date: 2023-01-10 09:57+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2023-11-18 05:03+0000\n"
+"Last-Translator: symegac <97731141+symegac@users.noreply.github.com>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/libretranslate/"
+"app/da/>\n"
 "Language: da\n"
-"Language-Team: Danish "
-"<https://hosted.weblate.org/projects/libretranslate/app/da/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.2\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:79
@@ -229,7 +230,7 @@ msgstr "Tyrkisk"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Ukranian"
-msgstr "Ukranian"
+msgstr "Ukrainsk"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Vietnamese"
@@ -248,7 +249,6 @@ msgid "translate"
 msgstr "oversætter"
 
 #: libretranslate/locales/.swag.py:4
-#, fuzzy
 msgid "Translate text from a language to another"
 msgstr "Oversæt tekst fra et sprog til et andet"
 
@@ -265,9 +265,8 @@ msgid "Translation error"
 msgstr "Oversættelsesfejl"
 
 #: libretranslate/locales/.swag.py:8
-#, fuzzy
 msgid "Slow down"
-msgstr "Langsomt ned"
+msgstr "Sænk farten"
 
 #: libretranslate/locales/.swag.py:9
 msgid "Banned"
@@ -278,9 +277,8 @@ msgid "Hello world!"
 msgstr "Hej verden!"
 
 #: libretranslate/locales/.swag.py:11
-#, fuzzy
 msgid "Text(s) to translate"
-msgstr "Tekst til at oversætte"
+msgstr "Tekst(er) at oversætte"
 
 #: libretranslate/locales/.swag.py:12
 msgid "Source language code"
@@ -321,9 +319,8 @@ msgid "Translated file"
 msgstr "Oversat fil"
 
 #: libretranslate/locales/.swag.py:20
-#, fuzzy
 msgid "File to translate"
-msgstr "Tekst at oversætte"
+msgstr "Fil at oversætte"
 
 #: libretranslate/locales/.swag.py:21
 msgid "Detect the language of a single text"
@@ -338,9 +335,8 @@ msgid "Detection error"
 msgstr "Registreringsfejl"
 
 #: libretranslate/locales/.swag.py:24
-#, fuzzy
 msgid "Text to detect"
-msgstr "Autodetektor"
+msgstr "Tekst at opdage"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Retrieve frontend specific settings"
@@ -371,23 +367,20 @@ msgid "Original text"
 msgstr "Original tekst"
 
 #: libretranslate/locales/.swag.py:32
-#, fuzzy
 msgid "Suggested translation"
-msgstr "Foreslå oversættelse"
+msgstr "Foreslået oversættelse"
 
 #: libretranslate/locales/.swag.py:33
-#, fuzzy
 msgid "Language of original text"
-msgstr "Angiv sproget for en enkelt tekst"
+msgstr "Originaltekstens sprog"
 
 #: libretranslate/locales/.swag.py:34
-#, fuzzy
 msgid "Language of suggested translation"
-msgstr "Foreslå oversættelse"
+msgstr "Foreslået oversættelses sprog"
 
 #: libretranslate/locales/.swag.py:35
 msgid "feedback"
-msgstr "feedback"
+msgstr "tilbagemelding"
 
 #: libretranslate/locales/.swag.py:36
 msgid "Language code"
@@ -475,7 +468,7 @@ msgstr "Ukendt fejl"
 
 #: libretranslate/templates/app.js.template:287
 msgid "Copied"
-msgstr "Copied"
+msgstr "Kopieret"
 
 #: libretranslate/templates/app.js.template:331
 msgid ""
@@ -582,12 +575,10 @@ msgid "Translate into"
 msgstr "Oversæt til"
 
 #: libretranslate/templates/index.html:210
-#, fuzzy
 msgid "Text to translate"
 msgstr "Tekst at oversætte"
 
 #: libretranslate/templates/index.html:213
-#, fuzzy
 msgid "Delete text"
 msgstr "Slet tekst"
 
@@ -633,9 +624,8 @@ msgid "Response"
 msgstr "Svar"
 
 #: libretranslate/templates/index.html:315
-#, fuzzy
 msgid "Open Source Machine Translation API"
-msgstr "Frit maskinoversættelses-API"
+msgstr "Maskinoversættelses-API med åben kildekode"
 
 #: libretranslate/templates/index.html:316
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
@@ -658,12 +648,11 @@ msgid ""
 msgstr ""
 "Denne offentlige API skal bruges til test, personlig eller sjælden brug. "
 "Hvis du vil køre en ansøgning i produktionen, bedes du venligst "
-"%(host_server)s eller %(get_api_key)s"
+"%(host_server)s eller %(get_api_key)s."
 
 #: libretranslate/templates/index.html:340
-#, fuzzy
 msgid "host your own server"
-msgstr "værts din egen server"
+msgstr "host din egen server"
 
 #: libretranslate/templates/index.html:340
 msgid "get an API key"
@@ -681,4 +670,3 @@ msgstr "%(libretranslate)s-bidragsydere"
 
 #~ msgid "multipart/form-data"
 #~ msgstr "multipart/form-data"
-
