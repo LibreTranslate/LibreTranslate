@@ -43,6 +43,13 @@ def get_args():
         help="Set the default maximum number of requests per hour per client, in addition to req-limit. (%(default)s)",
     )
     parser.add_argument(
+        "--hourly-req-limit-decay",
+        default=DEFARGS['HOURLY_REQ_LIMIT_DECAY'],
+        type=int,
+        metavar="<number>",
+        help="When used in combination with hourly-req-limit, adds additional hourly restrictions that logaritmically decrease for each additional hour. (%(default)s)",
+    )
+    parser.add_argument(
         "--daily-req-limit",
         default=DEFARGS['DAILY_REQ_LIMIT'],
         type=int,

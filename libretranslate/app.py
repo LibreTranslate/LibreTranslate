@@ -89,7 +89,7 @@ def get_remote_address():
     return ip
 
 
-def get_req_limits(default_limit, api_keys_db, multiplier=1):
+def get_req_limits(default_limit, api_keys_db, db_multiplier=1, multiplier=1):
     req_limit = default_limit
 
     if api_keys_db:
@@ -98,12 +98,13 @@ def get_req_limits(default_limit, api_keys_db, multiplier=1):
         if api_key:
             db_req_limit = api_keys_db.lookup(api_key)
             if db_req_limit is not None:
-                req_limit = db_req_limit * multiplier
+                req_limit = db_req_limit * db_multiplier
 
-    return req_limit
+    return int(req_limit * multiplier)
 
 
-def get_routes_limits(default_req_limit, hourly_req_limit, daily_req_limit, api_keys_db):
+def get_routes_limits(args, api_keys_db):
+    default_req_limit = args.req_limit
     if default_req_limit == -1:
         # TODO: better way?
         default_req_limit = 9999999999999
@@ -111,18 +112,22 @@ def get_routes_limits(default_req_limit, hourly_req_limit, daily_req_limit, api_
     def minute_limits():
         return "%s per minute" % get_req_limits(default_req_limit, api_keys_db)
 
-    def hourly_limits():
-        return "%s per hour" % get_req_limits(hourly_req_limit, api_keys_db, int(os.environ.get("LT_HOURLY_REQ_LIMIT_MULTIPLIER", 60)))
+    def hourly_limits(n):
+        def func():
+          decay = (0.75 ** (n - 1))
+          return "{} per {} hour".format(get_req_limits(args.hourly_req_limit * n, api_keys_db, int(os.environ.get("LT_HOURLY_REQ_LIMIT_MULTIPLIER", 60) * n), decay), n)
+        return func
 
     def daily_limits():
-        return "%s per day" % get_req_limits(daily_req_limit, api_keys_db, int(os.environ.get("LT_DAILY_REQ_LIMIT_MULTIPLIER", 1440)))
+        return "%s per day" % get_req_limits(args.daily_req_limit, api_keys_db, int(os.environ.get("LT_DAILY_REQ_LIMIT_MULTIPLIER", 1440)))
 
     res = [minute_limits]
 
-    if hourly_req_limit > 0:
-      res.append(hourly_limits)
+    if args.hourly_req_limit > 0:
+      for n in range(1, args.hourly_req_limit_decay + 2):
+        res.append(hourly_limits(n))
 
-    if daily_req_limit > 0:
+    if args.daily_req_limit > 0:
         res.append(daily_limits)
 
     return res
@@ -202,7 +207,7 @@ def create_app(args):
         limiter = Limiter(
             key_func=get_remote_address,
             default_limits=get_routes_limits(
-                args.req_limit, args.hourly_req_limit, args.daily_req_limit, api_keys_db
+                args, api_keys_db
             ),
             storage_uri=args.req_limit_storage,
             default_limits_deduct_when=lambda req: True, # Force cost to be called after the request

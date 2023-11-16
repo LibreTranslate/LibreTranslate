@@ -67,6 +67,11 @@ _default_options_objects = [
         'value_type': 'int'
     },
     {
+        'name': 'HOURLY_REQ_LIMIT_DECAY',
+        'default_value': 0,
+        'value_type': 'int'
+    },
+    {
         'name': 'DAILY_REQ_LIMIT',
         'default_value': -1,
         'value_type': 'int'
