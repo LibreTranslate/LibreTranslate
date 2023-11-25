@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-09 15:17-0400\n"
-"PO-Revision-Date: 2023-11-22 20:02+0000\n"
-"Last-Translator: Bezruchenko Simon <worcposj44@gmail.com>\n"
+"PO-Revision-Date: 2023-11-26 07:04+0000\n"
+"Last-Translator: Fqwe1 <Fqwe1@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/libretranslate/"
 "app/uk/>\n"
 "Language: uk\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #: libretranslate/app.py:79 libretranslate/app.py:60
 msgid "Invalid JSON format"
-msgstr "Недійсний формат JSON"
+msgstr "Неправильний формат JSON"
 
 #: libretranslate/app.py:149 libretranslate/templates/app.js.template:459
 #: libretranslate/app.py:128 libretranslate/templates/app.js.template:427
