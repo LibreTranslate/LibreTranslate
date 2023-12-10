@@ -227,7 +227,7 @@ gunicorn --bind 0.0.0.0:5000 'wsgi:app(api_keys=True)'
 
 ## Run with Kubernetes
 
-See ["LibreTranslate: your own translation service on Kubernetes" by JM Robles](https://jmrobles.medium.com/libretranslate-your-own-translation-service-on-kubernetes-b46c3e1af630)
+See [Medium article by JM Robles](https://jmrobles.medium.com/libretranslate-your-own-translation-service-on-kubernetes-b46c3e1af630) and the improved [k8s.yaml](https://github.com/LibreTranslate/LibreTranslate/blob/main/k8s.yaml) by @rasos.
 
 ## Manage API Keys
 
