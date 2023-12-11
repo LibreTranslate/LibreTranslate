@@ -78,7 +78,7 @@ def detect_languages(text):
     return [{"confidence": l.confidence, "language": l.code} for l in candidates]
 
 
-def improve_translation_formatting(source, translation, improve_punctuation=True):
+def improve_translation_formatting(source, translation, improve_punctuation=True, remove_single_word_duplicates=True):
     source = source.strip()
 
     if not len(source):
@@ -100,6 +100,21 @@ def improve_translation_formatting(source, translation, improve_punctuation=True
                 translation += source_last_char
         elif translation_last_char in punctuation_chars:
             translation = translation[:-1]
+
+    # A workaround for certain language models that output
+    # the single word repeated ad-infinitum (the "salad" bug)
+    # https://github.com/LibreTranslate/LibreTranslate/issues/46
+    if remove_single_word_duplicates:
+        if len(source) < 20 and source.count(" ") == 0 and translation.count(" ") > 0:
+            bow = translation.split()
+            count = {}
+            for word in bow:
+                count[word] = count.get(word, 0) + 1
+
+            for word in count:
+                if count[word] / len(count) >= 2:
+                    translation = bow[0]
+                    break
 
     if source.islower():
         return translation.lower()
