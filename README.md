@@ -225,20 +225,24 @@ You can pass application arguments directly to Gunicorn via:
 gunicorn --bind 0.0.0.0:5000 'wsgi:app(api_keys=True)'
 ```
 
-## Run with Kubernetes
+## Kubernetes Deployment
 
 See [Medium article by JM Robles](https://jmrobles.medium.com/libretranslate-your-own-translation-service-on-kubernetes-b46c3e1af630) and the improved [k8s.yaml](https://github.com/LibreTranslate/LibreTranslate/blob/main/k8s.yaml) by @rasos.
-
 
 ### Helm Chart
 
 Based on @rasos work you can now install LibreTranslate on Kubernetes using Helm.
-A Helm chart is available in the [chart](chart) directory where you can read the [README](chart/README.md) file for more details.
+
+A Helm chart is now available in the [helm-chart](https://github.com/LibreTranslate/helm-chart/) repository where you can find more details.
 
 You can quickly install LibreTranslate on Kubernetes using Helm with the following command:
 
 ```bash
-helm install libretranslate ./chart --namespace libretranslate --create-namespace
+helm repo add libretranslate https://libretranslate.github.io/helm-chart/
+helm repo update
+helm search repo libretranslate
+
+helm install libretranslate libretranslate --namespace libretranslate --create-namespace
 ```
 
 ## Manage API Keys
