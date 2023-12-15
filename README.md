@@ -229,6 +229,18 @@ gunicorn --bind 0.0.0.0:5000 'wsgi:app(api_keys=True)'
 
 See [Medium article by JM Robles](https://jmrobles.medium.com/libretranslate-your-own-translation-service-on-kubernetes-b46c3e1af630) and the improved [k8s.yaml](https://github.com/LibreTranslate/LibreTranslate/blob/main/k8s.yaml) by @rasos.
 
+
+### Helm Chart
+
+Based on @rasos work you can now install LibreTranslate on Kubernetes using Helm.
+A Helm chart is available in the [chart](chart) directory where you can read the [README](chart/README.md) file for more details.
+
+You can quickly install LibreTranslate on Kubernetes using Helm with the following command:
+
+```bash
+helm install libretranslate ./chart --namespace libretranslate --create-namespace
+```
+
 ## Manage API Keys
 
 LibreTranslate supports per-user limit quotas, e.g. you can issue API keys to users so that they can enjoy higher requests limits per minute (if you also set `--req-limit`). By default all users are rate-limited based on `--req-limit`, but passing an optional `api_key` parameter to the REST endpoints allows a user to enjoy higher request limits.
