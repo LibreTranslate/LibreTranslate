@@ -242,7 +242,7 @@ helm repo add libretranslate https://libretranslate.github.io/helm-chart/
 helm repo update
 helm search repo libretranslate
 
-helm install libretranslate libretranslate --namespace libretranslate --create-namespace
+helm install libretranslate libretranslate/libretranslate --namespace libretranslate --create-namespace
 ```
 
 ## Manage API Keys
