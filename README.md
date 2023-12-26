@@ -451,17 +451,16 @@ Vietnamese |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/v
 
 Help us by opening a pull request!
 
-- [x] A docker image (thanks [@vemonet](https://github.com/vemonet) !)
-- [x] Auto-detect input language (thanks [@vemonet](https://github.com/vemonet) !)
-- [X] User authentication / tokens
 - [ ] Language bindings for every computer language
 - [ ] [Improved translations](https://community.libretranslate.com/t/the-best-way-to-train-models/172)
+
+Any other idea is welcome also.
 
 ## FAQ
 
 ### Can I use your API server at libretranslate.com for my application in production?
 
-In short, no. [You need to buy an API key](https://portal.libretranslate.com). You can always run LibreTranslate for free on your own server of course.
+In short, yes, [but only if you buy an API key](https://portal.libretranslate.com). You can always run LibreTranslate for free on your own server of course.
 
 ### Can I use LibreTranslate behind a reverse proxy, like Apache2 or Caddy?
 
