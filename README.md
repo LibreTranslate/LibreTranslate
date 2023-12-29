@@ -337,7 +337,7 @@ You can use the LibreTranslate API using the following bindings:
 
 ## Discourse Plugin
 
-You can use this [discourse translator plugin](https://github.com/LibreTranslate/discourse-translator) to translate [Discourse](https://discourse.org) topics. To install it simply modify `/var/discourse/containers/app.yml`:
+You can use the [official discourse translator plugin](https://github.com/discourse/discourse-translator) to translate [Discourse](https://discourse.org) topics with LibreTranslate. To install it simply modify `/var/discourse/containers/app.yml`:
 
 ```yaml
 ## Plugins go here
@@ -348,7 +348,7 @@ hooks:
         cd: $home/plugins
         cmd:
           - git clone https://github.com/discourse/docker_manager.git
-          - git clone https://github.com/LibreTranslate/discourse-translator
+          - git clone https://github.com/discourse/discourse-translator
     ...
 ```
 
