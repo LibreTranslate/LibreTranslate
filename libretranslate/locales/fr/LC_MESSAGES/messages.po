@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-09 15:17-0400\n"
-"PO-Revision-Date: 2024-01-02 23:38+0000\n"
+"PO-Revision-Date: 2024-01-04 00:08+0000\n"
 "Last-Translator: EGuillemot <Elouen.Guillemot@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/libretranslate/"
 "app/fr/>\n"
@@ -62,13 +62,13 @@ msgstr "Ralentissement :"
 #: libretranslate/app.py:1059
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr "Requête incorrecte  : le paramètre %(name)s est manquant"
+msgstr "Requête incorrecte : le paramètre %(name)s est manquant"
 
 #: libretranslate/app.py:544 libretranslate/app.py:553
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
-"Demande non valide : la requête (%(size)s) dépasse la limite de texte "
+"Requête non valide : la requête (%(size)s) dépasse la limite de texte "
 "(%(limit)s)"
 
 #: libretranslate/app.py:583 libretranslate/app.py:588
@@ -617,7 +617,7 @@ msgstr "Télécharger"
 
 #: libretranslate/templates/index.html:295
 msgid "Request"
-msgstr "Demande"
+msgstr "Requête"
 
 #: libretranslate/templates/index.html:300
 msgid "Response"
