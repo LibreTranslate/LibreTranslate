@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-09 15:17-0400\n"
 "PO-Revision-Date: 2024-01-02 23:38+0000\n"
-"Last-Translator: EGuillemot <Elouen.Guillemot@gmail.com>\n"
+"Last-Translator: fail a fail <yassadmi@proton.me>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/libretranslate/"
 "app/fr/>\n"
 "Language: fr\n"
@@ -667,7 +667,7 @@ msgstr "Conçu avec %(heart)s par %(contributors)s et propulsé par %(engine)s"
 #: libretranslate/templates/index.html:348
 #, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr "Contributrices et contributeurs %(libretranslate)s"
+msgstr "Contributreurs %(libretranslate)s"
 
 #~ msgid "multipart/form-data"
 #~ msgstr "multipart/form-data"
