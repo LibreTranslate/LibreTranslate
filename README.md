@@ -461,6 +461,10 @@ Any other idea is welcome also.
 
 In short, yes, [but only if you buy an API key](https://portal.libretranslate.com). You can always run LibreTranslate for free on your own server of course.
 
+### Some translations on libretranslate.com are different than the self-hosted ones. Why?
+
+By default language models are loaded from the [argos-index](https://github.com/argosopentech/argospm-index). Sometimes we deploy models on libretranslate.com that haven't been added to the argos-index yet, such as those converted from OPUS ([thread](https://community.libretranslate.com/t/opus-mt-language-models-port-thread/757))
+
 ### Can I use LibreTranslate behind a reverse proxy, like Apache2 or Caddy?
 
 Yes, here are config examples for Apache2 and Caddy that redirect a subdomain (with HTTPS certificate) to LibreTranslate running on a docker at localhost.
