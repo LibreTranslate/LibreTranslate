@@ -9,43 +9,48 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.12\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-09 15:17-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-01-21 01:01+0000\n"
+"Last-Translator: dtalens <databio@gmail.com>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/libretranslate/"
+"app/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4-dev\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:79
 msgid "Invalid JSON format"
-msgstr ""
+msgstr "Format JSON invàlid"
 
 #: libretranslate/app.py:149 libretranslate/templates/app.js.template:459
 msgid "Auto Detect"
-msgstr ""
+msgstr "Detecció automàtica"
 
 #: libretranslate/app.py:232
 msgid "Unauthorized"
-msgstr ""
+msgstr "No autoritzat"
 
 #: libretranslate/app.py:250
 msgid "Too many request limits violations"
-msgstr ""
+msgstr "Massa violacions de límits de la sol·licitud"
 
 #: libretranslate/app.py:257
 msgid "Invalid API key"
-msgstr ""
+msgstr "Clau API invàlida"
 
 #: libretranslate/app.py:276
 msgid "Please contact the server operator to get an API key"
 msgstr ""
+"Si us plau, contacta amb l'administrador del servidor per demanar una clau "
+"API"
 
 #: libretranslate/app.py:278
 #, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr ""
+msgstr "Visita %(url)s per demanar una clau API"
 
 #: libretranslate/app.py:318
 msgid "Slowdown:"
