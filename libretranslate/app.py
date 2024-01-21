@@ -96,11 +96,26 @@ def get_req_limits(default_limit, api_keys_db, db_multiplier=1, multiplier=1):
         api_key = get_req_api_key()
 
         if api_key:
-            db_req_limit = api_keys_db.lookup(api_key)
-            if db_req_limit is not None:
-                req_limit = db_req_limit * db_multiplier
+            api_key_limits = api_keys_db.lookup(api_key)
+            if api_key_limits is not None:
+                req_limit = api_key_limits[0] * db_multiplier
 
     return int(req_limit * multiplier)
+
+
+def get_char_limit(default_limit, api_keys_db):
+    char_limit = default_limit
+
+    if api_keys_db:
+        api_key = get_req_api_key()
+
+        if api_key:
+            api_key_limits = api_keys_db.lookup(api_key)
+            if api_key_limits is not None:
+                if api_key_limits[1] is not None:
+                    char_limit = api_key_limits[1]
+
+    return char_limit
 
 
 def get_routes_limits(args, api_keys_db):
@@ -547,6 +562,8 @@ def create_app(args):
             # https://www.rfc-editor.org/rfc/rfc2046#section-4.1.1
             q = "\n".join(q.splitlines())
 
+        char_limit = get_char_limit(args.char_limit, api_keys_db)
+
         batch = isinstance(q, list)
 
         if batch and args.batch_limit != -1:
@@ -559,12 +576,12 @@ def create_app(args):
 
         src_texts = q if batch else [q]
 
-        if args.char_limit != -1:
+        if char_limit != -1:
             for text in src_texts:
-                if len(text) > args.char_limit:
+                if len(text) > char_limit:
                     abort(
                         400,
-                        description=_("Invalid request: request (%(size)s) exceeds text limit (%(limit)s)", size=len(text), limit=args.char_limit),
+                        description=_("Invalid request: request (%(size)s) exceeds text limit (%(limit)s)", size=len(text), limit=char_limit),
                     )
 
         if batch:
@@ -736,6 +753,7 @@ def create_app(args):
         source_lang = request.form.get("source")
         target_lang = request.form.get("target")
         file = request.files['file']
+        char_limit = get_char_limit(args.char_limit, api_keys_db)
 
         if not file:
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='file'))
@@ -771,8 +789,8 @@ def create_app(args):
             # set the cost of the request to N = bytes / char_limit, which is
             # roughly equivalent to a batch process of N batches assuming
             # each batch uses all available limits
-            if args.char_limit > 0:
-                request.req_cost = max(1, int(os.path.getsize(filepath) / args.char_limit))
+            if char_limit > 0:
+                request.req_cost = max(1, int(os.path.getsize(filepath) / char_limit))
 
             translated_file_path = argostranslatefiles.translate_file(src_lang.get_translation(tgt_lang), filepath)
             translated_filename = os.path.basename(translated_file_path)
