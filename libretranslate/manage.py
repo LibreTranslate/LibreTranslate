@@ -29,6 +29,9 @@ def manage():
     keys_add_parser.add_argument(
         "--key", type=str, default="auto", required=False, help="API Key"
     )
+    keys_add_parser.add_argument(
+        "--char-limit", type=int, default=0, required=False, help="Character limit"
+    )
 
     keys_remove_parser = keys_subparser.add_parser(
         "remove", help="Remove API keys to database"
@@ -52,7 +55,7 @@ def manage():
                     print("{}: {}".format(*item))
 
         elif args.sub_command == "add":
-            print(db.add(args.req_limit, args.key)[0])
+            print(db.add(args.req_limit, args.key, args.char_limit)[0])
         elif args.sub_command == "remove":
             print(db.remove(args.key))
     else:
