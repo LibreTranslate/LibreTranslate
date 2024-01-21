@@ -101,8 +101,11 @@ class RemoteDatabase:
                 print("Cannot authenticate API key: " + str(e))
                 return None
 
-            req_limit = res.get('req_limit', None) if res.get('error', None) is None else None
-            char_limit = res.get('char_limit', None) if res.get('error', None) is None else None
+            if res.get('error') is not None:
+                return None
+
+            req_limit = res.get('req_limit', None)
+            char_limit = res.get('char_limit', None)
 
             self.cache[api_key] = (req_limit, char_limit)
 
