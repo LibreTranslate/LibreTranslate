@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-09 15:17-0400\n"
-"PO-Revision-Date: 2024-01-10 18:14+0000\n"
+"PO-Revision-Date: 2024-01-23 14:01+0000\n"
 "Last-Translator: Michal Čihař <michal@weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/libretranslate/app/"
 "cs/>\n"
@@ -395,7 +395,7 @@ msgstr "Podporované cílové jazykové kódy"
 
 #: libretranslate/locales/.swag.py:39
 msgid "Translated text(s)"
-msgstr "Přeložit text(y)"
+msgstr "Přeložený text(y)"
 
 #: libretranslate/locales/.swag.py:40
 msgid "Error message"
@@ -495,7 +495,7 @@ msgstr "obraťte se na provozovatele serveru."
 #: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:336
 msgid "Free and Open Source Machine Translation API"
-msgstr "Zadaramo a Open Source API strojového překladu"
+msgstr "Zdarma a Open Source API strojového překladu"
 
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
