@@ -655,6 +655,14 @@ console.log(await res.json());
 // }
 ```
 
+## Contributing
+
+We welcome contributions! Here's some ideas:
+
+* Train a new language model using [Locomotive](https://github.com/LibreTranslate/Locomotive). For example, [Estonian](https://community.libretranslate.com/t/help-wanted-estonian-model-for-argos-translate/875/2) and many others are still missing.
+* Can you beat the performance of our language models? Train a new one and let's compare it.
+* Pick an [issue](https://github.com/LibreTranslate/LibreTranslate/issues) to work on.
+
 ## Credits
 
 This work is largely possible thanks to [Argos Translate](https://github.com/argosopentech/argos-translate), which powers the translation engine.
