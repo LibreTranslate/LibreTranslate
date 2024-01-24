@@ -30,6 +30,8 @@ USER libretranslate
 COPY --from=builder --chown=1032:1032 /app /app
 WORKDIR /app
 
+COPY --from=builder --chown=1032:1032 /app/venv/bin/ltmanage /bin/
+
 RUN if [ "$with_models" = "true" ]; then  \
   # initialize the language models
   if [ ! -z "$models" ]; then \
