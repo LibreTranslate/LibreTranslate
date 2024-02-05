@@ -82,6 +82,11 @@ _default_options_objects = [
         'value_type': 'int'
     },
     {
+        'name': 'REQ_TIME_COST',
+        'default_value': -1,
+        'value_type': 'int'
+    },
+    {
         'name': 'BATCH_LIMIT',
         'default_value': -1,
         'value_type': 'int'

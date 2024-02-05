@@ -1,4 +1,5 @@
 import io
+import math
 import os
 import re
 import tempfile
@@ -219,6 +220,13 @@ def create_app(args):
 
         from flask_limiter import Limiter
 
+        def limits_cost():
+          req_cost = getattr(request, 'req_cost', 1)
+          if args.req_time_cost > 0:
+            return max(req_cost, int(math.ceil(getattr(request, 'duration', 0) / args.req_time_cost)))
+          else:
+            return req_cost
+
         limiter = Limiter(
             key_func=get_remote_address,
             default_limits=get_routes_limits(
@@ -226,7 +234,7 @@ def create_app(args):
             ),
             storage_uri=args.req_limit_storage,
             default_limits_deduct_when=lambda req: True, # Force cost to be called after the request
-            default_limits_cost=lambda: getattr(request, 'req_cost', 1)
+            default_limits_cost=limits_cost
         )
     else:
         from .no_limiter import Limiter
@@ -325,12 +333,19 @@ def create_app(args):
                 status = e.code
                 raise e
               finally:
-                duration = max(default_timer() - start_t, 0)
-                measure_request.labels(request.path, status, ip, ak).observe(duration)
+                request.duration = max(default_timer() - start_t, 0)
+                measure_request.labels(request.path, status, ip, ak).observe(request.duration)
                 g.dec()
           return measure_func
         else:
-          return func
+          @wraps(func)
+          def time_func(*a, **kw):
+            start_t = default_timer()
+            try:
+              return func(*a, **kw)
+            finally:
+              request.duration = max(default_timer() - start_t, 0)
+          return time_func
 
     @bp.errorhandler(400)
     def invalid_api(e):
