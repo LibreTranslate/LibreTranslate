@@ -9,8 +9,6 @@ repos:
       name: " ✔️  Check TOML"
     - id: check-json
       name: " ✔️  Check JSON"
-    - id: trailing-whitespace
-      name: " ✂️  Trim trailing whitespaces"
   - repo: https://github.com/charliermarsh/ruff-pre-commit
     rev: v0.0.277
     hooks:
