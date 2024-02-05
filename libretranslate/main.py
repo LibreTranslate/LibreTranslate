@@ -64,6 +64,13 @@ def get_args():
         help="Set the maximum number of request limit offences that a client can exceed before being banned. (%(default)s)",
     )
     parser.add_argument(
+        "--req-time-cost",
+        default=DEFARGS['REQ_TIME_COST'],
+        type=int,
+        metavar="<number>",
+        help="Considers a time cost (in seconds) for request limiting purposes. If a request takes 10 seconds and this value is set to 5, the request cost is either 2 or the actual request cost (whichever is greater). (%(default)s)",
+    )
+    parser.add_argument(
         "--batch-limit",
         default=DEFARGS['BATCH_LIMIT'],
         type=int,
