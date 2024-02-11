@@ -658,7 +658,7 @@ console.log(await res.json());
 
 ## Contributing
 
-We welcome contributions! Here's some ideas:
+We welcome contributions! Here's some ideas that take less than 90 hours:
 
 * Train a new language model using [Locomotive](https://github.com/LibreTranslate/Locomotive). For example, [Estonian](https://community.libretranslate.com/t/help-wanted-estonian-model-for-argos-translate/875/2) and many others are still missing.
 * Can you beat the performance of our language models? Train a new one and let's compare it.
