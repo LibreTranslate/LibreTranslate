@@ -472,6 +472,10 @@ In short, yes, [but only if you buy an API key](https://portal.libretranslate.co
 
 By default language models are loaded from the [argos-index](https://github.com/argosopentech/argospm-index). Sometimes we deploy models on libretranslate.com that haven't been added to the argos-index yet, such as those converted from OPUS ([thread](https://community.libretranslate.com/t/opus-mt-language-models-port-thread/757))
 
+### Where are the language models saved?
+
+In `$HOME/.local/share/argos-translate/packages`. On Windows that's `C:\Users\youruser\.local\share\argos-translate\packages`.
+
 ### Can I use LibreTranslate behind a reverse proxy, like Apache2 or Caddy?
 
 Yes, here are config examples for Apache2 and Caddy that redirect a subdomain (with HTTPS certificate) to LibreTranslate running on a docker at localhost.
