@@ -11,18 +11,18 @@
 	<meta name="keywords" content="{{ _h('translation') }},{{ _h('api') }}">
 	{% endif %}
 
-	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	<link rel="shortcut icon" href="favicon.ico">
 
-	<link rel="preload" href="{{ url_for('static', filename='icon.svg') }}" as="image" />
-	<link rel="preload" href="{{ url_for('static', filename='js/vue@2.js') }}" as="script">
-	<link rel="preload" href="{{ url_for('static', filename='js/materialize.min.js') }}" as="script">
-	<link rel="preload" href="{{ url_for('static', filename='js/prism.min.js') }}" as="script">
+	<link rel="preload" href="icon.svg" as="image" />
+	<link rel="preload" href="js/vue@2.js" as="script">
+	<link rel="preload" href="js/materialize.min.js" as="script">
+	<link rel="preload" href="js/prism.min.js" as="script">
 	<link rel="preload" href="js/app.js?v={{ version }}" as="script">
 
-	<link rel="preload" href="{{ url_for('static', filename='css/materialize.min.css') }}" as="style"/>
-	<link rel="preload" href="{{ url_for('static', filename='css/material-icons.css') }}" as="style"/>
-	<link rel="preload" href="{{ url_for('static', filename='css/prism.min.css') }}" as="style"/>
-	<link rel="preload" href="{{ url_for('static', filename='css/main.css') }}?v={{ version }}" as="style"/>
+	<link rel="preload" href="css/materialize.min.css" as="style"/>
+	<link rel="preload" href="css/material-icons.css" as="style"/>
+	<link rel="preload" href="css/prism.min.css" as="style"/>
+	<link rel="preload" href="css/main.css?v={{ version }}" as="style"/>
 
 	<meta property="og:title" content="LibreTranslate - {{ _h('Free and Open Source Machine Translation API') }}" />
 	<meta property="og:type" content="website" />
@@ -30,7 +30,7 @@
 	<meta property="og:image" content="https://user-images.githubusercontent.com/1951843/102724116-32a6df00-42db-11eb-8cc0-129ab39cdfb5.png" />
 	<meta property="og:description" name="description" class="swiftype" content="{{ _h('Free and Open Source Machine Translation API. Self-hosted, offline capable and easy to setup. Run your own API server in just a few minutes.') }}"/>
 
-	<script src="{{ url_for('static', filename='js/vue@2.js') }}"></script>
+	<script src="js/vue@2.js"></script>
 
 
 	{% if gaId %}
@@ -45,10 +45,10 @@
 	{% endif %}
 
 	<!-- Compiled and minified CSS -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/material-icons.css') }}" />
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/prism.min.css') }}" />
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}?v={{ version }}" />
+	<link rel="stylesheet" href="css/materialize.min.css">
+	<link rel="stylesheet" href="css/material-icons.css" />
+	<link rel="stylesheet" href="css/prism.min.css" />
+	<link rel="stylesheet" href="css/main.css?v={{ version }}" />
 </head>
 
 <body>
@@ -57,7 +57,7 @@
 			<div class="nav-wrapper container">
 				<button data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></button>
 				<a id="logo-container" href="/" class="brand-logo noline">
-					<img src="{{ url_for('static', filename='icon.svg') }}" alt="" class="logo">
+					<img src="icon.svg" alt="" class="logo">
 					<span>LibreTranslate</span>
 				</a>
 				<ul id="nav" class="right hide-on-med-and-down top-nav position-relative">
@@ -345,14 +345,14 @@
 		</div>
 	</footer>
 
-	<script src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
+	<script src="js/materialize.min.js"></script>
 	<script>
 	// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-3.0
 	window.Prism = window.Prism || {};
 	window.Prism.manual = true;
 	// @license-end
 	</script>
-	<script src="{{ url_for('static', filename='js/prism.min.js') }}"></script>
+	<script src="js/prism.min.js"></script>
 	<script src="js/app.js?v={{ version }}"></script>
 </body>
 </html>
