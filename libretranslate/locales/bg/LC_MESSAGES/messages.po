@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.12\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-09 15:17-0400\n"
-"PO-Revision-Date: 2024-02-15 18:02+0000\n"
+"PO-Revision-Date: 2024-02-17 02:36+0000\n"
 "Last-Translator: Salif Mehmed <mail@salif.eu>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/libretranslate/"
 "app/bg/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.4\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:79
@@ -35,7 +35,7 @@ msgstr "Неоторизиран"
 
 #: libretranslate/app.py:250
 msgid "Too many request limits violations"
-msgstr ""
+msgstr "Твърде много нарушения на ограниченията на заявките"
 
 #: libretranslate/app.py:257
 msgid "Invalid API key"
@@ -411,27 +411,29 @@ msgstr "Адрес на преведен файл"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Confidence value"
-msgstr ""
+msgstr "Стойност на увереност"
 
 #: libretranslate/locales/.swag.py:44
 msgid "Character input limit for this language (-1 indicates no limit)"
 msgstr ""
+"Ограничение за въвеждане на символи за този език (-1 означава, че няма "
+"ограничение)"
 
 #: libretranslate/locales/.swag.py:45
 msgid "Frontend translation timeout"
-msgstr ""
+msgstr "Време за изчакване на превода през клиентската част"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Whether the API key database is enabled."
-msgstr ""
+msgstr "Дали базата данни с API ключове е включена."
 
 #: libretranslate/locales/.swag.py:47
 msgid "Whether an API key is required."
-msgstr ""
+msgstr "Дали API ключ е задължителен."
 
 #: libretranslate/locales/.swag.py:48
 msgid "Whether submitting suggestions is enabled."
-msgstr ""
+msgstr "Дали изпращането на предложения е включено."
 
 #: libretranslate/locales/.swag.py:49
 msgid "Supported files format"
@@ -439,7 +441,7 @@ msgstr "Поддържан файлов формат"
 
 #: libretranslate/locales/.swag.py:50
 msgid "Whether submission was successful"
-msgstr ""
+msgstr "Дали подаването е било успешно"
 
 #: libretranslate/templates/app.js.template:31
 #: libretranslate/templates/app.js.template:286
@@ -474,10 +476,12 @@ msgid ""
 "Thanks for your correction. Note the suggestion will not take effect "
 "right away."
 msgstr ""
+"Благодарности за поправката. Имайте предвид, че предложението няма да влезе "
+"в сила веднага."
 
 #: libretranslate/templates/app.js.template:455
 msgid "No languages available. Did you install the models correctly?"
-msgstr ""
+msgstr "Няма налични езици. Правилно ли инсталирахте моделите?"
 
 #: libretranslate/templates/app.js.template:522
 #, python-format
@@ -490,12 +494,12 @@ msgstr "натиснете връзката „Получаване на API к�
 
 #: libretranslate/templates/app.js.template:522
 msgid "contact the server operator."
-msgstr ""
+msgstr "свържете се с оператора на сървъра."
 
 #: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:336
 msgid "Free and Open Source Machine Translation API"
-msgstr ""
+msgstr "Свободен API с отворен код за машинен превод"
 
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
@@ -503,6 +507,9 @@ msgid ""
 "Free and Open Source Machine Translation API. Self-hosted, offline "
 "capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
+"Свободен API с отворен код за машинен превод. Самостоятелен хостинг, офлайн "
+"способност и лесен за настройка. Стартирайте свой собствен API сървър само "
+"за няколко минути."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -640,10 +647,13 @@ msgid ""
 "If you're going to run an application in production, please "
 "%(host_server)s or %(get_api_key)s."
 msgstr ""
+"Този публичен API трябва да се използва за тестване, лична или рядка "
+"употреба. Ако възнамерявате да стартирате приложение в продукция, моля "
+"%(host_server)s или %(get_api_key)s."
 
 #: libretranslate/templates/index.html:340
 msgid "host your own server"
-msgstr ""
+msgstr "хоствайте свой собствен сървър"
 
 #: libretranslate/templates/index.html:340
 msgid "get an API key"
