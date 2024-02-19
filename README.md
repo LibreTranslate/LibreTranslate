@@ -331,6 +331,7 @@ You can use the LibreTranslate API using the following bindings:
 
 - Rust: <https://github.com/DefunctLizard/libretranslate-rs>
 - Node.js: <https://github.com/franciscop/translate>
+- TypeScript: <https://github.com/tderflinger/libretranslate-ts>
 - .Net: <https://github.com/sigaloid/LibreTranslate.Net>
 - Go: <https://github.com/SnakeSel/libretranslate>
 - Python: <https://github.com/argosopentech/LibreTranslate-py>
