@@ -663,7 +663,7 @@ console.log(await res.json());
 
 ## Contributing
 
-We welcome contributions! Here's some ideas that take less than 90 hours:
+We welcome contributions! Here's some ideas:
 
 * Train a new language model using [Locomotive](https://github.com/LibreTranslate/Locomotive). For example, we want to train improved neural networks for [German](https://community.libretranslate.com/t/help-wanted-improve-en-de-translation/935) and many other languages.
 * Can you beat the performance of our language models? Train a new one and let's compare it. To submit your model make a post on the [community forum](https://community.libretranslate.com/) with a link to download your .argosmodel file and some sample text that your model has translated.
