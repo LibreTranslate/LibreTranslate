@@ -342,6 +342,7 @@ You can use the LibreTranslate API using the following bindings:
 - Shell: <https://github.com/Hayao0819/Hayao-Tools/tree/master/libretranslate-sh>
 - Java: <https://github.com/suuft/libretranslate-java>
 - Ruby: <https://github.com/noesya/libretranslate>
+- R: <https://github.com/myanesp/libretranslateR>
 
 ## Discourse Plugin
 
