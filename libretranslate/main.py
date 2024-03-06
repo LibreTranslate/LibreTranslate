@@ -215,6 +215,10 @@ def main():
     if '--wsgi' in sys.argv:
         return app
     else:
+        if args.debug and args.host == "*":
+            # '::' will listen on both ipv6 and ipv4
+            args.host = "::"
+
         if args.debug:
             app.run(host=args.host, port=args.port)
         else:
