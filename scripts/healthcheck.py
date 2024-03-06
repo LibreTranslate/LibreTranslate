@@ -1,7 +1,7 @@
 import requests
 
 response = requests.post(
-    url='http://[::1]:5000/translate',
+    url='http://localhost:5000/translate',
     headers={'Content-Type': 'application/json'},
     json={
          'q': 'Hello World!',
