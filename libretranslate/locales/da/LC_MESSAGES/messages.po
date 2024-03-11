@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-09 15:17-0400\n"
-"PO-Revision-Date: 2024-01-15 00:06+0000\n"
+"PO-Revision-Date: 2024-03-12 22:01+0000\n"
 "Last-Translator: symegac <97731141+symegac@users.noreply.github.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/libretranslate/"
 "app/da/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:79
@@ -34,9 +34,8 @@ msgid "Unauthorized"
 msgstr "Uautoriseret"
 
 #: libretranslate/app.py:250
-#, fuzzy
 msgid "Too many request limits violations"
-msgstr "For mange anmodninger begrænser overtrædelser"
+msgstr "For mange overtrædelser af anmodningsbegrænsninger"
 
 #: libretranslate/app.py:257
 msgid "Invalid API key"
