@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-06-03 02:40+0000\n"
-"Last-Translator: \"T. Alexander\" <theools@gmail.com>\n"
+"PO-Revision-Date: 2024-03-25 12:01+0000\n"
+"Last-Translator: Kaleido Scope <senpai@firemail.cc>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "libretranslate/app/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -36,7 +36,7 @@ msgstr "Ikke godkjent"
 #: libretranslate/app.py:211
 #, fuzzy
 msgid "Too many request limits violations"
-msgstr "For mange forespørsler"
+msgstr "For mange brudd på forespørselsgrensene"
 
 #: libretranslate/app.py:220
 msgid "Invalid API key"
@@ -278,7 +278,7 @@ msgstr "Bannlyst"
 
 #: libretranslate/locales/.swag.py:10
 msgid "Hello world!"
-msgstr "Hei verden."
+msgstr "Hei verden!"
 
 #: libretranslate/locales/.swag.py:11
 msgid "Text(s) to translate"
@@ -297,7 +297,6 @@ msgid "text"
 msgstr "tekst"
 
 #: libretranslate/locales/.swag.py:15
-#, fuzzy
 msgid "html"
 msgstr "HTML"
 
