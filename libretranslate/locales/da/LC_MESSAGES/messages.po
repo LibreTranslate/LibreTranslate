@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-09 15:17-0400\n"
 "PO-Revision-Date: 2024-03-25 12:01+0000\n"
-"Last-Translator: symegac <97731141+symegac@users.noreply.github.com>\n"
+"Last-Translator: cat <158170307+cultcats@users.noreply.github.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/libretranslate/"
 "app/da/>\n"
 "Language: da\n"
@@ -436,7 +436,7 @@ msgstr "Om indsendelse af forslag er aktiveret."
 
 #: libretranslate/locales/.swag.py:49
 msgid "Supported files format"
-msgstr "Understøttet filformat"
+msgstr "Understøttede filformater"
 
 #: libretranslate/locales/.swag.py:50
 msgid "Whether submission was successful"
