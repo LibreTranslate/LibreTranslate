@@ -858,7 +858,7 @@ def create_app(args):
             name: q
             schema:
               type: string
-              example: Hello world!
+              example: What language is this?
             required: true
             description: Text to detect
           - in: formData
@@ -879,11 +879,11 @@ def create_app(args):
                 properties:
                   confidence:
                     type: number
-                    format: float
+                    format: integer
                     minimum: 0
-                    maximum: 1
+                    maximum: 100
                     description: Confidence value
-                    example: 0.6
+                    example: 100
                   language:
                     type: string
                     description: Language code
