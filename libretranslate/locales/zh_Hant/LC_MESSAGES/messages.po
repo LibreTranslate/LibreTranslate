@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-05-18 17:53+0000\n"
-"Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
+"PO-Revision-Date: 2024-03-28 21:01+0000\n"
+"Last-Translator: I Just Me <rot2k5.yahoo@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "libretranslate/app/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -320,7 +320,7 @@ msgstr "需要翻譯的檔案"
 
 #: libretranslate/locales/.swag.py:21
 msgid "Detect the language of a single text"
-msgstr "檢測單一文字的語言"
+msgstr "检测单一案文的措辞"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Detections"
