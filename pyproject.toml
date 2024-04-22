@@ -81,6 +81,8 @@ Documentation = "https://github.com/LibreTranslate/LibreTranslate"
 Tracker = "https://github.com/LibreTranslate/LibreTranslate/issues"
 History = "https://github.com/LibreTranslate/LibreTranslate/releases"
 
+[tool.hatch.build]
+artifacts = ["*.mo"]
 
 # ENVIRONMENTS AND SCRIPTS
 [tool.hatch.envs.default]
