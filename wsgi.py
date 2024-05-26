@@ -1,8 +1,9 @@
+import sys
+
 from libretranslate import main
 
 
 def app(*args, **kwargs):
-    import sys
     sys.argv = ['--wsgi']
     for k in kwargs:
         ck = k.replace("_", "-")
@@ -15,6 +16,6 @@ def app(*args, **kwargs):
     instance = main()
 
     if len(kwargs) == 0:
-        return instance(*args, **kwargs)
-    else:
         return instance
+    else:
+        return instance(*args, **kwargs)
