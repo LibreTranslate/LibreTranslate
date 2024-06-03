@@ -70,7 +70,7 @@ Response:
 }
 ```
 
-### HTML (beta)
+### HTML
 
 Request:
 
@@ -94,6 +94,38 @@ Response:
 ```javascript
 {
     "translatedText": "<p class=\"green\">¡Hola!</p>"
+}
+```
+
+### Alternative Translations
+
+Request:
+
+```javascript
+const res = await fetch("https://libretranslate.com/translate", {
+	method: "POST",
+	body: JSON.stringify({
+		q: "Hello",
+		source: "en",
+		target: "it",
+		format: "text",
+		alternatives: 3
+	}),
+	headers: { "Content-Type": "application/json" }
+});
+
+console.log(await res.json());
+```
+
+Response:
+
+```javascript
+{
+    "alternatives": [
+        "Salve",
+        "Pronto"
+    ],
+    "translatedText": "Ciao"
 }
 ```
 
