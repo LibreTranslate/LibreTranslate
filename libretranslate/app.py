@@ -586,12 +586,12 @@ def create_app(args):
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='target'))
         
         try:
-          num_alternatives = max(0, int(num_alternatives))
+            num_alternatives = max(0, int(num_alternatives))
         except ValueError:
-          abort(400, description=_("Invalid request: %(name)s parameter is not a number", name='alternatives'))
+            abort(400, description=_("Invalid request: %(name)s parameter is not a number", name='alternatives'))
 
         if args.alternatives_limit != -1 and num_alternatives > args.alternatives_limit:
-          abort(400, description=_("Invalid request: %(name)s parameter must be <= %(value)s", name='alternatives', value=args.alternatives_limit))
+            abort(400, description=_("Invalid request: %(name)s parameter must be <= %(value)s", name='alternatives', value=args.alternatives_limit))
 
         if not request.is_json:
             # Normalize line endings to UNIX style (LF) only so we can consistently
