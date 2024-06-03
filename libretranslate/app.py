@@ -148,8 +148,8 @@ def get_routes_limits(args, api_keys_db):
 
     return res
 
-def unique_list(seq, extra):
-    seen = set({extra})
+def filter_unique(seq, extra):
+    seen = set({extra, ""})
     seen_add = seen.add
     return [x for x in seq if not (x in seen or seen_add(x))]
 
@@ -661,7 +661,7 @@ def create_app(args):
                     else:
                         hypotheses = translator.hypotheses(text, num_alternatives + 1)
                         translated_text = unescape(improve_translation_formatting(text, hypotheses[0].value))
-                        alternatives = unique_list([unescape(improve_translation_formatting(text, hypotheses[i].value)) for i in range(1, len(hypotheses))], translated_text)
+                        alternatives = filter_unique([unescape(improve_translation_formatting(text, hypotheses[i].value)) for i in range(1, len(hypotheses))], translated_text)
 
                     batch_results.append(translated_text)
                     batch_alternatives.append(alternatives)
@@ -685,7 +685,7 @@ def create_app(args):
                 else:
                     hypotheses = translator.hypotheses(q, num_alternatives + 1)
                     translated_text = unescape(improve_translation_formatting(q, hypotheses[0].value))
-                    alternatives = unique_list([unescape(improve_translation_formatting(q, hypotheses[i].value)) for i in range(1, len(hypotheses))], translated_text)
+                    alternatives = filter_unique([unescape(improve_translation_formatting(q, hypotheses[i].value)) for i in range(1, len(hypotheses))], translated_text)
 
                 result = {"translatedText": translated_text}
 
