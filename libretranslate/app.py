@@ -148,6 +148,10 @@ def get_routes_limits(args, api_keys_db):
 
     return res
 
+def unique_list(seq):
+    seen = set()
+    seen_add = seen.add
+    return [x for x in seq if not (x in seen or seen_add(x))]
 
 def create_app(args):
     from libretranslate.init import boot
@@ -497,6 +501,14 @@ def create_app(args):
                * `text` - Plain text
                * `html` - HTML markup
           - in: formData
+            name: alternatives
+            schema:
+              type: integer
+              default: 0
+              example: 3
+            required: false
+            description: Preferred number of alternative translations 
+          - in: formData
             name: api_key
             schema:
               type: string
@@ -558,11 +570,13 @@ def create_app(args):
             source_lang = json.get("source")
             target_lang = json.get("target")
             text_format = json.get("format")
+            num_alternatives = int(json.get("alternatives", 0))
         else:
             q = request.values.get("q")
             source_lang = request.values.get("source")
             target_lang = request.values.get("target")
             text_format = request.values.get("format")
+            num_alternatives = request.values.get("alternatives", 0)
 
         if not q:
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='q'))
@@ -570,6 +584,14 @@ def create_app(args):
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='source'))
         if not target_lang:
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='target'))
+        
+        try:
+          num_alternatives = max(0, int(num_alternatives))
+        except ValueError:
+          abort(400, description=_("Invalid request: %(name)s parameter is not a number", name='alternatives'))
+
+        if args.alternatives_limit != -1 and num_alternatives > args.alternatives_limit:
+          abort(400, description=_("Invalid request: %(name)s parameter must be <= %(value)s", name='alternatives', value=args.alternatives_limit))
 
         if not request.is_json:
             # Normalize line endings to UNIX style (LF) only so we can consistently
@@ -626,54 +648,53 @@ def create_app(args):
 
         try:
             if batch:
-                results = []
+                batch_results = []
+                batch_alternatives = []
                 for text in q:
                     translator = src_lang.get_translation(tgt_lang)
                     if translator is None:
                         abort(400, description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)", tname=_lazy(tgt_lang.name), tcode=tgt_lang.code, sname=_lazy(src_lang.name), scode=src_lang.code))
 
                     if text_format == "html":
-                        translated_text = str(translate_html(translator, text))
+                        translated_text = unescape(str(translate_html(translator, text)))
+                        alternatives = [] # Not supported for html yet
                     else:
-                        translated_text = improve_translation_formatting(text, translator.translate(text))
+                        hypotheses = translator.hypotheses(text, num_alternatives + 1)
+                        translated_text = unescape(improve_translation_formatting(text, hypotheses[0].value))
+                        alternatives = unique_list([unescape(improve_translation_formatting(text, hypotheses[i].value)) for i in range(1, len(hypotheses))])
 
-                    results.append(unescape(translated_text))
+                    batch_results.append(translated_text)
+                    batch_alternatives.append(alternatives)
+                
+                result = {"translatedText": batch_results}
+
                 if source_lang == "auto":
-                    return jsonify(
-                        {
-                            "translatedText": results,
-                            "detectedLanguage": [detected_src_lang] * len(q)
-                        }
-                    )
-                else:
-                    return jsonify(
-                          {
-                            "translatedText": results
-                          }
-                    )
+                    result["detectedLanguage"] = [detected_src_lang] * len(q)
+                if num_alternatives > 0:
+                    result["alternatives"] = batch_alternatives
+
+                return jsonify(result)
             else:
                 translator = src_lang.get_translation(tgt_lang)
                 if translator is None:
                     abort(400, description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)", tname=_lazy(tgt_lang.name), tcode=tgt_lang.code, sname=_lazy(src_lang.name), scode=src_lang.code))
 
                 if text_format == "html":
-                    translated_text = str(translate_html(translator, q))
+                    translated_text = unescape(str(translate_html(translator, q)))
+                    alternatives = [] # Not supported for html yet
                 else:
-                    translated_text = improve_translation_formatting(q, translator.translate(q))
+                    hypotheses = translator.hypotheses(q, num_alternatives + 1)
+                    translated_text = unescape(improve_translation_formatting(q, hypotheses[0].value))
+                    alternatives = unique_list([unescape(improve_translation_formatting(q, hypotheses[i].value)) for i in range(1, len(hypotheses))])
+
+                result = {"translatedText": translated_text}
 
                 if source_lang == "auto":
-                    return jsonify(
-                        {
-                            "translatedText": unescape(translated_text),
-                            "detectedLanguage": detected_src_lang
-                        }
-                    )
-                else:
-                    return jsonify(
-                        {
-                            "translatedText": unescape(translated_text)
-                        }
-                    )
+                    result["detectedLanguage"] = detected_src_lang
+                if num_alternatives > 0:
+                    result["alternatives"] = alternatives
+
+                return jsonify(result)
         except Exception as e:
             raise e
             abort(500, description=_("Cannot translate text: %(text)s", text=str(e)))

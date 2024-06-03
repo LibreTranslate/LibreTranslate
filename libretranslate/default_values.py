@@ -162,6 +162,11 @@ _default_options_objects = [
         'value_type': 'str'
     },
     {
+        'name': 'ALTERNATIVES_LIMIT',
+        'default_value': -1,
+        'value_type': 'int'
+    },
+    {
         'name': 'THREADS',
         'default_value': 4,
         'value_type': 'int'
