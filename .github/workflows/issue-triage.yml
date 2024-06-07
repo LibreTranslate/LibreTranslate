@@ -19,12 +19,13 @@ jobs:
             - Q: "A question about using a software or seeking guidance on doing something?"
             - B: "Reporting an issue, an exception, a stack trace, or a software bug?"
             - T: "Reporting a problem with an inaccurate, awkward or erroneous translation?"
-            - E: "Contains a suggestion for an improvement or a feature request?"
+            - E: "Reporting about some missing feature or functionality?"
             - SC: "Describes an issue related to compiling or building source code?"
           logic: |
             - "Q and (not B) and (not E) and (not SC)": [comment: "Could we move this conversation over to the forum at https://community.libretranslate.com? :pray: The forum is the right place to ask questions (we try to keep the GitHub issue tracker for feature requests and bugs only). Thank you! :+1:", close: true, stop: true]
             - "B and (not T) and (not E) and (not SC)": [label: "possible bug", stop: true]
-            - "T or E": [label: "enhancement", stop: true]
+            - "T and (not E)": [label: "model improvement", stop: true]
+            - "E": [label: "enhancement", stop: true]
             - "SC": [label: "possible bug"]
 
           signature: "p.s. I'm just an automated script, not a human being."
