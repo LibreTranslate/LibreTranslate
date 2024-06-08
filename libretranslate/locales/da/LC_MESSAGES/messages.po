@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-09 15:17-0400\n"
-"PO-Revision-Date: 2024-03-25 12:01+0000\n"
-"Last-Translator: cat <158170307+cultcats@users.noreply.github.com>\n"
+"PO-Revision-Date: 2024-06-09 17:09+0000\n"
+"Last-Translator: Luna <social.pvxuu@slmail.me>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/libretranslate/"
 "app/da/>\n"
 "Language: da\n"
@@ -18,16 +18,16 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:79
 msgid "Invalid JSON format"
-msgstr "Ugyldig JSON format"
+msgstr "Ugyldigt JSON-format"
 
 #: libretranslate/app.py:149 libretranslate/templates/app.js.template:459
 msgid "Auto Detect"
-msgstr "Auto detektor"
+msgstr "Auto-registrer"
 
 #: libretranslate/app.py:232
 msgid "Unauthorized"
@@ -52,7 +52,7 @@ msgstr "Besøg %(url)s for at få en API-nøgle"
 
 #: libretranslate/app.py:318
 msgid "Slowdown:"
-msgstr "Nedbremsning:"
+msgstr "Nedsættelse:"
 
 #: libretranslate/app.py:525 libretranslate/app.py:527
 #: libretranslate/app.py:529 libretranslate/app.py:741
@@ -80,7 +80,7 @@ msgstr "%(lang)s understøttes ikke"
 #: libretranslate/app.py:594
 #, python-format
 msgid "%(format)s format is not supported"
-msgstr "%(format)s format understøttes ikke"
+msgstr "%(format)s-format understøttes ikke"
 
 #: libretranslate/app.py:602 libretranslate/app.py:626
 #, python-format
@@ -98,7 +98,7 @@ msgstr "Kan ikke oversætte tekst: %(text)s"
 
 #: libretranslate/app.py:734 libretranslate/app.py:788
 msgid "Files translation are disabled on this server."
-msgstr "File oversættelse er deaktiveret på denne server."
+msgstr "Oversættelse af filer er deaktiveret på denne server."
 
 #: libretranslate/app.py:748
 msgid "Invalid request: empty file"
@@ -278,7 +278,7 @@ msgstr "Hej verden!"
 
 #: libretranslate/locales/.swag.py:11
 msgid "Text(s) to translate"
-msgstr "Tekst(er) til oversættelse"
+msgstr "Tekst(er) at oversætte"
 
 #: libretranslate/locales/.swag.py:12
 msgid "Source language code"
@@ -303,8 +303,8 @@ msgid ""
 " * `html` - HTML markup\n"
 msgstr ""
 "Format af kildetekst:\n"
-"* 'tekst' - almindelig tekst\n"
-"* `html' - HTML-markup\n"
+" * `tekst` - Almindelig tekst\n"
+" * `html` - HTML-markup\n"
 
 #: libretranslate/locales/.swag.py:17
 msgid "API key"
@@ -336,7 +336,7 @@ msgstr "Registreringsfejl"
 
 #: libretranslate/locales/.swag.py:24
 msgid "Text to detect"
-msgstr "Tekst at finde"
+msgstr "Tekst at registrere"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Retrieve frontend specific settings"
@@ -344,11 +344,11 @@ msgstr "Hent frontend-specifikke indstillinger"
 
 #: libretranslate/locales/.swag.py:26
 msgid "frontend settings"
-msgstr "frontend indstillinger"
+msgstr "frontend-indstillinger"
 
 #: libretranslate/locales/.swag.py:27
 msgid "frontend"
-msgstr "grænseflade"
+msgstr "frontend"
 
 #: libretranslate/locales/.swag.py:28
 msgid "Submit a suggestion to improve a translation"
@@ -408,7 +408,7 @@ msgstr "Årsag til nedbremsning"
 
 #: libretranslate/locales/.swag.py:42
 msgid "Translated file url"
-msgstr "Oversat fil-url"
+msgstr "Oversat fil-URL"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Confidence value"
@@ -446,7 +446,7 @@ msgstr "Om indsendelse var vellykket"
 #: libretranslate/templates/app.js.template:286
 #: libretranslate/templates/app.js.template:290
 msgid "Copy text"
-msgstr "Kopier tekst"
+msgstr "Kopiér tekst"
 
 #: libretranslate/templates/app.js.template:80
 #: libretranslate/templates/app.js.template:86
@@ -475,8 +475,7 @@ msgid ""
 "Thanks for your correction. Note the suggestion will not take effect "
 "right away."
 msgstr ""
-"Tak for din rettelse. Bemærk, at forslaget ikke vil træde i kraft med det "
-"samme."
+"Tak for din rettelse. Bemærk, at forslaget ikke træder i kraft med det samme."
 
 #: libretranslate/templates/app.js.template:455
 msgid "No languages available. Did you install the models correctly?"
@@ -520,7 +519,7 @@ msgstr "api"
 
 #: libretranslate/templates/index.html:65
 msgid "API Docs"
-msgstr "API Docs"
+msgstr "API-dokumenter"
 
 #: libretranslate/templates/index.html:67
 msgid "Get API Key"
@@ -588,7 +587,7 @@ msgstr "Foreslå oversættelse"
 
 #: libretranslate/templates/index.html:230
 msgid "Cancel"
-msgstr "annullere"
+msgstr "Annuller"
 
 #: libretranslate/templates/index.html:233
 msgid "Send"
