@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-09 15:17-0400\n"
-"PO-Revision-Date: 2023-12-16 08:07+0000\n"
-"Last-Translator: tuanta <tuanta@skiff.com>\n"
+"PO-Revision-Date: 2024-06-14 16:33+0000\n"
+"Last-Translator: Dương Nguyễn Võ Quốc <nguyenquocduong380@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/"
 "libretranslate/app/vi/>\n"
 "Language: vi\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.6-dev\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:79
 msgid "Invalid JSON format"
-msgstr "Định dạng JSON không hợp lệ"
+msgstr "Không đúng định dạng dữ liệu JSON"
 
 #: libretranslate/app.py:149 libretranslate/templates/app.js.template:459
 msgid "Auto Detect"
@@ -31,7 +31,7 @@ msgstr "Tự động phát hiện"
 
 #: libretranslate/app.py:232
 msgid "Unauthorized"
-msgstr "Không được phép"
+msgstr "Truy cập không hợp lệ."
 
 #: libretranslate/app.py:250
 msgid "Too many request limits violations"
@@ -181,7 +181,7 @@ msgstr "Indonesia"
 
 #: libretranslate/locales/.langs.py:17
 msgid "Irish"
-msgstr "Ireland"
+msgstr "irish"
 
 #: libretranslate/locales/.langs.py:18
 msgid "Italian"
@@ -225,7 +225,7 @@ msgstr "Thụy Điển"
 
 #: libretranslate/locales/.langs.py:28
 msgid "Turkish"
-msgstr "Thổ"
+msgstr "Thổ nhỉ kỳ"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Ukranian"
@@ -233,7 +233,7 @@ msgstr "Ukraina"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Vietnamese"
-msgstr "Việt Nam"
+msgstr "Tiếng Việt"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
@@ -249,11 +249,11 @@ msgstr "dịch"
 
 #: libretranslate/locales/.swag.py:4
 msgid "Translate text from a language to another"
-msgstr "Dịch ngôn ngữ sang ngôn ngữ khác"
+msgstr "Dịch từ sang một ngôn ngữ khác"
 
 #: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:222
 msgid "Translated text"
-msgstr "Văn bản dịch"
+msgstr "Văn bản đã dịch"
 
 #: libretranslate/locales/.swag.py:6
 msgid "Invalid request"
@@ -277,7 +277,7 @@ msgstr "Xin chào thế giới!"
 
 #: libretranslate/locales/.swag.py:11
 msgid "Text(s) to translate"
-msgstr "Chữ để dịch"
+msgstr "(Các) văn bản cần dịch"
 
 #: libretranslate/locales/.swag.py:12
 msgid "Source language code"
@@ -387,7 +387,7 @@ msgstr "Mã ngôn ngữ"
 
 #: libretranslate/locales/.swag.py:37
 msgid "Human-readable language name (in English)"
-msgstr "Tên ngôn ngữ (để người đọc)"
+msgstr "Tên ngôn ngữ con người có thể đọc được (bằng tiếng Anh)"
 
 #: libretranslate/locales/.swag.py:38
 msgid "Supported target language codes"
@@ -395,7 +395,7 @@ msgstr "Các mã ngôn ngữ đích được hỗ trợ"
 
 #: libretranslate/locales/.swag.py:39
 msgid "Translated text(s)"
-msgstr "Chữ đã dịch"
+msgstr "(Các) văn bản đã dịch"
 
 #: libretranslate/locales/.swag.py:40
 msgid "Error message"
@@ -445,7 +445,7 @@ msgstr "Đã gửi thành công hay chưa"
 #: libretranslate/templates/app.js.template:286
 #: libretranslate/templates/app.js.template:290
 msgid "Copy text"
-msgstr "Copy chữ"
+msgstr "Sao chép chữ"
 
 #: libretranslate/templates/app.js.template:80
 #: libretranslate/templates/app.js.template:86
@@ -467,7 +467,7 @@ msgstr "Lỗi không rõ"
 
 #: libretranslate/templates/app.js.template:287
 msgid "Copied"
-msgstr "Đã copy"
+msgstr "Đã sao chép"
 
 #: libretranslate/templates/app.js.template:331
 msgid ""
@@ -477,7 +477,8 @@ msgstr "Cảm ơn đã sửa. Lưu ý đề xuất sẽ không có tác dụng n
 
 #: libretranslate/templates/app.js.template:455
 msgid "No languages available. Did you install the models correctly?"
-msgstr "Không có ngôn ngữ nào. Bạn đã cài đặt các bản mẫu (model) đúng chưa?"
+msgstr ""
+"Không có ngôn ngữ có sẵn. Bạn đã cài đặt các mô hình một cách chính xác?"
 
 #: libretranslate/templates/app.js.template:522
 #, python-format
@@ -486,7 +487,7 @@ msgstr "Nhập mã API của bạn. Nếu bạn cần lấy mã API, %(instructi
 
 #: libretranslate/templates/app.js.template:522
 msgid "press the \"Get API Key\" link."
-msgstr "nhấn liên kết \"Lấy khóa\"."
+msgstr "nhấn liên kết \"Lấy mã API\"."
 
 #: libretranslate/templates/app.js.template:522
 msgid "contact the server operator."
@@ -504,8 +505,8 @@ msgid ""
 "Free and Open Source Machine Translation API. Self-hosted, offline capable "
 "and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"API dịch thuật máy miễn phí và nguồn mở. Tự host, có thể sử dụng offline và "
-"dễ cài đặt. Tự chạy máy chủ API của bạn chỉ trong vài phút."
+"API dịch thuật máy miễn phí và nguồn mở. Tự lưu trữ, có thể sử dụng ngoại "
+"tuyến và dễ cài đặt. Tự chạy máy chủ API của bạn chỉ trong vài phút."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -553,7 +554,7 @@ msgstr "API dịch"
 
 #: libretranslate/templates/index.html:175
 msgid "Translate Text"
-msgstr "Chữ được dịch"
+msgstr "Dịch văn bản"
 
 #: libretranslate/templates/index.html:179
 msgid "Translate Files"
@@ -565,7 +566,7 @@ msgstr "Dịch từ"
 
 #: libretranslate/templates/index.html:195
 msgid "Swap source and target languages"
-msgstr "Đổi ngôn ngữ nguồn và đích"
+msgstr "Hoán đổi ngôn ngữ nguồn và đích"
 
 #: libretranslate/templates/index.html:198
 msgid "Translate into"
@@ -644,12 +645,12 @@ msgid ""
 "%(get_api_key)s."
 msgstr ""
 "API công khai này chỉ nên dùng để thử nghiệm, sử dụng cá nhân hay không "
-"thường xuyên. Nếu bạn muốn sử dụng cho mục đích khác, hãy %(host_server)s "
-"hoặc %(get_api_key)s."
+"thường xuyên. Nếu bạn muốn chạy ứng dụng cho quá trình sản xuất, hãy "
+"%(host_server)s hoặc %(get_api_key)s."
 
 #: libretranslate/templates/index.html:340
 msgid "host your own server"
-msgstr "tự lưu máy chủ của chính bạn"
+msgstr "lưu trữ máy chủ của chính bạn"
 
 #: libretranslate/templates/index.html:340
 msgid "get an API key"
