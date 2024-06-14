@@ -419,6 +419,7 @@ URL |API Key Required | Links
 [translate.terraprint.co](https://translate.terraprint.co/)|-
 [trans.zillyhuhn.com](https://trans.zillyhuhn.com/)|-
 [libretranslate.eownerdead.dedyn.io](https://libretranslate.eownerdead.dedyn.io)|-
+[translate.lotigara.ru](https://translate.lotigara.ru)|-
 
 ## TOR/i2p Mirrors
 
