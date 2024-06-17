@@ -33,7 +33,7 @@ jobs:
           echo ::set-output name=gh-username-lower::$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')
 
       - name: Build and push Image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           file: ./docker/Dockerfile
           platforms: linux/amd64,linux/arm64
@@ -61,7 +61,7 @@ jobs:
           swap-storage: true
 
       - name: Build and push Cuda Image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           file: ./docker/cuda.Dockerfile
           platforms: linux/amd64
