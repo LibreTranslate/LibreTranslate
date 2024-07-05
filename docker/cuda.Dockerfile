@@ -34,6 +34,7 @@ RUN if [ "$with_models" = "true" ]; then  \
 
 # Install package from source code
 RUN pip3 install Babel==2.12.1 && python3 scripts/compile_locales.py \
+    && ./venv/bin/pip install "numpy<2" \
     && pip3 install . \
     && pip3 cache purge
 
