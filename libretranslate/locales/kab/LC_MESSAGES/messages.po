@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-01-23 15:12+0000\n"
-"Last-Translator: Selyan Sliman Amiri <selyan.kab@gmail.com>\n"
+"PO-Revision-Date: 2024-07-15 20:09+0000\n"
+"Last-Translator: ButterflyOfFire <boffire@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/libretranslate/"
 "app/kab/>\n"
 "Language: kab\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -563,7 +563,7 @@ msgstr "Semmeskel aɣbalu d tutlayt tasaḍast"
 
 #: libretranslate/templates/index.html:195
 msgid "Translate into"
-msgstr "Suqqel deg"
+msgstr "Suqqel ɣer"
 
 #: libretranslate/templates/index.html:207
 msgid "Text to translate"
@@ -638,12 +638,12 @@ msgid ""
 "%(host_server)s or %(get_api_key)s."
 msgstr ""
 "API-a azayaz ilaq ad yettuseqdec i usekyed, i useqdec uslig neɣ i useqdec ur "
-"negzi. Ma yella tesnekkreḍ asnas id-yettfarasen , ttxil-k·m seqdec "
+"negzi. Ma yella tesnekkreḍ asnas id-yettfarasen, ttxil-k·m seqdec "
 "%(host_server)s neɣ %(get_api_key)s."
 
 #: libretranslate/templates/index.html:337
 msgid "host your own server"
-msgstr "Sezdeɣ aqeddac inek•inem"
+msgstr "Sezdeɣ aqeddac inek·inem"
 
 #: libretranslate/templates/index.html:337
 msgid "get an API key"
@@ -653,7 +653,7 @@ msgstr "Awi tasarut API"
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
 msgstr ""
-"Yettufeṣṣel s %(heart)s s %(contributors)s, yella-d s lmendad n %(engine)s"
+"Yettufeṣṣel s %(heart)s sɣur %(contributors)s, yella-d s lmendad n %(engine)s"
 
 #: libretranslate/templates/index.html:345
 #, python-format
