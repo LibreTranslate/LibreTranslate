@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function(){
             filesTranslation: true,
             frontendTimeout: 500,
 
-            apiSecret: "{{ api_secret }}"
+            apiSecret: atob("{{ api_secret }}")
         },
         mounted: function() {
             const self = this;

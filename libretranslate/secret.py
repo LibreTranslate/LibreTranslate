@@ -1,3 +1,4 @@
+import base64
 import random
 import string
 
@@ -20,6 +21,9 @@ def secret_match(secret):
 
 def get_current_secret():
     return get_storage().get_str("secret_1")
+
+def get_current_secret_b64():
+    return base64.b64encode(get_current_secret().encode("utf-8")).decode("utf-8")
 
 def setup(args):
     if args.api_keys and args.require_api_key_secret:
