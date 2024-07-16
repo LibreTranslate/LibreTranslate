@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function(){
             filesTranslation: true,
             frontendTimeout: 500,
 
-            apiSecret: atob("{{ api_secret }}")
+            apiSecret: "{{ api_secret }}"
         },
         mounted: function() {
             const self = this;
@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     data.append("format", self.isHtml ? "html" : "text");
                     data.append("alternatives", 3);
                     data.append("api_key", localStorage.getItem("api_key") || "");
-                    if (self.apiSecret) data.append("secret", self.apiSecret);
+                    if (self.apiSecret) data.append("secret", atob(self.apiSecret));
 
                     request.open('POST', BaseUrl + '/translate', true);
 
