@@ -418,7 +418,6 @@ URL |API Key Required | Links
 [libretranslate.com](https://libretranslate.com)|:heavy_check_mark:|[ [Get API Key](https://portal.libretranslate.com) ] [ [Service Status](https://status.libretranslate.com/) ]
 [translate.terraprint.co](https://translate.terraprint.co/)|-
 [trans.zillyhuhn.com](https://trans.zillyhuhn.com/)|-
-[libretranslate.eownerdead.dedyn.io](https://libretranslate.eownerdead.dedyn.io)|-
 [translate.lotigara.ru](https://translate.lotigara.ru)|-
 
 ## TOR/i2p Mirrors
