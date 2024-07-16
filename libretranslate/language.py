@@ -72,7 +72,7 @@ def detect_languages(text):
 
     # sort the candidates descending based on the detected confidence
     candidates.sort(
-        key=lambda l: (l.confidence * l.text_length) / text_length_total, reverse=True
+        key=lambda l: 0 if text_length_total == 0 else (l.confidence * l.text_length) / text_length_total, reverse=True
     )
 
     return [{"confidence": l.confidence, "language": l.code} for l in candidates]
