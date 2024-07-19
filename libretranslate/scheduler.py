@@ -13,10 +13,10 @@ def setup(args):
     if scheduler is None:
         scheduler = BackgroundScheduler()
 
-        if args.req_flood_threshold > 0:
+        if not args.secondary and args.req_flood_threshold > 0:
             scheduler.add_job(func=forgive_banned, trigger="interval", minutes=10)
 
-        if args.api_keys and args.require_api_key_secret:
+        if not args.secondary and args.api_keys and args.require_api_key_secret:
             scheduler.add_job(func=rotate_secrets, trigger="interval", minutes=30)
 
         scheduler.start()

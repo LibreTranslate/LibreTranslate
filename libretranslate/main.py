@@ -155,6 +155,12 @@ def get_args():
         help="Shared storage URI to use for multi-process data sharing (e.g. via gunicorn)",
     )
     parser.add_argument(
+        "--secondary",
+        default=DEFARGS['SECONDARY'],
+        action="store_true",
+        help="Mark this instance as a secondary instance to avoid conflicts with the primary node in multi-node setups",
+    )
+    parser.add_argument(
         "--load-only",
         type=operator.methodcaller("split", ","),
         default=DEFARGS['LOAD_ONLY'],
