@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-09 15:17-0400\n"
-"PO-Revision-Date: 2024-01-30 16:01+0000\n"
-"Last-Translator: Yanjun Chen <coned@outlook.com>\n"
+"PO-Revision-Date: 2024-07-22 04:09+0000\n"
+"Last-Translator: John Ngai <sandcabin83@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "libretranslate/app/zh_Hans/>\n"
 "Language: zh\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:79
@@ -242,7 +242,7 @@ msgstr "语言列表"
 
 #: libretranslate/locales/.swag.py:3
 msgid "translate"
-msgstr "翻译"
+msgstr "在文档中用作标签.这是“翻译”类别."
 
 #: libretranslate/locales/.swag.py:4
 msgid "Translate text from a language to another"
@@ -536,7 +536,7 @@ msgstr "编辑"
 
 #: libretranslate/templates/index.html:81
 msgid "Toggle dark/light mode"
-msgstr "D. 黑暗/轻度"
+msgstr "切换暗黑/明亮模式"
 
 #: libretranslate/templates/index.html:157
 msgid "Dismiss"
@@ -600,7 +600,7 @@ msgstr "删除文件"
 
 #: libretranslate/templates/index.html:275
 msgid "Translate"
-msgstr "翻译"
+msgstr "命令, 例如\"翻译\""
 
 #: libretranslate/templates/index.html:276
 #: libretranslate/templates/index.html:320
