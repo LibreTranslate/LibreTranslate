@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-09 15:17-0400\n"
-"PO-Revision-Date: 2024-02-10 04:01+0000\n"
-"Last-Translator: 石丸健太郎 <marudosurdo@gmail.com>\n"
+"PO-Revision-Date: 2024-07-22 04:09+0000\n"
+"Last-Translator: naskya <m@naskya.net>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/libretranslate/"
 "app/ja/>\n"
 "Language: ja\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:79
@@ -273,7 +273,6 @@ msgid "Hello world!"
 msgstr "こんにちは!"
 
 #: libretranslate/locales/.swag.py:11
-#, fuzzy
 msgid "Text(s) to translate"
 msgstr "翻訳するテキスト"
 
