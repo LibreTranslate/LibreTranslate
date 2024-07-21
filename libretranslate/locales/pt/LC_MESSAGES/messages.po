@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-09 15:17-0400\n"
-"PO-Revision-Date: 2024-07-15 20:09+0000\n"
-"Last-Translator: \"Carlos M. Silva\" <carlosmsilva.es@gmail.com>\n"
+"PO-Revision-Date: 2024-07-22 04:09+0000\n"
+"Last-Translator: Alisson Lauffer <alissonvitortc@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
 "libretranslate/app/pt/>\n"
 "Language: pt\n"
@@ -249,7 +249,7 @@ msgstr "traduzir"
 
 #: libretranslate/locales/.swag.py:4
 msgid "Translate text from a language to another"
-msgstr "Traduzir texto de um indioma para outro"
+msgstr "Traduzir texto de um idioma para outro"
 
 #: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:222
 msgid "Translated text"
