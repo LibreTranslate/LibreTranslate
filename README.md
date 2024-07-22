@@ -162,7 +162,7 @@ run.bat [args]
 
 ## Build and Run
 
-See [CONTIRBUTING.md](./CONTRIBUTING.md) for information on how to build and run the project yourself.
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for information on how to build and run the project yourself.
 
 ### CUDA
 
