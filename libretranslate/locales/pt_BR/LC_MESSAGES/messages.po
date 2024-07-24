@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-01-06 17:52-0500\n"
-"PO-Revision-Date: 2023-06-20 11:29+0000\n"
-"Last-Translator: Jessica Patricio <jessicacacau@gmail.com>\n"
+"PO-Revision-Date: 2024-07-25 02:09+0000\n"
+"Last-Translator: Jose Delvani <jsdelvani@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "libretranslate/app/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.18.1\n"
+"X-Generator: Weblate 5.7-dev\n"
 "Generated-By: Babel 2.11.0\n"
 
 #: libretranslate/app.py:60
@@ -31,7 +31,7 @@ msgstr "Detecção automática"
 
 #: libretranslate/app.py:193
 msgid "Unauthorized"
-msgstr "Desautorizado"
+msgstr "Sem autorização"
 
 #: libretranslate/app.py:211
 msgid "Too many request limits violations"
@@ -380,7 +380,7 @@ msgstr "Idioma da tradução sugerida"
 
 #: libretranslate/locales/.swag.py:35
 msgid "feedback"
-msgstr "opinião"
+msgstr "feedback"
 
 #: libretranslate/locales/.swag.py:36
 msgid "Language code"
@@ -548,7 +548,7 @@ msgstr "Editar"
 
 #: libretranslate/templates/index.html:154
 msgid "Dismiss"
-msgstr "Dispensar"
+msgstr "Descartar"
 
 #: libretranslate/templates/index.html:168
 msgid "Translation API"
@@ -613,7 +613,7 @@ msgstr "Traduzir"
 #: libretranslate/templates/index.html:273
 #: libretranslate/templates/index.html:317
 msgid "Download"
-msgstr "Baixar"
+msgstr "Download"
 
 #: libretranslate/templates/index.html:292
 msgid "Request"
@@ -661,7 +661,7 @@ msgstr "obtenha uma chave de API"
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
-msgstr "Feito com %(heart)s por %(contributors)s e alimentado por %(engine)s"
+msgstr "Feito com %(heart)s por %(contributors)s e desenvolvido por %(engine)s"
 
 #: libretranslate/templates/index.html:345
 #, python-format
