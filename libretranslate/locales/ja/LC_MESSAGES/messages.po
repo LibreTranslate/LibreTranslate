@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-10-09 15:17-0400\n"
-"PO-Revision-Date: 2024-07-22 04:09+0000\n"
-"Last-Translator: naskya <m@naskya.net>\n"
+"PO-Revision-Date: 2024-08-06 00:09+0000\n"
+"Last-Translator: SA99100 <SAA499A@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/libretranslate/"
 "app/ja/>\n"
 "Language: ja\n"
@@ -39,11 +39,11 @@ msgstr "リクエストが多すぎます。"
 
 #: libretranslate/app.py:257
 msgid "Invalid API key"
-msgstr "無効な API キー"
+msgstr "無効なAPIキー"
 
 #: libretranslate/app.py:276
 msgid "Please contact the server operator to get an API key"
-msgstr "サーバ管理者に連絡して、APIキーを取得してください。"
+msgstr "APIキーを取得するにはサーバ管理者に連絡してください。"
 
 #: libretranslate/app.py:278
 #, python-format
@@ -158,7 +158,7 @@ msgstr "ドイツ語"
 
 #: libretranslate/locales/.langs.py:12
 msgid "Greek"
-msgstr "ギリシャ人"
+msgstr "ギリシャ語"
 
 #: libretranslate/locales/.langs.py:13
 msgid "Hebrew"
@@ -186,11 +186,11 @@ msgstr "イタリア"
 
 #: libretranslate/locales/.langs.py:19
 msgid "Japanese"
-msgstr "日本語 English"
+msgstr "日本語"
 
 #: libretranslate/locales/.langs.py:20
 msgid "Korean"
-msgstr "韓国人"
+msgstr "韓国語"
 
 #: libretranslate/locales/.langs.py:21
 msgid "Persian"
@@ -198,7 +198,7 @@ msgstr "ペルシア語"
 
 #: libretranslate/locales/.langs.py:22
 msgid "Polish"
-msgstr "ポーランド"
+msgstr "ポーランド語"
 
 #: libretranslate/locales/.langs.py:23
 msgid "Portuguese"
@@ -206,11 +206,11 @@ msgstr "ポルトガル語"
 
 #: libretranslate/locales/.langs.py:24
 msgid "Russian"
-msgstr "ロシア人"
+msgstr "ロシア語"
 
 #: libretranslate/locales/.langs.py:25
 msgid "Slovak"
-msgstr "ログイン"
+msgstr "スロヴァキア語"
 
 #: libretranslate/locales/.langs.py:26
 msgid "Spanish"
@@ -242,7 +242,7 @@ msgstr "言語リスト"
 
 #: libretranslate/locales/.swag.py:3
 msgid "translate"
-msgstr "ログイン"
+msgstr "翻訳"
 
 #: libretranslate/locales/.swag.py:4
 msgid "Translate text from a language to another"
@@ -278,7 +278,7 @@ msgstr "翻訳するテキスト"
 
 #: libretranslate/locales/.swag.py:12
 msgid "Source language code"
-msgstr "ソース言語コード"
+msgstr "翻訳元の言語コード"
 
 #: libretranslate/locales/.swag.py:13
 msgid "Target language code"
@@ -290,7 +290,7 @@ msgstr "テキスト"
 
 #: libretranslate/locales/.swag.py:15
 msgid "html"
-msgstr "ツイート"
+msgstr "html"
 
 #: libretranslate/locales/.swag.py:16
 msgid ""
@@ -312,7 +312,7 @@ msgstr "言語から別の言語にファイルを翻訳する"
 
 #: libretranslate/locales/.swag.py:19
 msgid "Translated file"
-msgstr "翻訳ファイル"
+msgstr "翻訳されたファイル"
 
 #: libretranslate/locales/.swag.py:20
 msgid "File to translate"
@@ -324,7 +324,7 @@ msgstr "単一のテキストの言語を検出する"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Detections"
-msgstr "検出の検出"
+msgstr "検出"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Detection error"
@@ -348,15 +348,15 @@ msgstr "フロントエンド"
 
 #: libretranslate/locales/.swag.py:28
 msgid "Submit a suggestion to improve a translation"
-msgstr "翻訳を改善するための提案を提出する"
+msgstr "翻訳を改善するために提案を提出する"
 
 #: libretranslate/locales/.swag.py:29
 msgid "Success"
-msgstr "成功事例"
+msgstr "成功"
 
 #: libretranslate/locales/.swag.py:30
 msgid "Not authorized"
-msgstr "許可されていない"
+msgstr "認証されていません"
 
 #: libretranslate/locales/.swag.py:31
 msgid "Original text"
@@ -650,7 +650,7 @@ msgstr "自分のサーバーをホストする"
 
 #: libretranslate/templates/index.html:340
 msgid "get an API key"
-msgstr "aPI キーを取得する"
+msgstr "APIキーを取得"
 
 #: libretranslate/templates/index.html:348
 #, python-format
