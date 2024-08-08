@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-08-08 13:24-0400\n"
-"PO-Revision-Date: 2024-08-08 17:48+0000\n"
+"PO-Revision-Date: 2024-08-08 22:34+0000\n"
 "Last-Translator: Fqwe1 <Fqwe1@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/libretranslate/"
 "app/uk/>\n"
@@ -231,19 +231,19 @@ msgstr "Корейська"
 
 #: libretranslate/locales/.langs.py:27
 msgid "Latvian"
-msgstr ""
+msgstr "Латиська"
 
 #: libretranslate/locales/.langs.py:28
 msgid "Lithuanian"
-msgstr ""
+msgstr "Литовська"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Malay"
-msgstr ""
+msgstr "Малайська"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Norwegian"
-msgstr ""
+msgstr "Норвезька"
 
 #: libretranslate/locales/.langs.py:31
 msgid "Persian"
@@ -259,7 +259,7 @@ msgstr "Португальська"
 
 #: libretranslate/locales/.langs.py:34
 msgid "Romanian"
-msgstr ""
+msgstr "Румунська"
 
 #: libretranslate/locales/.langs.py:35
 msgid "Russian"
@@ -271,7 +271,7 @@ msgstr "Словацька"
 
 #: libretranslate/locales/.langs.py:37
 msgid "Slovenian"
-msgstr ""
+msgstr "Словенська"
 
 #: libretranslate/locales/.langs.py:38
 msgid "Spanish"
@@ -283,11 +283,11 @@ msgstr "Шведська"
 
 #: libretranslate/locales/.langs.py:40
 msgid "Tagalog"
-msgstr ""
+msgstr "Тагальська"
 
 #: libretranslate/locales/.langs.py:41
 msgid "Thai"
-msgstr ""
+msgstr "Тайська"
 
 #: libretranslate/locales/.langs.py:42
 msgid "Turkish"
@@ -299,7 +299,7 @@ msgstr "Українська"
 
 #: libretranslate/locales/.langs.py:44
 msgid "Urdu"
-msgstr ""
+msgstr "Урду"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
@@ -373,7 +373,7 @@ msgstr ""
 
 #: libretranslate/locales/.swag.py:17
 msgid "Preferred number of alternative translations"
-msgstr ""
+msgstr "Бажана кількість альтернативних перекладів"
 
 #: libretranslate/locales/.swag.py:18
 msgid "API key"
