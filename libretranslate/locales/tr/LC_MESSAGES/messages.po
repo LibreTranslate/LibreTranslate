@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-08-08 13:24-0400\n"
-"PO-Revision-Date: 2024-08-08 17:48+0000\n"
+"PO-Revision-Date: 2024-08-08 22:34+0000\n"
 "Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/libretranslate/"
 "app/tr/>\n"
@@ -31,7 +31,7 @@ msgstr "Otomatik Algıla"
 
 #: libretranslate/app.py:273
 msgid "Unauthorized"
-msgstr "Yetkisiz İşlem"
+msgstr "Yetkilendirilmedi"
 
 #: libretranslate/app.py:291
 msgid "Too many request limits violations"
@@ -261,7 +261,7 @@ msgstr "Portekizce"
 
 #: libretranslate/locales/.langs.py:34
 msgid "Romanian"
-msgstr "Romanya"
+msgstr "Rumence"
 
 #: libretranslate/locales/.langs.py:35
 msgid "Russian"
@@ -273,7 +273,7 @@ msgstr "Slovakça"
 
 #: libretranslate/locales/.langs.py:37
 msgid "Slovenian"
-msgstr "Slovenyan"
+msgstr "Slovence"
 
 #: libretranslate/locales/.langs.py:38
 msgid "Spanish"
@@ -285,11 +285,11 @@ msgstr "İsveççe"
 
 #: libretranslate/locales/.langs.py:40
 msgid "Tagalog"
-msgstr "Tagalog"
+msgstr "Tagalogca"
 
 #: libretranslate/locales/.langs.py:41
 msgid "Thai"
-msgstr "Tayland"
+msgstr "Tayca"
 
 #: libretranslate/locales/.langs.py:42
 msgid "Turkish"
@@ -301,7 +301,7 @@ msgstr "Ukraynaca"
 
 #: libretranslate/locales/.langs.py:44
 msgid "Urdu"
-msgstr "Urdu"
+msgstr "Urduca"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
@@ -375,7 +375,7 @@ msgstr ""
 
 #: libretranslate/locales/.swag.py:17
 msgid "Preferred number of alternative translations"
-msgstr "Tercih edilen sayıda alternatif çeviri"
+msgstr "Tercih edilen alternatif çeviri sayısı"
 
 #: libretranslate/locales/.swag.py:18
 msgid "API key"
@@ -617,7 +617,7 @@ msgstr "Düzenle"
 
 #: libretranslate/templates/index.html:83
 msgid "Toggle dark/light mode"
-msgstr "Geçiş karanlık / hafif mod"
+msgstr "Koyu/açık modu değiştir"
 
 #: libretranslate/templates/index.html:159
 msgid "Dismiss"
