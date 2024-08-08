@@ -77,7 +77,7 @@ msgstr ""
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
-"Kërkesë e pavlefshme: %s%(size)s) tejkaloi kufirin e tekstit (%(limit)s)"
+"Kërkesë e pavlefshme: (%(size)s) tejkaloi kufirin e tekstit (%(limit)s)"
 
 #: libretranslate/app.py:637 libretranslate/app.py:642
 #: libretranslate/app.py:811 libretranslate/app.py:816
@@ -100,7 +100,7 @@ msgstr "%(tname)s (%(tcode)snuk është a %(sname)s (%(scode)s)"
 #: libretranslate/app.py:701
 #, python-format
 msgid "Cannot translate text: %(text)s"
-msgstr "I pamundur përkthimi i tekstit: %s %(text)s"
+msgstr "I pamundur përkthimi i tekstit: %(text)s"
 
 #: libretranslate/app.py:788 libretranslate/app.py:849
 msgid "Files translation are disabled on this server."

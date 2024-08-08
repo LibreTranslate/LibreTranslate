@@ -78,7 +78,7 @@ msgstr "Imbalidong kahilingan: %(name)s Ang parameter ay dapat &lt;= %(value)s"
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
-"Imbalidong pangalan ng programa: %s%(size)s) lumampas sa itinakdang "
+"Imbalidong pangalan ng programa: (%(size)s) lumampas sa itinakdang "
 "teksto (%(limit)s)"
 
 #: libretranslate/app.py:637 libretranslate/app.py:642
