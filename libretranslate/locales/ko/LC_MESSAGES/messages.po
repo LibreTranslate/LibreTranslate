@@ -8,105 +8,116 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-10-09 15:17-0400\n"
+"POT-Creation-Date: 2024-08-08 13:24-0400\n"
 "PO-Revision-Date: 2023-06-19 20:49+0000\n"
 "Last-Translator: Sungjoon Moon <sumoon@seoulsaram.org>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/libretranslate/app/ko/>\n"
 "Language: ko\n"
+"Language-Team: Korean "
+"<https://hosted.weblate.org/projects/libretranslate/app/ko/>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"Generated-By: Babel 2.12.1\n"
+"Generated-By: Babel 2.15.0\n"
 
-#: libretranslate/app.py:79
+#: libretranslate/app.py:80
 msgid "Invalid JSON format"
 msgstr "잘못된 JSON 형식"
 
-#: libretranslate/app.py:149 libretranslate/templates/app.js.template:459
+#: libretranslate/app.py:180 libretranslate/templates/app.js.template:465
 msgid "Auto Detect"
 msgstr "자동 감지"
 
-#: libretranslate/app.py:232
+#: libretranslate/app.py:273
 msgid "Unauthorized"
 msgstr "인증되지 않음"
 
-#: libretranslate/app.py:250
+#: libretranslate/app.py:291
 msgid "Too many request limits violations"
 msgstr "요청이 너무 많음"
 
-#: libretranslate/app.py:257
+#: libretranslate/app.py:298
 msgid "Invalid API key"
 msgstr "잘못된 API 키"
 
-#: libretranslate/app.py:276
+#: libretranslate/app.py:317
 msgid "Please contact the server operator to get an API key"
 msgstr "API 키를 얻기 위해 서버 연산자에 문의하시기 바랍니다"
 
-#: libretranslate/app.py:278
+#: libretranslate/app.py:319
 #, python-format
 msgid "Visit %(url)s to get an API key"
 msgstr "%(url)s 에서 API 키 받기"
 
-#: libretranslate/app.py:318
+#: libretranslate/app.py:366
 msgid "Slowdown:"
 msgstr "속도가 느림:"
 
-#: libretranslate/app.py:525 libretranslate/app.py:527
-#: libretranslate/app.py:529 libretranslate/app.py:741
-#: libretranslate/app.py:743 libretranslate/app.py:745
-#: libretranslate/app.py:896 libretranslate/app.py:1053
-#: libretranslate/app.py:1055 libretranslate/app.py:1057
-#: libretranslate/app.py:1059
+#: libretranslate/app.py:583 libretranslate/app.py:585
+#: libretranslate/app.py:587 libretranslate/app.py:796
+#: libretranslate/app.py:798 libretranslate/app.py:800
+#: libretranslate/app.py:957 libretranslate/app.py:1114
+#: libretranslate/app.py:1116 libretranslate/app.py:1118
+#: libretranslate/app.py:1120
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
 msgstr "잘못된 요청: %(name)s 파라미터 누락"
 
-#: libretranslate/app.py:544 libretranslate/app.py:553
+#: libretranslate/app.py:592
+#, python-format
+msgid "Invalid request: %(name)s parameter is not a number"
+msgstr ""
+
+#: libretranslate/app.py:595
+#, python-format
+msgid "Invalid request: %(name)s parameter must be <= %(value)s"
+msgstr ""
+
+#: libretranslate/app.py:612 libretranslate/app.py:622
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr "잘못된 요청: 텍스트 제한 (%(limit)s) 초과하는 요청 (%(size)s)"
 
-#: libretranslate/app.py:583 libretranslate/app.py:588
-#: libretranslate/app.py:758 libretranslate/app.py:763
+#: libretranslate/app.py:637 libretranslate/app.py:642
+#: libretranslate/app.py:811 libretranslate/app.py:816
 #, python-format
 msgid "%(lang)s is not supported"
 msgstr "%(lang)s 지원되지 않음"
 
-#: libretranslate/app.py:594
+#: libretranslate/app.py:648
 #, python-format
 msgid "%(format)s format is not supported"
 msgstr "%(format)s 형식은 지원되지 않습니다"
 
-#: libretranslate/app.py:602 libretranslate/app.py:626
+#: libretranslate/app.py:657 libretranslate/app.py:681
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
-"(%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from "
+"%(sname)s (%(scode)s)"
 msgstr "%(sname)s (%(scode)s)에서 %(tname)s (%(tcode)s)로 번역할 수 없습니다"
 
-#: libretranslate/app.py:647
+#: libretranslate/app.py:701
 #, python-format
 msgid "Cannot translate text: %(text)s"
 msgstr "텍스트를 번역할 수 없습니다: %(text)s"
 
-#: libretranslate/app.py:734 libretranslate/app.py:788
+#: libretranslate/app.py:788 libretranslate/app.py:849
 msgid "Files translation are disabled on this server."
 msgstr "현재 서버에서 파일 번역이 비활성화 되어 있습니다."
 
-#: libretranslate/app.py:748
+#: libretranslate/app.py:803
 msgid "Invalid request: empty file"
 msgstr "잘못된 요청: 빈 파일"
 
-#: libretranslate/app.py:751
+#: libretranslate/app.py:806
 msgid "Invalid request: file format not supported"
 msgstr "잘못된 요청: 파일 형식 지원되지 않음"
 
-#: libretranslate/app.py:796
+#: libretranslate/app.py:857
 msgid "Invalid filename"
 msgstr "잘못된 파일명"
 
-#: libretranslate/app.py:1038
+#: libretranslate/app.py:1099
 msgid "Suggestions are disabled on this server."
 msgstr "현재 서버에서 제안이 비활성화 되어 있습니다."
 
@@ -115,120 +126,176 @@ msgid "English"
 msgstr "영어"
 
 #: libretranslate/locales/.langs.py:2
+msgid "Albanian"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:3
 msgid "Arabic"
 msgstr "아랍어"
 
-#: libretranslate/locales/.langs.py:3
+#: libretranslate/locales/.langs.py:4
 msgid "Azerbaijani"
 msgstr "아제르바이잔어"
 
-#: libretranslate/locales/.langs.py:4
+#: libretranslate/locales/.langs.py:5
+msgid "Bengali"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:6
+msgid "Bulgarian"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:7
+msgid "Catalan"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:8
 msgid "Chinese"
 msgstr "중국어"
 
-#: libretranslate/locales/.langs.py:5
+#: libretranslate/locales/.langs.py:9
+msgid "Chinese (traditional)"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:10
 msgid "Czech"
 msgstr "체코어"
 
-#: libretranslate/locales/.langs.py:6
+#: libretranslate/locales/.langs.py:11
 msgid "Danish"
 msgstr "덴마크어"
 
-#: libretranslate/locales/.langs.py:7
+#: libretranslate/locales/.langs.py:12
 msgid "Dutch"
 msgstr "네덜란드어"
 
-#: libretranslate/locales/.langs.py:8
+#: libretranslate/locales/.langs.py:13
 msgid "Esperanto"
 msgstr "에스페란토"
 
-#: libretranslate/locales/.langs.py:9
+#: libretranslate/locales/.langs.py:14
+msgid "Estonian"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:15
 msgid "Finnish"
 msgstr "핀란드어"
 
-#: libretranslate/locales/.langs.py:10
+#: libretranslate/locales/.langs.py:16
 msgid "French"
 msgstr "프랑스어"
 
-#: libretranslate/locales/.langs.py:11
+#: libretranslate/locales/.langs.py:17
 msgid "German"
 msgstr "독일어"
 
-#: libretranslate/locales/.langs.py:12
+#: libretranslate/locales/.langs.py:18
 msgid "Greek"
 msgstr "그리스어"
 
-#: libretranslate/locales/.langs.py:13
+#: libretranslate/locales/.langs.py:19
 msgid "Hebrew"
 msgstr "히브리어"
 
-#: libretranslate/locales/.langs.py:14
+#: libretranslate/locales/.langs.py:20
 msgid "Hindi"
 msgstr "힌디어"
 
-#: libretranslate/locales/.langs.py:15
+#: libretranslate/locales/.langs.py:21
 msgid "Hungarian"
 msgstr "헝가리어"
 
-#: libretranslate/locales/.langs.py:16
+#: libretranslate/locales/.langs.py:22
 msgid "Indonesian"
 msgstr "인도네시아어"
 
-#: libretranslate/locales/.langs.py:17
+#: libretranslate/locales/.langs.py:23
 msgid "Irish"
 msgstr "아일랜드어"
 
-#: libretranslate/locales/.langs.py:18
+#: libretranslate/locales/.langs.py:24
 msgid "Italian"
 msgstr "이탈리아어"
 
-#: libretranslate/locales/.langs.py:19
+#: libretranslate/locales/.langs.py:25
 msgid "Japanese"
 msgstr "일본어"
 
-#: libretranslate/locales/.langs.py:20
+#: libretranslate/locales/.langs.py:26
 msgid "Korean"
 msgstr "한국어"
 
-#: libretranslate/locales/.langs.py:21
+#: libretranslate/locales/.langs.py:27
+msgid "Latvian"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:28
+msgid "Lithuanian"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:29
+msgid "Malay"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:30
+msgid "Norwegian"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:31
 msgid "Persian"
 msgstr "페르시아어"
 
-#: libretranslate/locales/.langs.py:22
+#: libretranslate/locales/.langs.py:32
 msgid "Polish"
 msgstr "폴란드어"
 
-#: libretranslate/locales/.langs.py:23
+#: libretranslate/locales/.langs.py:33
 msgid "Portuguese"
 msgstr "포르투칼어"
 
-#: libretranslate/locales/.langs.py:24
+#: libretranslate/locales/.langs.py:34
+msgid "Romanian"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:35
 msgid "Russian"
 msgstr "러시아어"
 
-#: libretranslate/locales/.langs.py:25
+#: libretranslate/locales/.langs.py:36
 msgid "Slovak"
 msgstr "슬로바키아어"
 
-#: libretranslate/locales/.langs.py:26
+#: libretranslate/locales/.langs.py:37
+msgid "Slovenian"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:38
 msgid "Spanish"
 msgstr "스패인어"
 
-#: libretranslate/locales/.langs.py:27
+#: libretranslate/locales/.langs.py:39
 msgid "Swedish"
 msgstr "스웨덴어"
 
-#: libretranslate/locales/.langs.py:28
+#: libretranslate/locales/.langs.py:40
+msgid "Tagalog"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:41
+msgid "Thai"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:42
 msgid "Turkish"
 msgstr "터키어"
 
-#: libretranslate/locales/.langs.py:29
+#: libretranslate/locales/.langs.py:43
 msgid "Ukranian"
 msgstr "우크라이나어"
 
-#: libretranslate/locales/.langs.py:30
-msgid "Vietnamese"
-msgstr "베트남어"
+#: libretranslate/locales/.langs.py:44
+msgid "Urdu"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
@@ -246,7 +313,7 @@ msgstr "번역"
 msgid "Translate text from a language to another"
 msgstr "다른 언어로 텍스트를 번역"
 
-#: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:222
+#: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:224
 msgid "Translated text"
 msgstr "번역된 텍스트"
 
@@ -301,206 +368,209 @@ msgstr ""
 "* `html` - HTML 마크 업\n"
 
 #: libretranslate/locales/.swag.py:17
+msgid "Preferred number of alternative translations"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:18
 msgid "API key"
 msgstr "API 키"
 
-#: libretranslate/locales/.swag.py:18
+#: libretranslate/locales/.swag.py:19
 msgid "Translate file from a language to another"
 msgstr "다른 언어로 파일을 번역"
 
-#: libretranslate/locales/.swag.py:19
+#: libretranslate/locales/.swag.py:20
 msgid "Translated file"
 msgstr "번역된 파일"
 
-#: libretranslate/locales/.swag.py:20
+#: libretranslate/locales/.swag.py:21
 msgid "File to translate"
 msgstr "번역할 파일"
 
-#: libretranslate/locales/.swag.py:21
+#: libretranslate/locales/.swag.py:22
 msgid "Detect the language of a single text"
 msgstr "단일 텍스트의 언어를 감지"
 
-#: libretranslate/locales/.swag.py:22
+#: libretranslate/locales/.swag.py:23
 msgid "Detections"
 msgstr "감지 내용"
 
-#: libretranslate/locales/.swag.py:23
+#: libretranslate/locales/.swag.py:24
 msgid "Detection error"
 msgstr "감지 오류"
 
-#: libretranslate/locales/.swag.py:24
+#: libretranslate/locales/.swag.py:25
 msgid "Text to detect"
 msgstr "감지할 텍스트"
 
-#: libretranslate/locales/.swag.py:25
+#: libretranslate/locales/.swag.py:26
 msgid "Retrieve frontend specific settings"
 msgstr "프론트엔드의 특정 설정을 검색"
 
-#: libretranslate/locales/.swag.py:26
+#: libretranslate/locales/.swag.py:27
 msgid "frontend settings"
 msgstr "프론트엔드 설정"
 
-#: libretranslate/locales/.swag.py:27
+#: libretranslate/locales/.swag.py:28
 msgid "frontend"
 msgstr "프론트엔드"
 
-#: libretranslate/locales/.swag.py:28
+#: libretranslate/locales/.swag.py:29
 msgid "Submit a suggestion to improve a translation"
 msgstr "번역을 개선하기 위해 제안을 제출"
 
-#: libretranslate/locales/.swag.py:29
+#: libretranslate/locales/.swag.py:30
 msgid "Success"
 msgstr "성공"
 
-#: libretranslate/locales/.swag.py:30
+#: libretranslate/locales/.swag.py:31
 msgid "Not authorized"
 msgstr "권한 없음"
 
-#: libretranslate/locales/.swag.py:31
+#: libretranslate/locales/.swag.py:32
 msgid "Original text"
 msgstr "원문"
 
-#: libretranslate/locales/.swag.py:32
+#: libretranslate/locales/.swag.py:33
 msgid "Suggested translation"
 msgstr "제안된 번역"
 
-#: libretranslate/locales/.swag.py:33
+#: libretranslate/locales/.swag.py:34
 msgid "Language of original text"
 msgstr "원문의 언어"
 
-#: libretranslate/locales/.swag.py:34
+#: libretranslate/locales/.swag.py:35
 msgid "Language of suggested translation"
 msgstr "제안된 번역의 언어"
 
-#: libretranslate/locales/.swag.py:35
+#: libretranslate/locales/.swag.py:36
 msgid "feedback"
 msgstr "피드백"
 
-#: libretranslate/locales/.swag.py:36
+#: libretranslate/locales/.swag.py:37
 msgid "Language code"
 msgstr "언어 코드"
 
-#: libretranslate/locales/.swag.py:37
+#: libretranslate/locales/.swag.py:38
 msgid "Human-readable language name (in English)"
 msgstr "사람이 읽을 수 있는 언어 이름 (영어로)"
 
-#: libretranslate/locales/.swag.py:38
+#: libretranslate/locales/.swag.py:39
 msgid "Supported target language codes"
 msgstr "지원하는 언어 코드"
 
-#: libretranslate/locales/.swag.py:39
+#: libretranslate/locales/.swag.py:40
 msgid "Translated text(s)"
 msgstr "번역된 텍스트"
 
-#: libretranslate/locales/.swag.py:40
+#: libretranslate/locales/.swag.py:41
 msgid "Error message"
 msgstr "오류 메시지"
 
-#: libretranslate/locales/.swag.py:41
+#: libretranslate/locales/.swag.py:42
 msgid "Reason for slow down"
 msgstr "느려지는 이유"
 
-#: libretranslate/locales/.swag.py:42
+#: libretranslate/locales/.swag.py:43
 msgid "Translated file url"
 msgstr "번역된 파일 url"
 
-#: libretranslate/locales/.swag.py:43
+#: libretranslate/locales/.swag.py:44
 msgid "Confidence value"
 msgstr "신뢰치"
 
-#: libretranslate/locales/.swag.py:44
+#: libretranslate/locales/.swag.py:45
 msgid "Character input limit for this language (-1 indicates no limit)"
 msgstr "이 언어의 문자 입력 제한 (-1은 제한이 없음을 의미)"
 
-#: libretranslate/locales/.swag.py:45
+#: libretranslate/locales/.swag.py:46
 msgid "Frontend translation timeout"
 msgstr "프론트엔드 번역 시간 초과"
 
-#: libretranslate/locales/.swag.py:46
+#: libretranslate/locales/.swag.py:47
 msgid "Whether the API key database is enabled."
 msgstr "API 키 데이터베이스가 활성화되었는지 여부."
 
-#: libretranslate/locales/.swag.py:47
+#: libretranslate/locales/.swag.py:48
 msgid "Whether an API key is required."
 msgstr "API 키가 필요하든."
 
-#: libretranslate/locales/.swag.py:48
+#: libretranslate/locales/.swag.py:49
 msgid "Whether submitting suggestions is enabled."
 msgstr "자주 묻는 질문."
 
-#: libretranslate/locales/.swag.py:49
+#: libretranslate/locales/.swag.py:50
 msgid "Supported files format"
 msgstr "지원된 파일 형식"
 
-#: libretranslate/locales/.swag.py:50
+#: libretranslate/locales/.swag.py:51
 msgid "Whether submission was successful"
 msgstr "제출이 성공했는지 여부"
 
 #: libretranslate/templates/app.js.template:31
-#: libretranslate/templates/app.js.template:286
-#: libretranslate/templates/app.js.template:290
+#: libretranslate/templates/app.js.template:292
+#: libretranslate/templates/app.js.template:296
 msgid "Copy text"
 msgstr "텍스트 복사"
 
 #: libretranslate/templates/app.js.template:80
 #: libretranslate/templates/app.js.template:86
 #: libretranslate/templates/app.js.template:91
-#: libretranslate/templates/app.js.template:273
-#: libretranslate/templates/app.js.template:343
-#: libretranslate/templates/app.js.template:431
-#: libretranslate/templates/app.js.template:479
+#: libretranslate/templates/app.js.template:279
+#: libretranslate/templates/app.js.template:349
+#: libretranslate/templates/app.js.template:437
+#: libretranslate/templates/app.js.template:485
 #, python-format
 msgid "Cannot load %(url)s"
 msgstr "%(url)s를 읽어들일 수 없음"
 
-#: libretranslate/templates/app.js.template:264
-#: libretranslate/templates/app.js.template:334
-#: libretranslate/templates/app.js.template:412
-#: libretranslate/templates/app.js.template:423
+#: libretranslate/templates/app.js.template:270
+#: libretranslate/templates/app.js.template:340
+#: libretranslate/templates/app.js.template:418
+#: libretranslate/templates/app.js.template:429
 msgid "Unknown error"
 msgstr "알려지지 않은 오류"
 
-#: libretranslate/templates/app.js.template:287
+#: libretranslate/templates/app.js.template:293
 msgid "Copied"
 msgstr "복사됨"
 
-#: libretranslate/templates/app.js.template:331
+#: libretranslate/templates/app.js.template:337
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect right "
-"away."
+"Thanks for your correction. Note the suggestion will not take effect "
+"right away."
 msgstr "수정해 주셔서 감사합니다. 제안은 즉시 반영되지 않을 수 있습니다."
 
-#: libretranslate/templates/app.js.template:455
+#: libretranslate/templates/app.js.template:461
 msgid "No languages available. Did you install the models correctly?"
 msgstr "가능한 언어가 없음. 언어 모델을 제대로 설치하셨나요?"
 
-#: libretranslate/templates/app.js.template:522
+#: libretranslate/templates/app.js.template:528
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
 msgstr "API 키 입력. API 키가 필요한 경우, %(instructions)s"
 
-#: libretranslate/templates/app.js.template:522
+#: libretranslate/templates/app.js.template:528
 msgid "press the \"Get API Key\" link."
 msgstr "\"Get API Key\" 링크를 누릅니다."
 
-#: libretranslate/templates/app.js.template:522
+#: libretranslate/templates/app.js.template:528
 msgid "contact the server operator."
 msgstr "서버 운영자에게 문의하세요."
 
-#: libretranslate/templates/index.html:9
-#: libretranslate/templates/index.html:27
-#: libretranslate/templates/index.html:336
+#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
+#: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
 msgstr "자유 오픈 소스 기계 번역 API"
 
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline capable "
-"and easy to setup. Run your own API server in just a few minutes."
+"Free and Open Source Machine Translation API. Self-hosted, offline "
+"capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"자유 오픈 소스 기계 번역 API. 셀프 호스팅, 오프라인에서 사용이 가능하며, 설치가 쉽습니다. 단 몇 분 만 투자하여 자신의 API "
-"서버를 돌려보세요."
+"자유 오픈 소스 기계 번역 API. 셀프 호스팅, 오프라인에서 사용이 가능하며, 설치가 쉽습니다. 단 몇 분 만 투자하여 자신의 "
+"API 서버를 돌려보세요."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -510,154 +580,158 @@ msgstr "번역"
 msgid "api"
 msgstr "api"
 
-#: libretranslate/templates/index.html:65
+#: libretranslate/templates/index.html:67
 msgid "API Docs"
 msgstr "API 문서"
 
-#: libretranslate/templates/index.html:67
+#: libretranslate/templates/index.html:69
 msgid "Get API Key"
 msgstr "API 키 획득"
 
-#: libretranslate/templates/index.html:69
+#: libretranslate/templates/index.html:71
 msgid "GitHub"
 msgstr "GitHub"
 
-#: libretranslate/templates/index.html:71
+#: libretranslate/templates/index.html:73
 msgid "Set API Key"
 msgstr "API 키 설정"
 
-#: libretranslate/templates/index.html:73
+#: libretranslate/templates/index.html:75
 msgid "Change language"
 msgstr "언어 선택"
 
-#: libretranslate/templates/index.html:79
+#: libretranslate/templates/index.html:81
 msgid "Edit"
 msgstr "수정"
 
-#: libretranslate/templates/index.html:81
+#: libretranslate/templates/index.html:83
 msgid "Toggle dark/light mode"
 msgstr "어두운 색/빛 모드"
 
-#: libretranslate/templates/index.html:157
+#: libretranslate/templates/index.html:159
 msgid "Dismiss"
 msgstr "닫기"
 
-#: libretranslate/templates/index.html:171
+#: libretranslate/templates/index.html:173
 msgid "Translation API"
 msgstr "번역 API"
 
-#: libretranslate/templates/index.html:175
+#: libretranslate/templates/index.html:177
 msgid "Translate Text"
 msgstr "텍스트 번역하기"
 
-#: libretranslate/templates/index.html:179
+#: libretranslate/templates/index.html:181
 msgid "Translate Files"
 msgstr "파일 번역하기"
 
-#: libretranslate/templates/index.html:185
+#: libretranslate/templates/index.html:187
 msgid "Translate from"
 msgstr "~로 부터 번역하기"
 
-#: libretranslate/templates/index.html:195
+#: libretranslate/templates/index.html:197
 msgid "Swap source and target languages"
 msgstr "출발 언어, 도착 언어 서로 바꾸기"
 
-#: libretranslate/templates/index.html:198
+#: libretranslate/templates/index.html:200
 msgid "Translate into"
 msgstr "~로 번역하기"
 
-#: libretranslate/templates/index.html:210
+#: libretranslate/templates/index.html:212
 msgid "Text to translate"
 msgstr "번역할 텍스트"
 
-#: libretranslate/templates/index.html:213
+#: libretranslate/templates/index.html:215
 msgid "Delete text"
 msgstr "텍스트 삭제"
 
-#: libretranslate/templates/index.html:226
+#: libretranslate/templates/index.html:228
 msgid "Suggest translation"
 msgstr "번역 제안하기"
 
-#: libretranslate/templates/index.html:230
+#: libretranslate/templates/index.html:232
 msgid "Cancel"
 msgstr "취소"
 
-#: libretranslate/templates/index.html:233
+#: libretranslate/templates/index.html:235
 msgid "Send"
 msgstr "보내기"
 
-#: libretranslate/templates/index.html:249
+#: libretranslate/templates/index.html:251
 msgid "Supported file formats:"
 msgstr "지원되는 파일 형식:"
 
-#: libretranslate/templates/index.html:253
+#: libretranslate/templates/index.html:255
 msgid "File"
 msgstr "파일"
 
-#: libretranslate/templates/index.html:268
+#: libretranslate/templates/index.html:270
 msgid "Remove file"
 msgstr "파일 삭제"
 
-#: libretranslate/templates/index.html:275
+#: libretranslate/templates/index.html:277
 msgid "Translate"
 msgstr "번역"
 
-#: libretranslate/templates/index.html:276
-#: libretranslate/templates/index.html:320
+#: libretranslate/templates/index.html:278
+#: libretranslate/templates/index.html:322
 msgid "Download"
 msgstr "다운로드"
 
-#: libretranslate/templates/index.html:295
+#: libretranslate/templates/index.html:297
 msgid "Request"
 msgstr "요청"
 
-#: libretranslate/templates/index.html:300
+#: libretranslate/templates/index.html:302
 msgid "Response"
 msgstr "응답"
 
-#: libretranslate/templates/index.html:315
+#: libretranslate/templates/index.html:317
 msgid "Open Source Machine Translation API"
 msgstr "오픈 소스 기계 번역 API"
 
-#: libretranslate/templates/index.html:316
+#: libretranslate/templates/index.html:318
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
 msgstr "셀프 호스팅. 오프라인 이용 가능. 설정하기 쉬움."
 
-#: libretranslate/templates/index.html:335
+#: libretranslate/templates/index.html:337
 msgid "LibreTranslate"
 msgstr "LibreTranslate"
 
-#: libretranslate/templates/index.html:337
+#: libretranslate/templates/index.html:339
 msgid "License:"
 msgstr "라이센스:"
 
-#: libretranslate/templates/index.html:340
-#, python-format
-msgid ""
-"This public API should be used for testing, personal or infrequent use. If "
-"you're going to run an application in production, please %(host_server)s or "
-"%(get_api_key)s."
-msgstr ""
-"이 공개 API는 테스트 또는 개인적인 용도로만 사용되어야 하며, 잦은 요청을 지양합니다. 운영 환경에서 응용 프로그램을 실행할 경우, "
-"%(host_server)s 또는 %(get_api_key)s을 참조하십시오."
-
-#: libretranslate/templates/index.html:340
-msgid "host your own server"
-msgstr "자신만의 서버 호스팅"
-
-#: libretranslate/templates/index.html:340
-msgid "get an API key"
-msgstr "API 키 획득"
-
-#: libretranslate/templates/index.html:348
+#: libretranslate/templates/index.html:345
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
 msgstr "%(contributors)s의 손으로 %(heart)s와 함께 만들었으며, %(engine)s에 의해 제공됨"
 
-#: libretranslate/templates/index.html:348
+#: libretranslate/templates/index.html:345
 #, python-format
 msgid "%(libretranslate)s Contributors"
 msgstr "%(libretranslate)s 기여자"
 
 #~ msgid "multipart/form-data"
 #~ msgstr "multipart/form 자료"
+
+#~ msgid "Vietnamese"
+#~ msgstr "베트남어"
+
+#~ msgid ""
+#~ "This public API should be used for"
+#~ " testing, personal or infrequent use. "
+#~ "If you're going to run an "
+#~ "application in production, please "
+#~ "%(host_server)s or %(get_api_key)s."
+#~ msgstr ""
+#~ "이 공개 API는 테스트 또는 개인적인 용도로만 "
+#~ "사용되어야 하며, 잦은 요청을 지양합니다. 운영 환경에서"
+#~ " 응용 프로그램을 실행할 경우, %(host_server)s 또는"
+#~ " %(get_api_key)s을 참조하십시오."
+
+#~ msgid "host your own server"
+#~ msgstr "자신만의 서버 호스팅"
+
+#~ msgid "get an API key"
+#~ msgstr "API 키 획득"
+

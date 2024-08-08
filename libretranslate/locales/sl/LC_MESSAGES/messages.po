@@ -1,0 +1,714 @@
+# Slovenian translations for LibreTranslate.
+# Copyright (C) 2024 LibreTranslate Authors
+# This file is distributed under the same license as the LibreTranslate
+# project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LibreTranslate 1.6.1\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-08-08 13:24-0400\n"
+"PO-Revision-Date: 2024-08-08 13:03-0400\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: sl\n"
+"Language-Team: sl <LL@li.org>\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 "
+"|| n%100==4 ? 2 : 3);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.15.0\n"
+
+#: libretranslate/app.py:80
+msgid "Invalid JSON format"
+msgstr "Neveljavna oblika JSON"
+
+#: libretranslate/app.py:180 libretranslate/templates/app.js.template:465
+msgid "Auto Detect"
+msgstr "Samodejno zaznaj"
+
+#: libretranslate/app.py:273
+msgid "Unauthorized"
+msgstr "Nepooblaščen"
+
+#: libretranslate/app.py:291
+msgid "Too many request limits violations"
+msgstr "Preveč zahtevkov omejuje kršitve"
+
+#: libretranslate/app.py:298
+msgid "Invalid API key"
+msgstr "Neveljaven ključ API"
+
+#: libretranslate/app.py:317
+msgid "Please contact the server operator to get an API key"
+msgstr "Prosimo kontaktirajte operaterja strežnika, da dobite API ključ"
+
+#: libretranslate/app.py:319
+#, python-format
+msgid "Visit %(url)s to get an API key"
+msgstr "Obisk %(url)s dobiti API ključ"
+
+#: libretranslate/app.py:366
+msgid "Slowdown:"
+msgstr "Upočasni:"
+
+#: libretranslate/app.py:583 libretranslate/app.py:585
+#: libretranslate/app.py:587 libretranslate/app.py:796
+#: libretranslate/app.py:798 libretranslate/app.py:800
+#: libretranslate/app.py:957 libretranslate/app.py:1114
+#: libretranslate/app.py:1116 libretranslate/app.py:1118
+#: libretranslate/app.py:1120
+#, python-format
+msgid "Invalid request: missing %(name)s parameter"
+msgstr "Neveljaven zahtevek: manjka %(name)s parameter"
+
+#: libretranslate/app.py:592
+#, python-format
+msgid "Invalid request: %(name)s parameter is not a number"
+msgstr "Neveljavna zahteva: %(name)s parameter ni številka"
+
+#: libretranslate/app.py:595
+#, python-format
+msgid "Invalid request: %(name)s parameter must be <= %(value)s"
+msgstr "Neveljavna zahteva: %(name)s Parameter mora biti pomanjkljiv %(value)s"
+
+#: libretranslate/app.py:612 libretranslate/app.py:622
+#, python-format
+msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
+msgstr "Neveljavna zahteva: zahteva (%(size)s) presega mejo besedila (%(limit)s)"
+
+#: libretranslate/app.py:637 libretranslate/app.py:642
+#: libretranslate/app.py:811 libretranslate/app.py:816
+#, python-format
+msgid "%(lang)s is not supported"
+msgstr "%(lang)s ni podprto"
+
+#: libretranslate/app.py:648
+#, python-format
+msgid "%(format)s format is not supported"
+msgstr "%(format)s oblika ni podprta"
+
+#: libretranslate/app.py:657 libretranslate/app.py:681
+#, python-format
+msgid ""
+"%(tname)s (%(tcode)s) is not available as a target language from "
+"%(sname)s (%(scode)s)"
+msgstr "%(tname)s (%(tcode)s) ni na voljo kot ciljni jezik %(sname)s (%(scode)s)"
+
+#: libretranslate/app.py:701
+#, python-format
+msgid "Cannot translate text: %(text)s"
+msgstr "Ni moč prevesti besedila: %(text)s"
+
+#: libretranslate/app.py:788 libretranslate/app.py:849
+msgid "Files translation are disabled on this server."
+msgstr "Prevajanje datotek je onemogočeno na tem strežniku."
+
+#: libretranslate/app.py:803
+msgid "Invalid request: empty file"
+msgstr "Neveljavna zahteva: prazna datoteka"
+
+#: libretranslate/app.py:806
+msgid "Invalid request: file format not supported"
+msgstr "Neveljaven zahtevek: oblika datoteke ni podprta"
+
+#: libretranslate/app.py:857
+msgid "Invalid filename"
+msgstr "Neveljavno ime datoteke"
+
+#: libretranslate/app.py:1099
+msgid "Suggestions are disabled on this server."
+msgstr "Predlogi so onemogočeni na tem strežniku."
+
+#: libretranslate/locales/.langs.py:1
+msgid "English"
+msgstr "Angleščina"
+
+#: libretranslate/locales/.langs.py:2
+msgid "Albanian"
+msgstr "AlbanskoName"
+
+#: libretranslate/locales/.langs.py:3
+msgid "Arabic"
+msgstr "Arabščina"
+
+#: libretranslate/locales/.langs.py:4
+msgid "Azerbaijani"
+msgstr "Azerbajdžan"
+
+#: libretranslate/locales/.langs.py:5
+msgid "Bengali"
+msgstr "Bengalska"
+
+#: libretranslate/locales/.langs.py:6
+msgid "Bulgarian"
+msgstr "Bolgarščina"
+
+#: libretranslate/locales/.langs.py:7
+msgid "Catalan"
+msgstr "Katalonščina"
+
+#: libretranslate/locales/.langs.py:8
+msgid "Chinese"
+msgstr "Kitajska"
+
+#: libretranslate/locales/.langs.py:9
+msgid "Chinese (traditional)"
+msgstr "Kitajska (tradicionalna)"
+
+#: libretranslate/locales/.langs.py:10
+msgid "Czech"
+msgstr "Češka"
+
+#: libretranslate/locales/.langs.py:11
+msgid "Danish"
+msgstr "Danski"
+
+#: libretranslate/locales/.langs.py:12
+msgid "Dutch"
+msgstr "Nizozemska"
+
+#: libretranslate/locales/.langs.py:13
+msgid "Esperanto"
+msgstr "Esperanto"
+
+#: libretranslate/locales/.langs.py:14
+msgid "Estonian"
+msgstr "Estonščina"
+
+#: libretranslate/locales/.langs.py:15
+msgid "Finnish"
+msgstr "Finska"
+
+#: libretranslate/locales/.langs.py:16
+msgid "French"
+msgstr "Francoski"
+
+#: libretranslate/locales/.langs.py:17
+msgid "German"
+msgstr "Nemščina"
+
+#: libretranslate/locales/.langs.py:18
+msgid "Greek"
+msgstr "Grščina"
+
+#: libretranslate/locales/.langs.py:19
+msgid "Hebrew"
+msgstr "Hebrejsko"
+
+#: libretranslate/locales/.langs.py:20
+msgid "Hindi"
+msgstr "Hindi"
+
+#: libretranslate/locales/.langs.py:21
+msgid "Hungarian"
+msgstr "Madžarska"
+
+#: libretranslate/locales/.langs.py:22
+msgid "Indonesian"
+msgstr "Indonezijski"
+
+#: libretranslate/locales/.langs.py:23
+msgid "Irish"
+msgstr "Irska"
+
+#: libretranslate/locales/.langs.py:24
+msgid "Italian"
+msgstr "Italijanska"
+
+#: libretranslate/locales/.langs.py:25
+msgid "Japanese"
+msgstr "Japonka"
+
+#: libretranslate/locales/.langs.py:26
+msgid "Korean"
+msgstr "Korejska"
+
+#: libretranslate/locales/.langs.py:27
+msgid "Latvian"
+msgstr "Latvijščina"
+
+#: libretranslate/locales/.langs.py:28
+msgid "Lithuanian"
+msgstr "Litva"
+
+#: libretranslate/locales/.langs.py:29
+msgid "Malay"
+msgstr "Malay"
+
+#: libretranslate/locales/.langs.py:30
+msgid "Norwegian"
+msgstr "Norveška"
+
+#: libretranslate/locales/.langs.py:31
+msgid "Persian"
+msgstr "Perzijščina"
+
+#: libretranslate/locales/.langs.py:32
+msgid "Polish"
+msgstr "Poljska"
+
+#: libretranslate/locales/.langs.py:33
+msgid "Portuguese"
+msgstr "Portugalščina"
+
+#: libretranslate/locales/.langs.py:34
+msgid "Romanian"
+msgstr "Romunska"
+
+#: libretranslate/locales/.langs.py:35
+msgid "Russian"
+msgstr "Ruščina"
+
+#: libretranslate/locales/.langs.py:36
+msgid "Slovak"
+msgstr "Slovaščina"
+
+#: libretranslate/locales/.langs.py:37
+msgid "Slovenian"
+msgstr "Slovenski"
+
+#: libretranslate/locales/.langs.py:38
+msgid "Spanish"
+msgstr "Španščina"
+
+#: libretranslate/locales/.langs.py:39
+msgid "Swedish"
+msgstr "Švedska"
+
+#: libretranslate/locales/.langs.py:40
+msgid "Tagalog"
+msgstr "Tagalog"
+
+#: libretranslate/locales/.langs.py:41
+msgid "Thai"
+msgstr "Tajska"
+
+#: libretranslate/locales/.langs.py:42
+msgid "Turkish"
+msgstr "Turška"
+
+#: libretranslate/locales/.langs.py:43
+msgid "Ukranian"
+msgstr "Ukranian"
+
+#: libretranslate/locales/.langs.py:44
+msgid "Urdu"
+msgstr "Urdu"
+
+#: libretranslate/locales/.swag.py:1
+msgid "Retrieve list of supported languages"
+msgstr "Pridobi seznam podprtih jezikov"
+
+#: libretranslate/locales/.swag.py:2
+msgid "List of languages"
+msgstr "Seznam jezikov"
+
+#: libretranslate/locales/.swag.py:3
+msgid "translate"
+msgstr "prevedi"
+
+#: libretranslate/locales/.swag.py:4
+msgid "Translate text from a language to another"
+msgstr "Prevedi besedilo iz jezika v jezik"
+
+#: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:224
+msgid "Translated text"
+msgstr "Prevedeno besedilo"
+
+#: libretranslate/locales/.swag.py:6
+msgid "Invalid request"
+msgstr "Neveljavna zahteva"
+
+#: libretranslate/locales/.swag.py:7
+msgid "Translation error"
+msgstr "Napaka pri prevajanju"
+
+#: libretranslate/locales/.swag.py:8
+msgid "Slow down"
+msgstr "Počasi"
+
+#: libretranslate/locales/.swag.py:9
+msgid "Banned"
+msgstr "Prepovedano"
+
+#: libretranslate/locales/.swag.py:10
+msgid "Hello world!"
+msgstr "Pozdravljen svet!"
+
+#: libretranslate/locales/.swag.py:11
+msgid "Text(s) to translate"
+msgstr "Besedilo za prevajanje"
+
+#: libretranslate/locales/.swag.py:12
+msgid "Source language code"
+msgstr "Koda izvornega jezika"
+
+#: libretranslate/locales/.swag.py:13
+msgid "Target language code"
+msgstr "Oznaka ciljnega jezika"
+
+#: libretranslate/locales/.swag.py:14
+msgid "text"
+msgstr "besedilo"
+
+#: libretranslate/locales/.swag.py:15
+msgid "html"
+msgstr "html"
+
+#: libretranslate/locales/.swag.py:16
+msgid ""
+"Format of source text:\n"
+" * `text` - Plain text\n"
+" * `html` - HTML markup\n"
+msgstr ""
+"Oblika izvornega besedila:\n"
+"* `besedilo' - navadno besedilo\n"
+"* `html' - pribitek HTML\n"
+
+#: libretranslate/locales/.swag.py:17
+msgid "Preferred number of alternative translations"
+msgstr "Prednostna številka alternativnih prevodov"
+
+#: libretranslate/locales/.swag.py:18
+msgid "API key"
+msgstr "Ključ API"
+
+#: libretranslate/locales/.swag.py:19
+msgid "Translate file from a language to another"
+msgstr "Prevedi datoteko iz jezika v drug jezik"
+
+#: libretranslate/locales/.swag.py:20
+msgid "Translated file"
+msgstr "Prevedena datoteka"
+
+#: libretranslate/locales/.swag.py:21
+msgid "File to translate"
+msgstr "Datoteka za prevajanje"
+
+#: libretranslate/locales/.swag.py:22
+msgid "Detect the language of a single text"
+msgstr "Zaznaj jezik enega besedila"
+
+#: libretranslate/locales/.swag.py:23
+msgid "Detections"
+msgstr "Odkrivanje"
+
+#: libretranslate/locales/.swag.py:24
+msgid "Detection error"
+msgstr "Napaka pri odkrivanju"
+
+#: libretranslate/locales/.swag.py:25
+msgid "Text to detect"
+msgstr "Besedilo za odkrivanje"
+
+#: libretranslate/locales/.swag.py:26
+msgid "Retrieve frontend specific settings"
+msgstr "Pridobi posebne nastavitve za prednji konec"
+
+#: libretranslate/locales/.swag.py:27
+msgid "frontend settings"
+msgstr "nastavitve prednjega okna"
+
+#: libretranslate/locales/.swag.py:28
+msgid "frontend"
+msgstr "začelje"
+
+#: libretranslate/locales/.swag.py:29
+msgid "Submit a suggestion to improve a translation"
+msgstr "Predloži predlog za izboljšanje prevoda"
+
+#: libretranslate/locales/.swag.py:30
+msgid "Success"
+msgstr "Uspeh"
+
+#: libretranslate/locales/.swag.py:31
+msgid "Not authorized"
+msgstr "Ni dovoljeno"
+
+#: libretranslate/locales/.swag.py:32
+msgid "Original text"
+msgstr "Originalno besedilo"
+
+#: libretranslate/locales/.swag.py:33
+msgid "Suggested translation"
+msgstr "Predlagani prevod"
+
+#: libretranslate/locales/.swag.py:34
+msgid "Language of original text"
+msgstr "Jezik izvirnega besedila"
+
+#: libretranslate/locales/.swag.py:35
+msgid "Language of suggested translation"
+msgstr "Jezik predlaganega prevajanja"
+
+#: libretranslate/locales/.swag.py:36
+msgid "feedback"
+msgstr "povratne informacije"
+
+#: libretranslate/locales/.swag.py:37
+msgid "Language code"
+msgstr "Jezikovna koda"
+
+#: libretranslate/locales/.swag.py:38
+msgid "Human-readable language name (in English)"
+msgstr "Ime jezika, ki ga je mogoče brati (v angleščini)"
+
+#: libretranslate/locales/.swag.py:39
+msgid "Supported target language codes"
+msgstr "Podprte ciljne jezikovne kode"
+
+#: libretranslate/locales/.swag.py:40
+msgid "Translated text(s)"
+msgstr "Prevedena besedila"
+
+#: libretranslate/locales/.swag.py:41
+msgid "Error message"
+msgstr "Sporočilo o napaki"
+
+#: libretranslate/locales/.swag.py:42
+msgid "Reason for slow down"
+msgstr "Razlog za upočasnitev"
+
+#: libretranslate/locales/.swag.py:43
+msgid "Translated file url"
+msgstr "Prevedena datoteka url"
+
+#: libretranslate/locales/.swag.py:44
+msgid "Confidence value"
+msgstr "Vrednost zaupanja"
+
+#: libretranslate/locales/.swag.py:45
+msgid "Character input limit for this language (-1 indicates no limit)"
+msgstr "Omejitev vnosa znakov za ta jezik (-1 označuje brez omejitve)"
+
+#: libretranslate/locales/.swag.py:46
+msgid "Frontend translation timeout"
+msgstr "Zakasnitev prevajanja v začetku"
+
+#: libretranslate/locales/.swag.py:47
+msgid "Whether the API key database is enabled."
+msgstr "Ali je omogočena zbirka ključev API."
+
+#: libretranslate/locales/.swag.py:48
+msgid "Whether an API key is required."
+msgstr "Ali je potreben ključ API."
+
+#: libretranslate/locales/.swag.py:49
+msgid "Whether submitting suggestions is enabled."
+msgstr "Ali je predlog omogočen."
+
+#: libretranslate/locales/.swag.py:50
+msgid "Supported files format"
+msgstr "Oblika podprtih datotek"
+
+#: libretranslate/locales/.swag.py:51
+msgid "Whether submission was successful"
+msgstr "Ali je bila vloga uspešna"
+
+#: libretranslate/templates/app.js.template:31
+#: libretranslate/templates/app.js.template:292
+#: libretranslate/templates/app.js.template:296
+msgid "Copy text"
+msgstr "Kopiraj besedilo"
+
+#: libretranslate/templates/app.js.template:80
+#: libretranslate/templates/app.js.template:86
+#: libretranslate/templates/app.js.template:91
+#: libretranslate/templates/app.js.template:279
+#: libretranslate/templates/app.js.template:349
+#: libretranslate/templates/app.js.template:437
+#: libretranslate/templates/app.js.template:485
+#, python-format
+msgid "Cannot load %(url)s"
+msgstr "Ni moč naložiti %(url)s"
+
+#: libretranslate/templates/app.js.template:270
+#: libretranslate/templates/app.js.template:340
+#: libretranslate/templates/app.js.template:418
+#: libretranslate/templates/app.js.template:429
+msgid "Unknown error"
+msgstr "Neznana napaka"
+
+#: libretranslate/templates/app.js.template:293
+msgid "Copied"
+msgstr "Kopirano"
+
+#: libretranslate/templates/app.js.template:337
+msgid ""
+"Thanks for your correction. Note the suggestion will not take effect "
+"right away."
+msgstr "Hvala za popravek. Upoštevajte, da predlog ne bo takoj začel veljati."
+
+#: libretranslate/templates/app.js.template:461
+msgid "No languages available. Did you install the models correctly?"
+msgstr "Jeziki niso na voljo. Ste pravilno namestili modele?"
+
+#: libretranslate/templates/app.js.template:528
+#, python-format
+msgid "Type in your API Key. If you need an API key, %(instructions)s"
+msgstr "Vtipkaj svoj API ključ. Če potrebujete API ključ, %(instructions)s"
+
+#: libretranslate/templates/app.js.template:528
+msgid "press the \"Get API Key\" link."
+msgstr "pritisnite » Get API Key«."
+
+#: libretranslate/templates/app.js.template:528
+msgid "contact the server operator."
+msgstr "kontaktirajte operaterja strežnika."
+
+#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
+#: libretranslate/templates/index.html:338
+msgid "Free and Open Source Machine Translation API"
+msgstr "Brezplačno in odprtokodno strojno prevajanje API"
+
+#: libretranslate/templates/index.html:10
+#: libretranslate/templates/index.html:31
+msgid ""
+"Free and Open Source Machine Translation API. Self-hosted, offline "
+"capable and easy to setup. Run your own API server in just a few minutes."
+msgstr ""
+"Brezplačno in odprtokodno strojno prevajanje API. Samo-gostitelj, brez "
+"povezave sposoben in enostaven za namestitev. Poženite svoj API strežnik "
+"v samo nekaj minutah."
+
+#: libretranslate/templates/index.html:11
+msgid "translation"
+msgstr "prevod"
+
+#: libretranslate/templates/index.html:11
+msgid "api"
+msgstr "api"
+
+#: libretranslate/templates/index.html:67
+msgid "API Docs"
+msgstr "API Docs"
+
+#: libretranslate/templates/index.html:69
+msgid "Get API Key"
+msgstr "Dobi API Ključ"
+
+#: libretranslate/templates/index.html:71
+msgid "GitHub"
+msgstr "GitHub"
+
+#: libretranslate/templates/index.html:73
+msgid "Set API Key"
+msgstr "Nastavi API Ključ"
+
+#: libretranslate/templates/index.html:75
+msgid "Change language"
+msgstr "Spremeni jezik"
+
+#: libretranslate/templates/index.html:81
+msgid "Edit"
+msgstr "Uredi"
+
+#: libretranslate/templates/index.html:83
+msgid "Toggle dark/light mode"
+msgstr "Preklopi temen/lahek način"
+
+#: libretranslate/templates/index.html:159
+msgid "Dismiss"
+msgstr "Prosto"
+
+#: libretranslate/templates/index.html:173
+msgid "Translation API"
+msgstr "Prevod API"
+
+#: libretranslate/templates/index.html:177
+msgid "Translate Text"
+msgstr "Prevedi besedilo"
+
+#: libretranslate/templates/index.html:181
+msgid "Translate Files"
+msgstr "Prevedi datoteke"
+
+#: libretranslate/templates/index.html:187
+msgid "Translate from"
+msgstr "Prevedi iz"
+
+#: libretranslate/templates/index.html:197
+msgid "Swap source and target languages"
+msgstr "Zamenjaj izvorne in ciljne jezike"
+
+#: libretranslate/templates/index.html:200
+msgid "Translate into"
+msgstr "Prevedi v"
+
+#: libretranslate/templates/index.html:212
+msgid "Text to translate"
+msgstr "Besedilo za prevajanje"
+
+#: libretranslate/templates/index.html:215
+msgid "Delete text"
+msgstr "Zbriši besedilo"
+
+#: libretranslate/templates/index.html:228
+msgid "Suggest translation"
+msgstr "Predlog za prevod"
+
+#: libretranslate/templates/index.html:232
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: libretranslate/templates/index.html:235
+msgid "Send"
+msgstr "Pošlji"
+
+#: libretranslate/templates/index.html:251
+msgid "Supported file formats:"
+msgstr "Podprti formati datotek:"
+
+#: libretranslate/templates/index.html:255
+msgid "File"
+msgstr "Datoteka"
+
+#: libretranslate/templates/index.html:270
+msgid "Remove file"
+msgstr "Odstrani datoteko"
+
+#: libretranslate/templates/index.html:277
+msgid "Translate"
+msgstr "Prevedi"
+
+#: libretranslate/templates/index.html:278
+#: libretranslate/templates/index.html:322
+msgid "Download"
+msgstr "Prenesi"
+
+#: libretranslate/templates/index.html:297
+msgid "Request"
+msgstr "Zahtevek"
+
+#: libretranslate/templates/index.html:302
+msgid "Response"
+msgstr "Odziv"
+
+#: libretranslate/templates/index.html:317
+msgid "Open Source Machine Translation API"
+msgstr "API za prevajanje odprtokodnega stroja"
+
+#: libretranslate/templates/index.html:318
+msgid "Self-Hosted. Offline Capable. Easy to Setup."
+msgstr "Samosvoj. Nesposobna. Enostavna nastavitev."
+
+#: libretranslate/templates/index.html:337
+msgid "LibreTranslate"
+msgstr "LibrePrevajanje"
+
+#: libretranslate/templates/index.html:339
+msgid "License:"
+msgstr "Licenca:"
+
+#: libretranslate/templates/index.html:345
+#, python-format
+msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
+msgstr "Narejeno z %(heart)s z %(contributors)s in napajajo %(engine)s"
+
+#: libretranslate/templates/index.html:345
+#, python-format
+msgid "%(libretranslate)s Contributors"
+msgstr "%(libretranslate)s Prispevki"
+

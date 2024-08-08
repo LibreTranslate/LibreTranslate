@@ -1,0 +1,725 @@
+# Filipino (Philippines) translations for LibreTranslate.
+# Copyright (C) 2024 LibreTranslate Authors
+# This file is distributed under the same license as the LibreTranslate
+# project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LibreTranslate 1.6.1\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-08-08 13:24-0400\n"
+"PO-Revision-Date: 2024-08-08 13:03-0400\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fil_PH\n"
+"Language-Team: fil_PH <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.15.0\n"
+
+#: libretranslate/app.py:80
+msgid "Invalid JSON format"
+msgstr "Hindi tanggap na anyo ng JSON"
+
+#: libretranslate/app.py:180 libretranslate/templates/app.js.template:465
+msgid "Auto Detect"
+msgstr "Di - Nakikitang Awto"
+
+#: libretranslate/app.py:273
+msgid "Unauthorized"
+msgstr "Hindi awtorisado"
+
+#: libretranslate/app.py:291
+msgid "Too many request limits violations"
+msgstr "Napakarami ang humihiling ng limitasyon sa mga paglabag"
+
+#: libretranslate/app.py:298
+msgid "Invalid API key"
+msgstr "Hindi tanggap na key ng API"
+
+#: libretranslate/app.py:317
+msgid "Please contact the server operator to get an API key"
+msgstr ""
+"Pakisuyong makipag - ugnayan sa opereytor ng server upang makakuha ng "
+"susi ng API"
+
+#: libretranslate/app.py:319
+#, python-format
+msgid "Visit %(url)s to get an API key"
+msgstr "Pagdalaw %(url)s upang makakuha ng susing API"
+
+#: libretranslate/app.py:366
+msgid "Slowdown:"
+msgstr "Mabagal:"
+
+#: libretranslate/app.py:583 libretranslate/app.py:585
+#: libretranslate/app.py:587 libretranslate/app.py:796
+#: libretranslate/app.py:798 libretranslate/app.py:800
+#: libretranslate/app.py:957 libretranslate/app.py:1114
+#: libretranslate/app.py:1116 libretranslate/app.py:1118
+#: libretranslate/app.py:1120
+#, python-format
+msgid "Invalid request: missing %(name)s parameter"
+msgstr "Imbalidong pangalan ng programa: bigo %(name)s parameter"
+
+#: libretranslate/app.py:592
+#, python-format
+msgid "Invalid request: %(name)s parameter is not a number"
+msgstr "Imbalidong kahilingan: %(name)s Hindi numero ang parameter"
+
+#: libretranslate/app.py:595
+#, python-format
+msgid "Invalid request: %(name)s parameter must be <= %(value)s"
+msgstr "Imbalidong kahilingan: %(name)s Ang parameter ay dapat &lt;= %(value)s"
+
+#: libretranslate/app.py:612 libretranslate/app.py:622
+#, python-format
+msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
+msgstr ""
+"Imbalidong pangalan ng programa: (%(size)s) lumampas sa itinakdang "
+"teksto (%(limit)s)"
+
+#: libretranslate/app.py:637 libretranslate/app.py:642
+#: libretranslate/app.py:811 libretranslate/app.py:816
+#, python-format
+msgid "%(lang)s is not supported"
+msgstr "%(lang)s hindi suportado ang mga symbolic link"
+
+#: libretranslate/app.py:648
+#, python-format
+msgid "%(format)s format is not supported"
+msgstr "%(format)s Hindi suportado ang mga symbolic link"
+
+#: libretranslate/app.py:657 libretranslate/app.py:681
+#, python-format
+msgid ""
+"%(tname)s (%(tcode)s) is not available as a target language from "
+"%(sname)s (%(scode)s)"
+msgstr ""
+"%(tname)s (%(tcode)s) ay hindi magagamit bilang isang wikang puntirya "
+"mula sa %(sname)s (%(scode)s)"
+
+#: libretranslate/app.py:701
+#, python-format
+msgid "Cannot translate text: %(text)s"
+msgstr "Hindi maisalin ang teksto: %(text)s"
+
+#: libretranslate/app.py:788 libretranslate/app.py:849
+msgid "Files translation are disabled on this server."
+msgstr "Ang salin ng talaksan ay may kapansanan sa server na ito."
+
+#: libretranslate/app.py:803
+msgid "Invalid request: empty file"
+msgstr "Imbalidong pangalan ng programa: bigong talaksan"
+
+#: libretranslate/app.py:806
+msgid "Invalid request: file format not supported"
+msgstr "Hindi suportado ang mga symbolic link"
+
+#: libretranslate/app.py:857
+msgid "Invalid filename"
+msgstr "Hindi tanggap na hostname"
+
+#: libretranslate/app.py:1099
+msgid "Suggestions are disabled on this server."
+msgstr "Ang mga mungkahi ay may kapansanan sa serverg ito."
+
+#: libretranslate/locales/.langs.py:1
+msgid "English"
+msgstr "Tagalog"
+
+#: libretranslate/locales/.langs.py:2
+msgid "Albanian"
+msgstr "Albanian"
+
+#: libretranslate/locales/.langs.py:3
+msgid "Arabic"
+msgstr "Arabe"
+
+#: libretranslate/locales/.langs.py:4
+msgid "Azerbaijani"
+msgstr "Azerbaijani"
+
+#: libretranslate/locales/.langs.py:5
+msgid "Bengali"
+msgstr "Bengali"
+
+#: libretranslate/locales/.langs.py:6
+msgid "Bulgarian"
+msgstr "Bulgariano"
+
+#: libretranslate/locales/.langs.py:7
+msgid "Catalan"
+msgstr "Catalan"
+
+#: libretranslate/locales/.langs.py:8
+msgid "Chinese"
+msgstr "Tsino"
+
+#: libretranslate/locales/.langs.py:9
+msgid "Chinese (traditional)"
+msgstr "Tsino (tradisyonal)"
+
+#: libretranslate/locales/.langs.py:10
+msgid "Czech"
+msgstr "Czech"
+
+#: libretranslate/locales/.langs.py:11
+msgid "Danish"
+msgstr "Danes"
+
+#: libretranslate/locales/.langs.py:12
+msgid "Dutch"
+msgstr "Olandes"
+
+#: libretranslate/locales/.langs.py:13
+msgid "Esperanto"
+msgstr "Esperanto"
+
+#: libretranslate/locales/.langs.py:14
+msgid "Estonian"
+msgstr "Estoniano"
+
+#: libretranslate/locales/.langs.py:15
+msgid "Finnish"
+msgstr "Wikang Pinlandes"
+
+#: libretranslate/locales/.langs.py:16
+msgid "French"
+msgstr "Pranses"
+
+#: libretranslate/locales/.langs.py:17
+msgid "German"
+msgstr "Aleman"
+
+#: libretranslate/locales/.langs.py:18
+msgid "Greek"
+msgstr "Griego"
+
+#: libretranslate/locales/.langs.py:19
+msgid "Hebrew"
+msgstr "Hebreo"
+
+#: libretranslate/locales/.langs.py:20
+msgid "Hindi"
+msgstr "Hindi"
+
+#: libretranslate/locales/.langs.py:21
+msgid "Hungarian"
+msgstr "Hungariano"
+
+#: libretranslate/locales/.langs.py:22
+msgid "Indonesian"
+msgstr "Indonesian"
+
+#: libretranslate/locales/.langs.py:23
+msgid "Irish"
+msgstr "Irlandes"
+
+#: libretranslate/locales/.langs.py:24
+msgid "Italian"
+msgstr "Italyano"
+
+#: libretranslate/locales/.langs.py:25
+msgid "Japanese"
+msgstr "Hapones"
+
+#: libretranslate/locales/.langs.py:26
+msgid "Korean"
+msgstr "Koreano"
+
+#: libretranslate/locales/.langs.py:27
+msgid "Latvian"
+msgstr "Latviano"
+
+#: libretranslate/locales/.langs.py:28
+msgid "Lithuanian"
+msgstr "Ang Lithuanian"
+
+#: libretranslate/locales/.langs.py:29
+msgid "Malay"
+msgstr "Malay"
+
+#: libretranslate/locales/.langs.py:30
+msgid "Norwegian"
+msgstr "Norwego"
+
+#: libretranslate/locales/.langs.py:31
+msgid "Persian"
+msgstr "Persiano"
+
+#: libretranslate/locales/.langs.py:32
+msgid "Polish"
+msgstr "Polako"
+
+#: libretranslate/locales/.langs.py:33
+msgid "Portuguese"
+msgstr "Portuges"
+
+#: libretranslate/locales/.langs.py:34
+msgid "Romanian"
+msgstr "Romaniano"
+
+#: libretranslate/locales/.langs.py:35
+msgid "Russian"
+msgstr "Ruso"
+
+#: libretranslate/locales/.langs.py:36
+msgid "Slovak"
+msgstr "Slovak"
+
+#: libretranslate/locales/.langs.py:37
+msgid "Slovenian"
+msgstr "Slovenia"
+
+#: libretranslate/locales/.langs.py:38
+msgid "Spanish"
+msgstr "Kastila"
+
+#: libretranslate/locales/.langs.py:39
+msgid "Swedish"
+msgstr "Suweko"
+
+#: libretranslate/locales/.langs.py:40
+msgid "Tagalog"
+msgstr "Tagalog"
+
+#: libretranslate/locales/.langs.py:41
+msgid "Thai"
+msgstr "Thai"
+
+#: libretranslate/locales/.langs.py:42
+msgid "Turkish"
+msgstr "Turko"
+
+#: libretranslate/locales/.langs.py:43
+msgid "Ukranian"
+msgstr "Ukranian"
+
+#: libretranslate/locales/.langs.py:44
+msgid "Urdu"
+msgstr "Urdu"
+
+#: libretranslate/locales/.swag.py:1
+msgid "Retrieve list of supported languages"
+msgstr "Retrieve list ng suportadong mga wika"
+
+#: libretranslate/locales/.swag.py:2
+msgid "List of languages"
+msgstr "Talaan ng mga wika"
+
+#: libretranslate/locales/.swag.py:3
+msgid "translate"
+msgstr "salin"
+
+#: libretranslate/locales/.swag.py:4
+msgid "Translate text from a language to another"
+msgstr "Isinalin ang teksto mula sa isang wika tungo sa ibang wika"
+
+#: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:224
+msgid "Translated text"
+msgstr "Isinalin na teksto"
+
+#: libretranslate/locales/.swag.py:6
+msgid "Invalid request"
+msgstr "Imbalidong pangalan ng programa"
+
+#: libretranslate/locales/.swag.py:7
+msgid "Translation error"
+msgstr "Pagkakamali sa pagsasalin"
+
+#: libretranslate/locales/.swag.py:8
+msgid "Slow down"
+msgstr "Magmabagal"
+
+#: libretranslate/locales/.swag.py:9
+msgid "Banned"
+msgstr "Ipinagbawal"
+
+#: libretranslate/locales/.swag.py:10
+msgid "Hello world!"
+msgstr "Maganda talaga!"
+
+#: libretranslate/locales/.swag.py:11
+msgid "Text(s) to translate"
+msgstr "Mga teksto(mga) na isasalin"
+
+#: libretranslate/locales/.swag.py:12
+msgid "Source language code"
+msgstr "Pinagmulan ng kodigo ng wika"
+
+#: libretranslate/locales/.swag.py:13
+msgid "Target language code"
+msgstr "Target language code"
+
+#: libretranslate/locales/.swag.py:14
+msgid "text"
+msgstr "teksto"
+
+#: libretranslate/locales/.swag.py:15
+msgid "html"
+msgstr "html"
+
+#: libretranslate/locales/.swag.py:16
+msgid ""
+"Format of source text:\n"
+" * `text` - Plain text\n"
+" * `html` - HTML markup\n"
+msgstr ""
+"Pinagmulan ng teksto:\n"
+"* `text` - Plain\n"
+"* `html` - HTML markup\n"
+
+#: libretranslate/locales/.swag.py:17
+msgid "Preferred number of alternative translations"
+msgstr "Mas piniling bilang ng alternatibong mga salin"
+
+#: libretranslate/locales/.swag.py:18
+msgid "API key"
+msgstr "Susi ng API"
+
+#: libretranslate/locales/.swag.py:19
+msgid "Translate file from a language to another"
+msgstr "Isinalin ang talaksan mula sa isang wika tungo sa ibang wika"
+
+#: libretranslate/locales/.swag.py:20
+msgid "Translated file"
+msgstr "Isinalin na talaksan"
+
+#: libretranslate/locales/.swag.py:21
+msgid "File to translate"
+msgstr "Sawi sa pagsasalin"
+
+#: libretranslate/locales/.swag.py:22
+msgid "Detect the language of a single text"
+msgstr "Alamin ang wika ng isang teksto"
+
+#: libretranslate/locales/.swag.py:23
+msgid "Detections"
+msgstr "Mga Pag - aalinlangan"
+
+#: libretranslate/locales/.swag.py:24
+msgid "Detection error"
+msgstr "Maling diyagnosis"
+
+#: libretranslate/locales/.swag.py:25
+msgid "Text to detect"
+msgstr "Mag - text para malaman ito"
+
+#: libretranslate/locales/.swag.py:26
+msgid "Retrieve frontend specific settings"
+msgstr "Ibalik ang espesipikong mga setting"
+
+#: libretranslate/locales/.swag.py:27
+msgid "frontend settings"
+msgstr "harapan"
+
+#: libretranslate/locales/.swag.py:28
+msgid "frontend"
+msgstr "harap"
+
+#: libretranslate/locales/.swag.py:29
+msgid "Submit a suggestion to improve a translation"
+msgstr "Magpasakop sa mungkahi na pagbutihin ang isang salin"
+
+#: libretranslate/locales/.swag.py:30
+msgid "Success"
+msgstr "Tagumpay"
+
+#: libretranslate/locales/.swag.py:31
+msgid "Not authorized"
+msgstr "Hindi awtorisado"
+
+#: libretranslate/locales/.swag.py:32
+msgid "Original text"
+msgstr "Orihinal na teksto"
+
+#: libretranslate/locales/.swag.py:33
+msgid "Suggested translation"
+msgstr "Iminumungkahing salin"
+
+#: libretranslate/locales/.swag.py:34
+msgid "Language of original text"
+msgstr "Wika ng orihinal na teksto"
+
+#: libretranslate/locales/.swag.py:35
+msgid "Language of suggested translation"
+msgstr "Wika ng iminungkahing salin"
+
+#: libretranslate/locales/.swag.py:36
+msgid "feedback"
+msgstr "pagtanggap"
+
+#: libretranslate/locales/.swag.py:37
+msgid "Language code"
+msgstr "Kodigo ng wika"
+
+#: libretranslate/locales/.swag.py:38
+msgid "Human-readable language name (in English)"
+msgstr "Pangalan ng tao-basang wika (sa Ingles)"
+
+#: libretranslate/locales/.swag.py:39
+msgid "Supported target language codes"
+msgstr "Suportadong target na mga kodigo sa wika"
+
+#: libretranslate/locales/.swag.py:40
+msgid "Translated text(s)"
+msgstr "Isinalin na teksto(s)"
+
+#: libretranslate/locales/.swag.py:41
+msgid "Error message"
+msgstr "Error sa pagbasa ng mensahe"
+
+#: libretranslate/locales/.swag.py:42
+msgid "Reason for slow down"
+msgstr "Dahilan para magmabagal"
+
+#: libretranslate/locales/.swag.py:43
+msgid "Translated file url"
+msgstr "Isinalin ang talaksang url"
+
+#: libretranslate/locales/.swag.py:44
+msgid "Confidence value"
+msgstr "Halaga ng pagtitiwala"
+
+#: libretranslate/locales/.swag.py:45
+msgid "Character input limit for this language (-1 indicates no limit)"
+msgstr ""
+"Ang character input limit para sa wikang ito (-1 ay nagpapakita ng walang"
+" hangganan)"
+
+#: libretranslate/locales/.swag.py:46
+msgid "Frontend translation timeout"
+msgstr "Harapang pagsasalin"
+
+#: libretranslate/locales/.swag.py:47
+msgid "Whether the API key database is enabled."
+msgstr "Kung baga magagawa ang API key database."
+
+#: libretranslate/locales/.swag.py:48
+msgid "Whether an API key is required."
+msgstr "Kung kailangan ang susing API."
+
+#: libretranslate/locales/.swag.py:49
+msgid "Whether submitting suggestions is enabled."
+msgstr "Kung baga ang pagkakapit ng mga mungkahi ay magagawa."
+
+#: libretranslate/locales/.swag.py:50
+msgid "Supported files format"
+msgstr "Suportadong format ng mga file"
+
+#: libretranslate/locales/.swag.py:51
+msgid "Whether submission was successful"
+msgstr "Kung baga ang pagpapasakop ay matagumpay"
+
+#: libretranslate/templates/app.js.template:31
+#: libretranslate/templates/app.js.template:292
+#: libretranslate/templates/app.js.template:296
+msgid "Copy text"
+msgstr "Kopya ng teksto"
+
+#: libretranslate/templates/app.js.template:80
+#: libretranslate/templates/app.js.template:86
+#: libretranslate/templates/app.js.template:91
+#: libretranslate/templates/app.js.template:279
+#: libretranslate/templates/app.js.template:349
+#: libretranslate/templates/app.js.template:437
+#: libretranslate/templates/app.js.template:485
+#, python-format
+msgid "Cannot load %(url)s"
+msgstr "Hindi maikarga %(url)s"
+
+#: libretranslate/templates/app.js.template:270
+#: libretranslate/templates/app.js.template:340
+#: libretranslate/templates/app.js.template:418
+#: libretranslate/templates/app.js.template:429
+msgid "Unknown error"
+msgstr "Hindi kilalang error"
+
+#: libretranslate/templates/app.js.template:293
+msgid "Copied"
+msgstr "Pinagkunan"
+
+#: libretranslate/templates/app.js.template:337
+msgid ""
+"Thanks for your correction. Note the suggestion will not take effect "
+"right away."
+msgstr ""
+"Salamat sa iyong pagtutuwid. Pansinin na ang mungkahi ay hindi kaagad - "
+"agad matutupad."
+
+#: libretranslate/templates/app.js.template:461
+msgid "No languages available. Did you install the models correctly?"
+msgstr "Walang makukuhang wika. Tama ba ang pagkakakabit mo sa mga modelo?"
+
+#: libretranslate/templates/app.js.template:528
+#, python-format
+msgid "Type in your API Key. If you need an API key, %(instructions)s"
+msgstr "Uri sa iyong API Key. Kung kailangan mo ng API key, %(instructions)s"
+
+#: libretranslate/templates/app.js.template:528
+msgid "press the \"Get API Key\" link."
+msgstr "pindutin ang \"Get API Key\" link."
+
+#: libretranslate/templates/app.js.template:528
+msgid "contact the server operator."
+msgstr "makipag - ugnayan sa opereytor ng server."
+
+#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
+#: libretranslate/templates/index.html:338
+msgid "Free and Open Source Machine Translation API"
+msgstr "API at Open Source Machine Translation"
+
+#: libretranslate/templates/index.html:10
+#: libretranslate/templates/index.html:31
+msgid ""
+"Free and Open Source Machine Translation API. Self-hosted, offline "
+"capable and easy to setup. Run your own API server in just a few minutes."
+msgstr ""
+"Malaya at Open Source Machine Translation API. Sarili-hosted, offline may"
+" kakayahan at madaling mag-setup. Itakbo ang iyong sariling API server sa"
+" loob lamang ng ilang minuto."
+
+#: libretranslate/templates/index.html:11
+msgid "translation"
+msgstr "salin"
+
+#: libretranslate/templates/index.html:11
+msgid "api"
+msgstr "api"
+
+#: libretranslate/templates/index.html:67
+msgid "API Docs"
+msgstr "API Docs"
+
+#: libretranslate/templates/index.html:69
+msgid "Get API Key"
+msgstr "Kumuha ng API Susi"
+
+#: libretranslate/templates/index.html:71
+msgid "GitHub"
+msgstr "GitHub"
+
+#: libretranslate/templates/index.html:73
+msgid "Set API Key"
+msgstr "Magtakda ng API Susi"
+
+#: libretranslate/templates/index.html:75
+msgid "Change language"
+msgstr "Nagbabago ng wika"
+
+#: libretranslate/templates/index.html:81
+msgid "Edit"
+msgstr "Baguhin"
+
+#: libretranslate/templates/index.html:83
+msgid "Toggle dark/light mode"
+msgstr "Togle dark/light mode"
+
+#: libretranslate/templates/index.html:159
+msgid "Dismiss"
+msgstr "Mga Mali"
+
+#: libretranslate/templates/index.html:173
+msgid "Translation API"
+msgstr "API sa Pagsasalin"
+
+#: libretranslate/templates/index.html:177
+msgid "Translate Text"
+msgstr "Saling Teksto"
+
+#: libretranslate/templates/index.html:181
+msgid "Translate Files"
+msgstr "Mga Larawan ng Pagsasalin"
+
+#: libretranslate/templates/index.html:187
+msgid "Translate from"
+msgstr "Isinalin mula sa"
+
+#: libretranslate/templates/index.html:197
+msgid "Swap source and target languages"
+msgstr "Swap source at target languages"
+
+#: libretranslate/templates/index.html:200
+msgid "Translate into"
+msgstr "Isinalin sa"
+
+#: libretranslate/templates/index.html:212
+msgid "Text to translate"
+msgstr "Tekstong isasalin"
+
+#: libretranslate/templates/index.html:215
+msgid "Delete text"
+msgstr "Itapon ang teksto"
+
+#: libretranslate/templates/index.html:228
+msgid "Suggest translation"
+msgstr "Mungkahi"
+
+#: libretranslate/templates/index.html:232
+msgid "Cancel"
+msgstr "Huwag ituloy"
+
+#: libretranslate/templates/index.html:235
+msgid "Send"
+msgstr "Pagpadala"
+
+#: libretranslate/templates/index.html:251
+msgid "Supported file formats:"
+msgstr "Suportadong mga format ng talaksan:"
+
+#: libretranslate/templates/index.html:255
+msgid "File"
+msgstr "Sawi ang paglikha ng talaksan"
+
+#: libretranslate/templates/index.html:270
+msgid "Remove file"
+msgstr "Alisin ang talaksan"
+
+#: libretranslate/templates/index.html:277
+msgid "Translate"
+msgstr "Pagsasalin"
+
+#: libretranslate/templates/index.html:278
+#: libretranslate/templates/index.html:322
+msgid "Download"
+msgstr "Ibaba"
+
+#: libretranslate/templates/index.html:297
+msgid "Request"
+msgstr "Kahilingan"
+
+#: libretranslate/templates/index.html:302
+msgid "Response"
+msgstr "Pagtugon"
+
+#: libretranslate/templates/index.html:317
+msgid "Open Source Machine Translation API"
+msgstr "Open Source Machine Translation API"
+
+#: libretranslate/templates/index.html:318
+msgid "Self-Hosted. Offline Capable. Easy to Setup."
+msgstr "Sarili-Hosted. May Kapansanan. Madaling Itakda."
+
+#: libretranslate/templates/index.html:337
+msgid "LibreTranslate"
+msgstr "LibreTranslate"
+
+#: libretranslate/templates/index.html:339
+msgid "License:"
+msgstr "Lisensiya:"
+
+#: libretranslate/templates/index.html:345
+#, python-format
+msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
+msgstr ""
+"Ginawa kasama ng %(heart)s sunod %(contributors)s at pinapatakbo ng "
+"%(engine)s"
+
+#: libretranslate/templates/index.html:345
+#, python-format
+msgid "%(libretranslate)s Contributors"
+msgstr "%(libretranslate)s Tagapag - abuloy"
+
