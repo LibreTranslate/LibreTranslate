@@ -1,0 +1,716 @@
+# Lithuanian translations for LibreTranslate.
+# Copyright (C) 2024 LibreTranslate Authors
+# This file is distributed under the same license as the LibreTranslate
+# project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: LibreTranslate 1.6.1\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-08-08 13:24-0400\n"
+"PO-Revision-Date: 2024-08-08 13:03-0400\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: lt\n"
+"Language-Team: lt <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"(n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.15.0\n"
+
+#: libretranslate/app.py:80
+msgid "Invalid JSON format"
+msgstr "Blogas JSON formatas"
+
+#: libretranslate/app.py:180 libretranslate/templates/app.js.template:465
+msgid "Auto Detect"
+msgstr "Automatinis aptikimas"
+
+#: libretranslate/app.py:273
+msgid "Unauthorized"
+msgstr "Neleidžiama"
+
+#: libretranslate/app.py:291
+msgid "Too many request limits violations"
+msgstr "NAME OF TRANSLATORS"
+
+#: libretranslate/app.py:298
+msgid "Invalid API key"
+msgstr "Blogas API raktas"
+
+#: libretranslate/app.py:317
+msgid "Please contact the server operator to get an API key"
+msgstr "Prašome susisiekti su serverio operatoriumi, kad gautumėte API raktą"
+
+#: libretranslate/app.py:319
+#, python-format
+msgid "Visit %(url)s to get an API key"
+msgstr "Apsilankymas %(url)s gauti API raktą"
+
+#: libretranslate/app.py:366
+msgid "Slowdown:"
+msgstr "Lėčiau:"
+
+#: libretranslate/app.py:583 libretranslate/app.py:585
+#: libretranslate/app.py:587 libretranslate/app.py:796
+#: libretranslate/app.py:798 libretranslate/app.py:800
+#: libretranslate/app.py:957 libretranslate/app.py:1114
+#: libretranslate/app.py:1116 libretranslate/app.py:1118
+#: libretranslate/app.py:1120
+#, python-format
+msgid "Invalid request: missing %(name)s parameter"
+msgstr "Blogas prašymas: trūksta %(name)s parametras"
+
+#: libretranslate/app.py:592
+#, python-format
+msgid "Invalid request: %(name)s parameter is not a number"
+msgstr "Klaidingas prašymas: %(name)s parametras nėra skaičius"
+
+#: libretranslate/app.py:595
+#, python-format
+msgid "Invalid request: %(name)s parameter must be <= %(value)s"
+msgstr "Klaidingas prašymas: %(name)s parametras turi būti &lt; = %(value)s"
+
+#: libretranslate/app.py:612 libretranslate/app.py:622
+#, python-format
+msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
+msgstr "Blogas prašymas: prašymas (%(size)s) viršija teksto ribą (%(limit)s)"
+
+#: libretranslate/app.py:637 libretranslate/app.py:642
+#: libretranslate/app.py:811 libretranslate/app.py:816
+#, python-format
+msgid "%(lang)s is not supported"
+msgstr "%(lang)s nepalaikoma"
+
+#: libretranslate/app.py:648
+#, python-format
+msgid "%(format)s format is not supported"
+msgstr "%(format)s formatas nepalaikomas"
+
+#: libretranslate/app.py:657 libretranslate/app.py:681
+#, python-format
+msgid ""
+"%(tname)s (%(tcode)s) is not available as a target language from "
+"%(sname)s (%(scode)s)"
+msgstr "%(tname)s (%(tcode)s) nėra kaip tikslinės kalbos iš %(sname)s (%(scode)s)"
+
+#: libretranslate/app.py:701
+#, python-format
+msgid "Cannot translate text: %(text)s"
+msgstr "Nepavyko išversti teksto: %(text)s"
+
+#: libretranslate/app.py:788 libretranslate/app.py:849
+msgid "Files translation are disabled on this server."
+msgstr "Failų vertimas šiame serveryje yra išjungtas."
+
+#: libretranslate/app.py:803
+msgid "Invalid request: empty file"
+msgstr "Blogas prašymas: tuščias failas"
+
+#: libretranslate/app.py:806
+msgid "Invalid request: file format not supported"
+msgstr "Klaidingas prašymas: failo formatas nepalaikomas"
+
+#: libretranslate/app.py:857
+msgid "Invalid filename"
+msgstr "Klaidingas failo pavadinimas"
+
+#: libretranslate/app.py:1099
+msgid "Suggestions are disabled on this server."
+msgstr "Siūlymai yra išjungti šiame serveryje."
+
+#: libretranslate/locales/.langs.py:1
+msgid "English"
+msgstr "Anglų"
+
+#: libretranslate/locales/.langs.py:2
+msgid "Albanian"
+msgstr "Albanijos"
+
+#: libretranslate/locales/.langs.py:3
+msgid "Arabic"
+msgstr "Arabų"
+
+#: libretranslate/locales/.langs.py:4
+msgid "Azerbaijani"
+msgstr "Azerbaidžanas"
+
+#: libretranslate/locales/.langs.py:5
+msgid "Bengali"
+msgstr "Bengali"
+
+#: libretranslate/locales/.langs.py:6
+msgid "Bulgarian"
+msgstr "Bulgarų"
+
+#: libretranslate/locales/.langs.py:7
+msgid "Catalan"
+msgstr "Katalonų"
+
+#: libretranslate/locales/.langs.py:8
+msgid "Chinese"
+msgstr "Kinų"
+
+#: libretranslate/locales/.langs.py:9
+msgid "Chinese (traditional)"
+msgstr "Kinų (tradicinė)"
+
+#: libretranslate/locales/.langs.py:10
+msgid "Czech"
+msgstr "Čekų"
+
+#: libretranslate/locales/.langs.py:11
+msgid "Danish"
+msgstr "Danų"
+
+#: libretranslate/locales/.langs.py:12
+msgid "Dutch"
+msgstr "Olandų"
+
+#: libretranslate/locales/.langs.py:13
+msgid "Esperanto"
+msgstr "Esperanto"
+
+#: libretranslate/locales/.langs.py:14
+msgid "Estonian"
+msgstr "Estų"
+
+#: libretranslate/locales/.langs.py:15
+msgid "Finnish"
+msgstr "Suomių"
+
+#: libretranslate/locales/.langs.py:16
+msgid "French"
+msgstr "Prancūzų"
+
+#: libretranslate/locales/.langs.py:17
+msgid "German"
+msgstr "Vokiečių"
+
+#: libretranslate/locales/.langs.py:18
+msgid "Greek"
+msgstr "Graikų"
+
+#: libretranslate/locales/.langs.py:19
+msgid "Hebrew"
+msgstr "Hebrajų"
+
+#: libretranslate/locales/.langs.py:20
+msgid "Hindi"
+msgstr "Hindis"
+
+#: libretranslate/locales/.langs.py:21
+msgid "Hungarian"
+msgstr "Vengrų"
+
+#: libretranslate/locales/.langs.py:22
+msgid "Indonesian"
+msgstr "Indoneziečių"
+
+#: libretranslate/locales/.langs.py:23
+msgid "Irish"
+msgstr "Airių"
+
+#: libretranslate/locales/.langs.py:24
+msgid "Italian"
+msgstr "Italų"
+
+#: libretranslate/locales/.langs.py:25
+msgid "Japanese"
+msgstr "Japonų"
+
+#: libretranslate/locales/.langs.py:26
+msgid "Korean"
+msgstr "Korėjiečių"
+
+#: libretranslate/locales/.langs.py:27
+msgid "Latvian"
+msgstr "Latvių"
+
+#: libretranslate/locales/.langs.py:28
+msgid "Lithuanian"
+msgstr "Lietuvių"
+
+#: libretranslate/locales/.langs.py:29
+msgid "Malay"
+msgstr "MalajusCountry name"
+
+#: libretranslate/locales/.langs.py:30
+msgid "Norwegian"
+msgstr "Norvegų"
+
+#: libretranslate/locales/.langs.py:31
+msgid "Persian"
+msgstr "Persų"
+
+#: libretranslate/locales/.langs.py:32
+msgid "Polish"
+msgstr "Lenkų"
+
+#: libretranslate/locales/.langs.py:33
+msgid "Portuguese"
+msgstr "Portugalų"
+
+#: libretranslate/locales/.langs.py:34
+msgid "Romanian"
+msgstr "Rumunų"
+
+#: libretranslate/locales/.langs.py:35
+msgid "Russian"
+msgstr "Rusų"
+
+#: libretranslate/locales/.langs.py:36
+msgid "Slovak"
+msgstr "Slovakų"
+
+#: libretranslate/locales/.langs.py:37
+msgid "Slovenian"
+msgstr "Slovėnų"
+
+#: libretranslate/locales/.langs.py:38
+msgid "Spanish"
+msgstr "Ispanų"
+
+#: libretranslate/locales/.langs.py:39
+msgid "Swedish"
+msgstr "Švedų"
+
+#: libretranslate/locales/.langs.py:40
+msgid "Tagalog"
+msgstr "Tagalogas"
+
+#: libretranslate/locales/.langs.py:41
+msgid "Thai"
+msgstr "Thai"
+
+#: libretranslate/locales/.langs.py:42
+msgid "Turkish"
+msgstr "Turkų"
+
+#: libretranslate/locales/.langs.py:43
+msgid "Ukranian"
+msgstr "UkranijName"
+
+#: libretranslate/locales/.langs.py:44
+msgid "Urdu"
+msgstr "Urdu"
+
+#: libretranslate/locales/.swag.py:1
+msgid "Retrieve list of supported languages"
+msgstr "Gauti palaikomų kalbų sąrašą"
+
+#: libretranslate/locales/.swag.py:2
+msgid "List of languages"
+msgstr "Kalbų sąrašas"
+
+#: libretranslate/locales/.swag.py:3
+msgid "translate"
+msgstr "translate"
+
+#: libretranslate/locales/.swag.py:4
+msgid "Translate text from a language to another"
+msgstr "Versti tekstą iš kalbos į kitą"
+
+#: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:224
+msgid "Translated text"
+msgstr "Tekstas išvertus"
+
+#: libretranslate/locales/.swag.py:6
+msgid "Invalid request"
+msgstr "Klaidingas prašymas"
+
+#: libretranslate/locales/.swag.py:7
+msgid "Translation error"
+msgstr "Vertimo klaida"
+
+#: libretranslate/locales/.swag.py:8
+msgid "Slow down"
+msgstr "Lėčiau"
+
+#: libretranslate/locales/.swag.py:9
+msgid "Banned"
+msgstr "Konservuoti"
+
+#: libretranslate/locales/.swag.py:10
+msgid "Hello world!"
+msgstr "Labas pasaulis!"
+
+#: libretranslate/locales/.swag.py:11
+msgid "Text(s) to translate"
+msgstr "Verstinas (-i) tekstas (-ai)"
+
+#: libretranslate/locales/.swag.py:12
+msgid "Source language code"
+msgstr "Šaltinio kalbos kodas"
+
+#: libretranslate/locales/.swag.py:13
+msgid "Target language code"
+msgstr "Paskirties kalbos kodas"
+
+#: libretranslate/locales/.swag.py:14
+msgid "text"
+msgstr "tekstas"
+
+#: libretranslate/locales/.swag.py:15
+msgid "html"
+msgstr "html"
+
+#: libretranslate/locales/.swag.py:16
+msgid ""
+"Format of source text:\n"
+" * `text` - Plain text\n"
+" * `html` - HTML markup\n"
+msgstr ""
+"Šaltinio teksto formatas:\n"
+"* tekstas - plonas tekstas\n"
+"* 'html' - HTML žymėjimas\n"
+
+#: libretranslate/locales/.swag.py:17
+msgid "Preferred number of alternative translations"
+msgstr "Pageidautinas alternatyvių vertimų skaičius"
+
+#: libretranslate/locales/.swag.py:18
+msgid "API key"
+msgstr "API raktas"
+
+#: libretranslate/locales/.swag.py:19
+msgid "Translate file from a language to another"
+msgstr "Klubui buvo priskirtas žaidėjas dėl per mažo jų skaičiaus"
+
+#: libretranslate/locales/.swag.py:20
+msgid "Translated file"
+msgstr "Išverstas failas"
+
+#: libretranslate/locales/.swag.py:21
+msgid "File to translate"
+msgstr "Failas išversti"
+
+#: libretranslate/locales/.swag.py:22
+msgid "Detect the language of a single text"
+msgstr "NAME OF TRANSLATORS"
+
+#: libretranslate/locales/.swag.py:23
+msgid "Detections"
+msgstr "III PRIEDAS"
+
+#: libretranslate/locales/.swag.py:24
+msgid "Detection error"
+msgstr "Nustatymo klaida"
+
+#: libretranslate/locales/.swag.py:25
+msgid "Text to detect"
+msgstr "Name"
+
+#: libretranslate/locales/.swag.py:26
+msgid "Retrieve frontend specific settings"
+msgstr "@ info: whatsthis"
+
+#: libretranslate/locales/.swag.py:27
+msgid "frontend settings"
+msgstr "frontent nustatymai"
+
+#: libretranslate/locales/.swag.py:28
+msgid "frontend"
+msgstr "frontent"
+
+#: libretranslate/locales/.swag.py:29
+msgid "Submit a suggestion to improve a translation"
+msgstr "Siūlymą patobulinti vertimą"
+
+#: libretranslate/locales/.swag.py:30
+msgid "Success"
+msgstr "Sėkmė"
+
+#: libretranslate/locales/.swag.py:31
+msgid "Not authorized"
+msgstr "Neleidžiama"
+
+#: libretranslate/locales/.swag.py:32
+msgid "Original text"
+msgstr "Originalus tekstas"
+
+#: libretranslate/locales/.swag.py:33
+msgid "Suggested translation"
+msgstr "Siūlomas vertimas"
+
+#: libretranslate/locales/.swag.py:34
+msgid "Language of original text"
+msgstr "Originalaus teksto kalba"
+
+#: libretranslate/locales/.swag.py:35
+msgid "Language of suggested translation"
+msgstr "Siūlomo vertimo kalba"
+
+#: libretranslate/locales/.swag.py:36
+msgid "feedback"
+msgstr "grįžtamoji informacija"
+
+#: libretranslate/locales/.swag.py:37
+msgid "Language code"
+msgstr "Kalbos kodas"
+
+#: libretranslate/locales/.swag.py:38
+msgid "Human-readable language name (in English)"
+msgstr "Humanitarinės kalbos pavadinimas (anglų kalba)"
+
+#: libretranslate/locales/.swag.py:39
+msgid "Supported target language codes"
+msgstr "NAME OF TRANSLATORS"
+
+#: libretranslate/locales/.swag.py:40
+msgid "Translated text(s)"
+msgstr "Išverstas (-i) tekstas (-ai)"
+
+#: libretranslate/locales/.swag.py:41
+msgid "Error message"
+msgstr "Klaidos pranešimas"
+
+#: libretranslate/locales/.swag.py:42
+msgid "Reason for slow down"
+msgstr "Vėlavimo priežastis"
+
+#: libretranslate/locales/.swag.py:43
+msgid "Translated file url"
+msgstr "Išverstas failas url"
+
+#: libretranslate/locales/.swag.py:44
+msgid "Confidence value"
+msgstr "Patikimumo vertė"
+
+#: libretranslate/locales/.swag.py:45
+msgid "Character input limit for this language (-1 indicates no limit)"
+msgstr "Simbolių įvedimo riba šiai kalbai (-1 reiškia, kad ribų nėra)"
+
+#: libretranslate/locales/.swag.py:46
+msgid "Frontend translation timeout"
+msgstr "Name"
+
+#: libretranslate/locales/.swag.py:47
+msgid "Whether the API key database is enabled."
+msgstr "NAME OF TRANSLATORS."
+
+#: libretranslate/locales/.swag.py:48
+msgid "Whether an API key is required."
+msgstr "NAME OF TRANSLATORS."
+
+#: libretranslate/locales/.swag.py:49
+msgid "Whether submitting suggestions is enabled."
+msgstr "@ info: status."
+
+#: libretranslate/locales/.swag.py:50
+msgid "Supported files format"
+msgstr "Palaikomas failų formatas"
+
+#: libretranslate/locales/.swag.py:51
+msgid "Whether submission was successful"
+msgstr "@ info: whatsthis"
+
+#: libretranslate/templates/app.js.template:31
+#: libretranslate/templates/app.js.template:292
+#: libretranslate/templates/app.js.template:296
+msgid "Copy text"
+msgstr "Kopijuoti tekstą"
+
+#: libretranslate/templates/app.js.template:80
+#: libretranslate/templates/app.js.template:86
+#: libretranslate/templates/app.js.template:91
+#: libretranslate/templates/app.js.template:279
+#: libretranslate/templates/app.js.template:349
+#: libretranslate/templates/app.js.template:437
+#: libretranslate/templates/app.js.template:485
+#, python-format
+msgid "Cannot load %(url)s"
+msgstr "Nepavyko įkelti %(url)s"
+
+#: libretranslate/templates/app.js.template:270
+#: libretranslate/templates/app.js.template:340
+#: libretranslate/templates/app.js.template:418
+#: libretranslate/templates/app.js.template:429
+msgid "Unknown error"
+msgstr "Nežinoma klaida"
+
+#: libretranslate/templates/app.js.template:293
+msgid "Copied"
+msgstr "Kopijuota"
+
+#: libretranslate/templates/app.js.template:337
+msgid ""
+"Thanks for your correction. Note the suggestion will not take effect "
+"right away."
+msgstr ""
+"Ačiū, kad pataisei. Atkreipkite dėmesį, pasiūlymas nebus įsigalioti iš "
+"karto."
+
+#: libretranslate/templates/app.js.template:461
+msgid "No languages available. Did you install the models correctly?"
+msgstr "Kalbų nėra. Tu teisingai įdiegei modelius?"
+
+#: libretranslate/templates/app.js.template:528
+#, python-format
+msgid "Type in your API Key. If you need an API key, %(instructions)s"
+msgstr "Įveskite savo API raktą. Jums reikia API rakto, %(instructions)s"
+
+#: libretranslate/templates/app.js.template:528
+msgid "press the \"Get API Key\" link."
+msgstr "paspauskite nuorodą \"Gauk API raktą\"."
+
+#: libretranslate/templates/app.js.template:528
+msgid "contact the server operator."
+msgstr "susisiekti su serverio operatoriumi."
+
+#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
+#: libretranslate/templates/index.html:338
+msgid "Free and Open Source Machine Translation API"
+msgstr "Nemokamas ir atvirojo kodo mašinos vertimas API"
+
+#: libretranslate/templates/index.html:10
+#: libretranslate/templates/index.html:31
+msgid ""
+"Free and Open Source Machine Translation API. Self-hosted, offline "
+"capable and easy to setup. Run your own API server in just a few minutes."
+msgstr ""
+"Nemokamai ir Open Source Machine Translation API. Savarankiškai "
+"patalpintas, atsijungęs gali ir lengvai nustatyti. Bėk savo API serverį "
+"po kelių minučių."
+
+#: libretranslate/templates/index.html:11
+msgid "translation"
+msgstr "vertimas"
+
+#: libretranslate/templates/index.html:11
+msgid "api"
+msgstr "api"
+
+#: libretranslate/templates/index.html:67
+msgid "API Docs"
+msgstr "API dokumentai"
+
+#: libretranslate/templates/index.html:69
+msgid "Get API Key"
+msgstr "Gauk API Raktas"
+
+#: libretranslate/templates/index.html:71
+msgid "GitHub"
+msgstr "GitHub"
+
+#: libretranslate/templates/index.html:73
+msgid "Set API Key"
+msgstr "Nustatyti API Raktas"
+
+#: libretranslate/templates/index.html:75
+msgid "Change language"
+msgstr "Keisti kalbą"
+
+#: libretranslate/templates/index.html:81
+msgid "Edit"
+msgstr "Keisti"
+
+#: libretranslate/templates/index.html:83
+msgid "Toggle dark/light mode"
+msgstr "Perjungti tamsios (šviesos) veikseną"
+
+#: libretranslate/templates/index.html:159
+msgid "Dismiss"
+msgstr "Naikinti"
+
+#: libretranslate/templates/index.html:173
+msgid "Translation API"
+msgstr "Vertimo API"
+
+#: libretranslate/templates/index.html:177
+msgid "Translate Text"
+msgstr "Versti tekstą"
+
+#: libretranslate/templates/index.html:181
+msgid "Translate Files"
+msgstr "Name"
+
+#: libretranslate/templates/index.html:187
+msgid "Translate from"
+msgstr "Žaisti iš"
+
+#: libretranslate/templates/index.html:197
+msgid "Swap source and target languages"
+msgstr "Sukeisti šaltinį ir tikslines kalbas"
+
+#: libretranslate/templates/index.html:200
+msgid "Translate into"
+msgstr "Pereiti į"
+
+#: libretranslate/templates/index.html:212
+msgid "Text to translate"
+msgstr "Verstinas tekstas"
+
+#: libretranslate/templates/index.html:215
+msgid "Delete text"
+msgstr "Trinti"
+
+#: libretranslate/templates/index.html:228
+msgid "Suggest translation"
+msgstr "Siūlomas vertimas"
+
+#: libretranslate/templates/index.html:232
+msgid "Cancel"
+msgstr "Atsisakyti"
+
+#: libretranslate/templates/index.html:235
+msgid "Send"
+msgstr "Siųsti"
+
+#: libretranslate/templates/index.html:251
+msgid "Supported file formats:"
+msgstr "Palaikomi failų formatai:"
+
+#: libretranslate/templates/index.html:255
+msgid "File"
+msgstr "Failas"
+
+#: libretranslate/templates/index.html:270
+msgid "Remove file"
+msgstr "Pašalinti failą"
+
+#: libretranslate/templates/index.html:277
+msgid "Translate"
+msgstr "Transliuoti"
+
+#: libretranslate/templates/index.html:278
+#: libretranslate/templates/index.html:322
+msgid "Download"
+msgstr "Atsisiųsti"
+
+#: libretranslate/templates/index.html:297
+msgid "Request"
+msgstr "Prašymas"
+
+#: libretranslate/templates/index.html:302
+msgid "Response"
+msgstr "Atsakas"
+
+#: libretranslate/templates/index.html:317
+msgid "Open Source Machine Translation API"
+msgstr "Open Source Machine Translation API"
+
+#: libretranslate/templates/index.html:318
+msgid "Self-Hosted. Offline Capable. Easy to Setup."
+msgstr "Selfas Hostedas. Galimi atsijungimai. Lengva susitvarkyti."
+
+#: libretranslate/templates/index.html:337
+msgid "LibreTranslate"
+msgstr "Name"
+
+#: libretranslate/templates/index.html:339
+msgid "License:"
+msgstr "Licencija:"
+
+#: libretranslate/templates/index.html:345
+#, python-format
+msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
+msgstr "Lovatiesės %(heart)s pagal %(contributors)s ir varomas %(engine)s"
+
+#: libretranslate/templates/index.html:345
+#, python-format
+msgid "%(libretranslate)s Contributors"
+msgstr "%(libretranslate)s Pagalbininkai"
+

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-10-09 15:17-0400\n"
+"POT-Creation-Date: 2024-08-08 13:24-0400\n"
 "PO-Revision-Date: 2023-03-01 08:36+0000\n"
 "Last-Translator: tygyh <jonis9898@hotmail.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/libretranslate/app/sv/>\n"
@@ -17,68 +17,94 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"Generated-By: Babel 2.12.1\n"
+"Generated-By: Babel 2.15.0\n"
 
-#: libretranslate/app.py:79
+#: libretranslate/app.py:80
 msgid "Invalid JSON format"
 msgstr "Invalid JSON-format"
 
-#: libretranslate/app.py:149 libretranslate/templates/app.js.template:459
+#: libretranslate/app.py:180 libretranslate/templates/app.js.template:465
 msgid "Auto Detect"
 msgstr "Identifiera Automatiskt"
 
-#: libretranslate/app.py:232
+#: libretranslate/app.py:273
 msgid "Unauthorized"
 msgstr "Obehörig"
 
-#: libretranslate/app.py:250
+#: libretranslate/app.py:291
 msgid "Too many request limits violations"
 msgstr "För många förfrågningar begränsar överträdelser"
 
-#: libretranslate/app.py:257
+#: libretranslate/app.py:298
 msgid "Invalid API key"
 msgstr "Invalid API nyckel"
 
-#: libretranslate/app.py:276
+#: libretranslate/app.py:317
 msgid "Please contact the server operator to get an API key"
 msgstr "Kontakta serveroperatören för att få en API-nyckel"
 
-#: libretranslate/app.py:278
+#: libretranslate/app.py:319
 #, python-format
 msgid "Visit %(url)s to get an API key"
 msgstr "Besök %(url)s för att få en API-nyckel"
 
-#: libretranslate/app.py:318
+#: libretranslate/app.py:366
 msgid "Slowdown:"
 msgstr "Nedsaktning:"
 
-#: libretranslate/app.py:525 libretranslate/app.py:527
-#: libretranslate/app.py:529 libretranslate/app.py:741
-#: libretranslate/app.py:743 libretranslate/app.py:745
-#: libretranslate/app.py:896 libretranslate/app.py:1053
-#: libretranslate/app.py:1055 libretranslate/app.py:1057
-#: libretranslate/app.py:1059
+#: libretranslate/app.py:583 libretranslate/app.py:585
+#: libretranslate/app.py:587 libretranslate/app.py:796
+#: libretranslate/app.py:798 libretranslate/app.py:800
+#: libretranslate/app.py:957 libretranslate/app.py:1114
+#: libretranslate/app.py:1116 libretranslate/app.py:1118
+#: libretranslate/app.py:1120
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
 msgstr "Ogiltig begäran: parametern %(name)s saknas"
 
-#: libretranslate/app.py:544 libretranslate/app.py:553
+#: libretranslate/app.py:592
+#, python-format
+msgid "Invalid request: %(name)s parameter is not a number"
+msgstr ""
+"Ogiltig begäran: <x>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+"0</x> parameter är inte ett tal %(name)s"
+
+#: libretranslate/app.py:595
+#, python-format
+msgid "Invalid request: %(name)s parameter must be <= %(value)s"
+msgstr ""
+"Ogiltig begäran: <x>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+"0</x> parameter måste vara ≤ <x>1 1</x> %(name)s %(value)s"
+
+#: libretranslate/app.py:612 libretranslate/app.py:622
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr "Ogiltig begäran: begäran %(size)s överstiger textgränsen (%(limit)s)"
 
-#: libretranslate/app.py:583 libretranslate/app.py:588
-#: libretranslate/app.py:758 libretranslate/app.py:763
+#: libretranslate/app.py:637 libretranslate/app.py:642
+#: libretranslate/app.py:811 libretranslate/app.py:816
 #, python-format
 msgid "%(lang)s is not supported"
 msgstr "%(lang)s stöds inte"
 
-#: libretranslate/app.py:594
+#: libretranslate/app.py:648
 #, python-format
 msgid "%(format)s format is not supported"
 msgstr "%(format)s-formatet stöds inte"
 
-#: libretranslate/app.py:602 libretranslate/app.py:626
+#: libretranslate/app.py:657 libretranslate/app.py:681
 #, python-format
 msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
@@ -87,28 +113,28 @@ msgstr ""
 "%(tname)s (%(tcode)s) är inte tillgängligt som målspråk från %(sname)s "
 "(%(scode)s)"
 
-#: libretranslate/app.py:647
+#: libretranslate/app.py:701
 #, python-format
 msgid "Cannot translate text: %(text)s"
 msgstr "Kan inte översätta text: %(text)s"
 
-#: libretranslate/app.py:734 libretranslate/app.py:788
+#: libretranslate/app.py:788 libretranslate/app.py:849
 msgid "Files translation are disabled on this server."
 msgstr "Filöversättning är inaktiverad på denna server."
 
-#: libretranslate/app.py:748
+#: libretranslate/app.py:803
 msgid "Invalid request: empty file"
 msgstr "Ogiltig begäran: tom fil"
 
-#: libretranslate/app.py:751
+#: libretranslate/app.py:806
 msgid "Invalid request: file format not supported"
 msgstr "Ogiltig begäran: filformat som inte stöds"
 
-#: libretranslate/app.py:796
+#: libretranslate/app.py:857
 msgid "Invalid filename"
 msgstr "Invalid filnamn"
 
-#: libretranslate/app.py:1038
+#: libretranslate/app.py:1099
 msgid "Suggestions are disabled on this server."
 msgstr "Förslag är inaktiverade på denna server."
 
@@ -117,120 +143,176 @@ msgid "English"
 msgstr "Engelska"
 
 #: libretranslate/locales/.langs.py:2
+msgid "Albanian"
+msgstr "Albanska"
+
+#: libretranslate/locales/.langs.py:3
 msgid "Arabic"
 msgstr "Arabiska"
 
-#: libretranslate/locales/.langs.py:3
+#: libretranslate/locales/.langs.py:4
 msgid "Azerbaijani"
 msgstr "Azerbajdzjan"
 
-#: libretranslate/locales/.langs.py:4
+#: libretranslate/locales/.langs.py:5
+msgid "Bengali"
+msgstr "Bengali"
+
+#: libretranslate/locales/.langs.py:6
+msgid "Bulgarian"
+msgstr "Bulgariska"
+
+#: libretranslate/locales/.langs.py:7
+msgid "Catalan"
+msgstr "Katalanska"
+
+#: libretranslate/locales/.langs.py:8
 msgid "Chinese"
 msgstr "Kinesiska"
 
-#: libretranslate/locales/.langs.py:5
+#: libretranslate/locales/.langs.py:9
+msgid "Chinese (traditional)"
+msgstr "Kinesiska (traditionell)"
+
+#: libretranslate/locales/.langs.py:10
 msgid "Czech"
 msgstr "Tjeckien"
 
-#: libretranslate/locales/.langs.py:6
+#: libretranslate/locales/.langs.py:11
 msgid "Danish"
 msgstr "Danska"
 
-#: libretranslate/locales/.langs.py:7
+#: libretranslate/locales/.langs.py:12
 msgid "Dutch"
 msgstr "Holländska"
 
-#: libretranslate/locales/.langs.py:8
+#: libretranslate/locales/.langs.py:13
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libretranslate/locales/.langs.py:9
+#: libretranslate/locales/.langs.py:14
+msgid "Estonian"
+msgstr "Estland"
+
+#: libretranslate/locales/.langs.py:15
 msgid "Finnish"
 msgstr "Finska finska"
 
-#: libretranslate/locales/.langs.py:10
+#: libretranslate/locales/.langs.py:16
 msgid "French"
 msgstr "Franska franska"
 
-#: libretranslate/locales/.langs.py:11
+#: libretranslate/locales/.langs.py:17
 msgid "German"
 msgstr "Tyska tyska"
 
-#: libretranslate/locales/.langs.py:12
+#: libretranslate/locales/.langs.py:18
 msgid "Greek"
 msgstr "Grekiska"
 
-#: libretranslate/locales/.langs.py:13
+#: libretranslate/locales/.langs.py:19
 msgid "Hebrew"
 msgstr "Hebreiska"
 
-#: libretranslate/locales/.langs.py:14
+#: libretranslate/locales/.langs.py:20
 msgid "Hindi"
 msgstr "Hindi"
 
-#: libretranslate/locales/.langs.py:15
+#: libretranslate/locales/.langs.py:21
 msgid "Hungarian"
 msgstr "Ungerska"
 
-#: libretranslate/locales/.langs.py:16
+#: libretranslate/locales/.langs.py:22
 msgid "Indonesian"
 msgstr "Indonesiska"
 
-#: libretranslate/locales/.langs.py:17
+#: libretranslate/locales/.langs.py:23
 msgid "Irish"
 msgstr "Irländska"
 
-#: libretranslate/locales/.langs.py:18
+#: libretranslate/locales/.langs.py:24
 msgid "Italian"
 msgstr "Italienska Italien"
 
-#: libretranslate/locales/.langs.py:19
+#: libretranslate/locales/.langs.py:25
 msgid "Japanese"
 msgstr "Japansk"
 
-#: libretranslate/locales/.langs.py:20
+#: libretranslate/locales/.langs.py:26
 msgid "Korean"
 msgstr "Koreanska"
 
-#: libretranslate/locales/.langs.py:21
+#: libretranslate/locales/.langs.py:27
+msgid "Latvian"
+msgstr "Lettland"
+
+#: libretranslate/locales/.langs.py:28
+msgid "Lithuanian"
+msgstr "Litauen"
+
+#: libretranslate/locales/.langs.py:29
+msgid "Malay"
+msgstr "Malay"
+
+#: libretranslate/locales/.langs.py:30
+msgid "Norwegian"
+msgstr "Norska"
+
+#: libretranslate/locales/.langs.py:31
 msgid "Persian"
 msgstr "Persiska"
 
-#: libretranslate/locales/.langs.py:22
+#: libretranslate/locales/.langs.py:32
 msgid "Polish"
 msgstr "Polska"
 
-#: libretranslate/locales/.langs.py:23
+#: libretranslate/locales/.langs.py:33
 msgid "Portuguese"
 msgstr "Portugisiska"
 
-#: libretranslate/locales/.langs.py:24
+#: libretranslate/locales/.langs.py:34
+msgid "Romanian"
+msgstr "Rumänien"
+
+#: libretranslate/locales/.langs.py:35
 msgid "Russian"
 msgstr "Ryska"
 
-#: libretranslate/locales/.langs.py:25
+#: libretranslate/locales/.langs.py:36
 msgid "Slovak"
 msgstr "Slovakiska"
 
-#: libretranslate/locales/.langs.py:26
+#: libretranslate/locales/.langs.py:37
+msgid "Slovenian"
+msgstr "Slovenska"
+
+#: libretranslate/locales/.langs.py:38
 msgid "Spanish"
 msgstr "Spanska spanska"
 
-#: libretranslate/locales/.langs.py:27
+#: libretranslate/locales/.langs.py:39
 msgid "Swedish"
 msgstr "Svenska"
 
-#: libretranslate/locales/.langs.py:28
+#: libretranslate/locales/.langs.py:40
+msgid "Tagalog"
+msgstr "Tagalog"
+
+#: libretranslate/locales/.langs.py:41
+msgid "Thai"
+msgstr "Thailändska"
+
+#: libretranslate/locales/.langs.py:42
 msgid "Turkish"
 msgstr "Turkiska"
 
-#: libretranslate/locales/.langs.py:29
+#: libretranslate/locales/.langs.py:43
 msgid "Ukranian"
 msgstr "Ukraniska"
 
-#: libretranslate/locales/.langs.py:30
-msgid "Vietnamese"
-msgstr "Vietnamesiska"
+#: libretranslate/locales/.langs.py:44
+msgid "Urdu"
+msgstr "Urdu"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
@@ -248,7 +330,7 @@ msgstr "översättning"
 msgid "Translate text from a language to another"
 msgstr "Översätt text från ett språk till ett annat"
 
-#: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:222
+#: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:224
 msgid "Translated text"
 msgstr "Översatt text"
 
@@ -303,170 +385,174 @@ msgstr ""
 "\"html\" - HTML-märkning\n"
 
 #: libretranslate/locales/.swag.py:17
+msgid "Preferred number of alternative translations"
+msgstr "Föredraget antal alternativa översättningar"
+
+#: libretranslate/locales/.swag.py:18
 msgid "API key"
 msgstr "API-nyckel"
 
-#: libretranslate/locales/.swag.py:18
+#: libretranslate/locales/.swag.py:19
 msgid "Translate file from a language to another"
 msgstr "Översätt fil från ett språk till ett annat"
 
-#: libretranslate/locales/.swag.py:19
+#: libretranslate/locales/.swag.py:20
 msgid "Translated file"
 msgstr "Översatt fil"
 
-#: libretranslate/locales/.swag.py:20
+#: libretranslate/locales/.swag.py:21
 msgid "File to translate"
 msgstr "Fil att översätta"
 
-#: libretranslate/locales/.swag.py:21
+#: libretranslate/locales/.swag.py:22
 msgid "Detect the language of a single text"
 msgstr "Upptäck språket i en enda text"
 
-#: libretranslate/locales/.swag.py:22
+#: libretranslate/locales/.swag.py:23
 msgid "Detections"
 msgstr "Detektioner"
 
-#: libretranslate/locales/.swag.py:23
+#: libretranslate/locales/.swag.py:24
 msgid "Detection error"
 msgstr "Detektering fel"
 
-#: libretranslate/locales/.swag.py:24
+#: libretranslate/locales/.swag.py:25
 msgid "Text to detect"
 msgstr "Text att upptäcka"
 
-#: libretranslate/locales/.swag.py:25
+#: libretranslate/locales/.swag.py:26
 msgid "Retrieve frontend specific settings"
 msgstr "Hämta frontend specifika inställningar"
 
-#: libretranslate/locales/.swag.py:26
+#: libretranslate/locales/.swag.py:27
 msgid "frontend settings"
 msgstr "frontend inställningar"
 
-#: libretranslate/locales/.swag.py:27
+#: libretranslate/locales/.swag.py:28
 msgid "frontend"
 msgstr "frontend"
 
-#: libretranslate/locales/.swag.py:28
+#: libretranslate/locales/.swag.py:29
 msgid "Submit a suggestion to improve a translation"
 msgstr "Skicka in ett förslag för att förbättra en översättning"
 
-#: libretranslate/locales/.swag.py:29
+#: libretranslate/locales/.swag.py:30
 msgid "Success"
 msgstr "Framgång"
 
-#: libretranslate/locales/.swag.py:30
+#: libretranslate/locales/.swag.py:31
 msgid "Not authorized"
 msgstr "Inte auktoriserad"
 
-#: libretranslate/locales/.swag.py:31
+#: libretranslate/locales/.swag.py:32
 msgid "Original text"
 msgstr "Originaltext"
 
-#: libretranslate/locales/.swag.py:32
+#: libretranslate/locales/.swag.py:33
 msgid "Suggested translation"
 msgstr "Föreslagen översättning"
 
-#: libretranslate/locales/.swag.py:33
+#: libretranslate/locales/.swag.py:34
 msgid "Language of original text"
 msgstr "Språk av originaltext"
 
-#: libretranslate/locales/.swag.py:34
+#: libretranslate/locales/.swag.py:35
 msgid "Language of suggested translation"
 msgstr "Språk av föreslagen översättning"
 
-#: libretranslate/locales/.swag.py:35
+#: libretranslate/locales/.swag.py:36
 msgid "feedback"
 msgstr "återkoppling"
 
-#: libretranslate/locales/.swag.py:36
+#: libretranslate/locales/.swag.py:37
 msgid "Language code"
 msgstr "Språkkod"
 
-#: libretranslate/locales/.swag.py:37
+#: libretranslate/locales/.swag.py:38
 msgid "Human-readable language name (in English)"
 msgstr "Mänskligt läsbart språknamn (på engelska)"
 
-#: libretranslate/locales/.swag.py:38
+#: libretranslate/locales/.swag.py:39
 msgid "Supported target language codes"
 msgstr "Stödda målspråkskoder"
 
-#: libretranslate/locales/.swag.py:39
+#: libretranslate/locales/.swag.py:40
 msgid "Translated text(s)"
 msgstr "Översatt text(er)"
 
-#: libretranslate/locales/.swag.py:40
+#: libretranslate/locales/.swag.py:41
 msgid "Error message"
 msgstr "Felmeddelande"
 
-#: libretranslate/locales/.swag.py:41
+#: libretranslate/locales/.swag.py:42
 msgid "Reason for slow down"
 msgstr "Reason för slow down"
 
-#: libretranslate/locales/.swag.py:42
+#: libretranslate/locales/.swag.py:43
 msgid "Translated file url"
 msgstr "Översatt fil url"
 
-#: libretranslate/locales/.swag.py:43
+#: libretranslate/locales/.swag.py:44
 msgid "Confidence value"
 msgstr "Förtroendevärde"
 
-#: libretranslate/locales/.swag.py:44
+#: libretranslate/locales/.swag.py:45
 msgid "Character input limit for this language (-1 indicates no limit)"
 msgstr "Teckengräns för detta språk (-1 anger ingen gräns)"
 
-#: libretranslate/locales/.swag.py:45
+#: libretranslate/locales/.swag.py:46
 msgid "Frontend translation timeout"
 msgstr "Frontend översättning timeout"
 
-#: libretranslate/locales/.swag.py:46
+#: libretranslate/locales/.swag.py:47
 msgid "Whether the API key database is enabled."
 msgstr "Oavsett om API-nyckeldatabasen är aktiverad."
 
-#: libretranslate/locales/.swag.py:47
+#: libretranslate/locales/.swag.py:48
 msgid "Whether an API key is required."
 msgstr "Oavsett om en API-nyckel krävs."
 
-#: libretranslate/locales/.swag.py:48
+#: libretranslate/locales/.swag.py:49
 msgid "Whether submitting suggestions is enabled."
 msgstr "Oavsett om det är möjligt att lämna in förslag."
 
-#: libretranslate/locales/.swag.py:49
+#: libretranslate/locales/.swag.py:50
 msgid "Supported files format"
 msgstr "Stödda filer format"
 
-#: libretranslate/locales/.swag.py:50
+#: libretranslate/locales/.swag.py:51
 msgid "Whether submission was successful"
 msgstr "Oavsett om inlämning var framgångsrik"
 
 #: libretranslate/templates/app.js.template:31
-#: libretranslate/templates/app.js.template:286
-#: libretranslate/templates/app.js.template:290
+#: libretranslate/templates/app.js.template:292
+#: libretranslate/templates/app.js.template:296
 msgid "Copy text"
 msgstr "Kopiera text"
 
 #: libretranslate/templates/app.js.template:80
 #: libretranslate/templates/app.js.template:86
 #: libretranslate/templates/app.js.template:91
-#: libretranslate/templates/app.js.template:273
-#: libretranslate/templates/app.js.template:343
-#: libretranslate/templates/app.js.template:431
-#: libretranslate/templates/app.js.template:479
+#: libretranslate/templates/app.js.template:279
+#: libretranslate/templates/app.js.template:349
+#: libretranslate/templates/app.js.template:437
+#: libretranslate/templates/app.js.template:485
 #, python-format
 msgid "Cannot load %(url)s"
 msgstr "Kan inte ladda %(url)s"
 
-#: libretranslate/templates/app.js.template:264
-#: libretranslate/templates/app.js.template:334
-#: libretranslate/templates/app.js.template:412
-#: libretranslate/templates/app.js.template:423
+#: libretranslate/templates/app.js.template:270
+#: libretranslate/templates/app.js.template:340
+#: libretranslate/templates/app.js.template:418
+#: libretranslate/templates/app.js.template:429
 msgid "Unknown error"
 msgstr "Okänd fel"
 
-#: libretranslate/templates/app.js.template:287
+#: libretranslate/templates/app.js.template:293
 msgid "Copied"
 msgstr "Kopierad"
 
-#: libretranslate/templates/app.js.template:331
+#: libretranslate/templates/app.js.template:337
 msgid ""
 "Thanks for your correction. Note the suggestion will not take effect right "
 "away."
@@ -474,27 +560,27 @@ msgstr ""
 "Tack för din korrigering. Observera att förslaget inte kommer att träda i "
 "kraft direkt."
 
-#: libretranslate/templates/app.js.template:455
+#: libretranslate/templates/app.js.template:461
 msgid "No languages available. Did you install the models correctly?"
 msgstr "Inga språk tillgängliga. Har du installerat modellerna korrekt?"
 
-#: libretranslate/templates/app.js.template:522
+#: libretranslate/templates/app.js.template:528
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
 msgstr ""
 "Skriv in din API-nyckel. Om du behöver en API-nyckel, %(instructions)s"
 
-#: libretranslate/templates/app.js.template:522
+#: libretranslate/templates/app.js.template:528
 msgid "press the \"Get API Key\" link."
 msgstr "tryck på länken \"Get API Key\"."
 
-#: libretranslate/templates/app.js.template:522
+#: libretranslate/templates/app.js.template:528
 msgid "contact the server operator."
 msgstr "kontakta serveroperatören."
 
 #: libretranslate/templates/index.html:9
 #: libretranslate/templates/index.html:27
-#: libretranslate/templates/index.html:336
+#: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
 msgstr "Gratis och öppen källkod Maskinöversättning API"
 
@@ -515,155 +601,154 @@ msgstr "översättning"
 msgid "api"
 msgstr "api"
 
-#: libretranslate/templates/index.html:65
+#: libretranslate/templates/index.html:67
 msgid "API Docs"
 msgstr "API Docs"
 
-#: libretranslate/templates/index.html:67
+#: libretranslate/templates/index.html:69
 msgid "Get API Key"
 msgstr "Få API Nyckeln"
 
-#: libretranslate/templates/index.html:69
+#: libretranslate/templates/index.html:71
 msgid "GitHub"
 msgstr "GitHub"
 
-#: libretranslate/templates/index.html:71
+#: libretranslate/templates/index.html:73
 msgid "Set API Key"
 msgstr "Ställ in API Nyckeln"
 
-#: libretranslate/templates/index.html:73
+#: libretranslate/templates/index.html:75
 msgid "Change language"
 msgstr "Ändra språk"
 
-#: libretranslate/templates/index.html:79
+#: libretranslate/templates/index.html:81
 msgid "Edit"
 msgstr "Redigera"
 
-#: libretranslate/templates/index.html:81
+#: libretranslate/templates/index.html:83
 msgid "Toggle dark/light mode"
 msgstr "Växla mörkt/ljusläge"
 
-#: libretranslate/templates/index.html:157
+#: libretranslate/templates/index.html:159
 msgid "Dismiss"
 msgstr "Avfärda"
 
-#: libretranslate/templates/index.html:171
+#: libretranslate/templates/index.html:173
 msgid "Translation API"
 msgstr "Översättning API"
 
-#: libretranslate/templates/index.html:175
+#: libretranslate/templates/index.html:177
 msgid "Translate Text"
 msgstr "Översätt text"
 
-#: libretranslate/templates/index.html:179
+#: libretranslate/templates/index.html:181
 msgid "Translate Files"
 msgstr "Översätt filer"
 
-#: libretranslate/templates/index.html:185
+#: libretranslate/templates/index.html:187
 msgid "Translate from"
 msgstr "Översättning från"
 
-#: libretranslate/templates/index.html:195
+#: libretranslate/templates/index.html:197
 msgid "Swap source and target languages"
 msgstr "Swap källa och målspråk"
 
-#: libretranslate/templates/index.html:198
+#: libretranslate/templates/index.html:200
 msgid "Translate into"
 msgstr "Översätt till"
 
-#: libretranslate/templates/index.html:210
+#: libretranslate/templates/index.html:212
 msgid "Text to translate"
 msgstr "Text att översätta"
 
-#: libretranslate/templates/index.html:213
+#: libretranslate/templates/index.html:215
 msgid "Delete text"
 msgstr "Ta bort text"
 
-#: libretranslate/templates/index.html:226
+#: libretranslate/templates/index.html:228
 msgid "Suggest translation"
 msgstr "Föreslå översättning"
 
-#: libretranslate/templates/index.html:230
+#: libretranslate/templates/index.html:232
 msgid "Cancel"
 msgstr "Avbokning"
 
-#: libretranslate/templates/index.html:233
+#: libretranslate/templates/index.html:235
 msgid "Send"
 msgstr "Skicka"
 
-#: libretranslate/templates/index.html:249
+#: libretranslate/templates/index.html:251
 msgid "Supported file formats:"
 msgstr "Stödda filformat:"
 
-#: libretranslate/templates/index.html:253
+#: libretranslate/templates/index.html:255
 msgid "File"
 msgstr "Fil"
 
-#: libretranslate/templates/index.html:268
+#: libretranslate/templates/index.html:270
 msgid "Remove file"
 msgstr "Ta bort filen"
 
-#: libretranslate/templates/index.html:275
+#: libretranslate/templates/index.html:277
 msgid "Translate"
 msgstr "Översättning"
 
-#: libretranslate/templates/index.html:276
-#: libretranslate/templates/index.html:320
+#: libretranslate/templates/index.html:278
+#: libretranslate/templates/index.html:322
 msgid "Download"
 msgstr "Ladda ner"
 
-#: libretranslate/templates/index.html:295
+#: libretranslate/templates/index.html:297
 msgid "Request"
 msgstr "Begäran"
 
-#: libretranslate/templates/index.html:300
+#: libretranslate/templates/index.html:302
 msgid "Response"
 msgstr "Svar"
 
-#: libretranslate/templates/index.html:315
+#: libretranslate/templates/index.html:317
 msgid "Open Source Machine Translation API"
 msgstr "API för maskinöversättning med öppen källkod"
 
-#: libretranslate/templates/index.html:316
+#: libretranslate/templates/index.html:318
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
 msgstr "Självhäftad. Offline kapabel. Lätt att ställa in."
 
-#: libretranslate/templates/index.html:335
+#: libretranslate/templates/index.html:337
 msgid "LibreTranslate"
 msgstr "LibreTranslate"
 
-#: libretranslate/templates/index.html:337
+#: libretranslate/templates/index.html:339
 msgid "License:"
 msgstr "Licens:"
 
-#: libretranslate/templates/index.html:340
-#, python-format
-msgid ""
-"This public API should be used for testing, personal or infrequent use. If "
-"you're going to run an application in production, please %(host_server)s or "
-"%(get_api_key)s."
-msgstr ""
-"Detta offentliga API bör användas för testning, personlig eller sällsynt "
-"användning. Om du ska köra en ansökan i produktionen, vänligen "
-"%(host_server)s eller %(get_api_key)s."
-
-#: libretranslate/templates/index.html:340
-msgid "host your own server"
-msgstr "värd din egen server"
-
-#: libretranslate/templates/index.html:340
-msgid "get an API key"
-msgstr "få en API-nyckel"
-
-#: libretranslate/templates/index.html:348
+#: libretranslate/templates/index.html:345
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
 msgstr "Tillverkad med %(heart)s av %(contributors)s och drivs av %(engine)s"
 
-#: libretranslate/templates/index.html:348
+#: libretranslate/templates/index.html:345
 #, python-format
 msgid "%(libretranslate)s Contributors"
 msgstr "%(libretranslate)s Bidragsgivare"
 
 #~ msgid "multipart/form-data"
 #~ msgstr "multipart/form-data"
+
+#~ msgid "Vietnamese"
+#~ msgstr "Vietnamesiska"
+
+#~ msgid ""
+#~ "This public API should be used for testing, personal or infrequent use. If "
+#~ "you're going to run an application in production, please %(host_server)s or "
+#~ "%(get_api_key)s."
+#~ msgstr ""
+#~ "Detta offentliga API bör användas för testning, personlig eller sällsynt "
+#~ "användning. Om du ska köra en ansökan i produktionen, vänligen "
+#~ "%(host_server)s eller %(get_api_key)s."
+
+#~ msgid "host your own server"
+#~ msgstr "värd din egen server"
+
+#~ msgid "get an API key"
+#~ msgstr "få en API-nyckel"
