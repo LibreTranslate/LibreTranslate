@@ -9,14 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-08-08 13:24-0400\n"
-"PO-Revision-Date: 2024-08-06 00:09+0000\n"
+"PO-Revision-Date: 2024-08-09 21:16+0000\n"
 "Last-Translator: SA99100 <SAA499A@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/libretranslate/app/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/libretranslate/"
+"app/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.7-dev\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: libretranslate/app.py:80
@@ -122,7 +124,7 @@ msgstr "このサーバーで提案が無効になっています。."
 
 #: libretranslate/locales/.langs.py:1
 msgid "English"
-msgstr "日本語"
+msgstr "英語"
 
 #: libretranslate/locales/.langs.py:2
 msgid "Albanian"
@@ -142,11 +144,11 @@ msgstr "ベンガル語"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Bulgarian"
-msgstr "インドネシア"
+msgstr "ブルガリア語"
 
 #: libretranslate/locales/.langs.py:7
 msgid "Catalan"
-msgstr "カタロニア"
+msgstr "カタルーニャ語"
 
 #: libretranslate/locales/.langs.py:8
 msgid "Chinese"
@@ -202,19 +204,19 @@ msgstr "ヒンディー語"
 
 #: libretranslate/locales/.langs.py:21
 msgid "Hungarian"
-msgstr "ハンガリー"
+msgstr "ハンガリー語"
 
 #: libretranslate/locales/.langs.py:22
 msgid "Indonesian"
-msgstr "インドネシア"
+msgstr "インドネシア語"
 
 #: libretranslate/locales/.langs.py:23
 msgid "Irish"
-msgstr "アイルランド"
+msgstr "アイルランド語"
 
 #: libretranslate/locales/.langs.py:24
 msgid "Italian"
-msgstr "イタリア"
+msgstr "イタリア語"
 
 #: libretranslate/locales/.langs.py:25
 msgid "Japanese"
@@ -226,7 +228,7 @@ msgstr "韓国語"
 
 #: libretranslate/locales/.langs.py:27
 msgid "Latvian"
-msgstr "ラトビアの"
+msgstr "ラトビア語"
 
 #: libretranslate/locales/.langs.py:28
 msgid "Lithuanian"
@@ -254,7 +256,7 @@ msgstr "ポルトガル語"
 
 #: libretranslate/locales/.langs.py:34
 msgid "Romanian"
-msgstr "ルーマニア"
+msgstr "ルーマニア語"
 
 #: libretranslate/locales/.langs.py:35
 msgid "Russian"
@@ -278,11 +280,11 @@ msgstr "スウェーデン語"
 
 #: libretranslate/locales/.langs.py:40
 msgid "Tagalog"
-msgstr "タガログ"
+msgstr "タガログ語"
 
 #: libretranslate/locales/.langs.py:41
 msgid "Thai"
-msgstr "タイ"
+msgstr "タイ語"
 
 #: libretranslate/locales/.langs.py:42
 msgid "Turkish"
@@ -290,11 +292,11 @@ msgstr "トルコ語"
 
 #: libretranslate/locales/.langs.py:43
 msgid "Ukranian"
-msgstr "ウクラニアン"
+msgstr "ウクライナ語"
 
 #: libretranslate/locales/.langs.py:44
 msgid "Urdu"
-msgstr "ウルドゥー"
+msgstr "ウルドゥー語"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
@@ -314,11 +316,11 @@ msgstr "言語から別の言語にテキストを翻訳する"
 
 #: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:224
 msgid "Translated text"
-msgstr "翻訳テキスト"
+msgstr "翻訳されたテキスト"
 
 #: libretranslate/locales/.swag.py:6
 msgid "Invalid request"
-msgstr "無効な要求"
+msgstr "無効なリクエスト"
 
 #: libretranslate/locales/.swag.py:7
 msgid "Translation error"
@@ -330,11 +332,11 @@ msgstr "スローダウン"
 
 #: libretranslate/locales/.swag.py:9
 msgid "Banned"
-msgstr "禁止事項"
+msgstr "禁止された"
 
 #: libretranslate/locales/.swag.py:10
 msgid "Hello world!"
-msgstr "こんにちは!"
+msgstr "こんにちは皆さん!"
 
 #: libretranslate/locales/.swag.py:11
 msgid "Text(s) to translate"
@@ -346,7 +348,7 @@ msgstr "翻訳元の言語コード"
 
 #: libretranslate/locales/.swag.py:13
 msgid "Target language code"
-msgstr "ターゲット言語コード"
+msgstr "翻訳先の言語コード"
 
 #: libretranslate/locales/.swag.py:14
 msgid "text"
@@ -456,11 +458,11 @@ msgstr "読みやすい言語名(英語)"
 
 #: libretranslate/locales/.swag.py:39
 msgid "Supported target language codes"
-msgstr "ターゲット言語コードをサポート"
+msgstr "サポートされた翻訳先の言語コード"
 
 #: libretranslate/locales/.swag.py:40
 msgid "Translated text(s)"
-msgstr "翻訳されたテキスト(s)"
+msgstr "翻訳されたテキスト"
 
 #: libretranslate/locales/.swag.py:41
 msgid "Error message"
@@ -472,15 +474,15 @@ msgstr "遅くなる理由"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Translated file url"
-msgstr "翻訳されたファイル url"
+msgstr "翻訳されたファイルのurl"
 
 #: libretranslate/locales/.swag.py:44
 msgid "Confidence value"
-msgstr "機密価値"
+msgstr "信頼値"
 
 #: libretranslate/locales/.swag.py:45
 msgid "Character input limit for this language (-1 indicates no limit)"
-msgstr "この言語の文字入力制限(-1は制限なし)"
+msgstr "この言語の入力文字制限(-1は制限なし)"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Frontend translation timeout"
@@ -488,15 +490,15 @@ msgstr "フロントエンドの翻訳タイムアウト"
 
 #: libretranslate/locales/.swag.py:47
 msgid "Whether the API key database is enabled."
-msgstr "API キーデータベースが有効になっているかどうか。."
+msgstr "APIキーデータベースが有効かどうか。"
 
 #: libretranslate/locales/.swag.py:48
 msgid "Whether an API key is required."
-msgstr "API キーが要求されるかどうか。."
+msgstr "APIキーが要求されるかどうか。"
 
 #: libretranslate/locales/.swag.py:49
 msgid "Whether submitting suggestions is enabled."
-msgstr "提案を提出するかどうかが有効になっています。."
+msgstr "提案の提出が有効かどうか。"
 
 #: libretranslate/locales/.swag.py:50
 msgid "Supported files format"
@@ -504,13 +506,13 @@ msgstr "サポートされているファイル形式"
 
 #: libretranslate/locales/.swag.py:51
 msgid "Whether submission was successful"
-msgstr "投稿が成功したかどうか"
+msgstr "提出が成功したかどうか"
 
 #: libretranslate/templates/app.js.template:31
 #: libretranslate/templates/app.js.template:292
 #: libretranslate/templates/app.js.template:296
 msgid "Copy text"
-msgstr "テキストのコピー"
+msgstr "テキストをコピー"
 
 #: libretranslate/templates/app.js.template:80
 #: libretranslate/templates/app.js.template:86
@@ -521,7 +523,7 @@ msgstr "テキストのコピー"
 #: libretranslate/templates/app.js.template:485
 #, python-format
 msgid "Cannot load %(url)s"
-msgstr "負荷無し %(url)s"
+msgstr "%(url)sを読み込めません。"
 
 #: libretranslate/templates/app.js.template:270
 #: libretranslate/templates/app.js.template:340
@@ -532,13 +534,13 @@ msgstr "未知のエラー"
 
 #: libretranslate/templates/app.js.template:293
 msgid "Copied"
-msgstr "コピッド"
+msgstr "コピーされました"
 
 #: libretranslate/templates/app.js.template:337
 msgid ""
 "Thanks for your correction. Note the suggestion will not take effect right "
 "away."
-msgstr "あなたの修正をありがとう。 提案はすぐに影響しません。."
+msgstr "修正ありがとうございます。 提案はすぐには反映しないことをご理解ください。"
 
 #: libretranslate/templates/app.js.template:461
 msgid "No languages available. Did you install the models correctly?"
@@ -547,58 +549,57 @@ msgstr "多言語対応 モデルを正しくインストールしましたか?"
 #: libretranslate/templates/app.js.template:528
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
-msgstr "APIキーを入力します。 API キーが必要な場合は、%(instructions)s"
+msgstr "APIキーを入力してください。 APIキーが必要な場合は、%(instructions)s"
 
 #: libretranslate/templates/app.js.template:528
 msgid "press the \"Get API Key\" link."
-msgstr "「APIキーの取得」リンクを押します。."
+msgstr "「APIキーを取得」リンクを押してください。"
 
 #: libretranslate/templates/app.js.template:528
 msgid "contact the server operator."
-msgstr "サーバ オペレータに連絡して下さい。."
+msgstr "サーバーオペレータに連絡して下さい。"
 
 #: libretranslate/templates/index.html:9
 #: libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
-msgstr "オープンソース・マシン・トランスレーション・API"
+msgstr "フリーそしてオープンソースな機械翻訳API"
 
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
 "Free and Open Source Machine Translation API. Self-hosted, offline capable "
 "and easy to setup. Run your own API server in just a few minutes."
-msgstr ""
-"オープンソース・マシン・トランスレーション API の無料およびオープン・ソース・マシン セルフホスト、オフライン対応、セットアップが簡単。 "
-"わずか数分で独自の API サーバーを実行します。."
+msgstr "フリーでオープンソースな機械翻訳API。セルフホスト、オフラインで利用可能、セッ"
+"トアップも簡単。数分であなたのAPIサーバーを実行。"
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
-msgstr "インフォメーション"
+msgstr "翻訳"
 
 #: libretranslate/templates/index.html:11
 msgid "api"
-msgstr "ログイン"
+msgstr "api"
 
 #: libretranslate/templates/index.html:67
 msgid "API Docs"
-msgstr "API ドキュメント"
+msgstr "APIドキュメント"
 
 #: libretranslate/templates/index.html:69
 msgid "Get API Key"
-msgstr "API の取得 キーキー"
+msgstr "APIキーを取得"
 
 #: libretranslate/templates/index.html:71
 msgid "GitHub"
-msgstr "GitHubで"
+msgstr "GitHub"
 
 #: libretranslate/templates/index.html:73
 msgid "Set API Key"
-msgstr "APIの設定 キーキー"
+msgstr "APIキーを設定"
 
 #: libretranslate/templates/index.html:75
 msgid "Change language"
-msgstr "言語変更"
+msgstr "言語を変更"
 
 #: libretranslate/templates/index.html:81
 msgid "Edit"
@@ -610,11 +611,11 @@ msgstr "ダークモード/ライトモードを切り替える"
 
 #: libretranslate/templates/index.html:159
 msgid "Dismiss"
-msgstr "免責事項"
+msgstr "却下"
 
 #: libretranslate/templates/index.html:173
 msgid "Translation API"
-msgstr "翻訳 API"
+msgstr "翻訳API"
 
 #: libretranslate/templates/index.html:177
 msgid "Translate Text"
@@ -622,19 +623,19 @@ msgstr "テキストの翻訳"
 
 #: libretranslate/templates/index.html:181
 msgid "Translate Files"
-msgstr "ファイル翻訳"
+msgstr "ファイルを翻訳"
 
 #: libretranslate/templates/index.html:187
 msgid "Translate from"
-msgstr "翻訳から"
+msgstr "から翻訳"
 
 #: libretranslate/templates/index.html:197
 msgid "Swap source and target languages"
-msgstr "スワップソースとターゲット言語"
+msgstr "翻訳元と翻訳先の言語を入れ替え"
 
 #: libretranslate/templates/index.html:200
 msgid "Translate into"
-msgstr "翻訳する"
+msgstr "に翻訳する"
 
 #: libretranslate/templates/index.html:212
 msgid "Text to translate"
@@ -642,11 +643,11 @@ msgstr "翻訳するテキスト"
 
 #: libretranslate/templates/index.html:215
 msgid "Delete text"
-msgstr "テキストの削除"
+msgstr "テキストを削除"
 
 #: libretranslate/templates/index.html:228
 msgid "Suggest translation"
-msgstr "翻訳の提案"
+msgstr "翻訳を提案"
 
 #: libretranslate/templates/index.html:232
 msgid "Cancel"
@@ -654,7 +655,7 @@ msgstr "キャンセル"
 
 #: libretranslate/templates/index.html:235
 msgid "Send"
-msgstr "お問い合わせ"
+msgstr "送信"
 
 #: libretranslate/templates/index.html:251
 msgid "Supported file formats:"
@@ -666,11 +667,11 @@ msgstr "ファイル"
 
 #: libretranslate/templates/index.html:270
 msgid "Remove file"
-msgstr "ファイルを削除します。"
+msgstr "ファイルを削除"
 
 #: libretranslate/templates/index.html:277
 msgid "Translate"
-msgstr "ログイン"
+msgstr "翻訳"
 
 #: libretranslate/templates/index.html:278
 #: libretranslate/templates/index.html:322
@@ -683,19 +684,19 @@ msgstr "リクエスト"
 
 #: libretranslate/templates/index.html:302
 msgid "Response"
-msgstr "ソリューション"
+msgstr "レスポンス"
 
 #: libretranslate/templates/index.html:317
 msgid "Open Source Machine Translation API"
-msgstr "オープンソース機械翻訳 API"
+msgstr "オープンソース機械翻訳API"
 
 #: libretranslate/templates/index.html:318
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
-msgstr "セルフホスト。 オフライン対応 簡単にセットアップできます。."
+msgstr "セルフホスト。 オフライン対応。セットアップ簡単。"
 
 #: libretranslate/templates/index.html:337
 msgid "LibreTranslate"
-msgstr "ライブラリ"
+msgstr "LibreTranslate"
 
 #: libretranslate/templates/index.html:339
 msgid "License:"
