@@ -12,7 +12,7 @@ def on_starting(server):
     proc_name = server.cfg.default_proc_name
     kwargs = {}
     if proc_name.startswith("wsgi:app"):
-        str_args = re.sub('wsgi:app\s*\(\s*(.*)\s*\)', '\\1', proc_name).strip().split(",")
+        str_args = re.sub(r'wsgi:app\s*\(\s*(.*)\s*\)', '\\1', proc_name).strip().split(",")
         for a in str_args:
             if "=" in a:
                 k,v = a.split("=")
@@ -21,12 +21,15 @@ def on_starting(server):
 
                 if v.lower() in ["true", "false"]:
                     v = v.lower() == "true"
+                    if not v:
+                        continue
                 elif v[0] == '"':
                     v = v[1:-1]
                 kwargs[k] = v
 
     from libretranslate.main import get_args
     sys.argv = ['--wsgi']
+
     for k in kwargs:
         ck = k.replace("_", "-")
         if isinstance(kwargs[k], bool) and kwargs[k]:
