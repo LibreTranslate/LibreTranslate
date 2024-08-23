@@ -9,14 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-08-08 13:24-0400\n"
-"PO-Revision-Date: 2023-09-30 09:00+0000\n"
-"Last-Translator: Michael Lewnton <michaellewnton@gmail.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/libretranslate/app/el/>\n"
+"PO-Revision-Date: 2024-08-24 07:09+0000\n"
+"Last-Translator: Nikos Merianos <merianosnikos@gmail.com>\n"
+"Language-Team: Greek <https://hosted.weblate.org/projects/libretranslate/app/"
+"el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.7.1-dev\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: libretranslate/app.py:80
@@ -33,7 +35,7 @@ msgstr "Μη εξουσιοδοτημένο"
 
 #: libretranslate/app.py:291
 msgid "Too many request limits violations"
-msgstr "Υπερβολικά αιτημάτα, περιορισμός παραβιάσεων"
+msgstr "Πάρα πολλά αιτήματα περιορίζουν τις παραβιάσεις"
 
 #: libretranslate/app.py:298
 msgid "Invalid API key"
@@ -60,18 +62,18 @@ msgstr "Επιβράδυνση:"
 #: libretranslate/app.py:1120
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr "Άκυρο αίτημα: ελλιπής παράμετρος %(name)s"
+msgstr "Άκυρο αίτημα: απούσα η παράμετρος %(name)s"
 
 #: libretranslate/app.py:592
 #, python-format
 msgid "Invalid request: %(name)s parameter is not a number"
-msgstr "Μη έγκυρη αίτηση: %(name)s η παράμετρος δεν είναι αριθμός"
+msgstr "Μη έγκυρη αίτηση: Η παράμετρος %(name)s δεν είναι αριθμός"
 
 #: libretranslate/app.py:595
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
 msgstr ""
-"Μη έγκυρη αίτηση: %(name)s η παράμετρος πρέπει να είναι &lt;= &gt; %(value)s"
+"Μη έγκυρη αίτηση: Η παράμετρος %(name)s πρέπει να είναι &lt;= &gt; %(value)s"
 
 #: libretranslate/app.py:612 libretranslate/app.py:622
 #, python-format
@@ -84,7 +86,7 @@ msgstr ""
 #: libretranslate/app.py:811 libretranslate/app.py:816
 #, python-format
 msgid "%(lang)s is not supported"
-msgstr "Δεν υποστηρίζoνται %(lang)s"
+msgstr "%(lang)s δεν υποστηρίζετε"
 
 #: libretranslate/app.py:648
 #, python-format
