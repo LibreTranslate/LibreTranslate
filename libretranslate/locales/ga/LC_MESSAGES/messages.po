@@ -9,14 +9,17 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-08-08 13:24-0400\n"
-"PO-Revision-Date: 2024-07-06 08:18+0000\n"
+"PO-Revision-Date: 2024-09-15 20:09+0000\n"
 "Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@gmail.com>\n"
-"Language-Team: Irish <https://hosted.weblate.org/projects/libretranslate/app/ga/>\n"
+"Language-Team: Irish <https://hosted.weblate.org/projects/libretranslate/app/"
+"ga/>\n"
 "Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : (n>2 && n<7) ? 2 :(n>6 && n<11) ? 3 : 4;\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : (n>2 && n<7) ? 2 :("
+"n>6 && n<11) ? 3 : 4;\n"
+"X-Generator: Weblate 5.8-dev\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: libretranslate/app.py:80
@@ -25,7 +28,7 @@ msgstr "Formáid JSON marcáilte"
 
 #: libretranslate/app.py:180 libretranslate/templates/app.js.template:465
 msgid "Auto Detect"
-msgstr "Déan teagmháil Linn"
+msgstr "Braith Uathoibríoch"
 
 #: libretranslate/app.py:273
 msgid "Unauthorized"
@@ -33,15 +36,15 @@ msgstr "Gan údarás"
 
 #: libretranslate/app.py:291
 msgid "Too many request limits violations"
-msgstr "Go leor sáruithe teorainneacha a iarraidh"
+msgstr "Cuireann an iomarca iarratas teorainn le sáruithe"
 
 #: libretranslate/app.py:298
 msgid "Invalid API key"
-msgstr "Eochair API luachmhar"
+msgstr "Eochair API neamhbhailí"
 
 #: libretranslate/app.py:317
 msgid "Please contact the server operator to get an API key"
-msgstr "Téigh i dteagmháil leis an oibreoir freastalaí a fháil eochair API"
+msgstr "Déan teagmháil le hoibreoir an fhreastalaí chun eochair API a fháil"
 
 #: libretranslate/app.py:319
 #, python-format
@@ -50,7 +53,7 @@ msgstr "Tabhair cuairt ar %(url)s a fháil eochair API"
 
 #: libretranslate/app.py:366
 msgid "Slowdown:"
-msgstr "Tóg go bog é:"
+msgstr "Go mall:"
 
 #: libretranslate/app.py:583 libretranslate/app.py:585
 #: libretranslate/app.py:587 libretranslate/app.py:796
@@ -65,14 +68,13 @@ msgstr "Iarratas neamhbhailí: paraiméadar %(name)s in easnamh"
 #: libretranslate/app.py:592
 #, python-format
 msgid "Invalid request: %(name)s parameter is not a number"
-msgstr "Iarratas neamhbhailí: <x>0 0</x> Níl an paraiméadar uimhir %(name)s"
+msgstr "Iarratas neamhbhailí: ní uimhir é paraiméadar %(name)s"
 
 #: libretranslate/app.py:595
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
 msgstr ""
-"Iarratas neamhbhailí: <x>0 0</x> Ní mór paraiméadar a bheith r = <x>1 1</x> "
-"%(name)s %(value)s"
+"Iarratas neamhbhailí: Caithfidh paraiméadar %(name)s a bheith <= %(value)s"
 
 #: libretranslate/app.py:612 libretranslate/app.py:622
 #, python-format
@@ -120,15 +122,15 @@ msgstr "Iarratas neamhbhailí: formáid comhaid nach bhfuil tacaíocht"
 
 #: libretranslate/app.py:857
 msgid "Invalid filename"
-msgstr "Ainm comhaid luachmhar"
+msgstr "Ainm comhaid neamhbhailí"
 
 #: libretranslate/app.py:1099
 msgid "Suggestions are disabled on this server."
-msgstr "Tá moltaí faoi mhíchumas ar an bhfreastalaí."
+msgstr "Díchumasaítear moltaí ar an bhfreastalaí seo."
 
 #: libretranslate/locales/.langs.py:1
 msgid "English"
-msgstr "Gaeilge agus Béarla"
+msgstr "Béarla"
 
 #: libretranslate/locales/.langs.py:2
 msgid "Albanian"
@@ -144,15 +146,15 @@ msgstr "An Asarbaiseáin"
 
 #: libretranslate/locales/.langs.py:5
 msgid "Bengali"
-msgstr "Inis dúinn, le do thoil.."
+msgstr "Beangáilis"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Bulgarian"
-msgstr "Riachtanais uisce: measartha"
+msgstr "Bulgáiris"
 
 #: libretranslate/locales/.langs.py:7
 msgid "Catalan"
-msgstr "Catalónach na Catalóine"
+msgstr "Catalóinis"
 
 #: libretranslate/locales/.langs.py:8
 msgid "Chinese"
@@ -160,27 +162,27 @@ msgstr "Sínis"
 
 #: libretranslate/locales/.langs.py:9
 msgid "Chinese (traditional)"
-msgstr "Sínis (traditional)"
+msgstr "Sínis (traidisiúnta)"
 
 #: libretranslate/locales/.langs.py:10
 msgid "Czech"
-msgstr "An Danmhairgis"
+msgstr "Seiceach"
 
 #: libretranslate/locales/.langs.py:11
 msgid "Danish"
-msgstr "An Danmhairgis"
+msgstr "Danmhairgis"
 
 #: libretranslate/locales/.langs.py:12
 msgid "Dutch"
-msgstr "An Ollainnis"
+msgstr "Ollainnis"
 
 #: libretranslate/locales/.langs.py:13
 msgid "Esperanto"
-msgstr "Seirbhís do Chustaiméirí"
+msgstr "Esperanto"
 
 #: libretranslate/locales/.langs.py:14
 msgid "Estonian"
-msgstr "Riachtanais uisce: measartha"
+msgstr "Eastóinis"
 
 #: libretranslate/locales/.langs.py:15
 msgid "Finnish"
@@ -188,7 +190,7 @@ msgstr "Fionlainnis"
 
 #: libretranslate/locales/.langs.py:16
 msgid "French"
-msgstr "Franc na hEilvéise"
+msgstr "Fraincis"
 
 #: libretranslate/locales/.langs.py:17
 msgid "German"
@@ -196,7 +198,7 @@ msgstr "Gearmáinis"
 
 #: libretranslate/locales/.langs.py:18
 msgid "Greek"
-msgstr "Cineál gas: in airde"
+msgstr "Gréigis"
 
 #: libretranslate/locales/.langs.py:19
 msgid "Hebrew"
@@ -208,11 +210,11 @@ msgstr "Hiondúis"
 
 #: libretranslate/locales/.langs.py:21
 msgid "Hungarian"
-msgstr "Foirm duille: oval"
+msgstr "Ungáiris"
 
 #: libretranslate/locales/.langs.py:22
 msgid "Indonesian"
-msgstr "Bláthanna faoi dhíon"
+msgstr "Indinéisis"
 
 #: libretranslate/locales/.langs.py:23
 msgid "Irish"
@@ -224,51 +226,51 @@ msgstr "Iodálach"
 
 #: libretranslate/locales/.langs.py:25
 msgid "Japanese"
-msgstr "Bláthanna cumhra: cumhráin"
+msgstr "Seapánach"
 
 #: libretranslate/locales/.langs.py:26
 msgid "Korean"
-msgstr "Bláthanna Gairdín"
+msgstr "Cóiréis"
 
 #: libretranslate/locales/.langs.py:27
 msgid "Latvian"
-msgstr "Taiseachas aeir: fliuch"
+msgstr "Laitvis"
 
 #: libretranslate/locales/.langs.py:28
 msgid "Lithuanian"
-msgstr "An Liotuáin"
+msgstr "Liotuáinis"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Malay"
-msgstr "Cineál gas: in airde"
+msgstr "Malaeis"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Norwegian"
-msgstr "Cineál gas: in airde"
+msgstr "Ioruais"
 
 #: libretranslate/locales/.langs.py:31
 msgid "Persian"
-msgstr "Cineál gas: in airde"
+msgstr "Peirsis"
 
 #: libretranslate/locales/.langs.py:32
 msgid "Polish"
-msgstr "Cineál gas: in airde"
+msgstr "Polainnis"
 
 #: libretranslate/locales/.langs.py:33
 msgid "Portuguese"
-msgstr "Bláthanna faoi dhíon"
+msgstr "Portaingéilis"
 
 #: libretranslate/locales/.langs.py:34
 msgid "Romanian"
-msgstr "An Rómáin"
+msgstr "Rómáinis"
 
 #: libretranslate/locales/.langs.py:35
 msgid "Russian"
-msgstr "Bláthanna cumhra: cumhráin"
+msgstr "Rúisis"
 
 #: libretranslate/locales/.langs.py:36
 msgid "Slovak"
-msgstr "An tSlÃ3ivéin"
+msgstr "Slóvaicis"
 
 #: libretranslate/locales/.langs.py:37
 msgid "Slovenian"
@@ -276,7 +278,7 @@ msgstr "Slóivéinis"
 
 #: libretranslate/locales/.langs.py:38
 msgid "Spanish"
-msgstr "Riachtanais uisce: measartha"
+msgstr "Spáinnis"
 
 #: libretranslate/locales/.langs.py:39
 msgid "Swedish"
@@ -284,7 +286,7 @@ msgstr "Sualainnis"
 
 #: libretranslate/locales/.langs.py:40
 msgid "Tagalog"
-msgstr "Féachaint ar Fholúntais"
+msgstr "Tagálaigis"
 
 #: libretranslate/locales/.langs.py:41
 msgid "Thai"
@@ -296,15 +298,15 @@ msgstr "Tuircis"
 
 #: libretranslate/locales/.langs.py:43
 msgid "Ukranian"
-msgstr "Cónaidhm na Rúise"
+msgstr "Úcráinis"
 
 #: libretranslate/locales/.langs.py:44
 msgid "Urdu"
-msgstr "Riachtanais uisce: measartha"
+msgstr "Urdais"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
-msgstr "Liosta de na teangacha tacaithe"
+msgstr "Aisghabh liosta de na teangacha a dtacaítear leo"
 
 #: libretranslate/locales/.swag.py:2
 msgid "List of languages"
@@ -312,11 +314,11 @@ msgstr "Liosta teangacha"
 
 #: libretranslate/locales/.swag.py:3
 msgid "translate"
-msgstr "aistriú"
+msgstr "aistrigh"
 
 #: libretranslate/locales/.swag.py:4
 msgid "Translate text from a language to another"
-msgstr "Téacs Translate ó theanga go ceann eile"
+msgstr "Aistrigh téacs ó theanga go teanga eile"
 
 #: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:224
 msgid "Translated text"
@@ -332,7 +334,7 @@ msgstr "Earráid aistriúcháin"
 
 #: libretranslate/locales/.swag.py:8
 msgid "Slow down"
-msgstr "Sreabhadh síos"
+msgstr "Go mall"
 
 #: libretranslate/locales/.swag.py:9
 msgid "Banned"
@@ -368,13 +370,13 @@ msgid ""
 " * `text` - Plain text\n"
 " * `html` - HTML markup\n"
 msgstr ""
-"Formáid téacs foinse:\n"
-"* `théacs ` - Cuir téacs\n"
-"* html ` - HTML marcóir\n"
+"Formáid an téacs foinseach:\n"
+" * `téacs` - Gnáth-théacs\n"
+" * `html` - marcáil HTML\n"
 
 #: libretranslate/locales/.swag.py:17
 msgid "Preferred number of alternative translations"
-msgstr "Líon Rogha na n-aistriúcháin malartacha"
+msgstr "An líon rogha aistriúcháin mhalartacha"
 
 #: libretranslate/locales/.swag.py:18
 msgid "API key"
@@ -394,15 +396,15 @@ msgstr "Comhad le haistriú"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Detect the language of a single text"
-msgstr "An teanga téacs amháin a bhrath"
+msgstr "Braith teanga téacs amháin"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Detections"
-msgstr "Ailtireacht"
+msgstr "Brathanna"
 
 #: libretranslate/locales/.swag.py:24
 msgid "Detection error"
-msgstr "Earráid bhrath"
+msgstr "Earráid braite"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Text to detect"
@@ -410,27 +412,27 @@ msgstr "Téacs le brath"
 
 #: libretranslate/locales/.swag.py:26
 msgid "Retrieve frontend specific settings"
-msgstr "Retrive suímh tosaigh ar leith"
+msgstr "Aisghabh sainsocruithe tosaigh"
 
 #: libretranslate/locales/.swag.py:27
 msgid "frontend settings"
-msgstr "socruithe tosaigh"
+msgstr "socruithe ceann tosaigh"
 
 #: libretranslate/locales/.swag.py:28
 msgid "frontend"
-msgstr "tosaigh"
+msgstr "ceann tosaigh"
 
 #: libretranslate/locales/.swag.py:29
 msgid "Submit a suggestion to improve a translation"
-msgstr "Cuir moladh chun aistriúchán a fheabhsú"
+msgstr "Cuir isteach moladh chun aistriúchán a fheabhsú"
 
 #: libretranslate/locales/.swag.py:30
 msgid "Success"
-msgstr "Rath agus Rath"
+msgstr "Rath"
 
 #: libretranslate/locales/.swag.py:31
 msgid "Not authorized"
-msgstr "Nach bhfuil údaraithe"
+msgstr "Gan údar"
 
 #: libretranslate/locales/.swag.py:32
 msgid "Original text"
@@ -458,11 +460,11 @@ msgstr "Cód teanga"
 
 #: libretranslate/locales/.swag.py:38
 msgid "Human-readable language name (in English)"
-msgstr "Ainm teanga an duine inléite (i mBéarla)"
+msgstr "Ainm teanga inléite ag an duine (i mBéarla)"
 
 #: libretranslate/locales/.swag.py:39
 msgid "Supported target language codes"
-msgstr "Tacú le cóid sprioctheanga"
+msgstr "Cóid sprioctheanga tacaithe"
 
 #: libretranslate/locales/.swag.py:40
 msgid "Translated text(s)"
@@ -478,23 +480,24 @@ msgstr "Cúis le mall síos"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Translated file url"
-msgstr "Aistrithe comhad"
+msgstr "URL comhad aistrithe"
 
 #: libretranslate/locales/.swag.py:44
 msgid "Confidence value"
-msgstr "Luach minicíochta"
+msgstr "Luach muiníne"
 
 #: libretranslate/locales/.swag.py:45
 msgid "Character input limit for this language (-1 indicates no limit)"
-msgstr "Teorainn ionchuir Carachtar don teanga seo (-1 léiríonn aon teorainn)"
+msgstr ""
+"Teorainn ionchuir charachtair don teanga seo (ní léiríonn -1 aon teorainn)"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Frontend translation timeout"
-msgstr "Amchlár aistriúcháin Frontend"
+msgstr "Teorainn ama aistriúcháin tosaigh"
 
 #: libretranslate/locales/.swag.py:47
 msgid "Whether the API key database is enabled."
-msgstr "Cibé an bhfuil an bunachar sonraí eochair API ar chumas."
+msgstr "Cibé an bhfuil an bunachar sonraí eochair API cumasaithe."
 
 #: libretranslate/locales/.swag.py:48
 msgid "Whether an API key is required."
@@ -534,7 +537,7 @@ msgstr "Ní féidir ualach %(url)s"
 #: libretranslate/templates/app.js.template:418
 #: libretranslate/templates/app.js.template:429
 msgid "Unknown error"
-msgstr "Earráid aitheanta"
+msgstr "Earráid anaithnid"
 
 #: libretranslate/templates/app.js.template:293
 msgid "Copied"
@@ -565,13 +568,13 @@ msgstr "brúigh an nasc \"Get API Key\"."
 
 #: libretranslate/templates/app.js.template:528
 msgid "contact the server operator."
-msgstr "teagmháil a dhéanamh leis an oibreoir freastalaí."
+msgstr "déan teagmháil le hoibreoir an fhreastalaí."
 
 #: libretranslate/templates/index.html:9
 #: libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
-msgstr "Saor in Aisce agus Oscailte Foinse Meaisín Aistriúchán API"
+msgstr "API Aistriú Meaisín Foinse Oscailte saor in aisce"
 
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
@@ -579,8 +582,8 @@ msgid ""
 "Free and Open Source Machine Translation API. Self-hosted, offline capable "
 "and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"Saor in aisce agus Oscailte Foinse Meaisín API. Féin-óstáil, as líne in ann "
-"agus éasca a thus. Rith do fhreastalaí API féin i ach cúpla nóiméad."
+"API Aistriú Meaisín Foinse Oscailte saor in aisce. Féin-óstach, as líne in "
+"ann agus éasca le socrú. Rith do fhreastalaí API féin i gceann cúpla nóiméad."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -588,15 +591,15 @@ msgstr "aistriúchán"
 
 #: libretranslate/templates/index.html:11
 msgid "api"
-msgstr "taiseachas aeir: fliuch"
+msgstr "api"
 
 #: libretranslate/templates/index.html:67
 msgid "API Docs"
-msgstr "Docs API"
+msgstr "API Docs"
 
 #: libretranslate/templates/index.html:69
 msgid "Get API Key"
-msgstr "Faigh API Uisce agus Séarachas"
+msgstr "Faigh Eochair API"
 
 #: libretranslate/templates/index.html:71
 msgid "GitHub"
@@ -604,23 +607,23 @@ msgstr "GitHub"
 
 #: libretranslate/templates/index.html:73
 msgid "Set API Key"
-msgstr "Socraigh API Uisce agus Séarachas"
+msgstr "Socraigh Eochair API"
 
 #: libretranslate/templates/index.html:75
 msgid "Change language"
-msgstr "Athraigh teanga"
+msgstr "Athrú teanga"
 
 #: libretranslate/templates/index.html:81
 msgid "Edit"
-msgstr "Inis dúinn, le do thoil.."
+msgstr "Cuir in eagar"
 
 #: libretranslate/templates/index.html:83
 msgid "Toggle dark/light mode"
-msgstr "Toggle dorcha / mód éadrom"
+msgstr "Scoránaigh mód dorcha/solas"
 
 #: libretranslate/templates/index.html:159
 msgid "Dismiss"
-msgstr "Díroghnaigh gach rud"
+msgstr "Díbhe"
 
 #: libretranslate/templates/index.html:173
 msgid "Translation API"
@@ -628,23 +631,23 @@ msgstr "Aistriúchán API"
 
 #: libretranslate/templates/index.html:177
 msgid "Translate Text"
-msgstr "Translate Téacs"
+msgstr "Aistrigh Téacs"
 
 #: libretranslate/templates/index.html:181
 msgid "Translate Files"
-msgstr "Aistrithe Comhad"
+msgstr "Aistrigh Comhaid"
 
 #: libretranslate/templates/index.html:187
 msgid "Translate from"
-msgstr "Translate ó"
+msgstr "Aistrigh ó"
 
 #: libretranslate/templates/index.html:197
 msgid "Swap source and target languages"
-msgstr "Swap foinse agus sprioctheangacha"
+msgstr "Babhtáil foinse agus sprioctheangacha"
 
 #: libretranslate/templates/index.html:200
 msgid "Translate into"
-msgstr "Translate isteach"
+msgstr "Aistrigh isteach"
 
 #: libretranslate/templates/index.html:212
 msgid "Text to translate"
@@ -664,15 +667,15 @@ msgstr "Cealaigh"
 
 #: libretranslate/templates/index.html:235
 msgid "Send"
-msgstr "Seol do theachtaireacht a chur chugainn"
+msgstr "Seol"
 
 #: libretranslate/templates/index.html:251
 msgid "Supported file formats:"
-msgstr "Formáidí comhaid Tacaithe:"
+msgstr "Formáidí comhaid tacaithe:"
 
 #: libretranslate/templates/index.html:255
 msgid "File"
-msgstr "Déan Teagmháil Linn"
+msgstr "Comhad"
 
 #: libretranslate/templates/index.html:270
 msgid "Remove file"
@@ -689,23 +692,23 @@ msgstr "Íoslódáil"
 
 #: libretranslate/templates/index.html:297
 msgid "Request"
-msgstr "Iarratas a Dhéanamh"
+msgstr "Iarratas"
 
 #: libretranslate/templates/index.html:302
 msgid "Response"
-msgstr "Plandaí faoi dhíon"
+msgstr "Freagra"
 
 #: libretranslate/templates/index.html:317
 msgid "Open Source Machine Translation API"
-msgstr "Oscailte Foinse Meaisín API"
+msgstr "API Aistriú Meaisín Foinse Oscailte"
 
 #: libretranslate/templates/index.html:318
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
-msgstr "Féin-Hosted. In ann. Éasca le Socrú."
+msgstr "Féin-Óstach. As Líne In ann. Éasca le Socrú."
 
 #: libretranslate/templates/index.html:337
 msgid "LibreTranslate"
-msgstr "Déan teagmháil anois"
+msgstr "LibreTranslate"
 
 #: libretranslate/templates/index.html:339
 msgid "License:"
@@ -715,7 +718,7 @@ msgstr "Ceadúnas:"
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
 msgstr ""
-"Déanta le %(heart)s ag an %(contributors)s agus faoi thiomáint ag %(engine)s"
+"Déanta le %(heart)s ag %(contributors)s agus arna chumhachtú ag %(engine)s"
 
 #: libretranslate/templates/index.html:345
 #, python-format
