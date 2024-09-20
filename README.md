@@ -476,7 +476,7 @@ Indonesian |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/i
 Irish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ga/)
 Italian | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/it/)
 Japanese |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ja/)
-Kabyle |  | [Edit](https://hosted.weblate.org/projects/libretranslate/app/kab/)
+Kabyle | :heavy_check_mark: | [Edit](https://hosted.weblate.org/projects/libretranslate/app/kab/)
 Korean | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ko/)
 Occitan |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/oc/)
 Persian |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/fa/)
