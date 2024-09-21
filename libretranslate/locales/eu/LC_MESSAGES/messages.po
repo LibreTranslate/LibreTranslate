@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.12\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-21 11:57-0400\n"
-"PO-Revision-Date: 2024-09-21 21:10+0000\n"
+"PO-Revision-Date: 2024-09-21 21:33+0000\n"
 "Last-Translator: Urtzi Odriozola Lizaso <urtzi.odriozola@gmail.com>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/libretranslate/"
 "app/eu/>\n"
@@ -677,7 +677,7 @@ msgstr "Itzuli fitxategiak"
 #: libretranslate/templates/index.html:187
 #: libretranslate/templates/index.html:185
 msgid "Translate from"
-msgstr "Itzuli hemendik:"
+msgstr "Itzuli hemendik"
 
 #: libretranslate/templates/index.html:197
 #: libretranslate/templates/index.html:195
@@ -687,7 +687,7 @@ msgstr "Aldatu jatorrizko eta helburuko hizkuntzak"
 #: libretranslate/templates/index.html:200
 #: libretranslate/templates/index.html:198
 msgid "Translate into"
-msgstr "Itzuli hona:"
+msgstr "Itzuli hona"
 
 #: libretranslate/templates/index.html:212
 #: libretranslate/templates/index.html:210
