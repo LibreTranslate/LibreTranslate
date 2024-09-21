@@ -53,6 +53,7 @@ dependencies = [
     "Werkzeug ==2.3.8",
     "requests ==2.31.0",
     "redis ==4.4.4",
+    "numpy <2",
     "prometheus-client ==0.15.0",
     "polib ==1.1.1",
     "packaging ==23.1",
@@ -129,36 +130,6 @@ addopts = [
     "--cov-report=term-missing",
 ]
 
-
-# https://beta.ruff.rs/docs/rules
-[tool.ruff]
-src = ["libretranslate", "scripts"]
-target-version = "py38"
-line-length = 136
-select = [
-    "I",     # isort
-    "N",     # pep8-naming
-    "S",     # bandit
-    "A",     # flake8-builtins
-    "YTT",   # flake8-2020
-    "B",     # flake8-bugbear
-    # "C",     # flake8-comprehensions
-    "ICN",   # flake8-import-conventions
-    # "SIM",   # flake8-simplify
-    "TID",   # flake8-tidy-imports
-    # "Q",     # flake8-quotes
-    # "FBT",   # flake8-boolean-trap
-    "F",     # pyflakes
-    "UP",    # pyupgrade
-    # "E",     # pycodestyle errors
-    # "W",     # pycodestyle warnings
-    # "PLC",   # pylint convention
-    "PLE",   # pylint error
-    # "PLR",   # pylint refactor
-    # "PLW",   # pylint warning
-    # "RUF",   # ruff specific
-]
-
 ignore = [
     "E501", # line too long
     "A003", # Class attribute is shadowing a python builtin
@@ -167,10 +138,3 @@ ignore = [
     "T201", "T203", # remove print and pprint
     "E402", # Module level import not at top of file
 ]
-
-[tool.ruff.per-file-ignores]
-"__init__.py" = ["I", "F401"] # module imported but unused
-
-
-[tool.ruff.mccabe]
-max-complexity = 12

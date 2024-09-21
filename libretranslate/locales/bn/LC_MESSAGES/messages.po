@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.6.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-08 13:24-0400\n"
+"POT-Creation-Date: 2024-09-21 11:57-0400\n"
 "PO-Revision-Date: 2024-08-08 13:20-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: bn <LL@li.org>\n"
 "Language: bn\n"
+"Language-Team: bn <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: libretranslate/app.py:80
@@ -71,14 +71,15 @@ msgstr "অবৈধ অনুরোধ: <x>০</x> একটি নম্বর
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
 msgstr ""
-"অবৈধ অনুরোধ: <x>০</x> পরামিতির মান হওয়া আবশ্যক <x>১</x> %(name)s %(value)s"
+"অবৈধ অনুরোধ: <x>০</x> পরামিতির মান হওয়া আবশ্যক <x>১</x> %(name)s "
+"%(value)s"
 
 #: libretranslate/app.py:612 libretranslate/app.py:622
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
-"অবৈধ অনুরোধ: অনুরোধ<x>০</x>সীমা অতিক্রান্ত<x>১</x>আপনি কি মনে করতে পারেন? "
-"%(size)s %(limit)s"
+"অবৈধ অনুরোধ: অনুরোধ<x>০</x>সীমা অতিক্রান্ত<x>১</x>আপনি কি মনে করতে পারেন?"
+" %(size)s %(limit)s"
 
 #: libretranslate/app.py:637 libretranslate/app.py:642
 #: libretranslate/app.py:811 libretranslate/app.py:816
@@ -94,8 +95,8 @@ msgstr "<x>০</x> অসমর্থিত বিন্যাস %(format)s"
 #: libretranslate/app.py:657 libretranslate/app.py:681
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
-"(%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from "
+"%(sname)s (%(scode)s)"
 msgstr ""
 "<x>০</x> ( চিহ্ন)<x>১</x>উপলব্ধ নয় <x>২</x> ( চিহ্ন)<x>৩</x>আপনি কি মনে "
 "করতে পারেন? %(tname)s %(tcode)s %(sname)s %(scode)s"
@@ -541,8 +542,8 @@ msgstr "অনুলিপি করা হয়েছে"
 
 #: libretranslate/templates/app.js.template:337
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect right "
-"away."
+"Thanks for your correction. Note the suggestion will not take effect "
+"right away."
 msgstr "সংশোধন করার জন্য ধন্যবাদ. উল্লেখ্য, এই পরামর্শ কার্যকর করা হবে না।."
 
 #: libretranslate/templates/app.js.template:461
@@ -553,8 +554,8 @@ msgstr "কোনো ভাষা উপলব্ধ নেই। আপনি �
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
 msgstr ""
-"API-র মধ্যে পরিচয় পংক্তি লিখুন। যদি আপনার একটি API প্রয়োজন হয়, <x>০</x> "
-"%(instructions)s"
+"API-র মধ্যে পরিচয় পংক্তি লিখুন। যদি আপনার একটি API প্রয়োজন হয়, "
+"<x>০</x> %(instructions)s"
 
 #: libretranslate/templates/app.js.template:528
 msgid "press the \"Get API Key\" link."
@@ -564,8 +565,7 @@ msgstr "\" API\" কি-র সাথে লিঙ্ক স্থাপন ক�
 msgid "contact the server operator."
 msgstr "সার্ভার সার্ভারের সাথে যোগাযোগ করুন ।."
 
-#: libretranslate/templates/index.html:9
-#: libretranslate/templates/index.html:27
+#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
 msgstr "মুক্ত এবং ওপেন সোর্স মেশিন অনুবাদ API"
@@ -573,11 +573,11 @@ msgstr "মুক্ত এবং ওপেন সোর্স মেশিন �
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline capable "
-"and easy to setup. Run your own API server in just a few minutes."
+"Free and Open Source Machine Translation API. Self-hosted, offline "
+"capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"মুক্ত এবং ওপেন সোর্স মেশিন অনুবাদ API। স্ব-বিশ্লেষণ, অফ-লাইন অবস্থায় থাকা। "
-"কয়েক মিনিটের মধ্যে আপনার নিজস্ব API সার্ভার চালান।."
+"মুক্ত এবং ওপেন সোর্স মেশিন অনুবাদ API। স্ব-বিশ্লেষণ, অফ-লাইন অবস্থায় "
+"থাকা। কয়েক মিনিটের মধ্যে আপনার নিজস্ব API সার্ভার চালান।."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -712,10 +712,11 @@ msgstr "লাইসেন্স:"
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
 msgstr ""
-"সহ <x>০</x> ধরন <x>১</x> এবং বিদারনশীল <x>২</x> %(heart)s %(contributors)s "
-"%(engine)s"
+"সহ <x>০</x> ধরন <x>১</x> এবং বিদারনশীল <x>২</x> %(heart)s "
+"%(contributors)s %(engine)s"
 
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "%(libretranslate)s Contributors"
 msgstr "<x>০</x> অংশগ্রহণকারী %(libretranslate)s"
+

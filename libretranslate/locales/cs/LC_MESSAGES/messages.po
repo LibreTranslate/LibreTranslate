@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-08 13:24-0400\n"
+"POT-Creation-Date: 2024-09-21 11:57-0400\n"
 "PO-Revision-Date: 2024-01-23 14:01+0000\n"
 "Last-Translator: Michal Čihař <michal@weblate.org>\n"
 "Language: cs\n"
@@ -66,12 +66,12 @@ msgstr "Neplatný požadavek: chybějící parametr %(name)s"
 #: libretranslate/app.py:592
 #, python-format
 msgid "Invalid request: %(name)s parameter is not a number"
-msgstr ""
+msgstr "Neplatná žádost: %(name)s parametr není číslo"
 
 #: libretranslate/app.py:595
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
-msgstr ""
+msgstr "Neplatná žádost: %(name)s 2 nařízení o kapitálových požadavcích. %(value)s"
 
 #: libretranslate/app.py:612 libretranslate/app.py:622
 #, python-format
@@ -131,7 +131,7 @@ msgstr "Angličtina"
 
 #: libretranslate/locales/.langs.py:2
 msgid "Albanian"
-msgstr ""
+msgstr "Albánie"
 
 #: libretranslate/locales/.langs.py:3
 msgid "Arabic"
@@ -143,15 +143,15 @@ msgstr "Ázerbájdžánština"
 
 #: libretranslate/locales/.langs.py:5
 msgid "Bengali"
-msgstr ""
+msgstr "Bengálsko"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulharsky"
 
 #: libretranslate/locales/.langs.py:7
 msgid "Catalan"
-msgstr ""
+msgstr "Katalánština"
 
 #: libretranslate/locales/.langs.py:8
 msgid "Chinese"
@@ -159,7 +159,7 @@ msgstr "Čínština"
 
 #: libretranslate/locales/.langs.py:9
 msgid "Chinese (traditional)"
-msgstr ""
+msgstr "Čína (tradiční)"
 
 #: libretranslate/locales/.langs.py:10
 msgid "Czech"
@@ -179,7 +179,7 @@ msgstr "Esperanto"
 
 #: libretranslate/locales/.langs.py:14
 msgid "Estonian"
-msgstr ""
+msgstr "Estonština"
 
 #: libretranslate/locales/.langs.py:15
 msgid "Finnish"
@@ -231,19 +231,19 @@ msgstr "Korejština"
 
 #: libretranslate/locales/.langs.py:27
 msgid "Latvian"
-msgstr ""
+msgstr "Lotyšsky"
 
 #: libretranslate/locales/.langs.py:28
 msgid "Lithuanian"
-msgstr ""
+msgstr "Litevština"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Malay"
-msgstr ""
+msgstr "Malay"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Norwegian"
-msgstr ""
+msgstr "Norština"
 
 #: libretranslate/locales/.langs.py:31
 msgid "Persian"
@@ -259,7 +259,7 @@ msgstr "Portugalština"
 
 #: libretranslate/locales/.langs.py:34
 msgid "Romanian"
-msgstr ""
+msgstr "Rumunsko"
 
 #: libretranslate/locales/.langs.py:35
 msgid "Russian"
@@ -271,7 +271,7 @@ msgstr "Slovenština"
 
 #: libretranslate/locales/.langs.py:37
 msgid "Slovenian"
-msgstr ""
+msgstr "Slovinsky"
 
 #: libretranslate/locales/.langs.py:38
 msgid "Spanish"
@@ -283,11 +283,11 @@ msgstr "Švédština"
 
 #: libretranslate/locales/.langs.py:40
 msgid "Tagalog"
-msgstr ""
+msgstr "Tagalog"
 
 #: libretranslate/locales/.langs.py:41
 msgid "Thai"
-msgstr ""
+msgstr "Thajské"
 
 #: libretranslate/locales/.langs.py:42
 msgid "Turkish"
@@ -299,7 +299,7 @@ msgstr "Ukrajinština"
 
 #: libretranslate/locales/.langs.py:44
 msgid "Urdu"
-msgstr ""
+msgstr "Urdu"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
@@ -373,7 +373,7 @@ msgstr ""
 
 #: libretranslate/locales/.swag.py:17
 msgid "Preferred number of alternative translations"
-msgstr ""
+msgstr "Preferovaný počet alternativních překladů"
 
 #: libretranslate/locales/.swag.py:18
 msgid "API key"

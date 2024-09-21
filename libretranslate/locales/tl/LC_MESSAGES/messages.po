@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.6.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-08 13:24-0400\n"
+"POT-Creation-Date: 2024-09-21 11:57-0400\n"
 "PO-Revision-Date: 2024-08-08 13:03-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fil_PH\n"
@@ -78,8 +78,8 @@ msgstr "Imbalidong kahilingan: %(name)s Ang parameter ay dapat &lt;= %(value)s"
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
-"Imbalidong pangalan ng programa: (%(size)s) lumampas sa itinakdang "
-"teksto (%(limit)s)"
+"Imbalidong pangalan ng programa: (%(size)s) lumampas sa itinakdang teksto"
+" (%(limit)s)"
 
 #: libretranslate/app.py:637 libretranslate/app.py:642
 #: libretranslate/app.py:811 libretranslate/app.py:816

@@ -8,17 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-08 13:24-0400\n"
+"POT-Creation-Date: 2024-09-21 11:57-0400\n"
 "PO-Revision-Date: 2024-09-06 06:09+0000\n"
 "Last-Translator: VTF <vtf@msjp.pro>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/libretranslate/"
-"app/ja/>\n"
 "Language: ja\n"
+"Language-Team: Japanese "
+"<https://hosted.weblate.org/projects/libretranslate/app/ja/>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8-dev\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: libretranslate/app.py:80
@@ -93,8 +92,8 @@ msgstr "%(format)s フォーマットはサポートされていません"
 #: libretranslate/app.py:657 libretranslate/app.py:681
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
-"(%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from "
+"%(sname)s (%(scode)s)"
 msgstr "%(tname)s (%(tcode)s) 対象言語は対象言語として利用できません。 %(sname)s (%(scode)s)"
 
 #: libretranslate/app.py:701
@@ -538,8 +537,8 @@ msgstr "コピーされました"
 
 #: libretranslate/templates/app.js.template:337
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect right "
-"away."
+"Thanks for your correction. Note the suggestion will not take effect "
+"right away."
 msgstr "修正ありがとうございます。 提案はすぐには反映しないことをご理解ください。"
 
 #: libretranslate/templates/app.js.template:461
@@ -559,8 +558,7 @@ msgstr "「APIキーを取得」リンクを押してください。"
 msgid "contact the server operator."
 msgstr "サーバーオペレータに連絡して下さい。"
 
-#: libretranslate/templates/index.html:9
-#: libretranslate/templates/index.html:27
+#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
 msgstr "フリーそしてオープンソースな機械翻訳API"
@@ -568,10 +566,9 @@ msgstr "フリーそしてオープンソースな機械翻訳API"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline capable "
-"and easy to setup. Run your own API server in just a few minutes."
-msgstr "フリーでオープンソースな機械翻訳API。セルフホスト、オフラインで利用可能、セッ"
-"トアップも簡単。数分であなたのAPIサーバーを実行。"
+"Free and Open Source Machine Translation API. Self-hosted, offline "
+"capable and easy to setup. Run your own API server in just a few minutes."
+msgstr "フリーでオープンソースな機械翻訳API。セルフホスト、オフラインで利用可能、セットアップも簡単。数分であなたのAPIサーバーを実行。"
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -719,15 +716,19 @@ msgstr "%(libretranslate)s 貢献者"
 #~ msgstr "ベトナム"
 
 #~ msgid ""
-#~ "This public API should be used for testing, personal or infrequent use. If "
-#~ "you're going to run an application in production, please %(host_server)s or "
-#~ "%(get_api_key)s."
+#~ "This public API should be used for"
+#~ " testing, personal or infrequent use. "
+#~ "If you're going to run an "
+#~ "application in production, please "
+#~ "%(host_server)s or %(get_api_key)s."
 #~ msgstr ""
-#~ "この公開API はテストまたは個人的、頻繁でない用途に使用してください。製品のアプリケーションに使用する場合は、%(host_server)s または "
-#~ "%(get_api_key)sしてください。"
+#~ "この公開API "
+#~ "はテストまたは個人的、頻繁でない用途に使用してください。製品のアプリケーションに使用する場合は、%(host_server)s "
+#~ "または %(get_api_key)sしてください。"
 
 #~ msgid "host your own server"
 #~ msgstr "自分のサーバーをホストする"
 
 #~ msgid "get an API key"
 #~ msgstr "APIキーを取得"
+

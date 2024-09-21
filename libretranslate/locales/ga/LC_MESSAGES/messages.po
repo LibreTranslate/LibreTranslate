@@ -8,18 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-08 13:24-0400\n"
+"POT-Creation-Date: 2024-09-21 11:57-0400\n"
 "PO-Revision-Date: 2024-09-15 20:09+0000\n"
 "Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@gmail.com>\n"
-"Language-Team: Irish <https://hosted.weblate.org/projects/libretranslate/app/"
-"ga/>\n"
 "Language: ga\n"
+"Language-Team: Irish "
+"<https://hosted.weblate.org/projects/libretranslate/app/ga/>\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : (n>2 && n<7) ? 2 "
+":(n>6 && n<11) ? 3 : 4;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : (n>2 && n<7) ? 2 :("
-"n>6 && n<11) ? 3 : 4;\n"
-"X-Generator: Weblate 5.8-dev\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: libretranslate/app.py:80
@@ -73,8 +72,7 @@ msgstr "Iarratas neamhbhailí: ní uimhir é paraiméadar %(name)s"
 #: libretranslate/app.py:595
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
-msgstr ""
-"Iarratas neamhbhailí: Caithfidh paraiméadar %(name)s a bheith <= %(value)s"
+msgstr "Iarratas neamhbhailí: Caithfidh paraiméadar %(name)s a bheith <= %(value)s"
 
 #: libretranslate/app.py:612 libretranslate/app.py:622
 #, python-format
@@ -97,8 +95,8 @@ msgstr "Ní thacaítear le formáid %(format)s"
 #: libretranslate/app.py:657 libretranslate/app.py:681
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
-"(%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from "
+"%(sname)s (%(scode)s)"
 msgstr ""
 "%(tname)s (%(tcode)s) nach bhfuil ar fáil mar sprioctheanga ó %(sname)s "
 "(%(scode)s)"
@@ -488,8 +486,7 @@ msgstr "Luach muiníne"
 
 #: libretranslate/locales/.swag.py:45
 msgid "Character input limit for this language (-1 indicates no limit)"
-msgstr ""
-"Teorainn ionchuir charachtair don teanga seo (ní léiríonn -1 aon teorainn)"
+msgstr "Teorainn ionchuir charachtair don teanga seo (ní léiríonn -1 aon teorainn)"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Frontend translation timeout"
@@ -545,22 +542,20 @@ msgstr "Cóipeáladh"
 
 #: libretranslate/templates/app.js.template:337
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect right "
-"away."
+"Thanks for your correction. Note the suggestion will not take effect "
+"right away."
 msgstr ""
-"Go raibh maith agat as do cheartú. Tabhair faoi deara nach mbeidh an moladh "
-"i bhfeidhm ar shiúl."
+"Go raibh maith agat as do cheartú. Tabhair faoi deara nach mbeidh an "
+"moladh i bhfeidhm ar shiúl."
 
 #: libretranslate/templates/app.js.template:461
 msgid "No languages available. Did you install the models correctly?"
-msgstr ""
-"Níl aon teangacha ar fáil. An raibh tú a shuiteáil na samhlacha i gceart?"
+msgstr "Níl aon teangacha ar fáil. An raibh tú a shuiteáil na samhlacha i gceart?"
 
 #: libretranslate/templates/app.js.template:528
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
-msgstr ""
-"Clóscríobh isteach d'Eochair API. Má tá eochair API uait, %(instructions)s"
+msgstr "Clóscríobh isteach d'Eochair API. Má tá eochair API uait, %(instructions)s"
 
 #: libretranslate/templates/app.js.template:528
 msgid "press the \"Get API Key\" link."
@@ -570,8 +565,7 @@ msgstr "brúigh an nasc \"Get API Key\"."
 msgid "contact the server operator."
 msgstr "déan teagmháil le hoibreoir an fhreastalaí."
 
-#: libretranslate/templates/index.html:9
-#: libretranslate/templates/index.html:27
+#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
 msgstr "API Aistriú Meaisín Foinse Oscailte saor in aisce"
@@ -579,11 +573,12 @@ msgstr "API Aistriú Meaisín Foinse Oscailte saor in aisce"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline capable "
-"and easy to setup. Run your own API server in just a few minutes."
+"Free and Open Source Machine Translation API. Self-hosted, offline "
+"capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"API Aistriú Meaisín Foinse Oscailte saor in aisce. Féin-óstach, as líne in "
-"ann agus éasca le socrú. Rith do fhreastalaí API féin i gceann cúpla nóiméad."
+"API Aistriú Meaisín Foinse Oscailte saor in aisce. Féin-óstach, as líne "
+"in ann agus éasca le socrú. Rith do fhreastalaí API féin i gceann cúpla "
+"nóiméad."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -717,8 +712,7 @@ msgstr "Ceadúnas:"
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
-msgstr ""
-"Déanta le %(heart)s ag %(contributors)s agus arna chumhachtú ag %(engine)s"
+msgstr "Déanta le %(heart)s ag %(contributors)s agus arna chumhachtú ag %(engine)s"
 
 #: libretranslate/templates/index.html:345
 #, python-format
@@ -732,16 +726,22 @@ msgstr "%(libretranslate)s Rannpháirtithe"
 #~ msgstr "Vítneaimis Víneaimis"
 
 #~ msgid ""
-#~ "This public API should be used for testing, personal or infrequent use. If "
-#~ "you're going to run an application in production, please %(host_server)s or "
-#~ "%(get_api_key)s."
+#~ "This public API should be used for"
+#~ " testing, personal or infrequent use. "
+#~ "If you're going to run an "
+#~ "application in production, please "
+#~ "%(host_server)s or %(get_api_key)s."
 #~ msgstr ""
-#~ "Ba cheart an API poiblí seo a úsáid le haghaidh tástála, úsáide pearsanta nó"
-#~ " go minic. Má tá tú ag dul a reáchtáil iarratas i dtáirgeadh, le do thoil "
-#~ "%(host_server)s nó %(get_api_key)s."
+#~ "Ba cheart an API poiblí seo a "
+#~ "úsáid le haghaidh tástála, úsáide "
+#~ "pearsanta nó go minic. Má tá tú"
+#~ " ag dul a reáchtáil iarratas i "
+#~ "dtáirgeadh, le do thoil %(host_server)s "
+#~ "nó %(get_api_key)s."
 
 #~ msgid "host your own server"
 #~ msgstr "óstach do fhreastalaí féin"
 
 #~ msgid "get an API key"
 #~ msgstr "a fháil eochair API"
+
