@@ -3,14 +3,12 @@ import sys
 import pytest
 
 from libretranslate.app import create_app
-from libretranslate.default_values import DEFAULT_ARGUMENTS
 from libretranslate.main import get_args
 
 
 @pytest.fixture()
 def app():
-    sys.argv = ['']
-    DEFAULT_ARGUMENTS['LOAD_ONLY'] = "en,es"
+    sys.argv = ['', '--load-only', 'en,es']
     app = create_app(get_args())
 
     yield app
