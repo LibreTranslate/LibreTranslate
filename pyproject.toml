@@ -53,7 +53,7 @@ dependencies = [
     "Werkzeug ==2.3.8",
     "requests ==2.31.0",
     "redis ==4.4.4",
-    "numpy<2",
+    "numpy <2",
     "prometheus-client ==0.15.0",
     "polib ==1.1.1",
     "packaging ==23.1",
