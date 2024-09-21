@@ -8,15 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-08 13:24-0400\n"
+"POT-Creation-Date: 2024-09-21 11:57-0400\n"
 "PO-Revision-Date: 2023-11-02 04:00+0000\n"
 "Last-Translator: Rex_sa <rex.sa@pm.me>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/libretranslate/app/ar/>\n"
 "Language: ar\n"
+"Language-Team: Arabic "
+"<https://hosted.weblate.org/projects/libretranslate/app/ar/>\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : "
+"n%100>=3 && n%100<=10 ? 3 : n%100>=0 && n%100<=2 ? 4 : 5);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=0 && n%100<=2 ? 4 : 5);\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: libretranslate/app.py:80
@@ -91,8 +93,8 @@ msgstr "%(format)s الشكل غير مدعوم"
 #: libretranslate/app.py:657 libretranslate/app.py:681
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
-"(%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from "
+"%(sname)s (%(scode)s)"
 msgstr "%(tname)s %(tcode)sغير متاحة كلغة هدف من %(sname)s %(scode)s"
 
 #: libretranslate/app.py:701
@@ -536,8 +538,8 @@ msgstr "تم نسخه"
 
 #: libretranslate/templates/app.js.template:337
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect right "
-"away."
+"Thanks for your correction. Note the suggestion will not take effect "
+"right away."
 msgstr "شكراً على تصحيحك ملاحظة الاقتراح لن يبدأ تطبيقه في الحال."
 
 #: libretranslate/templates/app.js.template:461
@@ -557,8 +559,7 @@ msgstr "اضغط على رابط \"المفاتيح\"."
 msgid "contact the server operator."
 msgstr "اتصل بمشغل الخادم."
 
-#: libretranslate/templates/index.html:9
-#: libretranslate/templates/index.html:27
+#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
 msgstr "واجهة برمجة تطبيقات حرة ومفتوحة المصدر للترجمة الآلية"
@@ -566,11 +567,11 @@ msgstr "واجهة برمجة تطبيقات حرة ومفتوحة المصدر 
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline capable "
-"and easy to setup. Run your own API server in just a few minutes."
+"Free and Open Source Machine Translation API. Self-hosted, offline "
+"capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"Free and Open Source Machine Translation API. ذاتي الاستيعاب، غير مباشر قادر"
-" وسهل التجهيز أدير خادمك الخاص في غضون دقائق."
+"Free and Open Source Machine Translation API. ذاتي الاستيعاب، غير مباشر "
+"قادر وسهل التجهيز أدير خادمك الخاص في غضون دقائق."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -718,12 +719,16 @@ msgstr "%(libretranslate)s المساهمون"
 #~ msgstr "Vietnamese"
 
 #~ msgid ""
-#~ "This public API should be used for testing, personal or infrequent use. If "
-#~ "you're going to run an application in production, please %(host_server)s or "
-#~ "%(get_api_key)s."
+#~ "This public API should be used for"
+#~ " testing, personal or infrequent use. "
+#~ "If you're going to run an "
+#~ "application in production, please "
+#~ "%(host_server)s or %(get_api_key)s."
 #~ msgstr ""
-#~ "يجب استخدام واجهة برمجة التطبيقات العامة هذه للاختبار أو للاستخدام الشخصي أو"
-#~ " غير المتكرر. إذا كنت تريد تشغيل تطبيق إنتاجي ، من فضلك استخدم "
+#~ "يجب استخدام واجهة برمجة التطبيقات العامة"
+#~ " هذه للاختبار أو للاستخدام الشخصي أو"
+#~ " غير المتكرر. إذا كنت تريد تشغيل "
+#~ "تطبيق إنتاجي ، من فضلك استخدم "
 #~ "%(host_server)s أو %(get_api_key)s."
 
 #~ msgid "host your own server"
@@ -731,3 +736,4 @@ msgstr "%(libretranslate)s المساهمون"
 
 #~ msgid "get an API key"
 #~ msgstr "الحصول على مفتاح API"
+

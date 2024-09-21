@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-08 13:24-0400\n"
+"POT-Creation-Date: 2024-09-21 11:57-0400\n"
 "PO-Revision-Date: 2023-06-19 20:49+0000\n"
 "Last-Translator: Sungjoon Moon <sumoon@seoulsaram.org>\n"
 "Language: ko\n"
@@ -66,12 +66,12 @@ msgstr "잘못된 요청: %(name)s 파라미터 누락"
 #: libretranslate/app.py:592
 #, python-format
 msgid "Invalid request: %(name)s parameter is not a number"
-msgstr ""
+msgstr "잘못된 요청: <x>0 댓글</x> 매개변수는 수 없습니다 %(name)s"
 
 #: libretranslate/app.py:595
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
-msgstr ""
+msgstr "잘못된 요청: <x>0 댓글</x> 매개 변수는 &lt;= <x>1명 1명</x> %(name)s %(value)s"
 
 #: libretranslate/app.py:612 libretranslate/app.py:622
 #, python-format
@@ -127,7 +127,7 @@ msgstr "영어"
 
 #: libretranslate/locales/.langs.py:2
 msgid "Albanian"
-msgstr ""
+msgstr "알바니아"
 
 #: libretranslate/locales/.langs.py:3
 msgid "Arabic"
@@ -139,15 +139,15 @@ msgstr "아제르바이잔어"
 
 #: libretranslate/locales/.langs.py:5
 msgid "Bengali"
-msgstr ""
+msgstr "채용정보"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Bulgarian"
-msgstr ""
+msgstr "한국어"
 
 #: libretranslate/locales/.langs.py:7
 msgid "Catalan"
-msgstr ""
+msgstr "카테고리"
 
 #: libretranslate/locales/.langs.py:8
 msgid "Chinese"
@@ -155,7 +155,7 @@ msgstr "중국어"
 
 #: libretranslate/locales/.langs.py:9
 msgid "Chinese (traditional)"
-msgstr ""
+msgstr "한국어 (Korean)"
 
 #: libretranslate/locales/.langs.py:10
 msgid "Czech"
@@ -175,7 +175,7 @@ msgstr "에스페란토"
 
 #: libretranslate/locales/.langs.py:14
 msgid "Estonian"
-msgstr ""
+msgstr "에스토니아"
 
 #: libretranslate/locales/.langs.py:15
 msgid "Finnish"
@@ -227,19 +227,19 @@ msgstr "한국어"
 
 #: libretranslate/locales/.langs.py:27
 msgid "Latvian"
-msgstr ""
+msgstr "라트비아"
 
 #: libretranslate/locales/.langs.py:28
 msgid "Lithuanian"
-msgstr ""
+msgstr "한국어"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Malay"
-msgstr ""
+msgstr "담당자: Ms"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Norwegian"
-msgstr ""
+msgstr "한국어"
 
 #: libretranslate/locales/.langs.py:31
 msgid "Persian"
@@ -255,7 +255,7 @@ msgstr "포르투칼어"
 
 #: libretranslate/locales/.langs.py:34
 msgid "Romanian"
-msgstr ""
+msgstr "한국어"
 
 #: libretranslate/locales/.langs.py:35
 msgid "Russian"
@@ -267,7 +267,7 @@ msgstr "슬로바키아어"
 
 #: libretranslate/locales/.langs.py:37
 msgid "Slovenian"
-msgstr ""
+msgstr "한국어"
 
 #: libretranslate/locales/.langs.py:38
 msgid "Spanish"
@@ -279,11 +279,11 @@ msgstr "스웨덴어"
 
 #: libretranslate/locales/.langs.py:40
 msgid "Tagalog"
-msgstr ""
+msgstr "다운로드"
 
 #: libretranslate/locales/.langs.py:41
 msgid "Thai"
-msgstr ""
+msgstr "뚱 베어"
 
 #: libretranslate/locales/.langs.py:42
 msgid "Turkish"
@@ -295,7 +295,7 @@ msgstr "우크라이나어"
 
 #: libretranslate/locales/.langs.py:44
 msgid "Urdu"
-msgstr ""
+msgstr "채용 정보"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
@@ -369,7 +369,7 @@ msgstr ""
 
 #: libretranslate/locales/.swag.py:17
 msgid "Preferred number of alternative translations"
-msgstr ""
+msgstr "다른 번역의 선호 번호"
 
 #: libretranslate/locales/.swag.py:18
 msgid "API key"

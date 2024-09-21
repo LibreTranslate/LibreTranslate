@@ -8,17 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-08 13:24-0400\n"
+"POT-Creation-Date: 2024-09-21 11:57-0400\n"
 "PO-Revision-Date: 2024-09-17 21:09+0000\n"
 "Last-Translator: Dinissantos <Dinissantos999@hotmail.com>\n"
-"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/"
-"libretranslate/app/az/>\n"
 "Language: az\n"
+"Language-Team: Azerbaijani "
+"<https://hosted.weblate.org/projects/libretranslate/app/az/>\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: libretranslate/app.py:80
@@ -93,10 +92,9 @@ msgstr "%(format)s format dəstəkləmir"
 #: libretranslate/app.py:657 libretranslate/app.py:681
 #, fuzzy, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
-"(%(scode)s)"
-msgstr ""
-"%(tname)s (%(tcode)s Ətraf dili kimi mövcud deyil %(sname)s (%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from "
+"%(sname)s (%(scode)s)"
+msgstr "%(tname)s (%(tcode)s Ətraf dili kimi mövcud deyil %(sname)s (%(scode)s)"
 
 #: libretranslate/app.py:701
 #, python-format
@@ -545,8 +543,8 @@ msgstr "Elan"
 
 #: libretranslate/templates/app.js.template:337
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect right "
-"away."
+"Thanks for your correction. Note the suggestion will not take effect "
+"right away."
 msgstr "Sizin düzeltmeniz üçün. Müəlliflik hüququqları qorunur."
 
 #: libretranslate/templates/app.js.template:461
@@ -566,8 +564,7 @@ msgstr "\"Get API Key\" linkini basın."
 msgid "contact the server operator."
 msgstr "server operatoru əlaqə edin."
 
-#: libretranslate/templates/index.html:9
-#: libretranslate/templates/index.html:27
+#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
 msgstr "Pulsuz və Açıq Source Machine Translation API"
@@ -575,11 +572,11 @@ msgstr "Pulsuz və Açıq Source Machine Translation API"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline capable "
-"and easy to setup. Run your own API server in just a few minutes."
+"Free and Open Source Machine Translation API. Self-hosted, offline "
+"capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"Pulsuz və Open Source Machine Translation API. Self-səfərli, offline və asan"
-" quraşdırmaq. Yalnız bir neçə dərhal öz API server çalışır."
+"Pulsuz və Open Source Machine Translation API. Self-səfərli, offline və "
+"asan quraşdırmaq. Yalnız bir neçə dərhal öz API server çalışır."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -727,12 +724,16 @@ msgstr "%(libretranslate)s Kontributors"
 #~ msgstr " Vietnamese"
 
 #~ msgid ""
-#~ "This public API should be used for testing, personal or infrequent use. If "
-#~ "you're going to run an application in production, please %(host_server)s or "
-#~ "%(get_api_key)s."
+#~ "This public API should be used for"
+#~ " testing, personal or infrequent use. "
+#~ "If you're going to run an "
+#~ "application in production, please "
+#~ "%(host_server)s or %(get_api_key)s."
 #~ msgstr ""
-#~ "Bu ictimai API test üçün istifadə olunmalıdır, xüsusi və ya infrequent "
-#~ "istifadə. istehsalda bir proqram işləyirsinizsə, lütfen %(host_server)s ya "
+#~ "Bu ictimai API test üçün istifadə "
+#~ "olunmalıdır, xüsusi və ya infrequent "
+#~ "istifadə. istehsalda bir proqram "
+#~ "işləyirsinizsə, lütfen %(host_server)s ya "
 #~ "%(get_api_key)s."
 
 #~ msgid "host your own server"
@@ -740,3 +741,4 @@ msgstr "%(libretranslate)s Kontributors"
 
 #~ msgid "get an API key"
 #~ msgstr "bir API əsas almaq"
+
