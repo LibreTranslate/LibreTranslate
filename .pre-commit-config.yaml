@@ -9,13 +9,6 @@ repos:
       name: " ✔️  Check TOML"
     - id: check-json
       name: " ✔️  Check JSON"
-  - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.0.277
-    hooks:
-      - id: ruff
-        name: " ⚡️ Formatting code with Ruff"
-        args:
-        - --fix
 
 ci:
     autofix_commit_msg: 🎨 [pre-commit] Auto format
