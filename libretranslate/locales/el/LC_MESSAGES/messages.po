@@ -8,16 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-21 11:57-0400\n"
+"POT-Creation-Date: 2024-09-22 13:38-0400\n"
 "PO-Revision-Date: 2024-08-24 07:09+0000\n"
 "Last-Translator: Nikos Merianos <merianosnikos@gmail.com>\n"
+"Language-Team: Greek <https://hosted.weblate.org/projects/libretranslate/app/el/>\n"
 "Language: el\n"
-"Language-Team: Greek "
-"<https://hosted.weblate.org/projects/libretranslate/app/el/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: libretranslate/app.py:80
@@ -72,15 +71,14 @@ msgstr "Μη έγκυρη αίτηση: Η παράμετρος %(name)s δεν 
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
 msgstr ""
-"Μη έγκυρη αίτηση: Η παράμετρος %(name)s πρέπει να είναι &lt;= &gt; "
-"%(value)s"
+"Μη έγκυρη αίτηση: Η παράμετρος %(name)s πρέπει να είναι &lt;= &gt; %(value)s"
 
 #: libretranslate/app.py:612 libretranslate/app.py:622
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
-"Άκυρο αίτημα: το αίτημα(%(size)s) υπερβαίνει το όριο χαρακτήρων του "
-"κειμένου (%(limit)s)"
+"Άκυρο αίτημα: το αίτημα(%(size)s) υπερβαίνει το όριο χαρακτήρων του κειμένου"
+" (%(limit)s)"
 
 #: libretranslate/app.py:637 libretranslate/app.py:642
 #: libretranslate/app.py:811 libretranslate/app.py:816
@@ -96,8 +94,8 @@ msgstr "Η μορφή %(format)s δεν υποστηρίζεται"
 #: libretranslate/app.py:657 libretranslate/app.py:681
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from "
-"%(sname)s (%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
+"(%(scode)s)"
 msgstr ""
 "%(tname)s (%(tcode)s) δεν είναι διαθέσιμη ως γλώσσα-στόχος από %(sname)s "
 "(%(scode)s)"
@@ -303,6 +301,18 @@ msgstr "Ουκρανίας"
 msgid "Urdu"
 msgstr "Ούρντου"
 
+#: libretranslate/locales/.langs.py:45
+msgid "Serbian"
+msgstr "Σερβία"
+
+#: libretranslate/locales/.langs.py:46
+msgid "Ukrainian"
+msgstr "Ουκρανικά"
+
+#: libretranslate/locales/.langs.py:47
+msgid "Vietnamese"
+msgstr "Βιετναμέζικα"
+
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
 msgstr "Αναγνώριση λίστας υποστηριζόμενων γλωσσών"
@@ -487,7 +497,8 @@ msgstr "Εμπιστοσύνη αξία"
 
 #: libretranslate/locales/.swag.py:45
 msgid "Character input limit for this language (-1 indicates no limit)"
-msgstr "Χαρακτηριστικά όρια εισόδου για αυτή τη γλώσσα (-1 δεν υποδεικνύει όριο)"
+msgstr ""
+"Χαρακτηριστικά όρια εισόδου για αυτή τη γλώσσα (-1 δεν υποδεικνύει όριο)"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Frontend translation timeout"
@@ -543,11 +554,10 @@ msgstr "Συνήγοροι"
 
 #: libretranslate/templates/app.js.template:337
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect "
-"right away."
+"Thanks for your correction. Note the suggestion will not take effect right "
+"away."
 msgstr ""
-"Χάρη στη διόρθωση σας. Σημειώστε ότι η πρόταση δεν θα τεθεί σε ισχύ "
-"αμέσως."
+"Χάρη στη διόρθωση σας. Σημειώστε ότι η πρόταση δεν θα τεθεί σε ισχύ αμέσως."
 
 #: libretranslate/templates/app.js.template:461
 msgid "No languages available. Did you install the models correctly?"
@@ -566,7 +576,8 @@ msgstr "πατήστε το σύνδεσμο \"Get API Key\"."
 msgid "contact the server operator."
 msgstr "επικοινωνήστε με τον διαχειριστή server."
 
-#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
+#: libretranslate/templates/index.html:9
+#: libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
 msgstr "Δωρεάν και Open Source Machine μετάφραση API"
@@ -574,12 +585,11 @@ msgstr "Δωρεάν και Open Source Machine μετάφραση API"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline "
-"capable and easy to setup. Run your own API server in just a few minutes."
+"Free and Open Source Machine Translation API. Self-hosted, offline capable "
+"and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"Δωρεάν και Open Source Machine Translation API. Self-hosted, offline "
-"ικανή και εύκολη στη ρύθμιση. Πατήστε το δικό σας διακομιστή API σε λίγα "
-"λεπτά."
+"Δωρεάν και Open Source Machine Translation API. Self-hosted, offline ικανή "
+"και εύκολη στη ρύθμιση. Πατήστε το δικό σας διακομιστή API σε λίγα λεπτά."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -729,16 +739,12 @@ msgstr "%(libretranslate)s Συμβαλλόμενοι"
 #~ msgstr "Βιετναμ Βιετνάμ"
 
 #~ msgid ""
-#~ "This public API should be used for"
-#~ " testing, personal or infrequent use. "
-#~ "If you're going to run an "
-#~ "application in production, please "
-#~ "%(host_server)s or %(get_api_key)s."
+#~ "This public API should be used for testing, personal or infrequent use. If "
+#~ "you're going to run an application in production, please %(host_server)s or "
+#~ "%(get_api_key)s."
 #~ msgstr ""
-#~ "Αυτό το δημόσιο API θα πρέπει να"
-#~ " χρησιμοποιείται για δοκιμές, προσωπική ή"
-#~ " σπάνια χρήση. Εάν πρόκειται να "
-#~ "εκτελέσετε μια εφαρμογή στην παραγωγή, "
+#~ "Αυτό το δημόσιο API θα πρέπει να χρησιμοποιείται για δοκιμές, προσωπική ή "
+#~ "σπάνια χρήση. Εάν πρόκειται να εκτελέσετε μια εφαρμογή στην παραγωγή, "
 #~ "παρακαλούμε %(host_server)s ή %(get_api_key)s."
 
 #~ msgid "host your own server"
@@ -746,4 +752,3 @@ msgstr "%(libretranslate)s Συμβαλλόμενοι"
 
 #~ msgid "get an API key"
 #~ msgstr "πάρετε ένα API key"
-

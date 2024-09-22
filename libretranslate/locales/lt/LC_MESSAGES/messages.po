@@ -8,16 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.6.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-21 11:57-0400\n"
+"POT-Creation-Date: 2024-09-22 13:38-0400\n"
 "PO-Revision-Date: 2024-08-08 13:03-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: lt\n"
 "Language-Team: lt <LL@li.org>\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"(n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: libretranslate/app.py:80
@@ -92,9 +91,10 @@ msgstr "%(format)s formatas nepalaikomas"
 #: libretranslate/app.py:657 libretranslate/app.py:681
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from "
-"%(sname)s (%(scode)s)"
-msgstr "%(tname)s (%(tcode)s) nėra kaip tikslinės kalbos iš %(sname)s (%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
+"(%(scode)s)"
+msgstr ""
+"%(tname)s (%(tcode)s) nėra kaip tikslinės kalbos iš %(sname)s (%(scode)s)"
 
 #: libretranslate/app.py:701
 #, python-format
@@ -296,6 +296,18 @@ msgstr "UkranijName"
 #: libretranslate/locales/.langs.py:44
 msgid "Urdu"
 msgstr "Urdu"
+
+#: libretranslate/locales/.langs.py:45
+msgid "Serbian"
+msgstr "Serbų"
+
+#: libretranslate/locales/.langs.py:46
+msgid "Ukrainian"
+msgstr "Ukrainiečių"
+
+#: libretranslate/locales/.langs.py:47
+msgid "Vietnamese"
+msgstr "Vietnamiečių"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
@@ -537,8 +549,8 @@ msgstr "Kopijuota"
 
 #: libretranslate/templates/app.js.template:337
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect "
-"right away."
+"Thanks for your correction. Note the suggestion will not take effect right "
+"away."
 msgstr ""
 "Ačiū, kad pataisei. Atkreipkite dėmesį, pasiūlymas nebus įsigalioti iš "
 "karto."
@@ -560,7 +572,8 @@ msgstr "paspauskite nuorodą \"Gauk API raktą\"."
 msgid "contact the server operator."
 msgstr "susisiekti su serverio operatoriumi."
 
-#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
+#: libretranslate/templates/index.html:9
+#: libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
 msgstr "Nemokamas ir atvirojo kodo mašinos vertimas API"
@@ -568,12 +581,12 @@ msgstr "Nemokamas ir atvirojo kodo mašinos vertimas API"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline "
-"capable and easy to setup. Run your own API server in just a few minutes."
+"Free and Open Source Machine Translation API. Self-hosted, offline capable "
+"and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"Nemokamai ir Open Source Machine Translation API. Savarankiškai "
-"patalpintas, atsijungęs gali ir lengvai nustatyti. Bėk savo API serverį "
-"po kelių minučių."
+"Nemokamai ir Open Source Machine Translation API. Savarankiškai patalpintas,"
+" atsijungęs gali ir lengvai nustatyti. Bėk savo API serverį po kelių "
+"minučių."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -713,4 +726,3 @@ msgstr "Lovatiesės %(heart)s pagal %(contributors)s ir varomas %(engine)s"
 #, python-format
 msgid "%(libretranslate)s Contributors"
 msgstr "%(libretranslate)s Pagalbininkai"
-

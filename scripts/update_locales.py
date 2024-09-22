@@ -31,9 +31,17 @@ if __name__ == "__main__":
 
     # Dump language list so it gets picked up by pybabel
     langs_file = os.path.join(locales_dir, ".langs.py")
+    lang_names = {}
     with open(langs_file, 'w') as f:
         for l in languages:
             f.write("_(%s)\n" % json.dumps(l.name))
+            lang_names[l.name] = True
+
+        # Additional names that might be missing
+        for l in ["Serbian", "Ukrainian", "Vietnamese"]:
+            if not l in lang_names:
+                f.write("_(%s)\n" % json.dumps(l))
+                lang_names[l] = True
     print("Wrote %s" % langs_file)
 
     # Dump swagger strings

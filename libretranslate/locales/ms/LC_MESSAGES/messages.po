@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.6.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-21 11:57-0400\n"
+"POT-Creation-Date: 2024-09-22 13:38-0400\n"
 "PO-Revision-Date: 2024-08-08 13:03-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: ms\n"
 "Language-Team: ms <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ms\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: libretranslate/app.py:80
@@ -68,22 +68,22 @@ msgstr ""
 #, python-format
 msgid "Invalid request: %(name)s parameter is not a number"
 msgstr ""
-"Permintaan tidak sah: <x>WANITA 0</x> Parameter gnona bukanlah sebuah "
-"angka %(name)s"
+"Permintaan tidak sah: <x>WANITA 0</x> Parameter gnona bukanlah sebuah angka "
+"%(name)s"
 
 #: libretranslate/app.py:595
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
 msgstr ""
-"Permintaan tidak sah: <x>WANITA 0</x> parameter harus &lt;= "
-"<x>Perancis</x> %(name)s %(value)s"
+"Permintaan tidak sah: <x>WANITA 0</x> parameter harus &lt;= <x>Perancis</x> "
+"%(name)s %(value)s"
 
 #: libretranslate/app.py:612 libretranslate/app.py:622
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
-"Permintaan tidak sah: permintaan (request)<x>WANITA 0</x>) melebihi batas"
-" teks (<x>Perancis</x>) %(size)s %(limit)s"
+"Permintaan tidak sah: permintaan (request)<x>WANITA 0</x>) melebihi batas "
+"teks (<x>Perancis</x>) %(size)s %(limit)s"
 
 #: libretranslate/app.py:637 libretranslate/app.py:642
 #: libretranslate/app.py:811 libretranslate/app.py:816
@@ -99,16 +99,16 @@ msgstr "<x>WANITA 0</x> Format wourne tidak didukung %(format)s"
 #: libretranslate/app.py:657 libretranslate/app.py:681
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from "
-"%(sname)s (%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
+"(%(scode)s)"
 msgstr ""
-"<x>WANITA 0</x> ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ("
-" ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( "
-"( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( (.<x>Perancis</x>) "
-"tidak tersedia sebagai bahasa target dari %(sname)s ( ( ( ( ( ( ( ( ( ( ("
-" ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( "
-"( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ("
-" ( ( ( ( ( ( ( ( (.<x>Fiji 3</x>) %(tname)s %(tcode)s %(scode)s"
+"<x>WANITA 0</x> ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( "
+"( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( "
+"( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( (.<x>Perancis</x>) tidak "
+"tersedia sebagai bahasa target dari %(sname)s ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( "
+"( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( "
+"( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( "
+"( (.<x>Fiji 3</x>) %(tname)s %(tcode)s %(scode)s"
 
 #: libretranslate/app.py:701
 #, python-format
@@ -310,6 +310,18 @@ msgstr "Ukrainian"
 #: libretranslate/locales/.langs.py:44
 msgid "Urdu"
 msgstr "Urdu"
+
+#: libretranslate/locales/.langs.py:45
+msgid "Serbian"
+msgstr "Serbia"
+
+#: libretranslate/locales/.langs.py:46
+msgid "Ukrainian"
+msgstr "Ukraina"
+
+#: libretranslate/locales/.langs.py:47
+msgid "Vietnamese"
+msgstr "Vietnam"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
@@ -551,11 +563,11 @@ msgstr "Copied"
 
 #: libretranslate/templates/app.js.template:337
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect "
-"right away."
+"Thanks for your correction. Note the suggestion will not take effect right "
+"away."
 msgstr ""
-"Terima kasih atas pembetulanmu. Perhatikan saran tidak akan mengambil "
-"efek segera."
+"Terima kasih atas pembetulanmu. Perhatikan saran tidak akan mengambil efek "
+"segera."
 
 #: libretranslate/templates/app.js.template:461
 msgid "No languages available. Did you install the models correctly?"
@@ -576,7 +588,8 @@ msgstr "tekan « Get API Key\" link."
 msgid "contact the server operator."
 msgstr "hubungi operator server."
 
-#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
+#: libretranslate/templates/index.html:9
+#: libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
 msgstr "API Terjemahan Mesin Jerman"
@@ -584,12 +597,12 @@ msgstr "API Terjemahan Mesin Jerman"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline "
-"capable and easy to setup. Run your own API server in just a few minutes."
+"Free and Open Source Machine Translation API. Self-hosted, offline capable "
+"and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"API Terjemahan Mesin Sumber Terbuka dan Bebas Wadah Free dan Open Source."
-" Kepemilikan diri, offline mampu dan mudah diatur. Liat server API "
-"sendiri dalam beberapa menit."
+"API Terjemahan Mesin Sumber Terbuka dan Bebas Wadah Free dan Open Source. "
+"Kepemilikan diri, offline mampu dan mudah diatur. Liat server API sendiri "
+"dalam beberapa menit."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -731,4 +744,3 @@ msgstr ""
 #, python-format
 msgid "%(libretranslate)s Contributors"
 msgstr "<x>WANITA 0</x> Kontributor %(libretranslate)s"
-

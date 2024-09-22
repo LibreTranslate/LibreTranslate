@@ -8,16 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.12\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-21 11:57-0400\n"
+"POT-Creation-Date: 2024-09-22 13:38-0400\n"
 "PO-Revision-Date: 2024-03-07 08:01+0000\n"
 "Last-Translator: d <dmanye@gmail.com>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/libretranslate/app/ca/>\n"
 "Language: ca\n"
-"Language-Team: Catalan "
-"<https://hosted.weblate.org/projects/libretranslate/app/ca/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: libretranslate/app.py:80
@@ -43,8 +42,8 @@ msgstr "Clau API invàlida"
 #: libretranslate/app.py:317
 msgid "Please contact the server operator to get an API key"
 msgstr ""
-"Si us plau, contacta amb l'administrador del servidor per demanar una "
-"clau API"
+"Si us plau, contacta amb l'administrador del servidor per demanar una clau "
+"API"
 
 #: libretranslate/app.py:319
 #, python-format
@@ -96,8 +95,8 @@ msgstr "El format %(format)s no està implementat"
 #: libretranslate/app.py:657 libretranslate/app.py:681
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from "
-"%(sname)s (%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
+"(%(scode)s)"
 msgstr ""
 "%(tname)s (%(tcode)s) no està disponible com a llengua de destí des de "
 "%(sname)s (%(scode)s)"
@@ -303,6 +302,18 @@ msgstr "ucraïnès"
 msgid "Urdu"
 msgstr "UrdúName"
 
+#: libretranslate/locales/.langs.py:45
+msgid "Serbian"
+msgstr "SerbiName"
+
+#: libretranslate/locales/.langs.py:46
+msgid "Ukrainian"
+msgstr "UcraïnèsName"
+
+#: libretranslate/locales/.langs.py:47
+msgid "Vietnamese"
+msgstr "VietnamitaName"
+
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
 msgstr "Recupera la llista d'idiomes compatibles"
@@ -488,8 +499,8 @@ msgstr "Valor de confiança"
 #: libretranslate/locales/.swag.py:45
 msgid "Character input limit for this language (-1 indicates no limit)"
 msgstr ""
-"Límit d' entrada de caràcters per a aquest idioma (- 1 indica que no hi "
-"ha límit)"
+"Límit d' entrada de caràcters per a aquest idioma (- 1 indica que no hi ha "
+"límit)"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Frontend translation timeout"
@@ -545,8 +556,8 @@ msgstr "S' ha copiat"
 
 #: libretranslate/templates/app.js.template:337
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect "
-"right away."
+"Thanks for your correction. Note the suggestion will not take effect right "
+"away."
 msgstr ""
 "Gràcies per la teva correcció. Noteu que el suggeriment no tindrà efecte "
 "immediatament."
@@ -558,7 +569,8 @@ msgstr "No hi ha idiomes disponibles. Has instal·lat correctament els models?"
 #: libretranslate/templates/app.js.template:528
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
-msgstr "Escriviu la vostra clau API. Si necessiteu una clau API, %(instructions)s"
+msgstr ""
+"Escriviu la vostra clau API. Si necessiteu una clau API, %(instructions)s"
 
 #: libretranslate/templates/app.js.template:528
 msgid "press the \"Get API Key\" link."
@@ -568,7 +580,8 @@ msgstr "premeu l' enllaç \"Treta la clau de l' API.\"."
 msgid "contact the server operator."
 msgstr "contacteu amb l' operador del servidor."
 
-#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
+#: libretranslate/templates/index.html:9
+#: libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
 msgstr "API de traducció de la màquina lliure i oberta"
@@ -576,12 +589,11 @@ msgstr "API de traducció de la màquina lliure i oberta"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline "
-"capable and easy to setup. Run your own API server in just a few minutes."
+"Free and Open Source Machine Translation API. Self-hosted, offline capable "
+"and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"API de traducció de la màquina lliure i oberta. Auto- màquina, fora de "
-"línia capaç de configurar. Executa el vostre servidor API en només uns "
-"minuts."
+"API de traducció de la màquina lliure i oberta. Auto- màquina, fora de línia"
+" capaç de configurar. Executa el vostre servidor API en només uns minuts."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -726,11 +738,9 @@ msgstr "%(libretranslate)s Col· laboradors"
 #~ msgstr "vietnamita"
 
 #~ msgid ""
-#~ "This public API should be used for"
-#~ " testing, personal or infrequent use. "
-#~ "If you're going to run an "
-#~ "application in production, please "
-#~ "%(host_server)s or %(get_api_key)s."
+#~ "This public API should be used for testing, personal or infrequent use. If "
+#~ "you're going to run an application in production, please %(host_server)s or "
+#~ "%(get_api_key)s."
 #~ msgstr ""
 
 #~ msgid "host your own server"
@@ -738,4 +748,3 @@ msgstr "%(libretranslate)s Col· laboradors"
 
 #~ msgid "get an API key"
 #~ msgstr ""
-

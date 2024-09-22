@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.6.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-21 11:57-0400\n"
+"POT-Creation-Date: 2024-09-22 13:38-0400\n"
 "PO-Revision-Date: 2024-08-08 13:03-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: ur\n"
 "Language-Team: ur <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: libretranslate/app.py:80
@@ -91,8 +91,8 @@ msgstr "%(format)s فارمیٹ کی مدد نہیں کی جاسکتی"
 #: libretranslate/app.py:657 libretranslate/app.py:681
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from "
-"%(sname)s (%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
+"(%(scode)s)"
 msgstr ""
 "%(tname)s (%(tcode)s) سے مراد زبان کے طور پر دستیاب نہیں ہے۔ %(sname)s "
 "(%(scode)s)"
@@ -297,6 +297,18 @@ msgstr "یورینس"
 #: libretranslate/locales/.langs.py:44
 msgid "Urdu"
 msgstr "اُردو"
+
+#: libretranslate/locales/.langs.py:45
+msgid "Serbian"
+msgstr "سر گري"
+
+#: libretranslate/locales/.langs.py:46
+msgid "Ukrainian"
+msgstr "یوکرین"
+
+#: libretranslate/locales/.langs.py:47
+msgid "Vietnamese"
+msgstr "ویتنام"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
@@ -538,8 +550,8 @@ msgstr "کوس"
 
 #: libretranslate/templates/app.js.template:337
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect "
-"right away."
+"Thanks for your correction. Note the suggestion will not take effect right "
+"away."
 msgstr "آپ کی اصلاح کا شکریہ. اِس سلسلے میں ایک مثال پر غور کریں ۔."
 
 #: libretranslate/templates/app.js.template:461
@@ -550,8 +562,7 @@ msgstr "کوئی زبان دستیاب نہیں۔ آپ نے ماڈلز کو در
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
 msgstr ""
-"قسم اپنی ایپی کلید میں. آپ کو ایک ایپی کلید کی ضرورت ہے تو، "
-"%(instructions)s"
+"قسم اپنی ایپی کلید میں. آپ کو ایک ایپی کلید کی ضرورت ہے تو، %(instructions)s"
 
 #: libretranslate/templates/app.js.template:528
 msgid "press the \"Get API Key\" link."
@@ -561,7 +572,8 @@ msgstr "\"پی اے کلید\" لنک پر زور دیں."
 msgid "contact the server operator."
 msgstr "سرور آپریٹر سے رابطہ کریں."
 
-#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
+#: libretranslate/templates/index.html:9
+#: libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
 msgstr "آزاد اور کھلے ماخذ مشین اے پی آئی"
@@ -569,11 +581,11 @@ msgstr "آزاد اور کھلے ماخذ مشین اے پی آئی"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline "
-"capable and easy to setup. Run your own API server in just a few minutes."
+"Free and Open Source Machine Translation API. Self-hosted, offline capable "
+"and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"آزاد اور اوپن ماخذ مشین اے پی آئی۔ خود غرضی، بے قاعدہ صلاحیت اور آسانی سے"
-" نصب کرنے کے لئے. صرف چند منٹ میں اپنے ذاتی ایپی سرور چلا."
+"آزاد اور اوپن ماخذ مشین اے پی آئی۔ خود غرضی، بے قاعدہ صلاحیت اور آسانی سے "
+"نصب کرنے کے لئے. صرف چند منٹ میں اپنے ذاتی ایپی سرور چلا."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -715,4 +727,3 @@ msgstr ""
 #, python-format
 msgid "%(libretranslate)s Contributors"
 msgstr "%(libretranslate)s نقل و حمل"
-

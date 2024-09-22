@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.6.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-21 11:57-0400\n"
+"POT-Creation-Date: 2024-09-22 13:38-0400\n"
 "PO-Revision-Date: 2024-08-08 13:03-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: th\n"
 "Language-Team: th <LL@li.org>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: libretranslate/app.py:80
@@ -93,8 +93,8 @@ msgstr "%(format)s ยังไม่รองรับการฟอร์แ�
 #: libretranslate/app.py:657 libretranslate/app.py:681
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from "
-"%(sname)s (%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
+"(%(scode)s)"
 msgstr "%(tname)s (%(tcode)sไม่มีภาษาเป้าหมาย %(sname)s (%(scode)s)"
 
 #: libretranslate/app.py:701
@@ -297,6 +297,18 @@ msgstr "ภาษาอุรากวัยName"
 #: libretranslate/locales/.langs.py:44
 msgid "Urdu"
 msgstr "อูร์ดู"
+
+#: libretranslate/locales/.langs.py:45
+msgid "Serbian"
+msgstr "เซอร์เบียName"
+
+#: libretranslate/locales/.langs.py:46
+msgid "Ukrainian"
+msgstr "ยูเครน"
+
+#: libretranslate/locales/.langs.py:47
+msgid "Vietnamese"
+msgstr "ภาษาเวียดนามName"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
@@ -538,8 +550,8 @@ msgstr "คัดลอก"
 
 #: libretranslate/templates/app.js.template:337
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect "
-"right away."
+"Thanks for your correction. Note the suggestion will not take effect right "
+"away."
 msgstr "ขอบคุณที่แก้ไข โปรด สังเกต ข้อ เสนอ แนะ นี้ จะ ไม่ มี ผล กระทบ ทันที."
 
 #: libretranslate/templates/app.js.template:461
@@ -559,7 +571,8 @@ msgstr "กดลิงก์ \"get API คีย์\"."
 msgid "contact the server operator."
 msgstr "ติดต่อเครื่องแม่ข่าย."
 
-#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
+#: libretranslate/templates/index.html:9
+#: libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
 msgstr "API ฟรีและโอเพนซอร์ส"
@@ -567,11 +580,11 @@ msgstr "API ฟรีและโอเพนซอร์ส"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline "
-"capable and easy to setup. Run your own API server in just a few minutes."
+"Free and Open Source Machine Translation API. Self-hosted, offline capable "
+"and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"API ฟรีและโอเพนซอร์ส ระบบควบคุมตัวเอง เชื่อมต่อได้ง่าย "
-"เรียกใช้เซิร์ฟเวอร์ API ของคุณเองในไม่กี่นาที."
+"API ฟรีและโอเพนซอร์ส ระบบควบคุมตัวเอง เชื่อมต่อได้ง่าย เรียกใช้เซิร์ฟเวอร์ "
+"API ของคุณเองในไม่กี่นาที."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -711,4 +724,3 @@ msgstr "สร้างด้วย %(heart)s โดย %(contributors)s แล�
 #, python-format
 msgid "%(libretranslate)s Contributors"
 msgstr "%(libretranslate)s ผู้มีส่วนร่วม"
-

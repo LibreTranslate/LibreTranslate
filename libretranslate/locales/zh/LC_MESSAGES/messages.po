@@ -8,16 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-21 11:57-0400\n"
+"POT-Creation-Date: 2024-09-22 13:38-0400\n"
 "PO-Revision-Date: 2024-08-20 19:09+0000\n"
 "Last-Translator: NtskwK <natsukawa247@outlook.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/libretranslate/app/zh_Hans/>\n"
 "Language: zh\n"
-"Language-Team: Chinese (Simplified) "
-"<https://hosted.weblate.org/projects/libretranslate/app/zh_Hans/>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: libretranslate/app.py:80
@@ -92,8 +91,8 @@ msgstr "%(format)s 格式不受支持"
 #: libretranslate/app.py:657 libretranslate/app.py:681
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from "
-"%(sname)s (%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
+"(%(scode)s)"
 msgstr "%(tname)s（%(tcode)s）不能作为 %(sname)s （%(scode)s）的目标语言"
 
 #: libretranslate/app.py:701
@@ -296,6 +295,18 @@ msgstr "乌克兰语"
 #: libretranslate/locales/.langs.py:44
 msgid "Urdu"
 msgstr "乌尔都语"
+
+#: libretranslate/locales/.langs.py:45
+msgid "Serbian"
+msgstr "塞尔维亚语"
+
+#: libretranslate/locales/.langs.py:46
+msgid "Ukrainian"
+msgstr "乌克兰语Name"
+
+#: libretranslate/locales/.langs.py:47
+msgid "Vietnamese"
+msgstr "越南语Name"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
@@ -537,8 +548,8 @@ msgstr "复制"
 
 #: libretranslate/templates/app.js.template:337
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect "
-"right away."
+"Thanks for your correction. Note the suggestion will not take effect right "
+"away."
 msgstr "感谢您的更正。注意此建议不会立即生效。"
 
 #: libretranslate/templates/app.js.template:461
@@ -558,7 +569,8 @@ msgstr "点击“获取API密钥”链接。"
 msgid "contact the server operator."
 msgstr "联系服务器管理员。"
 
-#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
+#: libretranslate/templates/index.html:9
+#: libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
 msgstr "免费开源的机器翻译API"
@@ -566,8 +578,8 @@ msgstr "免费开源的机器翻译API"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline "
-"capable and easy to setup. Run your own API server in just a few minutes."
+"Free and Open Source Machine Translation API. Self-hosted, offline capable "
+"and easy to setup. Run your own API server in just a few minutes."
 msgstr "免费开源的机器翻译API。自我托管，支持离线且易于设置。只需几分钟就可以运行你自己的API服务器。"
 
 #: libretranslate/templates/index.html:11
@@ -716,18 +728,14 @@ msgstr "%(libretranslate)s 贡献者"
 #~ msgstr "越南语"
 
 #~ msgid ""
-#~ "This public API should be used for"
-#~ " testing, personal or infrequent use. "
-#~ "If you're going to run an "
-#~ "application in production, please "
-#~ "%(host_server)s or %(get_api_key)s."
+#~ "This public API should be used for testing, personal or infrequent use. If "
+#~ "you're going to run an application in production, please %(host_server)s or "
+#~ "%(get_api_key)s."
 #~ msgstr ""
-#~ "此公共API仅适用于测试，个人或不频繁的使用。如果您要在生产环境中运行应用程序，请 %(host_server)s "
-#~ "或 %(get_api_key)s。"
+#~ "此公共API仅适用于测试，个人或不频繁的使用。如果您要在生产环境中运行应用程序，请 %(host_server)s 或 %(get_api_key)s。"
 
 #~ msgid "host your own server"
 #~ msgstr "搭建自己的服务器"
 
 #~ msgid "get an API key"
 #~ msgstr "获取API密钥"
-

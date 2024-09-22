@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-21 11:57-0400\n"
+"POT-Creation-Date: 2024-09-22 13:38-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language: pa\n"
@@ -294,6 +294,18 @@ msgstr ""
 
 #: libretranslate/locales/.langs.py:44
 msgid "Urdu"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:45
+msgid "Serbian"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:46
+msgid "Ukrainian"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:47
+msgid "Vietnamese"
 msgstr ""
 
 #: libretranslate/locales/.swag.py:1
