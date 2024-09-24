@@ -9,14 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-22 13:38-0400\n"
-"PO-Revision-Date: 2023-08-10 21:59+0000\n"
+"PO-Revision-Date: 2024-09-25 22:16+0000\n"
 "Last-Translator: Milan Šalka <salka.milan@googlemail.com>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/libretranslate/app/sk/>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/libretranslate/"
+"app/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
+"X-Generator: Weblate 5.8-dev\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: libretranslate/app.py:80
@@ -145,7 +147,7 @@ msgstr "Bengálčina"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Bulgarian"
-msgstr "Slovenčina"
+msgstr "Bulharšťina"
 
 #: libretranslate/locales/.langs.py:7
 msgid "Catalan"
@@ -177,7 +179,7 @@ msgstr "Esperanto"
 
 #: libretranslate/locales/.langs.py:14
 msgid "Estonian"
-msgstr "Slovenčina"
+msgstr "Estónčina"
 
 #: libretranslate/locales/.langs.py:15
 msgid "Finnish"
@@ -229,11 +231,11 @@ msgstr "Kórejština"
 
 #: libretranslate/locales/.langs.py:27
 msgid "Latvian"
-msgstr "Slovenčina"
+msgstr "Litvinština"
 
 #: libretranslate/locales/.langs.py:28
 msgid "Lithuanian"
-msgstr "Slovenčina"
+msgstr "Litovčina"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Malay"
@@ -241,7 +243,7 @@ msgstr "Zuzana"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Norwegian"
-msgstr "Slovenčina"
+msgstr "Nórština"
 
 #: libretranslate/locales/.langs.py:31
 msgid "Persian"
@@ -257,7 +259,7 @@ msgstr "Portugalština"
 
 #: libretranslate/locales/.langs.py:34
 msgid "Romanian"
-msgstr "Slovenčina"
+msgstr "Rumunčina"
 
 #: libretranslate/locales/.langs.py:35
 msgid "Russian"
@@ -269,7 +271,7 @@ msgstr "Slovenčina"
 
 #: libretranslate/locales/.langs.py:37
 msgid "Slovenian"
-msgstr "Slovenčina"
+msgstr "Slovinčina"
 
 #: libretranslate/locales/.langs.py:38
 msgid "Spanish"
@@ -301,15 +303,15 @@ msgstr "Urdu"
 
 #: libretranslate/locales/.langs.py:45
 msgid "Serbian"
-msgstr "Slovenčina"
+msgstr "Srbština"
 
 #: libretranslate/locales/.langs.py:46
 msgid "Ukrainian"
-msgstr "Slovenčina"
+msgstr "Ukrajinčina"
 
 #: libretranslate/locales/.langs.py:47
 msgid "Vietnamese"
-msgstr "Slovenčina"
+msgstr "Vietnamčina"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
