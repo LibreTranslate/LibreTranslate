@@ -551,7 +551,7 @@ function getPreferredColorScheme(){
 }
 
 // Write chosen color scheme to local storage
-// Unless the system scheme matches the the stored scheme, in which case... remove from local storage
+// Unless the system scheme matches the stored scheme, in which case... remove from local storage
 function savePreferredColorScheme(scheme){
   var systemScheme = 'light';
 
