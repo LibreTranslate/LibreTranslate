@@ -386,7 +386,7 @@ def create_app(args):
         if langcode and langcode in get_available_locale_codes(not args.debug):
             session.update(preferred_lang=langcode)
 
-        return render_template(
+        resp = make_response(render_template(
             "index.html",
             gaId=args.ga_id,
             frontendTimeout=args.frontend_timeout,
@@ -398,7 +398,12 @@ def create_app(args):
             available_locales=[{'code': l['code'], 'name': _lazy(l['name'])} for l in get_available_locales(not args.debug)],
             current_locale=get_locale(),
             alternate_locales=get_alternate_locale_links()
-        )
+        ))
+
+        if args.require_api_key_secret:
+          resp.set_cookie('r', '1')
+
+        return resp
 
     @bp.route("/js/app.js")
     @limiter.exempt
@@ -411,7 +416,7 @@ def create_app(args):
       if args.require_api_key_secret:
         bogus_api_secret = secret.get_bogus_secret_b64()
 
-        if 'User-Agent' in request.headers:
+        if 'User-Agent' in request.headers and request.cookies.get('r'):
           api_secret = secret.get_current_secret_js()
         else:
           api_secret = secret.get_bogus_secret_js()
