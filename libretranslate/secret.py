@@ -81,7 +81,9 @@ def secret_match(secret):
     return secret == s.get_str("secret_0") or secret == s.get_str("secret_1")
 
 def secret_bogus_match(secret):
-    return secret == get_bogus_secret()
+    if random.randint(0, 1) == 0:
+        return secret == get_bogus_secret()
+    return False
 
 def get_current_secret():
     return get_storage().get_str("secret_1")
