@@ -11,7 +11,7 @@ from timeit import default_timer
 
 import argostranslatefiles
 from argostranslatefiles import get_supported_formats
-from flask import Blueprint, Flask, Response, abort, jsonify, render_template, request, send_file, session, url_for
+from flask import Blueprint, Flask, Response, abort, jsonify, render_template, request, send_file, session, url_for, make_response
 from flask_babel import Babel
 from flask_session import Session
 from flask_swagger import swagger
@@ -307,11 +307,18 @@ def create_app(args):
                   ):
                     need_key = True
 
+                  req_secret = get_req_secret()
                   if (args.require_api_key_secret
                     and key_missing
-                    and not secret.secret_match(get_req_secret())
+                    and not secret.secret_match(req_secret)
                   ):
                     need_key = True
+                    if secret.secret_bogus_match(req_secret):
+                      abort(make_response(jsonify({
+                        'translatedText': secret.get_emoji(),
+                        'alternatives': [],
+                        'detectedLanguage': { 'confidence': 100, 'language': 'en' }
+                      }), 200))
 
                   if need_key:
                     description = _("Please contact the server operator to get an API key")
@@ -397,12 +404,23 @@ def create_app(args):
     @limiter.exempt
     def appjs():
       if args.disable_web_ui:
-            abort(404)
+        abort(404)
 
+      api_secret = ""
+      bogus_api_secret = ""
+      if args.require_api_key_secret:
+        bogus_api_secret = secret.get_bogus_secret_b64()
+
+        if 'User-Agent' in request.headers:
+          api_secret = secret.get_current_secret_js()
+        else:
+          api_secret = secret.get_bogus_secret_js()
+        
       response = Response(render_template("app.js.template",
             url_prefix=args.url_prefix,
             get_api_key_link=args.get_api_key_link,
-            api_secret=secret.get_current_secret_b64() if args.require_api_key_secret else ""), content_type='application/javascript; charset=utf-8')
+            api_secret=api_secret,
+            bogus_api_secret=bogus_api_secret), content_type='application/javascript; charset=utf-8')
 
       if args.require_api_key_secret:
         response.headers['Last-Modified'] = http_date(datetime.now())

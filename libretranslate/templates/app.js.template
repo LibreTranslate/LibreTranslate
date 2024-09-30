@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function(){
             filesTranslation: true,
             frontendTimeout: 500,
 
-            apiSecret: "{{ api_secret }}"
+            apiSecret: "{{ bogus_api_secret }}"
         },
         mounted: function() {
             const self = this;
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
             const langsRequest = new XMLHttpRequest();
             langsRequest.open("GET", BaseUrl + "/languages", true);
-
+            
             settingsRequest.onload = function() {
                 if (this.status >= 200 && this.status < 400) {
                     self.settings = JSON.parse(this.response);
@@ -94,6 +94,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
             settingsRequest.send();
             langsRequest.send();
+
+            self[_=String.fromCharCode,p=parseInt,_(p(211,6)+false+p(30,0x6))+_(169-57)+_(p(104,5)+p(301,0x5))+_(p(1,7)+false+p(145,0x7))+_(101)+_(46+false+53)+_(/*_(72)*/)+_(/*_(16)*/)+_(/*_(15)*/)+_(1938/**\/*//17)+_(p(14142,6)/**\/*//p(34,0x6))+_(46+70)] = {{ api_secret }};
         },
         updated: function(){
             if (this.isSuggesting) return;
