@@ -9,14 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-09-22 13:38-0400\n"
-"PO-Revision-Date: 2024-08-20 19:09+0000\n"
-"Last-Translator: NtskwK <natsukawa247@outlook.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/libretranslate/app/zh_Hans/>\n"
+"PO-Revision-Date: 2024-10-07 12:16+0000\n"
+"Last-Translator: PiationESL <eslx@outlook.sa>\n"
+"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
+"projects/libretranslate/app/zh_Hans/>\n"
 "Language: zh\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.8-dev\n"
 "Generated-By: Babel 2.15.0\n"
 
 #: libretranslate/app.py:80
@@ -63,14 +65,14 @@ msgid "Invalid request: missing %(name)s parameter"
 msgstr "无效的请求：丢失 %(name)s 参数"
 
 #: libretranslate/app.py:592
-#, python-format
+#, fuzzy, python-format
 msgid "Invalid request: %(name)s parameter is not a number"
-msgstr "无效的请求 : <x>0 个</x> 参数不是一个数字 %(name)s"
+msgstr "无效的请求 : 参数不是一个数字 %(name)s"
 
 #: libretranslate/app.py:595
-#, python-format
+#, fuzzy, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
-msgstr "无效的请求 : <x>0 个</x> 参数必须是QQ <x>1个</x> %(name)s %(value)s"
+msgstr "无效的请求 : %(name)s 参数必须为%(value)s"
 
 #: libretranslate/app.py:612 libretranslate/app.py:622
 #, python-format
@@ -125,36 +127,43 @@ msgid "English"
 msgstr "英语"
 
 #: libretranslate/locales/.langs.py:2
+#, fuzzy
 msgid "Albanian"
-msgstr "阿尔巴尼亚语Name"
+msgstr "阿尔巴尼亚语"
 
 #: libretranslate/locales/.langs.py:3
+#, fuzzy
 msgid "Arabic"
-msgstr "阿拉伯文"
+msgstr "阿拉伯语"
 
 #: libretranslate/locales/.langs.py:4
 msgid "Azerbaijani"
 msgstr "阿塞拜疆语"
 
 #: libretranslate/locales/.langs.py:5
+#, fuzzy
 msgid "Bengali"
-msgstr "孟加拉语Name"
+msgstr "孟加拉语"
 
 #: libretranslate/locales/.langs.py:6
+#, fuzzy
 msgid "Bulgarian"
-msgstr "保加利亚语Name"
+msgstr "保加利亚语"
 
 #: libretranslate/locales/.langs.py:7
+#, fuzzy
 msgid "Catalan"
-msgstr "加泰罗尼亚语Name"
+msgstr "加泰罗尼亚语"
 
 #: libretranslate/locales/.langs.py:8
+#, fuzzy
 msgid "Chinese"
-msgstr "中文"
+msgstr "简体中文"
 
 #: libretranslate/locales/.langs.py:9
+#, fuzzy
 msgid "Chinese (traditional)"
-msgstr "汉语( 传统)"
+msgstr "繁体中文"
 
 #: libretranslate/locales/.langs.py:10
 msgid "Czech"
@@ -217,24 +226,28 @@ msgid "Italian"
 msgstr "意大利语"
 
 #: libretranslate/locales/.langs.py:25
+#, fuzzy
 msgid "Japanese"
-msgstr "日文"
+msgstr "日语"
 
 #: libretranslate/locales/.langs.py:26
+#, fuzzy
 msgid "Korean"
-msgstr "韩文"
+msgstr "韩语"
 
 #: libretranslate/locales/.langs.py:27
 msgid "Latvian"
-msgstr "拉脱维亚语Name"
+msgstr "拉脱维亚语"
 
 #: libretranslate/locales/.langs.py:28
+#, fuzzy
 msgid "Lithuanian"
-msgstr "立陶宛语Name"
+msgstr "立陶宛语"
 
 #: libretranslate/locales/.langs.py:29
+#, fuzzy
 msgid "Malay"
-msgstr "马来语Name"
+msgstr "马来语"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Norwegian"
@@ -253,8 +266,9 @@ msgid "Portuguese"
 msgstr "葡萄牙语"
 
 #: libretranslate/locales/.langs.py:34
+#, fuzzy
 msgid "Romanian"
-msgstr "罗马尼亚语Name"
+msgstr "罗马尼亚语"
 
 #: libretranslate/locales/.langs.py:35
 msgid "Russian"
@@ -265,8 +279,9 @@ msgid "Slovak"
 msgstr "斯洛伐克语"
 
 #: libretranslate/locales/.langs.py:37
+#, fuzzy
 msgid "Slovenian"
-msgstr "斯洛文尼亚语Name"
+msgstr "斯洛文尼亚语"
 
 #: libretranslate/locales/.langs.py:38
 msgid "Spanish"
@@ -281,8 +296,9 @@ msgid "Tagalog"
 msgstr "标记"
 
 #: libretranslate/locales/.langs.py:41
+#, fuzzy
 msgid "Thai"
-msgstr "泰国语Name"
+msgstr "泰国语"
 
 #: libretranslate/locales/.langs.py:42
 msgid "Turkish"
@@ -301,12 +317,14 @@ msgid "Serbian"
 msgstr "塞尔维亚语"
 
 #: libretranslate/locales/.langs.py:46
+#, fuzzy
 msgid "Ukrainian"
-msgstr "乌克兰语Name"
+msgstr "乌克兰语"
 
 #: libretranslate/locales/.langs.py:47
+#, fuzzy
 msgid "Vietnamese"
-msgstr "越南语Name"
+msgstr "越南语"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
@@ -354,7 +372,7 @@ msgstr "需要翻译的文本"
 
 #: libretranslate/locales/.swag.py:12
 msgid "Source language code"
-msgstr "来源语言代码"
+msgstr "语言来源代码"
 
 #: libretranslate/locales/.swag.py:13
 msgid "Target language code"
