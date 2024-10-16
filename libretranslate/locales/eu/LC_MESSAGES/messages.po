@@ -143,7 +143,7 @@ msgstr "Azerbaijanera"
 
 #: libretranslate/locales/.langs.py:5
 msgid "Basque"
-msgstr ""
+msgstr "Euskara"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Bengali"
@@ -195,7 +195,7 @@ msgstr "Frantsesa"
 
 #: libretranslate/locales/.langs.py:18
 msgid "Galician"
-msgstr ""
+msgstr "Galiziera"
 
 #: libretranslate/locales/.langs.py:19
 msgid "German"
