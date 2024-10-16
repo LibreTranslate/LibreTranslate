@@ -8,24 +8,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-22 13:38-0400\n"
+"POT-Creation-Date: 2024-10-16 23:47+0200\n"
 "PO-Revision-Date: 2024-10-09 09:41+0000\n"
 "Last-Translator: GM <chminggao@163.com>\n"
-"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
-"projects/libretranslate/app/zh_Hans/>\n"
 "Language: zh\n"
+"Language-Team: Chinese (Simplified Han script) "
+"<https://hosted.weblate.org/projects/libretranslate/app/zh_Hans/>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8-dev\n"
-"Generated-By: Babel 2.15.0\n"
+"Generated-By: Babel 2.16.0\n"
 
 #: libretranslate/app.py:80
 msgid "Invalid JSON format"
 msgstr "无效的 JSON 格式"
 
-#: libretranslate/app.py:180 libretranslate/templates/app.js.template:465
+#: libretranslate/app.py:180 libretranslate/templates/app.js.template:467
 msgid "Auto Detect"
 msgstr "自动检测"
 
@@ -41,84 +40,84 @@ msgstr "请求次数过多超过限制"
 msgid "Invalid API key"
 msgstr "无效的 API 密钥"
 
-#: libretranslate/app.py:317
+#: libretranslate/app.py:324
 msgid "Please contact the server operator to get an API key"
 msgstr "请联系管理员以获取 API 密钥"
 
-#: libretranslate/app.py:319
+#: libretranslate/app.py:326
 #, python-format
 msgid "Visit %(url)s to get an API key"
 msgstr "访问 %(url)s 以获取 API 密钥"
 
-#: libretranslate/app.py:366
+#: libretranslate/app.py:373
 msgid "Slowdown:"
 msgstr "慢一点："
 
-#: libretranslate/app.py:583 libretranslate/app.py:585
-#: libretranslate/app.py:587 libretranslate/app.py:796
-#: libretranslate/app.py:798 libretranslate/app.py:800
-#: libretranslate/app.py:957 libretranslate/app.py:1114
-#: libretranslate/app.py:1116 libretranslate/app.py:1118
-#: libretranslate/app.py:1120
+#: libretranslate/app.py:606 libretranslate/app.py:608
+#: libretranslate/app.py:610 libretranslate/app.py:819
+#: libretranslate/app.py:821 libretranslate/app.py:823
+#: libretranslate/app.py:980 libretranslate/app.py:1137
+#: libretranslate/app.py:1139 libretranslate/app.py:1141
+#: libretranslate/app.py:1143
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
 msgstr "无效的请求：丢失 %(name)s 参数"
 
-#: libretranslate/app.py:592
+#: libretranslate/app.py:615
 #, python-format
 msgid "Invalid request: %(name)s parameter is not a number"
 msgstr "无效的请求 : 参数%(name)s不是数字"
 
-#: libretranslate/app.py:595
+#: libretranslate/app.py:618
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
 msgstr "无效的请求 : %(name)s 参数必须为%(value)s"
 
-#: libretranslate/app.py:612 libretranslate/app.py:622
+#: libretranslate/app.py:635 libretranslate/app.py:645
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr "无效的请求：请求（%(size)s）超过文本限制（%(limit)s）"
 
-#: libretranslate/app.py:637 libretranslate/app.py:642
-#: libretranslate/app.py:811 libretranslate/app.py:816
+#: libretranslate/app.py:660 libretranslate/app.py:665
+#: libretranslate/app.py:834 libretranslate/app.py:839
 #, python-format
 msgid "%(lang)s is not supported"
 msgstr "%(lang)s 不受支持"
 
-#: libretranslate/app.py:648
+#: libretranslate/app.py:671
 #, python-format
 msgid "%(format)s format is not supported"
 msgstr "%(format)s 格式不受支持"
 
-#: libretranslate/app.py:657 libretranslate/app.py:681
+#: libretranslate/app.py:680 libretranslate/app.py:704
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
-"(%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from "
+"%(sname)s (%(scode)s)"
 msgstr "%(tname)s（%(tcode)s）不能作为 %(sname)s （%(scode)s）的目标语言"
 
-#: libretranslate/app.py:701
+#: libretranslate/app.py:724
 #, python-format
 msgid "Cannot translate text: %(text)s"
 msgstr "无法翻译文本：%(text)s"
 
-#: libretranslate/app.py:788 libretranslate/app.py:849
+#: libretranslate/app.py:811 libretranslate/app.py:872
 msgid "Files translation are disabled on this server."
 msgstr "文件翻译在此服务器上被禁用。"
 
-#: libretranslate/app.py:803
+#: libretranslate/app.py:826
 msgid "Invalid request: empty file"
 msgstr "无效的请求：空文件"
 
-#: libretranslate/app.py:806
+#: libretranslate/app.py:829
 msgid "Invalid request: file format not supported"
 msgstr "无效的请求：文件格式不受支持"
 
-#: libretranslate/app.py:857
+#: libretranslate/app.py:880
 msgid "Invalid filename"
 msgstr "无效的文件名"
 
-#: libretranslate/app.py:1099
+#: libretranslate/app.py:1122
 msgid "Suggestions are disabled on this server."
 msgstr "建议在此服务器上被禁用。"
 
@@ -139,174 +138,182 @@ msgid "Azerbaijani"
 msgstr "阿塞拜疆语"
 
 #: libretranslate/locales/.langs.py:5
+msgid "Basque"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:6
 msgid "Bengali"
 msgstr "孟加拉语"
 
-#: libretranslate/locales/.langs.py:6
+#: libretranslate/locales/.langs.py:7
 msgid "Bulgarian"
 msgstr "保加利亚语"
 
-#: libretranslate/locales/.langs.py:7
+#: libretranslate/locales/.langs.py:8
 msgid "Catalan"
 msgstr "加泰罗尼亚语"
 
-#: libretranslate/locales/.langs.py:8
+#: libretranslate/locales/.langs.py:9
 msgid "Chinese"
 msgstr "简体中文"
 
-#: libretranslate/locales/.langs.py:9
+#: libretranslate/locales/.langs.py:10
 msgid "Chinese (traditional)"
 msgstr "繁体中文"
 
-#: libretranslate/locales/.langs.py:10
+#: libretranslate/locales/.langs.py:11
 msgid "Czech"
 msgstr "捷克语"
 
-#: libretranslate/locales/.langs.py:11
+#: libretranslate/locales/.langs.py:12
 msgid "Danish"
 msgstr "丹麦语"
 
-#: libretranslate/locales/.langs.py:12
+#: libretranslate/locales/.langs.py:13
 msgid "Dutch"
 msgstr "荷兰语"
 
-#: libretranslate/locales/.langs.py:13
+#: libretranslate/locales/.langs.py:14
 msgid "Esperanto"
 msgstr "世界语"
 
-#: libretranslate/locales/.langs.py:14
+#: libretranslate/locales/.langs.py:15
 msgid "Estonian"
 msgstr "爱沙尼亚语"
 
-#: libretranslate/locales/.langs.py:15
+#: libretranslate/locales/.langs.py:16
 msgid "Finnish"
 msgstr "芬兰语"
 
-#: libretranslate/locales/.langs.py:16
+#: libretranslate/locales/.langs.py:17
 msgid "French"
 msgstr "法语"
 
-#: libretranslate/locales/.langs.py:17
+#: libretranslate/locales/.langs.py:18
+msgid "Galician"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:19
 msgid "German"
 msgstr "德语"
 
-#: libretranslate/locales/.langs.py:18
+#: libretranslate/locales/.langs.py:20
 msgid "Greek"
 msgstr "希腊语"
 
-#: libretranslate/locales/.langs.py:19
+#: libretranslate/locales/.langs.py:21
 msgid "Hebrew"
 msgstr "希伯来语"
 
-#: libretranslate/locales/.langs.py:20
+#: libretranslate/locales/.langs.py:22
 msgid "Hindi"
 msgstr "印地语"
 
-#: libretranslate/locales/.langs.py:21
+#: libretranslate/locales/.langs.py:23
 msgid "Hungarian"
 msgstr "匈牙利语"
 
-#: libretranslate/locales/.langs.py:22
+#: libretranslate/locales/.langs.py:24
 msgid "Indonesian"
 msgstr "印度尼西亚语"
 
-#: libretranslate/locales/.langs.py:23
+#: libretranslate/locales/.langs.py:25
 msgid "Irish"
 msgstr "爱尔兰语"
 
-#: libretranslate/locales/.langs.py:24
+#: libretranslate/locales/.langs.py:26
 msgid "Italian"
 msgstr "意大利语"
 
-#: libretranslate/locales/.langs.py:25
+#: libretranslate/locales/.langs.py:27
 msgid "Japanese"
 msgstr "日语"
 
-#: libretranslate/locales/.langs.py:26
+#: libretranslate/locales/.langs.py:28
 msgid "Korean"
 msgstr "韩语"
 
-#: libretranslate/locales/.langs.py:27
+#: libretranslate/locales/.langs.py:29
 msgid "Latvian"
 msgstr "拉脱维亚语"
 
-#: libretranslate/locales/.langs.py:28
+#: libretranslate/locales/.langs.py:30
 msgid "Lithuanian"
 msgstr "立陶宛语"
 
-#: libretranslate/locales/.langs.py:29
+#: libretranslate/locales/.langs.py:31
 msgid "Malay"
 msgstr "马来语"
 
-#: libretranslate/locales/.langs.py:30
+#: libretranslate/locales/.langs.py:32
 msgid "Norwegian"
 msgstr "挪威语"
 
-#: libretranslate/locales/.langs.py:31
+#: libretranslate/locales/.langs.py:33
 msgid "Persian"
 msgstr "波斯语"
 
-#: libretranslate/locales/.langs.py:32
+#: libretranslate/locales/.langs.py:34
 msgid "Polish"
 msgstr "波兰语"
 
-#: libretranslate/locales/.langs.py:33
+#: libretranslate/locales/.langs.py:35
 msgid "Portuguese"
 msgstr "葡萄牙语"
 
-#: libretranslate/locales/.langs.py:34
+#: libretranslate/locales/.langs.py:36
 msgid "Romanian"
 msgstr "罗马尼亚语"
 
-#: libretranslate/locales/.langs.py:35
+#: libretranslate/locales/.langs.py:37
 msgid "Russian"
 msgstr "俄语"
 
-#: libretranslate/locales/.langs.py:36
+#: libretranslate/locales/.langs.py:38
 msgid "Slovak"
 msgstr "斯洛伐克语"
 
-#: libretranslate/locales/.langs.py:37
+#: libretranslate/locales/.langs.py:39
 msgid "Slovenian"
 msgstr "斯洛文尼亚语"
 
-#: libretranslate/locales/.langs.py:38
+#: libretranslate/locales/.langs.py:40
 msgid "Spanish"
 msgstr "西班牙语"
 
-#: libretranslate/locales/.langs.py:39
+#: libretranslate/locales/.langs.py:41
 msgid "Swedish"
 msgstr "瑞典语"
 
-#: libretranslate/locales/.langs.py:40
+#: libretranslate/locales/.langs.py:42
 msgid "Tagalog"
 msgstr "标记"
 
-#: libretranslate/locales/.langs.py:41
+#: libretranslate/locales/.langs.py:43
 msgid "Thai"
 msgstr "泰国语"
 
-#: libretranslate/locales/.langs.py:42
+#: libretranslate/locales/.langs.py:44
 msgid "Turkish"
 msgstr "土耳其语"
 
-#: libretranslate/locales/.langs.py:43
+#: libretranslate/locales/.langs.py:45
 msgid "Ukranian"
 msgstr "乌克兰语"
 
-#: libretranslate/locales/.langs.py:44
+#: libretranslate/locales/.langs.py:46
 msgid "Urdu"
 msgstr "乌尔都语"
 
-#: libretranslate/locales/.langs.py:45
+#: libretranslate/locales/.langs.py:47
 msgid "Serbian"
 msgstr "塞尔维亚语"
 
-#: libretranslate/locales/.langs.py:46
+#: libretranslate/locales/.langs.py:48
 msgid "Ukrainian"
 msgstr "乌克兰语"
 
-#: libretranslate/locales/.langs.py:47
+#: libretranslate/locales/.langs.py:49
 msgid "Vietnamese"
 msgstr "越南语"
 
@@ -521,58 +528,57 @@ msgid "Whether submission was successful"
 msgstr "提交是否成功"
 
 #: libretranslate/templates/app.js.template:31
-#: libretranslate/templates/app.js.template:292
-#: libretranslate/templates/app.js.template:296
+#: libretranslate/templates/app.js.template:294
+#: libretranslate/templates/app.js.template:298
 msgid "Copy text"
 msgstr "复制文本"
 
 #: libretranslate/templates/app.js.template:80
 #: libretranslate/templates/app.js.template:86
 #: libretranslate/templates/app.js.template:91
-#: libretranslate/templates/app.js.template:279
-#: libretranslate/templates/app.js.template:349
-#: libretranslate/templates/app.js.template:437
-#: libretranslate/templates/app.js.template:485
+#: libretranslate/templates/app.js.template:281
+#: libretranslate/templates/app.js.template:351
+#: libretranslate/templates/app.js.template:439
+#: libretranslate/templates/app.js.template:487
 #, python-format
 msgid "Cannot load %(url)s"
 msgstr "无法加载 %(url)s"
 
-#: libretranslate/templates/app.js.template:270
-#: libretranslate/templates/app.js.template:340
-#: libretranslate/templates/app.js.template:418
-#: libretranslate/templates/app.js.template:429
+#: libretranslate/templates/app.js.template:272
+#: libretranslate/templates/app.js.template:342
+#: libretranslate/templates/app.js.template:420
+#: libretranslate/templates/app.js.template:431
 msgid "Unknown error"
 msgstr "未知错误"
 
-#: libretranslate/templates/app.js.template:293
+#: libretranslate/templates/app.js.template:295
 msgid "Copied"
 msgstr "复制"
 
-#: libretranslate/templates/app.js.template:337
+#: libretranslate/templates/app.js.template:339
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect right "
-"away."
+"Thanks for your correction. Note the suggestion will not take effect "
+"right away."
 msgstr "感谢您的更正。注意此建议不会立即生效。"
 
-#: libretranslate/templates/app.js.template:461
+#: libretranslate/templates/app.js.template:463
 msgid "No languages available. Did you install the models correctly?"
 msgstr "无可用的语言。您是否正确安装了模型？"
 
-#: libretranslate/templates/app.js.template:528
+#: libretranslate/templates/app.js.template:530
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
 msgstr "输入您的API密钥。如果您需要API密钥，%(instructions)s"
 
-#: libretranslate/templates/app.js.template:528
+#: libretranslate/templates/app.js.template:530
 msgid "press the \"Get API Key\" link."
 msgstr "点击“获取API密钥”链接。"
 
-#: libretranslate/templates/app.js.template:528
+#: libretranslate/templates/app.js.template:530
 msgid "contact the server operator."
 msgstr "联系服务器管理员。"
 
-#: libretranslate/templates/index.html:9
-#: libretranslate/templates/index.html:27
+#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
 msgstr "免费开源的机器翻译API"
@@ -580,8 +586,8 @@ msgstr "免费开源的机器翻译API"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline capable "
-"and easy to setup. Run your own API server in just a few minutes."
+"Free and Open Source Machine Translation API. Self-hosted, offline "
+"capable and easy to setup. Run your own API server in just a few minutes."
 msgstr "免费开源的机器翻译API。自我托管，支持离线且易于设置。只需几分钟就可以运行你自己的API服务器。"
 
 #: libretranslate/templates/index.html:11
@@ -730,14 +736,18 @@ msgstr "%(libretranslate)s 贡献者"
 #~ msgstr "越南语"
 
 #~ msgid ""
-#~ "This public API should be used for testing, personal or infrequent use. If "
-#~ "you're going to run an application in production, please %(host_server)s or "
-#~ "%(get_api_key)s."
+#~ "This public API should be used for"
+#~ " testing, personal or infrequent use. "
+#~ "If you're going to run an "
+#~ "application in production, please "
+#~ "%(host_server)s or %(get_api_key)s."
 #~ msgstr ""
-#~ "此公共API仅适用于测试，个人或不频繁的使用。如果您要在生产环境中运行应用程序，请 %(host_server)s 或 %(get_api_key)s。"
+#~ "此公共API仅适用于测试，个人或不频繁的使用。如果您要在生产环境中运行应用程序，请 %(host_server)s "
+#~ "或 %(get_api_key)s。"
 
 #~ msgid "host your own server"
 #~ msgstr "搭建自己的服务器"
 
 #~ msgid "get an API key"
 #~ msgstr "获取API密钥"
+
