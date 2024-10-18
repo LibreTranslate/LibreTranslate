@@ -22,9 +22,9 @@ const res = await fetch("https://libretranslate.com/translate", {
   body: JSON.stringify({
     q: "Hello!",
     source: "en",
-    target: "es"
+    target: "es",
   }),
-  headers: { "Content-Type": "application/json" }
+  headers: { "Content-Type": "application/json" },
 });
 
 console.log(await res.json());
@@ -50,9 +50,9 @@ const res = await fetch("https://libretranslate.com/translate", {
   body: JSON.stringify({
     q: "Ciao!",
     source: "auto",
-    target: "en"
+    target: "en",
   }),
-  headers: { "Content-Type": "application/json" }
+  headers: { "Content-Type": "application/json" },
 });
 
 console.log(await res.json());
@@ -81,9 +81,9 @@ const res = await fetch("https://libretranslate.com/translate", {
     q: '<p class="green">Hello!</p>',
     source: "en",
     target: "es",
-    format: "html"
+    format: "html",
   }),
-  headers: { "Content-Type": "application/json" }
+  headers: { "Content-Type": "application/json" },
 });
 
 console.log(await res.json());
@@ -103,15 +103,15 @@ Request:
 
 ```javascript
 const res = await fetch("https://libretranslate.com/translate", {
-	method: "POST",
-	body: JSON.stringify({
-		q: "Hello",
-		source: "en",
-		target: "it",
-		format: "text",
-		alternatives: 3
-	}),
-	headers: { "Content-Type": "application/json" }
+  method: "POST",
+  body: JSON.stringify({
+    q: "Hello",
+    source: "en",
+    target: "it",
+    format: "text",
+    alternatives: 3,
+  }),
+  headers: { "Content-Type": "application/json" },
 });
 
 console.log(await res.json());
@@ -184,18 +184,18 @@ Arguments passed to the process or set via environment variables are split into 
 
 ### Settings / Flags
 
-| Argument                    | Description                                                                                                 | Default Setting      | Env. name                    |
-|-----------------------------|-------------------------------------------------------------------------------------------------------------| -------------------- |------------------------------|
-| --debug                     | Enable debug environment                                                                                    | `Disabled`           | LT_DEBUG                     |
-| --ssl                       | Whether to enable SSL                                                                                       | `Disabled`               | LT_SSL                       |
-| --api-keys                  | Enable API keys database for per-client rate limits when --req-limit is reached                             | `Don't use API keys` | LT_API_KEYS                  |
+| Argument                    | Description                                                                                                 | Default Setting                    | Env. name                    |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------- | ---------------------------------- | ---------------------------- |
+| --debug                     | Enable debug environment                                                                                    | `Disabled`                         | LT_DEBUG                     |
+| --ssl                       | Whether to enable SSL                                                                                       | `Disabled`                         | LT_SSL                       |
+| --api-keys                  | Enable API keys database for per-client rate limits when --req-limit is reached                             | `Don't use API keys`               | LT_API_KEYS                  |
 | --require-api-key-origin    | Require use of an API key for programmatic access to the API, unless the request origin matches this domain | `No restrictions on domain origin` | LT_REQUIRE_API_KEY_ORIGIN    |
-| --require-api-key-secret    | Require use of an API key for programmatic access to the API, unless the client also sends a secret match   | `No secrets required` | LT_REQUIRE_API_KEY_SECRET    |
-| --suggestions               | Allow user suggestions                                                                                      | `Disabled`    | LT_SUGGESTIONS               |
-| --disable-files-translation | Disable files translation                                                                                   | `File translation allowed`    | LT_DISABLE_FILES_TRANSLATION |
-| --disable-web-ui            | Disable web ui                                                                                              | `Web Ui enabled`    | LT_DISABLE_WEB_UI            |
-| --update-models             | Update language models at startup                                                                           | `Only on if no models found`    | LT_UPDATE_MODELS            |
-| --metrics                   | Enable the /metrics endpoint for exporting [Prometheus](https://prometheus.io/) usage metrics               | `Disabled`    | LT_METRICS            |
+| --require-api-key-secret    | Require use of an API key for programmatic access to the API, unless the client also sends a secret match   | `No secrets required`              | LT_REQUIRE_API_KEY_SECRET    |
+| --suggestions               | Allow user suggestions                                                                                      | `Disabled`                         | LT_SUGGESTIONS               |
+| --disable-files-translation | Disable files translation                                                                                   | `File translation allowed`         | LT_DISABLE_FILES_TRANSLATION |
+| --disable-web-ui            | Disable web ui                                                                                              | `Web Ui enabled`                   | LT_DISABLE_WEB_UI            |
+| --update-models             | Update language models at startup                                                                           | `Only on if no models found`       | LT_UPDATE_MODELS             |
+| --metrics                   | Enable the /metrics endpoint for exporting [Prometheus](https://prometheus.io/) usage metrics               | `Disabled`                         | LT_METRICS                   |
 
 ### Configuration Parameters
 
@@ -343,7 +343,7 @@ scrape_configs:
 
     # Needed only if you use --metrics-auth-token
     #authorization:
-      #credentials: "mytoken"
+    #credentials: "mytoken"
 
     static_configs:
       - targets: ["localhost:5000"]
@@ -414,25 +414,26 @@ See it in action on this [page](https://community.libretranslate.com/t/have-you-
 
 This is a list of public LibreTranslate instances, some require an API key. If you want to add a new URL, please open a pull request.
 
-URL |API Key Required | Links
---- | --- | ---
-[libretranslate.com](https://libretranslate.com)|:heavy_check_mark:|[ [Get API Key](https://portal.libretranslate.com) ] [ [Service Status](https://status.libretranslate.com/) ]
-[translate.terraprint.co](https://translate.terraprint.co/)|-
-[trans.zillyhuhn.com](https://trans.zillyhuhn.com/)|-
-[translate.lotigara.ru](https://translate.lotigara.ru)|-
+| URL                                                         | API Key Required   | Links                                                                                                         |
+| ----------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------- |
+| [libretranslate.com](https://libretranslate.com)            | :heavy_check_mark: | [ [Get API Key](https://portal.libretranslate.com) ] [ [Service Status](https://status.libretranslate.com/) ] |
+| [translate.terraprint.co](https://translate.terraprint.co/) | -                  |
+| [trans.zillyhuhn.com](https://trans.zillyhuhn.com/)         | -                  |
+| [translate.lotigara.ru](https://translate.lotigara.ru)      | -                  |
 
 ## TOR/i2p Mirrors
 
-URL |
---- |
-[lt.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://lt.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/)|
-[lt.vern.i2p](http://vernf45n7mxwqnp5riaax7p67pwcl7wcefdcnqqvim7ckdx4264a.b32.i2p/)|
+| URL                                                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| [lt.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://lt.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/) |
+| [lt.vern.i2p](http://vernf45n7mxwqnp5riaax7p67pwcl7wcefdcnqqvim7ckdx4264a.b32.i2p/)                                                            |
 
 ## Adding New Language Models
 
 You have two options to create new language models:
- * [Locomotive](https://github.com/LibreTranslate/Locomotive)
- * [Argos Train](https://github.com/argosopentech/argos-train) ([video tutorial](https://www.youtube.com/watch?v=Vj_qgnhOEwg))
+
+- [Locomotive](https://github.com/LibreTranslate/Locomotive)
+- [Argos Train](https://github.com/argosopentech/argos-train) ([video tutorial](https://www.youtube.com/watch?v=Vj_qgnhOEwg))
 
 Most of the training data is from [Opus](http://opus.nlpl.eu/), which is an open source parallel corpus. Check also [NLLU](https://nllu.libretranslate.com)
 
@@ -445,50 +446,51 @@ To help improve or review the UI translations:
 - Go to <https://hosted.weblate.org/projects/libretranslate/app/#translations>. All changes are automatically pushed to this repository.
 - Once all strings have been reviewed/edited, open a pull request and change `libretranslate/locales/{code}/meta.json`:
 
- ```json
+```json
 {
-  "name": "<Language>",
-  "reviewed": true <-- Change this from false to true
+ "name": "<Language>",
+ "reviewed": true <-- Change this from false to true
 }
- ```
+```
 
 ### UI Languages
 
-Language | Reviewed | Weblate Link
--------- | -------- | ------------
-Arabic |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ar/)
-Azerbaijani |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/az/)
-Chinese |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/zh/)
-Chinese (Traditional) |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/zh_Hant/)
-Czech | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/cs/)
-Danish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/da/)
-Dutch |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/nl/)
-English | :heavy_check_mark: | [Edit](https://hosted.weblate.org/projects/libretranslate/app/)
-Esperanto | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/eo/)
-Finnish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/fi/)
-French | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/fr/)
-German | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/de/)
-Greek |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/el/)
-Hebrew |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/he/)
-Hindi |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/hi/)
-Hungarian |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/hu/)
-Indonesian |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/id/)
-Irish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ga/)
-Italian | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/it/)
-Japanese |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ja/)
-Kabyle | :heavy_check_mark: | [Edit](https://hosted.weblate.org/projects/libretranslate/app/kab/)
-Korean | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ko/)
-Occitan |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/oc/)
-Persian |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/fa/)
-Polish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/pl/)
-Portuguese | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/pt/)
-Russian | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ru/)
-Slovak |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/sk/)
-Spanish | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/es/)
-Swedish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/sv/)
-Turkish |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/tr/)
-Ukrainian | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/uk/)
-Vietnamese |  | [Edit](https://hosted.weblate.org/translate/libretranslate/app/vi/)
+| Language              | Reviewed           | Weblate Link                                                             |
+| --------------------- | ------------------ | ------------------------------------------------------------------------ |
+| Arabic                |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ar/)      |
+| Azerbaijani           |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/az/)      |
+| Basque                | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/eu/)      |
+| Chinese               |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/zh/)      |
+| Chinese (Traditional) |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/zh_Hant/) |
+| Czech                 | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/cs/)      |
+| Danish                |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/da/)      |
+| Dutch                 |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/nl/)      |
+| English               | :heavy_check_mark: | [Edit](https://hosted.weblate.org/projects/libretranslate/app/)          |
+| Esperanto             | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/eo/)      |
+| Finnish               |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/fi/)      |
+| French                | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/fr/)      |
+| German                | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/de/)      |
+| Greek                 |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/el/)      |
+| Hebrew                |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/he/)      |
+| Hindi                 |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/hi/)      |
+| Hungarian             |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/hu/)      |
+| Indonesian            |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/id/)      |
+| Irish                 |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ga/)      |
+| Italian               | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/it/)      |
+| Japanese              |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ja/)      |
+| Kabyle                | :heavy_check_mark: | [Edit](https://hosted.weblate.org/projects/libretranslate/app/kab/)      |
+| Korean                | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ko/)      |
+| Occitan               |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/oc/)      |
+| Persian               |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/fa/)      |
+| Polish                |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/pl/)      |
+| Portuguese            | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/pt/)      |
+| Russian               | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ru/)      |
+| Slovak                |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/sk/)      |
+| Spanish               | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/es/)      |
+| Swedish               |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/sv/)      |
+| Turkish               |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/tr/)      |
+| Ukrainian             | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/uk/)      |
+| Vietnamese            |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/vi/)      |
 
 ## Roadmap
 
@@ -565,6 +567,7 @@ Remove `#` on the ErrorLog and CustomLog lines to log requests.
 Add this to an existing site config, or a new file in `/etc/apache2/sites-available/new-site.conf` and run `sudo a2ensite new-site.conf`.
 
 To get a HTTPS subdomain certificate, install `certbot` (snap), run `sudo certbot certonly --manual --preferred-challenges dns` and enter your information (with `subdomain.domain.tld` as the domain). Add a DNS TXT record with your domain registrar when asked. This will save your certificate and key to `/etc/letsencrypt/live/{subdomain.domain.tld}/`. Alternatively, comment the SSL lines out if you don't want to use HTTPS.
+
 </details>
 
 <details>
@@ -683,9 +686,9 @@ const res = await fetch("https://libretranslate.com/translate", {
   body: JSON.stringify({
     q: ["Hello", "world"],
     source: "en",
-    target: "es"
+    target: "es",
   }),
-  headers: { "Content-Type": "application/json" }
+  headers: { "Content-Type": "application/json" },
 });
 
 console.log(await res.json());
@@ -701,9 +704,9 @@ console.log(await res.json());
 
 We welcome contributions! Here's some ideas:
 
-* Train a new language model using [Locomotive](https://github.com/LibreTranslate/Locomotive). For example, we want to train improved neural networks for [German](https://community.libretranslate.com/t/help-wanted-improve-en-de-translation/935) and many other languages.
-* Can you beat the performance of our language models? Train a new one and let's compare it. To submit your model make a post on the [community forum](https://community.libretranslate.com/) with a link to download your .argosmodel file and some sample text that your model has translated.
-* Pick an [issue](https://github.com/LibreTranslate/LibreTranslate/issues) to work on.
+- Train a new language model using [Locomotive](https://github.com/LibreTranslate/Locomotive). For example, we want to train improved neural networks for [German](https://community.libretranslate.com/t/help-wanted-improve-en-de-translation/935) and many other languages.
+- Can you beat the performance of our language models? Train a new one and let's compare it. To submit your model make a post on the [community forum](https://community.libretranslate.com/) with a link to download your .argosmodel file and some sample text that your model has translated.
+- Pick an [issue](https://github.com/LibreTranslate/LibreTranslate/issues) to work on.
 
 ## Credits
 
