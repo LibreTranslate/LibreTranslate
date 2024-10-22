@@ -295,10 +295,6 @@ msgstr ""
 msgid "Turkish"
 msgstr ""
 
-#: libretranslate/locales/.langs.py:45
-msgid "Ukranian"
-msgstr ""
-
 #: libretranslate/locales/.langs.py:46
 msgid "Urdu"
 msgstr ""
