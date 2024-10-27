@@ -830,7 +830,7 @@ def create_app(args):
 
         src_lang = next(iter([l for l in languages if l.code == source_lang]), None)
 
-        if src_lang is None:
+        if src_lang is None and source_lang != "auto":
             abort(400, description=_("%(lang)s is not supported", lang=source_lang))
 
         tgt_lang = next(iter([l for l in languages if l.code == target_lang]), None)
@@ -851,6 +851,11 @@ def create_app(args):
             # each batch uses all available limits
             if char_limit > 0:
                 request.req_cost = max(1, int(os.path.getsize(filepath) / char_limit))
+
+            if source_lang == "auto":
+                src_texts = argostranslatefiles.get_texts(filepath)
+                candidate_langs = detect_languages(src_texts)
+                src_lang = candidate_langs[0]
 
             translated_file_path = argostranslatefiles.translate_file(src_lang.get_translation(tgt_lang), filepath)
             translated_filename = os.path.basename(translated_file_path)
