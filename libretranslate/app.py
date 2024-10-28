@@ -858,7 +858,7 @@ def create_app(args):
                 detected_src_lang = candidate_langs[0]
                 src_lang = next(iter([l for l in languages if l.code == detected_src_lang["language"]]), None)
                 if src_lang is None:
-                    abort(400, description=_("%(lang)s is not supported", lang=candidate_langs[0]))
+                    abort(400, description=_("%(lang)s is not supported", lang=detected_src_lang["language"]))
 
             translated_file_path = argostranslatefiles.translate_file(src_lang.get_translation(tgt_lang), filepath)
             translated_filename = os.path.basename(translated_file_path)
