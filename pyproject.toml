@@ -48,7 +48,7 @@ dependencies = [
     "appdirs ==1.4.4",
     "APScheduler ==3.9.1",
     "translatehtml ==1.5.2",
-    "argos-translate-files ==1.1.4",
+    "argos-translate-files ==1.2.0",
     "itsdangerous ==2.1.2",
     "Werkzeug ==2.3.8",
     "requests ==2.31.0",
