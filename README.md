@@ -142,6 +142,14 @@ libretranslate [args]
 
 Then open a web browser to <http://localhost:5000>
 
+By default LibreTranslate will install support for all available languages. To only load certain languages and reduce startup time, you can use the **--load-only** argument:
+
+```bash
+libretranslate --load-only en,es,fr
+```
+
+Check also all other [arguments](#settings--flags) below.
+
 On Ubuntu 20.04 you can also use the install script available at <https://github.com/argosopentech/LibreTranslate-init>
 
 ## Run with Docker
