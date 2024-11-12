@@ -9,15 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-16 23:47+0200\n"
-"PO-Revision-Date: 2024-09-22 23:14+0000\n"
+"PO-Revision-Date: 2024-11-12 22:23+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/libretranslate/"
+"app/es/>\n"
 "Language: es\n"
-"Language-Team: Spanish "
-"<https://hosted.weblate.org/projects/libretranslate/app/es/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.9-dev\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: libretranslate/app.py:80
@@ -145,7 +146,7 @@ msgstr "Azerbaijani"
 
 #: libretranslate/locales/.langs.py:5
 msgid "Basque"
-msgstr ""
+msgstr "Vasco"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Bengali"
@@ -197,7 +198,7 @@ msgstr "Francés"
 
 #: libretranslate/locales/.langs.py:18
 msgid "Galician"
-msgstr ""
+msgstr "Galego"
 
 #: libretranslate/locales/.langs.py:19
 msgid "German"
@@ -765,4 +766,3 @@ msgstr "Colaboradores de %(libretranslate)s"
 
 #~ msgid "get an API key"
 #~ msgstr "obtén una clave API"
-
