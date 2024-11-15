@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-16 23:47+0200\n"
-"PO-Revision-Date: 2024-11-06 20:00+0000\n"
-"Last-Translator: Kfir Pshititsky <Kfir4321@gmail.com>\n"
+"PO-Revision-Date: 2024-11-16 07:05+0000\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/libretranslate/"
 "app/he/>\n"
 "Language: he\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.8.2\n"
+"X-Generator: Weblate 5.9-dev\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: libretranslate/app.py:80
 msgid "Invalid JSON format"
-msgstr "פורמט ה־JSON אינו תקין"
+msgstr "תבנית ה־JSON שגויה"
 
 #: libretranslate/app.py:180 libretranslate/templates/app.js.template:467
 msgid "Auto Detect"
@@ -35,20 +35,20 @@ msgstr "לא מורשה"
 
 #: libretranslate/app.py:291
 msgid "Too many request limits violations"
-msgstr "יותר מדי הפרות בקשות מגבילות"
+msgstr "יותר מדי הפרות מגבלות בקשות"
 
 #: libretranslate/app.py:298
 msgid "Invalid API key"
-msgstr "מפתח API בלתי תקין"
+msgstr "מפתח API שגוי"
 
 #: libretranslate/app.py:324
 msgid "Please contact the server operator to get an API key"
-msgstr "צור קשר עם מפעיל השרת כדי לקבל מפתח API"
+msgstr "נא ליצור קשר עם מפעילי השרת כדי לקבל מפתח API"
 
 #: libretranslate/app.py:326
 #, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr "בקר ב-%(url)s להשגת מפתח API"
+msgstr "נא לגשת אל %(url)s כדי להשיג מפתח API"
 
 #: libretranslate/app.py:373
 msgid "Slowdown:"
@@ -62,35 +62,33 @@ msgstr "האטה:"
 #: libretranslate/app.py:1143
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr "בקשה לא חוקית: פרמטר %(name)s חסר"
+msgstr "בקשה שגויה: המשתנה %(name)s חסר"
 
 #: libretranslate/app.py:615
 #, python-format
 msgid "Invalid request: %(name)s parameter is not a number"
-msgstr "בקשה לא חוקית: פרמטר%(name)s הוא לא מספר"
+msgstr "בקשה שגויה: המשתנה %(name)s הוא לא מספר"
 
 #: libretranslate/app.py:618
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
-msgstr ""
-"בקשה לא חוקית: <x>0 0 0</x> פרמטר חייב להיות &lt;= <x>1 1</x> %(name)s "
-"%(value)s"
+msgstr "בקשה שגויה:המשתנה %(name)s חייב להיות קטן או שווה ל־%(value)s"
 
 #: libretranslate/app.py:635 libretranslate/app.py:645
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
-msgstr "בקשה לא חוקית: בקשה (%(size)s) מעבר למגבלת טקסט (%(limit)s)"
+msgstr "בקשה שגויה: גודל הבקשה (%(size)s) חורג ממגבלת הטקסט (%(limit)s)"
 
 #: libretranslate/app.py:660 libretranslate/app.py:665
 #: libretranslate/app.py:834 libretranslate/app.py:839
 #, python-format
 msgid "%(lang)s is not supported"
-msgstr "%(lang)s לא נתמך"
+msgstr "%(lang)s לא נתמכת"
 
 #: libretranslate/app.py:671
 #, python-format
 msgid "%(format)s format is not supported"
-msgstr "פורמט %(format)s אינו נתמך"
+msgstr "התבנית %(format)s לא נתמכת"
 
 #: libretranslate/app.py:680 libretranslate/app.py:704
 #, python-format
@@ -110,19 +108,19 @@ msgstr "תרגום קבצים מוגבל בשרת זה."
 
 #: libretranslate/app.py:826
 msgid "Invalid request: empty file"
-msgstr "בקשה לא חוקית: קובץ ריק"
+msgstr "בקשה שגויה: קובץ ריק"
 
 #: libretranslate/app.py:829
 msgid "Invalid request: file format not supported"
-msgstr "בקשה לא חוקית: פורמט קובץ לא נתמך"
+msgstr "בקשה שגויה: תסדיר קובץ לא נתמך"
 
 #: libretranslate/app.py:880
 msgid "Invalid filename"
-msgstr "שם הקובץ Invalid"
+msgstr "שם הקובץ שגוי"
 
 #: libretranslate/app.py:1122
 msgid "Suggestions are disabled on this server."
-msgstr "הצעות מוגבלות בשרת זה."
+msgstr "הצעות מושבתות בשרת זה."
 
 #: libretranslate/locales/.langs.py:1
 msgid "English"
@@ -130,7 +128,7 @@ msgstr "אנגלית"
 
 #: libretranslate/locales/.langs.py:2
 msgid "Albanian"
-msgstr "אלב האלבני"
+msgstr "אלבנית"
 
 #: libretranslate/locales/.langs.py:3
 msgid "Arabic"
@@ -138,23 +136,23 @@ msgstr "ערבית"
 
 #: libretranslate/locales/.langs.py:4
 msgid "Azerbaijani"
-msgstr "אזרבייג'ן"
+msgstr "אזרית"
 
 #: libretranslate/locales/.langs.py:5
 msgid "Basque"
-msgstr "Basque"
+msgstr "בסקית"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Bengali"
-msgstr "Bengali"
+msgstr "בנגלית"
 
 #: libretranslate/locales/.langs.py:7
 msgid "Bulgarian"
-msgstr "בולגריה"
+msgstr "בולגרית"
 
 #: libretranslate/locales/.langs.py:8
 msgid "Catalan"
-msgstr "קטלוניה"
+msgstr "קטאלונית"
 
 #: libretranslate/locales/.langs.py:9
 msgid "Chinese"
@@ -162,19 +160,19 @@ msgstr "סינית"
 
 #: libretranslate/locales/.langs.py:10
 msgid "Chinese (traditional)"
-msgstr "סינית (מסורתית)"
+msgstr "סינית מסורתית"
 
 #: libretranslate/locales/.langs.py:11
 msgid "Czech"
-msgstr "צ'כיה צ'כיה"
+msgstr "צ׳כית"
 
 #: libretranslate/locales/.langs.py:12
 msgid "Danish"
-msgstr "דנמרק"
+msgstr "דנית"
 
 #: libretranslate/locales/.langs.py:13
 msgid "Dutch"
-msgstr "הולנד הולנדית"
+msgstr "הולנדית"
 
 #: libretranslate/locales/.langs.py:14
 msgid "Esperanto"
@@ -182,11 +180,11 @@ msgstr "אספרנטו"
 
 #: libretranslate/locales/.langs.py:15
 msgid "Estonian"
-msgstr "אסטוניה"
+msgstr "אסטונית"
 
 #: libretranslate/locales/.langs.py:16
 msgid "Finnish"
-msgstr "הפינית"
+msgstr "פינית"
 
 #: libretranslate/locales/.langs.py:17
 msgid "French"
@@ -194,15 +192,15 @@ msgstr "צרפתית"
 
 #: libretranslate/locales/.langs.py:18
 msgid "Galician"
-msgstr "גליציה"
+msgstr "גליסית"
 
 #: libretranslate/locales/.langs.py:19
 msgid "German"
-msgstr "גרמניה גרמנית"
+msgstr "גרמנית"
 
 #: libretranslate/locales/.langs.py:20
 msgid "Greek"
-msgstr "יווני"
+msgstr "יוונית"
 
 #: libretranslate/locales/.langs.py:21
 msgid "Hebrew"
@@ -210,75 +208,75 @@ msgstr "עברית"
 
 #: libretranslate/locales/.langs.py:22
 msgid "Hindi"
-msgstr "הינד"
+msgstr "הינדי"
 
 #: libretranslate/locales/.langs.py:23
 msgid "Hungarian"
-msgstr "הונגריה"
+msgstr "הונגרית"
 
 #: libretranslate/locales/.langs.py:24
 msgid "Indonesian"
-msgstr "אינדונזיה"
+msgstr "אינדונזית"
 
 #: libretranslate/locales/.langs.py:25
 msgid "Irish"
-msgstr "אירלנד"
+msgstr "אירית"
 
 #: libretranslate/locales/.langs.py:26
 msgid "Italian"
-msgstr "איטלקי"
+msgstr "איטלקית"
 
 #: libretranslate/locales/.langs.py:27
 msgid "Japanese"
-msgstr "יפן יפנית"
+msgstr "יפנית"
 
 #: libretranslate/locales/.langs.py:28
 msgid "Korean"
-msgstr "קוריאה הקוריאנית"
+msgstr "קוריאנית"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Latvian"
-msgstr "לטביה"
+msgstr "לטבית"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Lithuanian"
-msgstr "ליטא"
+msgstr "ליטאית"
 
 #: libretranslate/locales/.langs.py:31
 msgid "Malay"
-msgstr "מלאי המלאי"
+msgstr "מלאית"
 
 #: libretranslate/locales/.langs.py:32
 msgid "Norwegian"
-msgstr "נורוויג'ן Norwegian Norwegian"
+msgstr "נורבגית"
 
 #: libretranslate/locales/.langs.py:33
 msgid "Persian"
-msgstr "הפרס"
+msgstr "פרסית"
 
 #: libretranslate/locales/.langs.py:34
 msgid "Polish"
-msgstr "פולני"
+msgstr "פולנית"
 
 #: libretranslate/locales/.langs.py:35
 msgid "Portuguese"
-msgstr "פורטוגזית"
+msgstr "פורטוגלית"
 
 #: libretranslate/locales/.langs.py:36
 msgid "Romanian"
-msgstr "רומניה"
+msgstr "רומנית"
 
 #: libretranslate/locales/.langs.py:37
 msgid "Russian"
-msgstr "רוסיה"
+msgstr "רוסית"
 
 #: libretranslate/locales/.langs.py:38
 msgid "Slovak"
-msgstr "סלובקיה"
+msgstr "סלובקית"
 
 #: libretranslate/locales/.langs.py:39
 msgid "Slovenian"
-msgstr "סלובניה"
+msgstr "סלובנית"
 
 #: libretranslate/locales/.langs.py:40
 msgid "Spanish"
@@ -286,19 +284,19 @@ msgstr "ספרדית"
 
 #: libretranslate/locales/.langs.py:41
 msgid "Swedish"
-msgstr "שוודיה"
+msgstr "שוודית"
 
 #: libretranslate/locales/.langs.py:42
 msgid "Tagalog"
-msgstr "Taglog"
+msgstr "טאגאלוג"
 
 #: libretranslate/locales/.langs.py:43
 msgid "Thai"
-msgstr "תאילנד"
+msgstr "תאית"
 
 #: libretranslate/locales/.langs.py:44
 msgid "Turkish"
-msgstr "טורקיה"
+msgstr "טורקית"
 
 #: libretranslate/locales/.langs.py:45
 msgid "Ukranian"
@@ -306,23 +304,23 @@ msgstr "אוקראה"
 
 #: libretranslate/locales/.langs.py:46
 msgid "Urdu"
-msgstr "Urdu"
+msgstr "אורדו"
 
 #: libretranslate/locales/.langs.py:47
 msgid "Serbian"
-msgstr "סרבי"
+msgstr "סרבית"
 
 #: libretranslate/locales/.langs.py:48
 msgid "Ukrainian"
-msgstr "אוקראינה"
+msgstr "אוקראינית"
 
 #: libretranslate/locales/.langs.py:49
 msgid "Vietnamese"
-msgstr "וייטנאם"
+msgstr "וייטנאמית"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
-msgstr "רשימת השפות הנתמכות"
+msgstr "משיכת רשימת השפות הנתמכות"
 
 #: libretranslate/locales/.swag.py:2
 msgid "List of languages"
@@ -334,23 +332,23 @@ msgstr "תרגום"
 
 #: libretranslate/locales/.swag.py:4
 msgid "Translate text from a language to another"
-msgstr "תרגום טקסט משפה לאחר"
+msgstr "תרגום טקסט משפה אחת לאחרת"
 
 #: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:224
 msgid "Translated text"
-msgstr "תרגום הטקסט"
+msgstr "הטקסט המתורגם"
 
 #: libretranslate/locales/.swag.py:6
 msgid "Invalid request"
-msgstr "בקשה בלתי חוקית"
+msgstr "בקשה שגויה"
 
 #: libretranslate/locales/.swag.py:7
 msgid "Translation error"
-msgstr "טעות תרגום"
+msgstr "שגיאת תרגום"
 
 #: libretranslate/locales/.swag.py:8
 msgid "Slow down"
-msgstr "להאט"
+msgstr "האטה"
 
 #: libretranslate/locales/.swag.py:9
 msgid "Banned"
@@ -386,9 +384,9 @@ msgid ""
 " * `text` - Plain text\n"
 " * `html` - HTML markup\n"
 msgstr ""
-"פורמט טקסט מקור:\n"
-"\"טקסט\" - טקסט רגיל\n"
-"\"html\" - קוד HTML\n"
+"תבנית טקסט מקור:\n"
+"„טקסט” - טקסט רגיל\n"
+"„html” - קוד HTML\n"
 
 #: libretranslate/locales/.swag.py:17
 msgid "Preferred number of alternative translations"
@@ -412,7 +410,7 @@ msgstr "קובץ לתרגום"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Detect the language of a single text"
-msgstr "זהה את השפה של טקסט בודד"
+msgstr "זיהוי השפה של טקסט בודד"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Detections"
@@ -428,15 +426,15 @@ msgstr "טקסט לזיהוי"
 
 #: libretranslate/locales/.swag.py:26
 msgid "Retrieve frontend specific settings"
-msgstr "אחזר הגדרות frontend"
+msgstr "משיכת הגדרות נקודתיות למנשק משתמש"
 
 #: libretranslate/locales/.swag.py:27
 msgid "frontend settings"
-msgstr "הגדרות frontend"
+msgstr "הגדרות מנשק משתמש"
 
 #: libretranslate/locales/.swag.py:28
 msgid "frontend"
-msgstr "צד לקוח (frontend)"
+msgstr "מנשק משתמש"
 
 #: libretranslate/locales/.swag.py:29
 msgid "Submit a suggestion to improve a translation"
@@ -444,7 +442,7 @@ msgstr "הגשת הצעה לשיפור תרגום"
 
 #: libretranslate/locales/.swag.py:30
 msgid "Success"
-msgstr "הצלחה"
+msgstr "הצליח"
 
 #: libretranslate/locales/.swag.py:31
 msgid "Not authorized"
@@ -456,7 +454,7 @@ msgstr "טקסט מקורי"
 
 #: libretranslate/locales/.swag.py:33
 msgid "Suggested translation"
-msgstr "הצעות תרגום"
+msgstr "תרגום מוצע"
 
 #: libretranslate/locales/.swag.py:34
 msgid "Language of original text"
