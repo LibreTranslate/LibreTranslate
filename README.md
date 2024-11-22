@@ -174,7 +174,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for information on how to build and run
 
 ### CUDA
 
-You can use hardware acceleration to speed up translations on a GPU machine with CUDA 11.2 and [nvidia-docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) installed.
+You can use hardware acceleration to speed up translations on a GPU machine with CUDA 12.4.1 and [nvidia-docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) installed.
 
 Run this version with:
 
