@@ -426,7 +426,6 @@ This is a list of public LibreTranslate instances, some require an API key. If y
 | ----------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------- |
 | [libretranslate.com](https://libretranslate.com)            | :heavy_check_mark: | [ [Get API Key](https://portal.libretranslate.com) ] [ [Service Status](https://status.libretranslate.com/) ] |
 | [translate.terraprint.co](https://translate.terraprint.co/) | -                  |
-| [trans.zillyhuhn.com](https://trans.zillyhuhn.com/)         | -                  |
 | [translate.lotigara.ru](https://translate.lotigara.ru)      | -                  |
 
 ## TOR/i2p Mirrors
