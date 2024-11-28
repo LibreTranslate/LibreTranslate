@@ -9,15 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-16 23:47+0200\n"
-"PO-Revision-Date: 2023-01-19 10:35+0000\n"
+"PO-Revision-Date: 2024-11-29 04:07+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
+"Language-Team: Occitan <https://hosted.weblate.org/projects/libretranslate/"
+"app/oc/>\n"
 "Language: oc\n"
-"Language-Team: Occitan "
-"<https://hosted.weblate.org/projects/libretranslate/app/oc/>\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.9-dev\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: libretranslate/app.py:80
@@ -66,7 +67,7 @@ msgstr "Requèsta invalida : paramètre %(name)s mancant"
 #: libretranslate/app.py:615
 #, python-format
 msgid "Invalid request: %(name)s parameter is not a number"
-msgstr ""
+msgstr "Requèsta non valabla: lo paramètre %(name)s es pas un nombre"
 
 #: libretranslate/app.py:618
 #, python-format
@@ -143,7 +144,7 @@ msgstr "Azèri"
 
 #: libretranslate/locales/.langs.py:5
 msgid "Basque"
-msgstr ""
+msgstr "Basc"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Bengali"
@@ -155,7 +156,7 @@ msgstr ""
 
 #: libretranslate/locales/.langs.py:8
 msgid "Catalan"
-msgstr ""
+msgstr "Catalan"
 
 #: libretranslate/locales/.langs.py:9
 msgid "Chinese"
@@ -163,7 +164,7 @@ msgstr "Chinés"
 
 #: libretranslate/locales/.langs.py:10
 msgid "Chinese (traditional)"
-msgstr ""
+msgstr "Mandarin (tradicional)"
 
 #: libretranslate/locales/.langs.py:11
 msgid "Czech"
@@ -267,7 +268,7 @@ msgstr "Portugués"
 
 #: libretranslate/locales/.langs.py:36
 msgid "Romanian"
-msgstr ""
+msgstr "Romanés"
 
 #: libretranslate/locales/.langs.py:37
 msgid "Russian"
@@ -760,4 +761,3 @@ msgstr "Contributors %(libretranslate)s"
 
 #~ msgid "get an API key"
 #~ msgstr "obténer una clau API"
-
