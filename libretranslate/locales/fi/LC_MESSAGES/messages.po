@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-16 23:47+0200\n"
-"PO-Revision-Date: 2024-11-29 04:07+0000\n"
+"PO-Revision-Date: 2024-12-03 12:00+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/libretranslate/"
 "app/fi/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: libretranslate/app.py:80
 msgid "Invalid JSON format"
-msgstr "Virheellinen JSON formaatti"
+msgstr "Virheellinen JSON-muoto"
 
 #: libretranslate/app.py:180 libretranslate/templates/app.js.template:467
 msgid "Auto Detect"
@@ -39,7 +39,7 @@ msgstr "Liikaa pyyntöjä rajoittaa rikkomuksia"
 
 #: libretranslate/app.py:298
 msgid "Invalid API key"
-msgstr "Virheellinen API avain"
+msgstr "Virheellinen API-avain"
 
 #: libretranslate/app.py:324
 msgid "Please contact the server operator to get an API key"
@@ -48,7 +48,7 @@ msgstr "Ota yhteyttä palvelimen ylläpitäjään saadaksesi API-avaimen"
 #: libretranslate/app.py:326
 #, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr "Vieraile %(url)s hankkiaksesi API avaimen"
+msgstr "Vieraile %(url)s:tä saadaksesi API-avaimen"
 
 #: libretranslate/app.py:373
 msgid "Slowdown:"
@@ -388,8 +388,8 @@ msgid ""
 " * `html` - HTML markup\n"
 msgstr ""
 "Lähdetekstin muoto:\n"
-"\"Teksti\" - selkeä teksti\n"
-"HTML-merkintä\n"
+" * `text` - Selkeä teksti\n"
+" * `html` - HTML-merkintä\n"
 
 #: libretranslate/locales/.swag.py:17
 msgid "Preferred number of alternative translations"
@@ -696,7 +696,7 @@ msgstr "Poista tiedosto"
 
 #: libretranslate/templates/index.html:277
 msgid "Translate"
-msgstr "Käännökset"
+msgstr "Käännä"
 
 #: libretranslate/templates/index.html:278
 #: libretranslate/templates/index.html:322
