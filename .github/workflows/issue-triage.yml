@@ -13,6 +13,7 @@ jobs:
         with:
           ghToken: ${{ secrets.GITHUB_TOKEN }}
           openAI: ${{ secrets.OPENAI_TOKEN }}
+          model: gpt-4o-2024-08-06
           filter: |
             - "#"
           variables: |
