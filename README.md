@@ -411,6 +411,7 @@ See it in action on this [page](https://community.libretranslate.com/t/have-you-
 ## Mobile Apps
 
 - [LibreTranslator](https://codeberg.org/BeoCode/LibreTranslator) is an Android app [available on the Play Store](https://play.google.com/store/apps/details?id=de.beowulf.libretranslater) and [in the F-Droid store](https://f-droid.org/packages/de.beowulf.libretranslater/) that uses the LibreTranslate API.
+- [Translate You](https://github.com/you-apps/TranslateYou) is a privacy focused translator app built with MD3 available [in F-Droid Store](https://f-droid.org/packages/com.bnyro.translate/) and uses the LibreTranslate API amongst other providers.
 - [LiTranslate](https://github.com/viktorkalyniuk/LiTranslate-iOS) is an iOS app [available on the App Store](https://apps.apple.com/us/app/litranslate/id1644385339) that uses the LibreTranslate API.
 
 ## Web browser
@@ -425,7 +426,7 @@ This is a list of public LibreTranslate instances, some require an API key. If y
 | URL                                                         | API Key Required   | Links                                                                                                         |
 | ----------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------- |
 | [libretranslate.com](https://libretranslate.com)            | :heavy_check_mark: | [ [Get API Key](https://portal.libretranslate.com) ] [ [Service Status](https://status.libretranslate.com/) ] |
-| [translate.flossboxin.org.in](https://translate.flossboxin.org.in/) | :heavy_check_mark: |
+| [translate.flossboxin.org.in](https://translate.flossboxin.org.in/) |  |
 
 ## TOR/i2p Mirrors
 
