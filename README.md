@@ -133,7 +133,7 @@ Response:
 
 You can run your own API server with just a few lines of setup!
 
-Make sure you have Python installed (3.8 or higher is recommended), then simply run:
+Make sure you have Python installed (3.11 or higher is recommended), then simply run:
 
 ```bash
 pip install libretranslate
