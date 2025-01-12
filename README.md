@@ -683,6 +683,40 @@ Add this to an existing NGINX config or save it as `libretranslate` in the `/etc
 
 </details>
 
+### Can I run it as a systemd (default pip/python installed one)?
+
+Yes, just create a service file in /etc/systemd/system and enable it to run at startup.
+The .env (environmant) file is optional based on your setup.
+Add the below to the file (change to your values as necessary) and name the file as "libretranslate.service)
+
+```javascript
+[Unit]
+Description=LibreTranslate
+After=network.target
+
+[Service]
+User=root
+Type=idle
+Restart=always
+Environment="PATH=/usr/local/lib/python3.11/dist-packages/libretranslate"
+ExecStart=/usr/bin/python3 /usr/local/bin/libretranslate
+EnvironmentFile=/usr/local/lib/python3.11/dist-packages/libretranslate/.env
+ExecReload=/bin/kill -s HUP $MAINPID
+KillMode=mixed
+TimeoutStopSec=1
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Once saved, reload the daemon & start the service:
+
+```javascript
+systemctl daemon-reload
+systemctl start libretranslate.service
+systemctl enable libretranslate.service
+```
+
 ### Can I do batch translations?
 
 Yes, pass an array of strings instead of a string to the `q` field:
