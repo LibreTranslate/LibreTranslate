@@ -9,19 +9,21 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-16 23:47+0200\n"
-"PO-Revision-Date: 2023-12-09 21:07+0000\n"
-"Last-Translator: ArnoldCordewiner <arnoldc@protonmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/libretranslate/app/nl/>\n"
+"PO-Revision-Date: 2025-01-13 08:55+0000\n"
+"Last-Translator: Vincenzo van Wijk <vincenzo@xpslogic.com>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/libretranslate/app/"
+"nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10-dev\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: libretranslate/app.py:80
 msgid "Invalid JSON format"
-msgstr "Onjuist JSON formaat"
+msgstr "Onjuist JSON-formaat"
 
 #: libretranslate/app.py:180 libretranslate/templates/app.js.template:467
 msgid "Auto Detect"
@@ -37,16 +39,16 @@ msgstr "Overschrijding maximaal aantal verzoeken"
 
 #: libretranslate/app.py:298
 msgid "Invalid API key"
-msgstr "Ongeldige API sleutel"
+msgstr "Ongeldige API-sleutel"
 
 #: libretranslate/app.py:324
 msgid "Please contact the server operator to get an API key"
-msgstr "Neem contact op met de server-beheerder om een API sleutel te krijgen"
+msgstr "Neem contact op met de serverbeheerder om een API-sleutel te krijgen"
 
 #: libretranslate/app.py:326
 #, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr "Ga naar %(url)s om een API sleutel te krijgen"
+msgstr "Ga naar %(url)s om een API-sleutel te krijgen"
 
 #: libretranslate/app.py:373
 msgid "Slowdown:"
@@ -377,7 +379,7 @@ msgstr "tekst"
 
 #: libretranslate/locales/.swag.py:15
 msgid "html"
-msgstr "_"
+msgstr "html"
 
 #: libretranslate/locales/.swag.py:16
 msgid ""
@@ -451,7 +453,7 @@ msgstr "Niet goedgekeurd"
 
 #: libretranslate/locales/.swag.py:32
 msgid "Original text"
-msgstr "Originele SMS"
+msgstr "Originele sms"
 
 #: libretranslate/locales/.swag.py:33
 msgid "Suggested translation"
@@ -487,11 +489,11 @@ msgstr "Vertaald bericht"
 
 #: libretranslate/locales/.swag.py:41
 msgid "Error message"
-msgstr "Error bericht"
+msgstr "Foutmelding"
 
 #: libretranslate/locales/.swag.py:42
 msgid "Reason for slow down"
-msgstr "Reason"
+msgstr "Reden voor vertraging"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Translated file url"
@@ -507,7 +509,7 @@ msgstr "Character input limiet voor deze taal"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Frontend translation timeout"
-msgstr "Frontend vertaling timeout"
+msgstr "Frontend vertaling time-out"
 
 #: libretranslate/locales/.swag.py:47
 msgid "Whether the API key database is enabled."
@@ -533,7 +535,7 @@ msgstr "Of het nu succesvol was"
 #: libretranslate/templates/app.js.template:294
 #: libretranslate/templates/app.js.template:298
 msgid "Copy text"
-msgstr "Begrepen"
+msgstr "Tekst kopiëren"
 
 #: libretranslate/templates/app.js.template:80
 #: libretranslate/templates/app.js.template:86
@@ -555,7 +557,7 @@ msgstr "Onbekende fout"
 
 #: libretranslate/templates/app.js.template:295
 msgid "Copied"
-msgstr "Copi"
+msgstr "Gekopieerd"
 
 #: libretranslate/templates/app.js.template:339
 msgid ""
@@ -572,7 +574,7 @@ msgstr "Geen talen beschikbaar. Heb je de modellen correct geïnstalleerd?"
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
 msgstr ""
-"Voer je API sleutel in. Als je een API sleutel nodig hebt, %(instructions)s"
+"Voer je API-sleutel in. Als je een API-sleutel nodig hebt, %(instructions)s"
 
 #: libretranslate/templates/app.js.template:530
 msgid "press the \"Get API Key\" link."
@@ -586,7 +588,7 @@ msgstr "neem contact op met de server."
 #: libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
-msgstr "Vrij en open Source Machine Vertaling"
+msgstr "Vrij en open source Machine Vertaling"
 
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
@@ -594,8 +596,8 @@ msgid ""
 "Free and Open Source Machine Translation API. Self-hosted, offline capable "
 "and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"Vrij en open Source Machine Vertaling API. Self-hosted, offline capabel en "
-"makkelijk te koppelen. Laat je eigen API server binnen een paar minuten."
+"Vrij en open source Machine Vertaling API. Self-hosted, offline capabel en "
+"makkelijk te koppelen. Laat je eigen API-server binnen een paar minuten."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -603,11 +605,11 @@ msgstr "vertaling"
 
 #: libretranslate/templates/index.html:11
 msgid "api"
-msgstr "♪"
+msgstr "api"
 
 #: libretranslate/templates/index.html:67
 msgid "API Docs"
-msgstr "API Doc"
+msgstr "API Docmentatie"
 
 #: libretranslate/templates/index.html:69
 msgid "Get API Key"
@@ -619,27 +621,27 @@ msgstr "GitHub"
 
 #: libretranslate/templates/index.html:73
 msgid "Set API Key"
-msgstr "API Sleutel"
+msgstr "API-sleutel instellen"
 
 #: libretranslate/templates/index.html:75
 msgid "Change language"
-msgstr "Verander de taal"
+msgstr "Taal wijzigen"
 
 #: libretranslate/templates/index.html:81
 msgid "Edit"
-msgstr "Ed"
+msgstr "Bewerk"
 
 #: libretranslate/templates/index.html:83
 msgid "Toggle dark/light mode"
-msgstr "Toggle dark/light modus"
+msgstr "Schakelen tussen donker/lichtmodus"
 
 #: libretranslate/templates/index.html:159
 msgid "Dismiss"
-msgstr "Ingerukt"
+msgstr "Verwerpen"
 
 #: libretranslate/templates/index.html:173
 msgid "Translation API"
-msgstr "Vertalings-API"
+msgstr "Vertaling API"
 
 #: libretranslate/templates/index.html:177
 msgid "Translate Text"
@@ -655,7 +657,7 @@ msgstr "Vertaal uit"
 
 #: libretranslate/templates/index.html:197
 msgid "Swap source and target languages"
-msgstr "Zwembron en doel talen"
+msgstr "Verwissel bron- en doeltalen"
 
 #: libretranslate/templates/index.html:200
 msgid "Translate into"
@@ -667,11 +669,11 @@ msgstr "Text om te vertalen"
 
 #: libretranslate/templates/index.html:215
 msgid "Delete text"
-msgstr "Verwijder bericht"
+msgstr "Tekst verwijderen"
 
 #: libretranslate/templates/index.html:228
 msgid "Suggest translation"
-msgstr "Voorgestelde vertaling"
+msgstr "Vertaling voorstellen"
 
 #: libretranslate/templates/index.html:232
 msgid "Cancel"
@@ -712,7 +714,7 @@ msgstr "Antwoord"
 
 #: libretranslate/templates/index.html:317
 msgid "Open Source Machine Translation API"
-msgstr "Open Source Machine Vertaling API"
+msgstr "Open source Machine Vertaling API"
 
 #: libretranslate/templates/index.html:318
 msgid "Self-Hosted. Offline Capable. Easy to Setup."
@@ -730,7 +732,7 @@ msgstr "Licentie:"
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
 msgstr ""
-"Gemaakt met %(heart)s door %(contributors)s enmet de kracht van %(engine)s"
+"Gemaakt met %(heart)s door %(contributors)s Emmet de kracht van %(engine)s"
 
 #: libretranslate/templates/index.html:345
 #, python-format
