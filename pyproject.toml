@@ -57,7 +57,7 @@ dependencies = [
     "prometheus-client ==0.15.0",
     "polib ==1.1.1",
     "packaging ==23.1",
-    "torch ==2.0.1"
+    "torch ==2.2.0"
 ]
 
 [project.scripts]
