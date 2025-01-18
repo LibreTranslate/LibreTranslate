@@ -9,9 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-16 23:47+0200\n"
-"PO-Revision-Date: 2024-10-31 15:00+0000\n"
-"Last-Translator: 439JBYL80IGQTF25UXNR0X1BG <439JBYL80IGQTF25UXNR0X1BG@users."
-"noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2025-01-19 00:28+0000\n"
+"Last-Translator: Blueberry <igory.ygr200@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/libretranslate/"
 "app/ru/>\n"
 "Language: ru\n"
@@ -20,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.8.2-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: libretranslate/app.py:80
@@ -29,7 +28,7 @@ msgstr "Неверный формат JSON"
 
 #: libretranslate/app.py:180 libretranslate/templates/app.js.template:467
 msgid "Auto Detect"
-msgstr "автоопределение языка"
+msgstr "[автоопределение языка]"
 
 #: libretranslate/app.py:273
 msgid "Unauthorized"
