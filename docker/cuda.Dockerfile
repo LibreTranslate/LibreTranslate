@@ -1,6 +1,6 @@
 FROM nvidia/cuda:12.4.1-devel-ubuntu20.04
 
-ENV ARGOS_DEVICE_TYPE cuda
+ENV ARGOS_DEVICE_TYPE auto
 ARG with_models=false
 ARG models=""
 
