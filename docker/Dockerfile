@@ -1,4 +1,4 @@
-FROM python:3.11.9-slim-bullseye AS builder
+FROM python:3.11.11-slim-bullseye AS builder
 
 WORKDIR /app
 
@@ -20,7 +20,7 @@ RUN ./venv/bin/pip install Babel==2.12.1 && ./venv/bin/python scripts/compile_lo
   && ./venv/bin/pip install . \
   && ./venv/bin/pip cache purge
 
-FROM python:3.11.9-slim-bullseye
+FROM python:3.11.11-slim-bullseye
 
 ARG with_models=false
 ARG models=""
