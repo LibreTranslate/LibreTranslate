@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-16 23:47+0200\n"
-"PO-Revision-Date: 2024-12-03 12:00+0000\n"
+"PO-Revision-Date: 2025-02-01 14:01+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/libretranslate/"
 "app/fi/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: libretranslate/app.py:80
@@ -119,7 +119,7 @@ msgstr "Virheellinen pyyntö: tiedostomuotoa ei tueta"
 
 #: libretranslate/app.py:880
 msgid "Invalid filename"
-msgstr "Virheellinen tiedostonimi"
+msgstr "Virheellinen tiedoston nimi"
 
 #: libretranslate/app.py:1122
 msgid "Suggestions are disabled on this server."
