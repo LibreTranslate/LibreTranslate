@@ -15,7 +15,7 @@ msgstr ""
 "projects/libretranslate/app/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.9-dev\n"
@@ -93,8 +93,8 @@ msgstr "不支援 %(format)s 格式"
 #: libretranslate/app.py:680 libretranslate/app.py:704
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from "
-"%(sname)s (%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
+"(%(scode)s)"
 msgstr "%(tname)s（%(tcode)s）不能作為 %(sname)s（%(scode)s）的目標語言"
 
 #: libretranslate/app.py:724
@@ -136,7 +136,7 @@ msgstr "阿拉伯文"
 
 #: libretranslate/locales/.langs.py:4
 msgid "Azerbaijani"
-msgstr "阿塞拜疆語"
+msgstr "亞塞拜然語"
 
 #: libretranslate/locales/.langs.py:5
 msgid "Basque"
@@ -224,7 +224,7 @@ msgstr "愛爾蘭文"
 
 #: libretranslate/locales/.langs.py:26
 msgid "Italian"
-msgstr "意大利文"
+msgstr "義大利文"
 
 #: libretranslate/locales/.langs.py:27
 msgid "Japanese"
@@ -297,10 +297,6 @@ msgstr "泰文"
 #: libretranslate/locales/.langs.py:44
 msgid "Turkish"
 msgstr "土耳其文"
-
-#: libretranslate/locales/.langs.py:45
-msgid "Ukranian"
-msgstr "烏克蘭文"
 
 #: libretranslate/locales/.langs.py:46
 msgid "Urdu"
@@ -410,7 +406,7 @@ msgstr "需要翻譯的檔案"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Detect the language of a single text"
-msgstr "檢測單一文字的語言"
+msgstr "偵測單一文字的語言"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Detections"
@@ -422,7 +418,7 @@ msgstr "錯誤偵測"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Text to detect"
-msgstr "需要檢測的文字"
+msgstr "需要偵測的文字"
 
 #: libretranslate/locales/.swag.py:26
 msgid "Retrieve frontend specific settings"
@@ -558,8 +554,8 @@ msgstr "已複製"
 
 #: libretranslate/templates/app.js.template:339
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect "
-"right away."
+"Thanks for your correction. Note the suggestion will not take effect right "
+"away."
 msgstr "感謝您的更正。注意此建議將不會立即生效。"
 
 #: libretranslate/templates/app.js.template:463
@@ -582,14 +578,16 @@ msgstr "聯絡伺服器管理員。"
 #: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
-msgstr "免費開源的機器翻譯 API"
+msgstr "自由且開源的機器翻譯 API"
 
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline "
-"capable and easy to setup. Run your own API server in just a few minutes."
-msgstr "免費開源的機器翻譯 API。自建，支援離線且易於設定。只需幾分鐘即可運行您自己的 API 伺服器。"
+"Free and Open Source Machine Translation API. Self-hosted, offline capable "
+"and easy to setup. Run your own API server in just a few minutes."
+msgstr ""
+"自由且開源的機器翻譯 API。可自行架設，支援離線使用，且安裝簡便。只需幾分鐘即"
+"可部署並啟動您的專屬 API 伺服器。"
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -730,14 +728,12 @@ msgstr "由 %(contributors)s 用 %(heart)s 製作並且由 %(engine)s 驅動"
 msgid "%(libretranslate)s Contributors"
 msgstr "%(libretranslate)s 貢獻者"
 
-#~ msgid "Vietnamese"
-#~ msgstr "越南文"
+#~ msgid "Ukranian"
+#~ msgstr "烏克蘭文"
 
 #~ msgid ""
-#~ "This public API should be used for"
-#~ " testing, personal or infrequent use. "
-#~ "If you're going to run an "
-#~ "application in production, please "
+#~ "This public API should be used for testing, personal or infrequent use. "
+#~ "If you're going to run an application in production, please "
 #~ "%(host_server)s or %(get_api_key)s."
 #~ msgstr ""
 #~ "此公共 API 僅適用於測試、個人或不經常使用。如果您將在正式環境中使用，請 "
