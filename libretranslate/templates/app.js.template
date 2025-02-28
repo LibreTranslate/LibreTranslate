@@ -464,6 +464,12 @@ function handleLangsResponse(self, response) {
             return;
         }
 
+        // Make sure first letter is uppercase
+        self.langs.forEach(l => {
+            if (!l.name) return;
+            l.name = l.name[0].toUpperCase() + l.name.slice(1);
+        });
+
         self.langs.push({ name: {{ _e("Auto Detect") }}, code: "auto", targets: self.langs.map(l => l.code)})
 
         const sourceLanguage = self.langs.find(l => l.code === self.getQueryParam("source"))
