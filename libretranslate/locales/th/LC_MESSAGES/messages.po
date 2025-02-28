@@ -589,7 +589,7 @@ msgstr "API ฟรีและโอเพนซอร์ส"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline capable "
+"Free and Open Source Machine Translation API. Free to download, offline capable "
 "and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
 "API ฟรีและโอเพนซอร์ส ระบบควบคุมตัวเอง เชื่อมต่อได้ง่าย เรียกใช้เซิร์ฟเวอร์ "
@@ -713,7 +713,7 @@ msgid "Open Source Machine Translation API"
 msgstr "API สําหรับแปลภาษาแบบโอเพนซอร์ส"
 
 #: libretranslate/templates/index.html:318
-msgid "Self-Hosted. Offline Capable. Easy to Setup."
+msgid "Free to download. Offline Capable. Easy to Setup."
 msgstr "หลงตัวเอง ไม่มีสัญญาณ ง่ายต่อการจัดฉาก."
 
 #: libretranslate/templates/index.html:337

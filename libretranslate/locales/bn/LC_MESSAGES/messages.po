@@ -593,7 +593,7 @@ msgstr "মুক্ত এবং ওপেন সোর্স মেশিন �
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline capable "
+"Free and Open Source Machine Translation API. Free to download, offline capable "
 "and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
 "মুক্ত এবং ওপেন সোর্স মেশিন অনুবাদ API। স্ব-বিশ্লেষণ, অফ-লাইন অবস্থায় থাকা। "
@@ -717,7 +717,7 @@ msgid "Open Source Machine Translation API"
 msgstr "ওপেন সোর্স মেশিন অনুবাদ APIQuery"
 
 #: libretranslate/templates/index.html:318
-msgid "Self-Hosted. Offline Capable. Easy to Setup."
+msgid "Free to download. Offline Capable. Easy to Setup."
 msgstr "হায় খোদা! অফ-লাইন। শান্ত হও।."
 
 #: libretranslate/templates/index.html:337

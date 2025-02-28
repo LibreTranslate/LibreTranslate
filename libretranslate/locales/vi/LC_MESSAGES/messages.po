@@ -590,7 +590,7 @@ msgstr "API dịch thuật máy miễn phí và mã nguồn mở"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline "
+"Free and Open Source Machine Translation API. Free to download, offline "
 "capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
 "API dịch thuật máy miễn phí và nguồn mở. Tự lưu trữ, có thể sử dụng ngoại"
@@ -714,7 +714,7 @@ msgid "Open Source Machine Translation API"
 msgstr "API Dịch Máy Mã Nguồn Mở"
 
 #: libretranslate/templates/index.html:318
-msgid "Self-Hosted. Offline Capable. Easy to Setup."
+msgid "Free to download. Offline Capable. Easy to Setup."
 msgstr "Tự lưu trữ. Có thể dùng ngoại tuyến. Dễ cài đặt."
 
 #: libretranslate/templates/index.html:337

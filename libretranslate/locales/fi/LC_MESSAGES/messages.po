@@ -591,7 +591,7 @@ msgstr "Ilmainen ja avoimen lähdekoodin konekäännösrajapinta"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline capable "
+"Free and Open Source Machine Translation API. Free to download, offline capable "
 "and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
 "Ilmainen ja avoimen lähdekoodin konekäännösrajapinta. Itseisännöity, "
@@ -716,7 +716,7 @@ msgid "Open Source Machine Translation API"
 msgstr "Avoimen lähdekoodin käännös konekäännösrajapinta"
 
 #: libretranslate/templates/index.html:318
-msgid "Self-Hosted. Offline Capable. Easy to Setup."
+msgid "Free to download. Offline Capable. Easy to Setup."
 msgstr "Itseisännöity. Offline-yhteensopiva. Helppo asentaa."
 
 #: libretranslate/templates/index.html:337

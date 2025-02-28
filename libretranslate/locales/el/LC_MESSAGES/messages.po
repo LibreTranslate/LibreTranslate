@@ -593,10 +593,10 @@ msgstr "Δωρεάν και Open Source Machine μετάφραση API"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline capable "
+"Free and Open Source Machine Translation API. Free to download, offline capable "
 "and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"Δωρεάν και Open Source Machine Translation API. Self-hosted, offline ικανή "
+"Δωρεάν και Open Source Machine Translation API. Free to download, offline ικανή "
 "και εύκολη στη ρύθμιση. Πατήστε το δικό σας διακομιστή API σε λίγα λεπτά."
 
 #: libretranslate/templates/index.html:11
@@ -717,7 +717,7 @@ msgid "Open Source Machine Translation API"
 msgstr "Άνοιγμα API Πηγιαίου Μηχανίματος Μετάφρασης"
 
 #: libretranslate/templates/index.html:318
-msgid "Self-Hosted. Offline Capable. Easy to Setup."
+msgid "Free to download. Offline Capable. Easy to Setup."
 msgstr "Αυτο-Hosted. Offline Capable. Εύκολο στη ρύθμιση."
 
 #: libretranslate/templates/index.html:337

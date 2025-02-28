@@ -591,7 +591,7 @@ msgstr "Translation falas dhe i hapur i makinave"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline capable "
+"Free and Open Source Machine Translation API. Free to download, offline capable "
 "and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
 "Translation i Makinave Free dhe Open. Vetë-pritur, jashtë linje i aftë dhe i"
@@ -715,7 +715,7 @@ msgid "Open Source Machine Translation API"
 msgstr "Përkthimi i Makinës Burimit"
 
 #: libretranslate/templates/index.html:318
-msgid "Self-Hosted. Offline Capable. Easy to Setup."
+msgid "Free to download. Offline Capable. Easy to Setup."
 msgstr "E vetmuar. Jashtë Kapit. E lehtë për t'u rregulluar."
 
 #: libretranslate/templates/index.html:337

@@ -595,10 +595,10 @@ msgstr "Ingyenes és nyílt forráskódú gépi fordító API"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline "
+"Free and Open Source Machine Translation API. Free to download, offline "
 "capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"Ingyenes és nyílt forráskódú gépi fordító API. Helyileg telepített, "
+"Ingyenes és nyílt forráskódú gépi fordító API. Ingyenesen letölthető, "
 "offline működő és könnyen telepíthető. Futtassa saját API kiszolgálóját "
 "néhány perc alatt."
 
@@ -720,8 +720,8 @@ msgid "Open Source Machine Translation API"
 msgstr "Nyílt Forráskódú Gépi Fordító API"
 
 #: libretranslate/templates/index.html:318
-msgid "Self-Hosted. Offline Capable. Easy to Setup."
-msgstr "Helyben futtatható, offline működő. Könnyen beállítható."
+msgid "Free to download. Offline Capable. Easy to Setup."
+msgstr "Ingyenesen letölthető, offline működő. Könnyen beállítható."
 
 #: libretranslate/templates/index.html:337
 msgid "LibreTranslate"

@@ -599,7 +599,7 @@ msgstr "API saor airson eadar-theangachadh inneil le bun-tùs fosgailte"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline "
+"Free and Open Source Machine Translation API. Free to download, offline "
 "capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
 "API saor airson eadar-theangachadh inneil le bun-tùs fosgailte. Òstaichidh "
@@ -723,7 +723,7 @@ msgid "Open Source Machine Translation API"
 msgstr "API airson eadar-theangachadh inneil le bun-tùs fosgailte"
 
 #: libretranslate/templates/index.html:318
-msgid "Self-Hosted. Offline Capable. Easy to Setup."
+msgid "Free to download. Offline Capable. Easy to Setup."
 msgstr "Òstaich thu fhèin e. Comas far loidhne. Furasta a shuidheachadh."
 
 #: libretranslate/templates/index.html:337

@@ -589,7 +589,7 @@ msgstr "இலவச மற்றும் திறந்த மூல இய�
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline "
+"Free and Open Source Machine Translation API. Free to download, offline "
 "capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
 "இலவச மற்றும் திறந்த மூல இயந்திர மொழிபெயர்ப்பு பநிஇ. சுய-ஓச்ட், இணைப்பில்லாத திறன் மற்றும் "
@@ -713,7 +713,7 @@ msgid "Open Source Machine Translation API"
 msgstr "திறந்த மூல இயந்திர மொழிபெயர்ப்பு பநிஇ"
 
 #: libretranslate/templates/index.html:318
-msgid "Self-Hosted. Offline Capable. Easy to Setup."
+msgid "Free to download. Offline Capable. Easy to Setup."
 msgstr "சுய-ஓச்ட். இணைப்பில்லாத திறன். அமைக்க எளிதானது."
 
 #: libretranslate/templates/index.html:337

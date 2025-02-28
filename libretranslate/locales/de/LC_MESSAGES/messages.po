@@ -595,10 +595,10 @@ msgstr "Freie und quelloffene API für maschinelle Übersetzung"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline "
+"Free and Open Source Machine Translation API. Free to download, offline "
 "capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"Freie und quelloffene API für maschinelle Übersetzung. Selbstgehostet, "
+"Freie und quelloffene API für maschinelle Übersetzung. Kostenlos zum download, "
 "offline-fähig und einfach einzurichten. Betreiben Sie Ihren eigenen API-"
 "Server in nur wenigen Minuten."
 
@@ -720,8 +720,8 @@ msgid "Open Source Machine Translation API"
 msgstr "Open-Source-API für maschinelle Übersetzung"
 
 #: libretranslate/templates/index.html:318
-msgid "Self-Hosted. Offline Capable. Easy to Setup."
-msgstr "Selbstgehostet. Offline-fähig. Einfach einzurichten."
+msgid "Free to download. Offline Capable. Easy to Setup."
+msgstr "Kostenlos zum download. Offline-fähig. Einfach einzurichten."
 
 #: libretranslate/templates/index.html:337
 msgid "LibreTranslate"

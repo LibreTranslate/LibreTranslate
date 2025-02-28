@@ -587,7 +587,7 @@ msgstr "免费开源的机器翻译API"
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Self-hosted, offline "
+"Free and Open Source Machine Translation API. Free to download, offline "
 "capable and easy to setup. Run your own API server in just a few minutes."
 msgstr "免费开源的机器翻译API。自我托管，支持离线且易于设置。只需几分钟就可以运行你自己的API服务器。"
 
@@ -709,7 +709,7 @@ msgid "Open Source Machine Translation API"
 msgstr "开源的机器翻译API"
 
 #: libretranslate/templates/index.html:318
-msgid "Self-Hosted. Offline Capable. Easy to Setup."
+msgid "Free to download. Offline Capable. Easy to Setup."
 msgstr "自我托管。支持离线。易于设置。"
 
 #: libretranslate/templates/index.html:337
