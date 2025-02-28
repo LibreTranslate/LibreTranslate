@@ -395,7 +395,7 @@ def create_app(args):
             web_version=os.environ.get("LT_WEB") is not None,
             version=get_version(),
             swagger_url=swagger_url,
-            available_locales=[{'code': l['code'], 'name': _lazy(l['name'])} for l in get_available_locales(not args.debug)],
+            available_locales=sorted([{'code': l['code'], 'name': _lazy(l['name'])} for l in get_available_locales(not args.debug)], key=lambda s: s['name']),
             current_locale=get_locale(),
             alternate_locales=get_alternate_locale_links()
         ))
