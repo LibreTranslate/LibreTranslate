@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-16 23:47+0200\n"
-"PO-Revision-Date: 2025-01-31 09:02+0000\n"
+"PO-Revision-Date: 2025-03-05 07:12+0000\n"
 "Last-Translator: ButterflyOfFire <boffire@users.noreply.hosted.weblate.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/libretranslate/"
 "app/fr/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: libretranslate/app.py:80
@@ -67,12 +67,12 @@ msgstr "Requête incorrecte : le paramètre %(name)s est manquant"
 #: libretranslate/app.py:615
 #, python-format
 msgid "Invalid request: %(name)s parameter is not a number"
-msgstr "Demande non valable: %(name)s paramètre n'est pas un nombre"
+msgstr "Requête non valide : le paramètre %(name)s n'est pas un nombre"
 
 #: libretranslate/app.py:618
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
-msgstr "Demande non valable: %(name)s paramètre doit être &lt;= %(value)s"
+msgstr "Requête non valide : le paramètre %(name)s doit être <= %(value)s"
 
 #: libretranslate/app.py:635 libretranslate/app.py:645
 #, python-format
@@ -196,7 +196,7 @@ msgstr "français"
 
 #: libretranslate/locales/.langs.py:18
 msgid "Galician"
-msgstr ""
+msgstr "Galicien"
 
 #: libretranslate/locales/.langs.py:19
 msgid "German"
