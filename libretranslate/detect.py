@@ -3,7 +3,8 @@ from langdetect import DetectorFactory
 
 DetectorFactory.seed = 0
 
-from langdetect import detect_langs
+from langdetect import detect_langs, LangDetectException
+from langdetect.lang_detect_exception import ErrorCode
 from lexilang.detector import detect as lldetect
 
 
@@ -35,11 +36,17 @@ class Detector:
       if conf > 0:
         return [Language(code, round(conf * 100))]
 
-    top_3_choices = [lang for lang in detect_langs(text) if check_lang(self.langcodes, lang)][:3]
-    if not len(top_3_choices):
-      return [Language("en", 0)]
-    if top_3_choices[0].prob == 0:
-      return [Language("en", 0)]
+    try:
+      top_3_choices = [lang for lang in detect_langs(text) if check_lang(self.langcodes, lang)][:3]
+      if not len(top_3_choices):
+        return [Language("en", 0)]
+      if top_3_choices[0].prob == 0:
+        return [Language("en", 0)]
+    except LangDetectException as e:
+      if e.code == ErrorCode.CantDetectError:
+        return [Language("en", 0)]
+      else:
+        raise e
 
     return [Language(normalized_lang_code(lang), round(lang.prob * 100)) for lang in top_3_choices]
 
