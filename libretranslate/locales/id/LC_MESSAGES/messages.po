@@ -9,23 +9,25 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-16 23:47+0200\n"
-"PO-Revision-Date: 2024-06-08 12:27+0000\n"
-"Last-Translator: Wahyu Hamdani <mrhamdani0101@gmail.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/libretranslate/app/id/>\n"
+"PO-Revision-Date: 2025-03-24 11:28+0000\n"
+"Last-Translator: Erol Joudy Tooy <erol.tooy@gmail.com>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
+"libretranslate/app/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.11-dev\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: libretranslate/app.py:80
 msgid "Invalid JSON format"
-msgstr "Format JSON tidak sah"
+msgstr "Format JSON tidak valid"
 
 #: libretranslate/app.py:180 libretranslate/templates/app.js.template:467
 msgid "Auto Detect"
-msgstr "Mendeteksi Otomatis"
+msgstr "Deteksi Otomatis"
 
 #: libretranslate/app.py:273
 msgid "Unauthorized"
@@ -33,7 +35,7 @@ msgstr "Tidak Diizinkan"
 
 #: libretranslate/app.py:291
 msgid "Too many request limits violations"
-msgstr "Terlalu banyak pelanggaran batas permintaan"
+msgstr "Melebihi batas permintaan yang diijinkan"
 
 #: libretranslate/app.py:298
 msgid "Invalid API key"
@@ -41,16 +43,16 @@ msgstr "Kunci API tidak valid"
 
 #: libretranslate/app.py:324
 msgid "Please contact the server operator to get an API key"
-msgstr "Silakan hubungi operator server untuk mendapatkan kunci API"
+msgstr "Silakan hubungi operator server untuk memperoleh kunci API"
 
 #: libretranslate/app.py:326
 #, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr "Kunjungi %(url)s untuk mendapatkan kunci API"
+msgstr "Kunjungi %(url)s untuk memperoleh kunci API"
 
 #: libretranslate/app.py:373
 msgid "Slowdown:"
-msgstr "Pelan-pelan:"
+msgstr "Perlahan:"
 
 #: libretranslate/app.py:606 libretranslate/app.py:608
 #: libretranslate/app.py:610 libretranslate/app.py:819
@@ -65,15 +67,12 @@ msgstr "Permintaan tidak valid: parameter %(name)s tidak ada"
 #: libretranslate/app.py:615
 #, python-format
 msgid "Invalid request: %(name)s parameter is not a number"
-msgstr ""
-"permintaan tidak valid: <x>Sitemap</x> parameter bukan jumlah %(name)s"
+msgstr "Permintaan tidak valid: parameter %(name)s bukan berupa angka"
 
 #: libretranslate/app.py:618
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
-msgstr ""
-"permintaan tidak valid: <x>Sitemap</x> parameter harus &lt;= <x>1 "
-"Artikel</x> %(name)s %(value)s"
+msgstr "Permintaan tidak valid: parameter %(name)s harus &lt;= %(value)s"
 
 #: libretranslate/app.py:635 libretranslate/app.py:645
 #, python-format
