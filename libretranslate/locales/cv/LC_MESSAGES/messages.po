@@ -9,26 +9,29 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.6.2\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-16 23:47+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-03-25 10:20+0000\n"
+"Last-Translator: Astahar <p-code@mail.ru>\n"
+"Language-Team: Chuvash <https://hosted.weblate.org/projects/libretranslate/"
+"app/cv/>\n"
 "Language: cv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.11-dev\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: libretranslate/app.py:80
 msgid "Invalid JSON format"
-msgstr ""
+msgstr "Йӑнӑш JSON формачӗ"
 
 #: libretranslate/app.py:180 libretranslate/templates/app.js.template:467
 msgid "Auto Detect"
-msgstr ""
+msgstr "[чӗлхесене хӑй тӗллӗн уйӑрни]"
 
 #: libretranslate/app.py:273
 msgid "Unauthorized"
-msgstr ""
+msgstr "Авторизациленмен"
 
 #: libretranslate/app.py:291
 msgid "Too many request limits violations"
@@ -36,20 +39,20 @@ msgstr ""
 
 #: libretranslate/app.py:298
 msgid "Invalid API key"
-msgstr ""
+msgstr "Ӗҫлемен API-ключ"
 
 #: libretranslate/app.py:324
 msgid "Please contact the server operator to get an API key"
-msgstr ""
+msgstr "API-ключ илес тесен, тархасшӑн, сервер операторӗпе ҫыхӑнӑр"
 
 #: libretranslate/app.py:326
 #, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr ""
+msgstr "API-ключ илмешкӗн %(url)s адреспа кӗрӗр"
 
 #: libretranslate/app.py:373
 msgid "Slowdown:"
-msgstr ""
+msgstr "Майӗпенленӗр:"
 
 #: libretranslate/app.py:606 libretranslate/app.py:608
 #: libretranslate/app.py:610 libretranslate/app.py:819
@@ -59,33 +62,34 @@ msgstr ""
 #: libretranslate/app.py:1143
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr ""
+msgstr "Юрӑхсӑр запрос: «%(name)s» параметр ҫук"
 
 #: libretranslate/app.py:615
 #, python-format
 msgid "Invalid request: %(name)s parameter is not a number"
-msgstr ""
+msgstr "Юрӑхсӑр запрос: «%(name)s» параметр число мар"
 
 #: libretranslate/app.py:618
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
-msgstr ""
+msgstr "Юрӑхсӑр запрос: «%(name)s» параметр виҫи <= «%(value)s» пулмалла"
 
 #: libretranslate/app.py:635 libretranslate/app.py:645
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
+"Юрӑхсӑр запрос: запрос калӑпӑшӗ (%(size)s) текст виҫинчен (%(limit)s) ытларах"
 
 #: libretranslate/app.py:660 libretranslate/app.py:665
 #: libretranslate/app.py:834 libretranslate/app.py:839
 #, python-format
 msgid "%(lang)s is not supported"
-msgstr ""
+msgstr "%(lang)s — ку чӗлхепе усӑ курма май ҫук"
 
 #: libretranslate/app.py:671
 #, python-format
 msgid "%(format)s format is not supported"
-msgstr ""
+msgstr "%(format)s форматпа усӑ курма май ҫук"
 
 #: libretranslate/app.py:680 libretranslate/app.py:704
 #, python-format
