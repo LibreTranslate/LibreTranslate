@@ -427,6 +427,7 @@ This is a list of public LibreTranslate instances, some require an API key. If y
 | ----------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------- |
 | [libretranslate.com](https://libretranslate.com)            | :heavy_check_mark: | [ [Get API Key](https://portal.libretranslate.com) ] [ [Service Status](https://status.libretranslate.com/) ] |
 | [translate.flossboxin.org.in](https://translate.flossboxin.org.in/) |  | [ [Contact/eMail](mailto:dev@flossboxin.org.in) ] |
+| [lt.blitzw.in](https://lt.blitzw.in/) |  |  hosted by blitzw.in. uses an open source javascript-based captcha to fight bots! |
 
 ## TOR/i2p Mirrors
 
