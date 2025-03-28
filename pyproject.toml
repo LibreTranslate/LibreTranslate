@@ -43,7 +43,7 @@ dependencies = [
     "waitress ==2.1.2",
     "expiringdict ==1.2.2",
     "langdetect==1.0.9",
-    "lexilang==1.0.4",
+    "lexilang==1.0.6",
     "morfessor ==2.0.6",
     "appdirs ==1.4.4",
     "APScheduler ==3.9.1",
