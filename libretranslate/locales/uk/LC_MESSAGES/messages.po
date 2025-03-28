@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-16 23:47+0200\n"
-"PO-Revision-Date: 2024-10-26 12:15+0000\n"
-"Last-Translator: Bezruchenko Simon <worcposj44@gmail.com>\n"
+"PO-Revision-Date: 2025-03-28 10:20+0000\n"
+"Last-Translator: Ohirok <ohirok@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/libretranslate/"
 "app/uk/>\n"
 "Language: uk\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.8.2-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: libretranslate/app.py:80
@@ -44,7 +44,7 @@ msgstr "Неправильний API ключ"
 
 #: libretranslate/app.py:324
 msgid "Please contact the server operator to get an API key"
-msgstr "Зв'яжіться з оператором сервера, щоб отримати API ключ"
+msgstr "Зв'яжіться із оператором сервера, щоб отримати API ключ"
 
 #: libretranslate/app.py:326
 #, python-format
@@ -589,7 +589,7 @@ msgstr "зв'язатися з оператором сервера."
 #: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:338
 msgid "Free and Open Source Machine Translation API"
-msgstr "Безкоштовний API машинного перекладу з відкритим вихідним кодом"
+msgstr "Безплатний API машинного перекладу з відкритим сирцевим кодом"
 
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
@@ -597,9 +597,9 @@ msgid ""
 "Free and Open Source Machine Translation API. Free to download, offline "
 "capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"Безкоштовний API машинного перекладу з відкритим вихідним кодом. "
-"Безкоштовне завантаження, можливість роботи в офлайн режимі та простота "
-"налаштування. Запустіть власний API сервер всього за кілька хвилин."
+"Безплатний API машинного перекладу з відкритим сирцевим кодом. Безплатне "
+"завантаження, можливість роботи в офлайн режимі та простота налаштування. "
+"Запустіть власний API сервер всього за кілька хвилин."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -716,12 +716,12 @@ msgstr "Відповідь"
 
 #: libretranslate/templates/index.html:317
 msgid "Open Source Machine Translation API"
-msgstr "API машинного перекладу з відкритим вихідним кодом"
+msgstr "API машинного перекладу з відкритим сирцевим кодом"
 
 #: libretranslate/templates/index.html:318
 msgid "Free to download. Offline Capable. Easy to Setup."
 msgstr ""
-"Безкоштовне завантаження. Можливість роботи в офлайн режимі. Простота "
+"Безплвтне завантаження. Можливість роботи в офлайн режимі. Простота "
 "налаштування."
 
 #: libretranslate/templates/index.html:337
@@ -735,12 +735,12 @@ msgstr "Ліцензія:"
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
-msgstr "Зроблено з %(heart)s %(contributors)s та працює на базі %(engine)s"
+msgstr "Зроблено з %(heart)s %(contributors)s та працює на основі %(engine)s"
 
 #: libretranslate/templates/index.html:345
 #, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr "Спільнотою %(libretranslate)s"
+msgstr "спільнотою %(libretranslate)s"
 
 #~ msgid "multipart/form-data"
 #~ msgstr "мультипарт/форм-дані"
