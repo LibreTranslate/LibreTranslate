@@ -256,9 +256,18 @@ def create_app(args):
             return max(req_cost, int(math.ceil(getattr(request, 'duration', 0) / args.req_time_cost)))
           else:
             return req_cost
+        
+        def get_limits_key_func():
+          if args.api_keys:
+            def func():
+              ak = get_req_api_key()
+              return ak if ak else get_remote_address()
+            return func
+          else:
+            return get_remote_address
 
         limiter = Limiter(
-            key_func=get_remote_address,
+            key_func=get_limits_key_func(),
             default_limits=get_routes_limits(
                 args, api_keys_db
             ),
