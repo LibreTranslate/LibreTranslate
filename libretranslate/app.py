@@ -692,7 +692,7 @@ def create_app(args):
               candidate_langs = detect_languages(src_texts)
               detected_src_lang = candidate_langs[0]
           else:
-              detected_src_lang = {"confidence": 100.0, "language": model2iso(source_lang)}
+              detected_src_lang = {"confidence": 100.0, "language": source_lang}
         else:
           detected_src_lang = {"confidence": 0.0, "language": "en"}
         
