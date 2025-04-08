@@ -6,6 +6,30 @@ from argostranslate import translate
 from libretranslate.detect import Detector
 
 __languages = None
+aliases = {
+    'pb': 'pt-BR',
+    'zh': 'zh-Hans',
+    'zt': 'zh-Hant',
+}
+rev_aliases = {v.lower(): k for k, v in aliases.items()}
+
+def iso2model(lang):
+    if not isinstance(lang, str):
+        return lang
+
+    lang = lang.lower()
+    return rev_aliases.get(lang, lang)
+
+def model2iso(lang):
+    if isinstance(lang, dict) and 'language' in lang:
+        d = dict(lang)
+        d['language'] = model2iso(d['language'])
+        return d
+    elif isinstance(lang, list):
+        return [model2iso(l) for l in lang]
+    
+    lang = lang.lower()
+    return aliases.get(lang, lang)
 
 def load_languages():
     global __languages

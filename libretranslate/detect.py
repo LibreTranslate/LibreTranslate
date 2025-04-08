@@ -21,9 +21,11 @@ def check_lang(langcodes, lang):
 
 def normalized_lang_code(lang):
   code = lang.lang
-  # Handle zh-cn
-  if code.startswith("zh"):
+  # Handle Chinese
+  if code == "zh-cn":
     code = "zh"
+  elif code == "zh-tw":
+    code = "zt"
   return code
 
 class Detector:
