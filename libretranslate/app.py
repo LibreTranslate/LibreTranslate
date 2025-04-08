@@ -22,7 +22,7 @@ from werkzeug.http import http_date
 from werkzeug.utils import secure_filename
 
 from libretranslate import flood, remove_translated_files, scheduler, secret, security, storage
-from libretranslate.language import detect_languages, improve_translation_formatting
+from libretranslate.language import model2iso, iso2model, detect_languages, improve_translation_formatting
 from libretranslate.locales import (
     _,
     _lazy,
@@ -499,7 +499,10 @@ def create_app(args):
                       type: string
                     description: Supported target language codes
         """
-        return jsonify([{"code": l.code, "name": _lazy(l.name), "targets": language_pairs.get(l.code, [])} for l in languages])
+        return jsonify([{"code": model2iso(l.code), 
+                         "name": _lazy(l.name), 
+                         "targets": model2iso(language_pairs.get(l.code, []))
+                        } for l in languages])
 
     # Add cors
     @bp.after_request
@@ -626,14 +629,14 @@ def create_app(args):
         if request.is_json:
             json = get_json_dict(request)
             q = json.get("q")
-            source_lang = json.get("source")
-            target_lang = json.get("target")
+            source_lang = iso2model(json.get("source"))
+            target_lang = iso2model(json.get("target"))
             text_format = json.get("format")
             num_alternatives = int(json.get("alternatives", 0))
         else:
             q = request.values.get("q")
-            source_lang = request.values.get("source")
-            target_lang = request.values.get("target")
+            source_lang = iso2model(request.values.get("source"))
+            target_lang = iso2model(request.values.get("target"))
             text_format = request.values.get("format")
             num_alternatives = request.values.get("alternatives", 0)
 
@@ -689,7 +692,7 @@ def create_app(args):
               candidate_langs = detect_languages(src_texts)
               detected_src_lang = candidate_langs[0]
           else:
-              detected_src_lang = {"confidence": 100.0, "language": source_lang}
+              detected_src_lang = {"confidence": 100.0, "language": model2iso(source_lang)}
         else:
           detected_src_lang = {"confidence": 0.0, "language": "en"}
         
@@ -736,7 +739,7 @@ def create_app(args):
                 result = {"translatedText": batch_results}
 
                 if source_lang == "auto":
-                    result["detectedLanguage"] = [detected_src_lang] * len(q)
+                    result["detectedLanguage"] = [model2iso(detected_src_lang)] * len(q)
                 if num_alternatives > 0:
                     result["alternatives"] = batch_alternatives
 
@@ -761,7 +764,7 @@ def create_app(args):
                 result = {"translatedText": translated_text}
 
                 if source_lang == "auto":
-                    result["detectedLanguage"] = detected_src_lang
+                    result["detectedLanguage"] = model2iso(detected_src_lang)
                 if num_alternatives > 0:
                     result["alternatives"] = alternatives
 
@@ -857,8 +860,8 @@ def create_app(args):
         if args.disable_files_translation:
             abort(403, description=_("Files translation are disabled on this server."))
 
-        source_lang = request.form.get("source")
-        target_lang = request.form.get("target")
+        source_lang = iso2model(request.form.get("source"))
+        target_lang = iso2model(request.form.get("target"))
         file = request.files['file']
         char_limit = get_char_limit(args.char_limit, api_keys_db)
 
@@ -1034,7 +1037,7 @@ def create_app(args):
         if not q:
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='q'))
 
-        return jsonify(detect_languages(q))
+        return jsonify(model2iso(detect_languages(q)))
 
     @bp.route("/frontend/settings")
     @limiter.exempt
@@ -1180,13 +1183,13 @@ def create_app(args):
             json = get_json_dict(request)
             q = json.get("q")
             s = json.get("s")
-            source_lang = json.get("source")
-            target_lang = json.get("target")
+            source_lang = iso2model(json.get("source"))
+            target_lang = iso2model(json.get("target"))
         else:
             q = request.values.get("q")
             s = request.values.get("s")
-            source_lang = request.values.get("source")
-            target_lang = request.values.get("target")
+            source_lang = iso2model(request.values.get("source"))
+            target_lang = iso2model(request.values.get("target"))
 
         if not q:
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='q'))
