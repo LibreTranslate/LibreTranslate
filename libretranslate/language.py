@@ -14,6 +14,9 @@ aliases = {
 rev_aliases = {v.lower(): k for k, v in aliases.items()}
 
 def iso2model(lang):
+    if isinstance(lang, list):
+        return [iso2model(l) for l in lang]
+    
     if not isinstance(lang, str):
         return lang
 

@@ -27,6 +27,8 @@ def check_and_install_models(force=False, load_only_lang_codes=None,update=False
         print("Found %s models" % len(available_packages))
         if load_only_lang_codes is not None:
             # load_only_lang_codes: List[str] (codes)
+            load_only_lang_codes = libretranslate.language.iso2model(load_only_lang_codes)
+
             # Ensure the user does not use any unavailable language code.
             unavailable_lang_codes = set(load_only_lang_codes)
             for pack in available_packages:
