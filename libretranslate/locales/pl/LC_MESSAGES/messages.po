@@ -9,14 +9,17 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-16 23:47+0200\n"
-"PO-Revision-Date: 2024-09-03 16:09+0000\n"
-"Last-Translator: Michał Stankiewicz <kontakt@stankiewiczm.eu>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/libretranslate/app/pl/>\n"
+"PO-Revision-Date: 2025-04-17 09:53+0000\n"
+"Last-Translator: Przemek <skweresp@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/libretranslate/"
+"app/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.11.1-dev\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: libretranslate/app.py:80
@@ -194,7 +197,7 @@ msgstr "Francuski"
 
 #: libretranslate/locales/.langs.py:18
 msgid "Galician"
-msgstr "Galicyjczyk"
+msgstr "Galicyjski"
 
 #: libretranslate/locales/.langs.py:19
 msgid "German"
@@ -210,7 +213,7 @@ msgstr "Hebrajski"
 
 #: libretranslate/locales/.langs.py:22
 msgid "Hindi"
-msgstr "Hindi"
+msgstr "Hinduski"
 
 #: libretranslate/locales/.langs.py:23
 msgid "Hungarian"
@@ -238,7 +241,7 @@ msgstr "Koreański"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Latvian"
-msgstr "Łotwa"
+msgstr "Łotewski"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Lithuanian"
