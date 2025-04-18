@@ -103,7 +103,7 @@ def get_remote_address():
     return ip
 
 def get_fingerprint():
-    return request.headers.get("User-Agent", "") + "|" + request.headers.get("Cookie", "")
+    return request.headers.get("User-Agent", "") + request.headers.get("Cookie", "")
 
 
 def get_req_limits(default_limit, api_keys_db, db_multiplier=1, multiplier=1):
