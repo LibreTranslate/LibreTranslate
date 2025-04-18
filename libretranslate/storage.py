@@ -1,4 +1,5 @@
 import redis
+import time
 
 storage = None
 def get_storage():
@@ -18,7 +19,7 @@ class Storage:
     def get_int(self, key):
         raise Exception("not implemented")
 
-    def set_str(self, key, value):
+    def set_str(self, key, value, ex=None):
         raise Exception("not implemented")
     def get_str(self, key):
         raise Exception("not implemented")
@@ -56,11 +57,22 @@ class MemoryStorage(Storage):
     def get_int(self, key):
         return int(self.store.get(key, 0))
 
-    def set_str(self, key, value):
-        self.store[key] = value
+    def set_str(self, key, value, ex=None):
+        self.store[key] = {
+            'value': value,
+            'ex': time.time() + ex
+        }
 
     def get_str(self, key):
-        return str(self.store.get(key, ""))
+        d = self.store.get(key, {'value': '', 'ex': None})
+        if d['ex'] is None:
+            return d['value']
+        else:
+            if d['ex'] <= time.time():
+                del self.store[key]
+                return ''
+            else:
+                return d['value']
 
     def set_hash_int(self, ns, key, value):
         if ns not in self.store:
@@ -123,8 +135,8 @@ class RedisStorage(Storage):
         else:
             return v
 
-    def set_str(self, key, value):
-        self.conn.set(key, value)
+    def set_str(self, key, value, ex=None):
+        self.conn.set(key, value, ex=ex)
 
     def get_str(self, key):
         v = self.conn.get(key)

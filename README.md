@@ -192,18 +192,19 @@ Arguments passed to the process or set via environment variables are split into 
 
 ### Settings / Flags
 
-| Argument                    | Description                                                                                                 | Default Setting                    | Env. name                    |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------- | ---------------------------------- | ---------------------------- |
-| --debug                     | Enable debug environment                                                                                    | `Disabled`                         | LT_DEBUG                     |
-| --ssl                       | Whether to enable SSL                                                                                       | `Disabled`                         | LT_SSL                       |
-| --api-keys                  | Enable API keys database for per-client rate limits when --req-limit is reached                             | `Don't use API keys`               | LT_API_KEYS                  |
-| --require-api-key-origin    | Require use of an API key for programmatic access to the API, unless the request origin matches this domain | `No restrictions on domain origin` | LT_REQUIRE_API_KEY_ORIGIN    |
-| --require-api-key-secret    | Require use of an API key for programmatic access to the API, unless the client also sends a secret match   | `No secrets required`              | LT_REQUIRE_API_KEY_SECRET    |
-| --suggestions               | Allow user suggestions                                                                                      | `Disabled`                         | LT_SUGGESTIONS               |
-| --disable-files-translation | Disable files translation                                                                                   | `File translation allowed`         | LT_DISABLE_FILES_TRANSLATION |
-| --disable-web-ui            | Disable web ui                                                                                              | `Web Ui enabled`                   | LT_DISABLE_WEB_UI            |
-| --update-models             | Update language models at startup                                                                           | `Only on if no models found`       | LT_UPDATE_MODELS             |
-| --metrics                   | Enable the /metrics endpoint for exporting [Prometheus](https://prometheus.io/) usage metrics               | `Disabled`                         | LT_METRICS                   |
+| Argument                      | Description                                                                                                 | Default Setting                    | Env. name                      |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------- | ---------------------------------- | ------------------------------ |
+| --debug                       | Enable debug environment                                                                                    | `Disabled`                         | LT_DEBUG                       |
+| --ssl                         | Whether to enable SSL                                                                                       | `Disabled`                         | LT_SSL                         |
+| --api-keys                    | Enable API keys database for per-client rate limits when --req-limit is reached                             | `Don't use API keys`               | LT_API_KEYS                    |
+| --require-api-key-origin      | Require use of an API key for programmatic access to the API, unless the request origin matches this domain | `No restrictions on domain origin` | LT_REQUIRE_API_KEY_ORIGIN      |
+| --require-api-key-secret      | Require use of an API key for programmatic access to the API, unless the client also sends a secret match   | `No secrets required`              | LT_REQUIRE_API_KEY_SECRET      |
+| --require-api-key-fingerprint | Require use of an API key for programmatic access to the API, unless the client also matches a fingerprint  | `No fingerprinting required`       | LT_REQUIRE_API_KEY_FINGERPRINT |
+| --suggestions                 | Allow user suggestions                                                                                      | `Disabled`                         | LT_SUGGESTIONS                 |
+| --disable-files-translation   | Disable files translation                                                                                   | `File translation allowed`         | LT_DISABLE_FILES_TRANSLATION   |
+| --disable-web-ui              | Disable web ui                                                                                              | `Web Ui enabled`                   | LT_DISABLE_WEB_UI              |
+| --update-models               | Update language models at startup                                                                           | `Only on if no models found`       | LT_UPDATE_MODELS               |
+| --metrics                     | Enable the /metrics endpoint for exporting [Prometheus](https://prometheus.io/) usage metrics               | `Disabled`                         | LT_METRICS                     |
 
 ### Configuration Parameters
 

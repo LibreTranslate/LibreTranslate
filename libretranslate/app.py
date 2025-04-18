@@ -102,6 +102,9 @@ def get_remote_address():
 
     return ip
 
+def get_fingerprint():
+    return request.headers.get("User-Agent", "") + request.headers.get("Cookie", "")
+
 
 def get_req_limits(default_limit, api_keys_db, db_multiplier=1, multiplier=1):
     req_limit = default_limit
@@ -348,12 +351,18 @@ def create_app(args):
                     and not secret.secret_match(req_secret)
                   ):
                     need_key = True
+
                     if secret.secret_bogus_match(req_secret):
                       abort(make_response(jsonify({
                         'translatedText': secret.get_emoji(),
                         'alternatives': [],
                         'detectedLanguage': { 'confidence': 100, 'language': 'en' }
                       }), 200))
+                  
+                  if (args.require_api_key_fingerprint
+                    and key_missing):
+                    if flood.fingerprint_mismatch(ip, get_fingerprint()):
+                      need_key = True
 
                   if need_key:
                     description = _("Please contact the server operator to get an API key")

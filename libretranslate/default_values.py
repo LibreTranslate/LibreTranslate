@@ -152,6 +152,11 @@ _default_options_objects = [
         'value_type': 'bool'
     },
     {
+        'name': 'REQUIRE_API_KEY_FINGERPRINT',
+        'default_value': False,
+        'value_type': 'bool'
+    },
+    {
         'name': 'SHARED_STORAGE',
         'default_value': 'memory://',
         'value_type': 'str'

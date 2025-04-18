@@ -45,3 +45,16 @@ def is_banned(request_ip):
 
     # More than X offences?
     return active and s.get_hash_int("banned", request_ip) >= threshold
+
+def fingerprint_mismatch(request_ip, fingerprint):
+    if not isinstance(fingerprint, str) or fingerprint == "":
+        return True
+    
+    s = get_storage()
+    k = f"fingerprint:{request_ip}"
+    expected = s.get_str(k)
+    if expected == "":
+        s.set_str(k, fingerprint, ex=300)
+        return False
+    else:
+        return fingerprint != expected
