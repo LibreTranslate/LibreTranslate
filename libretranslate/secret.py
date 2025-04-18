@@ -108,7 +108,7 @@ def get_emoji():
     return random.choice(["😂", "🤪", "😜", "🤣", "😹", "🐒", "🙈", "🤡", "🥸", "😆", "🥴", "🐸", "🐤", "🐒🙊", "👀", "💩", "🤯", "😛", "🤥", "👻"])
 
 def setup(args):
-    if args.api_keys and args.require_api_key_secret:
+    if args.require_api_key_secret:
         s = get_storage()
 
         if not s.exists("secret_0"):

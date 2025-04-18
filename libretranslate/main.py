@@ -148,6 +148,12 @@ def get_args():
         help="Require use of an API key for programmatic access to the API, unless the client also sends a secret match",
     )
     parser.add_argument(
+        "--require-api-key-fingerprint",
+        default=DEFARGS['REQUIRE_API_KEY_FINGERPRINT'],
+        action="store_true",
+        help="Require use of an API key for programmatic access to the API, unless the client also matches a fingerprint",
+    )
+    parser.add_argument(
         "--shared-storage",
         type=str,
         default=DEFARGS['SHARED_STORAGE'],
