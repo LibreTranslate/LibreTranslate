@@ -642,7 +642,7 @@ msgstr "Chiudi"
 msgid ""
 "Due to bot abuse, translation requests are temporarily limited to users "
 "with a valid API key. Sorry for the inconvenience!"
-msgstr ""
+msgstr "A causa di abusi di bots, le richieste di traduzione sono temporaneamente limitate agli utenti in possesso di una chiave API valida. Ci scusiamo per l'inconveniente!"
 
 #: libretranslate/templates/index.html:182
 msgid "Translation API"
