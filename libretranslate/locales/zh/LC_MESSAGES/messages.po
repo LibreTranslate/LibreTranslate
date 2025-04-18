@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-16 23:47+0200\n"
-"PO-Revision-Date: 2025-01-22 05:16+0000\n"
-"Last-Translator: Poesty Li <poesty7450@gmail.com>\n"
+"PO-Revision-Date: 2025-04-18 15:45+0000\n"
+"Last-Translator: LTSlw <LTSlw@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/libretranslate/app/zh_Hans/>\n"
 "Language: zh\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.11.1-dev\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: libretranslate/app.py:80
 msgid "Invalid JSON format"
-msgstr "无效的 JSON 格式"
+msgstr "JSON 格式无效"
 
 #: libretranslate/app.py:180 libretranslate/templates/app.js.template:467
 msgid "Auto Detect"
@@ -31,19 +31,20 @@ msgstr "自动检测"
 
 #: libretranslate/app.py:273
 msgid "Unauthorized"
-msgstr "未经授权"
+msgstr "未授权"
 
 #: libretranslate/app.py:291
+#, fuzzy
 msgid "Too many request limits violations"
 msgstr "请求次数过多超过限制"
 
 #: libretranslate/app.py:298
 msgid "Invalid API key"
-msgstr "无效的 API 密钥"
+msgstr "API 密钥无效"
 
 #: libretranslate/app.py:324
 msgid "Please contact the server operator to get an API key"
-msgstr "请联系管理员以获取 API 密钥"
+msgstr "请联系管理员获取 API 密钥"
 
 #: libretranslate/app.py:326
 #, python-format
@@ -51,6 +52,7 @@ msgid "Visit %(url)s to get an API key"
 msgstr "访问 %(url)s 以获取 API 密钥"
 
 #: libretranslate/app.py:373
+#, fuzzy
 msgid "Slowdown:"
 msgstr "慢一点："
 
