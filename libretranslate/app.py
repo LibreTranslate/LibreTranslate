@@ -359,7 +359,8 @@ def create_app(args):
                         'detectedLanguage': { 'confidence': 100, 'language': 'en' }
                       }), 200))
                   
-                  if args.require_api_key_fingerprint:
+                  if (args.require_api_key_fingerprint
+                    and key_missing):
                     if flood.fingerprint_mismatch(ip, get_fingerprint()):
                       need_key = True
 
