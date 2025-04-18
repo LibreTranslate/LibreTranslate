@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function(){
             settings: {},
             sourceLang: "",
             targetLang: "",
+            apiKey: localStorage.getItem("api_key") || "",
 
             loadingTranslation: false,
             inputText: "",
@@ -45,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function(){
         },
         mounted: function() {
             const self = this;
+            window._vueApp = self;
             self.$el.classList.add("loaded");
 
             const settingsRequest = new XMLHttpRequest();
@@ -137,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     '		target: ' + this.$options.filters.escape(this.targetLang) + ',',
                     '		format: "' + (this.isHtml ? "html" : "text") + '",',
                     '		alternatives: 3,',
-                    '		api_key: "' + (localStorage.getItem("api_key") || "") + '"',
+                    '		api_key: "' + this.apiKey + '"',
                     '	}),',
                     '	headers: { "Content-Type": "application/json" }',
                     '});',
@@ -164,6 +166,9 @@ document.addEventListener('DOMContentLoaded', function(){
                     });
                     return tgtLangs;
                 }
+            },
+            disableInput: function(){
+                return {% if under_attack %}true{% else %}false{% endif %} && this.apiKey === "";
             }
         },
         filters: {
@@ -211,6 +216,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 history.pushState(null, '', newRelativePathQuery);
             },
             handleInput: function(e){
+                if (this.disableInput) return;
                 this.closeSuggestTranslation(e)
 
                 this.updateQueryParam('source', this.sourceLang)
@@ -245,7 +251,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     data.append("target", self.targetLang);
                     data.append("format", self.isHtml ? "html" : "text");
                     data.append("alternatives", 3);
-                    data.append("api_key", localStorage.getItem("api_key") || "");
+                    data.append("api_key", self.apiKey);
                     if (self.apiSecret) data.append("secret", atob(self.apiSecret));
 
                     request.open('POST', BaseUrl + '/translate', true);
@@ -329,7 +335,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 data.append("s", self.translatedText);
                 data.append("source", self.sourceLang);
                 data.append("target", self.targetLang);
-                data.append("api_key", localStorage.getItem("api_key") || "");
+                data.append("api_key", self.apiKey);
 
                 request.open('POST', BaseUrl + '/suggest', true);
                 request.onload = function() {
@@ -382,6 +388,7 @@ document.addEventListener('DOMContentLoaded', function(){
             },
             translateFile: function(e) {
                 e.preventDefault();
+                if (this.disableInput) return;
 
                 let self = this;
                 let translateFileRequest = new XMLHttpRequest();
@@ -392,7 +399,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 data.append("file", this.inputFile);
                 data.append("source", this.sourceLang);
                 data.append("target", this.targetLang);
-                data.append("api_key", localStorage.getItem("api_key") || "");
+                data.append("api_key", this.apiKey);
                 if (self.apiSecret) data.append("secret", self.apiSecret);
 
                 this.loadingFileTranslation = true
@@ -537,6 +544,9 @@ function setApiKey(){
     if (newKey === null) newKey = "";
 
     localStorage.setItem("api_key", newKey);
+    if (window._vueApp){
+        window._vueApp.apiKey = newKey;
+    }
 }
 
 // Color scheme handling

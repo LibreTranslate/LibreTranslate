@@ -365,7 +365,11 @@ def create_app(args):
                       need_key = True
 
                   if args.under_attack and key_missing:
-                    need_key = True
+                    abort(make_response(jsonify({
+                        'translatedText': secret.get_emoji(),
+                        'alternatives': [],
+                        'detectedLanguage': { 'confidence': 100, 'language': 'en' }
+                      }), 200))
 
                   if need_key:
                     description = _("Please contact the server operator to get an API key")
@@ -473,7 +477,8 @@ def create_app(args):
             url_prefix=args.url_prefix,
             get_api_key_link=args.get_api_key_link,
             api_secret=api_secret,
-            bogus_api_secret=bogus_api_secret), content_type='application/javascript; charset=utf-8')
+            bogus_api_secret=bogus_api_secret,
+            under_attack=args.under_attack), content_type='application/javascript; charset=utf-8')
 
       if args.require_api_key_secret:
         response.headers['Last-Modified'] = http_date(datetime.now())

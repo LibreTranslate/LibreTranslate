@@ -457,6 +457,10 @@ code[class*="language-"], pre[class*="language-"] {
   background-color: var(--sec-bg-color)
 }
 
+textarea:disabled{
+  opacity: 0.5;
+}
+
 @media (min-width: 280px) {
   .btn-text {
     display: inline;

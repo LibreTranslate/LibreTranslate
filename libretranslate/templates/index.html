@@ -181,11 +181,11 @@
 					{% endif %}
 					<h3 class="header center">{{ _h("Translation API") }}</h3>
 					<div id="translation-type-btns" class="s12 center" v-if="filesTranslation === true">
-						<button type="button" class="btn btn-switch-type" @click="switchType('text')" :class="{'active': translationType === 'text'}">
+						<button type="button" class="btn btn-switch-type" @click="switchType('text')" :class="{'active': translationType === 'text'}" :disabled="disableInput">
 							<i aria-hidden="true" class="material-icons">title</i>
 							<span class="btn-text">{{ _h("Translate Text") }}</span>
 						</button>
-						<button type="button" class="btn btn-switch-type" @click="switchType('files')" :class="{'active': translationType === 'files'}">
+						<button type="button" class="btn btn-switch-type" @click="switchType('files')" :class="{'active': translationType === 'files'}" :disabled="disableInput">
 							<i aria-hidden="true" class="material-icons">description</i>
 							<span class="btn-text">{{ _h("Translate Files") }}</span>
 						</button>
@@ -220,7 +220,7 @@
 								<label for="textarea1" class="sr-only">
 									{{ _h("Text to translate") }}
 								</label>
-								<textarea id="textarea1" :maxLength="charactersLimit" v-model="inputText" @input="handleInput" ref="inputTextarea" dir="auto"></textarea>
+								<textarea id="textarea1" :maxLength="charactersLimit" v-model="inputText" @input="handleInput" ref="inputTextarea" dir="auto" :disabled="disableInput"></textarea>
 								<button class="btn-delete-text" title="{{ _h('Delete text') }}" aria-label="{{ _h('Delete text') }}" @click="deleteText">
 									<i class="material-icons">close</i>
 								</button>
@@ -232,7 +232,7 @@
 								<label for="textarea2" class="sr-only">
 									{{ _h("Translated text") }}
 								</label>
-								<textarea id="textarea2" v-model="translatedText" ref="translatedTextarea" dir="auto" v-bind:readonly="suggestions && !isSuggesting"></textarea>
+								<textarea id="textarea2" v-model="translatedText" ref="translatedTextarea" dir="auto" v-bind:readonly="suggestions && !isSuggesting" :disabled="disableInput"></textarea>
 									<div class="actions">
 										<button v-if="suggestions && !loadingTranslation && inputText.length && !isSuggesting" class="btn-action" @click="suggestTranslation" aria-label="{{ _h('Suggest translation') }}">
 											<i class="material-icons">edit</i>

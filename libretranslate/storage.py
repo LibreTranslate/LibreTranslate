@@ -60,7 +60,7 @@ class MemoryStorage(Storage):
     def set_str(self, key, value, ex=None):
         self.store[key] = {
             'value': value,
-            'ex': time.time() + ex
+            'ex': None if ex is None else time.time() + ex
         }
 
     def get_str(self, key):
