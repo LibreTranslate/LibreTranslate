@@ -152,6 +152,11 @@ _default_options_objects = [
         'value_type': 'bool'
     },
     {
+        'name': 'UNDER_ATTACK',
+        'default_value': False,
+        'value_type': 'bool'
+    },
+    {
         'name': 'REQUIRE_API_KEY_FINGERPRINT',
         'default_value': False,
         'value_type': 'bool'

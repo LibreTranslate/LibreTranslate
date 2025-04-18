@@ -150,18 +150,18 @@
 			<div class="container">
 				<div class="row">
 					<div class="col s12 m12">
-					<div class="card horizontal">
-						<div class="card-stacked">
-						<div class="card-content">
-							<i class="material-icons">warning</i><p> [[ error ]]</p>
-						</div>
-						<div class="card-action">
-							<a href="#" @click="dismissError">{{ _h("Dismiss") }}</a>
-						</div>
+						<div class="card horizontal">
+							<div class="card-stacked">
+							<div class="card-content">
+								<i class="material-icons">warning</i><p> [[ error ]]</p>
+							</div>
+							<div class="card-action">
+								<a href="#" @click="dismissError">{{ _h("Dismiss") }}</a>
+							</div>
+							</div>
 						</div>
 					</div>
-					</div>
-					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -170,6 +170,15 @@
 		<div class="section no-pad-bot">
 			<div class="container">
 				<div class="row">
+					{% if under_attack %}
+					<div class="card horizontal">
+						<div class="card-stacked">
+							<div class="card-content center">
+								<i class="material-icons" style="position: relative; top: 4px;">warning</i> {{ _h("Due to bot abuse, translation requests are temporarily limited to users with a valid API key. Sorry for the inconvenience!") }}</p>
+							</div>
+						</div>
+					</div>
+					{% endif %}
 					<h3 class="header center">{{ _h("Translation API") }}</h3>
 					<div id="translation-type-btns" class="s12 center" v-if="filesTranslation === true">
 						<button type="button" class="btn btn-switch-type" @click="switchType('text')" :class="{'active': translationType === 'text'}">

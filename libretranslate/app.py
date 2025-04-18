@@ -364,6 +364,9 @@ def create_app(args):
                     if flood.fingerprint_mismatch(ip, get_fingerprint()):
                       need_key = True
 
+                  if args.under_attack and key_missing:
+                    need_key = True
+
                   if need_key:
                     description = _("Please contact the server operator to get an API key")
                     if args.get_api_key_link:
@@ -441,7 +444,8 @@ def create_app(args):
             swagger_url=swagger_url,
             available_locales=sorted([{'code': l['code'], 'name': _lazy(l['name'])} for l in get_available_locales(not args.debug)], key=lambda s: s['name']),
             current_locale=get_locale(),
-            alternate_locales=get_alternate_locale_links()
+            alternate_locales=get_alternate_locale_links(),
+            under_attack=args.under_attack,
         ))
 
         if args.require_api_key_secret:
