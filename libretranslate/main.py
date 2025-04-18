@@ -154,6 +154,12 @@ def get_args():
         help="Require use of an API key for programmatic access to the API, unless the client also matches a fingerprint",
     )
     parser.add_argument(
+        "--under-attack",
+        default=DEFARGS['UNDER_ATTACK'],
+        action="store_true",
+        help="Enable under attack mode. When enabled, requests must be made with an API key",
+    )
+    parser.add_argument(
         "--shared-storage",
         type=str,
         default=DEFARGS['SHARED_STORAGE'],

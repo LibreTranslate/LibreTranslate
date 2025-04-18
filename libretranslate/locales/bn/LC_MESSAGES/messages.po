@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.6.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-10-16 23:47+0200\n"
+"POT-Creation-Date: 2025-04-18 14:43-0400\n"
 "PO-Revision-Date: 2024-08-08 13:20-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: bn <LL@li.org>\n"
@@ -17,81 +17,82 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.12.1\n"
 
-#: libretranslate/app.py:80
+#: libretranslate/app.py:93
 msgid "Invalid JSON format"
 msgstr "অবৈধ JSON বিন্যাস"
 
-#: libretranslate/app.py:180 libretranslate/templates/app.js.template:467
+#: libretranslate/app.py:209 libretranslate/templates/app.js.template:473
 msgid "Auto Detect"
 msgstr "স্বয়ংক্রীয় সনাক্তকরণ"
 
-#: libretranslate/app.py:273
+#: libretranslate/app.py:311
 msgid "Unauthorized"
 msgstr "অনুমোদিত নয়"
 
-#: libretranslate/app.py:291
+#: libretranslate/app.py:329
 msgid "Too many request limits violations"
 msgstr "অত্যাধিক সংখ্যক সীমা লঙ্ঘন"
 
-#: libretranslate/app.py:298
+#: libretranslate/app.py:336
 msgid "Invalid API key"
 msgstr "ভুল API কি"
 
-#: libretranslate/app.py:324
+#: libretranslate/app.py:371
 msgid "Please contact the server operator to get an API key"
 msgstr "API কি প্রাপ্ত করার উদ্দেশ্যে অনুগ্রহ করে সার্ভারের সাথে যোগাযোগ করুন"
 
-#: libretranslate/app.py:326
+#: libretranslate/app.py:373
 #, python-format
 msgid "Visit %(url)s to get an API key"
 msgstr "পরিদর্শন করুন <x>০</x> API কি প্রাপ্ত করার জন্য একটি API কি %(url)s"
 
-#: libretranslate/app.py:373
+#: libretranslate/app.py:420
 msgid "Slowdown:"
 msgstr "ধীর:"
 
-#: libretranslate/app.py:606 libretranslate/app.py:608
-#: libretranslate/app.py:610 libretranslate/app.py:819
-#: libretranslate/app.py:821 libretranslate/app.py:823
-#: libretranslate/app.py:980 libretranslate/app.py:1137
-#: libretranslate/app.py:1139 libretranslate/app.py:1141
-#: libretranslate/app.py:1143
+#: libretranslate/app.py:657 libretranslate/app.py:659
+#: libretranslate/app.py:661 libretranslate/app.py:882
+#: libretranslate/app.py:884 libretranslate/app.py:886
+#: libretranslate/app.py:1051 libretranslate/app.py:1208
+#: libretranslate/app.py:1210 libretranslate/app.py:1212
+#: libretranslate/app.py:1214
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
 msgstr "অবৈধ অনুরোধ: অনুপস্থিত <x>০</x> পরামিতি %(name)s"
 
-#: libretranslate/app.py:615
+#: libretranslate/app.py:666
 #, python-format
 msgid "Invalid request: %(name)s parameter is not a number"
 msgstr "অবৈধ অনুরোধ: <x>০</x> একটি নম্বর নয় %(name)s"
 
-#: libretranslate/app.py:618
+#: libretranslate/app.py:669
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
 msgstr ""
 "অবৈধ অনুরোধ: <x>০</x> পরামিতির মান হওয়া আবশ্যক <x>১</x> %(name)s %(value)s"
 
-#: libretranslate/app.py:635 libretranslate/app.py:645
+#: libretranslate/app.py:686 libretranslate/app.py:696
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
 "অবৈধ অনুরোধ: অনুরোধ<x>০</x>সীমা অতিক্রান্ত<x>১</x>আপনি কি মনে করতে পারেন? "
 "%(size)s %(limit)s"
 
-#: libretranslate/app.py:660 libretranslate/app.py:665
-#: libretranslate/app.py:834 libretranslate/app.py:839
+#: libretranslate/app.py:715 libretranslate/app.py:720
+#: libretranslate/app.py:897 libretranslate/app.py:902
+#: libretranslate/app.py:924
 #, python-format
 msgid "%(lang)s is not supported"
 msgstr "<x>০</x> সমর্থিত নয় %(lang)s"
 
-#: libretranslate/app.py:671
+#: libretranslate/app.py:726
 #, python-format
 msgid "%(format)s format is not supported"
 msgstr "<x>০</x> অসমর্থিত বিন্যাস %(format)s"
 
-#: libretranslate/app.py:680 libretranslate/app.py:704
+#: libretranslate/app.py:735 libretranslate/app.py:763
 #, python-format
 msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
@@ -100,28 +101,28 @@ msgstr ""
 "<x>০</x> ( চিহ্ন)<x>১</x>উপলব্ধ নয় <x>২</x> ( চিহ্ন)<x>৩</x>আপনি কি মনে "
 "করতে পারেন? %(tname)s %(tcode)s %(sname)s %(scode)s"
 
-#: libretranslate/app.py:724
+#: libretranslate/app.py:787
 #, python-format
 msgid "Cannot translate text: %(text)s"
 msgstr "টেক্সট অনুবাদ করতে ব্যর্থ: <x>০</x> %(text)s"
 
-#: libretranslate/app.py:811 libretranslate/app.py:872
+#: libretranslate/app.py:874 libretranslate/app.py:943
 msgid "Files translation are disabled on this server."
 msgstr "এই সার্ভারে ফাইল অনুবাদ নিষ্ক্রিয় ।."
 
-#: libretranslate/app.py:826
+#: libretranslate/app.py:889
 msgid "Invalid request: empty file"
 msgstr "অবৈধ ফাইল: ফাঁকা ফাইল"
 
-#: libretranslate/app.py:829
+#: libretranslate/app.py:892
 msgid "Invalid request: file format not supported"
 msgstr "অবৈধ অনুরোধ: ফাইল ফরম্যাট সমর্থিত নয়"
 
-#: libretranslate/app.py:880
+#: libretranslate/app.py:951
 msgid "Invalid filename"
 msgstr "ফাইলের নাম বৈধ নয়"
 
-#: libretranslate/app.py:1122
+#: libretranslate/app.py:1193
 msgid "Suggestions are disabled on this server."
 msgstr "এই সার্ভারের জন্য অতিরিক্ত পরামর্শ নিষ্ক্রিয় করা হয়েছে।."
 
@@ -142,182 +143,178 @@ msgid "Azerbaijani"
 msgstr "আজারবাইজানিName"
 
 #: libretranslate/locales/.langs.py:5
-msgid "Basque"
-msgstr "বাস্ক"
-
-#: libretranslate/locales/.langs.py:6
 msgid "Bengali"
 msgstr "বাংলা"
 
-#: libretranslate/locales/.langs.py:7
+#: libretranslate/locales/.langs.py:6
 msgid "Bulgarian"
 msgstr "বুলগেরিয়ানName"
 
-#: libretranslate/locales/.langs.py:8
+#: libretranslate/locales/.langs.py:7
 msgid "Catalan"
 msgstr "ক্যাটালানName"
 
-#: libretranslate/locales/.langs.py:9
+#: libretranslate/locales/.langs.py:8
 msgid "Chinese"
 msgstr "চীনি"
 
-#: libretranslate/locales/.langs.py:10
+#: libretranslate/locales/.langs.py:9
 msgid "Chinese (traditional)"
 msgstr "চীনা (সরলীকৃত)"
 
-#: libretranslate/locales/.langs.py:11
+#: libretranslate/locales/.langs.py:10
 msgid "Czech"
 msgstr "চেক"
 
-#: libretranslate/locales/.langs.py:12
+#: libretranslate/locales/.langs.py:11
 msgid "Danish"
 msgstr "ড্যানিশName"
 
-#: libretranslate/locales/.langs.py:13
+#: libretranslate/locales/.langs.py:12
 msgid "Dutch"
 msgstr "ডাচ"
 
-#: libretranslate/locales/.langs.py:14
+#: libretranslate/locales/.langs.py:13
 msgid "Esperanto"
 msgstr "এসপারান্তোName"
 
-#: libretranslate/locales/.langs.py:15
+#: libretranslate/locales/.langs.py:14
 msgid "Estonian"
 msgstr "এস্তোনিয়ানName"
 
-#: libretranslate/locales/.langs.py:16
+#: libretranslate/locales/.langs.py:15
 msgid "Finnish"
 msgstr "ফিনিশName"
 
-#: libretranslate/locales/.langs.py:17
+#: libretranslate/locales/.langs.py:16
 msgid "French"
 msgstr "ফরাসি"
 
-#: libretranslate/locales/.langs.py:18
-msgid "Galician"
-msgstr "অংশগ্রহণকারীদের আমন্ত্রণ জানান"
-
-#: libretranslate/locales/.langs.py:19
+#: libretranslate/locales/.langs.py:17
 msgid "German"
 msgstr "জার্মান"
 
-#: libretranslate/locales/.langs.py:20
+#: libretranslate/locales/.langs.py:18
 msgid "Greek"
 msgstr "গ্রিক"
 
-#: libretranslate/locales/.langs.py:21
+#: libretranslate/locales/.langs.py:19
 msgid "Hebrew"
 msgstr "হিব্রু"
 
-#: libretranslate/locales/.langs.py:22
+#: libretranslate/locales/.langs.py:20
 msgid "Hindi"
 msgstr "হিন্দি"
 
-#: libretranslate/locales/.langs.py:23
+#: libretranslate/locales/.langs.py:21
 msgid "Hungarian"
 msgstr "হাঙ্গেরিয়ানName"
 
-#: libretranslate/locales/.langs.py:24
+#: libretranslate/locales/.langs.py:22
 msgid "Indonesian"
 msgstr "ইন্দোনেশিয়ান"
 
-#: libretranslate/locales/.langs.py:25
+#: libretranslate/locales/.langs.py:23
 msgid "Irish"
 msgstr "আইরিশ"
 
-#: libretranslate/locales/.langs.py:26
+#: libretranslate/locales/.langs.py:24
 msgid "Italian"
 msgstr "ইতালীয়Name"
 
-#: libretranslate/locales/.langs.py:27
+#: libretranslate/locales/.langs.py:25
 msgid "Japanese"
 msgstr "জাপানি"
 
-#: libretranslate/locales/.langs.py:28
+#: libretranslate/locales/.langs.py:26
 msgid "Korean"
 msgstr "কোরিয়ান"
 
-#: libretranslate/locales/.langs.py:29
+#: libretranslate/locales/.langs.py:27
 msgid "Latvian"
 msgstr "লাটভিয়ানName"
 
-#: libretranslate/locales/.langs.py:30
+#: libretranslate/locales/.langs.py:28
 msgid "Lithuanian"
 msgstr "লিথুয়েনীয়"
 
-#: libretranslate/locales/.langs.py:31
+#: libretranslate/locales/.langs.py:29
 msgid "Malay"
 msgstr "মালয়Name"
 
-#: libretranslate/locales/.langs.py:32
+#: libretranslate/locales/.langs.py:30
 msgid "Norwegian"
 msgstr "নরওয়েজিয়ান"
 
-#: libretranslate/locales/.langs.py:33
+#: libretranslate/locales/.langs.py:31
 msgid "Persian"
 msgstr "ফার্সি"
 
-#: libretranslate/locales/.langs.py:34
+#: libretranslate/locales/.langs.py:32
 msgid "Polish"
 msgstr "পোলিশ"
 
-#: libretranslate/locales/.langs.py:35
+#: libretranslate/locales/.langs.py:33
 msgid "Portuguese"
 msgstr "পর্তুগীজName"
 
-#: libretranslate/locales/.langs.py:36
+#: libretranslate/locales/.langs.py:34
+msgid "Portuguese (Brazil)"
+msgstr "পোর্তুগিজ (মোগুয়ে)"
+
+#: libretranslate/locales/.langs.py:35
 msgid "Romanian"
 msgstr "রোমেনিয়ান"
 
-#: libretranslate/locales/.langs.py:37
+#: libretranslate/locales/.langs.py:36
 msgid "Russian"
 msgstr "রুশ"
 
-#: libretranslate/locales/.langs.py:38
+#: libretranslate/locales/.langs.py:37
 msgid "Slovak"
 msgstr "স্লোভাকName"
 
-#: libretranslate/locales/.langs.py:39
+#: libretranslate/locales/.langs.py:38
 msgid "Slovenian"
 msgstr "স্লোভেনিয়ান"
 
-#: libretranslate/locales/.langs.py:40
+#: libretranslate/locales/.langs.py:39
 msgid "Spanish"
 msgstr "স্প্যানিশ"
 
-#: libretranslate/locales/.langs.py:41
+#: libretranslate/locales/.langs.py:40
 msgid "Swedish"
 msgstr "সুইডিশ"
 
-#: libretranslate/locales/.langs.py:42
+#: libretranslate/locales/.langs.py:41
 msgid "Tagalog"
 msgstr "ট্যাগু"
 
-#: libretranslate/locales/.langs.py:43
+#: libretranslate/locales/.langs.py:42
 msgid "Thai"
 msgstr "থাই"
 
-#: libretranslate/locales/.langs.py:44
+#: libretranslate/locales/.langs.py:43
 msgid "Turkish"
 msgstr "তুর্কি"
 
-#: libretranslate/locales/.langs.py:45
+#: libretranslate/locales/.langs.py:44
 msgid "Ukranian"
 msgstr "উরানিয়ানName"
 
-#: libretranslate/locales/.langs.py:46
+#: libretranslate/locales/.langs.py:45
 msgid "Urdu"
 msgstr "উর্দুName"
 
-#: libretranslate/locales/.langs.py:47
+#: libretranslate/locales/.langs.py:46
 msgid "Serbian"
 msgstr "সার্বিয়ান"
 
-#: libretranslate/locales/.langs.py:48
+#: libretranslate/locales/.langs.py:47
 msgid "Ukrainian"
 msgstr "ইউক্রেইনিয়"
 
-#: libretranslate/locales/.langs.py:49
+#: libretranslate/locales/.langs.py:48
 msgid "Vietnamese"
 msgstr "ভিয়েতনামিস"
 
@@ -337,7 +334,7 @@ msgstr "অনুবাদ"
 msgid "Translate text from a language to another"
 msgstr "একটি ভাষা থেকে টেক্সট অনুবাদ করুন"
 
-#: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:224
+#: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:233
 msgid "Translated text"
 msgstr "অনুবাদক টেক্সট"
 
@@ -543,7 +540,7 @@ msgstr "টেক্সট কপি করুন"
 #: libretranslate/templates/app.js.template:281
 #: libretranslate/templates/app.js.template:351
 #: libretranslate/templates/app.js.template:439
-#: libretranslate/templates/app.js.template:487
+#: libretranslate/templates/app.js.template:493
 #, python-format
 msgid "Cannot load %(url)s"
 msgstr "লোড করতে ব্যর্থ <x>০</x> %(url)s"
@@ -569,32 +566,32 @@ msgstr "সংশোধন করার জন্য ধন্যবাদ. উ�
 msgid "No languages available. Did you install the models correctly?"
 msgstr "কোনো ভাষা উপলব্ধ নেই। আপনি কি মডেল সঠিকভাবে ইনস্টল করেছেন?"
 
-#: libretranslate/templates/app.js.template:530
+#: libretranslate/templates/app.js.template:536
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
 msgstr ""
 "API-র মধ্যে পরিচয় পংক্তি লিখুন। যদি আপনার একটি API প্রয়োজন হয়, <x>০</x> "
 "%(instructions)s"
 
-#: libretranslate/templates/app.js.template:530
+#: libretranslate/templates/app.js.template:536
 msgid "press the \"Get API Key\" link."
 msgstr "\" API\" কি-র সাথে লিঙ্ক স্থাপন করুন।."
 
-#: libretranslate/templates/app.js.template:530
+#: libretranslate/templates/app.js.template:536
 msgid "contact the server operator."
 msgstr "সার্ভার সার্ভারের সাথে যোগাযোগ করুন ।."
 
 #: libretranslate/templates/index.html:9
 #: libretranslate/templates/index.html:27
-#: libretranslate/templates/index.html:338
+#: libretranslate/templates/index.html:347
 msgid "Free and Open Source Machine Translation API"
 msgstr "মুক্ত এবং ওপেন সোর্স মেশিন অনুবাদ API"
 
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
 msgid ""
-"Free and Open Source Machine Translation API. Free to download, offline capable "
-"and easy to setup. Run your own API server in just a few minutes."
+"Free and Open Source Machine Translation API. Free to download, offline "
+"capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
 "মুক্ত এবং ওপেন সোর্স মেশিন অনুবাদ API। স্ব-বিশ্লেষণ, অফ-লাইন অবস্থায় থাকা। "
 "কয়েক মিনিটের মধ্যে আপনার নিজস্ব API সার্ভার চালান।."
@@ -639,103 +636,117 @@ msgstr "পর্দা জুড়ে প্রদর্শন/আড়াল
 msgid "Dismiss"
 msgstr "বাতিল"
 
-#: libretranslate/templates/index.html:173
+#: libretranslate/templates/index.html:177
+msgid ""
+"Due to bot abuse, translation requests are temporarily limited to users with"
+" a valid API key. Sorry for the inconvenience!"
+msgstr ""
+"বোট অপব্যবহারের কারণে, বৈধ API কী সহ ব্যবহারকারীদের জন্য সাময়িকভাবে অনুবাদ "
+"অনুরোধ করা হয়। ঝামেলার জন্য দুঃখিত!"
+
+#: libretranslate/templates/index.html:182
 msgid "Translation API"
 msgstr "অনুবাদ API"
 
-#: libretranslate/templates/index.html:177
+#: libretranslate/templates/index.html:186
 msgid "Translate Text"
 msgstr "টেক্সট অনুবাদ"
 
-#: libretranslate/templates/index.html:181
+#: libretranslate/templates/index.html:190
 msgid "Translate Files"
 msgstr "ফাইল অনুবাদ করুন"
 
-#: libretranslate/templates/index.html:187
+#: libretranslate/templates/index.html:196
 msgid "Translate from"
 msgstr "অনুবাদ করো"
 
-#: libretranslate/templates/index.html:197
+#: libretranslate/templates/index.html:206
 msgid "Swap source and target languages"
 msgstr "Swap উৎস ও টার্গেট ভাষা ব্যবহার করুন"
 
-#: libretranslate/templates/index.html:200
+#: libretranslate/templates/index.html:209
 msgid "Translate into"
 msgstr "চিহ্নিত অবস্থানে স্থানান্তর করুন"
 
-#: libretranslate/templates/index.html:212
+#: libretranslate/templates/index.html:221
 msgid "Text to translate"
 msgstr "অনুবাদ করার জন্য চিহ্নিত টেক্সট"
 
-#: libretranslate/templates/index.html:215
+#: libretranslate/templates/index.html:224
 msgid "Delete text"
 msgstr "টেক্সট মুছে ফেলুন"
 
-#: libretranslate/templates/index.html:228
+#: libretranslate/templates/index.html:237
 msgid "Suggest translation"
 msgstr "অনুবাদ পরামর্শ করো"
 
-#: libretranslate/templates/index.html:232
+#: libretranslate/templates/index.html:241
 msgid "Cancel"
 msgstr "বাতিল"
 
-#: libretranslate/templates/index.html:235
+#: libretranslate/templates/index.html:244
 msgid "Send"
 msgstr "প্রেরণ"
 
-#: libretranslate/templates/index.html:251
+#: libretranslate/templates/index.html:260
 msgid "Supported file formats:"
 msgstr "সমর্থিত ফাইল ফরম্যাট:"
 
-#: libretranslate/templates/index.html:255
+#: libretranslate/templates/index.html:264
 msgid "File"
 msgstr "ফাইল"
 
-#: libretranslate/templates/index.html:270
+#: libretranslate/templates/index.html:279
 msgid "Remove file"
 msgstr "ফাইল মুছে ফেলুন"
 
-#: libretranslate/templates/index.html:277
+#: libretranslate/templates/index.html:286
 msgid "Translate"
 msgstr "অনুবাদ"
 
-#: libretranslate/templates/index.html:278
-#: libretranslate/templates/index.html:322
+#: libretranslate/templates/index.html:287
+#: libretranslate/templates/index.html:331
 msgid "Download"
 msgstr "ডাউনলোড করা হয়েছে"
 
-#: libretranslate/templates/index.html:297
+#: libretranslate/templates/index.html:306
 msgid "Request"
 msgstr "অনুরোধ"
 
-#: libretranslate/templates/index.html:302
+#: libretranslate/templates/index.html:311
 msgid "Response"
 msgstr "প্রতিক্রিয়া"
 
-#: libretranslate/templates/index.html:317
+#: libretranslate/templates/index.html:326
 msgid "Open Source Machine Translation API"
 msgstr "ওপেন সোর্স মেশিন অনুবাদ APIQuery"
 
-#: libretranslate/templates/index.html:318
+#: libretranslate/templates/index.html:327
 msgid "Free to download. Offline Capable. Easy to Setup."
 msgstr "হায় খোদা! অফ-লাইন। শান্ত হও।."
 
-#: libretranslate/templates/index.html:337
+#: libretranslate/templates/index.html:346
 msgid "LibreTranslate"
 msgstr "LibreTranslate"
 
-#: libretranslate/templates/index.html:339
+#: libretranslate/templates/index.html:348
 msgid "License:"
 msgstr "লাইসেন্স:"
 
-#: libretranslate/templates/index.html:345
+#: libretranslate/templates/index.html:354
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
 msgstr ""
 "সহ <x>০</x> ধরন <x>১</x> এবং বিদারনশীল <x>২</x> %(heart)s %(contributors)s "
 "%(engine)s"
 
-#: libretranslate/templates/index.html:345
+#: libretranslate/templates/index.html:354
 #, python-format
 msgid "%(libretranslate)s Contributors"
 msgstr "<x>০</x> অংশগ্রহণকারী %(libretranslate)s"
+
+#~ msgid "Basque"
+#~ msgstr "বাস্ক"
+
+#~ msgid "Galician"
+#~ msgstr "অংশগ্রহণকারীদের আমন্ত্রণ জানান"
