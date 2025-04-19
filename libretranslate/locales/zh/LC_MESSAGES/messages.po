@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-04-18 14:43-0400\n"
-"PO-Revision-Date: 2025-04-19 06:10+0000\n"
+"PO-Revision-Date: 2025-04-19 08:11+0000\n"
 "Last-Translator: LTSlw <LTSlw@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/libretranslate/app/zh_Hans/>\n"
@@ -287,11 +287,11 @@ msgstr "瑞典语"
 
 #: libretranslate/locales/.langs.py:41
 msgid "Tagalog"
-msgstr "标记"
+msgstr "他加禄语"
 
 #: libretranslate/locales/.langs.py:42
 msgid "Thai"
-msgstr "泰国语"
+msgstr "泰语"
 
 #: libretranslate/locales/.langs.py:43
 msgid "Turkish"
@@ -319,7 +319,7 @@ msgstr "越南语"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Retrieve list of supported languages"
-msgstr "检索支持语言的列表"
+msgstr "获取支持的语言列表"
 
 #: libretranslate/locales/.swag.py:2
 msgid "List of languages"
@@ -335,7 +335,7 @@ msgstr "将文本从一种语言翻译成另一种语言"
 
 #: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:233
 msgid "Translated text"
-msgstr "已翻译文本"
+msgstr "译文"
 
 #: libretranslate/locales/.swag.py:6
 msgid "Invalid request"
@@ -346,10 +346,12 @@ msgid "Translation error"
 msgstr "翻译出错"
 
 #: libretranslate/locales/.swag.py:8
+#, fuzzy
 msgid "Slow down"
 msgstr "慢一点"
 
 #: libretranslate/locales/.swag.py:9
+#, fuzzy
 msgid "Banned"
 msgstr "已封禁"
 
@@ -359,11 +361,11 @@ msgstr "你好世界！"
 
 #: libretranslate/locales/.swag.py:11
 msgid "Text(s) to translate"
-msgstr "需要翻译的文本"
+msgstr "待翻译文本"
 
 #: libretranslate/locales/.swag.py:12
 msgid "Source language code"
-msgstr "语言来源代码"
+msgstr "源语言代码"
 
 #: libretranslate/locales/.swag.py:13
 msgid "Target language code"
@@ -383,17 +385,17 @@ msgid ""
 " * `text` - Plain text\n"
 " * `html` - HTML markup\n"
 msgstr ""
-"源文本的格式：\n"
-" *`text` - 纯文本\n"
-" *`html` - html 标记\n"
+"源文本格式：\n"
+" * `text` - 纯文本\n"
+" * `html` - HTML 标记\n"
 
 #: libretranslate/locales/.swag.py:17
 msgid "Preferred number of alternative translations"
-msgstr "首选译名数"
+msgstr "首选替代翻译数量"
 
 #: libretranslate/locales/.swag.py:18
 msgid "API key"
-msgstr "API密钥"
+msgstr "API 密钥"
 
 #: libretranslate/locales/.swag.py:19
 msgid "Translate file from a language to another"
@@ -405,15 +407,15 @@ msgstr "已翻译文件"
 
 #: libretranslate/locales/.swag.py:21
 msgid "File to translate"
-msgstr "需要翻译的文件"
+msgstr "待翻译文件"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Detect the language of a single text"
-msgstr "检测单个文本的语言"
+msgstr "检测单条文本的语言"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Detections"
-msgstr "检测"
+msgstr "语言检测结果"
 
 #: libretranslate/locales/.swag.py:24
 msgid "Detection error"
@@ -421,11 +423,11 @@ msgstr "检测出错"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Text to detect"
-msgstr "需要检测的文本"
+msgstr "待检测文本"
 
 #: libretranslate/locales/.swag.py:26
 msgid "Retrieve frontend specific settings"
-msgstr "检索前端特定设置"
+msgstr "获取前端特定设置"
 
 #: libretranslate/locales/.swag.py:27
 msgid "frontend settings"
@@ -437,7 +439,7 @@ msgstr "前端"
 
 #: libretranslate/locales/.swag.py:29
 msgid "Submit a suggestion to improve a translation"
-msgstr "提交建议以改善翻译"
+msgstr "提交翻译改进建议"
 
 #: libretranslate/locales/.swag.py:30
 msgid "Success"
@@ -457,11 +459,11 @@ msgstr "建议译文"
 
 #: libretranslate/locales/.swag.py:34
 msgid "Language of original text"
-msgstr "原始文本的语言"
+msgstr "原文语言"
 
 #: libretranslate/locales/.swag.py:35
 msgid "Language of suggested translation"
-msgstr "建议译文的语言"
+msgstr "建议译文语言"
 
 #: libretranslate/locales/.swag.py:36
 msgid "feedback"
@@ -488,12 +490,13 @@ msgid "Error message"
 msgstr "错误信息"
 
 #: libretranslate/locales/.swag.py:42
+#, fuzzy
 msgid "Reason for slow down"
 msgstr "速度减缓的原因"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Translated file url"
-msgstr "已翻译文件的链接"
+msgstr "已翻译文件 URL"
 
 #: libretranslate/locales/.swag.py:44
 msgid "Confidence value"
@@ -501,7 +504,7 @@ msgstr "置信度"
 
 #: libretranslate/locales/.swag.py:45
 msgid "Character input limit for this language (-1 indicates no limit)"
-msgstr "此语言的字符输入限制（-1表示没有限制）"
+msgstr "此语言的字符输入限制（-1表示无限制）"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Frontend translation timeout"
@@ -509,15 +512,15 @@ msgstr "前端翻译超时"
 
 #: libretranslate/locales/.swag.py:47
 msgid "Whether the API key database is enabled."
-msgstr "是否启用了API密钥数据库。"
+msgstr "是否启用 API 密钥数据库。"
 
 #: libretranslate/locales/.swag.py:48
 msgid "Whether an API key is required."
-msgstr "是否需要API密钥。"
+msgstr "是否需要 API 密钥。"
 
 #: libretranslate/locales/.swag.py:49
 msgid "Whether submitting suggestions is enabled."
-msgstr "是否启用了支持提交建议。"
+msgstr "是否启用建议提交。"
 
 #: libretranslate/locales/.swag.py:50
 msgid "Supported files format"
@@ -525,7 +528,7 @@ msgstr "支持的文件格式"
 
 #: libretranslate/locales/.swag.py:51
 msgid "Whether submission was successful"
-msgstr "提交是否成功"
+msgstr "是否提交成功"
 
 #: libretranslate/templates/app.js.template:31
 #: libretranslate/templates/app.js.template:294
@@ -553,7 +556,7 @@ msgstr "未知错误"
 
 #: libretranslate/templates/app.js.template:295
 msgid "Copied"
-msgstr "复制"
+msgstr "已复制"
 
 #: libretranslate/templates/app.js.template:339
 msgid ""
