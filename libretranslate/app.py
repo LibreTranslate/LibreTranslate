@@ -365,11 +365,7 @@ def create_app(args):
                       need_key = True
 
                   if args.under_attack and key_missing:
-                    abort(make_response(jsonify({
-                        'translatedText': secret.get_emoji(),
-                        'alternatives': [],
-                        'detectedLanguage': { 'confidence': 100, 'language': 'en' }
-                      }), 200))
+                    need_key = True
 
                   if need_key:
                     description = _("Please contact the server operator to get an API key")
