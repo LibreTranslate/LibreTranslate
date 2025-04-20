@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-04-18 14:43-0400\n"
-"PO-Revision-Date: 2025-04-19 10:10+0000\n"
+"PO-Revision-Date: 2025-04-21 05:58+0000\n"
 "Last-Translator: LTSlw <LTSlw@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/libretranslate/app/zh_Hans/>\n"
@@ -34,7 +34,6 @@ msgid "Unauthorized"
 msgstr "未授权"
 
 #: libretranslate/app.py:329
-#, fuzzy
 msgid "Too many request limits violations"
 msgstr "请求次数过多超过限制"
 
@@ -52,9 +51,8 @@ msgid "Visit %(url)s to get an API key"
 msgstr "访问 %(url)s 以获取 API 密钥"
 
 #: libretranslate/app.py:420
-#, fuzzy
 msgid "Slowdown:"
-msgstr "慢一点："
+msgstr "请减速："
 
 #: libretranslate/app.py:657 libretranslate/app.py:659
 #: libretranslate/app.py:661 libretranslate/app.py:882
@@ -69,12 +67,12 @@ msgstr "无效的请求：丢失 %(name)s 参数"
 #: libretranslate/app.py:666
 #, python-format
 msgid "Invalid request: %(name)s parameter is not a number"
-msgstr "无效的请求 : 参数%(name)s不是数字"
+msgstr "无效的请求：参数 %(name)s 不是数字"
 
 #: libretranslate/app.py:669
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
-msgstr "无效的请求 : %(name)s 参数必须 <= %(value)s"
+msgstr "无效的请求：%(name)s 参数必须 <= %(value)s"
 
 #: libretranslate/app.py:686 libretranslate/app.py:696
 #, python-format
@@ -98,7 +96,7 @@ msgstr "%(format)s 格式不受支持"
 msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
-msgstr "%(tname)s（%(tcode)s）不能作为 %(sname)s （%(scode)s）的目标语言"
+msgstr "%(tname)s （%(tcode)s）不能作为 %(sname)s （%(scode)s）的目标语言"
 
 #: libretranslate/app.py:787
 #, python-format
@@ -346,12 +344,10 @@ msgid "Translation error"
 msgstr "翻译出错"
 
 #: libretranslate/locales/.swag.py:8
-#, fuzzy
 msgid "Slow down"
-msgstr "慢一点"
+msgstr "请减速"
 
 #: libretranslate/locales/.swag.py:9
-#, fuzzy
 msgid "Banned"
 msgstr "已封禁"
 
@@ -377,7 +373,7 @@ msgstr "文本"
 
 #: libretranslate/locales/.swag.py:15
 msgid "html"
-msgstr "html"
+msgstr "HTML"
 
 #: libretranslate/locales/.swag.py:16
 msgid ""
@@ -447,7 +443,7 @@ msgstr "成功"
 
 #: libretranslate/locales/.swag.py:31
 msgid "Not authorized"
-msgstr "未经授权"
+msgstr "未授权"
 
 #: libretranslate/locales/.swag.py:32
 msgid "Original text"
@@ -475,7 +471,7 @@ msgstr "语言代码"
 
 #: libretranslate/locales/.swag.py:38
 msgid "Human-readable language name (in English)"
-msgstr "人类可读的语言名称（英文）"
+msgstr "人类可读的语言名称（英语）"
 
 #: libretranslate/locales/.swag.py:39
 msgid "Supported target language codes"
@@ -490,9 +486,8 @@ msgid "Error message"
 msgstr "错误信息"
 
 #: libretranslate/locales/.swag.py:42
-#, fuzzy
 msgid "Reason for slow down"
-msgstr "速度减缓的原因"
+msgstr "减速原因"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Translated file url"
@@ -628,7 +623,7 @@ msgstr "编辑"
 
 #: libretranslate/templates/index.html:83
 msgid "Toggle dark/light mode"
-msgstr "切换暗黑/明亮模式"
+msgstr "切换黑暗/明亮模式"
 
 #: libretranslate/templates/index.html:159
 msgid "Dismiss"
@@ -716,7 +711,7 @@ msgstr "响应"
 
 #: libretranslate/templates/index.html:326
 msgid "Open Source Machine Translation API"
-msgstr "开源机器翻译API"
+msgstr "开源的机器翻译 API"
 
 #: libretranslate/templates/index.html:327
 msgid "Free to download. Offline Capable. Easy to Setup."
