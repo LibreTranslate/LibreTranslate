@@ -470,7 +470,7 @@ To help improve or review the UI translations:
 | Arabic                |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/ar/)      |
 | Azerbaijani           |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/az/)      |
 | Basque                | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/eu/)      |
-| Chinese               |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/zh/)      |
+| Chinese               | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/zh/)      |
 | Chinese (Traditional) |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/zh_Hant/) |
 | Czech                 | :heavy_check_mark: | [Edit](https://hosted.weblate.org/translate/libretranslate/app/cs/)      |
 | Danish                |                    | [Edit](https://hosted.weblate.org/translate/libretranslate/app/da/)      |
