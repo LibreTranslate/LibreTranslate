@@ -10,6 +10,10 @@ Free and Open Source Machine Translation API, entirely self-hosted. Unlike other
 
 [Try it online!](https://libretranslate.com) | [API Docs](https://libretranslate.com/docs)
 
+## Other Languages
+
+- [Español (README)](docs/README.es.md)
+
 ## API Examples
 
 ### Simple
