@@ -1,6 +1,6 @@
 # LibreTranslate
 
-[Pruébalo en línea!](https://libretranslate.com) | [Documentación de la API](https://libretranslate.com/docs) | [Foro de la Comunidad](https://community.libretranslate.com/)
+[Pruébalo en línea!](https://libretranslate.com) | [Documentación de la API](https://libretranslate.com/docs) | [Foro de la Comunidad](https://community.libretranslate.com/) | [Bluesky](https://bsky.app/profile/libretranslate.com)
 
 [![Versiones de python](https://img.shields.io/pypi/pyversions/libretranslate)](https://pypi.org/project/libretranslate) [![Ejecutar Pruebas](https://github.com/LibreTranslate/LibreTranslate/workflows/Run%20tests/badge.svg)](https://github.com/LibreTranslate/LibreTranslate/actions?query=workflow%3A%22Run+tests%22) [![Crear y Publicar Imagen de Docker](https://github.com/LibreTranslate/LibreTranslate/actions/workflows/publish-docker.yml/badge.svg)](https://github.com/LibreTranslate/LibreTranslate/actions/workflows/publish-docker.yml) [![Publicar paquete](https://github.com/LibreTranslate/LibreTranslate/actions/workflows/publish-package.yml/badge.svg)](https://github.com/LibreTranslate/LibreTranslate/actions/workflows/publish-package.yml) [![Increible Technologia Humana](https://raw.githubusercontent.com/humanetech-community/awesome-humane-tech/main/humane-tech-badge.svg?sanitize=true)](https://codeberg.org/teaserbot-labs/delightful-humane-design)
 
@@ -12,7 +12,7 @@ API de traducción automática gratuita y de código abierto, completamente aloj
 
 ## Otros idiomas
 
-- [English (README)](README.md)
+- [English (README)](/README.md)
 
 ## Ejemplos de la API
 
@@ -741,4 +741,4 @@ Este trabajo es posible en gran medida gracias a [Argos Translate](https://githu
 
 ## Marca registrada
 
-Consulte las [Directrices de marca registrada](https://github.com/LibreTranslate/LibreTranslate/blob/main/TRADEMARK.md)
+Consulte las [Directrices de marca registrada](https://github.com/LibreTranslate/LibreTranslate/blob/main/docs/TRADEMARK.es.md)
