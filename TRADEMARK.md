@@ -84,3 +84,7 @@ as long as you also include the statement equally prominently:
 ### LibreTranslate Community Guidelines
 
 Various permissions to use LibreTranslate Trademarks have been provided to various members of the LibreTranslate Community, and these LibreTranslate Trademark Guidelines do not alter any such previously granted permissions.
+
+## Other Languages
+
+- [Español (TRADEMARK)](/docs/TRADEMARK.es.md)
