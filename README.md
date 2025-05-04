@@ -8,12 +8,6 @@ Free and Open Source Machine Translation API, entirely self-hosted. Unlike other
 
 ![Translation](https://github.com/user-attachments/assets/457696b5-dbff-40ab-a18e-7bfb152c5121)
 
-[Try it online!](https://libretranslate.com) | [API Docs](https://libretranslate.com/docs)
-
-## Other Languages
-
-- [Español (README)](docs/README.es.md)
-
 ## API Examples
 
 ### Simple
@@ -765,3 +759,8 @@ This work is largely possible thanks to [Argos Translate](https://github.com/arg
 ## Trademark
 
 See [Trademark Guidelines](https://github.com/LibreTranslate/LibreTranslate/blob/main/TRADEMARK.md)
+
+## Other Languages
+
+- [Español (README)](docs/README.es.md)
+
