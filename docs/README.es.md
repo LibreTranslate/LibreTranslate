@@ -10,10 +10,6 @@ API de traducción automática gratuita y de código abierto, completamente aloj
 
 [Pruébalo en línea!](https://libretranslate.com) | [Documentación de la API](https://libretranslate.com/docs)
 
-## Otros idiomas
-
-- [English (README)](/README.md)
-
 ## Ejemplos de la API
 
 ### Básico
@@ -742,3 +738,7 @@ Este trabajo es posible en gran medida gracias a [Argos Translate](https://githu
 ## Marca registrada
 
 Consulte las [Directrices de marca registrada](https://github.com/LibreTranslate/LibreTranslate/blob/main/docs/TRADEMARK.es.md)
+
+## Otros idiomas
+
+- [English (README)](/README.md)
