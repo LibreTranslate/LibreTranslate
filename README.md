@@ -760,6 +760,10 @@ This work is largely possible thanks to [Argos Translate](https://github.com/arg
 
 See [Trademark Guidelines](https://github.com/LibreTranslate/LibreTranslate/blob/main/TRADEMARK.md)
 
+## Related Projects
+
+* [LTEngine](https://github.com/LibreTranslate/LTEngine): Machine translation powered by LLMs with a LibreTranslate-compatible API
+
 ## Other Languages
 
 - [Español (README)](docs/README.es.md)
