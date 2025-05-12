@@ -5,6 +5,7 @@ LibreTranslate is an open source organization. Because we make our code availabl
 Some of our trademark names include:
 
  * LibreTranslate
+ * LTEngine
 
 Some of our trademark logos include:
 
