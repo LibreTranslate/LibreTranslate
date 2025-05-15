@@ -739,6 +739,10 @@ Este trabajo es posible en gran medida gracias a [Argos Translate](https://githu
 
 Consulte las [Directrices de marca registrada](https://github.com/LibreTranslate/LibreTranslate/blob/main/docs/TRADEMARK.es.md)
 
+## Projectos Relacionados
+
+* [LTEngine](https://github.com/LibreTranslate/LTEngine): Machine translation powered by LLMs with a LibreTranslate-compatible API
+
 ## Otros idiomas
 
 - [English (README)](/README.md)
