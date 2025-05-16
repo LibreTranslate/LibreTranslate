@@ -9,14 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-04-18 14:43-0400\n"
-"PO-Revision-Date: 2025-01-19 00:28+0000\n"
-"Last-Translator: \"Sravika Padakanti (MSS2020079)\" <padakantisravikaa@gmail.com>\n"
-"Language-Team: Hindi <https://hosted.weblate.org/projects/libretranslate/app/hi/>\n"
+"PO-Revision-Date: 2025-05-16 03:46+0000\n"
+"Last-Translator: Chaitanya Pandey <chaitanyapandey62@gmail.com>\n"
+"Language-Team: Hindi <https://hosted.weblate.org/projects/libretranslate/app/"
+"hi/>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.12-dev\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:93
@@ -32,8 +34,9 @@ msgid "Unauthorized"
 msgstr "अनधिकृत"
 
 #: libretranslate/app.py:329
+#, fuzzy
 msgid "Too many request limits violations"
-msgstr "बहुत से अनुरोध सीमा उल्लंघन"
+msgstr "बहुत से सीमा उल्लंघन अनुरोध"
 
 #: libretranslate/app.py:336
 msgid "Invalid API key"
@@ -68,9 +71,9 @@ msgid "Invalid request: %(name)s parameter is not a number"
 msgstr "अमान्य अनुरोध: %(name)s पैरामीटर संख्या नहीं है"
 
 #: libretranslate/app.py:669
-#, python-format
+#, fuzzy, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
-msgstr "अमान्य अनुरोध: %(name)s पैरामीटर होना चाहिए &lt;= %(value)s"
+msgstr "अमान्य अनुरोध: %(name)s पैरामीटर &lt;= %(value)s होना चाहिए"
 
 #: libretranslate/app.py:686 libretranslate/app.py:696
 #, python-format
