@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function(){
             charactersLimit: -1,
 
             detectedLangText: "",
+            fromTM: false, // Indicates if the translation was from Translation Memory
 
             copyTextLabel: {{ _e("Copy text") }},
 
@@ -111,10 +112,24 @@ document.addEventListener('DOMContentLoaded', function(){
                 if (this.inputText === ""){
                     this.$refs.inputTextarea.style.height = this.inputTextareaHeight + "px";
                     this.$refs.translatedTextarea.style.height = this.inputTextareaHeight + "px";
-                } else{
-                    this.$refs.inputTextarea.style.height = this.$refs.translatedTextarea.style.height = "1px";
-                    this.$refs.inputTextarea.style.height = Math.max(this.inputTextareaHeight, this.$refs.inputTextarea.scrollHeight + 32) + "px";
-                    this.$refs.translatedTextarea.style.height = Math.max(this.inputTextareaHeight, this.$refs.translatedTextarea.scrollHeight + 32) + "px";
+                } else {
+                    // Auto-resize textareas
+                    const inputTextareaScrollHeight = this.$refs.inputTextarea.scrollHeight + 32; // Adding padding
+                    const translatedTextareaScrollHeight = this.$refs.translatedTextarea.scrollHeight + 32; // Adding padding
+
+                    this.$refs.inputTextarea.style.height = "1px"; // Temporarily shrink to get accurate scrollHeight
+                    this.$refs.translatedTextarea.style.height = "1px";
+                    
+                    this.$refs.inputTextarea.style.height = Math.max(this.inputTextareaHeight, inputTextareaScrollHeight) + "px";
+                    this.$refs.translatedTextarea.style.height = Math.max(this.inputTextareaHeight, translatedTextareaScrollHeight) + "px";
+                    
+                    // Adjust position of TM indicator if visible
+                    if (this.fromTM && this.$refs.tmIndicator) {
+                        // Position it relative to the translatedTextarea
+                        // This is a simplistic approach; a more robust solution might use CSS positioning relative to a wrapper
+                        // For now, this might need manual CSS adjustment in index.html or a shared CSS file.
+                        // Let's assume CSS will handle its placement correctly based on its position in the DOM.
+                    }
                 }
             }
 
@@ -227,10 +242,12 @@ document.addEventListener('DOMContentLoaded', function(){
                 this.timeout = null;
 
                 this.detectedLangText = "";
+                this.fromTM = false; // Reset TM indicator
 
                 if (this.inputText === ""){
                     this.translatedText = "";
                     this.output = "";
+                    this.fromTM = false; // Reset TM indicator
                     this.abortPreviousTransRequest();
                     this.loadingTranslation = false;
                     return;
@@ -268,6 +285,7 @@ document.addEventListener('DOMContentLoaded', function(){
                             // Success!
                             if (res.translatedText !== undefined){
                                 self.translatedText = res.translatedText;
+                                self.fromTM = res.retrieved_from_tm || false; // Set based on API response
                                 self.loadingTranslation = false;
                                 self.output = JSON.stringify(res, null, 4);
                                 if(self.sourceLang == "auto" && res.detectedLanguage !== undefined){
@@ -275,6 +293,7 @@ document.addEventListener('DOMContentLoaded', function(){
                                     self.detectedLangText = ": " + (lang !== undefined ? lang.name : res.detectedLanguage.language) + " (" + res.detectedLanguage.confidence + "%)";
                                 }
                             } else{
+                                self.fromTM = false; // Ensure it's reset on error too
                                 throw new Error(res.error || {{ _e("Unknown error") }});
                             }
                         } catch (e) {
@@ -363,6 +382,7 @@ document.addEventListener('DOMContentLoaded', function(){
             deleteText: function(e){
                 e.preventDefault();
                 this.inputText = this.translatedText = this.output = "";
+                this.fromTM = false; // Reset TM indicator
                 this.$refs.inputTextarea.focus();
             },
             switchType: function(type) {

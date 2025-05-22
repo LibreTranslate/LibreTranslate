@@ -36,6 +36,7 @@ from libretranslate.locales import (
 
 from .api_keys import Database, RemoteDatabase
 from .suggestions import Database as SuggestionsDatabase
+from .tm_db import TMDatabase
 
 # Rough map of emoji characters
 emojis = {e: True for e in \
@@ -245,11 +246,17 @@ def create_app(args):
             frontend_argos_supported_files_format.append(ff)
 
     api_keys_db = None
+    tm_db = None # Initialize tm_db
 
     if args.req_limit > 0 or args.api_keys or args.daily_req_limit > 0 or args.hourly_req_limit > 0:
         api_keys_db = None
         if args.api_keys:
             api_keys_db = RemoteDatabase(args.api_keys_remote) if args.api_keys_remote else Database(args.api_keys_db_path)
+        
+        # Initialize TMDatabase here, potentially based on args if a specific setting is added later
+        # For now, always initialize if the code is present.
+        tm_db = TMDatabase()
+
 
         from flask_limiter import Limiter
 
@@ -602,7 +609,35 @@ def create_app(args):
                   oneOf:
                     - type: string
                     - type: array
-                  description: Translated text(s)
+                  description: Translated text(s). If the input 'q' was an array, this will be an array of translated texts.
+                retrieved_from_tm:
+                  type: boolean
+                  description: >
+                    Indicates if the translation was retrieved from the Translation Memory.
+                    For batch requests, this is true only if *all* segments in the batch were found in the TM.
+                    If false, the translation was performed by the model and saved to the TM (if applicable).
+                detectedLanguage:
+                  type: object
+                  description: Only returned if 'source' language is set to 'auto'.
+                  properties:
+                    language:
+                      type: string
+                      description: Detected language code (ISO 639-1).
+                    confidence:
+                      type: integer
+                      description: Confidence score of the detection (0-100).
+                alternatives:
+                  type: array
+                  description: >
+                    Only returned if 'alternatives' parameter was > 0.
+                    An array of alternative translations. For batch requests, this will be an array of arrays of alternatives.
+                    Not available if the result is from Translation Memory or if format is 'html'.
+                  items:
+                    oneOf: # For batch, it's an array of arrays of strings. For single, array of strings.
+                      - type: string 
+                      - type: array 
+                        items:
+                          type: string
           400:
             description: Invalid request
             schema:
@@ -660,7 +695,10 @@ def create_app(args):
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='source'))
         if not target_lang:
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='target'))
-        
+
+        # Use model codes for TM consistency from here
+        # source_lang and target_lang are already model codes due to iso2model above.
+
         try:
             num_alternatives = max(0, int(num_alternatives))
         except ValueError:
@@ -699,26 +737,86 @@ def create_app(args):
 
         if batch:
             request.req_cost = max(1, len(q))
-          
+
+        # Translation Memory Lookup
+        if tm_db:
+            if batch:
+                tm_results = []
+                all_found_in_tm = True
+                total_chars_from_tm = 0
+                for text_item in q:
+                    # Note: source_lang is already a model code here if not 'auto'
+                    # If source_lang is 'auto', TM lookup will be skipped for now,
+                    # as we need detected language first.
+                    # A more advanced TM could store 'auto' entries or try detection before TM.
+                    # For now, TM lookup is effective if source_lang is specified.
+                    if source_lang != "auto":
+                        tm_entry = tm_db.lookup_entry(text_item, source_lang, target_lang)
+                        if tm_entry:
+                            tm_results.append(tm_entry[0]) # target_text
+                            tm_db.update_last_used(tm_entry[1]) # entry_id
+                            total_chars_from_tm += len(text_item)
+                        else:
+                            all_found_in_tm = False
+                            break # If one item is not in TM, proceed to translate the whole batch
+                    else: # source_lang == "auto"
+                        all_found_in_tm = False # Cannot guarantee all from TM if auto-detecting
+                        break
+                
+                if all_found_in_tm and source_lang != "auto": # Ensure all items were looked up and found
+                    if api_keys_db:
+                        ak = get_req_api_key()
+                        if ak:
+                            # Count TM hits against API key quota (same as translation for now)
+                            api_keys_db.increase_chars_count(ak, total_chars_from_tm)
+                    
+                    response_data = {"translatedText": tm_results, "retrieved_from_tm": True}
+                    if num_alternatives > 0: # TM doesn't store alternatives currently
+                        response_data["alternatives"] = [[] for _ in q]
+                    return jsonify(response_data)
+
+            else: # Single query
+                if source_lang != "auto":
+                    tm_entry = tm_db.lookup_entry(q, source_lang, target_lang)
+                    if tm_entry:
+                        target_text, tm_id = tm_entry
+                        tm_db.update_last_used(tm_id)
+                        if api_keys_db:
+                            ak = get_req_api_key()
+                            if ak:
+                                api_keys_db.increase_chars_count(ak, len(q))
+                        
+                        response_data = {"translatedText": target_text, "retrieved_from_tm": True}
+                        if num_alternatives > 0: # TM doesn't store alternatives
+                             response_data["alternatives"] = []
+                        return jsonify(response_data)
+
+        # If not found in TM or source is 'auto', proceed with detection and translation
         translatable = detect_translatable(src_texts)
         if translatable:
           if source_lang == "auto":
               candidate_langs = detect_languages(src_texts)
-              detected_src_lang = candidate_langs[0]
+              detected_src_lang_info = candidate_langs[0] # This is a dict {'language': code, 'confidence': val}
+              # Update source_lang to the detected one for translation & TM storage
+              source_lang = detected_src_lang_info["language"]
           else:
-              detected_src_lang = {"confidence": 100.0, "language": source_lang}
+              # source_lang is already set and is a model code
+              detected_src_lang_info = {"confidence": 100.0, "language": source_lang}
         else:
-          detected_src_lang = {"confidence": 0.0, "language": "en"}
+          # Cannot translate, so use English as a default detected language
+          detected_src_lang_info = {"confidence": 0.0, "language": "en"}
+          source_lang = "en" # Update source_lang for consistency
         
-        src_lang = next(iter([l for l in languages if l.code == detected_src_lang["language"]]), None)
+        src_lang_obj = next(iter([l for l in languages if l.code == source_lang]), None)
 
-        if src_lang is None:
-            abort(400, description=_("%(lang)s is not supported", lang=source_lang))
+        if src_lang_obj is None:
+            # This should ideally use model2iso for user-facing messages if source_lang was from auto-detection
+            abort(400, description=_("%(lang)s is not supported", lang=model2iso(source_lang)))
 
-        tgt_lang = next(iter([l for l in languages if l.code == target_lang]), None)
+        tgt_lang_obj = next(iter([l for l in languages if l.code == target_lang]), None)
 
-        if tgt_lang is None:
-            abort(400, description=_("%(lang)s is not supported",lang=target_lang))
+        if tgt_lang_obj is None:
+            abort(400, description=_("%(lang)s is not supported",lang=model2iso(target_lang)))
 
         if not text_format:
             text_format = "text"
@@ -727,64 +825,85 @@ def create_app(args):
             abort(400, description=_("%(format)s format is not supported", format=text_format))
 
         try:
+            translated_results = []
+            alternatives_results = []
+            final_detected_language_info = None # For single translation response
+
             if batch:
-                batch_results = []
-                batch_alternatives = []
-                for text in q:
-                    translator = src_lang.get_translation(tgt_lang)
+                for i, text_item in enumerate(q):
+                    # src_lang is now determined (either user-specified or auto-detected for the whole batch)
+                    translator = src_lang_obj.get_translation(tgt_lang_obj)
                     if translator is None:
-                        abort(400, description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)", tname=_lazy(tgt_lang.name), tcode=tgt_lang.code, sname=_lazy(src_lang.name), scode=src_lang.code))
+                        abort(400, description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)", 
+                                                tname=_lazy(tgt_lang_obj.name), tcode=tgt_lang_obj.code, 
+                                                sname=_lazy(src_lang_obj.name), scode=src_lang_obj.code))
 
-                    if translatable:
-                      if text_format == "html":
-                          translated_text = unescape(str(translate_html(translator, text)))
-                          alternatives = [] # Not supported for html yet
-                      else:
-                          hypotheses = translator.hypotheses(text, num_alternatives + 1)
-                          translated_text = unescape(improve_translation_formatting(text, hypotheses[0].value))
-                          alternatives = filter_unique([unescape(improve_translation_formatting(text, hypotheses[i].value)) for i in range(1, len(hypotheses))], translated_text)
+                    current_text_translatable = detect_translatable(text_item)
+                    if current_text_translatable:
+                        if text_format == "html":
+                            translated_text = unescape(str(translate_html(translator, text_item)))
+                            item_alternatives = [] 
+                        else:
+                            hypotheses = translator.hypotheses(text_item, num_alternatives + 1)
+                            translated_text = unescape(improve_translation_formatting(text_item, hypotheses[0].value))
+                            item_alternatives = filter_unique([unescape(improve_translation_formatting(text_item, hypotheses[i].value)) for i in range(1, len(hypotheses))], translated_text)
                     else:
-                      translated_text = text # Cannot translate, send the original text back
-                      alternatives = []
+                        translated_text = text_item 
+                        item_alternatives = []
                     
-                    batch_results.append(translated_text)
-                    batch_alternatives.append(alternatives)
+                    translated_results.append(translated_text)
+                    alternatives_results.append(item_alternatives)
+                    if tm_db: # source_lang is now resolved from 'auto' if it was 'auto'
+                        tm_db.add_entry(text_item, translated_text, source_lang, target_lang)
                 
-                result = {"translatedText": batch_results}
-
-                if source_lang == "auto":
-                    result["detectedLanguage"] = [model2iso(detected_src_lang)] * len(q)
+                result = {"translatedText": translated_results, "retrieved_from_tm": False}
+                # If original source was 'auto', report the detected language for the whole batch
+                if json.get("source") == "auto" or request.values.get("source") == "auto": # Check original request param
+                    result["detectedLanguage"] = model2iso(detected_src_lang_info) 
                 if num_alternatives > 0:
-                    result["alternatives"] = batch_alternatives
-
-                return jsonify(result)
-            else:
-                translator = src_lang.get_translation(tgt_lang)
+                    result["alternatives"] = alternatives_results
+            else: # Single query
+                translator = src_lang_obj.get_translation(tgt_lang_obj)
                 if translator is None:
-                    abort(400, description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)", tname=_lazy(tgt_lang.name), tcode=tgt_lang.code, sname=_lazy(src_lang.name), scode=src_lang.code))
+                     abort(400, description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)", 
+                                             tname=_lazy(tgt_lang_obj.name), tcode=tgt_lang_obj.code, 
+                                             sname=_lazy(src_lang_obj.name), scode=src_lang_obj.code))
 
-                if translatable:
-                  if text_format == "html":
-                      translated_text = unescape(str(translate_html(translator, q)))
-                      alternatives = [] # Not supported for html yet
-                  else:
-                      hypotheses = translator.hypotheses(q, num_alternatives + 1)
-                      translated_text = unescape(improve_translation_formatting(q, hypotheses[0].value))
-                      alternatives = filter_unique([unescape(improve_translation_formatting(q, hypotheses[i].value)) for i in range(1, len(hypotheses))], translated_text)
+                if translatable: # This uses the overall 'translatable' for the single query q
+                    if text_format == "html":
+                        translated_text = unescape(str(translate_html(translator, q)))
+                        current_alternatives = []
+                    else:
+                        hypotheses = translator.hypotheses(q, num_alternatives + 1)
+                        translated_text = unescape(improve_translation_formatting(q, hypotheses[0].value))
+                        current_alternatives = filter_unique([unescape(improve_translation_formatting(q, hypotheses[i].value)) for i in range(1, len(hypotheses))], translated_text)
                 else:
-                  translated_text = q # Cannot translate, send the original text back
-                  alternatives = []
+                    translated_text = q 
+                    current_alternatives = []
                 
-                result = {"translatedText": translated_text}
-
-                if source_lang == "auto":
-                    result["detectedLanguage"] = model2iso(detected_src_lang)
+                if tm_db: # source_lang is now resolved
+                    tm_db.add_entry(q, translated_text, source_lang, target_lang)
+                
+                result = {"translatedText": translated_text, "retrieved_from_tm": False}
+                # If original source was 'auto', report the detected language
+                if json.get("source") == "auto" or request.values.get("source") == "auto":
+                    result["detectedLanguage"] = model2iso(detected_src_lang_info)
                 if num_alternatives > 0:
-                    result["alternatives"] = alternatives
+                    result["alternatives"] = current_alternatives
+                translated_results = [translated_text] # For API key counting logic below
 
-                return jsonify(result)
+            # API Key character counting (applies if not fully served from TM)
+            if api_keys_db:
+                ak = get_req_api_key()
+                if ak:
+                    total_chars_translated = sum(len(s) for s in src_texts) # src_texts is [q] or q (list)
+                    api_keys_db.increase_chars_count(ak, total_chars_translated)
+            
+            return jsonify(result)
+
         except Exception as e:
-            raise e
+            # It's good practice to log the actual exception e
+            # For example: app.logger.error(f"Translation error: {e}", exc_info=True)
             abort(500, description=_("Cannot translate text: %(text)s", text=str(e)))
 
     @bp.post("/translate_file")
@@ -1052,6 +1171,331 @@ def create_app(args):
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='q'))
 
         return jsonify(model2iso(detect_languages(q)))
+
+    # Translation Memory Management Endpoints
+    @bp.route("/tm/entries", methods=["GET"])
+    @access_check
+    def list_tm_entries():
+        """
+        List Translation Memory entries with pagination and filtering.
+        ---
+        tags:
+          - tm
+        parameters:
+          - in: query
+            name: page
+            schema:
+              type: integer
+              default: 1
+            description: Page number for pagination.
+          - in: query
+            name: per_page
+            schema:
+              type: integer
+              default: 20
+            description: Number of entries per page.
+          - in: query
+            name: source_lang
+            schema:
+              type: string
+            description: Optional filter by source language (ISO code).
+          - in: query
+            name: target_lang
+            schema:
+              type: string
+            description: Optional filter by target language (ISO code).
+          - in: query
+            name: api_key
+            schema:
+              type: string
+            description: API key.
+        responses:
+          200:
+            description: A list of TM entries and pagination details.
+            schema:
+              type: object
+              properties:
+                entries:
+                  type: array
+                  items:
+                    $ref: "#/definitions/TMEntry"
+                total_entries:
+                  type: integer
+                  description: Total number of entries matching the filter.
+                page:
+                  type: integer
+                  description: Current page number.
+                per_page:
+                  type: integer
+                  description: Number of entries per page.
+          400:
+            description: Invalid query parameters (e.g., non-integer page/per_page).
+          503:
+            description: Translation Memory not enabled/configured.
+            schema:
+              $ref: "#/definitions/ErrorResponse"
+definitions:
+  TMEntry:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Unique ID of the TM entry.
+      source_text:
+        type: string
+        description: The source text.
+      target_text:
+        type: string
+        description: The translated target text.
+      source_lang:
+        type: string
+        description: Source language code (ISO 639-1).
+      target_lang:
+        type: string
+        description: Target language code (ISO 639-1).
+      created_at:
+        type: string
+        format: date-time
+        description: Timestamp of creation.
+      last_used_at:
+        type: string
+        format: date-time
+        description: Timestamp of last usage.
+      user_id:
+        type: integer
+        nullable: true
+        description: Optional user ID associated with the entry.
+      confidence:
+        type: number
+        format: float
+        nullable: true
+        description: Optional confidence score of the translation.
+  ErrorResponse:
+    type: object
+    properties:
+      error:
+        type: string
+        description: Error message.
+        """
+        if not tm_db:
+            return jsonify({"error": "Translation Memory not enabled/configured"}), 503
+
+        try:
+            page = int(request.args.get("page", 1))
+            per_page = int(request.args.get("per_page", 20))
+        except ValueError:
+            return jsonify({"error": "Invalid 'page' or 'per_page' parameter"}), 400
+
+        if page < 1 or per_page < 1:
+            return jsonify({"error": "'page' and 'per_page' must be positive integers"}), 400
+        
+        source_lang_iso = request.args.get("source_lang")
+        target_lang_iso = request.args.get("target_lang")
+
+        source_lang_model = iso2model(source_lang_iso) if source_lang_iso else None
+        target_lang_model = iso2model(target_lang_iso) if target_lang_iso else None
+
+        entries_model, total_count = tm_db.list_entries(
+            page=page, 
+            per_page=per_page, 
+            source_lang=source_lang_model, 
+            target_lang=target_lang_model
+        )
+
+        # Convert language codes in entries back to ISO for the response
+        entries_iso = []
+        for entry in entries_model:
+            entry_copy = dict(entry) # Make a copy to modify
+            entry_copy["source_lang"] = model2iso(entry["source_lang"])
+            entry_copy["target_lang"] = model2iso(entry["target_lang"])
+            entries_iso.append(entry_copy)
+
+        return jsonify({
+            "entries": entries_iso,
+            "total_entries": total_count,
+            "page": page,
+            "per_page": per_page
+        })
+
+    @bp.route("/tm/entries", methods=["POST"])
+    @access_check
+    def add_tm_entry_route():
+        """
+        Add a new entry to the Translation Memory.
+        ---
+        tags:
+          - tm
+        parameters:
+          - in: body
+            name: body
+            required: true
+            schema:
+              $ref: "#/definitions/TMEntryInput"
+          - in: query # Or formData, depending on how api_key is typically sent
+            name: api_key 
+            schema:
+              type: string
+            description: API key.
+        responses:
+          201:
+            description: TM entry created successfully.
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: TM entry added successfully
+          400:
+            description: Invalid request payload or missing required fields.
+            schema:
+              $ref: "#/definitions/ErrorResponse"
+          503:
+            description: Translation Memory not enabled/configured.
+            schema:
+              $ref: "#/definitions/ErrorResponse"
+definitions:
+  TMEntryInput:
+    type: object
+    required:
+      - source_text
+      - target_text
+      - source_lang
+      - target_lang
+    properties:
+      source_text:
+        type: string
+        example: "Hello world"
+      target_text:
+        type: string
+        example: "Hallo Welt"
+      source_lang:
+        type: string
+        description: Source language code (ISO 639-1).
+        example: "en"
+      target_lang:
+        type: string
+        description: Target language code (ISO 639-1).
+        example: "de"
+      user_id:
+        type: integer
+        nullable: true
+        description: Optional user ID to associate with the entry.
+        example: 123
+      confidence:
+        type: number
+        format: float
+        nullable: true
+        description: Optional confidence score for the translation (e.g., 0.0 to 1.0).
+        example: 0.95
+  ErrorResponse: # Already defined above, but good to ensure it's there or use existing one
+    type: object
+    properties:
+      error:
+        type: string
+        """
+        if not tm_db:
+            return jsonify({"error": "Translation Memory not enabled/configured"}), 503
+
+        if not request.is_json:
+            return jsonify({"error": "Request must be JSON"}), 400
+
+        data = get_json_dict(request)
+        
+        source_text = data.get("source_text")
+        target_text = data.get("target_text")
+        source_lang_iso = data.get("source_lang")
+        target_lang_iso = data.get("target_lang")
+        user_id = data.get("user_id")
+        confidence = data.get("confidence")
+
+        if not all([source_text, target_text, source_lang_iso, target_lang_iso]):
+            return jsonify({"error": "Missing required fields: source_text, target_text, source_lang, target_lang"}), 400
+
+        source_lang_model = iso2model(source_lang_iso)
+        target_lang_model = iso2model(target_lang_iso)
+
+        if not source_lang_model or not target_lang_model:
+             return jsonify({"error": "Invalid source_lang or target_lang provided. Ensure they are valid ISO codes."}), 400
+        
+        # Basic validation for language codes if they are part of known languages
+        # This check is implicitly handled by iso2model if it returns None for invalid codes,
+        # but an explicit check against `languages` list could be added if needed.
+
+        try:
+            # Assuming add_entry doesn't return the created object,
+            # we might want to fetch it or just return success.
+            # For now, let's assume add_entry itself doesn't raise specific errors for duplicate, etc.
+            # that need special handling here.
+            tm_db.add_entry(
+                source_text, 
+                target_text, 
+                source_lang_model, 
+                target_lang_model, 
+                user_id, 
+                confidence
+            )
+            # To return the created entry, we'd need add_entry to return an ID, then call get_entry_by_id
+            # For simplicity, returning a success message.
+            return jsonify({"message": "TM entry added successfully"}), 201
+        except Exception as e:
+            # Log e for server-side details
+            return jsonify({"error": f"Failed to add TM entry: {str(e)}"}), 500
+
+
+    @bp.route("/tm/entries/<int:entry_id>", methods=["DELETE"])
+    @access_check
+    def delete_tm_entry_route(entry_id):
+        """
+        Delete a Translation Memory entry by its ID.
+        ---
+        tags:
+          - tm
+        parameters:
+          - in: path
+            name: entry_id
+            schema:
+              type: integer
+            required: true
+            description: ID of the TM entry to delete.
+          - in: query # Or formData
+            name: api_key 
+            schema:
+              type: string
+            description: API key.
+        responses:
+          200:
+            description: TM entry deleted successfully.
+            schema:
+              type: object
+              properties:
+                success:
+                  type: boolean
+                  example: true
+          404:
+            description: TM entry not found or could not be deleted.
+            schema:
+              $ref: "#/definitions/ErrorResponse"
+          503:
+            description: Translation Memory not enabled/configured.
+            schema:
+              $ref: "#/definitions/ErrorResponse"
+        """
+        if not tm_db:
+            return jsonify({"error": "Translation Memory not enabled/configured"}), 503
+
+        # Optional: Check if entry exists before attempting delete if delete_entry doesn't give enough feedback
+        # entry = tm_db.get_entry_by_id(entry_id)
+        # if not entry:
+        #     return jsonify({"error": "TM entry not found"}), 404
+
+        deleted = tm_db.delete_entry(entry_id)
+        if deleted:
+            return jsonify({"success": True}), 200
+        else:
+            # This could be because the entry didn't exist, or a DB error occurred.
+            # tm_db.delete_entry logs DB errors. If it returns False and no error was logged,
+            # it's likely the entry_id was not found.
+            return jsonify({"error": "TM entry not found or could not be deleted"}), 404
 
     @bp.route("/frontend/settings")
     @limiter.exempt

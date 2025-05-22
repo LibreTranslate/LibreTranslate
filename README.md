@@ -127,6 +127,29 @@ Response:
 }
 ```
 
+## Translation Memory
+
+LibreTranslate includes a Translation Memory (TM) feature to enhance translation efficiency and consistency for repeated segments.
+
+**What is Translation Memory?**
+
+A Translation Memory is a database that stores "segments" (sentences, paragraphs, or phrases) that have already been translated. When you request a translation for a new segment:
+1. The system first searches the TM for an exact match.
+2. If a match is found, the stored translation is retrieved, which is typically faster than translating from scratch using the models.
+3. This also ensures that identical segments are always translated consistently.
+
+**How it works in LibreTranslate:**
+
+- **Automatic Lookup:** Before attempting to translate a segment using the machine translation models, LibreTranslate automatically checks its local TM database. If an exact match for the given source text and language pair exists, its translation is returned. The API response will include a field `retrieved_from_tm: true` in such cases. For batch translations, `retrieved_from_tm` will be true only if *all* segments in the batch are found in the TM.
+- **Automatic Saving:** When a segment (or segments in a batch) is translated by the machine translation models (i.e., not found in the TM, or not all segments in a batch were found), the original source text(s) and their new translation(s) are automatically saved to the TM for future use.
+- **Language Specificity:** TM entries are specific to language pairs (e.g., an English-to-Spanish entry will only be used for that pair).
+- **User Management:** The TM is stored in a local SQLite database (`db/tm.db` by default). Advanced users or administrators can manage TM entries via dedicated API endpoints (`/tm/entries`). These allow for listing, adding, and deleting TM entries. Please refer to the API documentation (accessible via the `/docs` endpoint on your LibreTranslate instance) for more details on these management interfaces.
+
+**Benefits:**
+- **Speed:** Retrieving translations from the TM is generally faster than model inference.
+- **Consistency:** Ensures identical source segments are translated the same way every time.
+- **Reduced Load:** Can reduce the computational load on translation models for frequently translated content.
+
 ## Install and Run
 
 You can run your own API server with just a few lines of setup!
