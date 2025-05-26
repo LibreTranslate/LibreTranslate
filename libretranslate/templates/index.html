@@ -233,6 +233,7 @@
 									{{ _h("Translated text") }}
 								</label>
 								<textarea id="textarea2" v-model="translatedText" ref="translatedTextarea" dir="auto" v-bind:readonly="suggestions && !isSuggesting" :disabled="disableInput"></textarea>
+								<span v-if="fromTM" class="tm-indicator" ref="tmIndicator">[[ _e("(Retrieved from Translation Memory)") ]]</span>
 									<div class="actions">
 										<button v-if="suggestions && !loadingTranslation && inputText.length && !isSuggesting" class="btn-action" @click="suggestTranslation" aria-label="{{ _h('Suggest translation') }}">
 											<i class="material-icons">edit</i>
@@ -365,5 +366,20 @@
 	</script>
 	<script src="{{ url_for('static', filename='js/prism.min.js') }}"></script>
 	<script src="js/app.js?v={{ version }}"></script>
+
+	<style>
+	  .tm-indicator {
+	    display: block; /* Or inline-block, depending on desired layout */
+	    font-size: 0.8rem;
+	    color: #666; /* Darker grey for better visibility */
+	    margin-top: 4px; /* Space from textarea */
+	    margin-left: 2px; /* Align with textarea edge */
+	    text-align: left; /* Ensure text aligns as expected */
+	  }
+	  /* Ensure .textarea-container or its parent has position: relative if .tm-indicator needs absolute positioning */
+	  .textarea-container {
+		position: relative; /* Example if you wanted to position tm-indicator absolutely within this */
+	  }
+	</style>
 </body>
 </html>
