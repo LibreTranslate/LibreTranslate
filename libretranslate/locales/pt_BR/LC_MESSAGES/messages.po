@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-04-18 14:43-0400\n"
-"PO-Revision-Date: 2025-05-03 23:01+0000\n"
-"Last-Translator: Jose Delvani <dedakir923@exoular.com>\n"
+"PO-Revision-Date: 2025-06-06 04:36+0000\n"
+"Last-Translator: Juzé <dedakir923@exoular.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "libretranslate/app/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -728,7 +728,7 @@ msgstr "API de Tradução Automática de Código Aberto"
 
 #: libretranslate/templates/index.html:327
 msgid "Free to download. Offline Capable. Easy to Setup."
-msgstr "Grátis para descarregar. Funciona offline. Fácil de configurar."
+msgstr "Download gratuito. Funciona offline. Fácil de configurar."
 
 #: libretranslate/templates/index.html:346
 msgid "LibreTranslate"
