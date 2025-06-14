@@ -446,6 +446,7 @@ def create_app(args):
             current_locale=get_locale(),
             alternate_locales=get_alternate_locale_links(),
             under_attack=args.under_attack,
+            hide_api=args.hide_api,
         ))
 
         if args.require_api_key_secret:
