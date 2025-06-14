@@ -117,6 +117,11 @@ _default_options_objects = [
         'value_type': 'str'
     },
     {
+        'name': 'FRONTEND_LANGUAGE',
+        'default_value': '',
+        'value_type': 'str'
+    },
+    {
         'name': 'FRONTEND_TIMEOUT',
         'default_value': 500,
         'value_type': 'int'

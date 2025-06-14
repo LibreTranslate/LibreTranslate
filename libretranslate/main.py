@@ -105,6 +105,13 @@ def get_args():
         help="Set frontend default language - target (%(default)s)",
     )
     parser.add_argument(
+        "--frontend-language",
+        type=str,
+        default=DEFARGS['FRONTEND_LANGUAGE'],
+        metavar="<language code>",
+        help="Set frontend interface language (%(default)s)",
+    )
+    parser.add_argument(
         "--frontend-timeout",
         type=int,
         default=DEFARGS['FRONTEND_TIMEOUT'],
