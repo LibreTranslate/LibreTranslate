@@ -204,6 +204,7 @@ Arguments passed to the process or set via environment variables are split into 
 | --disable-web-ui              | Disable web ui                                                                                              | `Web Ui enabled`                   | LT_DISABLE_WEB_UI              |
 | --update-models               | Update language models at startup                                                                           | `Only on if no models found`       | LT_UPDATE_MODELS               |
 | --metrics                     | Enable the /metrics endpoint for exporting [Prometheus](https://prometheus.io/) usage metrics               | `Disabled`                         | LT_METRICS                     |
+| --hide-api                    | Hide the API request/response section in the web UI                                                         | `Disabled`                         | LT_HIDE_API                    |
 
 ### Configuration Parameters
 

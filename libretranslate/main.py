@@ -154,6 +154,12 @@ def get_args():
         help="Require use of an API key for programmatic access to the API, unless the client also matches a fingerprint",
     )
     parser.add_argument(
+        "--hide-api",
+        default=DEFARGS['HIDE_API'],
+        action="store_true",
+        help="Hide the API request/response fields in the frontend",
+    )
+    parser.add_argument(
         "--under-attack",
         default=DEFARGS['UNDER_ATTACK'],
         action="store_true",

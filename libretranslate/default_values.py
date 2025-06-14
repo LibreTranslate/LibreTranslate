@@ -162,6 +162,11 @@ _default_options_objects = [
         'value_type': 'bool'
     },
     {
+        'name': 'HIDE_API',
+        'default_value': False,
+        'value_type': 'bool'
+    },
+    {
         'name': 'SHARED_STORAGE',
         'default_value': 'memory://',
         'value_type': 'str'
