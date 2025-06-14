@@ -429,7 +429,7 @@ def create_app(args):
         if args.disable_web_ui:
             abort(404)
 
-        langcode = request.args.get('lang')
+        langcode = args.frontend_language if len(args.frontend_language) > 0 else request.args.get('lang')
         if langcode and langcode in get_available_locale_codes(not args.debug):
             session.update(preferred_lang=langcode)
 
