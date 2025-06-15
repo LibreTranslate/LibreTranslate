@@ -33,7 +33,6 @@ from libretranslate.locales import (
     gettext_html,
     lazy_swag,
 )
-from libretranslate.default_values import DEFAULT_FRONTEND_TITLE
 
 from .api_keys import Database, RemoteDatabase
 from .suggestions import Database as SuggestionsDatabase
@@ -449,7 +448,6 @@ def create_app(args):
             under_attack=args.under_attack,
             hide_api=args.hide_api,
             frontend_title=args.frontend_title,
-            use_custom_title=args.frontend_title != DEFAULT_FRONTEND_TITLE,
         ))
 
         if args.require_api_key_secret:

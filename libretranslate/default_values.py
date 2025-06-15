@@ -2,7 +2,6 @@ import os
 
 _prefix = 'LT_'
 
-DEFAULT_FRONTEND_TITLE = 'LibreTranslate'
 
 def _get_value_str(name, default_value):
     env_value = os.environ.get(name)
@@ -129,7 +128,7 @@ _default_options_objects = [
     },
     {
         'name': 'FRONTEND_TITLE',
-        'default_value': DEFAULT_FRONTEND_TITLE,
+        'default_value': '',
         'value_type': 'str'
     },
     {
