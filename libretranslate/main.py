@@ -112,6 +112,13 @@ def get_args():
         help="Set frontend interface language (%(default)s)",
     )
     parser.add_argument(
+        "--frontend-title",
+        type=str,
+        default=DEFARGS['FRONTEND_TITLE'],
+        metavar="<title>",
+        help="Set frontend title (%(default)s)",
+    )
+    parser.add_argument(
         "--frontend-timeout",
         type=int,
         default=DEFARGS['FRONTEND_TIMEOUT'],

@@ -9,6 +9,8 @@
 	<title>LibreTranslate - {{ _h("Free and Open Source Machine Translation API") }} 🌐</title>
 	<meta name="description" content="{{ _h('Free and Open Source Machine Translation API. Free to download, offline capable and easy to setup. Run your own API server in just a few minutes.') }}">
 	<meta name="keywords" content="{{ _h('translation') }},{{ _h('api') }}">
+	{% else %}
+	<title>{{ frontend_title }}</title>
 	{% endif %}
 
 	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">

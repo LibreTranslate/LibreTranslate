@@ -127,6 +127,11 @@ _default_options_objects = [
         'value_type': 'int'
     },
     {
+        'name': 'FRONTEND_TITLE',
+        'default_value': 'LibreTranslate',
+        'value_type': 'str'
+    },
+    {
         'name': 'API_KEYS',
         'default_value': False,
         'value_type': 'bool'
