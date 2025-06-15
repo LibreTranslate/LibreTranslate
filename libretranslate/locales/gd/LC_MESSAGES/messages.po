@@ -9,16 +9,17 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.6.2\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-04-18 14:43-0400\n"
-"PO-Revision-Date: 2024-10-23 17:15+0000\n"
+"PO-Revision-Date: 2025-06-16 10:01+0000\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
+"Language-Team: Gaelic <https://hosted.weblate.org/projects/libretranslate/"
+"app/gd/>\n"
 "Language: gd\n"
-"Language-Team: Gaelic "
-"<https://hosted.weblate.org/projects/libretranslate/app/gd/>\n"
-"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? "
-"1 : (n > 2 && n < 20) ? 2 : 3;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
+"(n > 2 && n < 20) ? 2 : 3;\n"
+"X-Generator: Weblate 5.12-dev\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:93
@@ -167,7 +168,7 @@ msgstr "Sìnis (thradaiseanta)"
 
 #: libretranslate/locales/.langs.py:10
 msgid "Czech"
-msgstr "Seacais"
+msgstr "Seicis"
 
 #: libretranslate/locales/.langs.py:11
 msgid "Danish"
@@ -755,4 +756,3 @@ msgstr "Co-thabhartaichean %(libretranslate)s"
 
 #~ msgid "Galician"
 #~ msgstr "Gailìsis"
-
