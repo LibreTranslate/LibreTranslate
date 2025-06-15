@@ -181,7 +181,13 @@
 						</div>
 					</div>
 					{% endif %}
-					<h3 class="header center">{{ _h("Translation API") }}</h3>
+					<h3 class="header center">
+						{% if use_custom_title %}
+						{{ frontend_title }}
+						{% else %}
+						{{ _h("Translation API") }}
+						{% endif %}
+					</h3>
 					<div id="translation-type-btns" class="s12 center" v-if="filesTranslation === true">
 						<button type="button" class="btn btn-switch-type" @click="switchType('text')" :class="{'active': translationType === 'text'}" :disabled="disableInput">
 							<i aria-hidden="true" class="material-icons">title</i>
