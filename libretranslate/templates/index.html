@@ -64,14 +64,16 @@
 				</a>
 				<ul id="nav" class="right hide-on-med-and-down top-nav position-relative">
 					{% set menulinks %}
+					{% if not hide_api %}
 					<li><a href="{{ swagger_url }}">{{ _h("API Docs") }}</a></li>
 					{% if get_api_key_link %}
 					<li><a href="{{ get_api_key_link }}">{{ _h("Get API Key") }}</a></li>
 					{% endif %}
-					<li><a href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">{{ _h("GitHub") }}</a></li>
 					{% if api_keys %}
 					<li><a class="noline" href="javascript:setApiKey()" title="{{ _h('Set API Key') }}" aria-label="{{ _h('Set API Key') }}"><i class="material-icons">vpn_key</i></a></li>
 					{% endif %}
+					{% endif %}
+					<li><a href="https://github.com/LibreTranslate/LibreTranslate" rel="noopener noreferrer">{{ _h("GitHub") }}</a></li>
 					<li class="change-language"><a class="noline" href="javascript:void(0)" title="{{ _h('Change language') }}"><i class="material-icons">language</i></a>
 					</li>
 					<li class="locale-panel">
