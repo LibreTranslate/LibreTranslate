@@ -9,15 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-04-18 14:43-0400\n"
-"PO-Revision-Date: 2024-06-14 16:33+0000\n"
-"Last-Translator: Dương Nguyễn Võ Quốc <nguyenquocduong380@gmail.com>\n"
+"PO-Revision-Date: 2025-06-28 13:05+0000\n"
+"Last-Translator: Yen Le Diep Hoang <ldhyen99@gmail.com>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/"
+"libretranslate/app/vi/>\n"
 "Language: vi\n"
-"Language-Team: Vietnamese "
-"<https://hosted.weblate.org/projects/libretranslate/app/vi/>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.13-dev\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:93
@@ -30,7 +31,7 @@ msgstr "Tự động phát hiện"
 
 #: libretranslate/app.py:311
 msgid "Unauthorized"
-msgstr "Truy cập không hợp lệ."
+msgstr "Truy cập không được cấp quyền"
 
 #: libretranslate/app.py:329
 msgid "Too many request limits violations"
@@ -66,12 +67,12 @@ msgstr "Yêu cầu không hợp lệ: thiếu tham số %(name)s"
 #: libretranslate/app.py:666
 #, python-format
 msgid "Invalid request: %(name)s parameter is not a number"
-msgstr ""
+msgstr "Yêu cầu không hợp lệ: tham số %(name)s không phải là một số"
 
 #: libretranslate/app.py:669
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
-msgstr ""
+msgstr "Yêu cầu không hợp lệ: tham số %(name)s phải <= %(value)s"
 
 #: libretranslate/app.py:686 libretranslate/app.py:696
 #, python-format
@@ -132,7 +133,7 @@ msgstr "Tiếng Anh"
 
 #: libretranslate/locales/.langs.py:2
 msgid "Albanian"
-msgstr ""
+msgstr "Người Albania"
 
 #: libretranslate/locales/.langs.py:3
 msgid "Arabic"
@@ -180,7 +181,7 @@ msgstr "Esperanto (Quốc tế ngữ)"
 
 #: libretranslate/locales/.langs.py:14
 msgid "Estonian"
-msgstr ""
+msgstr "Người Estonia"
 
 #: libretranslate/locales/.langs.py:15
 msgid "Finnish"
@@ -769,4 +770,3 @@ msgstr "Các cộng tác viên %(libretranslate)s"
 
 #~ msgid "Galician"
 #~ msgstr ""
-
