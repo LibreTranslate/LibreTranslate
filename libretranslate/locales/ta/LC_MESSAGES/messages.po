@@ -9,15 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.6.2\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-04-18 14:43-0400\n"
-"PO-Revision-Date: 2025-01-12 20:04+0000\n"
+"PO-Revision-Date: 2025-06-28 13:05+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/libretranslate/app/"
+"ta/>\n"
 "Language: ta\n"
-"Language-Team: Tamil "
-"<https://hosted.weblate.org/projects/libretranslate/app/ta/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.13-dev\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:93
@@ -76,7 +77,7 @@ msgstr "தவறான கோரிக்கை: %(name)s அளவுரு <=
 #: libretranslate/app.py:686 libretranslate/app.py:696
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
-msgstr "தவறான கோரிக்கை: கோரிக்கை (%(அளவு) வரி வரம்பை மீறுகிறது (%(வரம்புகள்)"
+msgstr "தவறான கோரிக்கை: கோரிக்கை (%(size)s வரி வரம்பை மீறுகிறது (%(limit)s)"
 
 #: libretranslate/app.py:715 libretranslate/app.py:720
 #: libretranslate/app.py:897 libretranslate/app.py:902
@@ -88,7 +89,7 @@ msgstr "%(lang)s ஆதரிக்கப்படவில்லை"
 #: libretranslate/app.py:726
 #, python-format
 msgid "%(format)s format is not supported"
-msgstr "%(வடிவம்) வடிவமைப்பு ஆதரிக்கப்படவில்லை"
+msgstr "%(format)s வடிவமைப்பு ஆதரிக்கப்படவில்லை"
 
 #: libretranslate/app.py:735 libretranslate/app.py:763
 #, python-format
@@ -96,8 +97,7 @@ msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
 msgstr ""
-"%(எச் பெயர்) எச் (%(டி குறியீடுகள்)%(tname)s (%(tcode)s) இலிருந்து இலக்கு"
-" மொழியாக கிடைக்கவில்லை"
+"%(sname)s%(scode)s இலிருந்து %(tname)s%(tcode)s இலக்கு மொழியாகக் கிடைக்கவில்லை"
 
 #: libretranslate/app.py:787
 #, python-format
@@ -258,7 +258,7 @@ msgstr "போர்த்துகீசியம்"
 
 #: libretranslate/locales/.langs.py:34
 msgid "Portuguese (Brazil)"
-msgstr ""
+msgstr "போர்த்துகீசியம் (பிரேசில்)"
 
 #: libretranslate/locales/.langs.py:35
 msgid "Romanian"
@@ -298,7 +298,7 @@ msgstr "துருக்கிய"
 
 #: libretranslate/locales/.langs.py:44
 msgid "Ukranian"
-msgstr ""
+msgstr "உக்ரேனிய"
 
 #: libretranslate/locales/.langs.py:45
 msgid "Urdu"
@@ -310,7 +310,7 @@ msgstr "செர்பிய"
 
 #: libretranslate/locales/.langs.py:47
 msgid "Ukrainian"
-msgstr "உக்ரேனிய"
+msgstr "உக்ரேனியன்"
 
 #: libretranslate/locales/.langs.py:48
 msgid "Vietnamese"
@@ -643,6 +643,8 @@ msgid ""
 "Due to bot abuse, translation requests are temporarily limited to users "
 "with a valid API key. Sorry for the inconvenience!"
 msgstr ""
+"போட் துஷ்பிரயோகம் காரணமாக, மொழிபெயர்ப்புக் கோரிக்கைகள் தற்காலிகமாகச் செல்லுபடியாகும் ஏபி"
+"ஐ விசையுடன் பயனர்களுக்கு மட்டுமே. சிரமத்திற்கு மன்னிக்கவும்!"
 
 #: libretranslate/templates/index.html:182
 msgid "Translation API"
@@ -743,11 +745,10 @@ msgstr ""
 #: libretranslate/templates/index.html:354
 #, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr "%(லிப்ரெட்ரான்ச்லேட்) பங்களிப்பாளர்கள்"
+msgstr "%(libretranslate)s பங்களிப்பாளர்கள்"
 
 #~ msgid "Basque"
 #~ msgstr "பாச்க்"
 
 #~ msgid "Galician"
 #~ msgstr "காலிசியன்"
-
