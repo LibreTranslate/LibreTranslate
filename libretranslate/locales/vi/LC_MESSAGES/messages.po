@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-04-18 14:43-0400\n"
-"PO-Revision-Date: 2025-06-28 13:05+0000\n"
-"Last-Translator: Yen Le Diep Hoang <ldhyen99@gmail.com>\n"
+"PO-Revision-Date: 2025-07-05 04:01+0000\n"
+"Last-Translator: HGN <hgnuyen1008@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/"
 "libretranslate/app/vi/>\n"
 "Language: vi\n"
@@ -113,15 +113,15 @@ msgstr "Dịch tệp tin bị tắt trên máy chủ này."
 
 #: libretranslate/app.py:889
 msgid "Invalid request: empty file"
-msgstr "Yêu cầu không hợp lệ: tệp tin trống"
+msgstr "Yêu cầu không xác định: thư mục rỗng"
 
 #: libretranslate/app.py:892
 msgid "Invalid request: file format not supported"
-msgstr "Yêu cầu không hợp lệ: định dạng tệp tin không được hỗ trợ"
+msgstr "Yêu cầu không xác định: định dạng thư mục không được hỗ trợ"
 
 #: libretranslate/app.py:951
 msgid "Invalid filename"
-msgstr "Tên tệp tin không hợp lệ"
+msgstr "tên thư mục không phù hợp"
 
 #: libretranslate/app.py:1193
 msgid "Suggestions are disabled on this server."
@@ -141,7 +141,7 @@ msgstr "Ả Rập"
 
 #: libretranslate/locales/.langs.py:4
 msgid "Azerbaijani"
-msgstr "Azerbaijan"
+msgstr "Tiếng Azeri"
 
 #: libretranslate/locales/.langs.py:5
 msgid "Bengali"
@@ -149,7 +149,7 @@ msgstr ""
 
 #: libretranslate/locales/.langs.py:6
 msgid "Bulgarian"
-msgstr ""
+msgstr "Tiếng Bulgaria"
 
 #: libretranslate/locales/.langs.py:7
 msgid "Catalan"
@@ -201,11 +201,11 @@ msgstr "Hy Lạp"
 
 #: libretranslate/locales/.langs.py:19
 msgid "Hebrew"
-msgstr "Do Thái"
+msgstr "Tiếng Do Thái"
 
 #: libretranslate/locales/.langs.py:20
 msgid "Hindi"
-msgstr "Hindi"
+msgstr "Tiếng Hindi"
 
 #: libretranslate/locales/.langs.py:21
 msgid "Hungarian"
