@@ -12,4 +12,4 @@ response = requests.post(
     },
     timeout=60
 )
-# if server unavailable then requests with raise exception and healthcheck will fail
+response.raise_for_status() # if server unavailable then requests with raise exception and healthcheck will fail
