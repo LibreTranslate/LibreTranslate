@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-04-18 14:43-0400\n"
-"PO-Revision-Date: 2025-06-18 16:01+0000\n"
-"Last-Translator: Akin Uslu <akin@uslu.net>\n"
+"PO-Revision-Date: 2025-07-09 07:01+0000\n"
+"Last-Translator: Kubi Kanber <kubikanber@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/libretranslate/"
 "app/tr/>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.12.1\n"
+"X-Generator: Weblate 5.13-dev\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:93
@@ -259,11 +259,11 @@ msgstr "Portekizce"
 
 #: libretranslate/locales/.langs.py:34
 msgid "Portuguese (Brazil)"
-msgstr "Portekiz (Brazil)"
+msgstr "Portekizce (Brazil)"
 
 #: libretranslate/locales/.langs.py:35
 msgid "Romanian"
-msgstr "Rumence"
+msgstr "Romence"
 
 #: libretranslate/locales/.langs.py:36
 msgid "Russian"
@@ -323,11 +323,11 @@ msgstr "Desteklenen dillerin listesini al"
 
 #: libretranslate/locales/.swag.py:2
 msgid "List of languages"
-msgstr "Dil listesi"
+msgstr "Dillerin listesi"
 
 #: libretranslate/locales/.swag.py:3
 msgid "translate"
-msgstr "çevir"
+msgstr "çeviri"
 
 #: libretranslate/locales/.swag.py:4
 msgid "Translate text from a language to another"
@@ -359,7 +359,7 @@ msgstr "Merhaba dünya!"
 
 #: libretranslate/locales/.swag.py:11
 msgid "Text(s) to translate"
-msgstr "Çevrilecek metin"
+msgstr "Çevrilecek metin(ler)"
 
 #: libretranslate/locales/.swag.py:12
 msgid "Source language code"
@@ -425,15 +425,15 @@ msgstr "Algılanacak metin"
 
 #: libretranslate/locales/.swag.py:26
 msgid "Retrieve frontend specific settings"
-msgstr "Ön uca özel ayarları al"
+msgstr "Önyüze özgü ayarları al"
 
 #: libretranslate/locales/.swag.py:27
 msgid "frontend settings"
-msgstr "ön uç ayarları"
+msgstr "önyüz ayarları"
 
 #: libretranslate/locales/.swag.py:28
 msgid "frontend"
-msgstr "ön uç"
+msgstr "önyüz"
 
 #: libretranslate/locales/.swag.py:29
 msgid "Submit a suggestion to improve a translation"
@@ -481,7 +481,7 @@ msgstr "Desteklenen hedef dil kodları"
 
 #: libretranslate/locales/.swag.py:40
 msgid "Translated text(s)"
-msgstr "Çevirilen metin"
+msgstr "Çevrilen metin(ler)"
 
 #: libretranslate/locales/.swag.py:41
 msgid "Error message"
@@ -505,11 +505,11 @@ msgstr "Bu dil için karakter giriş sınırı (-1, sınır olmadığını göst
 
 #: libretranslate/locales/.swag.py:46
 msgid "Frontend translation timeout"
-msgstr "Ön uç çeviri zaman aşımı"
+msgstr "Önyüz çeviri zaman aşımı"
 
 #: libretranslate/locales/.swag.py:47
 msgid "Whether the API key database is enabled."
-msgstr "API anahtarı veri tabanının etkin olup olmadığı."
+msgstr "API anahtar veri tabanının etkin olup olmadığı."
 
 #: libretranslate/locales/.swag.py:48
 msgid "Whether an API key is required."
@@ -560,7 +560,8 @@ msgid ""
 "Thanks for your correction. Note the suggestion will not take effect right "
 "away."
 msgstr ""
-"Düzeltmeniz için teşekkürler. Önerinin hemen etkili olmayacağını unutmayın."
+"Düzeltmeniz için teşekkürler. Önerinin hemen yürürlüğe girmeyeceğini "
+"unutmayın."
 
 #: libretranslate/templates/app.js.template:463
 msgid "No languages available. Did you install the models correctly?"
@@ -585,7 +586,7 @@ msgstr "sunucu yöneticisiyle iletişime geçin."
 #: libretranslate/templates/index.html:27
 #: libretranslate/templates/index.html:347
 msgid "Free and Open Source Machine Translation API"
-msgstr "Özgür ve Açık Kaynaklı Makine Çevirisi API'si"
+msgstr "Ücretsiz ve Açık Kaynaklı Makine Çevirisi API'si"
 
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:31
@@ -593,9 +594,9 @@ msgid ""
 "Free and Open Source Machine Translation API. Free to download, offline "
 "capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"Özgür ve Açık Kaynaklı Makine Çevirisi API'si. Kendiniz "
-"barındırabileceğiniz, çevrim dışı çalışabilir ve kurulumu kolay. Sadece "
-"birkaç dakika içinde kendi API sunucunuzu çalıştırın."
+"Ücretsiz ve Açık Kaynaklı Makine Çevirisi API'si. Ücretsiz indirilebilir, "
+"çevrimdışı çalışabilir ve kurulumu kolaydır. Kendi API sunucunuzu sadece "
+"birkaç dakikada çalıştırın."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -642,8 +643,9 @@ msgid ""
 "Due to bot abuse, translation requests are temporarily limited to users with"
 " a valid API key. Sorry for the inconvenience!"
 msgstr ""
-"Bot kötüye kullanılması nedeniyle, çeviri talepleri geçerli bir API anahtarı"
-" olan kullanıcılarla geçici olarak sınırlıdır. Rahatlık için özür dilerim!"
+"Bot kötüye kullanımı nedeniyle, çeviri istekleri geçici olarak geçerli bir "
+"API anahtarına sahip kullanıcılarla sınırlıdır. Rahatsızlıktan dolayı özür "
+"dileriz!"
 
 #: libretranslate/templates/index.html:182
 msgid "Translation API"
@@ -663,7 +665,7 @@ msgstr "Şundan çevir"
 
 #: libretranslate/templates/index.html:206
 msgid "Swap source and target languages"
-msgstr "Kaynak ve hedef dilleri değiştir"
+msgstr "Kaynak ve hedef dilleri değiştirin"
 
 #: libretranslate/templates/index.html:209
 msgid "Translate into"
