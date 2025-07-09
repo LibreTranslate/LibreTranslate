@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-04-18 14:43-0400\n"
-"PO-Revision-Date: 2025-07-09 07:01+0000\n"
+"PO-Revision-Date: 2025-07-10 15:01+0000\n"
 "Last-Translator: Kubi Kanber <kubikanber@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/libretranslate/"
 "app/tr/>\n"
@@ -726,8 +726,7 @@ msgstr "Açık Kaynaklı Makine Çevirisi API'si"
 
 #: libretranslate/templates/index.html:327
 msgid "Free to download. Offline Capable. Easy to Setup."
-msgstr ""
-"Kendiniz Barındırabileceğiniz. Çevrim Dışı Çalışabilen. Kurulumu Kolay."
+msgstr "Ücretsiz indirilebilir. Çevrimdışı kullanılabilir. Kurulumu kolaydır."
 
 #: libretranslate/templates/index.html:346
 msgid "LibreTranslate"
