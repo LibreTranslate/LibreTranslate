@@ -490,18 +490,19 @@ def create_app(args):
     @limiter.exempt
     def langs():
         """
-        Retrieve list of supported languages
+        Get Supported Languages
         ---
         tags:
           - translate
         responses:
           200:
-            description: List of languages
+            description: List of supported languages
             schema:
               id: languages
               type: array
               items:
                 type: object
+                description: Supported language
                 properties:
                   code:
                     type: string
@@ -537,7 +538,7 @@ def create_app(args):
     @access_check
     def translate():
         """
-        Translate text from a language to another
+        Translate Text
         ---
         tags:
           - translate
@@ -558,7 +559,7 @@ def create_app(args):
               type: string
               example: en
             required: true
-            description: Source language code
+            description: Source language code or "auto" for auto detection
           - in: formData
             name: target
             schema:
@@ -595,7 +596,7 @@ def create_app(args):
             description: API key
         responses:
           200:
-            description: Translated text
+            description: Translation
             schema:
               id: translate
               type: object
@@ -605,6 +606,47 @@ def create_app(args):
                     - type: string
                     - type: array
                   description: Translated text(s)
+                detectedLanguage:
+                  oneOf:
+                    - type: object
+                      properties:
+                        confidence:
+                          type: number
+                          format: float
+                          minimum: 0
+                          maximum: 100
+                          description: Confidence value
+                          example: 100
+                        language:
+                          type: string
+                          description: Language code
+                    - type: array
+                      items:
+                        type: object
+                        properties:
+                          confidence:
+                            type: number
+                            format: float
+                            minimum: 0
+                            maximum: 100
+                            description: Confidence value
+                            example: 100
+                          language:
+                            type: string
+                            description: Language code
+                alternatives:
+                  oneOf:
+                    - type: array
+                      items:
+                        type: string
+                    - type: array
+                      items:
+                        type: array
+                        items:
+                          type: string
+                  description: Alternative translations
+              required:
+                - translatedText
           400:
             description: Invalid request
             schema:
@@ -793,7 +835,7 @@ def create_app(args):
     @access_check
     def translate_file():
         """
-        Translate file from a language to another
+        Translate a File
         ---
         tags:
           - translate
@@ -811,7 +853,7 @@ def create_app(args):
               type: string
               example: en
             required: true
-            description: Source language code
+            description: Source language code  or "auto" for auto detection
           - in: formData
             name: target
             schema:
@@ -968,7 +1010,7 @@ def create_app(args):
     @access_check
     def detect():
         """
-        Detect the language of a single text
+        Detect Language of Text
         ---
         tags:
           - translate
@@ -998,7 +1040,7 @@ def create_app(args):
                 properties:
                   confidence:
                     type: number
-                    format: integer
+                    format: float
                     minimum: 0
                     maximum: 100
                     description: Confidence value
@@ -1059,10 +1101,10 @@ def create_app(args):
     @limiter.exempt
     def frontend_settings():
         """
-        Retrieve frontend specific settings
+        Retrieve Frontend Settings
         ---
         tags:
-          - frontend
+          - misc
         responses:
           200:
             description: frontend settings
@@ -1139,10 +1181,10 @@ def create_app(args):
     @bp.post("/suggest")
     def suggest():
         """
-        Submit a suggestion to improve a translation
+        Submit a Suggestion to Improve a Translation
         ---
         tags:
-          - feedback
+          - misc
         parameters:
           - in: formData
             name: q
@@ -1238,6 +1280,8 @@ def create_app(args):
     swag = swagger(app)
     swag["info"]["version"] = get_version()
     swag["info"]["title"] = "LibreTranslate"
+    swag["info"]["description"] = "Free and Open Source Machine Translation API."
+    swag["info"]["license"] = {"name": "AGPL-3.0"}
 
     @app.route(api_url)
     @limiter.exempt
