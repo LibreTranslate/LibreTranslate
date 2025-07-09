@@ -492,18 +492,19 @@ def create_app(args):
     @limiter.exempt
     def langs():
         """
-        Retrieve list of supported languages
+        Get Supported Languages
         ---
         tags:
           - translate
         responses:
           200:
-            description: List of languages
+            description: List of supported languages
             schema:
               id: languages
               type: array
               items:
                 type: object
+                description: Supported language
                 properties:
                   code:
                     type: string
@@ -539,7 +540,7 @@ def create_app(args):
     @access_check
     def translate():
         """
-        Translate text from a language to another
+        Translate Text
         ---
         tags:
           - translate
@@ -560,7 +561,7 @@ def create_app(args):
               type: string
               example: en
             required: true
-            description: Source language code
+            description: Source language code or "auto" for auto detection
           - in: formData
             name: target
             schema:
@@ -795,7 +796,7 @@ def create_app(args):
     @access_check
     def translate_file():
         """
-        Translate file from a language to another
+        Translate a File
         ---
         tags:
           - translate
@@ -813,7 +814,7 @@ def create_app(args):
               type: string
               example: en
             required: true
-            description: Source language code
+            description: Source language code  or "auto" for auto detection
           - in: formData
             name: target
             schema:
@@ -1240,6 +1241,8 @@ def create_app(args):
     swag = swagger(app)
     swag["info"]["version"] = get_version()
     swag["info"]["title"] = "LibreTranslate"
+    swag["info"]["description"] = "Free and Open Source Machine Translation API."
+    swag["info"]["license"] = {"name": "AGPL-3.0"}
 
     @app.route(api_url)
     @limiter.exempt
