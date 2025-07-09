@@ -615,10 +615,13 @@ def create_app(args):
                         confidence:
                           type: number
                           format: float
-                          description: Confidence score (0-100) of the detected language
+                          minimum: 0
+                          maximum: 100
+                          description: Confidence value
+                          example: 100
                         language:
                           type: string
-                          description: Detected language code
+                          description: Language code
                     - type: array
                       items:
                         type: object
@@ -626,10 +629,13 @@ def create_app(args):
                           confidence:
                             type: number
                             format: float
-                            description: Confidence score (0-100) of the detected language
+                            minimum: 0
+                            maximum: 100
+                            description: Confidence value
+                            example: 100
                           language:
                             type: string
-                            description: Detected language code
+                            description: Language code
                 alternatives:
                   oneOf:
                     - type: array
@@ -1006,7 +1012,7 @@ def create_app(args):
     @access_check
     def detect():
         """
-        Detect the language of a single text
+        Detect Language of Text
         ---
         tags:
           - translate
@@ -1036,7 +1042,7 @@ def create_app(args):
                 properties:
                   confidence:
                     type: number
-                    format: integer
+                    format: float
                     minimum: 0
                     maximum: 100
                     description: Confidence value
@@ -1097,10 +1103,10 @@ def create_app(args):
     @limiter.exempt
     def frontend_settings():
         """
-        Retrieve frontend specific settings
+        Retrieve Frontend Settings
         ---
         tags:
-          - frontend
+          - misc
         responses:
           200:
             description: frontend settings
@@ -1177,10 +1183,10 @@ def create_app(args):
     @bp.post("/suggest")
     def suggest():
         """
-        Submit a suggestion to improve a translation
+        Submit a Suggestion to Improve a Translation
         ---
         tags:
-          - feedback
+          - misc
         parameters:
           - in: formData
             name: q
