@@ -598,7 +598,7 @@ def create_app(args):
             description: API key
         responses:
           200:
-            description: Translated text
+            description: Translation
             schema:
               id: translate
               type: object
@@ -608,6 +608,41 @@ def create_app(args):
                     - type: string
                     - type: array
                   description: Translated text(s)
+                detectedLanguage:
+                  oneOf:
+                    - type: object
+                      properties:
+                        confidence:
+                          type: number
+                          format: float
+                          description: Confidence score (0-100) of the detected language
+                        language:
+                          type: string
+                          description: Detected language code
+                    - type: array
+                      items:
+                        type: object
+                        properties:
+                          confidence:
+                            type: number
+                            format: float
+                            description: Confidence score (0-100) of the detected language
+                          language:
+                            type: string
+                            description: Detected language code
+                alternatives:
+                  oneOf:
+                    - type: array
+                      items:
+                        type: string
+                    - type: array
+                      items:
+                        type: array
+                        items:
+                          type: string
+                  description: Alternative translations
+              required:
+                - translatedText
           400:
             description: Invalid request
             schema:
