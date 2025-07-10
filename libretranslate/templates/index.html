@@ -67,7 +67,7 @@
 				<ul id="nav" class="right hide-on-med-and-down top-nav position-relative">
 					{% set menulinks %}
 					{% if not hide_api %}
-					<li><a href="{{ swagger_url }}">{{ _h("API Docs") }}</a></li>
+					<li><a href="{% if web_version %}https://docs.libretranslate.com{% else %}{{ swagger_url }}{% endif %}">{{ _h("API Docs") }}</a></li>
 					{% endif %}
 					{% if get_api_key_link %}
 					<li><a href="{{ get_api_key_link }}">{{ _h("Get API Key") }}</a></li>
