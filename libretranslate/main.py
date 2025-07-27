@@ -246,7 +246,7 @@ def get_args():
         "--url-prefix",
         default=DEFARGS['URL_PREFIX'],
         type=str,
-        help="Add prefix to URL: example.com:5000/url-prefix/",
+        help="Add a prefix like /url-prefix to URL: example.com:5000/url-prefix/",
     )
     args = parser.parse_args()
     if args.url_prefix and not args.url_prefix.startswith('/'):
