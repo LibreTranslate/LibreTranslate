@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
             const langsRequest = new XMLHttpRequest();
             langsRequest.open("GET", BaseUrl + "/languages", true);
-            
+
             settingsRequest.onload = function() {
                 if (this.status >= 200 && this.status < 400) {
                     self.settings = JSON.parse(this.response);
@@ -79,18 +79,18 @@ document.addEventListener('DOMContentLoaded', function(){
                         }
                     }
                 } else {
-                    self.error = {{ _e("Cannot load %(url)s", url="/frontend/settings") }};
+                    self.error = {{ _e("Cannot load %(url)s", url=url_prefix + "/frontend/settings") }};
                     self.loading = false;
                 }
             };
 
             settingsRequest.onerror = function() {
-                self.error = {{ _e("Cannot load %(url)s", url="/frontend/settings") }};
+                self.error = {{ _e("Cannot load %(url)s", url=url_prefix + "/frontend/settings") }};
                 self.loading = false;
             };
 
             langsRequest.onerror = function() {
-                self.error = {{ _e("Cannot load %(url)s", url="/languages") }};
+                self.error = {{ _e("Cannot load %(url)s", url=url_prefix + "/languages") }};
                 self.loading = false;
             };
 
@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     };
 
                     request.onerror = function() {
-                        self.error = {{ _e("Cannot load %(url)s", url="/translate") }};
+                        self.error = {{ _e("Cannot load %(url)s", url=url_prefix + "/translate") }};
                         self.loadingTranslation = false;
                     };
 
@@ -354,7 +354,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 };
 
                 request.onerror = function() {
-                    self.error = {{ _e("Cannot load %(url)s", url="/suggest") }};
+                    self.error = {{ _e("Cannot load %(url)s", url=url_prefix + "/suggest") }};
                     self.loadingTranslation = false;
                 };
 
@@ -443,7 +443,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 }
 
                 translateFileRequest.onerror = function() {
-                    const message = {{ _e("Cannot load %(url)s", url="/translate_file") }};
+                    const message = {{ _e("Cannot load %(url)s", url=url_prefix + "/translate_file") }};
                     self.error = message;
                     self.loadingFileTranslation = false;
                     self.inputFile = false;
@@ -497,7 +497,7 @@ function handleLangsResponse(self, response) {
             self.handleInput(new Event('none'))
         }
     } else {
-        self.error = {{ _e("Cannot load %(url)s", url="/languages") }};
+        self.error = {{ _e("Cannot load %(url)s", url=url_prefix + "/languages") }};
     }
 
     self.loading = false;
