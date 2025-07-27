@@ -173,11 +173,11 @@ def filter_unique(seq, extra):
 def detect_translatable(src_texts):
   if isinstance(src_texts, list):
     return any(detect_translatable(t) for t in src_texts)
-  
+
   for ch in src_texts:
     if not (ord(ch) in emojis):
       return True
-  
+
   # All emojis
   return False
 
@@ -259,7 +259,7 @@ def create_app(args):
             return max(req_cost, int(math.ceil(getattr(request, 'duration', 0) / args.req_time_cost)))
           else:
             return req_cost
-        
+
         def get_limits_key_func():
           if args.api_keys:
             def func():
@@ -358,7 +358,7 @@ def create_app(args):
                         'alternatives': [],
                         'detectedLanguage': { 'confidence': 100, 'language': 'en' }
                       }), 200))
-                  
+
                   if (args.require_api_key_fingerprint
                     and key_missing):
                     if flood.fingerprint_mismatch(ip, get_fingerprint()):
@@ -470,7 +470,7 @@ def create_app(args):
           api_secret = secret.get_current_secret_js()
         else:
           api_secret = secret.get_bogus_secret_js()
-        
+
       response = Response(render_template("app.js.template",
             url_prefix=args.url_prefix,
             get_api_key_link=args.get_api_key_link,
@@ -516,8 +516,8 @@ def create_app(args):
                       type: string
                     description: Supported target language codes
         """
-        return jsonify([{"code": model2iso(l.code), 
-                         "name": _lazy(l.name), 
+        return jsonify([{"code": model2iso(l.code),
+                         "name": _lazy(l.name),
                          "targets": model2iso(language_pairs.get(l.code, []))
                         } for l in languages])
 
@@ -586,7 +586,7 @@ def create_app(args):
               default: 0
               example: 3
             required: false
-            description: Preferred number of alternative translations 
+            description: Preferred number of alternative translations
           - in: formData
             name: api_key
             schema:
@@ -704,7 +704,7 @@ def create_app(args):
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='source'))
         if not target_lang:
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='target'))
-        
+
         try:
             num_alternatives = max(0, int(num_alternatives))
         except ValueError:
@@ -743,7 +743,7 @@ def create_app(args):
 
         if batch:
             request.req_cost = max(1, len(q))
-          
+
         translatable = detect_translatable(src_texts)
         if translatable:
           if source_lang == "auto":
@@ -753,7 +753,7 @@ def create_app(args):
               detected_src_lang = {"confidence": 100.0, "language": source_lang}
         else:
           detected_src_lang = {"confidence": 0.0, "language": "en"}
-        
+
         src_lang = next(iter([l for l in languages if l.code == detected_src_lang["language"]]), None)
 
         if src_lang is None:
@@ -790,10 +790,10 @@ def create_app(args):
                     else:
                       translated_text = text # Cannot translate, send the original text back
                       alternatives = []
-                    
+
                     batch_results.append(translated_text)
                     batch_alternatives.append(alternatives)
-                
+
                 result = {"translatedText": batch_results}
 
                 if source_lang == "auto":
@@ -818,7 +818,7 @@ def create_app(args):
                 else:
                   translated_text = q # Cannot translate, send the original text back
                   alternatives = []
-                
+
                 result = {"translatedText": translated_text}
 
                 if source_lang == "auto":
