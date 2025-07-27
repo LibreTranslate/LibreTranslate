@@ -60,7 +60,7 @@
 		<nav role="navigation">
 			<div class="nav-wrapper container">
 				<button data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></button>
-				<a id="logo-container" href="/" class="brand-logo noline">
+				<a id="logo-container" href="{{ url_for('Main app.index') }}" class="brand-logo noline">
 					<img src="{{ url_for('static', filename='icon.svg') }}" alt="" class="logo">
 					<span>LibreTranslate</span>
 				</a>
