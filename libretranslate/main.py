@@ -4,6 +4,7 @@ import sys
 
 from libretranslate.app import create_app
 from libretranslate.default_values import DEFAULT_ARGUMENTS as DEFARGS
+from werkzeug.middleware.dispatcher import DispatcherMiddleware
 
 
 def get_args():
@@ -255,7 +256,9 @@ def get_args():
 
 def main():
     args = get_args()
-    app = create_app(args)
+    app = DispatcherMiddleware(None, {
+        args.url_prefix: create_app(args)
+    })
 
     if '--wsgi' in sys.argv:
         return app

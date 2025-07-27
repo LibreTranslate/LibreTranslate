@@ -189,8 +189,8 @@ def create_app(args):
 
     from libretranslate.language import load_languages
 
-    swagger_url = args.url_prefix + "/docs"  # Swagger UI (w/o trailing '/')
-    api_url = args.url_prefix + "/spec"
+    swagger_url = "/docs"  # Swagger UI (w/o trailing '/')
+    api_url = "/spec"
 
     bp = Blueprint('Main app', __name__)
 
@@ -1270,10 +1270,8 @@ def create_app(args):
 
     if args.debug:
         app.config["TEMPLATES_AUTO_RELOAD"] = True
-    if args.url_prefix:
-        app.register_blueprint(bp, url_prefix=args.url_prefix)
-    else:
-        app.register_blueprint(bp)
+
+    app.register_blueprint(bp)
 
     limiter.init_app(app)
 
@@ -1302,9 +1300,6 @@ def create_app(args):
 
     # Call factory function to create our blueprint
     swaggerui_blueprint = get_swaggerui_blueprint(swagger_url, api_url)
-    if args.url_prefix:
-        app.register_blueprint(swaggerui_blueprint, url_prefix=swagger_url)
-    else:
-        app.register_blueprint(swaggerui_blueprint)
+    app.register_blueprint(swaggerui_blueprint)
 
     return app
