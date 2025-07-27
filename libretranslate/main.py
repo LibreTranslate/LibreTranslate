@@ -4,6 +4,7 @@ import sys
 
 from libretranslate.app import create_app
 from libretranslate.default_values import DEFAULT_ARGUMENTS as DEFARGS
+from werkzeug.serving import run_simple
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
 
 
@@ -268,7 +269,7 @@ def main():
             args.host = "::"
 
         if args.debug:
-            app.run(host=args.host, port=args.port)
+            run_simple(args.host, args.port, app)
         else:
             from waitress import serve
 
