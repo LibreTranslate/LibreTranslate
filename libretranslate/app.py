@@ -1276,6 +1276,7 @@ def create_app(args):
     limiter.init_app(app)
 
     swag = swagger(app)
+    swag["basePath"] = args.url_prefix if args.url_prefix != "" else "/"
     swag["info"]["version"] = get_version()
     swag["info"]["title"] = "LibreTranslate"
     swag["info"]["description"] = "Free and Open Source Machine Translation API."
