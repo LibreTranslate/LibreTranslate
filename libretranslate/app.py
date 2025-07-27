@@ -1299,7 +1299,9 @@ def create_app(args):
     app.jinja_env.globals.update(_e=gettext_escaped, _h=gettext_html)
 
     # Call factory function to create our blueprint
-    swaggerui_blueprint = get_swaggerui_blueprint(swagger_url, api_url)
+    # The Blueprint is not using url_for which means the middleware does not work properly and we need to manually fix things
+    swaggerui_blueprint = get_swaggerui_blueprint(args.url_prefix + swagger_url, args.url_prefix + api_url)
+    swaggerui_blueprint.url_prefix = swagger_url
     app.register_blueprint(swaggerui_blueprint)
 
     return app
