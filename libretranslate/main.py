@@ -257,9 +257,17 @@ def get_args():
 
 def main():
     args = get_args()
-    app = DispatcherMiddleware(None, {
-        args.url_prefix: create_app(args)
-    })
+
+    if args.url_prefix:
+        def redirect(environ, start_response):
+            start_response("301 REDIRECT", [("Content-Type", "text/plain"), ("Location", args.url_prefix)])
+            yield b"Redirect..."
+
+        app = DispatcherMiddleware(redirect, {
+            args.url_prefix: create_app(args)
+        })
+    else:
+        app = DispatcherMiddleware(create_app(args))
 
     if '--wsgi' in sys.argv:
         return app
