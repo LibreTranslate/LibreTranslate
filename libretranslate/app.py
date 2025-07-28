@@ -189,7 +189,7 @@ def create_app(args):
 
     from libretranslate.language import load_languages
 
-    swagger_url = "/docs"  # Swagger UI (w/o trailing '/')
+    swagger_url = args.url_prefix + "/docs"  # Swagger UI (w/o trailing '/')
     api_url = "/spec"
 
     bp = Blueprint('Main app', __name__)
@@ -1301,8 +1301,8 @@ def create_app(args):
 
     # Call factory function to create our blueprint
     # The Blueprint is not using url_for which means the middleware does not work properly and we need to manually fix things
-    swaggerui_blueprint = get_swaggerui_blueprint(args.url_prefix + swagger_url, args.url_prefix + api_url)
-    swaggerui_blueprint.url_prefix = swagger_url
+    swaggerui_blueprint = get_swaggerui_blueprint(swagger_url, args.url_prefix + api_url)
+    swaggerui_blueprint.url_prefix = "/docs"
     app.register_blueprint(swaggerui_blueprint)
 
     return app
