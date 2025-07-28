@@ -4,6 +4,8 @@ import sys
 
 from libretranslate.app import create_app
 from libretranslate.default_values import DEFAULT_ARGUMENTS as DEFARGS
+from werkzeug.serving import run_simple
+from werkzeug.middleware.dispatcher import DispatcherMiddleware
 
 
 def get_args():
@@ -245,7 +247,7 @@ def get_args():
         "--url-prefix",
         default=DEFARGS['URL_PREFIX'],
         type=str,
-        help="Add prefix to URL: example.com:5000/url-prefix/",
+        help="Add a prefix like /url-prefix to URL: example.com:5000/url-prefix/",
     )
     args = parser.parse_args()
     if args.url_prefix and not args.url_prefix.startswith('/'):
@@ -255,7 +257,17 @@ def get_args():
 
 def main():
     args = get_args()
-    app = create_app(args)
+
+    if args.url_prefix:
+        def redirect(environ, start_response):
+            start_response("301 REDIRECT", [("Content-Type", "text/plain"), ("Location", args.url_prefix)])
+            yield b"Redirect..."
+
+        app = DispatcherMiddleware(redirect, {
+            args.url_prefix: create_app(args)
+        })
+    else:
+        app = DispatcherMiddleware(create_app(args))
 
     if '--wsgi' in sys.argv:
         return app
@@ -265,7 +277,7 @@ def main():
             args.host = "::"
 
         if args.debug:
-            app.run(host=args.host, port=args.port)
+            run_simple(args.host, args.port, app)
         else:
             from waitress import serve
 
