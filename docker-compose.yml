@@ -16,7 +16,7 @@ services:
      - PGID=1000
     volumes:
      - ${libretranslate_data_folder}/db:/app/db
-     - ${libretranslate_data_folder}/data:/root/.local:rw
+     - ${libretranslate_data_folder}/data:/home/libretranslate/.local:rw
     healthcheck:
       test: ['CMD-SHELL', './venv/bin/python scripts/healthcheck.py']
       interval: 10s
