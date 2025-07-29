@@ -1,14 +1,21 @@
-version: "3"
-
 services:
-  libretranslate-cuda:
-    container_name: libretranslate-cuda
-    build:
-      context: .
-      dockerfile: docker/cuda.Dockerfile
-    restart: unless-stopped
+  libretranslate:
+    container_name: libretranslate
+    image: libretranslate/libretranslate:latest-cuda
     ports:
       - "5000:5000"
+    restart: unless-stopped
+    command: --disable-web-ui
+    environment:
+     - LT_API_KEYS_DB_PATH=/app/db/api_keys.db
+     - LT_API_KEYS=True
+     - LT_REQ_LIMIT=120
+     - LT_UPDATE_MODELS=True
+     - LT_DEBUG=True
+     - PUID=root
+    volumes:
+     - ${libretranslate_data_folder}/db:/app/db
+     - ${libretranslate_data_folder}/data:/root/.local:rw
     deploy:
       resources:
         reservations:
@@ -16,3 +23,10 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
+# './venv/bin/python is not implemented in the cuda docker yet
+#    healthcheck:
+#      test: ['CMD-SHELL', './venv/bin/python scripts/healthcheck.py']
+#      interval: 10s
+#      timeout: 4s
+#      retries: 4
+#      start_period: 5s
