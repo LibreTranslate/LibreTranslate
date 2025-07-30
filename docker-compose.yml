@@ -5,15 +5,15 @@ services:
     ports:
       - "5000:5000"
     restart: unless-stopped
-    command: --disable-web-ui
+#    command: --disable-web-ui
     environment:
      - LT_API_KEYS_DB_PATH=/app/db/api_keys.db
      - LT_API_KEYS=True
-     - LT_REQ_LIMIT=120
-     - LT_UPDATE_MODELS=True
-     - LT_DEBUG=True
-     - PUID=1000
-     - PGID=1000
+#     - LT_REQ_LIMIT=120
+#     - LT_UPDATE_MODELS=True
+#     - LT_DEBUG=True
+#     - PUID=1032
+#     - PGID=1000
     volumes:
      - ${libretranslate_data_folder}/db:/app/db
      - ${libretranslate_data_folder}/data:/home/libretranslate/.local:rw
@@ -23,3 +23,13 @@ services:
       timeout: 4s
       retries: 4
       start_period: 5s
+
+#### Uncomment Arguments as you see fit. You can find all the different Arguments here: https://hub.docker.com/r/libretranslate/libretranslate#arguments
+#### The docker compose file above is taken from a working environment.
+
+#### Please note; you need to create an .env file for the libretranslate_data_folder that exists in the same folder as this docker compose file, somthing like:
+#### libretranslate_data_folder=/path/to/your/docker-compose/folder
+
+### You may also need to do 'sudo chown -R 1032:1000 /path/to/your/docker-compose/folder/db /path/to/your/docker-compose/folder/data for permissions to be correct.
+
+
