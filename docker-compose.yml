@@ -1,30 +1,35 @@
 services:
   libretranslate:
     container_name: libretranslate
-    build:
-      context: .
-      dockerfile: ./docker/Dockerfile
-    restart: unless-stopped
+    image: libretranslate/libretranslate:latest
     ports:
       - "5000:5000"
-    ## Uncomment this for logging in docker compose logs
-    # tty: true
+    restart: unless-stopped
+#    command: --disable-web-ui
+#    environment:
+#     - LT_API_KEYS_DB_PATH=/app/db/api_keys.db
+#     - LT_API_KEYS=True
+#     - LT_REQ_LIMIT=120
+#     - LT_UPDATE_MODELS=True
+#     - LT_DEBUG=True
+#     - PUID=1032
+#     - PGID=1000
+    volumes:
+     - ${libretranslate_data_folder}/db:/app/db
+     - ${libretranslate_data_folder}/data:/home/libretranslate/.local:rw
     healthcheck:
       test: ['CMD-SHELL', './venv/bin/python scripts/healthcheck.py']
-    ## Uncomment above command and define your args if necessary
-    # command: --ssl --ga-id MY-GA-ID --req-limit 100 --char-limit 500
-    ## Uncomment this section and the libretranslate_api_keys volume if you want to backup your API keys
-    # environment:
-    #   - LT_API_KEYS=true
-    #   - LT_API_KEYS_DB_PATH=/app/db/api_keys.db # Same result as `db/api_keys.db` or `./db/api_keys.db`
-    ## Uncomment these vars and libretranslate_models volume to optimize loading time.
-    #   - LT_UPDATE_MODELS=true
-    #   - LT_LOAD_ONLY=en,fr
-    # volumes:
-    #   - libretranslate_api_keys:/app/db
-    # Keep the models in a docker volume, to avoid re-downloading on startup
-    #   - libretranslate_models:/home/libretranslate/.local:rw
+      interval: 10s
+      timeout: 4s
+      retries: 4
+      start_period: 5s
 
-# volumes:
-#   libretranslate_api_keys:
-#   libretranslate_models:
+#### Uncomment Arguments as you see fit. You can find all the different Arguments here: https://hub.docker.com/r/libretranslate/libretranslate#arguments
+#### The docker compose file above is taken from a working environment.
+
+#### Please note; you need to create an .env file for the libretranslate_data_folder that exists in the same folder as this docker compose file, somthing like:
+#### libretranslate_data_folder=/path/to/your/docker-compose/folder
+
+### You may also need to do 'sudo chown -R 1032:1000 /path/to/your/docker-compose/folder/db /path/to/your/docker-compose/folder/data for permissions to be correct.
+
+
