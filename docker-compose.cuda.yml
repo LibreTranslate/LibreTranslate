@@ -6,6 +6,7 @@ services:
       - "5000:5000"
     restart: unless-stopped
     command: --disable-web-ui
+    tty: true
     environment:
      - LT_API_KEYS_DB_PATH=/app/db/api_keys.db
      - LT_API_KEYS=True
