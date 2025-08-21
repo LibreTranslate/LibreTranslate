@@ -23,6 +23,8 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
+    ## Uncomment this for logging in docker compose logs
+    # tty: true
 # './venv/bin/python is not implemented in the cuda docker yet
 #    healthcheck:
 #      test: ['CMD-SHELL', './venv/bin/python scripts/healthcheck.py']

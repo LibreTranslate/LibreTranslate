@@ -11,6 +11,8 @@ services:
       timeout: 4s
       retries: 4
       start_period: 5s
+    ## Uncomment this for logging in docker compose logs
+    # tty: true
     ## Uncomment above command and define your args if necessary
     # command: --ssl --ga-id MY-GA-ID --req-limit 100 --char-limit 500
     ## Uncomment this section and the libretranslate_api_keys volume if you want to backup your API keys
