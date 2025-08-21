@@ -34,7 +34,7 @@ def manage():
     )
 
     keys_remove_parser = keys_subparser.add_parser(
-        "remove", help="Remove API keys to database"
+        "remove", help="Remove API keys from database"
     )
     keys_remove_parser.add_argument("key", type=str, help="API Key")
 
