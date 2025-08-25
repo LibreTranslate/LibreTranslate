@@ -139,7 +139,7 @@ def improve_translation_formatting(source, translation, improve_punctuation=True
                 count[word] = count.get(word, 0) + 1
 
             for word in count:
-                if count[word] / len(count) >= 2:
+                if count[word] / len(bow) >= 0.5:  # If a word appears in 50% or more of positions
                     translation = bow[0]
                     break
 

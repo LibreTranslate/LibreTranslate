@@ -828,7 +828,6 @@ def create_app(args):
 
                 return jsonify(result)
         except Exception as e:
-            raise e
             abort(500, description=_("Cannot translate text: %(text)s", text=str(e)))
 
     @bp.post("/translate_file")
