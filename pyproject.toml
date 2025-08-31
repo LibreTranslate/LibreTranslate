@@ -28,7 +28,10 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10"
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
 ]
 dynamic = ["version"]
 
@@ -57,7 +60,8 @@ dependencies = [
     "prometheus-client ==0.15.0",
     "polib ==1.1.1",
     "packaging ==23.1",
-    "torch ==2.2.0"
+    "torch ==2.4.0;python_version<'3.9'",
+    "torch ==2.5.0;python_version>='3.9'",
 ]
 
 [project.scripts]
@@ -113,7 +117,7 @@ cov = [
 
 
 [[tool.hatch.envs.all.matrix]]
-python = ["3.8", "3.9", "3.10", "3.11"]
+python = ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
 
 
 # TOOLS
