@@ -28,10 +28,13 @@ ARG models=""
 RUN addgroup --system --gid 1032 libretranslate && adduser --system --uid 1032 libretranslate && mkdir -p /home/libretranslate/.local && chown -R libretranslate:libretranslate /home/libretranslate/.local
 USER libretranslate
 
-COPY --from=builder --chown=1032:1032 /app /app
+COPY --from=builder --chown=1032:0 /app /app
+
+RUN chmod -R g=u /app
+
 WORKDIR /app
 
-COPY --from=builder --chown=1032:1032 /app/venv/bin/ltmanage /usr/bin/
+COPY --from=builder --chown=1032:0 /app/venv/bin/ltmanage /usr/bin/
 
 RUN if [ "$with_models" = "true" ]; then  \
   # initialize the language models
@@ -42,5 +45,6 @@ RUN if [ "$with_models" = "true" ]; then  \
   fi \
   fi
 
+VOLUME /.local
 EXPOSE 5000
 ENTRYPOINT [ "./venv/bin/libretranslate", "--host", "*" ]
