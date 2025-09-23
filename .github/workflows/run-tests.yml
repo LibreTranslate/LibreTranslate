@@ -30,7 +30,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pipx install hatch click==8.2.1  --force
+        pipx install hatch
         hatch run locales
 
     - name: Test with pytest
