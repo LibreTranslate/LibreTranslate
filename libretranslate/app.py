@@ -435,7 +435,6 @@ def create_app(args):
 
         resp = make_response(render_template(
             "index.html",
-            gaId=args.ga_id,
             frontendTimeout=args.frontend_timeout,
             api_keys=args.api_keys,
             get_api_key_link=args.get_api_key_link,
