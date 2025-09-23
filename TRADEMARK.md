@@ -15,7 +15,7 @@ However, this is not a complete list of our names, logos, and brand features, al
 
 If you want to report misuse of an LibreTranslate trademark, please contact us via https://uav4geo.com/contact
 
-## When do I need specific permission to use an LibreTranslate trademark?
+## When do I need specific permission to use a LibreTranslate trademark?
 
 Noting that LibreTranslate software combined with, or integrated into, any other software program, including but not limited to automation software for offering LibreTranslate as a cloud service or orchestration software for offering LibreTranslate in containers is considered "modified" LibreTranslate software, you may do the following without receiving specific permission from LibreTranslate (or its affiliates):
 
