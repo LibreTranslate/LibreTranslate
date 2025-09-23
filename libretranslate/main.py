@@ -80,13 +80,6 @@ def get_args():
         help="Set maximum number of texts to translate in a batch request (%(default)s)",
     )
     parser.add_argument(
-        "--ga-id",
-        type=str,
-        default=DEFARGS['GA_ID'],
-        metavar="<GA ID>",
-        help="Enable Google Analytics on the API client page by providing an ID (%(default)s)",
-    )
-    parser.add_argument(
         "--debug", default=DEFARGS['DEBUG'], action="store_true", help="Enable debug environment"
     )
     parser.add_argument(

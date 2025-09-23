@@ -35,17 +35,6 @@
 	<script src="{{ url_for('static', filename='js/vue@2.js') }}"></script>
 
 
-	{% if gaId %}
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id={{ gaId }}"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', '{{ gaId }}');
-	</script>
-	{% endif %}
-
 	<!-- Compiled and minified CSS -->
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/material-icons.css') }}" />

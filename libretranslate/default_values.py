@@ -92,11 +92,6 @@ _default_options_objects = [
         'value_type': 'int'
     },
     {
-        'name': 'GA_ID',
-        'default_value': None,
-        'value_type': 'str'
-    },
-    {
         'name': 'DEBUG',
         'default_value': False,
         'value_type': 'bool'
