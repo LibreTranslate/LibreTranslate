@@ -520,6 +520,28 @@ def create_app(args):
                          "targets": model2iso(language_pairs.get(l.code, []))
                         } for l in languages])
 
+    @bp.get("/health")
+    @limiter.exempt
+    def health():
+        """
+        Health Check
+        ---
+        tags:
+          - misc
+        responses:
+          200:
+            description: Service is healthy
+            schema:
+              id: health-response
+              type: object
+              properties:
+                status:
+                  type: string
+                  description: Health status
+                  example: ok
+        """
+        return jsonify({"status": "ok"})
+
     # Add cors
     @bp.after_request
     def after_request(response):
