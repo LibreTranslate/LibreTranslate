@@ -107,6 +107,6 @@ class RemoteDatabase:
             req_limit = res.get('req_limit', None)
             char_limit = res.get('char_limit', None)
 
-            self.cache[api_key] = (req_limit, char_limit)
-
+            val = self.cache[api_key] = (req_limit, char_limit)
+            
         return val

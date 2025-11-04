@@ -277,7 +277,7 @@ def create_app(args):
             storage_uri=args.req_limit_storage,
             default_limits_deduct_when=lambda req: True, # Force cost to be called after the request
             default_limits_cost=limits_cost,
-            strategy="fixed-window",
+            strategy="moving-window",
         )
     else:
         from .no_limiter import Limiter
