@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-04-18 14:43-0400\n"
-"PO-Revision-Date: 2025-11-04 22:51+0000\n"
-"Last-Translator: theee node <islambmdj@gmail.com>\n"
+"PO-Revision-Date: 2025-11-06 15:51+0000\n"
+"Last-Translator: jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/libretranslate/"
 "app/ar/>\n"
 "Language: ar\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=0 && n%100<=2 ? 4 : 5);\n"
-"X-Generator: Weblate 5.14.1-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:93
@@ -149,9 +149,8 @@ msgid "Bulgarian"
 msgstr "البلغارية"
 
 #: libretranslate/locales/.langs.py:7
-#, fuzzy
 msgid "Catalan"
-msgstr "Catalan"
+msgstr "الكتالونية"
 
 #: libretranslate/locales/.langs.py:8
 msgid "Chinese"
