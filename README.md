@@ -29,4 +29,7 @@ See [Trademark Guidelines](https://github.com/LibreTranslate/LibreTranslate/blob
 ## Other Languages
 
 - [Español (README)](docs/README.es.md)
+- ### Notes for Arabic Translation
+There is a known issue (issue #641) with Arabic-to-English translations giving wrong results. Work is in progress to fix it.
+
 
