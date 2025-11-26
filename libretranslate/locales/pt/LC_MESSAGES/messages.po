@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-04-18 14:43-0400\n"
-"PO-Revision-Date: 2025-06-02 23:35+0000\n"
-"Last-Translator: Manuela Silva <mmsrs@sky.com>\n"
+"PO-Revision-Date: 2025-11-28 05:00+0000\n"
+"Last-Translator: Hari Trigger <carlosmsilva.es@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
 "libretranslate/app/pt/>\n"
 "Language: pt\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:93
@@ -27,7 +27,7 @@ msgstr "Formato JSON inválido"
 
 #: libretranslate/app.py:209 libretranslate/templates/app.js.template:473
 msgid "Auto Detect"
-msgstr "Deteção Automática"
+msgstr "Detecção automática"
 
 #: libretranslate/app.py:311
 msgid "Unauthorized"
