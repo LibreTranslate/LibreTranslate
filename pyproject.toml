@@ -36,7 +36,7 @@ classifiers = [
 dynamic = ["version"]
 
 dependencies = [
-    "argostranslate ==1.10.0",
+    "argostranslate ==1.9.6",
     "Flask ==2.2.5",
     "flask-swagger ==0.2.14",
     "flask-swagger-ui ==4.11.1",
