@@ -21,5 +21,5 @@ else
 fi
 
 eval $(./venv/bin/python ./scripts/print_args_env.py "$@")
-PROMETHEUS_MULTIPROC_DIR="${__dirname}/../db/prometheus" ./venv/bin/gunicorn -c scripts/gunicorn_conf.py --workers $LT_THREADS --max-requests 250 --timeout 90 --bind [::]:$LT_PORT 'wsgi:app'
+PROMETHEUS_MULTIPROC_DIR="${__dirname}/../db/prometheus" ./venv/bin/gunicorn -c scripts/gunicorn_conf.py --workers $LT_THREADS --max-requests 250 --timeout 2400 --bind [::]:$LT_PORT 'wsgi:app'
 
