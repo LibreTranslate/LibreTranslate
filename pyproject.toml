@@ -42,7 +42,6 @@ dependencies = [
     "flask-swagger-ui ==4.11.1",
     "Flask-Limiter ==2.6.3",
     "Flask-Babel ==3.1.0",
-    "Flask-Session ==0.4.0",
     "waitress ==2.1.2",
     "expiringdict ==1.2.2",
     "langdetect==1.0.9",
