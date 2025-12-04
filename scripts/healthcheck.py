@@ -1,5 +1,9 @@
 import requests
 import os
+import sys
+
+if os.path.isfile('/tmp/booting.flag'):
+    sys.exit(0)
 
 port = os.environ.get('LT_PORT', '5000')
 response = requests.get(
