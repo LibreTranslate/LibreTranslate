@@ -11,7 +11,7 @@ for arg in dir(args):
     if not arg.startswith('_'):
         value = getattr(args, arg)
         def_value = parser.get_default(arg)
-        if not callable(value) and (value != def_value or arg == 'port' or arg == 'threads'):
+        if not callable(value) and (value != def_value or arg == 'port' or arg == 'threads' or arg == 'host'):
             if isinstance(value, str):
                 value = value.replace('"', '')
             elif isinstance(value, list):
