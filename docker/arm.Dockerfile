@@ -17,6 +17,7 @@ COPY . .
 RUN ./venv/bin/pip install Babel==2.12.1 && ./venv/bin/python scripts/compile_locales.py \
   && ./venv/bin/pip install torch==2.0.1 --extra-index-url https://download.pytorch.org/whl/cpu \
   && ./venv/bin/pip install "numpy<2" \
+  && ./venv/bin/pip install gunicorn==23.0.0 \
   && ./venv/bin/pip install . \
   && ./venv/bin/pip cache purge
 
@@ -41,4 +42,4 @@ RUN if [ "$with_models" = "true" ]; then  \
   fi
 
 EXPOSE 5000
-ENTRYPOINT [ "./venv/bin/libretranslate", "--host", "*" ]
+ENTRYPOINT [ "./scripts/entrypoint.sh" ]

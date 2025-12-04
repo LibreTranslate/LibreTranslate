@@ -1,14 +1,14 @@
 import argparse
 import operator
 import sys
+import os
 
 from libretranslate.app import create_app
 from libretranslate.default_values import DEFAULT_ARGUMENTS as DEFARGS
 from werkzeug.serving import run_simple
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
 
-
-def get_args():
+def get_parser():
     parser = argparse.ArgumentParser(
         description="LibreTranslate - Free and Open Source Translation API"
     )
@@ -242,6 +242,10 @@ def get_args():
         type=str,
         help="Add a prefix like /url-prefix to URL: example.com:5000/url-prefix/",
     )
+    return parser
+
+def get_args():
+    parser = get_parser()
     args = parser.parse_args()
     if args.url_prefix and not args.url_prefix.startswith('/'):
         args.url_prefix = '/' + args.url_prefix
