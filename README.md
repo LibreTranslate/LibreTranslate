@@ -26,7 +26,3 @@ This work is largely possible thanks to [Argos Translate](https://github.com/arg
 
 See [Trademark Guidelines](https://github.com/LibreTranslate/LibreTranslate/blob/main/TRADEMARK.md)
 
-## Other Languages
-
-- [Español (README)](docs/README.es.md)
-
