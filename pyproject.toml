@@ -48,7 +48,7 @@ dependencies = [
     "lexilang==1.0.6",
     "morfessor ==2.0.6",
     "appdirs ==1.4.4",
-    "APScheduler ==3.9.1",
+    "APScheduler ==3.9.1.post1",
     "translatehtml ==1.5.2",
     "argos-translate-files ==1.4.0",
     "itsdangerous ==2.1.2",
