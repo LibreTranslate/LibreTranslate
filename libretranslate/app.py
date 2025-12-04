@@ -12,9 +12,8 @@ from timeit import default_timer
 
 import argostranslatefiles
 from argostranslatefiles import get_supported_formats
-from flask import Blueprint, Flask, Response, abort, jsonify, render_template, request, send_file, session, url_for, make_response
+from flask import Blueprint, Flask, Response, abort, jsonify, render_template, request, send_file, url_for, make_response
 from flask_babel import Babel
-from flask_session import Session
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
 from translatehtml import translate_html
@@ -431,8 +430,9 @@ def create_app(args):
             abort(404)
 
         langcode = args.frontend_language if len(args.frontend_language) > 0 else request.args.get('lang')
+        lang_cookie = None
         if langcode and langcode in get_available_locale_codes(not args.debug):
-            session.update(preferred_lang=langcode)
+            lang_cookie = langcode
 
         resp = make_response(render_template(
             "index.html",
@@ -443,7 +443,7 @@ def create_app(args):
             version=get_version(),
             swagger_url=swagger_url,
             available_locales=sorted([{'code': l['code'], 'name': _lazy(l['name'])} for l in get_available_locales(not args.debug)], key=lambda s: s['name']),
-            current_locale=get_locale(),
+            current_locale=get_locale(lang_cookie),
             alternate_locales=get_alternate_locale_links(),
             under_attack=args.under_attack,
             hide_api=args.hide_api,
@@ -452,6 +452,9 @@ def create_app(args):
 
         if args.require_api_key_secret:
           resp.set_cookie('r', '1')
+
+        if lang_cookie is not None:
+          resp.set_cookie('preferred_lang', langcode)
 
         return resp
 
@@ -1284,11 +1287,7 @@ def create_app(args):
         return jsonify({"success": True})
 
     app = Flask(__name__)
-
-    app.config["SESSION_TYPE"] = "filesystem"
-    app.config["SESSION_FILE_DIR"] = os.path.join("db", "sessions")
     app.config["JSON_AS_ASCII"] = False
-    Session(app)
 
     if args.debug:
         app.config["TEMPLATES_AUTO_RELOAD"] = True
@@ -1311,11 +1310,20 @@ def create_app(args):
 
     app.config["BABEL_TRANSLATION_DIRECTORIES"] = 'locales'
 
-    def get_locale():
+    def get_locale(cookie=None):
+        available_codes = get_available_locale_codes()
         override_lang = request.headers.get('X-Override-Accept-Language')
-        if override_lang and override_lang in get_available_locale_codes():
+        if override_lang and override_lang in available_codes:
             return override_lang
-        return session.get('preferred_lang', request.accept_languages.best_match(get_available_locale_codes()))
+        qlang = request.args.get('lang')
+        if qlang and qlang in available_codes:
+          return qlang
+        if cookie is None:
+          cookie = request.cookies.get('preferred_lang')
+        if cookie and cookie in available_codes:
+          return cookie
+        else:
+          return request.accept_languages.best_match(get_available_locale_codes())
 
     Babel(app, locale_selector=get_locale)
 
