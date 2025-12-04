@@ -1,6 +1,8 @@
 .git*
 docker*
+docker/
 .Dockerfile.swp
+venv/
 
 chart/
 .editorconfig

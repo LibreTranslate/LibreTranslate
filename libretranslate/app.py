@@ -4,6 +4,7 @@ import os
 import re
 import tempfile
 import uuid
+import sys
 from datetime import datetime
 from functools import wraps
 from html import unescape
@@ -1325,5 +1326,9 @@ def create_app(args):
     swaggerui_blueprint = get_swaggerui_blueprint(swagger_url, args.url_prefix + api_url)
     swaggerui_blueprint.url_prefix = "/docs"
     app.register_blueprint(swaggerui_blueprint)
+
+    if os.environ.get("LT_POWERCYCLE") is not None:
+      print("Power cycling...")
+      sys.exit(0)
 
     return app
