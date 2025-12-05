@@ -26,9 +26,11 @@ eval $(./venv/bin/python ./scripts/print_args_env.py "$@")
 if [[ $LT_HOST == "127.0.0.1" ]]; then
     # Default
     BIND_ADDR="0.0.0.0"
-    IPV6_STATUS=$(cat /proc/sys/net/ipv6/conf/all/disable_ipv6)
-    if [[ $IPV6_STATUS -eq 0 ]]; then
-        BIND_ADDR="[::]"
+    if [[ -f /proc/sys/net/ipv6/conf/all/disable_ipv6 ]]; then
+        IPV6_STATUS=$(cat /proc/sys/net/ipv6/conf/all/disable_ipv6)
+        if [[ $IPV6_STATUS -eq 0 ]]; then
+            BIND_ADDR="[::]"
+        fi
     fi
 else
     BIND_ADDR="$LT_HOST"
