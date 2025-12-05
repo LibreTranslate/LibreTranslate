@@ -35,7 +35,6 @@ RUN if [ "$with_models" = "true" ]; then  \
 # Install package from source code
 RUN pip3 install Babel==2.12.1 && python3 scripts/compile_locales.py \
     && pip3 install "numpy<2" \
-    && pip3 install gunicorn==23.0.0 \
     && pip3 install . \
     && pip3 cache purge
 
@@ -44,4 +43,4 @@ RUN pip3 install Babel==2.12.1 && python3 scripts/compile_locales.py \
 # ENV LD_LIBRARY_PATH=/usr/local/cuda/lib:/usr/local/cuda/lib64
 
 EXPOSE 5000
-ENTRYPOINT [ "./scripts/entrypoint.sh" ]
+ENTRYPOINT [ "libretranslate", "--host", "*" ]
