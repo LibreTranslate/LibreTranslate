@@ -36,5 +36,9 @@ else
     BIND_ADDR="$LT_HOST"
 fi
 
+# Do not update models when workers restart
+unset LT_UPDATE_MODELS
+unset FORCE_UPDATE_MODELS
+
 PROMETHEUS_MULTIPROC_DIR="${__dirname}/../db/prometheus" ./venv/bin/gunicorn -c scripts/gunicorn_conf.py --workers $LT_THREADS --max-requests 250 --timeout 2400 --bind $BIND_ADDR:$LT_PORT 'wsgi:app'
 
