@@ -5,6 +5,7 @@ import re
 import tempfile
 import uuid
 import sys
+import warnings
 from datetime import datetime
 from functools import wraps
 from html import unescape
@@ -36,6 +37,9 @@ from libretranslate.locales import (
 
 from .api_keys import Database, RemoteDatabase
 from .suggestions import Database as SuggestionsDatabase
+
+# Ignore pytorch complaints
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 # Rough map of emoji characters
 emojis = {e: True for e in \
