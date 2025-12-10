@@ -40,5 +40,13 @@ fi
 unset LT_UPDATE_MODELS
 unset FORCE_UPDATE_MODELS
 
-PROMETHEUS_MULTIPROC_DIR="${__dirname}/../db/prometheus" ./venv/bin/gunicorn -c scripts/gunicorn_conf.py --workers $LT_THREADS --max-requests 250 --timeout 2400 --bind $BIND_ADDR:$LT_PORT 'wsgi:app'
+# Setup prometheus metrics db
+export PROMETHEUS_MULTIPROC_DIR=$(realpath "${__dirname}/../db/prometheus")
+if [[ -e "$PROMETHEUS_MULTIPROC_DIR" ]]; then
+    find "$PROMETHEUS_MULTIPROC_DIR" -name '*.db' -delete
+else
+    mkdir -p "$PROMETHEUS_MULTIPROC_DIR"
+fi
+
+./venv/bin/gunicorn -c scripts/gunicorn_conf.py --workers $LT_THREADS --max-requests 250 --timeout 2400 --bind $BIND_ADDR:$LT_PORT 'wsgi:app()'
 

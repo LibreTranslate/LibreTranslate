@@ -14,9 +14,4 @@ def app(*args, **kwargs):
             sys.argv.append("--" + ck)
             sys.argv.append(kwargs[k])
 
-    instance = main()
-
-    if len(kwargs) == 0:
-        return instance(*args, **kwargs)
-    else:
-        return instance
+    return main()
