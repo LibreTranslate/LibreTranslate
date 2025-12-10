@@ -54,7 +54,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Docker compose up
-        run: LT_LOAD_ONLY=en,fr docker compose up -d
+        run: docker compose up -d
 
       - name: Check Healthcheck
         run: |
