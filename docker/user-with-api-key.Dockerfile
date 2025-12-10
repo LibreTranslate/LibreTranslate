@@ -30,8 +30,9 @@ FROM python:3.11.14-slim-bookworm
 
 ARG with_models=false
 ARG models=""
-
 ARG api_key=""
+
+ENV HOME=/home/libretranslate
 
 RUN <<EOF
   addgroup --system --gid 1032 libretranslate

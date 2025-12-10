@@ -34,7 +34,8 @@ ARG models=""
 ARG root_password=""
 ARG api_key=""
 
-ENV ENABLE_SSHD=${root_password:+true}
+ENV ENABLE_SSHD=${root_password:+true} \
+    HOME=/home/libretranslate
 
 RUN <<EOF
   if [ "$ENABLE_SSHD" = "true" ]; then
