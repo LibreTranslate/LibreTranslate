@@ -1,4 +1,4 @@
-FROM python:3.11.11-slim-bullseye AS builder
+FROM python:3.11.14-slim-bookworm AS builder
 
 WORKDIR /app
 
@@ -26,7 +26,7 @@ RUN <<EOF
   ./venv/bin/pip cache purge
 EOF
 
-FROM python:3.11.11-slim-bullseye
+FROM python:3.11.14-slim-bookworm
 
 ARG with_models=false
 ARG models=""

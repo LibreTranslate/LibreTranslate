@@ -1,4 +1,4 @@
-FROM arm64v8/python:3.11.11-slim-bullseye as builder
+FROM arm64v8/python:3.11.14-slim-bookworm as builder
 
 WORKDIR /app
 
@@ -21,7 +21,7 @@ RUN ./venv/bin/pip install Babel==2.12.1 && ./venv/bin/python scripts/compile_lo
   && ./venv/bin/pip install . \
   && ./venv/bin/pip cache purge
 
-FROM arm64v8/python:3.11.11-slim-bullseye
+FROM arm64v8/python:3.11.14-slim-bookworm
 
 ARG with_models=false
 ARG models=""
