@@ -53,8 +53,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Docker build
+        run: docker build -f docker/Dockerfile -t libretranslate/libretranslate:latest .
+      
       - name: Docker compose up
-        run: docker compose up -d
+        run: docker compose up -d --pull never
 
       - name: Check Healthcheck
         run: |
