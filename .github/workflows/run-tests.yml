@@ -48,3 +48,25 @@ jobs:
 
       - name: Docker build with some models
         run: docker build -f docker/Dockerfile -t libretranslate --build-arg models=en,es  .
+
+  test_docker_healthcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Docker build
+        run: docker build -f docker/Dockerfile -t libretranslate/libretranslate:latest .
+      
+      - name: Docker compose up
+        run: docker compose up -d --pull never
+
+      - name: Check Healthcheck
+        run: |
+          for i in {1..60}; do
+            STATUS=$(docker inspect -f '{{ .State.Health.Status }}' libretranslate 2>/dev/null || echo 'no')
+            echo "Status: $STATUS"
+            if [ "$STATUS" = "healthy" ]; then exit 0; fi
+            sleep 2
+          done
+          echo "LibreTranslate did not become healthy"
+          exit 1
