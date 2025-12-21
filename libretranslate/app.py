@@ -395,6 +395,8 @@ def create_app(args):
                 return func(*a, **kw)
               except HTTPException as e:
                 status = e.code
+                if status == 403:
+                  ak = '' # Don't record invalid API keys
                 raise e
               finally:
                 request.duration = max(default_timer() - start_t, 0)
