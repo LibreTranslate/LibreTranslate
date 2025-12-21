@@ -379,6 +379,7 @@ def create_app(args):
                         400,
                         description=description,
                     )
+                    flood.report(get_remote_address())
             return f(*a, **kw)
 
         if args.metrics:
