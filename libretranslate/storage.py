@@ -63,7 +63,7 @@ class MemoryStorage(Storage):
             'ex': None if ex is None else time.time() + ex
         }
 
-    def get_str(self, key):
+    def get_str(self, key, raw=False):
         d = self.store.get(key, {'value': '', 'ex': None})
         if d['ex'] is None:
             return d['value']
@@ -138,12 +138,15 @@ class RedisStorage(Storage):
     def set_str(self, key, value, ex=None):
         self.conn.set(key, value, ex=ex)
 
-    def get_str(self, key):
+    def get_str(self, key, raw=False):
         v = self.conn.get(key)
         if v is None:
             return ""
         else:
-            return v.decode('utf-8')
+            if raw:
+                return v
+            else:
+                return v.decode('utf-8')
 
     def get_hash_int(self, ns, key):
         v = self.conn.hget(ns, key)

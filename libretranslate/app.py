@@ -22,7 +22,7 @@ from werkzeug.exceptions import HTTPException
 from werkzeug.http import http_date
 from werkzeug.utils import secure_filename
 
-from libretranslate import flood, remove_translated_files, scheduler, secret, security, storage
+from libretranslate import flood, remove_translated_files, scheduler, secret, security, storage, cache
 from libretranslate.language import model2iso, iso2model, detect_languages, improve_translation_formatting
 from libretranslate.locales import (
     _,
@@ -199,6 +199,7 @@ def create_app(args):
     bp = Blueprint('Main app', __name__)
 
     storage.setup(args.shared_storage)
+    trans_cache = cache.setup(args.translation_cache)
 
     if not args.disable_files_translation:
         remove_translated_files.setup(get_upload_dir())
@@ -765,6 +766,13 @@ def create_app(args):
 
         src_texts = q if batch else [q]
 
+        ak = get_req_api_key()
+        cache_key = None
+        if trans_cache.should_check(ak):
+          cache_key, hit = trans_cache.hit(src_texts, source_lang, target_lang, text_format, num_alternatives)
+          if hit is not None:
+            return Response(hit, status=200, mimetype="application/json")
+
         if char_limit != -1:
             for text in src_texts:
                 if len(text) > char_limit:
@@ -832,8 +840,6 @@ def create_app(args):
                     result["detectedLanguage"] = [model2iso(detected_src_lang)] * len(q)
                 if num_alternatives > 0:
                     result["alternatives"] = batch_alternatives
-
-                return jsonify(result)
             else:
                 translator = src_lang.get_translation(tgt_lang)
                 if translator is None:
@@ -857,8 +863,11 @@ def create_app(args):
                     result["detectedLanguage"] = model2iso(detected_src_lang)
                 if num_alternatives > 0:
                     result["alternatives"] = alternatives
+            
+            if cache_key is not None:
+              trans_cache.cache(cache_key, result)
 
-                return jsonify(result)
+            return jsonify(result)
         except Exception as e:
             raise e
             abort(500, description=_("Cannot translate text: %(text)s", text=str(e)))

@@ -237,6 +237,13 @@ def get_parser():
         help="Protect the /metrics endpoint by allowing only clients that have a valid Authorization Bearer token (%(default)s)",
     )
     parser.add_argument(
+        "--translation-cache",
+        type=operator.methodcaller("split", ","),
+        default=DEFARGS['TRANSLATION_CACHE'],
+        metavar="<comma separated API keys or 'all'>",
+        help="Cache translation output for users with a particular API key (or 'all' to cache all translations)",
+    )
+    parser.add_argument(
         "--url-prefix",
         default=DEFARGS['URL_PREFIX'],
         type=str,
