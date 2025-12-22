@@ -40,8 +40,9 @@ def on_starting(server):
 
     args = get_args()
 
-    from libretranslate import flood, scheduler, secret, storage
+    from libretranslate import flood, scheduler, secret, storage, cache
     storage.setup(args.shared_storage)
+    cache.setup(args.translation_cache)
     scheduler.setup(args)
     flood.setup(args)
     secret.setup(args)

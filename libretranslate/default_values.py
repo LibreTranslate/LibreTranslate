@@ -232,6 +232,11 @@ _default_options_objects = [
         'value_type': 'str'
     },
     {
+        'name': 'TRANSLATION_CACHE',
+        'default_value': '',
+        'value_type': 'str'
+    },
+    {
         'name': 'URL_PREFIX',
         'default_value': '',
         'value_type': 'str'
