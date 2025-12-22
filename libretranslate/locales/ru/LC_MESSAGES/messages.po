@@ -9,9 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-04-18 14:43-0400\n"
-"PO-Revision-Date: 2025-05-08 05:34+0000\n"
-"Last-Translator: 439JBYL80IGQTF25UXNR0X1BG "
-"<439JBYL80IGQTF25UXNR0X1BG@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2025-12-23 23:00+0000\n"
+"Last-Translator: Vin <k3kelm4vw@mozmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/libretranslate/"
 "app/ru/>\n"
 "Language: ru\n"
@@ -20,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:93
@@ -29,7 +28,7 @@ msgstr "Неверный формат JSON"
 
 #: libretranslate/app.py:209 libretranslate/templates/app.js.template:473
 msgid "Auto Detect"
-msgstr "[автоопределение языка]"
+msgstr "Автоопределение языка"
 
 #: libretranslate/app.py:311
 msgid "Unauthorized"
@@ -64,7 +63,7 @@ msgstr "Притормозите:"
 #: libretranslate/app.py:1214
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr "Недействительный запрос: отсутствует параметр «%(name)s»"
+msgstr "Неверный запрос: параметр «%(name)s» отсутствует"
 
 #: libretranslate/app.py:666
 #, python-format
@@ -101,8 +100,7 @@ msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
 msgstr ""
-"%(tname)s (%(tcode)s) не доступен как целевой язык от %(sname)s "
-"(%(scode)s)"
+"%(tname)s (%(tcode)s) недоступен как целевой язык от %(sname)s (%(scode)s)"
 
 #: libretranslate/app.py:787
 #, python-format
@@ -413,7 +411,7 @@ msgstr "Файл для перевода"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Detect the language of a single text"
-msgstr "Обнаружение языка одного текста"
+msgstr "Определить язык отдельного текста"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Detections"
@@ -646,7 +644,7 @@ msgid ""
 "with a valid API key. Sorry for the inconvenience!"
 msgstr ""
 "Из-за злоупотреблений ботов, запросы переводов временно ограничены для "
-"пользователей с действительным API ключом. Извините за неудобства!"
+"пользователей с действительным API-ключом. Извините за неудобства!"
 
 #: libretranslate/templates/index.html:182
 msgid "Translation API"
