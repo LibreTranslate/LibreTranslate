@@ -26,7 +26,7 @@ class TranslationCache:
         cache_key = "tcache_" + hashlib.md5(fingerprint.encode('utf-8')).hexdigest()
 
         cached = self.storage.get_str(cache_key, raw=True)
-        if cached == "":
+        if len(cached) == 0:
             cached = None
 
         if cached is not None:
