@@ -9,11 +9,11 @@ jobs:
     permissions:
       issues: write
     steps:
-      - uses: pierotofy/issuewhiz@v1
+      - uses: pierotofy/issuewhiz@v2
         with:
           ghToken: ${{ secrets.GITHUB_TOKEN }}
-          openAI: ${{ secrets.OPENAI_TOKEN }}
-          model: gpt-4o-2024-08-06
+          gemini: ${{ secrets.GEMINI_TOKEN }}
+          model: gemini-2.5-flash
           filter: |
             - "#"
           variables: |
