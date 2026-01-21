@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.12\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-18 14:43-0400\n"
+"POT-Creation-Date: 2026-01-21 10:25-0500\n"
 "PO-Revision-Date: 2024-10-09 17:15+0000\n"
 "Last-Translator: Urtzi Odriozola Lizaso <urtzi.odriozola@gmail.com>\n"
 "Language: eu\n"
@@ -20,79 +20,79 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.12.1\n"
 
-#: libretranslate/app.py:93
+#: libretranslate/app.py:97
 msgid "Invalid JSON format"
 msgstr "JSON formatu baliogabea"
 
-#: libretranslate/app.py:209 libretranslate/templates/app.js.template:473
+#: libretranslate/app.py:214 libretranslate/templates/app.js.template:480
 msgid "Auto Detect"
 msgstr "Hautemate automatikoa"
 
-#: libretranslate/app.py:311
+#: libretranslate/app.py:316
 msgid "Unauthorized"
 msgstr "Baimenik gabe"
 
-#: libretranslate/app.py:329
+#: libretranslate/app.py:334
 msgid "Too many request limits violations"
 msgstr "Eskaera-mugaren urraketa gehiegi"
 
-#: libretranslate/app.py:336
+#: libretranslate/app.py:341
 msgid "Invalid API key"
 msgstr "API gako baliogabea"
 
-#: libretranslate/app.py:371
+#: libretranslate/app.py:376
 msgid "Please contact the server operator to get an API key"
 msgstr "Mesedez, jarri harremanetan zerbitzari-operadorearekin API gakoa lortzeko"
 
-#: libretranslate/app.py:373
+#: libretranslate/app.py:378
 #, python-format
 msgid "Visit %(url)s to get an API key"
 msgstr "Bisitatu %(url)s API gako bat lortzeko"
 
-#: libretranslate/app.py:420
+#: libretranslate/app.py:428
 msgid "Slowdown:"
 msgstr "Moteltzea:"
 
-#: libretranslate/app.py:657 libretranslate/app.py:659
-#: libretranslate/app.py:661 libretranslate/app.py:882
-#: libretranslate/app.py:884 libretranslate/app.py:886
-#: libretranslate/app.py:1051 libretranslate/app.py:1208
-#: libretranslate/app.py:1210 libretranslate/app.py:1212
-#: libretranslate/app.py:1214
+#: libretranslate/app.py:735 libretranslate/app.py:737
+#: libretranslate/app.py:739 libretranslate/app.py:968
+#: libretranslate/app.py:970 libretranslate/app.py:972
+#: libretranslate/app.py:1137 libretranslate/app.py:1294
+#: libretranslate/app.py:1296 libretranslate/app.py:1298
+#: libretranslate/app.py:1300
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
 msgstr "Eskaera baliogabea: %(name)s parametroa falta da"
 
-#: libretranslate/app.py:666
+#: libretranslate/app.py:744
 #, python-format
 msgid "Invalid request: %(name)s parameter is not a number"
 msgstr "Eskaera baliogabea: %(name)s parametroa ez da zenbakia"
 
-#: libretranslate/app.py:669
+#: libretranslate/app.py:747
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
 msgstr "Eskaera baliogabea: %(name)s parametroak <= %(value)s izan behar du"
 
-#: libretranslate/app.py:686 libretranslate/app.py:696
+#: libretranslate/app.py:764 libretranslate/app.py:781
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
 "Eskaera baliogabea: eskaerak (%(size)s) testu muga (%(limit)s) gainditzen"
 " du"
 
-#: libretranslate/app.py:715 libretranslate/app.py:720
-#: libretranslate/app.py:897 libretranslate/app.py:902
-#: libretranslate/app.py:924
+#: libretranslate/app.py:800 libretranslate/app.py:805
+#: libretranslate/app.py:983 libretranslate/app.py:988
+#: libretranslate/app.py:1010
 #, python-format
 msgid "%(lang)s is not supported"
 msgstr "%(lang)s ez da bateragarria"
 
-#: libretranslate/app.py:726
+#: libretranslate/app.py:811
 #, python-format
 msgid "%(format)s format is not supported"
 msgstr "%(format)s formatua ez da bateragarria"
 
-#: libretranslate/app.py:735 libretranslate/app.py:763
+#: libretranslate/app.py:820 libretranslate/app.py:846
 #, python-format
 msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
@@ -101,28 +101,28 @@ msgstr ""
 "%(tname)s (%(tcode)s) ez dago eskuragarri helburu hizkuntza moduan "
 "%(sname)s-(e)tik (%(scode)s)"
 
-#: libretranslate/app.py:787
+#: libretranslate/app.py:873
 #, python-format
 msgid "Cannot translate text: %(text)s"
 msgstr "Ezin da testua itzuli: %(text)s"
 
-#: libretranslate/app.py:874 libretranslate/app.py:943
+#: libretranslate/app.py:960 libretranslate/app.py:1029
 msgid "Files translation are disabled on this server."
 msgstr "Fitxategi itzulpenak ez daude gaituta zerbitzari honetan."
 
-#: libretranslate/app.py:889
+#: libretranslate/app.py:975
 msgid "Invalid request: empty file"
 msgstr "Eskaera baliogabea: fitxategi hutsa"
 
-#: libretranslate/app.py:892
+#: libretranslate/app.py:978
 msgid "Invalid request: file format not supported"
 msgstr "Eskaera baliogabea: fitxategiaren formatua ez da bateragarria"
 
-#: libretranslate/app.py:951
+#: libretranslate/app.py:1037
 msgid "Invalid filename"
 msgstr "Fitxategiaren izena baliogabea"
 
-#: libretranslate/app.py:1193
+#: libretranslate/app.py:1279
 msgid "Suggestions are disabled on this server."
 msgstr "Iradokizunak ez daude gaituta zerbitzari honetan."
 
@@ -143,242 +143,266 @@ msgid "Azerbaijani"
 msgstr "Azerbaijanera"
 
 #: libretranslate/locales/.langs.py:5
+msgid "Basque"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:6
 msgid "Bengali"
 msgstr "Bengalera"
 
-#: libretranslate/locales/.langs.py:6
+#: libretranslate/locales/.langs.py:7
 msgid "Bulgarian"
 msgstr "Bulgariera"
 
-#: libretranslate/locales/.langs.py:7
+#: libretranslate/locales/.langs.py:8
 msgid "Catalan"
 msgstr "Katalana"
 
-#: libretranslate/locales/.langs.py:8
+#: libretranslate/locales/.langs.py:9
 msgid "Chinese"
 msgstr "Txinera"
 
-#: libretranslate/locales/.langs.py:9
+#: libretranslate/locales/.langs.py:10
 msgid "Chinese (traditional)"
 msgstr "Txinera (tradizionala)"
 
-#: libretranslate/locales/.langs.py:10
+#: libretranslate/locales/.langs.py:11
 msgid "Czech"
 msgstr "Txekiera"
 
-#: libretranslate/locales/.langs.py:11
+#: libretranslate/locales/.langs.py:12
 msgid "Danish"
 msgstr "Daniera"
 
-#: libretranslate/locales/.langs.py:12
+#: libretranslate/locales/.langs.py:13
 msgid "Dutch"
 msgstr "Nederlandera"
 
-#: libretranslate/locales/.langs.py:13
+#: libretranslate/locales/.langs.py:14
 msgid "Esperanto"
 msgstr "Esperantoa"
 
-#: libretranslate/locales/.langs.py:14
+#: libretranslate/locales/.langs.py:15
 msgid "Estonian"
 msgstr "Estoniera"
 
-#: libretranslate/locales/.langs.py:15
+#: libretranslate/locales/.langs.py:16
 msgid "Finnish"
 msgstr "Finlandiera"
 
-#: libretranslate/locales/.langs.py:16
+#: libretranslate/locales/.langs.py:17
 msgid "French"
 msgstr "Frantsesa"
 
-#: libretranslate/locales/.langs.py:17
+#: libretranslate/locales/.langs.py:18
+msgid "Galician"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:19
 msgid "German"
 msgstr "Alemana"
 
-#: libretranslate/locales/.langs.py:18
+#: libretranslate/locales/.langs.py:20
 msgid "Greek"
 msgstr "Greziera"
 
-#: libretranslate/locales/.langs.py:19
+#: libretranslate/locales/.langs.py:21
 msgid "Hebrew"
 msgstr "Hebreera"
 
-#: libretranslate/locales/.langs.py:20
+#: libretranslate/locales/.langs.py:22
 msgid "Hindi"
 msgstr "Hindiera"
 
-#: libretranslate/locales/.langs.py:21
+#: libretranslate/locales/.langs.py:23
 msgid "Hungarian"
 msgstr "Hungariera"
 
-#: libretranslate/locales/.langs.py:22
+#: libretranslate/locales/.langs.py:24
 msgid "Indonesian"
 msgstr "Indonesiera"
 
-#: libretranslate/locales/.langs.py:23
+#: libretranslate/locales/.langs.py:25
 msgid "Irish"
 msgstr "Irlandera"
 
-#: libretranslate/locales/.langs.py:24
+#: libretranslate/locales/.langs.py:26
 msgid "Italian"
 msgstr "Italiera"
 
-#: libretranslate/locales/.langs.py:25
+#: libretranslate/locales/.langs.py:27
 msgid "Japanese"
 msgstr "Japoniera"
 
-#: libretranslate/locales/.langs.py:26
+#: libretranslate/locales/.langs.py:28
 msgid "Korean"
 msgstr "Koreera"
 
-#: libretranslate/locales/.langs.py:27
+#: libretranslate/locales/.langs.py:29
+msgid "Kyrgyz"
+msgstr ""
+
+#: libretranslate/locales/.langs.py:30
 msgid "Latvian"
 msgstr "Letoniera"
 
-#: libretranslate/locales/.langs.py:28
+#: libretranslate/locales/.langs.py:31
 msgid "Lithuanian"
 msgstr "Lituaniera"
 
-#: libretranslate/locales/.langs.py:29
+#: libretranslate/locales/.langs.py:32
 msgid "Malay"
 msgstr "Malaysiera"
 
-#: libretranslate/locales/.langs.py:30
+#: libretranslate/locales/.langs.py:33
 msgid "Norwegian"
 msgstr "Norvegiera"
 
-#: libretranslate/locales/.langs.py:31
+#: libretranslate/locales/.langs.py:34
 msgid "Persian"
 msgstr "Persiera"
 
-#: libretranslate/locales/.langs.py:32
+#: libretranslate/locales/.langs.py:35
 msgid "Polish"
 msgstr "Poloniera"
 
-#: libretranslate/locales/.langs.py:33
+#: libretranslate/locales/.langs.py:36
 msgid "Portuguese"
 msgstr "Portugesa"
 
-#: libretranslate/locales/.langs.py:34
+#: libretranslate/locales/.langs.py:37
 msgid "Portuguese (Brazil)"
 msgstr ""
 
-#: libretranslate/locales/.langs.py:35
+#: libretranslate/locales/.langs.py:38
 msgid "Romanian"
 msgstr "Errumaniera"
 
-#: libretranslate/locales/.langs.py:36
+#: libretranslate/locales/.langs.py:39
 msgid "Russian"
 msgstr "Errusiera"
 
-#: libretranslate/locales/.langs.py:37
+#: libretranslate/locales/.langs.py:40
 msgid "Slovak"
 msgstr "Eslovakiera"
 
-#: libretranslate/locales/.langs.py:38
+#: libretranslate/locales/.langs.py:41
 msgid "Slovenian"
 msgstr "Esloveniera"
 
-#: libretranslate/locales/.langs.py:39
+#: libretranslate/locales/.langs.py:42
 msgid "Spanish"
 msgstr "Gaztelania"
 
-#: libretranslate/locales/.langs.py:40
+#: libretranslate/locales/.langs.py:43
 msgid "Swedish"
 msgstr "Suediera"
 
-#: libretranslate/locales/.langs.py:41
+#: libretranslate/locales/.langs.py:44
 msgid "Tagalog"
 msgstr "Tagaloa"
 
-#: libretranslate/locales/.langs.py:42
+#: libretranslate/locales/.langs.py:45
 msgid "Thai"
 msgstr "Thailandiera"
 
-#: libretranslate/locales/.langs.py:43
+#: libretranslate/locales/.langs.py:46
 msgid "Turkish"
 msgstr "Turkiera"
 
-#: libretranslate/locales/.langs.py:44
+#: libretranslate/locales/.langs.py:47
 msgid "Ukranian"
 msgstr "Ukrainera"
 
-#: libretranslate/locales/.langs.py:45
+#: libretranslate/locales/.langs.py:48
 msgid "Urdu"
 msgstr "Urdua"
 
-#: libretranslate/locales/.langs.py:46
-msgid "Serbian"
-msgstr "Serbiera"
-
-#: libretranslate/locales/.langs.py:47
-msgid "Ukrainian"
-msgstr "Ukrainera"
-
-#: libretranslate/locales/.langs.py:48
+#: libretranslate/locales/.langs.py:49
 msgid "Vietnamese"
 msgstr "Vietnamera"
 
+#: libretranslate/locales/.langs.py:50
+msgid "Serbian"
+msgstr "Serbiera"
+
+#: libretranslate/locales/.langs.py:51
+msgid "Ukrainian"
+msgstr "Ukrainera"
+
 #: libretranslate/locales/.swag.py:1
-msgid "Retrieve list of supported languages"
-msgstr "Eskuratu bateragarriak diren hizkuntzen zerrenda"
+msgid "Get Supported Languages"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:2
-msgid "List of languages"
-msgstr "Hizkuntzen zerrenda"
+msgid "List of supported languages"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:3
 msgid "translate"
 msgstr "itzuli"
 
 #: libretranslate/locales/.swag.py:4
-msgid "Translate text from a language to another"
-msgstr "Itzuli testua hizkuntza batetik bestera"
+msgid "Health Check"
+msgstr ""
 
-#: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:233
-msgid "Translated text"
-msgstr "Itzulitako testua"
+#: libretranslate/locales/.swag.py:5
+msgid "Service is healthy"
+msgstr ""
 
 #: libretranslate/locales/.swag.py:6
+msgid "misc"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:7 libretranslate/templates/index.html:185
+msgid "Translate Text"
+msgstr "Itzuli testua"
+
+#: libretranslate/locales/.swag.py:8
+msgid "Translation"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:9
 msgid "Invalid request"
 msgstr "Eskaera baliogabea"
 
-#: libretranslate/locales/.swag.py:7
+#: libretranslate/locales/.swag.py:10
 msgid "Translation error"
 msgstr "Itzulpen errorea"
 
-#: libretranslate/locales/.swag.py:8
+#: libretranslate/locales/.swag.py:11
 msgid "Slow down"
 msgstr "Moteldu"
 
-#: libretranslate/locales/.swag.py:9
+#: libretranslate/locales/.swag.py:12
 msgid "Banned"
 msgstr "Debekatua"
 
-#: libretranslate/locales/.swag.py:10
+#: libretranslate/locales/.swag.py:13
 msgid "Hello world!"
 msgstr "Kaixo mundua!"
 
-#: libretranslate/locales/.swag.py:11
+#: libretranslate/locales/.swag.py:14
 msgid "Text(s) to translate"
 msgstr "Itzultzeko testua(k)"
 
-#: libretranslate/locales/.swag.py:12
-msgid "Source language code"
-msgstr "Jatorrizko hizkuntza kodea"
+#: libretranslate/locales/.swag.py:15
+msgid "Source language code or \"auto\" for auto detection"
+msgstr ""
 
-#: libretranslate/locales/.swag.py:13
+#: libretranslate/locales/.swag.py:16
 msgid "Target language code"
 msgstr "Helburu hizkuntza kodea"
 
-#: libretranslate/locales/.swag.py:14
+#: libretranslate/locales/.swag.py:17
 msgid "text"
 msgstr "testua"
 
-#: libretranslate/locales/.swag.py:15
+#: libretranslate/locales/.swag.py:18
 msgid "html"
 msgstr "html"
 
-#: libretranslate/locales/.swag.py:16
+#: libretranslate/locales/.swag.py:19
 msgid ""
 "Format of source text:\n"
 " * `text` - Plain text\n"
@@ -388,177 +412,189 @@ msgstr ""
 " * `text` - Formatu gabeko testua\n"
 " * `html` - HTML etiketak\n"
 
-#: libretranslate/locales/.swag.py:17
+#: libretranslate/locales/.swag.py:20
 msgid "Preferred number of alternative translations"
 msgstr "Itzulpen alternatiboen kopuru hobetsia"
 
-#: libretranslate/locales/.swag.py:18
+#: libretranslate/locales/.swag.py:21
 msgid "API key"
 msgstr "API gakoa"
 
-#: libretranslate/locales/.swag.py:19
-msgid "Translate file from a language to another"
-msgstr "Itzuli fitxategia hizkuntza batetik bestera"
+#: libretranslate/locales/.swag.py:22
+msgid "Translate a File"
+msgstr ""
 
-#: libretranslate/locales/.swag.py:20
+#: libretranslate/locales/.swag.py:23
 msgid "Translated file"
 msgstr "Itzulitako fitxategia"
 
-#: libretranslate/locales/.swag.py:21
+#: libretranslate/locales/.swag.py:24
 msgid "File to translate"
 msgstr "Itzultzeko fitxategia"
 
-#: libretranslate/locales/.swag.py:22
-msgid "Detect the language of a single text"
-msgstr "Hauteman testu bakar baten hizkuntza"
+#: libretranslate/locales/.swag.py:25
+msgid "Source language code  or \"auto\" for auto detection"
+msgstr ""
 
-#: libretranslate/locales/.swag.py:23
+#: libretranslate/locales/.swag.py:26
+msgid "Detect Language of Text"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:27
 msgid "Detections"
 msgstr "Hautemateak"
 
-#: libretranslate/locales/.swag.py:24
+#: libretranslate/locales/.swag.py:28
 msgid "Detection error"
 msgstr "Hautemate errorea"
 
-#: libretranslate/locales/.swag.py:25
+#: libretranslate/locales/.swag.py:29
 msgid "Text to detect"
 msgstr "Hautemateko testua"
 
-#: libretranslate/locales/.swag.py:26
-msgid "Retrieve frontend specific settings"
-msgstr "Eskuratu interfazeko ezarpen espezifikoak"
+#: libretranslate/locales/.swag.py:30
+msgid "Retrieve Frontend Settings"
+msgstr ""
 
-#: libretranslate/locales/.swag.py:27
+#: libretranslate/locales/.swag.py:31
 msgid "frontend settings"
 msgstr "interfaze ezarpenak"
 
-#: libretranslate/locales/.swag.py:28
-msgid "frontend"
-msgstr "interfazea"
+#: libretranslate/locales/.swag.py:32
+msgid "Submit a Suggestion to Improve a Translation"
+msgstr ""
 
-#: libretranslate/locales/.swag.py:29
-msgid "Submit a suggestion to improve a translation"
-msgstr "Bidali iradokizun bat itzulpena hobetzeko"
-
-#: libretranslate/locales/.swag.py:30
+#: libretranslate/locales/.swag.py:33
 msgid "Success"
 msgstr "Arrakasta"
 
-#: libretranslate/locales/.swag.py:31
+#: libretranslate/locales/.swag.py:34
 msgid "Not authorized"
 msgstr "Baimenik gabea"
 
-#: libretranslate/locales/.swag.py:32
+#: libretranslate/locales/.swag.py:35
 msgid "Original text"
 msgstr "Jatorrizko testua"
 
-#: libretranslate/locales/.swag.py:33
+#: libretranslate/locales/.swag.py:36
 msgid "Suggested translation"
 msgstr "Iradokitako itzulpena"
 
-#: libretranslate/locales/.swag.py:34
+#: libretranslate/locales/.swag.py:37
 msgid "Language of original text"
 msgstr "Jatorrizko testuaren hizkuntza"
 
-#: libretranslate/locales/.swag.py:35
+#: libretranslate/locales/.swag.py:38
 msgid "Language of suggested translation"
 msgstr "Iradokitako itzulpenaren hizkuntza"
 
-#: libretranslate/locales/.swag.py:36
-msgid "feedback"
-msgstr "iritzia"
+#: libretranslate/locales/.swag.py:39
+msgid "Supported language"
+msgstr ""
 
-#: libretranslate/locales/.swag.py:37
+#: libretranslate/locales/.swag.py:40
 msgid "Language code"
 msgstr "Hizkuntzaren kodea"
 
-#: libretranslate/locales/.swag.py:38
+#: libretranslate/locales/.swag.py:41
 msgid "Human-readable language name (in English)"
 msgstr "Gizakiak uler dezakeen hizkuntzaren izena (ingelesez)"
 
-#: libretranslate/locales/.swag.py:39
+#: libretranslate/locales/.swag.py:42
 msgid "Supported target language codes"
 msgstr "Helburuko hizkuntzen kode bateragarriak"
 
-#: libretranslate/locales/.swag.py:40
+#: libretranslate/locales/.swag.py:43
+msgid "Health status"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:44
 msgid "Translated text(s)"
 msgstr "Itzulitako testua(k)"
 
-#: libretranslate/locales/.swag.py:41
-msgid "Error message"
-msgstr "Errore mezua"
-
-#: libretranslate/locales/.swag.py:42
-msgid "Reason for slow down"
-msgstr "Moteltzeko arrazoia"
-
-#: libretranslate/locales/.swag.py:43
-msgid "Translated file url"
-msgstr "Itzulitako fitxategiaren url"
-
-#: libretranslate/locales/.swag.py:44
+#: libretranslate/locales/.swag.py:45
 msgid "Confidence value"
 msgstr "Konfiantza balioa"
 
-#: libretranslate/locales/.swag.py:45
+#: libretranslate/locales/.swag.py:46
+msgid "Alternative translations"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:47
+msgid "translatedText"
+msgstr ""
+
+#: libretranslate/locales/.swag.py:48
+msgid "Error message"
+msgstr "Errore mezua"
+
+#: libretranslate/locales/.swag.py:49
+msgid "Reason for slow down"
+msgstr "Moteltzeko arrazoia"
+
+#: libretranslate/locales/.swag.py:50
+msgid "Translated file url"
+msgstr "Itzulitako fitxategiaren url"
+
+#: libretranslate/locales/.swag.py:51
 msgid "Character input limit for this language (-1 indicates no limit)"
 msgstr ""
 "Karakterearen sarrera-muga hizkuntza honetarako (-1ek mugarik ez dagoela "
 "adierazten du)"
 
-#: libretranslate/locales/.swag.py:46
+#: libretranslate/locales/.swag.py:52
 msgid "Frontend translation timeout"
 msgstr "Interfazeko itzulpen denbora"
 
-#: libretranslate/locales/.swag.py:47
+#: libretranslate/locales/.swag.py:53
 msgid "Whether the API key database is enabled."
 msgstr "API gakoen datu-basea gaituta dagoen ala ez."
 
-#: libretranslate/locales/.swag.py:48
+#: libretranslate/locales/.swag.py:54
 msgid "Whether an API key is required."
 msgstr "API gako bat behar den ala ez."
 
-#: libretranslate/locales/.swag.py:49
+#: libretranslate/locales/.swag.py:55
 msgid "Whether submitting suggestions is enabled."
 msgstr "Iradokizunak bidaltzea gaituta dagoen ala ez."
 
-#: libretranslate/locales/.swag.py:50
+#: libretranslate/locales/.swag.py:56
 msgid "Supported files format"
 msgstr "Fitxategi bateragarrien formatua"
 
-#: libretranslate/locales/.swag.py:51
+#: libretranslate/locales/.swag.py:57
 msgid "Whether submission was successful"
 msgstr "Bidalketa arrakastatsua izan den ala ez"
 
-#: libretranslate/templates/app.js.template:31
-#: libretranslate/templates/app.js.template:294
-#: libretranslate/templates/app.js.template:298
+#: libretranslate/templates/app.js.template:32
+#: libretranslate/templates/app.js.template:300
+#: libretranslate/templates/app.js.template:304
 msgid "Copy text"
 msgstr "Kopiatu testua"
 
-#: libretranslate/templates/app.js.template:80
-#: libretranslate/templates/app.js.template:86
-#: libretranslate/templates/app.js.template:91
-#: libretranslate/templates/app.js.template:281
-#: libretranslate/templates/app.js.template:351
-#: libretranslate/templates/app.js.template:439
-#: libretranslate/templates/app.js.template:493
+#: libretranslate/templates/app.js.template:82
+#: libretranslate/templates/app.js.template:88
+#: libretranslate/templates/app.js.template:93
+#: libretranslate/templates/app.js.template:287
+#: libretranslate/templates/app.js.template:357
+#: libretranslate/templates/app.js.template:446
+#: libretranslate/templates/app.js.template:500
 #, python-format
 msgid "Cannot load %(url)s"
 msgstr "Ezin da %(url)s kargatu"
 
-#: libretranslate/templates/app.js.template:272
-#: libretranslate/templates/app.js.template:342
-#: libretranslate/templates/app.js.template:420
-#: libretranslate/templates/app.js.template:431
+#: libretranslate/templates/app.js.template:278
+#: libretranslate/templates/app.js.template:348
+#: libretranslate/templates/app.js.template:427
+#: libretranslate/templates/app.js.template:438
 msgid "Unknown error"
 msgstr "Errore ezezaguna"
 
-#: libretranslate/templates/app.js.template:295
+#: libretranslate/templates/app.js.template:301
 msgid "Copied"
 msgstr "Kopiatua"
 
-#: libretranslate/templates/app.js.template:339
+#: libretranslate/templates/app.js.template:345
 msgid ""
 "Thanks for your correction. Note the suggestion will not take effect "
 "right away."
@@ -566,30 +602,30 @@ msgstr ""
 "Eskerrik asko zuzenketagatik. Kontuan izan iradokizunak ez duela "
 "berehalakoan eraginik izango."
 
-#: libretranslate/templates/app.js.template:463
+#: libretranslate/templates/app.js.template:470
 msgid "No languages available. Did you install the models correctly?"
 msgstr "Ez dago hizkuntza erabilgarririk. Modeloak ongi instalatu dituzu?"
 
-#: libretranslate/templates/app.js.template:536
+#: libretranslate/templates/app.js.template:543
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
 msgstr "Idatzi zure API gakoa. API gako bat behar baduzu, %(instructions)s"
 
-#: libretranslate/templates/app.js.template:536
+#: libretranslate/templates/app.js.template:543
 msgid "press the \"Get API Key\" link."
 msgstr "sakatu \"Lortu API Gakoa\" esteka."
 
-#: libretranslate/templates/app.js.template:536
+#: libretranslate/templates/app.js.template:543
 msgid "contact the server operator."
 msgstr "jarri zerbitzari-operadorearekin harremanetan."
 
-#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
-#: libretranslate/templates/index.html:347
+#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:29
+#: libretranslate/templates/index.html:348
 msgid "Free and Open Source Machine Translation API"
 msgstr "Doako eta kode irekiko Itzulpen automatikoko APIa"
 
 #: libretranslate/templates/index.html:10
-#: libretranslate/templates/index.html:31
+#: libretranslate/templates/index.html:33
 msgid ""
 "Free and Open Source Machine Translation API. Free to download, offline "
 "capable and easy to setup. Run your own API server in just a few minutes."
@@ -606,106 +642,106 @@ msgstr "itzulpena"
 msgid "api"
 msgstr "api"
 
-#: libretranslate/templates/index.html:67
+#: libretranslate/templates/index.html:59
 msgid "API Docs"
 msgstr "API Dokak"
 
-#: libretranslate/templates/index.html:69
+#: libretranslate/templates/index.html:62
 msgid "Get API Key"
 msgstr "Lortu API Gakoa"
 
-#: libretranslate/templates/index.html:71
+#: libretranslate/templates/index.html:64
 msgid "GitHub"
 msgstr "GitHub"
 
-#: libretranslate/templates/index.html:73
+#: libretranslate/templates/index.html:66
 msgid "Set API Key"
 msgstr "Ezarri API Gakoa"
 
-#: libretranslate/templates/index.html:75
+#: libretranslate/templates/index.html:68
 msgid "Change language"
 msgstr "Aldatu hizkuntza"
 
-#: libretranslate/templates/index.html:81
+#: libretranslate/templates/index.html:74
 msgid "Edit"
 msgstr "Editatu"
 
-#: libretranslate/templates/index.html:83
+#: libretranslate/templates/index.html:76
 msgid "Toggle dark/light mode"
 msgstr "Modu iluna/argia"
 
-#: libretranslate/templates/index.html:159
+#: libretranslate/templates/index.html:152
 msgid "Dismiss"
 msgstr "Baztertu"
 
-#: libretranslate/templates/index.html:177
+#: libretranslate/templates/index.html:170
 msgid ""
 "Due to bot abuse, translation requests are temporarily limited to users "
 "with a valid API key. Sorry for the inconvenience!"
 msgstr ""
 
-#: libretranslate/templates/index.html:182
+#: libretranslate/templates/index.html:179
 msgid "Translation API"
 msgstr "Itzulpen APIa"
 
-#: libretranslate/templates/index.html:186
-msgid "Translate Text"
-msgstr "Itzuli testua"
-
-#: libretranslate/templates/index.html:190
+#: libretranslate/templates/index.html:189
 msgid "Translate Files"
 msgstr "Itzuli fitxategiak"
 
-#: libretranslate/templates/index.html:196
+#: libretranslate/templates/index.html:195
 msgid "Translate from"
 msgstr "Itzuli hemendik"
 
-#: libretranslate/templates/index.html:206
+#: libretranslate/templates/index.html:205
 msgid "Swap source and target languages"
 msgstr "Aldatu jatorrizko eta helburuko hizkuntzak"
 
-#: libretranslate/templates/index.html:209
+#: libretranslate/templates/index.html:208
 msgid "Translate into"
 msgstr "Itzuli hona"
 
-#: libretranslate/templates/index.html:221
+#: libretranslate/templates/index.html:220
 msgid "Text to translate"
 msgstr "Itzultzeko testua"
 
-#: libretranslate/templates/index.html:224
+#: libretranslate/templates/index.html:223
 msgid "Delete text"
 msgstr "Ezabatu testua"
 
-#: libretranslate/templates/index.html:237
+#: libretranslate/templates/index.html:232
+msgid "Translated text"
+msgstr "Itzulitako testua"
+
+#: libretranslate/templates/index.html:236
 msgid "Suggest translation"
 msgstr "Iradoki itzulpena"
 
-#: libretranslate/templates/index.html:241
+#: libretranslate/templates/index.html:240
 msgid "Cancel"
 msgstr "Utzi"
 
-#: libretranslate/templates/index.html:244
+#: libretranslate/templates/index.html:243
 msgid "Send"
 msgstr "Bidali"
 
-#: libretranslate/templates/index.html:260
+#: libretranslate/templates/index.html:259
 msgid "Supported file formats:"
 msgstr "Fitxategi bateragarrien formatuak:"
 
-#: libretranslate/templates/index.html:264
+#: libretranslate/templates/index.html:263
 msgid "File"
 msgstr "Fitxategia"
 
-#: libretranslate/templates/index.html:279
+#: libretranslate/templates/index.html:278
 msgid "Remove file"
 msgstr "Kendu fitxategia"
 
-#: libretranslate/templates/index.html:286
+#: libretranslate/templates/index.html:285
 msgid "Translate"
 msgstr "Itzuli"
 
-#: libretranslate/templates/index.html:287
-#: libretranslate/templates/index.html:331
+#: libretranslate/templates/index.html:286
+#: libretranslate/templates/index.html:332
 msgid "Download"
 msgstr "Deskargatu"
 
@@ -717,28 +753,28 @@ msgstr "Eskaera"
 msgid "Response"
 msgstr "Erantzuna"
 
-#: libretranslate/templates/index.html:326
+#: libretranslate/templates/index.html:327
 msgid "Open Source Machine Translation API"
 msgstr "Kode Irekiko Itzulpen Automatikoko APIa"
 
-#: libretranslate/templates/index.html:327
+#: libretranslate/templates/index.html:328
 msgid "Free to download. Offline Capable. Easy to Setup."
 msgstr "Doan deskargatzeko. Konexio beharrik gabe. Konfiguratzeko erraza."
 
-#: libretranslate/templates/index.html:346
+#: libretranslate/templates/index.html:347
 msgid "LibreTranslate"
 msgstr "LibreTranslate"
 
-#: libretranslate/templates/index.html:348
+#: libretranslate/templates/index.html:349
 msgid "License:"
 msgstr "Lizentzia:"
 
-#: libretranslate/templates/index.html:354
+#: libretranslate/templates/index.html:355
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
 msgstr "%(contributors)s %(heart)sez egina eta %(engine)sk sustatua"
 
-#: libretranslate/templates/index.html:354
+#: libretranslate/templates/index.html:355
 #, python-format
 msgid "%(libretranslate)s Contributors"
 msgstr "%(libretranslate)s Laguntzaileek"
@@ -767,4 +803,34 @@ msgstr "%(libretranslate)s Laguntzaileek"
 
 #~ msgid "Galician"
 #~ msgstr "Galiziera"
+
+#~ msgid "Retrieve list of supported languages"
+#~ msgstr "Eskuratu bateragarriak diren hizkuntzen zerrenda"
+
+#~ msgid "List of languages"
+#~ msgstr "Hizkuntzen zerrenda"
+
+#~ msgid "Translate text from a language to another"
+#~ msgstr "Itzuli testua hizkuntza batetik bestera"
+
+#~ msgid "Source language code"
+#~ msgstr "Jatorrizko hizkuntza kodea"
+
+#~ msgid "Translate file from a language to another"
+#~ msgstr "Itzuli fitxategia hizkuntza batetik bestera"
+
+#~ msgid "Detect the language of a single text"
+#~ msgstr "Hauteman testu bakar baten hizkuntza"
+
+#~ msgid "Retrieve frontend specific settings"
+#~ msgstr "Eskuratu interfazeko ezarpen espezifikoak"
+
+#~ msgid "frontend"
+#~ msgstr "interfazea"
+
+#~ msgid "Submit a suggestion to improve a translation"
+#~ msgstr "Bidali iradokizun bat itzulpena hobetzeko"
+
+#~ msgid "feedback"
+#~ msgstr "iritzia"
 

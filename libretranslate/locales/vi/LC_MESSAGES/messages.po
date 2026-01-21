@@ -8,122 +8,120 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-18 14:43-0400\n"
+"POT-Creation-Date: 2026-01-21 10:25-0500\n"
 "PO-Revision-Date: 2025-07-05 04:01+0000\n"
 "Last-Translator: HGN <hgnuyen1008@gmail.com>\n"
-"Language-Team: Vietnamese <https://hosted.weblate.org/projects/"
-"libretranslate/app/vi/>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/libretranslate/app/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
 "Generated-By: Babel 2.12.1\n"
 
-#: libretranslate/app.py:93
+#: libretranslate/app.py:97
 msgid "Invalid JSON format"
 msgstr "Không đúng định dạng dữ liệu JSON"
 
-#: libretranslate/app.py:209 libretranslate/templates/app.js.template:473
+#: libretranslate/app.py:214 libretranslate/templates/app.js.template:480
 msgid "Auto Detect"
 msgstr "Tự động phát hiện"
 
-#: libretranslate/app.py:311
+#: libretranslate/app.py:316
 msgid "Unauthorized"
 msgstr "Truy cập không được cấp quyền"
 
-#: libretranslate/app.py:329
+#: libretranslate/app.py:334
 msgid "Too many request limits violations"
 msgstr "Quá nhiều yêu cầu vượt giới hạn"
 
-#: libretranslate/app.py:336
+#: libretranslate/app.py:341
 msgid "Invalid API key"
 msgstr "Mã API không hợp lệ"
 
-#: libretranslate/app.py:371
+#: libretranslate/app.py:376
 msgid "Please contact the server operator to get an API key"
 msgstr "Hãy liên hệ với người quản trị máy chủ để nhận mã API"
 
-#: libretranslate/app.py:373
+#: libretranslate/app.py:378
 #, python-format
 msgid "Visit %(url)s to get an API key"
 msgstr "Vào %(url)s để lấy mã API"
 
-#: libretranslate/app.py:420
+#: libretranslate/app.py:428
 msgid "Slowdown:"
 msgstr "Chậm lại:"
 
-#: libretranslate/app.py:657 libretranslate/app.py:659
-#: libretranslate/app.py:661 libretranslate/app.py:882
-#: libretranslate/app.py:884 libretranslate/app.py:886
-#: libretranslate/app.py:1051 libretranslate/app.py:1208
-#: libretranslate/app.py:1210 libretranslate/app.py:1212
-#: libretranslate/app.py:1214
+#: libretranslate/app.py:735 libretranslate/app.py:737
+#: libretranslate/app.py:739 libretranslate/app.py:968
+#: libretranslate/app.py:970 libretranslate/app.py:972
+#: libretranslate/app.py:1137 libretranslate/app.py:1294
+#: libretranslate/app.py:1296 libretranslate/app.py:1298
+#: libretranslate/app.py:1300
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
 msgstr "Yêu cầu không hợp lệ: thiếu tham số %(name)s"
 
-#: libretranslate/app.py:666
+#: libretranslate/app.py:744
 #, python-format
 msgid "Invalid request: %(name)s parameter is not a number"
 msgstr "Yêu cầu không hợp lệ: tham số %(name)s không phải là một số"
 
-#: libretranslate/app.py:669
+#: libretranslate/app.py:747
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
 msgstr "Yêu cầu không hợp lệ: tham số %(name)s phải <= %(value)s"
 
-#: libretranslate/app.py:686 libretranslate/app.py:696
+#: libretranslate/app.py:764 libretranslate/app.py:781
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
 "Yêu cầu không hợp lệ: kích thước yêu cầu %(size)s vượt quá giới hạn chữ "
 "(%(limit)s)"
 
-#: libretranslate/app.py:715 libretranslate/app.py:720
-#: libretranslate/app.py:897 libretranslate/app.py:902
-#: libretranslate/app.py:924
+#: libretranslate/app.py:800 libretranslate/app.py:805
+#: libretranslate/app.py:983 libretranslate/app.py:988
+#: libretranslate/app.py:1010
 #, python-format
 msgid "%(lang)s is not supported"
 msgstr "%(lang)s không được hỗ trợ"
 
-#: libretranslate/app.py:726
+#: libretranslate/app.py:811
 #, python-format
 msgid "%(format)s format is not supported"
 msgstr "định dạng %(format)s không được hỗ trợ"
 
-#: libretranslate/app.py:735 libretranslate/app.py:763
+#: libretranslate/app.py:820 libretranslate/app.py:846
 #, python-format
 msgid ""
-"%(tname)s (%(tcode)s) is not available as a target language from "
-"%(sname)s (%(scode)s)"
+"%(tname)s (%(tcode)s) is not available as a target language from %(sname)s "
+"(%(scode)s)"
 msgstr ""
 "%(tname)s (%(tcode)s) không có sẵn làm ngôn ngữ đích từ %(sname)s "
 "(%(scode)s)"
 
-#: libretranslate/app.py:787
+#: libretranslate/app.py:873
 #, python-format
 msgid "Cannot translate text: %(text)s"
 msgstr "Không thể dịch văn bản: %(text)s"
 
-#: libretranslate/app.py:874 libretranslate/app.py:943
+#: libretranslate/app.py:960 libretranslate/app.py:1029
 msgid "Files translation are disabled on this server."
 msgstr "Dịch tệp tin bị tắt trên máy chủ này."
 
-#: libretranslate/app.py:889
+#: libretranslate/app.py:975
 msgid "Invalid request: empty file"
 msgstr "Yêu cầu không xác định: thư mục rỗng"
 
-#: libretranslate/app.py:892
+#: libretranslate/app.py:978
 msgid "Invalid request: file format not supported"
 msgstr "Yêu cầu không xác định: định dạng thư mục không được hỗ trợ"
 
-#: libretranslate/app.py:951
+#: libretranslate/app.py:1037
 msgid "Invalid filename"
 msgstr "tên thư mục không phù hợp"
 
-#: libretranslate/app.py:1193
+#: libretranslate/app.py:1279
 msgid "Suggestions are disabled on this server."
 msgstr "Những gợi ý bị tắt trên máy chủ này."
 
@@ -144,242 +142,266 @@ msgid "Azerbaijani"
 msgstr "Tiếng Azeri"
 
 #: libretranslate/locales/.langs.py:5
-msgid "Bengali"
-msgstr ""
+msgid "Basque"
+msgstr "Xlô- venName"
 
 #: libretranslate/locales/.langs.py:6
+msgid "Bengali"
+msgstr "Ben- ga- liName"
+
+#: libretranslate/locales/.langs.py:7
 msgid "Bulgarian"
 msgstr "Tiếng Bulgaria"
 
-#: libretranslate/locales/.langs.py:7
-msgid "Catalan"
-msgstr ""
-
 #: libretranslate/locales/.langs.py:8
+msgid "Catalan"
+msgstr "Ca- ta- lanName"
+
+#: libretranslate/locales/.langs.py:9
 msgid "Chinese"
 msgstr "Trung Quốc"
 
-#: libretranslate/locales/.langs.py:9
-msgid "Chinese (traditional)"
-msgstr ""
-
 #: libretranslate/locales/.langs.py:10
+msgid "Chinese (traditional)"
+msgstr "Hoa (truyền thống)"
+
+#: libretranslate/locales/.langs.py:11
 msgid "Czech"
 msgstr "Séc"
 
-#: libretranslate/locales/.langs.py:11
+#: libretranslate/locales/.langs.py:12
 msgid "Danish"
 msgstr "Đan Mạch"
 
-#: libretranslate/locales/.langs.py:12
+#: libretranslate/locales/.langs.py:13
 msgid "Dutch"
 msgstr "Hà Lan"
 
-#: libretranslate/locales/.langs.py:13
+#: libretranslate/locales/.langs.py:14
 msgid "Esperanto"
 msgstr "Esperanto (Quốc tế ngữ)"
 
-#: libretranslate/locales/.langs.py:14
+#: libretranslate/locales/.langs.py:15
 msgid "Estonian"
 msgstr "Người Estonia"
 
-#: libretranslate/locales/.langs.py:15
+#: libretranslate/locales/.langs.py:16
 msgid "Finnish"
 msgstr "Phần Lan"
 
-#: libretranslate/locales/.langs.py:16
+#: libretranslate/locales/.langs.py:17
 msgid "French"
 msgstr "Pháp"
 
-#: libretranslate/locales/.langs.py:17
+#: libretranslate/locales/.langs.py:18
+msgid "Galician"
+msgstr "Ga - li - lê"
+
+#: libretranslate/locales/.langs.py:19
 msgid "German"
 msgstr "Đức"
 
-#: libretranslate/locales/.langs.py:18
+#: libretranslate/locales/.langs.py:20
 msgid "Greek"
 msgstr "Hy Lạp"
 
-#: libretranslate/locales/.langs.py:19
+#: libretranslate/locales/.langs.py:21
 msgid "Hebrew"
 msgstr "Tiếng Do Thái"
 
-#: libretranslate/locales/.langs.py:20
+#: libretranslate/locales/.langs.py:22
 msgid "Hindi"
 msgstr "Tiếng Hindi"
 
-#: libretranslate/locales/.langs.py:21
+#: libretranslate/locales/.langs.py:23
 msgid "Hungarian"
 msgstr "Hungary"
 
-#: libretranslate/locales/.langs.py:22
+#: libretranslate/locales/.langs.py:24
 msgid "Indonesian"
 msgstr "Indonesia"
 
-#: libretranslate/locales/.langs.py:23
+#: libretranslate/locales/.langs.py:25
 msgid "Irish"
 msgstr "irish"
 
-#: libretranslate/locales/.langs.py:24
+#: libretranslate/locales/.langs.py:26
 msgid "Italian"
 msgstr "Ý"
 
-#: libretranslate/locales/.langs.py:25
+#: libretranslate/locales/.langs.py:27
 msgid "Japanese"
 msgstr "Nhật"
 
-#: libretranslate/locales/.langs.py:26
+#: libretranslate/locales/.langs.py:28
 msgid "Korean"
 msgstr "Hàn"
 
-#: libretranslate/locales/.langs.py:27
-msgid "Latvian"
-msgstr ""
-
-#: libretranslate/locales/.langs.py:28
-msgid "Lithuanian"
-msgstr ""
-
 #: libretranslate/locales/.langs.py:29
-msgid "Malay"
-msgstr ""
+msgid "Kyrgyz"
+msgstr "Kyrgyz"
 
 #: libretranslate/locales/.langs.py:30
-msgid "Norwegian"
-msgstr ""
+msgid "Latvian"
+msgstr "Latvia"
 
 #: libretranslate/locales/.langs.py:31
+msgid "Lithuanian"
+msgstr "Li- tu- a- niName"
+
+#: libretranslate/locales/.langs.py:32
+msgid "Malay"
+msgstr "Mã Lai"
+
+#: libretranslate/locales/.langs.py:33
+msgid "Norwegian"
+msgstr "Na Uy"
+
+#: libretranslate/locales/.langs.py:34
 msgid "Persian"
 msgstr "Ba Tư"
 
-#: libretranslate/locales/.langs.py:32
+#: libretranslate/locales/.langs.py:35
 msgid "Polish"
 msgstr "Ba Lan"
 
-#: libretranslate/locales/.langs.py:33
+#: libretranslate/locales/.langs.py:36
 msgid "Portuguese"
 msgstr "Bồ Đào Nha"
 
-#: libretranslate/locales/.langs.py:34
+#: libretranslate/locales/.langs.py:37
 msgid "Portuguese (Brazil)"
-msgstr ""
+msgstr "Bồ Đào Nha (Brazil)"
 
-#: libretranslate/locales/.langs.py:35
+#: libretranslate/locales/.langs.py:38
 msgid "Romanian"
-msgstr ""
+msgstr "Ru- ma- niName"
 
-#: libretranslate/locales/.langs.py:36
+#: libretranslate/locales/.langs.py:39
 msgid "Russian"
 msgstr "Nga"
 
-#: libretranslate/locales/.langs.py:37
+#: libretranslate/locales/.langs.py:40
 msgid "Slovak"
 msgstr "Slovak"
 
-#: libretranslate/locales/.langs.py:38
+#: libretranslate/locales/.langs.py:41
 msgid "Slovenian"
-msgstr ""
+msgstr "Xlô- venName"
 
-#: libretranslate/locales/.langs.py:39
+#: libretranslate/locales/.langs.py:42
 msgid "Spanish"
 msgstr "Tây Ban Nha"
 
-#: libretranslate/locales/.langs.py:40
+#: libretranslate/locales/.langs.py:43
 msgid "Swedish"
 msgstr "Thụy Điển"
 
-#: libretranslate/locales/.langs.py:41
+#: libretranslate/locales/.langs.py:44
 msgid "Tagalog"
-msgstr ""
+msgstr "Tanalog"
 
-#: libretranslate/locales/.langs.py:42
+#: libretranslate/locales/.langs.py:45
 msgid "Thai"
-msgstr ""
+msgstr "Thái"
 
-#: libretranslate/locales/.langs.py:43
+#: libretranslate/locales/.langs.py:46
 msgid "Turkish"
 msgstr "Thổ nhỉ kỳ"
 
-#: libretranslate/locales/.langs.py:44
+#: libretranslate/locales/.langs.py:47
 msgid "Ukranian"
 msgstr "Ukraina"
 
-#: libretranslate/locales/.langs.py:45
-msgid "Urdu"
-msgstr ""
-
-#: libretranslate/locales/.langs.py:46
-msgid "Serbian"
-msgstr ""
-
-#: libretranslate/locales/.langs.py:47
-msgid "Ukrainian"
-msgstr ""
-
 #: libretranslate/locales/.langs.py:48
+msgid "Urdu"
+msgstr "Urdu"
+
+#: libretranslate/locales/.langs.py:49
 msgid "Vietnamese"
-msgstr ""
+msgstr "Việt Nam"
+
+#: libretranslate/locales/.langs.py:50
+msgid "Serbian"
+msgstr "Serbia"
+
+#: libretranslate/locales/.langs.py:51
+msgid "Ukrainian"
+msgstr "U-lenName"
 
 #: libretranslate/locales/.swag.py:1
-msgid "Retrieve list of supported languages"
-msgstr "Lấy danh sách ngôn ngữ được hỗ trợ"
+msgid "Get Supported Languages"
+msgstr "Nhận những ngôn ngữ được hỗ trợ"
 
 #: libretranslate/locales/.swag.py:2
-msgid "List of languages"
-msgstr "Danh sách ngôn ngữ"
+msgid "List of supported languages"
+msgstr "Danh sách các ngôn ngữ được hỗ trợ"
 
 #: libretranslate/locales/.swag.py:3
 msgid "translate"
 msgstr "dịch"
 
 #: libretranslate/locales/.swag.py:4
-msgid "Translate text from a language to another"
-msgstr "Dịch từ sang một ngôn ngữ khác"
+msgid "Health Check"
+msgstr "Kiểm tra sức khỏe"
 
-#: libretranslate/locales/.swag.py:5 libretranslate/templates/index.html:233
-msgid "Translated text"
-msgstr "Văn bản đã dịch"
+#: libretranslate/locales/.swag.py:5
+msgid "Service is healthy"
+msgstr "Phục vụ rất tốt"
 
 #: libretranslate/locales/.swag.py:6
+msgid "misc"
+msgstr "misc"
+
+#: libretranslate/locales/.swag.py:7 libretranslate/templates/index.html:185
+msgid "Translate Text"
+msgstr "Dịch văn bản"
+
+#: libretranslate/locales/.swag.py:8
+msgid "Translation"
+msgstr "Bản dịch"
+
+#: libretranslate/locales/.swag.py:9
 msgid "Invalid request"
 msgstr "Yêu cầu không hợp lệ"
 
-#: libretranslate/locales/.swag.py:7
+#: libretranslate/locales/.swag.py:10
 msgid "Translation error"
 msgstr "Lỗi dịch"
 
-#: libretranslate/locales/.swag.py:8
+#: libretranslate/locales/.swag.py:11
 msgid "Slow down"
 msgstr "Chậm lại"
 
-#: libretranslate/locales/.swag.py:9
+#: libretranslate/locales/.swag.py:12
 msgid "Banned"
 msgstr "Đã bị cấm"
 
-#: libretranslate/locales/.swag.py:10
+#: libretranslate/locales/.swag.py:13
 msgid "Hello world!"
 msgstr "Xin chào thế giới!"
 
-#: libretranslate/locales/.swag.py:11
+#: libretranslate/locales/.swag.py:14
 msgid "Text(s) to translate"
 msgstr "(Các) văn bản cần dịch"
 
-#: libretranslate/locales/.swag.py:12
-msgid "Source language code"
-msgstr "Mã ngôn ngữ nguồn"
+#: libretranslate/locales/.swag.py:15
+msgid "Source language code or \"auto\" for auto detection"
+msgstr "Mã nguồn ngôn ngữ hoặc \"tự động\" để phát hiện tự động"
 
-#: libretranslate/locales/.swag.py:13
+#: libretranslate/locales/.swag.py:16
 msgid "Target language code"
 msgstr "Mã ngôn ngữ đích"
 
-#: libretranslate/locales/.swag.py:14
+#: libretranslate/locales/.swag.py:17
 msgid "text"
 msgstr "chữ"
 
-#: libretranslate/locales/.swag.py:15
+#: libretranslate/locales/.swag.py:18
 msgid "html"
 msgstr "html"
 
-#: libretranslate/locales/.swag.py:16
+#: libretranslate/locales/.swag.py:19
 msgid ""
 "Format of source text:\n"
 " * `text` - Plain text\n"
@@ -389,210 +411,224 @@ msgstr ""
 " * `text` - Plain text\n"
 " * `html` - HTML markup\n"
 
-#: libretranslate/locales/.swag.py:17
+#: libretranslate/locales/.swag.py:20
 msgid "Preferred number of alternative translations"
-msgstr ""
+msgstr "Số bản dịch thay thế được ưa thích"
 
-#: libretranslate/locales/.swag.py:18
+#: libretranslate/locales/.swag.py:21
 msgid "API key"
 msgstr "Mã API"
 
-#: libretranslate/locales/.swag.py:19
-msgid "Translate file from a language to another"
-msgstr "Dịch tệp tin sang ngôn ngữ khác"
+#: libretranslate/locales/.swag.py:22
+msgid "Translate a File"
+msgstr "Dịch tập tin"
 
-#: libretranslate/locales/.swag.py:20
+#: libretranslate/locales/.swag.py:23
 msgid "Translated file"
 msgstr "Tệp tin đã dịch"
 
-#: libretranslate/locales/.swag.py:21
+#: libretranslate/locales/.swag.py:24
 msgid "File to translate"
 msgstr "Tệp để dịch"
 
-#: libretranslate/locales/.swag.py:22
-msgid "Detect the language of a single text"
-msgstr "Phát hiện ngôn ngữ của một đoạn chữ"
+#: libretranslate/locales/.swag.py:25
+msgid "Source language code  or \"auto\" for auto detection"
+msgstr "Mã nguồn ngôn ngữ hoặc \"tự động\" để phát hiện tự động"
 
-#: libretranslate/locales/.swag.py:23
+#: libretranslate/locales/.swag.py:26
+msgid "Detect Language of Text"
+msgstr "Phát hiện ngôn ngữ của văn bản"
+
+#: libretranslate/locales/.swag.py:27
 msgid "Detections"
 msgstr "Các phát hiện"
 
-#: libretranslate/locales/.swag.py:24
+#: libretranslate/locales/.swag.py:28
 msgid "Detection error"
 msgstr "Lỗi phát hiện"
 
-#: libretranslate/locales/.swag.py:25
+#: libretranslate/locales/.swag.py:29
 msgid "Text to detect"
 msgstr "Chữ để phát hiện"
 
-#: libretranslate/locales/.swag.py:26
-msgid "Retrieve frontend specific settings"
-msgstr "Lấy cài đặt về giao diện"
+#: libretranslate/locales/.swag.py:30
+msgid "Retrieve Frontend Settings"
+msgstr "Lấy thiết lập giao diện người dùng"
 
-#: libretranslate/locales/.swag.py:27
+#: libretranslate/locales/.swag.py:31
 msgid "frontend settings"
 msgstr "các cài đặt giao diện"
 
-#: libretranslate/locales/.swag.py:28
-msgid "frontend"
-msgstr "giao diện"
+#: libretranslate/locales/.swag.py:32
+msgid "Submit a Suggestion to Improve a Translation"
+msgstr "Đề nghị cải thiện bản dịch"
 
-#: libretranslate/locales/.swag.py:29
-msgid "Submit a suggestion to improve a translation"
-msgstr "Gửi gợi ý để cải thiện bản dịch"
-
-#: libretranslate/locales/.swag.py:30
+#: libretranslate/locales/.swag.py:33
 msgid "Success"
 msgstr "Thành công"
 
-#: libretranslate/locales/.swag.py:31
+#: libretranslate/locales/.swag.py:34
 msgid "Not authorized"
 msgstr "Không được phép"
 
-#: libretranslate/locales/.swag.py:32
+#: libretranslate/locales/.swag.py:35
 msgid "Original text"
 msgstr "Chữ gốc"
 
-#: libretranslate/locales/.swag.py:33
+#: libretranslate/locales/.swag.py:36
 msgid "Suggested translation"
 msgstr "Bản dịch đề xuất"
 
-#: libretranslate/locales/.swag.py:34
+#: libretranslate/locales/.swag.py:37
 msgid "Language of original text"
 msgstr "Ngôn ngữ của văn bản gốc"
 
-#: libretranslate/locales/.swag.py:35
+#: libretranslate/locales/.swag.py:38
 msgid "Language of suggested translation"
 msgstr "Ngôn ngữ của bản dịch đề xuất"
 
-#: libretranslate/locales/.swag.py:36
-msgid "feedback"
-msgstr "phản hồi"
+#: libretranslate/locales/.swag.py:39
+msgid "Supported language"
+msgstr "Ngôn ngữ được hỗ trợ"
 
-#: libretranslate/locales/.swag.py:37
+#: libretranslate/locales/.swag.py:40
 msgid "Language code"
 msgstr "Mã ngôn ngữ"
 
-#: libretranslate/locales/.swag.py:38
+#: libretranslate/locales/.swag.py:41
 msgid "Human-readable language name (in English)"
 msgstr "Tên ngôn ngữ con người có thể đọc được (bằng tiếng Anh)"
 
-#: libretranslate/locales/.swag.py:39
+#: libretranslate/locales/.swag.py:42
 msgid "Supported target language codes"
 msgstr "Các mã ngôn ngữ đích được hỗ trợ"
 
-#: libretranslate/locales/.swag.py:40
+#: libretranslate/locales/.swag.py:43
+msgid "Health status"
+msgstr "Trạng thái sức khỏe"
+
+#: libretranslate/locales/.swag.py:44
 msgid "Translated text(s)"
 msgstr "(Các) văn bản đã dịch"
 
-#: libretranslate/locales/.swag.py:41
-msgid "Error message"
-msgstr "Thông điệp lỗi"
-
-#: libretranslate/locales/.swag.py:42
-msgid "Reason for slow down"
-msgstr "Lý do phải chậm lại"
-
-#: libretranslate/locales/.swag.py:43
-msgid "Translated file url"
-msgstr "Dịch url tệp tin"
-
-#: libretranslate/locales/.swag.py:44
+#: libretranslate/locales/.swag.py:45
 msgid "Confidence value"
 msgstr "Giá trị tin cậy"
 
-#: libretranslate/locales/.swag.py:45
+#: libretranslate/locales/.swag.py:46
+msgid "Alternative translations"
+msgstr "Các bản dịch khác"
+
+#: libretranslate/locales/.swag.py:47
+msgid "translatedText"
+msgstr "dịch Văn bản"
+
+#: libretranslate/locales/.swag.py:48
+msgid "Error message"
+msgstr "Thông điệp lỗi"
+
+#: libretranslate/locales/.swag.py:49
+msgid "Reason for slow down"
+msgstr "Lý do phải chậm lại"
+
+#: libretranslate/locales/.swag.py:50
+msgid "Translated file url"
+msgstr "Dịch url tệp tin"
+
+#: libretranslate/locales/.swag.py:51
 msgid "Character input limit for this language (-1 indicates no limit)"
 msgstr "Giới hạn ký tự đầu vào cho ngôn ngữ này (-1 nghĩa là không giới hạn)"
 
-#: libretranslate/locales/.swag.py:46
+#: libretranslate/locales/.swag.py:52
 msgid "Frontend translation timeout"
 msgstr "Quá hạn đợi bản dịch"
 
-#: libretranslate/locales/.swag.py:47
+#: libretranslate/locales/.swag.py:53
 msgid "Whether the API key database is enabled."
 msgstr "Cơ sở dữ liệu mã API có được bật không."
 
-#: libretranslate/locales/.swag.py:48
+#: libretranslate/locales/.swag.py:54
 msgid "Whether an API key is required."
 msgstr "Có bắt buộc mã API hay không."
 
-#: libretranslate/locales/.swag.py:49
+#: libretranslate/locales/.swag.py:55
 msgid "Whether submitting suggestions is enabled."
 msgstr "Có cho phép gửi đề xuất hay không."
 
-#: libretranslate/locales/.swag.py:50
+#: libretranslate/locales/.swag.py:56
 msgid "Supported files format"
 msgstr "Các định dạng tệp tin được hỗ trợ"
 
-#: libretranslate/locales/.swag.py:51
+#: libretranslate/locales/.swag.py:57
 msgid "Whether submission was successful"
 msgstr "Đã gửi thành công hay chưa"
 
-#: libretranslate/templates/app.js.template:31
-#: libretranslate/templates/app.js.template:294
-#: libretranslate/templates/app.js.template:298
+#: libretranslate/templates/app.js.template:32
+#: libretranslate/templates/app.js.template:300
+#: libretranslate/templates/app.js.template:304
 msgid "Copy text"
 msgstr "Sao chép chữ"
 
-#: libretranslate/templates/app.js.template:80
-#: libretranslate/templates/app.js.template:86
-#: libretranslate/templates/app.js.template:91
-#: libretranslate/templates/app.js.template:281
-#: libretranslate/templates/app.js.template:351
-#: libretranslate/templates/app.js.template:439
-#: libretranslate/templates/app.js.template:493
+#: libretranslate/templates/app.js.template:82
+#: libretranslate/templates/app.js.template:88
+#: libretranslate/templates/app.js.template:93
+#: libretranslate/templates/app.js.template:287
+#: libretranslate/templates/app.js.template:357
+#: libretranslate/templates/app.js.template:446
+#: libretranslate/templates/app.js.template:500
 #, python-format
 msgid "Cannot load %(url)s"
 msgstr "Không thể tải %(url)s"
 
-#: libretranslate/templates/app.js.template:272
-#: libretranslate/templates/app.js.template:342
-#: libretranslate/templates/app.js.template:420
-#: libretranslate/templates/app.js.template:431
+#: libretranslate/templates/app.js.template:278
+#: libretranslate/templates/app.js.template:348
+#: libretranslate/templates/app.js.template:427
+#: libretranslate/templates/app.js.template:438
 msgid "Unknown error"
 msgstr "Lỗi không rõ"
 
-#: libretranslate/templates/app.js.template:295
+#: libretranslate/templates/app.js.template:301
 msgid "Copied"
 msgstr "Đã sao chép"
 
-#: libretranslate/templates/app.js.template:339
+#: libretranslate/templates/app.js.template:345
 msgid ""
-"Thanks for your correction. Note the suggestion will not take effect "
-"right away."
+"Thanks for your correction. Note the suggestion will not take effect right "
+"away."
 msgstr "Cảm ơn đã sửa. Lưu ý đề xuất sẽ không có tác dụng ngay lập tức."
 
-#: libretranslate/templates/app.js.template:463
+#: libretranslate/templates/app.js.template:470
 msgid "No languages available. Did you install the models correctly?"
-msgstr "Không có ngôn ngữ có sẵn. Bạn đã cài đặt các mô hình một cách chính xác?"
+msgstr ""
+"Không có ngôn ngữ có sẵn. Bạn đã cài đặt các mô hình một cách chính xác?"
 
-#: libretranslate/templates/app.js.template:536
+#: libretranslate/templates/app.js.template:543
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
 msgstr "Nhập mã API của bạn. Nếu bạn cần lấy mã API, %(instructions)s"
 
-#: libretranslate/templates/app.js.template:536
+#: libretranslate/templates/app.js.template:543
 msgid "press the \"Get API Key\" link."
 msgstr "nhấn liên kết \"Lấy mã API\"."
 
-#: libretranslate/templates/app.js.template:536
+#: libretranslate/templates/app.js.template:543
 msgid "contact the server operator."
 msgstr "liên hệ với người quản trị máy chủ."
 
-#: libretranslate/templates/index.html:9 libretranslate/templates/index.html:27
-#: libretranslate/templates/index.html:347
+#: libretranslate/templates/index.html:9
+#: libretranslate/templates/index.html:29
+#: libretranslate/templates/index.html:348
 msgid "Free and Open Source Machine Translation API"
 msgstr "API dịch thuật máy miễn phí và mã nguồn mở"
 
 #: libretranslate/templates/index.html:10
-#: libretranslate/templates/index.html:31
+#: libretranslate/templates/index.html:33
 msgid ""
 "Free and Open Source Machine Translation API. Free to download, offline "
 "capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
-"API dịch thuật máy miễn phí và nguồn mở. Tự lưu trữ, có thể sử dụng ngoại"
-" tuyến và dễ cài đặt. Tự chạy máy chủ API của bạn chỉ trong vài phút."
+"API dịch thuật máy miễn phí và nguồn mở. Tự lưu trữ, có thể sử dụng ngoại "
+"tuyến và dễ cài đặt. Tự chạy máy chủ API của bạn chỉ trong vài phút."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
@@ -602,106 +638,108 @@ msgstr "dịch"
 msgid "api"
 msgstr "api"
 
-#: libretranslate/templates/index.html:67
+#: libretranslate/templates/index.html:59
 msgid "API Docs"
 msgstr "Tài liệu API"
 
-#: libretranslate/templates/index.html:69
+#: libretranslate/templates/index.html:62
 msgid "Get API Key"
 msgstr "Lấy Mã API"
 
-#: libretranslate/templates/index.html:71
+#: libretranslate/templates/index.html:64
 msgid "GitHub"
 msgstr "GitHub"
 
-#: libretranslate/templates/index.html:73
+#: libretranslate/templates/index.html:66
 msgid "Set API Key"
 msgstr "Đặt Mã API"
 
-#: libretranslate/templates/index.html:75
+#: libretranslate/templates/index.html:68
 msgid "Change language"
 msgstr "Thay đổi ngôn ngữ"
 
-#: libretranslate/templates/index.html:81
+#: libretranslate/templates/index.html:74
 msgid "Edit"
 msgstr "Sửa"
 
-#: libretranslate/templates/index.html:83
+#: libretranslate/templates/index.html:76
 msgid "Toggle dark/light mode"
 msgstr "Chuyển chế độ sáng/tối"
 
-#: libretranslate/templates/index.html:159
+#: libretranslate/templates/index.html:152
 msgid "Dismiss"
 msgstr "Bỏ"
 
-#: libretranslate/templates/index.html:177
+#: libretranslate/templates/index.html:170
 msgid ""
-"Due to bot abuse, translation requests are temporarily limited to users "
-"with a valid API key. Sorry for the inconvenience!"
+"Due to bot abuse, translation requests are temporarily limited to users with"
+" a valid API key. Sorry for the inconvenience!"
 msgstr ""
+"Do lạm dụng robot, yêu cầu phiên dịch tạm thời bị hạn chế trong người dùng "
+"với một phím ADI hợp lệ. Xin lỗi vì sự bất tiện này!"
 
-#: libretranslate/templates/index.html:182
+#: libretranslate/templates/index.html:179
 msgid "Translation API"
 msgstr "API dịch"
 
-#: libretranslate/templates/index.html:186
-msgid "Translate Text"
-msgstr "Dịch văn bản"
-
-#: libretranslate/templates/index.html:190
+#: libretranslate/templates/index.html:189
 msgid "Translate Files"
 msgstr "Dịch tệp tin"
 
-#: libretranslate/templates/index.html:196
+#: libretranslate/templates/index.html:195
 msgid "Translate from"
 msgstr "Dịch từ"
 
-#: libretranslate/templates/index.html:206
+#: libretranslate/templates/index.html:205
 msgid "Swap source and target languages"
 msgstr "Hoán đổi ngôn ngữ nguồn và đích"
 
-#: libretranslate/templates/index.html:209
+#: libretranslate/templates/index.html:208
 msgid "Translate into"
 msgstr "Dịch sang"
 
-#: libretranslate/templates/index.html:221
+#: libretranslate/templates/index.html:220
 msgid "Text to translate"
 msgstr "Chữ để dịch"
 
-#: libretranslate/templates/index.html:224
+#: libretranslate/templates/index.html:223
 msgid "Delete text"
 msgstr "Xóa chữ"
 
-#: libretranslate/templates/index.html:237
+#: libretranslate/templates/index.html:232
+msgid "Translated text"
+msgstr "Văn bản đã dịch"
+
+#: libretranslate/templates/index.html:236
 msgid "Suggest translation"
 msgstr "Đề xuất dịch"
 
-#: libretranslate/templates/index.html:241
+#: libretranslate/templates/index.html:240
 msgid "Cancel"
 msgstr "Hủy"
 
-#: libretranslate/templates/index.html:244
+#: libretranslate/templates/index.html:243
 msgid "Send"
 msgstr "Gửi"
 
-#: libretranslate/templates/index.html:260
+#: libretranslate/templates/index.html:259
 msgid "Supported file formats:"
 msgstr "Các định dạng tệp tin được hỗ trợ:"
 
-#: libretranslate/templates/index.html:264
+#: libretranslate/templates/index.html:263
 msgid "File"
 msgstr "Tệp tin"
 
-#: libretranslate/templates/index.html:279
+#: libretranslate/templates/index.html:278
 msgid "Remove file"
 msgstr "Bỏ tệp tin"
 
-#: libretranslate/templates/index.html:286
+#: libretranslate/templates/index.html:285
 msgid "Translate"
 msgstr "Dịch"
 
-#: libretranslate/templates/index.html:287
-#: libretranslate/templates/index.html:331
+#: libretranslate/templates/index.html:286
+#: libretranslate/templates/index.html:332
 msgid "Download"
 msgstr "Tải về"
 
@@ -713,28 +751,28 @@ msgstr "Yêu cầu"
 msgid "Response"
 msgstr "Trả lời"
 
-#: libretranslate/templates/index.html:326
+#: libretranslate/templates/index.html:327
 msgid "Open Source Machine Translation API"
 msgstr "API Dịch Máy Mã Nguồn Mở"
 
-#: libretranslate/templates/index.html:327
+#: libretranslate/templates/index.html:328
 msgid "Free to download. Offline Capable. Easy to Setup."
 msgstr "Tự lưu trữ. Có thể dùng ngoại tuyến. Dễ cài đặt."
 
-#: libretranslate/templates/index.html:346
+#: libretranslate/templates/index.html:347
 msgid "LibreTranslate"
 msgstr "LibreTranslate"
 
-#: libretranslate/templates/index.html:348
+#: libretranslate/templates/index.html:349
 msgid "License:"
 msgstr "Giấy phép:"
 
-#: libretranslate/templates/index.html:354
+#: libretranslate/templates/index.html:355
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
 msgstr "Tạo ra với %(heart)s bởi %(contributors)s và chạy bằng %(engine)s"
 
-#: libretranslate/templates/index.html:354
+#: libretranslate/templates/index.html:355
 #, python-format
 msgid "%(libretranslate)s Contributors"
 msgstr "Các cộng tác viên %(libretranslate)s"
@@ -746,18 +784,13 @@ msgstr "Các cộng tác viên %(libretranslate)s"
 #~ msgstr "Tiếng Việt"
 
 #~ msgid ""
-#~ "This public API should be used for"
-#~ " testing, personal or infrequent use. "
-#~ "If you're going to run an "
-#~ "application in production, please "
-#~ "%(host_server)s or %(get_api_key)s."
-#~ msgstr ""
-#~ "API công khai này chỉ nên dùng "
-#~ "để thử nghiệm, sử dụng cá nhân "
-#~ "hay không thường xuyên. Nếu bạn "
-#~ "muốn chạy ứng dụng cho quá trình"
-#~ " sản xuất, hãy %(host_server)s hoặc "
+#~ "This public API should be used for testing, personal or infrequent use. If "
+#~ "you're going to run an application in production, please %(host_server)s or "
 #~ "%(get_api_key)s."
+#~ msgstr ""
+#~ "API công khai này chỉ nên dùng để thử nghiệm, sử dụng cá nhân hay không "
+#~ "thường xuyên. Nếu bạn muốn chạy ứng dụng cho quá trình sản xuất, hãy "
+#~ "%(host_server)s hoặc %(get_api_key)s."
 
 #~ msgid "host your own server"
 #~ msgstr "lưu trữ máy chủ của chính bạn"
@@ -770,3 +803,33 @@ msgstr "Các cộng tác viên %(libretranslate)s"
 
 #~ msgid "Galician"
 #~ msgstr ""
+
+#~ msgid "Retrieve list of supported languages"
+#~ msgstr "Lấy danh sách ngôn ngữ được hỗ trợ"
+
+#~ msgid "List of languages"
+#~ msgstr "Danh sách ngôn ngữ"
+
+#~ msgid "Translate text from a language to another"
+#~ msgstr "Dịch từ sang một ngôn ngữ khác"
+
+#~ msgid "Source language code"
+#~ msgstr "Mã ngôn ngữ nguồn"
+
+#~ msgid "Translate file from a language to another"
+#~ msgstr "Dịch tệp tin sang ngôn ngữ khác"
+
+#~ msgid "Detect the language of a single text"
+#~ msgstr "Phát hiện ngôn ngữ của một đoạn chữ"
+
+#~ msgid "Retrieve frontend specific settings"
+#~ msgstr "Lấy cài đặt về giao diện"
+
+#~ msgid "frontend"
+#~ msgstr "giao diện"
+
+#~ msgid "Submit a suggestion to improve a translation"
+#~ msgstr "Gửi gợi ý để cải thiện bản dịch"
+
+#~ msgid "feedback"
+#~ msgstr "phản hồi"
