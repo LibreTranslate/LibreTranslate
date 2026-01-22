@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-01-21 10:25-0500\n"
-"PO-Revision-Date: 2025-05-13 12:01+0000\n"
-"Last-Translator: ButterflyOfFire "
-"<boffire@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2026-01-22 16:40+0000\n"
+"Last-Translator: ButterflyOfFire <boffire@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Kabyle <https://hosted.weblate.org/projects/libretranslate/"
+"app/kab/>\n"
 "Language: kab\n"
-"Language-Team: Kabyle "
-"<https://hosted.weblate.org/projects/libretranslate/app/kab/>\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.16-dev\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:97
@@ -143,7 +143,7 @@ msgstr "Tazerbiǧanit"
 
 #: libretranslate/locales/.langs.py:5
 msgid "Basque"
-msgstr ""
+msgstr "Tabaskit"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Bengali"
@@ -195,7 +195,7 @@ msgstr "Tafṛansist"
 
 #: libretranslate/locales/.langs.py:18
 msgid "Galician"
-msgstr ""
+msgstr "Tagalisyant"
 
 #: libretranslate/locales/.langs.py:19
 msgid "German"
@@ -239,7 +239,7 @@ msgstr "Takurit"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Kyrgyz"
-msgstr ""
+msgstr "Takirgizt"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Latvian"
@@ -331,11 +331,11 @@ msgstr "Tukranit"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Get Supported Languages"
-msgstr ""
+msgstr "Awi-d tutlayin yettusefraken"
 
 #: libretranslate/locales/.swag.py:2
 msgid "List of supported languages"
-msgstr ""
+msgstr "Tabdart n tutlayin yettsefraken"
 
 #: libretranslate/locales/.swag.py:3
 msgid "translate"
@@ -343,15 +343,15 @@ msgstr "suqel"
 
 #: libretranslate/locales/.swag.py:4
 msgid "Health Check"
-msgstr ""
+msgstr "Asenqed n tdawsa"
 
 #: libretranslate/locales/.swag.py:5
 msgid "Service is healthy"
-msgstr ""
+msgstr "Ameẓlu iṣeḥḥa"
 
 #: libretranslate/locales/.swag.py:6
 msgid "misc"
-msgstr ""
+msgstr "ayen nniḍen"
 
 #: libretranslate/locales/.swag.py:7 libretranslate/templates/index.html:185
 msgid "Translate Text"
@@ -359,7 +359,7 @@ msgstr "Suqqel aḍris"
 
 #: libretranslate/locales/.swag.py:8
 msgid "Translation"
-msgstr ""
+msgstr "Tasuqilt"
 
 #: libretranslate/locales/.swag.py:9
 msgid "Invalid request"
@@ -387,7 +387,7 @@ msgstr "Aḍris(iḍrisen) ara yettwasuqqlen"
 
 #: libretranslate/locales/.swag.py:15
 msgid "Source language code or \"auto\" for auto detection"
-msgstr ""
+msgstr "Angal aɣbalu n tutlayt neɣ \"auto\" i tifin tawurmant"
 
 #: libretranslate/locales/.swag.py:16
 msgid "Target language code"
@@ -421,7 +421,7 @@ msgstr "Tasarutt API"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Translate a File"
-msgstr ""
+msgstr "Suqel afaylu"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Translated file"
@@ -433,11 +433,11 @@ msgstr "Afaylu ara yettwasuqqlen"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Source language code  or \"auto\" for auto detection"
-msgstr ""
+msgstr "Angal aɣbalu n tutlayt neɣ  \"auto\" i tifin tawurmant"
 
 #: libretranslate/locales/.swag.py:26
 msgid "Detect Language of Text"
-msgstr ""
+msgstr "Tifin n tutlayt n weḍris"
 
 #: libretranslate/locales/.swag.py:27
 msgid "Detections"
@@ -453,7 +453,7 @@ msgstr "Aḍris ara yettwafen"
 
 #: libretranslate/locales/.swag.py:30
 msgid "Retrieve Frontend Settings"
-msgstr ""
+msgstr "Awway n iɣewwaren n uwenziw"
 
 #: libretranslate/locales/.swag.py:31
 msgid "frontend settings"
@@ -461,7 +461,7 @@ msgstr "iɣewwaren n ugrudem"
 
 #: libretranslate/locales/.swag.py:32
 msgid "Submit a Suggestion to Improve a Translation"
-msgstr ""
+msgstr "Azen-d asumer akken ad twennɛeḍ tasuqilt"
 
 #: libretranslate/locales/.swag.py:33
 msgid "Success"
@@ -489,7 +489,7 @@ msgstr "Tutlayt n tsuqqilt i d-yettwasumren"
 
 #: libretranslate/locales/.swag.py:39
 msgid "Supported language"
-msgstr ""
+msgstr "Tutlayt tettusefrek"
 
 #: libretranslate/locales/.swag.py:40
 msgid "Language code"
@@ -505,7 +505,7 @@ msgstr "Tingalin n tutlayin tisaḍasin i yettwasefraken"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Health status"
-msgstr ""
+msgstr "Addad n tdawsa"
 
 #: libretranslate/locales/.swag.py:44
 msgid "Translated text(s)"
@@ -517,11 +517,11 @@ msgstr "Azal n teflest"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Alternative translations"
-msgstr ""
+msgstr "Tisuqilin timlellayin"
 
 #: libretranslate/locales/.swag.py:47
 msgid "translatedText"
-msgstr ""
+msgstr "Aḍris n tsuqilt"
 
 #: libretranslate/locales/.swag.py:48
 msgid "Error message"
@@ -835,4 +835,3 @@ msgstr "Imttekkiyen n %(libretranslate)s"
 
 #~ msgid "feedback"
 #~ msgstr "tamawt"
-
