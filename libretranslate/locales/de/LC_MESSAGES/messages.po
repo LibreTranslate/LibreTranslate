@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-01-21 10:25-0500\n"
-"PO-Revision-Date: 2026-01-22 09:03+0000\n"
-"Last-Translator: Wuzzy <Wuzzy@disroot.org>\n"
+"PO-Revision-Date: 2026-01-23 13:28+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/libretranslate/"
 "app/de/>\n"
 "Language: de\n"
@@ -519,7 +519,7 @@ msgstr "Konfidenzwert"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Alternative translations"
-msgstr "Alternative Übersetzung"
+msgstr "Alternative Übersetzungen"
 
 #: libretranslate/locales/.swag.py:47
 msgid "translatedText"
