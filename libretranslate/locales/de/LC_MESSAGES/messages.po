@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-01-21 10:25-0500\n"
 "PO-Revision-Date: 2026-01-23 13:28+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"Last-Translator: Wuzzy <Wuzzy@disroot.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/libretranslate/"
 "app/de/>\n"
 "Language: de\n"
@@ -632,7 +632,7 @@ msgid ""
 "capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
 "Freie und quelloffene API für maschinelle Übersetzung. Kostenlos zum "
-"download, offline-fähig und einfach einzurichten. Betreiben Sie Ihren "
+"Download, offline-fähig und einfach einzurichten. Betreiben Sie Ihren "
 "eigenen API-Server in nur wenigen Minuten."
 
 #: libretranslate/templates/index.html:11
@@ -669,7 +669,7 @@ msgstr "Bearbeiten"
 
 #: libretranslate/templates/index.html:76
 msgid "Toggle dark/light mode"
-msgstr "Dunkler/Lichtmodus"
+msgstr "Zwischen dunklem/hellem Modus wechseln"
 
 #: libretranslate/templates/index.html:152
 msgid "Dismiss"
@@ -763,7 +763,7 @@ msgstr "Open-Source-API für maschinelle Übersetzung"
 
 #: libretranslate/templates/index.html:328
 msgid "Free to download. Offline Capable. Easy to Setup."
-msgstr "Kostenlos zum download. Offline-fähig. Einfach einzurichten."
+msgstr "Kostenlos zum Download. Offline-fähig. Einfach einzurichten."
 
 #: libretranslate/templates/index.html:347
 msgid "LibreTranslate"
