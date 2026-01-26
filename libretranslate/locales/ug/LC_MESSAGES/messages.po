@@ -9,15 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.12\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-01-21 10:25-0500\n"
-"PO-Revision-Date: 2024-02-20 07:02+0000\n"
-"Last-Translator: Liam Johnson <ibrahimjan@mail.ustc.edu.cn>\n"
+"PO-Revision-Date: 2026-01-27 05:09+0000\n"
+"Last-Translator: aliptori <aliptori@qq.com>\n"
+"Language-Team: Uyghur <https://hosted.weblate.org/projects/libretranslate/"
+"app/ug/>\n"
 "Language: ug\n"
-"Language-Team: Uyghur "
-"<https://hosted.weblate.org/projects/libretranslate/app/ug/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.16-dev\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:97
@@ -42,16 +43,16 @@ msgstr "API ئاچقۇچ ئىناۋەتسىز"
 
 #: libretranslate/app.py:376
 msgid "Please contact the server operator to get an API key"
-msgstr ""
+msgstr "API ئاچقۇچى ئېلىش ئۈچۈن مۇلازىمېتىر باشقۇرغۇچىسى بىلەن ئالاقىلىشىڭ."
 
 #: libretranslate/app.py:378
 #, python-format
 msgid "Visit %(url)s to get an API key"
-msgstr ""
+msgstr "API ئاچقۇچىنى ئېلىش ئۈچۈن %(url)s نى زىيارەت قىلىڭ"
 
 #: libretranslate/app.py:428
 msgid "Slowdown:"
-msgstr ""
+msgstr "ئاستا:"
 
 #: libretranslate/app.py:735 libretranslate/app.py:737
 #: libretranslate/app.py:739 libretranslate/app.py:968
@@ -61,34 +62,37 @@ msgstr ""
 #: libretranslate/app.py:1300
 #, python-format
 msgid "Invalid request: missing %(name)s parameter"
-msgstr ""
+msgstr "ئىناۋەتسىز تەلەپ: %(name)s پارامېتىرى كەم"
 
 #: libretranslate/app.py:744
 #, python-format
 msgid "Invalid request: %(name)s parameter is not a number"
-msgstr ""
+msgstr "ئىناۋەتسىز تەلەپ: %(name)s پارامېتىرى سان ئەمەس"
 
 #: libretranslate/app.py:747
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
 msgstr ""
+"ئىناۋەتسىز تەلەپ: %(name)s پارامېتىرى چوقۇم %(value)s دىن كىچىك ياكى تەڭ "
+"بولۇشى كېرەك"
 
 #: libretranslate/app.py:764 libretranslate/app.py:781
 #, python-format
 msgid "Invalid request: request (%(size)s) exceeds text limit (%(limit)s)"
 msgstr ""
+"ئىناۋەتسىز تەلەپ: تەلەپ (%(size)s) تېكىست چېكى (%(limit)s) دىن ئېشىپ كەتتى"
 
 #: libretranslate/app.py:800 libretranslate/app.py:805
 #: libretranslate/app.py:983 libretranslate/app.py:988
 #: libretranslate/app.py:1010
 #, python-format
 msgid "%(lang)s is not supported"
-msgstr ""
+msgstr "%(lang)s قوللىمايدۇ"
 
 #: libretranslate/app.py:811
 #, python-format
 msgid "%(format)s format is not supported"
-msgstr ""
+msgstr "%(format)s فورماتىنى قوللىمايدۇ"
 
 #: libretranslate/app.py:820 libretranslate/app.py:846
 #, python-format
@@ -96,307 +100,309 @@ msgid ""
 "%(tname)s (%(tcode)s) is not available as a target language from "
 "%(sname)s (%(scode)s)"
 msgstr ""
+"%(sname)s (%(scode)s) تىلىدىن %(tname)s (%(tcode)s) تىلىغا تەرجىمە قىلىش "
+"مۇمكىن ئەمەس"
 
 #: libretranslate/app.py:873
 #, python-format
 msgid "Cannot translate text: %(text)s"
-msgstr ""
+msgstr "تېكىستنى تەرجىمە قىلغىلى بولمىدى: %(text)s"
 
 #: libretranslate/app.py:960 libretranslate/app.py:1029
 msgid "Files translation are disabled on this server."
-msgstr ""
+msgstr "بۇ مۇلازىمېتىردا ھۆججەت تەرجىمە قىلىش ئىقتىدارى چەكلەنگەن."
 
 #: libretranslate/app.py:975
 msgid "Invalid request: empty file"
-msgstr ""
+msgstr "ئىناۋەتسىز تەلەپ: ھۆججەت قۇرۇق"
 
 #: libretranslate/app.py:978
 msgid "Invalid request: file format not supported"
-msgstr ""
+msgstr "ئىناۋەتسىز تەلەپ: ھۆججەت فورماتىنى قوللىمايدۇ"
 
 #: libretranslate/app.py:1037
 msgid "Invalid filename"
-msgstr ""
+msgstr "ھۆججەت ئىسمى ئىناۋەتسىز"
 
 #: libretranslate/app.py:1279
 msgid "Suggestions are disabled on this server."
-msgstr ""
+msgstr "بۇ مۇلازىمېتىردا تەكلىپ بېرىش ئىقتىدارى چەكلەنگەن."
 
 #: libretranslate/locales/.langs.py:1
 msgid "English"
-msgstr ""
+msgstr "ئىنگلىزچە"
 
 #: libretranslate/locales/.langs.py:2
 msgid "Albanian"
-msgstr ""
+msgstr "ئالبانچە"
 
 #: libretranslate/locales/.langs.py:3
 msgid "Arabic"
-msgstr ""
+msgstr "ئەرەبچە"
 
 #: libretranslate/locales/.langs.py:4
 msgid "Azerbaijani"
-msgstr ""
+msgstr "ئەزەربەيجانچە"
 
 #: libretranslate/locales/.langs.py:5
 msgid "Basque"
-msgstr ""
+msgstr "باسكچە"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Bengali"
-msgstr ""
+msgstr "بېنگالچە"
 
 #: libretranslate/locales/.langs.py:7
 msgid "Bulgarian"
-msgstr ""
+msgstr "بۇلغارچە"
 
 #: libretranslate/locales/.langs.py:8
 msgid "Catalan"
-msgstr ""
+msgstr "كاتالونچە"
 
 #: libretranslate/locales/.langs.py:9
 msgid "Chinese"
-msgstr ""
+msgstr "خەنزۇچە"
 
 #: libretranslate/locales/.langs.py:10
 msgid "Chinese (traditional)"
-msgstr ""
+msgstr "خەنزۇچە (مۇرەككەپ)"
 
 #: libretranslate/locales/.langs.py:11
 msgid "Czech"
-msgstr ""
+msgstr "چېخچە"
 
 #: libretranslate/locales/.langs.py:12
 msgid "Danish"
-msgstr ""
+msgstr "دانىيەچە"
 
 #: libretranslate/locales/.langs.py:13
 msgid "Dutch"
-msgstr ""
+msgstr "گوللاندىيەچە"
 
 #: libretranslate/locales/.langs.py:14
 msgid "Esperanto"
-msgstr ""
+msgstr "ئېسپېرانتوچە"
 
 #: libretranslate/locales/.langs.py:15
 msgid "Estonian"
-msgstr ""
+msgstr "ئېستونچە"
 
 #: libretranslate/locales/.langs.py:16
 msgid "Finnish"
-msgstr ""
+msgstr "فىنچە"
 
 #: libretranslate/locales/.langs.py:17
 msgid "French"
-msgstr ""
+msgstr "فىرانسۇزچە"
 
 #: libretranslate/locales/.langs.py:18
 msgid "Galician"
-msgstr ""
+msgstr "گالىتسىيەچە"
 
 #: libretranslate/locales/.langs.py:19
 msgid "German"
-msgstr ""
+msgstr "گېرمانچە"
 
 #: libretranslate/locales/.langs.py:20
 msgid "Greek"
-msgstr ""
+msgstr "گىرېكچە"
 
 #: libretranslate/locales/.langs.py:21
 msgid "Hebrew"
-msgstr ""
+msgstr "ئىبرانىيچە"
 
 #: libretranslate/locales/.langs.py:22
 msgid "Hindi"
-msgstr ""
+msgstr "ھىندىچە"
 
 #: libretranslate/locales/.langs.py:23
 msgid "Hungarian"
-msgstr ""
+msgstr "ۋېنگىرچە"
 
 #: libretranslate/locales/.langs.py:24
 msgid "Indonesian"
-msgstr ""
+msgstr "ھىندونېزىيەچە"
 
 #: libretranslate/locales/.langs.py:25
 msgid "Irish"
-msgstr ""
+msgstr "ئىرېلاندىيەچە"
 
 #: libretranslate/locales/.langs.py:26
 msgid "Italian"
-msgstr ""
+msgstr "ئىتالىيەچە"
 
 #: libretranslate/locales/.langs.py:27
 msgid "Japanese"
-msgstr ""
+msgstr "ياپونچە"
 
 #: libretranslate/locales/.langs.py:28
 msgid "Korean"
-msgstr ""
+msgstr "كورېيەچە"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Kyrgyz"
-msgstr ""
+msgstr "قىرغىزچە"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Latvian"
-msgstr ""
+msgstr "لاتۋىيەچە"
 
 #: libretranslate/locales/.langs.py:31
 msgid "Lithuanian"
-msgstr ""
+msgstr "لىتۋاچە"
 
 #: libretranslate/locales/.langs.py:32
 msgid "Malay"
-msgstr ""
+msgstr "مالايچە"
 
 #: libretranslate/locales/.langs.py:33
 msgid "Norwegian"
-msgstr ""
+msgstr "نورۋېگىيەچە"
 
 #: libretranslate/locales/.langs.py:34
 msgid "Persian"
-msgstr ""
+msgstr "پارسچە"
 
 #: libretranslate/locales/.langs.py:35
 msgid "Polish"
-msgstr ""
+msgstr "پولەكچە"
 
 #: libretranslate/locales/.langs.py:36
 msgid "Portuguese"
-msgstr ""
+msgstr "پورتۇگالچە"
 
 #: libretranslate/locales/.langs.py:37
 msgid "Portuguese (Brazil)"
-msgstr ""
+msgstr "پورتۇگالچە (بىرازىلىيە)"
 
 #: libretranslate/locales/.langs.py:38
 msgid "Romanian"
-msgstr ""
+msgstr "رومانىيەچە"
 
 #: libretranslate/locales/.langs.py:39
 msgid "Russian"
-msgstr ""
+msgstr "رۇسچە"
 
 #: libretranslate/locales/.langs.py:40
 msgid "Slovak"
-msgstr ""
+msgstr "سلوۋاكچە"
 
 #: libretranslate/locales/.langs.py:41
 msgid "Slovenian"
-msgstr ""
+msgstr "سلوۋېنىيەچە"
 
 #: libretranslate/locales/.langs.py:42
 msgid "Spanish"
-msgstr ""
+msgstr "ئىسپانچە"
 
 #: libretranslate/locales/.langs.py:43
 msgid "Swedish"
-msgstr ""
+msgstr "شىۋېدچە"
 
 #: libretranslate/locales/.langs.py:44
 msgid "Tagalog"
-msgstr ""
+msgstr "تاگالچە"
 
 #: libretranslate/locales/.langs.py:45
 msgid "Thai"
-msgstr ""
+msgstr "تايلاندچە"
 
 #: libretranslate/locales/.langs.py:46
 msgid "Turkish"
-msgstr ""
+msgstr "تۈركچە"
 
 #: libretranslate/locales/.langs.py:47
 msgid "Ukranian"
-msgstr ""
+msgstr "ئۇكرائىنچە"
 
 #: libretranslate/locales/.langs.py:48
 msgid "Urdu"
-msgstr ""
+msgstr "ئوردۇچە"
 
 #: libretranslate/locales/.langs.py:49
 msgid "Vietnamese"
-msgstr ""
+msgstr "ۋيېتنامچە"
 
 #: libretranslate/locales/.langs.py:50
 msgid "Serbian"
-msgstr ""
+msgstr "سېربچە"
 
 #: libretranslate/locales/.langs.py:51
 msgid "Ukrainian"
-msgstr ""
+msgstr "ئۇكرائىنچە"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Get Supported Languages"
-msgstr ""
+msgstr "قوللايدىغان تىللارنى كۆرۈش"
 
 #: libretranslate/locales/.swag.py:2
 msgid "List of supported languages"
-msgstr ""
+msgstr "قوللايدىغان تىللار تىزىملىكى"
 
 #: libretranslate/locales/.swag.py:3
 msgid "translate"
-msgstr ""
+msgstr "تەرجىمە"
 
 #: libretranslate/locales/.swag.py:4
 msgid "Health Check"
-msgstr ""
+msgstr "ساغلاملىق تەكشۈرۈشى"
 
 #: libretranslate/locales/.swag.py:5
 msgid "Service is healthy"
-msgstr ""
+msgstr "مۇلازىمەت نورمال"
 
 #: libretranslate/locales/.swag.py:6
 msgid "misc"
-msgstr ""
+msgstr "باشقىلار"
 
 #: libretranslate/locales/.swag.py:7 libretranslate/templates/index.html:185
 msgid "Translate Text"
-msgstr ""
+msgstr "تېكىستنى تەرجىمە قىلىش"
 
 #: libretranslate/locales/.swag.py:8
 msgid "Translation"
-msgstr ""
+msgstr "تەرجىمە"
 
 #: libretranslate/locales/.swag.py:9
 msgid "Invalid request"
-msgstr ""
+msgstr "ئىناۋەتسىز تەلەپ"
 
 #: libretranslate/locales/.swag.py:10
 msgid "Translation error"
-msgstr ""
+msgstr "تەرجىمە خاتالىقى"
 
 #: libretranslate/locales/.swag.py:11
 msgid "Slow down"
-msgstr ""
+msgstr "سۈرئەتنى ئاستىلىتىڭ"
 
 #: libretranslate/locales/.swag.py:12
 msgid "Banned"
-msgstr ""
+msgstr "چەكلەنگەن"
 
 #: libretranslate/locales/.swag.py:13
 msgid "Hello world!"
-msgstr ""
+msgstr "سالام دۇنيا!"
 
 #: libretranslate/locales/.swag.py:14
 msgid "Text(s) to translate"
-msgstr ""
+msgstr "تەرجىمە قىلىنىدىغان تېكىست(لەر)"
 
 #: libretranslate/locales/.swag.py:15
 msgid "Source language code or \"auto\" for auto detection"
-msgstr ""
+msgstr "مەنبە تىل كودى ياكى ئاپتوماتىك پەرق ئېتىش ئۈچۈن \"auto\""
 
 #: libretranslate/locales/.swag.py:16
 msgid "Target language code"
-msgstr ""
+msgstr "نىشان تىل كودى"
 
 #: libretranslate/locales/.swag.py:17
 msgid "text"
-msgstr ""
+msgstr "تېكىست"
 
 #: libretranslate/locales/.swag.py:18
 msgid "html"
-msgstr ""
+msgstr "html"
 
 #: libretranslate/locales/.swag.py:19
 msgid ""
@@ -404,66 +410,69 @@ msgid ""
 " * `text` - Plain text\n"
 " * `html` - HTML markup\n"
 msgstr ""
+"مەنبە تېكىستنىڭ فورماتى:\n"
+"* `text` - ئادەتتىكى تېكىست\n"
+"* `html` - HTML بەلگىسى\n"
 
 #: libretranslate/locales/.swag.py:20
 msgid "Preferred number of alternative translations"
-msgstr ""
+msgstr "تەرجىمە تاللانمىلىرىنىڭ ياقتۇرىدىغان سانى"
 
 #: libretranslate/locales/.swag.py:21
 msgid "API key"
-msgstr ""
+msgstr "API ئاچقۇچى"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Translate a File"
-msgstr ""
+msgstr "ھۆججەت تەرجىمە قىلىش"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Translated file"
-msgstr ""
+msgstr "تەرجىمە قىلىنغان ھۆججەت"
 
 #: libretranslate/locales/.swag.py:24
 msgid "File to translate"
-msgstr ""
+msgstr "‬تەرجىمە قىلىنىدىغان ھۆججەت"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Source language code  or \"auto\" for auto detection"
-msgstr ""
+msgstr "مەنبە تىل كودى ياكى ئاپتوماتىك پەرق ئېتىش ئۈچۈن \"auto\""
 
 #: libretranslate/locales/.swag.py:26
 msgid "Detect Language of Text"
-msgstr ""
+msgstr "تېكىستنىڭ تىلىنى پەرق ئېتىش"
 
 #: libretranslate/locales/.swag.py:27
 msgid "Detections"
-msgstr ""
+msgstr "پەرق ئېتىلگەن نەتىجىلەر"
 
 #: libretranslate/locales/.swag.py:28
 msgid "Detection error"
-msgstr ""
+msgstr "پەرق ئېتىش خاتالىقى"
 
 #: libretranslate/locales/.swag.py:29
 msgid "Text to detect"
-msgstr ""
+msgstr "پەرق ئېتىلىدىغان تېكىست"
 
 #: libretranslate/locales/.swag.py:30
 msgid "Retrieve Frontend Settings"
-msgstr ""
+msgstr "ئالدى تەرەپ تەڭشەكلىرىگە ئېرىشىش"
 
 #: libretranslate/locales/.swag.py:31
 msgid "frontend settings"
-msgstr ""
+msgstr "ئالدى تەرەپ تەڭشەكلىرى"
 
 #: libretranslate/locales/.swag.py:32
 msgid "Submit a Suggestion to Improve a Translation"
-msgstr ""
+msgstr "تەرجىمىنى ياخشىلاش تەكلىپىنى يوللاش"
 
 #: libretranslate/locales/.swag.py:33
 msgid "Success"
-msgstr ""
+msgstr "مۇۋەپپەقىيەتلىك"
 
 #: libretranslate/locales/.swag.py:34
 msgid "Not authorized"
-msgstr ""
+msgstr "ھوقۇق بېرىلمىگەن"
 
 #: libretranslate/locales/.swag.py:35
 msgid "Original text"
@@ -817,4 +826,3 @@ msgstr ""
 
 #~ msgid "feedback"
 #~ msgstr ""
-
