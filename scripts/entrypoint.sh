@@ -48,5 +48,5 @@ else
     mkdir -p "$PROMETHEUS_MULTIPROC_DIR"
 fi
 
-./venv/bin/gunicorn -c scripts/gunicorn_conf.py --workers $LT_THREADS --max-requests 250 --timeout 2400 --bind $BIND_ADDR:$LT_PORT 'wsgi:app()'
+ARGOS_CHUNK_TYPE=MINISBD ./venv/bin/gunicorn -c scripts/gunicorn_conf.py --workers $LT_THREADS --max-requests 250 --timeout 2400 --bind $BIND_ADDR:$LT_PORT 'wsgi:app()'
 
