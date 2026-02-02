@@ -27,7 +27,7 @@ ARG with_models=false
 ARG models=""
 
 ENV HOME=/home/libretranslate
-RUN addgroup --system --gid 1032 libretranslate && adduser --system --uid 1032 libretranslate && mkdir -p /home/libretranslate/.local && chown -R libretranslate:libretranslate /home/libretranslate/.local
+RUN addgroup --system --gid 1032 libretranslate && adduser --system --uid 1032 libretranslate && mkdir -p /home/libretranslate/.local && chown -R libretranslate:libretranslate /home/libretranslate/
 USER libretranslate
 
 COPY --from=builder --chown=1032:1032 /app /app
