@@ -195,7 +195,7 @@
 								<span id="sourceLangLabel">{{ _h("Translate from") }}</span>
 								<span v-if="detectedLangText !== ''">[[ detectedLangText ]]</span>
 								<select aria-labelledby="sourceLangLabel" class="browser-default" v-model="sourceLang" ref="sourceLangDropdown" @change="handleInput">
-									<template v-for="option in langs">
+									<template v-for="option in sourceLangs">
 										<option :value="option.code">[[ option.name ]]</option>
 									</template>
 								</select>
