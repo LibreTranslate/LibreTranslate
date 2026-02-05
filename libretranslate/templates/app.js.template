@@ -158,6 +158,8 @@ document.addEventListener('DOMContentLoaded', function(){
             sourceLangs: function(){
                 var srcLangs = JSON.parse(JSON.stringify(this.langs));
                 srcLangs.sort(function(a, b){
+                    if (a.code === "auto") return -1;
+                    if (b.code === "auto") return 1;
                     return a.name.localeCompare(b.name);
                 });
                 return srcLangs;
