@@ -1,4 +1,5 @@
 import sys
+import json
 import pytest
 from libretranslate.app import create_app
 from libretranslate.main import get_args
@@ -36,7 +37,10 @@ def test_portuguese_fallback_pb_to_pt(client_with_pt):
         "format": "text"
     })
     
+    response_json = json.loads(response.data)
     assert response.status_code == 200
+    assert "translatedText" in response_json
+    assert len(response_json["translatedText"]) > 0
 
 
 def test_portuguese_fallback_pt_to_pb(client_with_pb):
@@ -47,4 +51,7 @@ def test_portuguese_fallback_pt_to_pb(client_with_pb):
         "format": "text"
     })
     
+    response_json = json.loads(response.data)
     assert response.status_code == 200
+    assert "translatedText" in response_json
+    assert len(response_json["translatedText"]) > 0

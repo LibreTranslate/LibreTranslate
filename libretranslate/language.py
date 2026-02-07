@@ -48,7 +48,7 @@ def load_lang_codes():
     return tuple(l.code for l in languages)
 
 def get_language_with_fallback(lang_code, languages):
-    lang = next(iter([l for l in languages if l.code == lang_code]), None)
+    lang = next((l for l in languages if l.code == lang_code), None)
     if lang is not None:
         return lang
     
@@ -59,7 +59,7 @@ def get_language_with_fallback(lang_code, languages):
     
     fallbacks = language_variants.get(lang_code, [])
     for fallback_code in fallbacks:
-        fallback_lang = next(iter([l for l in languages if l.code == fallback_code]), None)
+        fallback_lang = next((l for l in languages if l.code == fallback_code), None)
         if fallback_lang is not None:
             return fallback_lang
     
