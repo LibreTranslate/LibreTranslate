@@ -47,6 +47,24 @@ def load_lang_codes():
     languages = load_languages()
     return tuple(l.code for l in languages)
 
+def get_language_with_fallback(lang_code, languages):
+    lang = next(iter([l for l in languages if l.code == lang_code]), None)
+    if lang is not None:
+        return lang
+    
+    language_variants = {
+        'pt': ['pb'],
+        'pb': ['pt']
+    }
+    
+    fallbacks = language_variants.get(lang_code, [])
+    for fallback_code in fallbacks:
+        fallback_lang = next(iter([l for l in languages if l.code == fallback_code]), None)
+        if fallback_lang is not None:
+            return fallback_lang
+    
+    return None
+
 def detect_languages(text):
     # detect batch processing
     if isinstance(text, list):

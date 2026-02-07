@@ -23,7 +23,7 @@ from werkzeug.http import http_date
 from werkzeug.utils import secure_filename
 
 from libretranslate import flood, remove_translated_files, scheduler, secret, security, storage, cache
-from libretranslate.language import model2iso, iso2model, detect_languages, improve_translation_formatting
+from libretranslate.language import model2iso, iso2model, detect_languages, improve_translation_formatting, get_language_with_fallback
 from libretranslate.locales import (
     _,
     _lazy,
@@ -794,12 +794,12 @@ def create_app(args):
         else:
           detected_src_lang = {"confidence": 0.0, "language": "en"}
 
-        src_lang = next(iter([l for l in languages if l.code == detected_src_lang["language"]]), None)
+        src_lang = get_language_with_fallback(detected_src_lang["language"], languages)
 
         if src_lang is None:
             abort(400, description=_("%(lang)s is not supported", lang=source_lang))
 
-        tgt_lang = next(iter([l for l in languages if l.code == target_lang]), None)
+        tgt_lang = get_language_with_fallback(target_lang, languages)
 
         if tgt_lang is None:
             abort(400, description=_("%(lang)s is not supported",lang=target_lang))
@@ -977,12 +977,12 @@ def create_app(args):
         if os.path.splitext(file.filename)[1] not in frontend_argos_supported_files_format:
             abort(400, description=_("Invalid request: file format not supported"))
 
-        src_lang = next(iter([l for l in languages if l.code == source_lang]), None)
+        src_lang = get_language_with_fallback(source_lang, languages)
 
         if src_lang is None and source_lang != "auto":
             abort(400, description=_("%(lang)s is not supported", lang=source_lang))
 
-        tgt_lang = next(iter([l for l in languages if l.code == target_lang]), None)
+        tgt_lang = get_language_with_fallback(target_lang, languages)
 
         if tgt_lang is None:
             abort(400, description=_("%(lang)s is not supported", lang=target_lang))
@@ -1005,7 +1005,7 @@ def create_app(args):
                 src_texts = argostranslatefiles.get_texts(filepath)
                 candidate_langs = detect_languages(src_texts)
                 detected_src_lang = candidate_langs[0]
-                src_lang = next(iter([l for l in languages if l.code == detected_src_lang["language"]]), None)
+                src_lang = get_language_with_fallback(detected_src_lang["language"], languages)
                 if src_lang is None:
                     abort(400, description=_("%(lang)s is not supported", lang=detected_src_lang["language"]))
 
