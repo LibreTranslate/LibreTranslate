@@ -18,7 +18,7 @@ def remove_translated_files(upload_dir: str):
 
 
 def setup(upload_dir):
-    scheduler = BackgroundScheduler(daemon=True)
+    scheduler = BackgroundScheduler(daemon=True, timezone='UTC')
     scheduler.add_job(remove_translated_files, "interval", minutes=30, kwargs={'upload_dir': upload_dir})
     scheduler.start()
 

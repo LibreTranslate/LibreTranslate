@@ -11,7 +11,7 @@ def setup(args):
     global scheduler
 
     if scheduler is None:
-        scheduler = BackgroundScheduler()
+        scheduler = BackgroundScheduler(timezone='UTC')
 
         if not args.secondary and args.req_flood_threshold > 0:
             scheduler.add_job(func=forgive_banned, trigger="interval", minutes=10)
