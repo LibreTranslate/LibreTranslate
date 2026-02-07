@@ -54,7 +54,9 @@ def get_language_with_fallback(lang_code, languages):
     
     language_variants = {
         'pt': ['pb'],
-        'pb': ['pt']
+        'pb': ['pt'],
+        'zh': ['zt'],
+        'zt': ['zh']
     }
     
     fallbacks = language_variants.get(lang_code, [])
