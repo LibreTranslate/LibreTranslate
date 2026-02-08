@@ -135,6 +135,3 @@ This prevents pip packages from being installed system-wide. This way, there are
 References:
 * [Python venv documentation](https://docs.python.org/library/venv.html)
 
-## Other Languages
-
-- [Español (CONTRIBUTING)](docs/CONTRIBUTING.es.md)
