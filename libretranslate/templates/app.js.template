@@ -155,6 +155,15 @@ document.addEventListener('DOMContentLoaded', function(){
             canSendSuggestion: function(){
                 return this.translatedText.trim() !== "" && this.translatedText !== this.savedTanslatedText;
             },
+            sourceLangs: function(){
+                var srcLangs = JSON.parse(JSON.stringify(this.langs));
+                srcLangs.sort(function(a, b){
+                    if (a.code === "auto") return -1;
+                    if (b.code === "auto") return 1;
+                    return a.name.localeCompare(b.name);
+                });
+                return srcLangs;
+            },
             targetLangs: function(){
                 if (!this.sourceLang) return this.langs;
                 else{
