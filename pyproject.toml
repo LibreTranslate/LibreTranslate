@@ -85,6 +85,9 @@ History = "https://github.com/LibreTranslate/LibreTranslate/releases"
 [tool.hatch.build]
 artifacts = ["*.mo"]
 
+[tool.hatch.metadata]
+allow-direct-references = true
+
 # ENVIRONMENTS AND SCRIPTS
 [tool.hatch.envs.default]
 features = [
