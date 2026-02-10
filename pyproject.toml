@@ -36,7 +36,7 @@ classifiers = [
 dynamic = ["version"]
 
 dependencies = [
-    "argostranslate ==1.11.0",
+    "argostranslate @ https://github.com/LibreTranslate/argos-translate/archive/refs/tags/v1.12.0.zip",
     "Flask ==2.2.5",
     "flask-swagger ==0.2.14",
     "flask-swagger-ui ==4.11.1",
@@ -46,8 +46,6 @@ dependencies = [
     "expiringdict ==1.2.2",
     "langdetect==1.0.9",
     "lexilang==1.0.7",
-    "morfessor ==2.0.6",
-    "appdirs ==1.4.4",
     "APScheduler ==3.11.2",
     "translatehtml ==1.5.2",
     "argos-translate-files ==1.4.0",
@@ -60,8 +58,6 @@ dependencies = [
     "prometheus-client ==0.15.0",
     "polib ==1.1.1",
     "packaging ==23.1",
-    "torch ==2.4.0;python_version<'3.12'",
-    "torch >=2.5.0;python_version>='3.12'",
 ]
 
 [project.scripts]
@@ -88,6 +84,9 @@ History = "https://github.com/LibreTranslate/LibreTranslate/releases"
 
 [tool.hatch.build]
 artifacts = ["*.mo"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
 
 # ENVIRONMENTS AND SCRIPTS
 [tool.hatch.envs.default]

@@ -38,9 +38,6 @@ from libretranslate.locales import (
 from .api_keys import Database, RemoteDatabase
 from .suggestions import Database as SuggestionsDatabase
 
-# Ignore pytorch complaints
-warnings.simplefilter(action='ignore', category=FutureWarning)
-
 # Rough map of emoji characters
 emojis = {e: True for e in \
   [ord(' ')] +                    # Spaces

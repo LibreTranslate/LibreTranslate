@@ -17,8 +17,6 @@ RUN pip3 install --no-cache-dir --upgrade pip && apt-get remove python3-pip --as
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
-RUN pip3 install --no-cache-dir torch==1.12.0+cu116 -f https://download.pytorch.org/whl/torch_stable.html
-
 COPY . .
 
 RUN if [ "$with_models" = "true" ]; then  \
@@ -36,6 +34,7 @@ RUN if [ "$with_models" = "true" ]; then  \
 RUN pip3 install Babel==2.12.1 && python3 scripts/compile_locales.py \
     && pip3 install "numpy<2" \
     && pip3 install . \
+    && pip3 uninstall onnxruntime && pip3 install --no-cache-dir onnxruntime-gpu>=1.10.0 \
     && pip3 cache purge
 
 # Depending on your cuda install you may need to uncomment this line to allow the container to access the cuda libraries

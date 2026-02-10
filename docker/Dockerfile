@@ -15,7 +15,6 @@ COPY . .
 
 # Install package from source code, compile translations
 RUN ./venv/bin/pip install Babel==2.12.1 && ./venv/bin/python scripts/compile_locales.py \
-  && ./venv/bin/pip install torch==$(grep -o -m1 'torch.*;' pyproject.toml|sed 's/[^0-9.]//g') --extra-index-url https://download.pytorch.org/whl/cpu \
   && ./venv/bin/pip install "numpy<2" \
   && ./venv/bin/pip install gunicorn==23.0.0 \
   && ./venv/bin/pip install . \
