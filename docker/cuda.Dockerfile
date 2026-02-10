@@ -1,4 +1,26 @@
-FROM nvidia/cuda:12.4.1-devel-ubuntu22.04
+FROM nvidia/cuda:12.4.1-runtime-ubuntu22.04 AS builder
+
+WORKDIR /app
+
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update -qq \
+  && apt-get -qqq install --no-install-recommends -y pkg-config gcc g++ python3-dev python3-pip python3-venv git \
+  && apt-get upgrade --assume-yes \
+  && apt-get clean \
+  && rm -rf /var/lib/apt
+
+RUN python3 -m venv venv && ./venv/bin/pip install --no-cache-dir --upgrade pip
+
+COPY . .
+
+# Install package from source code, compile translations
+RUN ./venv/bin/pip install Babel==2.12.1 && ./venv/bin/python scripts/compile_locales.py \
+  && ./venv/bin/pip install "numpy<2" \
+  && ./venv/bin/pip install . \
+  && ./venv/bin/pip uninstall -y onnxruntime && ./venv/bin/pip install --no-cache-dir onnxruntime-gpu>=1.10.0 \
+  && ./venv/bin/pip cache purge
+
+FROM nvidia/cuda:12.4.1-runtime-ubuntu22.04
 
 ENV ARGOS_DEVICE_TYPE auto
 ARG with_models=false
@@ -7,35 +29,27 @@ ARG models=""
 WORKDIR /app
 
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get update -qq \
-    && apt-get -qqq install --no-install-recommends -y libicu-dev libaspell-dev libcairo2 libcairo2-dev pkg-config gcc g++ python3.10-dev python3-pip libpython3.10-dev\
-    && apt-get upgrade --assume-yes \
-    && apt-get clean \
-    && rm -rf /var/lib/apt
 
-RUN pip3 install --no-cache-dir --upgrade pip && apt-get remove python3-pip --assume-yes
+RUN apt-get update -qq \
+  && apt-get -qqq install --no-install-recommends -y python3 python3-pip \
+  && apt-get clean \
+  && rm -rf /var/lib/apt
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
-COPY . .
+COPY --from=builder /app /app
+ENV PATH="/app/venv/bin:$PATH"
+
+COPY --from=builder /app/venv/bin/ltmanage /usr/bin/
 
 RUN if [ "$with_models" = "true" ]; then  \
-    # install only the dependencies first
-    pip3 install --no-cache-dir -e .;  \
-    # initialize the language models
-    if [ ! -z "$models" ]; then \
-    ./scripts/install_models.py --load_only_lang_codes "$models";   \
-    else \
-    ./scripts/install_models.py;  \
-    fi \
-    fi
-
-# Install package from source code
-RUN pip3 install Babel==2.12.1 && python3 scripts/compile_locales.py \
-    && pip3 install "numpy<2" \
-    && pip3 install . \
-    && pip3 uninstall -y onnxruntime && pip3 install --no-cache-dir onnxruntime-gpu>=1.10.0 \
-    && pip3 cache purge
+  # initialize the language models
+  if [ ! -z "$models" ]; then \
+  python scripts/install_models.py --load_only_lang_codes "$models";   \
+  else \
+  python scripts/install_models.py;  \
+  fi \
+  fi
 
 # Depending on your cuda install you may need to uncomment this line to allow the container to access the cuda libraries
 # See: https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions
