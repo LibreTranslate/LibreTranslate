@@ -9,15 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-01-21 10:25-0500\n"
-"PO-Revision-Date: 2025-06-06 04:36+0000\n"
-"Last-Translator: Juzé <dedakir923@exoular.com>\n"
+"PO-Revision-Date: 2026-02-16 18:09+0000\n"
+"Last-Translator: delvani <del.cidrak@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"libretranslate/app/pt_BR/>\n"
 "Language: pt_BR\n"
-"Language-Team: Portuguese (Brazil) "
-"<https://hosted.weblate.org/projects/libretranslate/app/pt_BR/>\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.16\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:97
@@ -144,7 +145,7 @@ msgstr "Azerbaijano"
 
 #: libretranslate/locales/.langs.py:5
 msgid "Basque"
-msgstr ""
+msgstr "Basco"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Bengali"
@@ -196,7 +197,7 @@ msgstr "Francês"
 
 #: libretranslate/locales/.langs.py:18
 msgid "Galician"
-msgstr ""
+msgstr "Galego"
 
 #: libretranslate/locales/.langs.py:19
 msgid "German"
@@ -240,7 +241,7 @@ msgstr "Coreano"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Kyrgyz"
-msgstr ""
+msgstr "Quirguiz"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Latvian"
@@ -332,11 +333,11 @@ msgstr "Ucraniano"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Get Supported Languages"
-msgstr ""
+msgstr "Obter idiomas suportados"
 
 #: libretranslate/locales/.swag.py:2
 msgid "List of supported languages"
-msgstr ""
+msgstr "Lista de idiomas suportados"
 
 #: libretranslate/locales/.swag.py:3
 msgid "translate"
@@ -344,15 +345,15 @@ msgstr "tradução"
 
 #: libretranslate/locales/.swag.py:4
 msgid "Health Check"
-msgstr ""
+msgstr "Verificação de saúde"
 
 #: libretranslate/locales/.swag.py:5
 msgid "Service is healthy"
-msgstr ""
+msgstr "O serviço é saudável"
 
 #: libretranslate/locales/.swag.py:6
 msgid "misc"
-msgstr ""
+msgstr "diversos"
 
 #: libretranslate/locales/.swag.py:7 libretranslate/templates/index.html:185
 msgid "Translate Text"
@@ -360,7 +361,7 @@ msgstr "Traduzir Texto"
 
 #: libretranslate/locales/.swag.py:8
 msgid "Translation"
-msgstr ""
+msgstr "Tradução"
 
 #: libretranslate/locales/.swag.py:9
 msgid "Invalid request"
@@ -388,7 +389,7 @@ msgstr "Texto(s) para traduzir"
 
 #: libretranslate/locales/.swag.py:15
 msgid "Source language code or \"auto\" for auto detection"
-msgstr ""
+msgstr "Código do idioma de origem ou “auto” para detecção automática"
 
 #: libretranslate/locales/.swag.py:16
 msgid "Target language code"
@@ -422,7 +423,7 @@ msgstr "Chave de API"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Translate a File"
-msgstr ""
+msgstr "Traduzir um arquivo"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Translated file"
@@ -434,11 +435,11 @@ msgstr "Arquivo a ser traduzido"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Source language code  or \"auto\" for auto detection"
-msgstr ""
+msgstr "Código do idioma de origem  ou “auto” para detecção automática"
 
 #: libretranslate/locales/.swag.py:26
 msgid "Detect Language of Text"
-msgstr ""
+msgstr "Detectar idioma do texto"
 
 #: libretranslate/locales/.swag.py:27
 msgid "Detections"
@@ -454,7 +455,7 @@ msgstr "Texto a ser detectado"
 
 #: libretranslate/locales/.swag.py:30
 msgid "Retrieve Frontend Settings"
-msgstr ""
+msgstr "Recuperar configurações da página"
 
 #: libretranslate/locales/.swag.py:31
 msgid "frontend settings"
@@ -462,7 +463,7 @@ msgstr "configurações de front-end"
 
 #: libretranslate/locales/.swag.py:32
 msgid "Submit a Suggestion to Improve a Translation"
-msgstr ""
+msgstr "Enviar sugestão para melhorar uma tradução"
 
 #: libretranslate/locales/.swag.py:33
 msgid "Success"
@@ -490,7 +491,7 @@ msgstr "Idioma da tradução sugerida"
 
 #: libretranslate/locales/.swag.py:39
 msgid "Supported language"
-msgstr ""
+msgstr "Idioma suportado"
 
 #: libretranslate/locales/.swag.py:40
 msgid "Language code"
@@ -506,7 +507,7 @@ msgstr "Códigos de idioma da tradução suportados"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Health status"
-msgstr ""
+msgstr "Status de saúde"
 
 #: libretranslate/locales/.swag.py:44
 msgid "Translated text(s)"
@@ -518,11 +519,11 @@ msgstr "Valor da confiança"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Alternative translations"
-msgstr ""
+msgstr "Traduções alternativas"
 
 #: libretranslate/locales/.swag.py:47
 msgid "translatedText"
-msgstr ""
+msgstr "translatedText"
 
 #: libretranslate/locales/.swag.py:48
 msgid "Error message"
@@ -642,7 +643,7 @@ msgstr "tradução"
 
 #: libretranslate/templates/index.html:11
 msgid "api"
-msgstr "API"
+msgstr "api"
 
 #: libretranslate/templates/index.html:59
 msgid "API Docs"
@@ -841,4 +842,3 @@ msgstr "%(libretranslate)s Colaboradores"
 
 #~ msgid "feedback"
 #~ msgstr "feedback"
-
