@@ -37,9 +37,8 @@ dynamic = ["version"]
 
 dependencies = [
     "argostranslate @ https://github.com/LibreTranslate/argos-translate/archive/refs/tags/v1.12.0.zip",
+    "flasgger ==0.9.5",
     "Flask ==2.2.5",
-    "flask-swagger ==0.2.14",
-    "flask-swagger-ui ==4.11.1",
     "Flask-Limiter ==2.6.3",
     "Flask-Babel ==3.1.0",
     "waitress ==2.1.2",

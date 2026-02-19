@@ -15,8 +15,7 @@ import argostranslatefiles
 from argostranslatefiles import get_supported_formats
 from flask import Blueprint, Flask, Response, abort, jsonify, render_template, request, send_file, url_for, make_response
 from flask_babel import Babel
-from flask_swagger import swagger
-from flask_swagger_ui import get_swaggerui_blueprint
+from flasgger import Swagger
 from translatehtml import translate_html
 from werkzeug.exceptions import HTTPException
 from werkzeug.http import http_date
@@ -1310,17 +1309,22 @@ def create_app(args):
 
     limiter.init_app(app)
 
-    swag = swagger(app)
-    swag["basePath"] = args.url_prefix if args.url_prefix != "" else "/"
-    swag["info"]["version"] = get_version()
-    swag["info"]["title"] = "LibreTranslate"
-    swag["info"]["description"] = "Free and Open Source Machine Translation API."
-    swag["info"]["license"] = {"name": "AGPL-3.0"}
+    swagger_config = {**Swagger.DEFAULT_CONFIG, "specs_route": "/docs/"}
+    swagger_template = {
+        "basePath": args.url_prefix if args.url_prefix != "" else "/",
+        "info": {
+            "version": get_version(),
+            "title": "LibreTranslate",
+            "description": "Free and Open Source Machine Translation API.",
+            "license": {"name": "AGPL-3.0"},
+        },
+    }
+    swag = Swagger(app, config=swagger_config, template=swagger_template)
 
     @app.route(api_url)
     @limiter.exempt
     def spec():
-        return jsonify(lazy_swag(swag))
+        return jsonify(lazy_swag(swag.get_apispecs()))
 
     app.config["BABEL_TRANSLATION_DIRECTORIES"] = 'locales'
 
@@ -1342,12 +1346,6 @@ def create_app(args):
     Babel(app, locale_selector=get_locale)
 
     app.jinja_env.globals.update(_e=gettext_escaped, _h=gettext_html)
-
-    # Call factory function to create our blueprint
-    # The Blueprint is not using url_for which means the middleware does not work properly and we need to manually fix things
-    swaggerui_blueprint = get_swaggerui_blueprint(swagger_url, args.url_prefix + api_url)
-    swaggerui_blueprint.url_prefix = "/docs"
-    app.register_blueprint(swaggerui_blueprint)
 
     if os.environ.get("LT_POWERCYCLE") is not None:
       print("Power cycling...")
