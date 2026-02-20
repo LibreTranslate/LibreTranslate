@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-01-21 10:25-0500\n"
-"PO-Revision-Date: 2026-02-20 04:16+0000\n"
+"PO-Revision-Date: 2026-02-21 05:09+0000\n"
 "Last-Translator: reducedradius <feixiang512@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/libretranslate/app/zh_Hans/>\n"
@@ -420,7 +420,7 @@ msgstr "API 密钥"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Translate a File"
-msgstr ""
+msgstr "翻译一个文件"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Translated file"
@@ -460,7 +460,7 @@ msgstr "前端设置"
 
 #: libretranslate/locales/.swag.py:32
 msgid "Submit a Suggestion to Improve a Translation"
-msgstr ""
+msgstr "提交一份建议以改进翻译"
 
 #: libretranslate/locales/.swag.py:33
 msgid "Success"
@@ -488,7 +488,7 @@ msgstr "建议译文语言"
 
 #: libretranslate/locales/.swag.py:39
 msgid "Supported language"
-msgstr ""
+msgstr "支持的语言"
 
 #: libretranslate/locales/.swag.py:40
 msgid "Language code"
