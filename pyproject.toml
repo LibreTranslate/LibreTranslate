@@ -47,7 +47,6 @@ dependencies = [
     "langdetect==1.0.9",
     "lexilang==1.0.7",
     "APScheduler ==3.11.2",
-    "translatehtml ==1.5.2",
     "argos-translate-files ==1.4.3",
     "itsdangerous ==2.1.2",
     "Werkzeug ==2.3.8",
