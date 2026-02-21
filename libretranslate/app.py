@@ -17,7 +17,7 @@ from flask import Blueprint, Flask, Response, abort, jsonify, render_template, r
 from flask_babel import Babel
 from flask_swagger import swagger
 from flask_swagger_ui import get_swaggerui_blueprint
-from translatehtml import translate_html
+from argostranslatefiles.translatehtml import translate_html
 from werkzeug.exceptions import HTTPException
 from werkzeug.http import http_date
 from werkzeug.utils import secure_filename

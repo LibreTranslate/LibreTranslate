@@ -9,7 +9,7 @@ import re
 import polib
 from babel.messages.frontend import main as pybabel
 from flask_swagger import swagger
-from translatehtml import translate_html
+from argostranslatefiles.translatehtml import translate_html
 
 from libretranslate.app import create_app, get_version
 from libretranslate.language import improve_translation_formatting, load_languages
