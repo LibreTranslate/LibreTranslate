@@ -1,7 +1,45 @@
 import argparse
+import glob
+import importlib.util
 import operator
+import subprocess
 import sys
 import os
+
+
+def _patch_ctranslate2_execstack():
+    """
+    On newer Linux kernels (e.g. Fedora 42+), loading a shared library that
+    requests an executable stack is rejected with:
+        ImportError: libctranslate2-*.so: cannot enable executable stack as
+        shared object requires: Invalid argument
+    Running ``patchelf --clear-execstack`` on the offending library removes the
+    PT_GNU_STACK executable flag so the kernel will accept it.  We do this
+    proactively (before ctranslate2 is imported) and silently – if patchelf is
+    not installed we simply skip the step and let the normal import proceed.
+    Related upstream issue: https://github.com/OpenNMT/CTranslate2/issues/1849
+    """
+    spec = importlib.util.find_spec("ctranslate2")
+    if spec is None or spec.origin is None:
+        return
+    libs_dir = os.path.join(os.path.dirname(spec.origin), ".libs")
+    if not os.path.isdir(libs_dir):
+        return
+    for lib in glob.glob(os.path.join(libs_dir, "*.so*")):
+        try:
+            subprocess.run(
+                ["patchelf", "--clear-execstack", lib],
+                capture_output=True,
+                check=True,
+            )
+        except FileNotFoundError:
+            # patchelf is not installed – nothing we can do here
+            break
+        except subprocess.CalledProcessError:
+            pass
+
+
+_patch_ctranslate2_execstack()
 
 from libretranslate.app import create_app
 from libretranslate.default_values import DEFAULT_ARGUMENTS as DEFARGS
