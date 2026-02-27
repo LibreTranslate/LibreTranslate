@@ -54,10 +54,18 @@ emojis = {e: True for e in \
 
 def get_version():
     try:
-        with open("VERSION") as f:
+        with open(os.path.join(os.path.dirname(__file__), "..", "VERSION")) as f:
             return f.read().strip()
-    except:
-        return "?"
+    except OSError:
+        pass
+
+    try:
+        from importlib.metadata import version
+        return version("libretranslate")
+    except Exception:
+        pass
+
+    return "?"
 
 
 def get_upload_dir():
