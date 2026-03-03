@@ -1,7 +1,7 @@
 
 from argostranslate import package, translate
 from packaging import version
-
+from minisbd import download_models
 import libretranslate.language
 
 
@@ -68,6 +68,10 @@ def check_and_install_models(force=False, load_only_lang_codes=None,update=False
                     f"Downloading {available_package} ({available_package.package_version}) ..."
                 )
                 available_package.install()
+        
+        # Download MiniSBD models
+        print("Downloading MiniSBD models")
+        download_models(load_only_lang_codes, print)
 
         # reload installed languages
         libretranslate.language.languages = translate.get_installed_languages()
