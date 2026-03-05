@@ -46,6 +46,7 @@ dependencies = [
     "expiringdict ==1.2.2",
     "langdetect==1.0.9",
     "lexilang==1.0.7",
+    "minisbd==0.9.5",
     "APScheduler ==3.11.2",
     "argos-translate-files ==1.4.4",
     "itsdangerous ==2.1.2",
