@@ -9,17 +9,17 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.12\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-01-21 10:25-0500\n"
-"PO-Revision-Date: 2024-04-03 08:46+0000\n"
-"Last-Translator: searinminecraft "
-"<114207889+searinminecraft@users.noreply.github.com>\n"
+"PO-Revision-Date: 2026-03-10 20:09+0000\n"
+"Last-Translator: Taiyobara <taiyobara.ent@gmail.com>\n"
+"Language-Team: Filipino <https://hosted.weblate.org/projects/libretranslate/"
+"app/fil/>\n"
 "Language: fil\n"
-"Language-Team: Filipino "
-"<https://hosted.weblate.org/projects/libretranslate/app/fil/>\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 =="
-" 4 || n % 10 == 6 || n % 10 == 9);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.17-dev\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:97
@@ -53,7 +53,7 @@ msgstr "Bisitahin ang %(url)s para makakuha ng API key"
 
 #: libretranslate/app.py:428
 msgid "Slowdown:"
-msgstr "Slowdown:"
+msgstr "Bumagal:"
 
 #: libretranslate/app.py:735 libretranslate/app.py:737
 #: libretranslate/app.py:739 libretranslate/app.py:968
@@ -68,12 +68,12 @@ msgstr "Hindi wastong hiling: nawawalang %(name)s na parameter"
 #: libretranslate/app.py:744
 #, python-format
 msgid "Invalid request: %(name)s parameter is not a number"
-msgstr ""
+msgstr "Di-wastong hiling: hindi numero %(name)s na parametro"
 
 #: libretranslate/app.py:747
 #, python-format
 msgid "Invalid request: %(name)s parameter must be <= %(value)s"
-msgstr ""
+msgstr "Di-wastong hiling: dapat %(name)s ay <= %(value)s na parametro"
 
 #: libretranslate/app.py:764 libretranslate/app.py:781
 #, python-format
@@ -130,11 +130,11 @@ msgstr "Naka-disable ang mga mungkahi sa server na ito."
 
 #: libretranslate/locales/.langs.py:1
 msgid "English"
-msgstr ""
+msgstr "Ingles"
 
 #: libretranslate/locales/.langs.py:2
 msgid "Albanian"
-msgstr ""
+msgstr "Albaniano"
 
 #: libretranslate/locales/.langs.py:3
 msgid "Arabic"
@@ -162,7 +162,7 @@ msgstr ""
 
 #: libretranslate/locales/.langs.py:9
 msgid "Chinese"
-msgstr ""
+msgstr "Tsino"
 
 #: libretranslate/locales/.langs.py:10
 msgid "Chinese (traditional)"
@@ -823,4 +823,3 @@ msgstr ""
 
 #~ msgid "feedback"
 #~ msgstr ""
-
