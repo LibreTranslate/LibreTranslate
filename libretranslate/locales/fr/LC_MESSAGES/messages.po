@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-01-21 10:25-0500\n"
-"PO-Revision-Date: 2026-01-23 13:28+0000\n"
-"Last-Translator: Akarzim <akarzim@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2026-03-20 12:09+0000\n"
+"Last-Translator: fail a fail <yassadmi@proton.me>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/libretranslate/"
 "app/fr/>\n"
 "Language: fr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.16-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:97
@@ -487,7 +487,7 @@ msgstr "Langue du texte original"
 
 #: libretranslate/locales/.swag.py:38
 msgid "Language of suggested translation"
-msgstr "Langue de la traduction proposée"
+msgstr "Langue de la traduction suggérée"
 
 #: libretranslate/locales/.swag.py:39
 msgid "Supported language"
