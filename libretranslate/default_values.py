@@ -241,6 +241,21 @@ _default_options_objects = [
         'default_value': '',
         'value_type': 'str'
     },
+    {
+        'name': 'OLLAMA_ENABLED',
+        'default_value': False,
+        'value_type': 'bool'
+    },
+    {
+        'name': 'OLLAMA_HOST',
+        'default_value': 'http://localhost:11434',
+        'value_type': 'str'
+    },
+    {
+        'name': 'OLLAMA_MODEL',
+        'default_value': 'translategemma',
+        'value_type': 'str'
+    },
 ]
 
 

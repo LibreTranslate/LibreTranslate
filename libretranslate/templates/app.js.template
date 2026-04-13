@@ -42,6 +42,9 @@ document.addEventListener('DOMContentLoaded', function(){
             filesTranslation: true,
             frontendTimeout: 500,
 
+            ollamaEnabled: false,
+            useOllama: localStorage.getItem("use_ollama") === "true",
+
             apiSecret: "{{ bogus_api_secret }}"
         },
         mounted: function() {
@@ -65,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     self.supportedFilesFormat = self.settings.supportedFilesFormat;
                     self.filesTranslation = self.settings.filesTranslation;
                     self.frontendTimeout = self.settings.frontendTimeout;
+                    self.ollamaEnabled = self.settings.ollamaEnabled || false;
 
                     if (langsRequest.response) {
                         handleLangsResponse(self, langsRequest);
@@ -261,6 +265,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     data.append("format", self.isHtml ? "html" : "text");
                     data.append("alternatives", 3);
                     data.append("api_key", self.apiKey);
+                    if (self.useOllama) data.append("use_ollama", "true");
                     if (self.apiSecret) data.append("secret", atob(self.apiSecret));
 
                     request.open('POST', BaseUrl + '/translate', true);
@@ -368,6 +373,11 @@ document.addEventListener('DOMContentLoaded', function(){
                 };
 
                 request.send(data);
+            },
+            toggleOllama: function(){
+                this.useOllama = !this.useOllama;
+                localStorage.setItem("use_ollama", this.useOllama ? "true" : "false");
+                if (this.inputText) this.handleInput(new Event('none'));
             },
             deleteText: function(e){
                 e.preventDefault();

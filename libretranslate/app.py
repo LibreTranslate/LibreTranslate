@@ -729,12 +729,14 @@ def create_app(args):
             target_lang = iso2model(json.get("target"))
             text_format = json.get("format")
             num_alternatives = int(json.get("alternatives", 0))
+            use_ollama = json.get("use_ollama", False)
         else:
             q = request.values.get("q")
             source_lang = iso2model(request.values.get("source"))
             target_lang = iso2model(request.values.get("target"))
             text_format = request.values.get("format")
             num_alternatives = request.values.get("alternatives", 0)
+            use_ollama = request.values.get("use_ollama", "false").lower() in ("true", "1")
 
         if not q:
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='q'))
@@ -817,6 +819,46 @@ def create_app(args):
             abort(400, description=_("%(format)s format is not supported", format=text_format))
 
         try:
+            # Ollama LLM translation path
+            if use_ollama and args.ollama:
+                from libretranslate.ollama import translate_ollama
+
+                resolved_source = detected_src_lang["language"] if source_lang == "auto" else source_lang
+
+                if batch:
+                    batch_results = []
+                    for text in q:
+                        if translatable:
+                            translated_text = translate_ollama(
+                                text, resolved_source, target_lang,
+                                args.ollama_host, args.ollama_model,
+                            )
+                        else:
+                            translated_text = text
+                        batch_results.append(translated_text)
+
+                    result = {"translatedText": batch_results}
+                    if source_lang == "auto":
+                        result["detectedLanguage"] = [model2iso(detected_src_lang)] * len(q)
+                else:
+                    if translatable:
+                        translated_text = translate_ollama(
+                            q, resolved_source, target_lang,
+                            args.ollama_host, args.ollama_model,
+                        )
+                    else:
+                        translated_text = q
+
+                    result = {"translatedText": translated_text}
+                    if source_lang == "auto":
+                        result["detectedLanguage"] = model2iso(detected_src_lang)
+
+                if cache_key is not None:
+                    trans_cache.cache(cache_key, result)
+
+                return jsonify(result)
+
+            # Standard Argos Translate path
             if batch:
                 batch_results = []
                 batch_alternatives = []
@@ -869,7 +911,7 @@ def create_app(args):
                     result["detectedLanguage"] = model2iso(detected_src_lang)
                 if num_alternatives > 0:
                     result["alternatives"] = alternatives
-            
+
             if cache_key is not None:
               trans_cache.cache(cache_key, result)
 
@@ -1222,6 +1264,7 @@ def create_app(args):
                         "name": _lazy(target_lang.name),
                     },
                 },
+                "ollamaEnabled": args.ollama,
             }
         )
 

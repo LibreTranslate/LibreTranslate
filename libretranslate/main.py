@@ -249,6 +249,26 @@ def get_parser():
         type=str,
         help="Add a prefix like /url-prefix to URL: example.com:5000/url-prefix/",
     )
+    parser.add_argument(
+        "--ollama",
+        default=DEFARGS['OLLAMA_ENABLED'],
+        action="store_true",
+        help="Enable Ollama LLM translation as an alternative translation backend",
+    )
+    parser.add_argument(
+        "--ollama-host",
+        default=DEFARGS['OLLAMA_HOST'],
+        type=str,
+        metavar="<url>",
+        help="Ollama API host URL (%(default)s)",
+    )
+    parser.add_argument(
+        "--ollama-model",
+        default=DEFARGS['OLLAMA_MODEL'],
+        type=str,
+        metavar="<model name>",
+        help="Ollama model to use for translation (%(default)s)",
+    )
     return parser
 
 def get_args():

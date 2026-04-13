@@ -214,6 +214,18 @@
 							</div>
 						</div>
 
+						<div class="row mb-0" v-if="ollamaEnabled" style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
+							<div class="col s12">
+								<div class="switch">
+									<label>
+										<input type="checkbox" :checked="useOllama" @change="toggleOllama">
+										<span class="lever"></span>
+										{{ _h("LLM Translation") }} (Ollama)
+									</label>
+								</div>
+							</div>
+						</div>
+
 						<div class="row" v-if="translationType === 'text'">
 							<div class="input-field textarea-container col s12 m6">
 								<label for="textarea1" class="sr-only">
