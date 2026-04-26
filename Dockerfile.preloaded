@@ -1,0 +1,11 @@
+FROM libretranslate/libretranslate:latest
+
+USER root
+
+RUN mkdir -p /home/libretranslate/.local/share/argos-translate/packages
+
+COPY models/ /home/libretranslate/.local/share/argos-translate/packages/
+
+RUN chmod -R 755 /home/libretranslate/.local
+
+EXPOSE 5000

@@ -1,0 +1,38 @@
+version: "3.9"
+name: libretranslate-offline-ru-en-zh
+
+services:
+  libretranslate-offline:
+    container_name: libretranslate-offline-ru-en-zh
+    image: dvurechensky/libretranslate-offline-ru-en-zh:1.0
+
+    build:
+      context: .
+      dockerfile: Dockerfile.preloaded
+
+    ports:
+      - "5000:5000"
+
+    restart: unless-stopped
+
+    environment:
+      LT_UPDATE_MODELS: "false"
+      LT_LOAD_ONLY: "en,ru,zh"
+      LT_DEBUG: "false"
+      LT_REQ_LIMIT: "0"
+      LT_CHAR_LIMIT: "50000"
+
+    volumes:
+      - libretranslate_cache:/root/.cache
+      - libretranslate_db:/app/db
+
+    healthcheck:
+      test: ["CMD-SHELL", "python scripts/healthcheck.py"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+
+volumes:
+  libretranslate_cache:
+  libretranslate_db:
