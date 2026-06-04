@@ -9,15 +9,16 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-01-21 10:25-0500\n"
-"PO-Revision-Date: 2025-04-19 06:10+0000\n"
-"Last-Translator: Ghost of Sparta <makesocialfoss32@keemail.me>\n"
+"PO-Revision-Date: 2026-06-05 13:03+0000\n"
+"Last-Translator: Alíz Uttó <aliz.utto@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/libretranslate/"
+"app/hu/>\n"
 "Language: hu\n"
-"Language-Team: Hungarian "
-"<https://hosted.weblate.org/projects/libretranslate/app/hu/>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2026.6\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:97
@@ -148,7 +149,7 @@ msgstr "Azerbajdzsáni"
 
 #: libretranslate/locales/.langs.py:5
 msgid "Basque"
-msgstr ""
+msgstr "Baszk"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Bengali"
@@ -200,7 +201,7 @@ msgstr "Francia"
 
 #: libretranslate/locales/.langs.py:18
 msgid "Galician"
-msgstr ""
+msgstr "Galiciai"
 
 #: libretranslate/locales/.langs.py:19
 msgid "German"
@@ -244,7 +245,7 @@ msgstr "Koreai"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Kyrgyz"
-msgstr ""
+msgstr "Kirgiz"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Latvian"
@@ -340,7 +341,7 @@ msgstr ""
 
 #: libretranslate/locales/.swag.py:2
 msgid "List of supported languages"
-msgstr ""
+msgstr "Támogatott nyelvek listája"
 
 #: libretranslate/locales/.swag.py:3
 msgid "translate"
@@ -356,7 +357,7 @@ msgstr ""
 
 #: libretranslate/locales/.swag.py:6
 msgid "misc"
-msgstr ""
+msgstr "egyéb"
 
 #: libretranslate/locales/.swag.py:7 libretranslate/templates/index.html:185
 msgid "Translate Text"
@@ -364,7 +365,7 @@ msgstr "Szöveg fordítása"
 
 #: libretranslate/locales/.swag.py:8
 msgid "Translation"
-msgstr ""
+msgstr "Fordítás"
 
 #: libretranslate/locales/.swag.py:9
 msgid "Invalid request"
@@ -392,7 +393,7 @@ msgstr "Lefordítandó szöveg(ek)"
 
 #: libretranslate/locales/.swag.py:15
 msgid "Source language code or \"auto\" for auto detection"
-msgstr ""
+msgstr "Forrásnyelv kód vagy \"auto\" az automatikus felismeréshez"
 
 #: libretranslate/locales/.swag.py:16
 msgid "Target language code"
@@ -426,7 +427,7 @@ msgstr "API-kulcs"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Translate a File"
-msgstr ""
+msgstr "Fájl fordítása"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Translated file"
@@ -442,7 +443,7 @@ msgstr ""
 
 #: libretranslate/locales/.swag.py:26
 msgid "Detect Language of Text"
-msgstr ""
+msgstr "Nyelvfelsismerés"
 
 #: libretranslate/locales/.swag.py:27
 msgid "Detections"
@@ -466,7 +467,7 @@ msgstr "előtétprogram-beállítások"
 
 #: libretranslate/locales/.swag.py:32
 msgid "Submit a Suggestion to Improve a Translation"
-msgstr ""
+msgstr "Fordítási javaslat beküldése"
 
 #: libretranslate/locales/.swag.py:33
 msgid "Success"
@@ -494,7 +495,7 @@ msgstr "A javasolt fordítás nyelve"
 
 #: libretranslate/locales/.swag.py:39
 msgid "Supported language"
-msgstr ""
+msgstr "Támogatott nyelv"
 
 #: libretranslate/locales/.swag.py:40
 msgid "Language code"
@@ -522,7 +523,7 @@ msgstr "Megbízhatósági érték"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Alternative translations"
-msgstr ""
+msgstr "Alternatív fordítások"
 
 #: libretranslate/locales/.swag.py:47
 msgid "translatedText"
@@ -846,4 +847,3 @@ msgstr "%(libretranslate)s közreműködői"
 
 #~ msgid "feedback"
 #~ msgstr "visszajelzés"
-
