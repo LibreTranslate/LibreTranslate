@@ -209,6 +209,12 @@ def get_parser():
         help="Set number of threads (%(default)s)",
     )
     parser.add_argument(
+        "--trust-forwarded-for",
+        default=DEFARGS['TRUST_FORWARDED_FOR'],
+        action="store_true",
+        help="Trust the X-Forwarded-For headers. This should be enabled when setting up LibreTranslate behind a reverse proxy and while using request limits",
+    )
+    parser.add_argument(
         "--suggestions", default=DEFARGS['SUGGESTIONS'], action="store_true", help="Allow user suggestions"
     )
     parser.add_argument(
