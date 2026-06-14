@@ -197,6 +197,11 @@ _default_options_objects = [
         'value_type': 'int'
     },
     {
+        'name': 'TRUST_FORWARDED_FOR',
+        'default_value': False,
+        'value_type': 'bool'
+    },
+    {
         'name': 'SUGGESTIONS',
         'default_value': False,
         'value_type': 'bool'

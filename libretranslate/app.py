@@ -103,14 +103,6 @@ def get_json_dict(request):
     return d
 
 
-def get_remote_address():
-    if request.headers.getlist("X-Forwarded-For"):
-        ip = request.headers.getlist("X-Forwarded-For")[0].split(",")[0]
-    else:
-        ip = request.remote_addr or "127.0.0.1"
-
-    return ip
-
 def get_fingerprint():
     return request.headers.get("User-Agent", "") + request.headers.get("Cookie", "")
 
@@ -255,6 +247,14 @@ def create_app(args):
             frontend_argos_supported_files_format.append(ff)
 
     api_keys_db = None
+
+    def get_remote_address():
+      if args.trust_forwarded_for and request.headers.getlist("X-Forwarded-For"):
+          ip = request.headers.getlist("X-Forwarded-For")[0].split(",")[0]
+      else:
+          ip = request.remote_addr or "127.0.0.1"
+
+      return ip
 
     if args.req_limit > 0 or args.api_keys or args.daily_req_limit > 0 or args.hourly_req_limit > 0:
         api_keys_db = None
