@@ -21,9 +21,8 @@ from argostranslatefiles.translatehtml import translate_html
 from werkzeug.exceptions import HTTPException
 from werkzeug.http import http_date
 from werkzeug.utils import secure_filename
-
 from libretranslate import flood, remove_translated_files, scheduler, secret, security, storage, cache
-from libretranslate.language import model2iso, iso2model, detect_languages, improve_translation_formatting, get_language_with_fallback
+from libretranslate.language import model2iso, iso2model, detect_languages, improve_translation_formatting, get_language_with_fallback , translate_with_seeding
 from libretranslate.locales import (
     _,
     _lazy,
@@ -830,9 +829,15 @@ def create_app(args):
                           translated_text = unescape(str(translate_html(translator, text)))
                           alternatives = [] # Not supported for html yet
                       else:
-                          hypotheses = translator.hypotheses(text, num_alternatives + 1)
-                          translated_text = unescape(improve_translation_formatting(text, hypotheses[0].value))
-                          alternatives = filter_unique([unescape(improve_translation_formatting(text, hypotheses[i].value)) for i in range(1, len(hypotheses))], translated_text)
+                          # Use seeding for short texts (1-2 words) when no alternatives requested
+                          if len(text.split()) <= 2 and num_alternatives == 0:
+                              translated_text = translate_with_seeding(text, src_lang.code, tgt_lang.code, translator)
+                              translated_text = unescape(improve_translation_formatting(text, translated_text))
+                              alternatives = []
+                          else:
+                              hypotheses = translator.hypotheses(text, num_alternatives + 1)
+                              translated_text = unescape(improve_translation_formatting(text, hypotheses[0].value))
+                              alternatives = filter_unique([unescape(improve_translation_formatting(text, hypotheses[i].value)) for i in range(1, len(hypotheses))], translated_text)
                     else:
                       translated_text = text # Cannot translate, send the original text back
                       alternatives = []
@@ -856,9 +861,15 @@ def create_app(args):
                       translated_text = unescape(str(translate_html(translator, q)))
                       alternatives = [] # Not supported for html yet
                   else:
-                      hypotheses = translator.hypotheses(q, num_alternatives + 1)
-                      translated_text = unescape(improve_translation_formatting(q, hypotheses[0].value))
-                      alternatives = filter_unique([unescape(improve_translation_formatting(q, hypotheses[i].value)) for i in range(1, len(hypotheses))], translated_text)
+                      # Use seeding for short texts (1-2 words) when no alternatives requested
+                      if len(q.split()) <= 2 and num_alternatives == 0:
+                          translated_text = translate_with_seeding(q, src_lang.code, tgt_lang.code, translator)
+                          translated_text = unescape(improve_translation_formatting(q, translated_text))
+                          alternatives = []
+                      else:
+                          hypotheses = translator.hypotheses(q, num_alternatives + 1)
+                          translated_text = unescape(improve_translation_formatting(q, hypotheses[0].value))
+                          alternatives = filter_unique([unescape(improve_translation_formatting(q, hypotheses[i].value)) for i in range(1, len(hypotheses))], translated_text)
                 else:
                   translated_text = q # Cannot translate, send the original text back
                   alternatives = []

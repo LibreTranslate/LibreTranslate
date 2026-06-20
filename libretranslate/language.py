@@ -1,4 +1,5 @@
 
+import re
 from functools import lru_cache
 
 from argostranslate import translate
@@ -180,3 +181,35 @@ def improve_translation_formatting(source, translation, improve_punctuation=True
 
     return translation
 
+
+def translate_with_seeding(text, source_lang, target_lang, translator):
+    """Workaround for poor single-word translations using context seeding."""
+    
+    # Only apply to short inputs (1-2 words)
+    if len(text.split()) > 2:
+        return translator.translate(text)
+
+    SEED_TEMPLATE = "The person said: %1"
+    
+    # Step 1: Translate the template to get target-language pattern
+    seed_translated = translator.translate(
+        SEED_TEMPLATE, source=source_lang, target=target_lang
+    )
+    # e.g., "사람이 말했다: %1"
+    
+    # Step 2: Translate template with actual word substituted
+    seeded_input = SEED_TEMPLATE.replace("%1", text)
+    seeded_translated = translator.translate(
+        seeded_input, source=source_lang, target=target_lang
+    )
+    # e.g., "사람이 말했다 : 먹고"
+    
+    # Step 3: Regex match to extract just the translated word
+    pattern = re.escape(seed_translated.replace("%1", "")).strip()
+    match = re.search(pattern + r"\s*(.+)", seeded_translated)
+    
+    if match:
+        return match.group(1).strip()
+    
+    # Fallback to direct translation if seeding didn't work
+    return translator.translate(text)
