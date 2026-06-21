@@ -59,3 +59,22 @@ def test_api_translate_missing_parameter(client):
     assert "error" in response_json
     assert response_json["error"] == "Invalid request: missing q parameter"
     assert response.status_code == 400
+
+
+
+
+def test_api_translate_rare_words(client):
+    # Test rare words that don't normally appear in daily speech
+    rare_words = ["defenestration", "quixotic", "serendipity"]
+    for word in rare_words:
+        response = client.post("/translate", data={
+            "q": word,
+            "source": "en",
+            "target": "es",
+            "format": "text"
+        })
+
+        response_json = json.loads(response.data)
+        assert "translatedText" in response_json
+        assert response.status_code == 200
+        assert len(response_json["translatedText"]) > 0
