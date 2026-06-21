@@ -193,16 +193,15 @@ def translate_with_seeding(text, source_lang, target_lang, translator):
     
     # Step 1: Translate the template to get target-language pattern
     seed_translated = translator.translate(
-        SEED_TEMPLATE, source=source_lang, target=target_lang
+        SEED_TEMPLATE
     )
     # e.g., "사람이 말했다: %1"
     
     # Step 2: Translate template with actual word substituted
     seeded_input = SEED_TEMPLATE.replace("%1", text)
     seeded_translated = translator.translate(
-        seeded_input, source=source_lang, target=target_lang
+        seeded_input
     )
-    # e.g., "사람이 말했다 : 먹고"
     
     # Step 3: Regex match to extract just the translated word
     pattern = re.escape(seed_translated.replace("%1", "")).strip()
