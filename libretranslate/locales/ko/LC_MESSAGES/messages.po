@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.9\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-01-21 10:25-0500\n"
-"PO-Revision-Date: 2026-03-01 14:09+0000\n"
-"Last-Translator: clearstripe <sakurasan000510@gmail.com>\n"
+"PO-Revision-Date: 2026-07-19 12:01+0000\n"
+"Last-Translator: on9686 <on9686@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/libretranslate/"
 "app/ko/>\n"
 "Language: ko\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.16.1-dev\n"
+"X-Generator: Weblate 2026.8.dev0\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:97
@@ -141,7 +141,7 @@ msgstr "아제르바이잔어"
 
 #: libretranslate/locales/.langs.py:5
 msgid "Basque"
-msgstr ""
+msgstr "바스크어"
 
 #: libretranslate/locales/.langs.py:6
 msgid "Bengali"
@@ -193,7 +193,7 @@ msgstr "프랑스어"
 
 #: libretranslate/locales/.langs.py:18
 msgid "Galician"
-msgstr ""
+msgstr "갈리시아어"
 
 #: libretranslate/locales/.langs.py:19
 msgid "German"
@@ -237,7 +237,7 @@ msgstr "한국어"
 
 #: libretranslate/locales/.langs.py:29
 msgid "Kyrgyz"
-msgstr ""
+msgstr "키르키스어"
 
 #: libretranslate/locales/.langs.py:30
 msgid "Latvian"
@@ -269,7 +269,7 @@ msgstr "포르투칼어"
 
 #: libretranslate/locales/.langs.py:37
 msgid "Portuguese (Brazil)"
-msgstr ""
+msgstr "포르투갈어(브라질)"
 
 #: libretranslate/locales/.langs.py:38
 msgid "Romanian"
@@ -317,23 +317,23 @@ msgstr "우르두어"
 
 #: libretranslate/locales/.langs.py:49
 msgid "Vietnamese"
-msgstr ""
+msgstr "베트남어"
 
 #: libretranslate/locales/.langs.py:50
 msgid "Serbian"
-msgstr ""
+msgstr "세르비아어"
 
 #: libretranslate/locales/.langs.py:51
 msgid "Ukrainian"
-msgstr ""
+msgstr "우크라이나어"
 
 #: libretranslate/locales/.swag.py:1
 msgid "Get Supported Languages"
-msgstr ""
+msgstr "지원되는 언어 가져오기"
 
 #: libretranslate/locales/.swag.py:2
 msgid "List of supported languages"
-msgstr ""
+msgstr "지원되는 언어 목록"
 
 #: libretranslate/locales/.swag.py:3
 msgid "translate"
@@ -341,15 +341,15 @@ msgstr "번역"
 
 #: libretranslate/locales/.swag.py:4
 msgid "Health Check"
-msgstr ""
+msgstr "상태 체크"
 
 #: libretranslate/locales/.swag.py:5
 msgid "Service is healthy"
-msgstr ""
+msgstr "서비스가 정상입니다"
 
 #: libretranslate/locales/.swag.py:6
 msgid "misc"
-msgstr ""
+msgstr "기타"
 
 #: libretranslate/locales/.swag.py:7 libretranslate/templates/index.html:185
 msgid "Translate Text"
@@ -357,7 +357,7 @@ msgstr "텍스트 번역하기"
 
 #: libretranslate/locales/.swag.py:8
 msgid "Translation"
-msgstr ""
+msgstr "번역"
 
 #: libretranslate/locales/.swag.py:9
 msgid "Invalid request"
@@ -385,7 +385,7 @@ msgstr "번역할 테스트"
 
 #: libretranslate/locales/.swag.py:15
 msgid "Source language code or \"auto\" for auto detection"
-msgstr ""
+msgstr "원본 언어 코드 또는 \"자동\"으로 자동 감지"
 
 #: libretranslate/locales/.swag.py:16
 msgid "Target language code"
@@ -419,7 +419,7 @@ msgstr "API 키"
 
 #: libretranslate/locales/.swag.py:22
 msgid "Translate a File"
-msgstr ""
+msgstr "파일 번역"
 
 #: libretranslate/locales/.swag.py:23
 msgid "Translated file"
@@ -431,11 +431,11 @@ msgstr "번역할 파일"
 
 #: libretranslate/locales/.swag.py:25
 msgid "Source language code  or \"auto\" for auto detection"
-msgstr ""
+msgstr "원본 언어 코드  또는 \"자동\"으로 자동 감지"
 
 #: libretranslate/locales/.swag.py:26
 msgid "Detect Language of Text"
-msgstr ""
+msgstr "텍스트 언어 감지"
 
 #: libretranslate/locales/.swag.py:27
 msgid "Detections"
@@ -451,7 +451,7 @@ msgstr "감지할 텍스트"
 
 #: libretranslate/locales/.swag.py:30
 msgid "Retrieve Frontend Settings"
-msgstr ""
+msgstr "프론트엔드 설정 되돌리기"
 
 #: libretranslate/locales/.swag.py:31
 msgid "frontend settings"
@@ -459,7 +459,7 @@ msgstr "프론트엔드 설정"
 
 #: libretranslate/locales/.swag.py:32
 msgid "Submit a Suggestion to Improve a Translation"
-msgstr ""
+msgstr "번역 개선 제안 제출"
 
 #: libretranslate/locales/.swag.py:33
 msgid "Success"
@@ -487,7 +487,7 @@ msgstr "제안된 번역의 언어"
 
 #: libretranslate/locales/.swag.py:39
 msgid "Supported language"
-msgstr ""
+msgstr "지원되는 언어"
 
 #: libretranslate/locales/.swag.py:40
 msgid "Language code"
@@ -503,7 +503,7 @@ msgstr "지원하는 언어 코드"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Health status"
-msgstr ""
+msgstr "작동 상태"
 
 #: libretranslate/locales/.swag.py:44
 msgid "Translated text(s)"
@@ -515,11 +515,11 @@ msgstr "신뢰치"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Alternative translations"
-msgstr ""
+msgstr "대안 번역"
 
 #: libretranslate/locales/.swag.py:47
 msgid "translatedText"
-msgstr ""
+msgstr "번역 텍스트"
 
 #: libretranslate/locales/.swag.py:48
 msgid "Error message"
@@ -671,6 +671,8 @@ msgid ""
 "Due to bot abuse, translation requests are temporarily limited to users "
 "with a valid API key. Sorry for the inconvenience!"
 msgstr ""
+"봇 남용으로 인해 번역 요청은 유효한 API 키를 가진 사용자로 일시적으로 "
+"제한됩니다. 불편을 드려 죄송합니다!"
 
 #: libretranslate/templates/index.html:179
 msgid "Translation API"
