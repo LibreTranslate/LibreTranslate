@@ -23,6 +23,7 @@ from werkzeug.http import http_date
 from werkzeug.utils import secure_filename
 
 from libretranslate import flood, remove_translated_files, scheduler, secret, security, storage, cache
+from libretranslate.emoji import detect_translatable, mask_emojis_in_html, translate_preserving_emojis, unmask_emojis
 from libretranslate.language import model2iso, iso2model, detect_languages, improve_translation_formatting, get_language_with_fallback
 from libretranslate.locales import (
     _,
@@ -37,20 +38,6 @@ from libretranslate.locales import (
 
 from .api_keys import Database, RemoteDatabase
 from .suggestions import Database as SuggestionsDatabase
-
-# Rough map of emoji characters
-emojis = {e: True for e in \
-  [ord(' ')] +                    # Spaces
-  list(range(0x1F600,0x1F64F)) +  # Emoticons
-  list(range(0x1F300,0x1F5FF)) +  # Misc Symbols and Pictographs
-  list(range(0x1F680,0x1F6FF)) +  # Transport and Map
-  list(range(0x2600,0x26FF)) +    # Misc symbols
-  list(range(0x2700,0x27BF)) +    # Dingbats
-  list(range(0xFE00,0xFE0F)) +    # Variation Selectors
-  list(range(0x1F900,0x1F9FF)) +  # Supplemental Symbols and Pictographs
-  list(range(0x1F1E6,0x1F1FF)) +  # Flags
-  list(range(0x20D0,0x20FF))      # Combining Diacritical Marks for Symbols
-}
 
 def get_version():
     try:
@@ -171,16 +158,24 @@ def filter_unique(seq, extra):
     return [x for x in seq if not (x in seen or seen_add(x))]
 
 
-def detect_translatable(src_texts):
-  if isinstance(src_texts, list):
-    return any(detect_translatable(t) for t in src_texts)
+def run_translation(translator, text, num_alternatives, text_format):
+    # Isolate emojis before calling the model. Unknown pictograph tokens
+    # otherwise cut off the rest of the translation (#439).
+    if text_format == "html":
+        masked, tokens = mask_emojis_in_html(text)
+        translated_text = unescape(str(translate_html(translator, masked)))
+        return unmask_emojis(translated_text, tokens), []
 
-  for ch in src_texts:
-    if not (ord(ch) in emojis):
-      return True
+    def translate_plain(segment, n_alt):
+        hypotheses = translator.hypotheses(segment, n_alt + 1)
+        translated_text = unescape(improve_translation_formatting(segment, hypotheses[0].value))
+        alternatives = filter_unique(
+            [unescape(improve_translation_formatting(segment, hypotheses[i].value)) for i in range(1, len(hypotheses))],
+            translated_text,
+        )
+        return translated_text, alternatives
 
-  # All emojis
-  return False
+    return translate_preserving_emojis(text, translate_plain, num_alternatives)
 
 
 def create_app(args):
@@ -826,13 +821,7 @@ def create_app(args):
                         abort(400, description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)", tname=_lazy(tgt_lang.name), tcode=tgt_lang.code, sname=_lazy(src_lang.name), scode=src_lang.code))
 
                     if translatable:
-                      if text_format == "html":
-                          translated_text = unescape(str(translate_html(translator, text)))
-                          alternatives = [] # Not supported for html yet
-                      else:
-                          hypotheses = translator.hypotheses(text, num_alternatives + 1)
-                          translated_text = unescape(improve_translation_formatting(text, hypotheses[0].value))
-                          alternatives = filter_unique([unescape(improve_translation_formatting(text, hypotheses[i].value)) for i in range(1, len(hypotheses))], translated_text)
+                      translated_text, alternatives = run_translation(translator, text, num_alternatives, text_format)
                     else:
                       translated_text = text # Cannot translate, send the original text back
                       alternatives = []
@@ -852,13 +841,7 @@ def create_app(args):
                     abort(400, description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)", tname=_lazy(tgt_lang.name), tcode=tgt_lang.code, sname=_lazy(src_lang.name), scode=src_lang.code))
 
                 if translatable:
-                  if text_format == "html":
-                      translated_text = unescape(str(translate_html(translator, q)))
-                      alternatives = [] # Not supported for html yet
-                  else:
-                      hypotheses = translator.hypotheses(q, num_alternatives + 1)
-                      translated_text = unescape(improve_translation_formatting(q, hypotheses[0].value))
-                      alternatives = filter_unique([unescape(improve_translation_formatting(q, hypotheses[i].value)) for i in range(1, len(hypotheses))], translated_text)
+                  translated_text, alternatives = run_translation(translator, q, num_alternatives, text_format)
                 else:
                   translated_text = q # Cannot translate, send the original text back
                   alternatives = []

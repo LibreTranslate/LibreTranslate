@@ -47,6 +47,38 @@ def test_api_translate_unsupported_language(client):
     assert response.status_code == 400
 
 
+def test_api_translate_emoji_does_not_cut_off_text(client):
+    # Regression for https://github.com/LibreTranslate/LibreTranslate/issues/439
+    response = client.post("/translate", data={
+        "q": "Hello. 😆 How are you?",
+        "source": "en",
+        "target": "es",
+        "format": "text"
+    })
+
+    response_json = json.loads(response.data)
+
+    assert response.status_code == 200
+    translated = response_json["translatedText"]
+    assert "😆" in translated
+    after_emoji = translated.split("😆", 1)[1]
+    assert len(after_emoji.strip()) > 5
+
+
+def test_api_translate_emoji_only(client):
+    response = client.post("/translate", data={
+        "q": "🌷🌷🌷",
+        "source": "en",
+        "target": "es",
+        "format": "text"
+    })
+
+    response_json = json.loads(response.data)
+
+    assert response.status_code == 200
+    assert response_json["translatedText"] == "🌷🌷🌷"
+
+
 def test_api_translate_missing_parameter(client):
     response = client.post("/translate", data={
         "source": "en",
