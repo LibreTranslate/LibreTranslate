@@ -1027,6 +1027,7 @@ def create_app(args):
             abort(500, description=e)
 
     @bp.get("/download_file/<string:filename>")
+    @access_check
     def download_file(filename: str):
         """
         Download a translated file
