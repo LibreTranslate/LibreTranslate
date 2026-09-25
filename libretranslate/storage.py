@@ -87,25 +87,21 @@ class MemoryStorage(Storage):
         if ns not in self.store:
             self.store[ns] = {}
 
-        if key not in self.store[ns]:
-            self.store[ns][key] = 0
-        else:
-            self.store[ns][key] += 1
+        self.store[ns][key] = self.store[ns].get(key, 0) + 1
+        return self.store[ns][key]
 
     def dec_hash_int(self, ns, key):
         if ns not in self.store:
             self.store[ns] = {}
 
-        if key not in self.store[ns]:
-            self.store[ns][key] = 0
-        else:
-            self.store[ns][key] -= 1
+        self.store[ns][key] = self.store[ns].get(key, 0) - 1
+        return self.store[ns][key]
 
     def get_all_hash_int(self, ns):
         if ns in self.store:
-            return [{str(k): int(v)} for k,v in self.store[ns].items()]
+            return {str(k): int(v) for k,v in self.store[ns].items()}
         else:
-            return []
+            return {}
 
     def del_hash(self, ns, key):
         del self.store[ns][key]

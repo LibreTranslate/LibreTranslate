@@ -41,8 +41,8 @@ class TranslationCache:
         try:
             if isinstance(content, dict):
                 content = json.dumps(content)
-                compressed = gzip.compress(content.encode('utf-8'))
-                
+            compressed = gzip.compress(content.encode('utf-8'))
+
             self.storage.set_str(cache_key, compressed, self.expire)
         except Exception as e:
             print(str(e))
