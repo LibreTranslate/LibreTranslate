@@ -378,6 +378,7 @@ def create_app(args):
                     need_key = True
 
                   if need_key:
+                    flood.report(get_remote_address())
                     description = _("Please contact the server operator to get an API key")
                     if args.get_api_key_link:
                         description = _("Visit %(url)s to get an API key", url=args.get_api_key_link)
@@ -385,7 +386,6 @@ def create_app(args):
                         400,
                         description=description,
                     )
-                    flood.report(get_remote_address())
             return f(*a, **kw)
 
         if args.metrics:
@@ -1022,6 +1022,8 @@ def create_app(args):
                     "translatedFileUrl": url_for('Main app.download_file', filename=translated_filename, _external=True)
                 }
             )
+        except HTTPException as e:
+            raise e
         except Exception as e:
             abort(500, description=e)
 

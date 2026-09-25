@@ -119,7 +119,7 @@ class RedisStorage(Storage):
         self.conn.set(key, "1" if value else "0")
 
     def get_bool(self, key):
-        return bool(self.conn.get(key))
+        return self.conn.get(key) == b"1"
 
     def set_int(self, key, value):
         self.conn.set(key, str(value))
@@ -129,7 +129,7 @@ class RedisStorage(Storage):
         if v is None:
             return 0
         else:
-            return v
+            return int(v)
 
     def set_str(self, key, value, ex=None):
         self.conn.set(key, value, ex=ex)
