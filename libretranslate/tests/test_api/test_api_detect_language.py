@@ -24,3 +24,26 @@ def test_api_detect_language_must_fail_bad_request_type(client):
     response = client.get("/detect")
 
     assert response.status_code == 405
+
+
+def test_api_detect_language_batch(client):
+    response = client.post("/detect", json={
+        "q": ["This is an English sentence", "Esta es una oración en español"]
+    })
+
+    response_json = json.loads(response.data)
+
+    assert response.status_code == 200
+    assert isinstance(response_json, list)
+    assert len(response_json) >= 1
+
+
+def test_api_detect_language_json(client):
+    response = client.post("/detect", json={
+        "q": "This is an English sentence for detection"
+    })
+
+    response_json = json.loads(response.data)
+
+    assert response.status_code == 200
+    assert response_json[0]["language"] == "en"

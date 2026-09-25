@@ -1,10 +1,18 @@
 import pytest
 
-from libretranslate.storage import MemoryStorage
+from libretranslate.storage import MemoryStorage, RedisStorage
 
 
-@pytest.fixture()
-def storage():
+@pytest.fixture(params=["memory", "redis"])
+def storage(request, monkeypatch):
+    if request.param == "redis":
+        import fakeredis
+
+        monkeypatch.setattr(
+            "libretranslate.storage.redis.from_url",
+            lambda *a, **kw: fakeredis.FakeStrictRedis(),
+        )
+        return RedisStorage("redis://localhost:6379")
     return MemoryStorage()
 
 
@@ -35,6 +43,8 @@ def test_str_missing_defaults_to_empty(storage):
 
 
 def test_str_expired_returns_empty(storage):
+    if isinstance(storage, RedisStorage):
+        pytest.skip("Redis requires a positive expiry in seconds")
     storage.set_str("k", "value", ex=0)
     assert storage.get_str("k") == ""
     assert not storage.exists("k")

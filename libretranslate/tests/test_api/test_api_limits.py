@@ -82,6 +82,44 @@ def test_api_req_limit_slowdown(client_factory):
     assert "Slowdown" in response_json["error"]
 
 
+def test_api_hourly_and_daily_limits(client_factory):
+    client = client_factory(
+        "--req-limit", 100,
+        "--hourly-req-limit", 10,
+        "--hourly-req-limit-decay", 1,
+        "--daily-req-limit", 10
+    )
+
+    response = client.post("/translate", data={
+        "q": "Hello",
+        "source": "en",
+        "target": "es"
+    })
+    assert response.status_code == 200
+
+
+def test_api_req_time_cost(client_factory):
+    client = client_factory("--req-limit", 100, "--req-time-cost", 1)
+
+    response = client.post("/translate", data={
+        "q": "Hello",
+        "source": "en",
+        "target": "es"
+    })
+    assert response.status_code == 200
+
+
+def test_api_trust_forwarded_for(client_factory):
+    client = client_factory("--req-limit", 100, "--trust-forwarded-for")
+
+    response = client.post("/translate", data={
+        "q": "Hello",
+        "source": "en",
+        "target": "es"
+    }, headers={"X-Forwarded-For": "10.0.0.1, 10.0.0.2"})
+    assert response.status_code == 200
+
+
 def test_api_flood_banned_client(client_factory):
     from libretranslate import flood
 

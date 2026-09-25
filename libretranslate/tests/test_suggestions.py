@@ -23,3 +23,14 @@ def test_add_multiple_suggestions(db):
 
     count = db.c.execute("SELECT COUNT(*) FROM suggestions").fetchone()[0]
     assert count == 2
+
+
+def test_legacy_db_migration(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / "suggestions.db").write_bytes(b"")
+    (tmp_path / "db").mkdir()
+
+    Database()
+
+    assert not (tmp_path / "suggestions.db").exists()
+    assert (tmp_path / "db" / "suggestions.db").exists()

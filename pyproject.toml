@@ -71,7 +71,8 @@ test = [
     "pytest-cov",
     "pre-commit >=3.0.0",
     "types-requests",
-    "pip-audit"
+    "pip-audit",
+    "fakeredis >=2.20.0"
 ]
 
 

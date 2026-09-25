@@ -23,3 +23,19 @@ def test_api_metrics_auth_token(client_factory):
     })
     assert response.status_code == 200
     assert "libretranslate" in response.get_data(as_text=True)
+
+    # Requests through access_check-decorated endpoints are measured
+    translate = client.post("/translate", data={
+        "q": "Hello",
+        "source": "en",
+        "target": "es"
+    })
+    assert translate.status_code == 200
+
+    response = client.get("/metrics", headers={
+        "Authorization": "Bearer test-token"
+    })
+    body = response.get_data(as_text=True)
+    assert response.status_code == 200
+    assert "libretranslate_http_request_duration_seconds" in body
+    assert "libretranslate_http_requests_in_flight" in body

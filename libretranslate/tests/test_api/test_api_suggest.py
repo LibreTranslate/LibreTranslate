@@ -68,6 +68,45 @@ def test_api_suggest_missing_parameter(client_factory, tmp_path, monkeypatch):
     assert response.status_code == 400
 
 
+def test_api_suggest_missing_q(client_factory):
+    client = client_factory("--suggestions")
+
+    response = client.post("/suggest", data={
+        "s": "Hola",
+        "source": "en",
+        "target": "es"
+    })
+
+    assert json.loads(response.data)["error"] == "Invalid request: missing q parameter"
+    assert response.status_code == 400
+
+
+def test_api_suggest_missing_source(client_factory):
+    client = client_factory("--suggestions")
+
+    response = client.post("/suggest", data={
+        "q": "Hello",
+        "s": "Hola",
+        "target": "es"
+    })
+
+    assert json.loads(response.data)["error"] == "Invalid request: missing source parameter"
+    assert response.status_code == 400
+
+
+def test_api_suggest_missing_target(client_factory):
+    client = client_factory("--suggestions")
+
+    response = client.post("/suggest", data={
+        "q": "Hello",
+        "s": "Hola",
+        "source": "en"
+    })
+
+    assert json.loads(response.data)["error"] == "Invalid request: missing target parameter"
+    assert response.status_code == 400
+
+
 def test_api_suggest_disabled(client):
     response = client.post("/suggest", data={
         "q": "Hello",
