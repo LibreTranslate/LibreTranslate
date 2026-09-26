@@ -215,10 +215,30 @@ document.addEventListener('DOMContentLoaded', function(){
                 this.error = '';
             },
             getQueryParam: function (key) {
+                if (key === 'q') {
+                    // The text to translate is stored in the URL fragment so it
+                    // is never sent to the server (e.g. in request logs).
+                    const hash = window.location.hash;
+                    if (hash.startsWith('#q=')) {
+                        try {
+                            return decodeURIComponent(hash.slice(3));
+                        } catch (e) {
+                            return null;
+                        }
+                    }
+                    return null;
+                }
                 const params = new URLSearchParams(window.location.search);
                 return params.get(key)
             },
             updateQueryParam: function (key, value) {
+                if (key === 'q') {
+                    // Keep the text out of the query string so it is not
+                    // transmitted to the server when the page is reloaded.
+                    const hash = value ? '#q=' + encodeURIComponent(value) : '';
+                    history.pushState(null, '', window.location.pathname + window.location.search + hash);
+                    return;
+                }
                 let searchParams = new URLSearchParams(window.location.search)
                 searchParams.set(key, value);
                 let newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
