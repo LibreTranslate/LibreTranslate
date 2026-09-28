@@ -226,7 +226,6 @@ document.addEventListener('DOMContentLoaded', function(){
                             return null;
                         }
                     }
-                    return null;
                 }
                 const params = new URLSearchParams(window.location.search);
                 return params.get(key)
