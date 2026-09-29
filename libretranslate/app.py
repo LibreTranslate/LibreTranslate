@@ -312,23 +312,29 @@ def create_app(args):
 
       from prometheus_client import CONTENT_TYPE_LATEST, CollectorRegistry, Gauge, Summary, generate_latest, multiprocess
 
+      import hmac
+
       @bp.route("/metrics")
       @limiter.exempt
       def prometheus_metrics():
-        if args.metrics_auth_token:
-          authorization = request.headers.get('Authorization')
-          if authorization != "Bearer " + args.metrics_auth_token:
-            abort(401, description=_("Unauthorized"))
+        # Deny by default: require a configured metrics_auth_token
+        if not args.metrics_auth_token:
+          abort(401, description=_("Metrics endpoint requires --metrics-auth-token to be configured"))
+        authorization = request.headers.get('Authorization', '')
+        expected = "Bearer " + args.metrics_auth_token
+        if not hmac.compare_digest(authorization, expected):
+          abort(401, description=_("Unauthorized"))
 
         registry = CollectorRegistry()
         multiprocess.MultiProcessCollector(registry)
         return Response(generate_latest(registry), mimetype=CONTENT_TYPE_LATEST)
 
-      measure_request = Summary('libretranslate_http_request_duration_seconds', 'Time spent on request', ['endpoint', 'status', 'request_ip', 'api_key'])
-      measure_request.labels('/translate', 200, '127.0.0.1', '')
+      # Remove api_key and request_ip labels to prevent leaking credentials and client IPs
+      measure_request = Summary('libretranslate_http_request_duration_seconds', 'Time spent on request', ['endpoint', 'status'])
+      measure_request.labels('/translate', 200)
 
-      gauge_request = Gauge('libretranslate_http_requests_in_flight', 'Active requests', ['endpoint', 'request_ip', 'api_key'], multiprocess_mode='livesum')
-      gauge_request.labels('/translate', '127.0.0.1', '')
+      gauge_request = Gauge('libretranslate_http_requests_in_flight', 'Active requests', ['endpoint'], multiprocess_mode='livesum')
+      gauge_request.labels('/translate')
 
     def access_check(f):
         @wraps(f)
@@ -393,20 +399,16 @@ def create_app(args):
           def measure_func(*a, **kw):
               start_t = default_timer()
               status = 200
-              ip = get_remote_address()
-              ak = get_req_api_key() or ''
-              g = gauge_request.labels(request.path, ip, ak)
+              g = gauge_request.labels(request.path)
               try:
                 g.inc()
                 return func(*a, **kw)
               except HTTPException as e:
                 status = e.code
-                if status == 403:
-                  ak = '' # Don't record invalid API keys
                 raise e
               finally:
                 request.duration = max(default_timer() - start_t, 0)
-                measure_request.labels(request.path, status, ip, ak).observe(request.duration)
+                measure_request.labels(request.path, status).observe(request.duration)
                 g.dec()
           return measure_func
         else:
