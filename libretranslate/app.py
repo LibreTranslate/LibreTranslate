@@ -171,6 +171,36 @@ def filter_unique(seq, extra):
     return [x for x in seq if not (x in seen or seen_add(x))]
 
 
+def translate_text(translator, text, num_alternatives):
+    """Returns (translated_text, alternatives) for plain text.
+
+    Sometimes the top hypothesis is a verbatim copy of the source text while
+    the actual translations are ranked lower. In that case we promote the best
+    hypothesis that differs from the source.
+    https://github.com/LibreTranslate/LibreTranslate/issues/983
+    """
+    def clean(hypothesis):
+        return unescape(improve_translation_formatting(text, hypothesis.value))
+
+    hypotheses = translator.hypotheses(text, num_alternatives + 1)
+    results = [clean(h) for h in hypotheses]
+    source = text.strip()
+
+    if results[0] == source:
+        if len(results) == 1:
+            # No other candidates, ask for a few more
+            hypotheses = translator.hypotheses(text, max(num_alternatives + 1, 4))
+            results = [clean(h) for h in hypotheses]
+
+        differing = [r for r in results if r != source]
+        if differing:
+            results = differing
+
+    translated_text = results[0]
+    alternatives = filter_unique(results[1:], translated_text)[:num_alternatives]
+    return translated_text, alternatives
+
+
 def detect_translatable(src_texts):
   if isinstance(src_texts, list):
     return any(detect_translatable(t) for t in src_texts)
@@ -830,9 +860,7 @@ def create_app(args):
                           translated_text = unescape(str(translate_html(translator, text)))
                           alternatives = [] # Not supported for html yet
                       else:
-                          hypotheses = translator.hypotheses(text, num_alternatives + 1)
-                          translated_text = unescape(improve_translation_formatting(text, hypotheses[0].value))
-                          alternatives = filter_unique([unescape(improve_translation_formatting(text, hypotheses[i].value)) for i in range(1, len(hypotheses))], translated_text)
+                          translated_text, alternatives = translate_text(translator, text, num_alternatives)
                     else:
                       translated_text = text # Cannot translate, send the original text back
                       alternatives = []
@@ -856,9 +884,7 @@ def create_app(args):
                       translated_text = unescape(str(translate_html(translator, q)))
                       alternatives = [] # Not supported for html yet
                   else:
-                      hypotheses = translator.hypotheses(q, num_alternatives + 1)
-                      translated_text = unescape(improve_translation_formatting(q, hypotheses[0].value))
-                      alternatives = filter_unique([unescape(improve_translation_formatting(q, hypotheses[i].value)) for i in range(1, len(hypotheses))], translated_text)
+                      translated_text, alternatives = translate_text(translator, q, num_alternatives)
                 else:
                   translated_text = q # Cannot translate, send the original text back
                   alternatives = []
