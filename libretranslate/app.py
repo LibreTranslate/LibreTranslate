@@ -24,6 +24,7 @@ from werkzeug.utils import secure_filename
 
 from libretranslate import flood, remove_translated_files, scheduler, secret, security, storage, cache
 from libretranslate.language import model2iso, iso2model, detect_languages, improve_translation_formatting, get_language_with_fallback
+from libretranslate import glossary as glossary_module
 from libretranslate.locales import (
     _,
     _lazy,
@@ -197,6 +198,7 @@ def create_app(args):
 
     storage.setup(args.shared_storage)
     trans_cache = cache.setup(args.translation_cache)
+    glossary_module.setup(args.glossary)
 
     if not args.disable_files_translation:
         remove_translated_files.setup(get_upload_dir())
@@ -869,7 +871,25 @@ def create_app(args):
                     result["detectedLanguage"] = model2iso(detected_src_lang)
                 if num_alternatives > 0:
                     result["alternatives"] = alternatives
-            
+
+            # Apply glossary overrides (domain terminology) to the final output.
+            glossary_obj = glossary_module.get_glossary()
+            if not glossary_obj.is_empty():
+                src_code = model2iso(detected_src_lang["language"]) if source_lang == "auto" else model2iso(source_lang)
+                tgt_code = model2iso(target_lang)
+                direction = glossary_module.direction_code(src_code, tgt_code)
+                if batch:
+                    result["translatedText"] = [glossary_obj.apply(direction, t) for t in result["translatedText"]]
+                    if "alternatives" in result:
+                        result["alternatives"] = [
+                            [glossary_obj.apply(direction, alt) for alt in alts]
+                            for alts in result["alternatives"]
+                        ]
+                else:
+                    result["translatedText"] = glossary_obj.apply(direction, result["translatedText"])
+                    if "alternatives" in result:
+                        result["alternatives"] = [glossary_obj.apply(direction, alt) for alt in result["alternatives"]]
+
             if cache_key is not None:
               trans_cache.cache(cache_key, result)
 

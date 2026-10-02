@@ -255,6 +255,13 @@ def get_parser():
         type=str,
         help="Add a prefix like /url-prefix to URL: example.com:5000/url-prefix/",
     )
+    parser.add_argument(
+        "--glossary",
+        default=DEFARGS['GLOSSARY'],
+        type=str,
+        metavar="<path to glossary JSON>",
+        help="Path to a JSON glossary file used to override translation of domain terms (e.g. libretranslate/glossaries/zh_ru.json)",
+    )
     return parser
 
 def get_args():
