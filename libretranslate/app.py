@@ -24,6 +24,7 @@ from werkzeug.utils import secure_filename
 
 from libretranslate import flood, remove_translated_files, scheduler, secret, security, storage, cache
 from libretranslate.language import model2iso, iso2model, detect_languages, improve_translation_formatting, get_language_with_fallback
+from libretranslate import campus_noise
 from libretranslate.locales import (
     _,
     _lazy,
@@ -183,6 +184,14 @@ def detect_translatable(src_texts):
   return False
 
 
+def _noise_direction(detected_src_lang, source_lang, target_lang):
+    """Build a direction code (e.g. 'zh_ru') for the campus noise filter."""
+    src = detected_src_lang["language"] if source_lang == "auto" else source_lang
+    src = model2iso(src).split("-")[0].lower()
+    tgt = model2iso(target_lang).split("-")[0].lower()
+    return f"{src}_{tgt}"
+
+
 def create_app(args):
     from libretranslate.init import boot
 
@@ -197,6 +206,7 @@ def create_app(args):
 
     storage.setup(args.shared_storage)
     trans_cache = cache.setup(args.translation_cache)
+    campus_noise.setup(args.campus_noise)
 
     if not args.disable_files_translation:
         remove_translated_files.setup(get_upload_dir())
@@ -817,10 +827,26 @@ def create_app(args):
             abort(400, description=_("%(format)s format is not supported", format=text_format))
 
         try:
+            # Campus noise preprocessing: protect course codes and abbreviations
+            # so they pass through the translation engine untouched.
+            noise_filter = campus_noise.get_filter()
+            noise_enabled = noise_filter.enable_protect or noise_filter.enable_transliterate
+            batch_placeholders = []
+            if noise_enabled:
+                if batch:
+                    protected_q = []
+                    for text in q:
+                        p_text, ph = noise_filter.preprocess(text)
+                        protected_q.append(p_text)
+                        batch_placeholders.append(ph)
+                    q = protected_q
+                else:
+                    q, single_placeholders = noise_filter.preprocess(q)
+
             if batch:
                 batch_results = []
                 batch_alternatives = []
-                for text in q:
+                for idx, text in enumerate(q):
                     translator = src_lang.get_translation(tgt_lang)
                     if translator is None:
                         abort(400, description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)", tname=_lazy(tgt_lang.name), tcode=tgt_lang.code, sname=_lazy(src_lang.name), scode=src_lang.code))
@@ -836,6 +862,11 @@ def create_app(args):
                     else:
                       translated_text = text # Cannot translate, send the original text back
                       alternatives = []
+
+                    if noise_enabled:
+                        direction = _noise_direction(detected_src_lang, source_lang, target_lang)
+                        translated_text = noise_filter.postprocess(translated_text, batch_placeholders[idx], direction)
+                        alternatives = [noise_filter.postprocess(a, batch_placeholders[idx], direction) for a in alternatives]
 
                     batch_results.append(translated_text)
                     batch_alternatives.append(alternatives)
@@ -863,13 +894,18 @@ def create_app(args):
                   translated_text = q # Cannot translate, send the original text back
                   alternatives = []
 
+                if noise_enabled:
+                    direction = _noise_direction(detected_src_lang, source_lang, target_lang)
+                    translated_text = noise_filter.postprocess(translated_text, single_placeholders, direction)
+                    alternatives = [noise_filter.postprocess(a, single_placeholders, direction) for a in alternatives]
+
                 result = {"translatedText": translated_text}
 
                 if source_lang == "auto":
                     result["detectedLanguage"] = model2iso(detected_src_lang)
                 if num_alternatives > 0:
                     result["alternatives"] = alternatives
-            
+
             if cache_key is not None:
               trans_cache.cache(cache_key, result)
 

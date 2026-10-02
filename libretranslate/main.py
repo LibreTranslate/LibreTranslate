@@ -255,6 +255,12 @@ def get_parser():
         type=str,
         help="Add a prefix like /url-prefix to URL: example.com:5000/url-prefix/",
     )
+    parser.add_argument(
+        "--campus-noise",
+        default=DEFARGS['CAMPUS_NOISE'],
+        action="store_true",
+        help="Enable campus noise filtering: protect course codes/abbreviations from translation and transliterate personal names",
+    )
     return parser
 
 def get_args():
