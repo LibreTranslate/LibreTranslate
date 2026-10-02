@@ -24,6 +24,7 @@ from werkzeug.utils import secure_filename
 
 from libretranslate import flood, remove_translated_files, scheduler, secret, security, storage, cache
 from libretranslate.language import model2iso, iso2model, detect_languages, improve_translation_formatting, get_language_with_fallback
+from libretranslate import templates_scene
 from libretranslate.locales import (
     _,
     _lazy,
@@ -197,6 +198,7 @@ def create_app(args):
 
     storage.setup(args.shared_storage)
     trans_cache = cache.setup(args.translation_cache)
+    templates_scene.setup()
 
     if not args.disable_files_translation:
         remove_translated_files.setup(get_upload_dir())
@@ -536,6 +538,119 @@ def create_app(args):
                          "name": _lazy(l.name),
                          "targets": model2iso(language_pairs.get(l.code, []))
                         } for l in languages])
+
+    @bp.get("/templates")
+    @limiter.exempt
+    def list_templates():
+        """
+        List Available Campus Templates
+        ---
+        tags:
+          - templates
+        responses:
+          200:
+            description: List of available bilingual campus templates
+            schema:
+              id: templates-list
+              type: object
+              properties:
+                templates:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: object
+                        properties:
+                          zh:
+                            type: string
+                          ru:
+                            type: string
+                      description:
+                        type: object
+                        properties:
+                          zh:
+                            type: string
+                          ru:
+                            type: string
+                      variables:
+                        type: array
+                        items:
+                          type: string
+        """
+        manager = templates_scene.get_manager()
+        return jsonify({"templates": manager.list_templates()})
+
+    @bp.post("/template")
+    @access_check
+    def render_template():
+        """
+        Render a Bilingual Campus Template
+        ---
+        tags:
+          - templates
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: object
+              required:
+                - id
+              properties:
+                id:
+                  type: string
+                  description: Template identifier (see /templates)
+                  example: class_notification
+                variables:
+                  type: object
+                  description: Key-value pairs to fill template placeholders
+                  example: {"course": "数据结构", "date": "2024-01-15", "time": "10:00", "location": "教学楼A301", "reason": "教室调整"}
+        responses:
+          200:
+            description: Rendered bilingual template
+            schema:
+              id: template-rendered
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: object
+                zh:
+                  type: string
+                ru:
+                  type: string
+          400:
+            description: Invalid request
+        """
+        if request.is_json:
+            json = get_json_dict(request)
+            template_id = json.get("id")
+            variables = json.get("variables", {})
+        else:
+            template_id = request.values.get("id")
+            variables = request.values.to_dict()
+            # 'id' is not a variable
+            variables.pop("id", None)
+
+        if not template_id:
+            abort(400, description=_("Invalid request: missing %(name)s parameter", name="id"))
+
+        try:
+            manager = templates_scene.get_manager()
+            template = manager.get(template_id)
+        except templates_scene.TemplateNotFoundError:
+            abort(400, description=_("Template '%(id)s' not found", id=template_id))
+
+        rendered = template.render(variables)
+        return jsonify({
+            "id": template.id,
+            "name": {"zh": template.name_zh, "ru": template.name_ru},
+            "zh": rendered["zh"],
+            "ru": rendered["ru"],
+        })
 
     @bp.get("/health")
     @limiter.exempt

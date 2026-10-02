@@ -1,0 +1,109 @@
+{
+  "_comment": "校园场景中俄对照模板。每个模板包含 zh（中文）和 ru（俄文）两个版本，使用 {variable} 占位符。",
+  "templates": {
+    "class_notification": {
+      "name": {
+        "zh": "课程通知",
+        "ru": "Объявление о занятии"
+      },
+      "description": {
+        "zh": "用于课程时间、地点变更等通知",
+        "ru": "Для уведомлений об изменении времени и места занятий"
+      },
+      "variables": ["course", "date", "time", "location", "reason"],
+      "zh": "各位同学：\n{course} 课程将于 {date} {time} 在 {location} 进行。\n原因：{reason}。\n请相互转告，准时参加。\n\n教务处",
+      "ru": "Уважаемые студенты!\nЗанятие по курсу «{course}» состоится {date} в {time} в аудитории {location}.\nПричина: {reason}.\nПросим всех предупредить и прийти вовремя.\n\nУчебный отдел"
+    },
+    "exam_notification": {
+      "name": {
+        "zh": "考试通知",
+        "ru": "Объявление об экзамене"
+      },
+      "description": {
+        "zh": "期末考试安排通知",
+        "ru": "Расписание итоговых экзаменов"
+      },
+      "variables": ["course", "date", "time", "location", "format"],
+      "zh": "{course} 期末考试安排如下：\n日期：{date}\n时间：{time}\n地点：{location}\n形式：{format}\n请同学们认真复习，按时参加。\n\n教务处",
+      "ru": "Итоговый экзамен по курсу «{course}» состоится:\nДата: {date}\nВремя: {time}\nМесто: {location}\nФормат: {format}\nПросим студентов хорошо подготовиться и прийти вовремя.\n\nУчебный отдел"
+    },
+    "email_to_teacher": {
+      "name": {
+        "zh": "给老师的邮件",
+        "ru": "Письмо преподавателю"
+      },
+      "description": {
+        "zh": "学生向任课老师请教问题的邮件模板",
+        "ru": "Шаблон письма студента преподавателю с вопросом"
+      },
+      "variables": ["teacher", "course", "topic", "question", "student_name"],
+      "zh": "尊敬的 {teacher} 老师：\n\n您好！我是 {course} 课程的学生 {student_name}。\n\n在学习 {topic} 时，我遇到了一些问题，想向您请教：\n{question}\n\n感谢您在百忙之中阅读我的邮件，期待您的回复。\n\n此致\n敬礼\n\n{student_name}",
+      "ru": "Уважаемый(ая) {teacher}!\n\nЗдравствуйте! Я студент курса «{course}», {student_name}.\n\nПри изучении темы «{topic}» у меня возникли вопросы, по которым я хотел(а) бы к Вам обратиться:\n{question}\n\nБлагодарю Вас за уделённое внимание и жду ответа.\n\nС уважением,\n{student_name}"
+    },
+    "courseware_title": {
+      "name": {
+        "zh": "课件标题",
+        "ru": "Заголовок учебных материалов"
+      },
+      "description": {
+        "zh": "课件/讲义的中俄对照标题",
+        "ru": "Двуязычный заголовок учебных материалов"
+      },
+      "variables": ["course", "chapter", "title"],
+      "zh": "{course} - 第{chapter}章 {title}",
+      "ru": "{course} - Глава {chapter}. {title}"
+    },
+    "assignment_submission": {
+      "name": {
+        "zh": "作业提交邮件",
+        "ru": "Письмо о сдаче задания"
+      },
+      "description": {
+        "zh": "学生提交作业给老师的邮件",
+        "ru": "Письмо студента о сдаче домашнего задания"
+      },
+      "variables": ["teacher", "course", "assignment", "student_name", "student_id"],
+      "zh": "尊敬的 {teacher} 老师：\n\n您好！我是 {course} 课程的学生 {student_name}（学号：{student_id}）。\n\n现提交 {assignment}，请查收附件。\n\n感谢您的审阅。\n\n此致\n敬礼\n\n{student_name}",
+      "ru": "Уважаемый(ая) {teacher}!\n\nЗдравствуйте! Я студент курса «{course}», {student_name} (студенческий билет: {student_id}).\n\nПрилагаю {assignment} для проверки.\n\nБлагодарю за проверку.\n\nС уважением,\n{student_name}"
+    },
+    "leave_request": {
+      "name": {
+        "zh": "请假申请",
+        "ru": "Заявление об отсутствии"
+      },
+      "description": {
+        "zh": "学生请假申请模板",
+        "ru": "Шаблон заявления студента об отсутствии на занятии"
+      },
+      "variables": ["student_name", "student_id", "course", "date", "reason"],
+      "zh": "尊敬的老师：\n\n我是 {course} 课程的学生 {student_name}（学号：{student_id}）。\n因 {reason}，需请假 {date} 的课程。\n恳请批准。\n\n此致\n敬礼\n\n{student_name}",
+      "ru": "Уважаемый преподаватель!\n\nЯ студент курса «{course}», {student_name} (студенческий билет: {student_id}).\nПо причине: {reason}, прошу разрешить мне отсутствовать на занятии {date}.\nПрошу Вашего разрешения.\n\nС уважением,\n{student_name}"
+    },
+    "scholarship_notice": {
+      "name": {
+        "zh": "奖学金通知",
+        "ru": "Уведомление о стипендии"
+      },
+      "description": {
+        "zh": "奖学金评定结果通知",
+        "ru": "Уведомление о результатах назначения стипендии"
+      },
+      "variables": ["student_name", "level", "amount", "date"],
+      "zh": "{student_name} 同学：\n\n恭喜你获得 {level} 奖学金，金额为 {amount} 元。\n奖学金将于 {date} 发放至你的校园卡账户。\n\n学生处",
+      "ru": "Уважаемый(ая) {student_name}!\n\nПоздравляем Вас с назначением стипендии уровня {level} в размере {amount} юаней.\nСтипендия будет перечислена на Вашу университетскую карту {date}.\n\nОтдел по работе со студентами"
+    },
+    "graduation_congrats": {
+      "name": {
+        "zh": "毕业祝贺",
+        "ru": "Поздравление с выпуском"
+      },
+      "description": {
+        "zh": "毕业祝贺信模板",
+        "ru": "Шаблон поздравления с окончанием университета"
+      },
+      "variables": ["student_name", "major", "degree"],
+      "zh": "亲爱的 {student_name} 同学：\n\n祝贺你顺利完成 {major} 专业的学习，获得 {degree}！\n愿你在未来的道路上一切顺利，前程似锦。\n\n深圳北理莫斯科大学",
+      "ru": "Дорогой(ая) {student_name}!\n\nПоздравляем Вас с успешным окончанием обучения по направлению «{major}» и получением степени {degree}!\nЖелаем Вам успехов и блестящего будущего.\n\nУниверситет МГУ-ППИ в Шэньчжэне"
+    }
+  }
+}
