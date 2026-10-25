@@ -179,6 +179,19 @@ document.addEventListener('DOMContentLoaded', function(){
             },
             disableInput: function(){
                 return {% if under_attack %}true{% else %}false{% endif %} && this.apiKey === "";
+            },
+            canSwap: function(){
+                var src = this.sourceLang;
+                if (src === "auto") {
+                    // Check Automatic Language detection produced something usable
+                    if (!this.inputText || !this.detectedLangCode) return false;
+                    src = this.detectedLangCode;
+                }
+                if (src === this.targetLang) return false;
+                // Now that the current target becomes the new source,
+                // it must support the old (or detected) source as a target.
+                var tgtLang = this.langs.find(l => l.code === this.targetLang);
+                return !!tgtLang && tgtLang.targets.indexOf(src) !== -1;
             }
         },
         filters: {
@@ -197,17 +210,9 @@ document.addEventListener('DOMContentLoaded', function(){
                 }
             },
             swapLangs: function(e){
+                if (!this.canSwap) return;
                 this.closeSuggestTranslation(e);
-
-                var sourceLang = this.sourceLang;
-                if (sourceLang === "auto") {
-                    sourceLang = this.detectedLangCode;
-                    if (!sourceLang) return; // nothing detected yet
-                }
-
-                var tgtLang = this.langs.find(l => l.code === this.targetLang);
-                if (!tgtLang || tgtLang.targets.indexOf(sourceLang) === -1) return; // Not supported
-
+                var sourceLang = this.sourceLang === "auto" ? this.detectedLangCode : this.sourceLang;
                 this.sourceLang = this.targetLang;
                 this.targetLang = sourceLang;
                 this.inputText = this.translatedText;
@@ -302,9 +307,9 @@ document.addEventListener('DOMContentLoaded', function(){
                                 self.loadingTranslation = false;
                                 self.output = JSON.stringify(res, null, 4);
                                 if(self.sourceLang == "auto" && res.detectedLanguage !== undefined){
-                                    self.detectedLangCode = res.detectedLanguage.language;
                                     let lang = self.langs.find(l => l.code === res.detectedLanguage.language)
                                     self.detectedLangText = ": " + (lang !== undefined ? lang.name : res.detectedLanguage.language) + " (" + res.detectedLanguage.confidence + "%)";
+                                    self.detectedLangCode = res.detectedLanguage.language;
                                 }
                             } else{
                                 throw new Error(res.error || {{ _e("Unknown error") }});
