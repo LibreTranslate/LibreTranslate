@@ -225,6 +225,10 @@ select {
   margin-left: -1.5rem;
   margin-right: 1rem;
 }
+.btn-switch-language.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
 
 .textarea-container {
   margin-top: 0;
