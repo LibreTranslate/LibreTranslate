@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function(){
             charactersLimit: -1,
 
             detectedLangText: "",
+            detectedLangCode: "",
 
             copyTextLabel: {{ _e("Copy text") }},
 
@@ -198,15 +199,17 @@ document.addEventListener('DOMContentLoaded', function(){
             swapLangs: function(e){
                 this.closeSuggestTranslation(e);
 
-                // Make sure that we can swap
-                // by checking that the current target language
-                // has source language as target
-                var tgtLang = this.langs.find(l => l.code === this.targetLang);
-                if (tgtLang.targets.indexOf(this.sourceLang) === -1) return; // Not supported
+                var sourceLang = this.sourceLang;
+                if (sourceLang === "auto") {
+                    sourceLang = this.detectedLangCode;
+                    if (!sourceLang) return; // nothing detected yet
+                }
 
-                var t = this.sourceLang;
+                var tgtLang = this.langs.find(l => l.code === this.targetLang);
+                if (!tgtLang || tgtLang.targets.indexOf(sourceLang) === -1) return; // Not supported
+
                 this.sourceLang = this.targetLang;
-                this.targetLang = t;
+                this.targetLang = sourceLang;
                 this.inputText = this.translatedText;
                 this.translatedText = "";
                 this.handleInput(e);
@@ -299,6 +302,7 @@ document.addEventListener('DOMContentLoaded', function(){
                                 self.loadingTranslation = false;
                                 self.output = JSON.stringify(res, null, 4);
                                 if(self.sourceLang == "auto" && res.detectedLanguage !== undefined){
+                                    self.detectedLangCode = res.detectedLanguage.language;
                                     let lang = self.langs.find(l => l.code === res.detectedLanguage.language)
                                     self.detectedLangText = ": " + (lang !== undefined ? lang.name : res.detectedLanguage.language) + " (" + res.detectedLanguage.confidence + "%)";
                                 }
