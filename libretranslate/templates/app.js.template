@@ -188,8 +188,9 @@ document.addEventListener('DOMContentLoaded', function(){
                     src = this.detectedLangCode;
                 }
                 if (src === this.targetLang) return false;
-                // Now that the current target becomes the new source,
-                // it must support the old (or detected) source as a target.
+                // Make sure that we can swap
+                // by checking that the current target language
+                // has source language as target
                 var tgtLang = this.langs.find(l => l.code === this.targetLang);
                 return !!tgtLang && tgtLang.targets.indexOf(src) !== -1;
             }
@@ -212,9 +213,9 @@ document.addEventListener('DOMContentLoaded', function(){
             swapLangs: function(e){
                 if (!this.canSwap) return;
                 this.closeSuggestTranslation(e);
-                var sourceLang = this.sourceLang === "auto" ? this.detectedLangCode : this.sourceLang;
+                var t = this.sourceLang === "auto" ? this.detectedLangCode : this.sourceLang;
                 this.sourceLang = this.targetLang;
-                this.targetLang = sourceLang;
+                this.targetLang = t;
                 this.inputText = this.translatedText;
                 this.translatedText = "";
                 this.handleInput(e);
