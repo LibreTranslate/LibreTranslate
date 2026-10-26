@@ -16,7 +16,7 @@ on:
 jobs:
 
   tests_python:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         python-version: ['3.8', '3.9', '3.10', '3.11', '3.12', '3.13', '3.14']
@@ -39,7 +39,7 @@ jobs:
 
 
   test_docker_build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - uses: actions/checkout@v4
@@ -50,7 +50,7 @@ jobs:
         run: docker build -f docker/Dockerfile -t libretranslate --build-arg models=en,es  .
 
   test_docker_healthcheck:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
