@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function(){
             charactersLimit: -1,
 
             detectedLangText: "",
+            detectedLangCode: "",
 
             copyTextLabel: {{ _e("Copy text") }},
 
@@ -178,6 +179,20 @@ document.addEventListener('DOMContentLoaded', function(){
             },
             disableInput: function(){
                 return {% if under_attack %}true{% else %}false{% endif %} && this.apiKey === "";
+            },
+            canSwap: function(){
+                var src = this.sourceLang;
+                if (src === "auto") {
+                    // Check Automatic Language detection produced something usable
+                    if (!this.inputText || !this.detectedLangCode) return false;
+                    src = this.detectedLangCode;
+                }
+                if (src === this.targetLang) return false;
+                // Make sure that we can swap
+                // by checking that the current target language
+                // has source language as target
+                var tgtLang = this.langs.find(l => l.code === this.targetLang);
+                return !!tgtLang && tgtLang.targets.indexOf(src) !== -1;
             }
         },
         filters: {
@@ -196,15 +211,9 @@ document.addEventListener('DOMContentLoaded', function(){
                 }
             },
             swapLangs: function(e){
+                if (!this.canSwap) return;
                 this.closeSuggestTranslation(e);
-
-                // Make sure that we can swap
-                // by checking that the current target language
-                // has source language as target
-                var tgtLang = this.langs.find(l => l.code === this.targetLang);
-                if (tgtLang.targets.indexOf(this.sourceLang) === -1) return; // Not supported
-
-                var t = this.sourceLang;
+                var t = this.sourceLang === "auto" ? this.detectedLangCode : this.sourceLang;
                 this.sourceLang = this.targetLang;
                 this.targetLang = t;
                 this.inputText = this.translatedText;
@@ -301,6 +310,7 @@ document.addEventListener('DOMContentLoaded', function(){
                                 if(self.sourceLang == "auto" && res.detectedLanguage !== undefined){
                                     let lang = self.langs.find(l => l.code === res.detectedLanguage.language)
                                     self.detectedLangText = ": " + (lang !== undefined ? lang.name : res.detectedLanguage.language) + " (" + res.detectedLanguage.confidence + "%)";
+                                    self.detectedLangCode = res.detectedLanguage.language;
                                 }
                             } else{
                                 throw new Error(res.error || {{ _e("Unknown error") }});
