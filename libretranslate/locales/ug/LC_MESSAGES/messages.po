@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LibreTranslate 1.3.12\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-01-21 10:25-0500\n"
-"PO-Revision-Date: 2026-01-27 05:09+0000\n"
-"Last-Translator: aliptori <aliptori@qq.com>\n"
+"PO-Revision-Date: 2026-11-10 18:02+0000\n"
+"Last-Translator: Abduqadir Abliz <sahran@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Uyghur <https://hosted.weblate.org/projects/libretranslate/"
 "app/ug/>\n"
 "Language: ug\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16-dev\n"
+"X-Generator: Weblate 2026.11.2.dev0\n"
 "Generated-By: Babel 2.12.1\n"
 
 #: libretranslate/app.py:97
 msgid "Invalid JSON format"
-msgstr "ئىناۋەتسىز JSON فورماتى"
+msgstr "ئىناۋەتسىز JSON پىچىمى"
 
 #: libretranslate/app.py:214 libretranslate/templates/app.js.template:480
 msgid "Auto Detect"
@@ -43,7 +43,7 @@ msgstr "API ئاچقۇچ ئىناۋەتسىز"
 
 #: libretranslate/app.py:376
 msgid "Please contact the server operator to get an API key"
-msgstr "API ئاچقۇچى ئېلىش ئۈچۈن مۇلازىمېتىر باشقۇرغۇچىسى بىلەن ئالاقىلىشىڭ."
+msgstr "API ئاچقۇچى ئېلىش ئۈچۈن مۇلازىمېتىر باشقۇرغۇچىسى بىلەن ئالاقىلىشىڭ"
 
 #: libretranslate/app.py:378
 #, python-format
@@ -92,7 +92,7 @@ msgstr "%(lang)s قوللىمايدۇ"
 #: libretranslate/app.py:811
 #, python-format
 msgid "%(format)s format is not supported"
-msgstr "%(format)s فورماتىنى قوللىمايدۇ"
+msgstr "%(format)s پىچىمىنى قوللىمايدۇ"
 
 #: libretranslate/app.py:820 libretranslate/app.py:846
 #, python-format
@@ -342,7 +342,7 @@ msgstr "قوللايدىغان تىللار تىزىملىكى"
 
 #: libretranslate/locales/.swag.py:3
 msgid "translate"
-msgstr "تەرجىمە"
+msgstr "تەرجىمە قىل"
 
 #: libretranslate/locales/.swag.py:4
 msgid "Health Check"
@@ -410,7 +410,7 @@ msgid ""
 " * `text` - Plain text\n"
 " * `html` - HTML markup\n"
 msgstr ""
-"مەنبە تېكىستنىڭ فورماتى:\n"
+"مەنبە تېكىستنىڭ پىچىمى:\n"
 "* `text` - ئادەتتىكى تېكىست\n"
 "* `html` - HTML بەلگىسى\n"
 
@@ -476,101 +476,101 @@ msgstr "ھوقۇق بېرىلمىگەن"
 
 #: libretranslate/locales/.swag.py:35
 msgid "Original text"
-msgstr ""
+msgstr "ئەسلى تېكىست"
 
 #: libretranslate/locales/.swag.py:36
 msgid "Suggested translation"
-msgstr ""
+msgstr "تەۋسىيە تەرجىمە"
 
 #: libretranslate/locales/.swag.py:37
 msgid "Language of original text"
-msgstr ""
+msgstr "ئەسلى تېكىستنىڭ تىلى"
 
 #: libretranslate/locales/.swag.py:38
 msgid "Language of suggested translation"
-msgstr ""
+msgstr "تەۋسىيە تەرجىمىنىڭ تىلى"
 
 #: libretranslate/locales/.swag.py:39
 msgid "Supported language"
-msgstr ""
+msgstr "قوللايدىغان تىل"
 
 #: libretranslate/locales/.swag.py:40
 msgid "Language code"
-msgstr ""
+msgstr "تىل كودى"
 
 #: libretranslate/locales/.swag.py:41
 msgid "Human-readable language name (in English)"
-msgstr ""
+msgstr "ئىنسان ئوقۇيالايدىغان تىل ئاتى (ئىنگلىزچە)"
 
 #: libretranslate/locales/.swag.py:42
 msgid "Supported target language codes"
-msgstr ""
+msgstr "قوللايدىغان نىشان تىل كودى"
 
 #: libretranslate/locales/.swag.py:43
 msgid "Health status"
-msgstr ""
+msgstr "ساغلاملىق ئەھۋالى"
 
 #: libretranslate/locales/.swag.py:44
 msgid "Translated text(s)"
-msgstr ""
+msgstr "تەرجىمە قىلىنغان تېكىست"
 
 #: libretranslate/locales/.swag.py:45
 msgid "Confidence value"
-msgstr ""
+msgstr "ئىشەنچ قىممىتى"
 
 #: libretranslate/locales/.swag.py:46
 msgid "Alternative translations"
-msgstr ""
+msgstr "باشقا تەرجىمىسى"
 
 #: libretranslate/locales/.swag.py:47
 msgid "translatedText"
-msgstr ""
+msgstr "تەرجىمە قىلىنغان تېكىست"
 
 #: libretranslate/locales/.swag.py:48
 msgid "Error message"
-msgstr ""
+msgstr "خاتالىق ئۇچۇرى"
 
 #: libretranslate/locales/.swag.py:49
 msgid "Reason for slow down"
-msgstr ""
+msgstr "سۈرئىتى ئاستىلاشنىڭ سەۋەبى"
 
 #: libretranslate/locales/.swag.py:50
 msgid "Translated file url"
-msgstr ""
+msgstr "تەرجىمە قىلىنغان ھۆججەتنىڭ تور ئادرېسى"
 
 #: libretranslate/locales/.swag.py:51
 msgid "Character input limit for this language (-1 indicates no limit)"
-msgstr ""
+msgstr "بۇ تىلنىڭ ھەرپ كىرگۈزۈش چېكى (-1 چەكلىمە يوقلۇقىنى بىلدۈرىدۇ)"
 
 #: libretranslate/locales/.swag.py:52
 msgid "Frontend translation timeout"
-msgstr ""
+msgstr "ئالدى ئۇچ تەرجىمە قەرەلى"
 
 #: libretranslate/locales/.swag.py:53
 msgid "Whether the API key database is enabled."
-msgstr ""
+msgstr "بۇ API ئاچقۇچ ساندانى قوزغىتىلغانمۇ يوق."
 
 #: libretranslate/locales/.swag.py:54
 msgid "Whether an API key is required."
-msgstr ""
+msgstr "بىر API ئاچقۇچى زۆرۈرمۇ يوق."
 
 #: libretranslate/locales/.swag.py:55
 msgid "Whether submitting suggestions is enabled."
-msgstr ""
+msgstr "تەۋسىيە تاپشۇرۇش قوزغىتىلغانمۇ يوق."
 
 #: libretranslate/locales/.swag.py:56
 msgid "Supported files format"
-msgstr ""
+msgstr "قوللايدىغان ھۆججەت پىچىمى"
 
 #: libretranslate/locales/.swag.py:57
 msgid "Whether submission was successful"
-msgstr ""
+msgstr "تاپشۇرۇش مۇۋەپپەقىيەتلىك بولغانمۇ يوق"
 
 #: libretranslate/templates/app.js.template:32
 #: libretranslate/templates/app.js.template:300
 #: libretranslate/templates/app.js.template:304
 msgid "Copy text"
-msgstr ""
+msgstr "تېكىست كۆچۈر"
 
 #: libretranslate/templates/app.js.template:82
 #: libretranslate/templates/app.js.template:88
@@ -581,46 +581,47 @@ msgstr ""
 #: libretranslate/templates/app.js.template:500
 #, python-format
 msgid "Cannot load %(url)s"
-msgstr ""
+msgstr "%(url)s يۈكلىيەلمەيدۇ"
 
 #: libretranslate/templates/app.js.template:278
 #: libretranslate/templates/app.js.template:348
 #: libretranslate/templates/app.js.template:427
 #: libretranslate/templates/app.js.template:438
 msgid "Unknown error"
-msgstr ""
+msgstr "يوچۇن خاتالىق"
 
 #: libretranslate/templates/app.js.template:301
 msgid "Copied"
-msgstr ""
+msgstr "كۆچۈرۈلدى"
 
 #: libretranslate/templates/app.js.template:345
 msgid ""
 "Thanks for your correction. Note the suggestion will not take effect "
 "right away."
-msgstr ""
+msgstr "تۈزىتىشىڭىزگە رەھمەت. ئەسكەرتىش تەۋسىيە شۇئان كۈچكە ئىگە بولمايدۇ."
 
 #: libretranslate/templates/app.js.template:470
 msgid "No languages available. Did you install the models correctly?"
-msgstr ""
+msgstr "ئىشلەتكىلى بولىدىغان تىل يوق. بۆلەكنى توغرا ئورناتتىڭىزمۇ؟"
 
 #: libretranslate/templates/app.js.template:543
 #, python-format
 msgid "Type in your API Key. If you need an API key, %(instructions)s"
 msgstr ""
+"API ئاچقۇچى كىرگۈزۈلىدۇ. ئەگەر API ئاچقۇچى كېرەك بولسا، %(instructions)s"
 
 #: libretranslate/templates/app.js.template:543
 msgid "press the \"Get API Key\" link."
-msgstr ""
+msgstr "«API ئاچقۇچىغا ئېرىش» ئۇلانمىسى بېسىلىدۇ."
 
 #: libretranslate/templates/app.js.template:543
 msgid "contact the server operator."
-msgstr ""
+msgstr "مۇلازىمېتىر باشقۇرغۇچى بىلەن ئالاقىلىشىڭ."
 
 #: libretranslate/templates/index.html:9 libretranslate/templates/index.html:29
 #: libretranslate/templates/index.html:348
 msgid "Free and Open Source Machine Translation API"
-msgstr ""
+msgstr "ئەركىن ۋە ئوچۇق كودلۇق ماشىنا تەرجىمە API"
 
 #: libretranslate/templates/index.html:10
 #: libretranslate/templates/index.html:33
@@ -628,151 +629,157 @@ msgid ""
 "Free and Open Source Machine Translation API. Free to download, offline "
 "capable and easy to setup. Run your own API server in just a few minutes."
 msgstr ""
+"ئەركىن ۋە ئوچۇق كودلۇق ماشىنا تەرجىمە API. چۈشۈرۈش ھەقسىز، تورسىز ئىشلىتىشنى "
+"قوللايدۇ ۋە ئورنىتىش ئاسان. ئۆزىڭىزنىڭ API مۇلازىمېتىرىنى بىر قانچە مىنۇتتا "
+"ئىجرا قىلالايسىز."
 
 #: libretranslate/templates/index.html:11
 msgid "translation"
-msgstr ""
+msgstr "تەرجىمە"
 
 #: libretranslate/templates/index.html:11
 msgid "api"
-msgstr ""
+msgstr "API"
 
 #: libretranslate/templates/index.html:59
 msgid "API Docs"
-msgstr ""
+msgstr "API پۈتۈكى"
 
 #: libretranslate/templates/index.html:62
 msgid "Get API Key"
-msgstr ""
+msgstr "API ئاچقۇچىغا ئېرىش"
 
 #: libretranslate/templates/index.html:64
 msgid "GitHub"
-msgstr ""
+msgstr "GitHub"
 
 #: libretranslate/templates/index.html:66
 msgid "Set API Key"
-msgstr ""
+msgstr "API ئاچقۇچ تەڭشىكى"
 
 #: libretranslate/templates/index.html:68
 msgid "Change language"
-msgstr ""
+msgstr "تىل ئۆزگەرت"
 
 #: libretranslate/templates/index.html:74
 msgid "Edit"
-msgstr ""
+msgstr "تەھرىر"
 
 #: libretranslate/templates/index.html:76
 msgid "Toggle dark/light mode"
-msgstr ""
+msgstr "قاراڭغۇ/يورۇق ھالەتنى ئالماشتۇر"
 
 #: libretranslate/templates/index.html:152
 msgid "Dismiss"
-msgstr ""
+msgstr "پەرۋا قىلما"
 
 #: libretranslate/templates/index.html:170
 msgid ""
 "Due to bot abuse, translation requests are temporarily limited to users "
 "with a valid API key. Sorry for the inconvenience!"
 msgstr ""
+"ماشىنا ئادەمنىڭ سۈيىئىستىمال قىلىشى سەۋەبىدىن تەرجىمە مۇلازىمىتى پەقەت "
+"ئىناۋەتلىك API ئاچقۇچى بار ئىشلەتكۈچىلەرنىڭ ئىشلىتىشى ئۈچۈن ۋاقىتلىق "
+"تەمىنلىنىدۇ. سىزگە كەلتۈرگەن قولايسىزلىقتىن كەچۈرۈم سورايمىز!"
 
 #: libretranslate/templates/index.html:179
 msgid "Translation API"
-msgstr ""
+msgstr "تەرجىمە API"
 
 #: libretranslate/templates/index.html:189
 msgid "Translate Files"
-msgstr ""
+msgstr "تەرجىمە ھۆججەت"
 
 #: libretranslate/templates/index.html:195
 msgid "Translate from"
-msgstr ""
+msgstr "تەرجىمە مەنبەسى"
 
 #: libretranslate/templates/index.html:205
 msgid "Swap source and target languages"
-msgstr ""
+msgstr "مەنبە ۋە نىشان تىلنى ئالماشتۇر"
 
 #: libretranslate/templates/index.html:208
 msgid "Translate into"
-msgstr ""
+msgstr "تەرجىمە نىشانى"
 
 #: libretranslate/templates/index.html:220
 msgid "Text to translate"
-msgstr ""
+msgstr "تەرجىمە قىلىدىغان تېكىست"
 
 #: libretranslate/templates/index.html:223
 msgid "Delete text"
-msgstr ""
+msgstr "تېكىست ئۆچۈر"
 
 #: libretranslate/templates/index.html:232
 msgid "Translated text"
-msgstr ""
+msgstr "تەرجىمە قىلىنغان تېكىست"
 
 #: libretranslate/templates/index.html:236
 msgid "Suggest translation"
-msgstr ""
+msgstr "تەۋسىيە تەرجىمە"
 
 #: libretranslate/templates/index.html:240
 msgid "Cancel"
-msgstr ""
+msgstr "ۋاز كەچ"
 
 #: libretranslate/templates/index.html:243
 msgid "Send"
-msgstr ""
+msgstr "يوللا"
 
 #: libretranslate/templates/index.html:259
 msgid "Supported file formats:"
-msgstr ""
+msgstr "قوللايدىغان ھۆججەت پىچىمى:"
 
 #: libretranslate/templates/index.html:263
 msgid "File"
-msgstr ""
+msgstr "ھۆججەت"
 
 #: libretranslate/templates/index.html:278
 msgid "Remove file"
-msgstr ""
+msgstr "ھۆججەتنى چىقىرىۋەت"
 
 #: libretranslate/templates/index.html:285
 msgid "Translate"
-msgstr ""
+msgstr "تەرجىمە قىل"
 
 #: libretranslate/templates/index.html:286
 #: libretranslate/templates/index.html:332
 msgid "Download"
-msgstr ""
+msgstr "چۈشۈر"
 
 #: libretranslate/templates/index.html:306
 msgid "Request"
-msgstr ""
+msgstr "ئىلتىماس"
 
 #: libretranslate/templates/index.html:311
 msgid "Response"
-msgstr ""
+msgstr "ئىنكاس"
 
 #: libretranslate/templates/index.html:327
 msgid "Open Source Machine Translation API"
-msgstr ""
+msgstr "ئوچۇق كودلۇق ماشىنا تەرجىمە API"
 
 #: libretranslate/templates/index.html:328
 msgid "Free to download. Offline Capable. Easy to Setup."
-msgstr ""
+msgstr "چۈشۈرۈش ھەقسىز. تورسىز ئىشلىتىشنى قوللايدۇ. ئورنىتىش ئاسان."
 
 #: libretranslate/templates/index.html:347
 msgid "LibreTranslate"
-msgstr ""
+msgstr "LibreTranslate"
 
 #: libretranslate/templates/index.html:349
 msgid "License:"
-msgstr ""
+msgstr "ئىجازەتنامە:"
 
 #: libretranslate/templates/index.html:355
 #, python-format
 msgid "Made with %(heart)s by %(contributors)s and powered by %(engine)s"
-msgstr ""
+msgstr "%(contributors)s لار %(heart)s دا ياسىغان ۋە %(engine)s قوللايدۇ"
 
 #: libretranslate/templates/index.html:355
 #, python-format
 msgid "%(libretranslate)s Contributors"
-msgstr ""
+msgstr "%(libretranslate)s تۆھپىكار"
 
 #~ msgid "Vietnamese"
 #~ msgstr ""
