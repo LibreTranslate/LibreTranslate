@@ -3,9 +3,12 @@ from argostranslate import package, translate
 from packaging import version
 from minisbd import download_models
 import libretranslate.language
+from libretranslate.glossary import setup as setup_glossaries, load_server_glossaries
 
 
-def boot(load_only=None, update_models=False, install_models=False):
+def boot(load_only=None, update_models=False, install_models=False, glossaries_dir=None):
+    if glossaries_dir:
+        setup_glossaries(glossaries_dir)
     try:
         if update_models:
             check_and_install_models(load_only_lang_codes=load_only, update=update_models)

@@ -246,6 +246,11 @@ _default_options_objects = [
         'default_value': '',
         'value_type': 'str'
     },
+    {
+        'name': 'GLOSSARIES_DIR',
+        'default_value': '',
+        'value_type': 'str'
+    },
 ]
 
 

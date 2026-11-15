@@ -22,7 +22,7 @@ from werkzeug.exceptions import HTTPException
 from werkzeug.http import http_date
 from werkzeug.utils import secure_filename
 
-from libretranslate import flood, remove_translated_files, scheduler, secret, security, storage, cache
+from libretranslate import flood, remove_translated_files, scheduler, secret, security, storage, cache, glossary
 from libretranslate.language import model2iso, iso2model, detect_languages, improve_translation_formatting, get_language_with_fallback
 from libretranslate.locales import (
     _,
@@ -197,6 +197,7 @@ def create_app(args):
 
     storage.setup(args.shared_storage)
     trans_cache = cache.setup(args.translation_cache)
+    glossary.setup(getattr(args, "glossaries_dir", None))
 
     if not args.disable_files_translation:
         remove_translated_files.setup(get_upload_dir())
@@ -632,6 +633,15 @@ def create_app(args):
               example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
             required: false
             description: API key
+          - in: formData
+            name: glossary
+            schema:
+              type: string
+              example: '{"source_term": "target_term"}'
+            required: false
+            description: >
+              Custom glossary/terminology mappings to enforce during translation.
+              Can be provided as a JSON object (application/json) or a JSON string (formData).
         responses:
           200:
             description: Translation
@@ -729,12 +739,24 @@ def create_app(args):
             target_lang = iso2model(json.get("target"))
             text_format = json.get("format")
             num_alternatives = int(json.get("alternatives", 0))
+            raw_glossary = json.get("glossary")
         else:
             q = request.values.get("q")
             source_lang = iso2model(request.values.get("source"))
             target_lang = iso2model(request.values.get("target"))
             text_format = request.values.get("format")
             num_alternatives = request.values.get("alternatives", 0)
+            raw_glossary = request.values.get("glossary")
+
+        req_glossary = None
+        if raw_glossary is not None and raw_glossary != "":
+            try:
+                req_glossary = glossary.validate_glossary(raw_glossary)
+            except ValueError as e:
+                abort(400, description=str(e))
+
+        server_glossary = glossary.get_server_glossary(source_lang if source_lang != "auto" else None, target_lang)
+        effective_glossary = glossary.merge_glossaries(server_glossary, req_glossary)
 
         if not q:
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='q'))
@@ -774,7 +796,7 @@ def create_app(args):
         ak = get_req_api_key()
         cache_key = None
         if trans_cache.should_check(ak):
-          cache_key, hit = trans_cache.hit(src_texts, source_lang, target_lang, text_format, num_alternatives)
+          cache_key, hit = trans_cache.hit(src_texts, source_lang, target_lang, text_format, num_alternatives, effective_glossary)
           if hit is not None:
             return Response(hit, status=200, mimetype="application/json")
 
@@ -795,6 +817,8 @@ def create_app(args):
               candidate_langs = detect_languages(src_texts)
               detected_src_lang = candidate_langs[0]
               src_lang = get_language_with_fallback(detected_src_lang["language"], languages)
+              server_glossary = glossary.get_server_glossary(src_lang.code if src_lang else detected_src_lang["language"], target_lang)
+              effective_glossary = glossary.merge_glossaries(server_glossary, req_glossary)
           else:
               detected_src_lang = {"confidence": 100.0, "language": source_lang}
               src_lang = next((l for l in languages if l.code == source_lang), None)
@@ -816,6 +840,8 @@ def create_app(args):
         if text_format not in ["text", "html"]:
             abort(400, description=_("%(format)s format is not supported", format=text_format))
 
+        is_html = (text_format == "html")
+
         try:
             if batch:
                 batch_results = []
@@ -826,13 +852,26 @@ def create_app(args):
                         abort(400, description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)", tname=_lazy(tgt_lang.name), tcode=tgt_lang.code, sname=_lazy(src_lang.name), scode=src_lang.code))
 
                     if translatable:
+                      if effective_glossary:
+                          masked_text, placeholders = glossary.mask_terms(text, effective_glossary, is_html=is_html)
+                      else:
+                          masked_text, placeholders = text, {}
+
                       if text_format == "html":
-                          translated_text = unescape(str(translate_html(translator, text)))
+                          translated_text = unescape(str(translate_html(translator, masked_text)))
+                          if placeholders:
+                              translated_text = glossary.unmask_terms(translated_text, placeholders, is_html=True)
                           alternatives = [] # Not supported for html yet
                       else:
-                          hypotheses = translator.hypotheses(text, num_alternatives + 1)
-                          translated_text = unescape(improve_translation_formatting(text, hypotheses[0].value))
-                          alternatives = filter_unique([unescape(improve_translation_formatting(text, hypotheses[i].value)) for i in range(1, len(hypotheses))], translated_text)
+                          hypotheses = translator.hypotheses(masked_text, num_alternatives + 1)
+                          translated_text = unescape(improve_translation_formatting(masked_text, hypotheses[0].value))
+                          if placeholders:
+                              translated_text = glossary.unmask_terms(translated_text, placeholders)
+                          alternatives = filter_unique([
+                              glossary.unmask_terms(unescape(improve_translation_formatting(masked_text, hypotheses[i].value)), placeholders)
+                              if placeholders else unescape(improve_translation_formatting(masked_text, hypotheses[i].value))
+                              for i in range(1, len(hypotheses))
+                          ], translated_text)
                     else:
                       translated_text = text # Cannot translate, send the original text back
                       alternatives = []
@@ -852,13 +891,26 @@ def create_app(args):
                     abort(400, description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)", tname=_lazy(tgt_lang.name), tcode=tgt_lang.code, sname=_lazy(src_lang.name), scode=src_lang.code))
 
                 if translatable:
+                  if effective_glossary:
+                      masked_text, placeholders = glossary.mask_terms(q, effective_glossary, is_html=is_html)
+                  else:
+                      masked_text, placeholders = q, {}
+
                   if text_format == "html":
-                      translated_text = unescape(str(translate_html(translator, q)))
+                      translated_text = unescape(str(translate_html(translator, masked_text)))
+                      if placeholders:
+                          translated_text = glossary.unmask_terms(translated_text, placeholders, is_html=True)
                       alternatives = [] # Not supported for html yet
                   else:
-                      hypotheses = translator.hypotheses(q, num_alternatives + 1)
-                      translated_text = unescape(improve_translation_formatting(q, hypotheses[0].value))
-                      alternatives = filter_unique([unescape(improve_translation_formatting(q, hypotheses[i].value)) for i in range(1, len(hypotheses))], translated_text)
+                      hypotheses = translator.hypotheses(masked_text, num_alternatives + 1)
+                      translated_text = unescape(improve_translation_formatting(masked_text, hypotheses[0].value))
+                      if placeholders:
+                          translated_text = glossary.unmask_terms(translated_text, placeholders)
+                      alternatives = filter_unique([
+                          glossary.unmask_terms(unescape(improve_translation_formatting(masked_text, hypotheses[i].value)), placeholders)
+                          if placeholders else unescape(improve_translation_formatting(masked_text, hypotheses[i].value))
+                          for i in range(1, len(hypotheses))
+                      ], translated_text)
                 else:
                   translated_text = q # Cannot translate, send the original text back
                   alternatives = []
