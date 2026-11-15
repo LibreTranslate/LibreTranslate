@@ -20,9 +20,11 @@ class TranslationCache:
     def should_check(self, ak):
         return self.enabled and (self.cache_all or ak in self.api_keys)
 
-    def hit(self, src_texts, source_lang, target_lang, text_format, num_alternatives):
+    def hit(self, src_texts, source_lang, target_lang, text_format, num_alternatives, glossary=None):
         text_blob = "|".join(src_texts) if isinstance(src_texts, list) else src_texts
         fingerprint = f"{text_blob}:{source_lang}:{target_lang}:{text_format}:{num_alternatives}"
+        if glossary:
+            fingerprint += f":{json.dumps(glossary, sort_keys=True)}"
         cache_key = "tcache_" + hashlib.md5(fingerprint.encode('utf-8')).hexdigest()
 
         cached = self.storage.get_str(cache_key, raw=True)

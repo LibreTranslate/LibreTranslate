@@ -255,6 +255,12 @@ def get_parser():
         type=str,
         help="Add a prefix like /url-prefix to URL: example.com:5000/url-prefix/",
     )
+    parser.add_argument(
+        "--glossaries-dir",
+        default=DEFARGS['GLOSSARIES_DIR'],
+        type=str,
+        help="Path to directory containing custom glossary JSON files (%(default)s)",
+    )
     return parser
 
 def get_args():
