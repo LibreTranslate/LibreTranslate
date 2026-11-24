@@ -23,6 +23,7 @@ from werkzeug.http import http_date
 from werkzeug.utils import secure_filename
 
 from libretranslate import flood, remove_translated_files, scheduler, secret, security, storage, cache
+from libretranslate.glossary import GlossaryTranslator, MAX_WORD_LENGTH, MAX_WORDS, parse_glossary
 from libretranslate.language import model2iso, iso2model, detect_languages, improve_translation_formatting, get_language_with_fallback
 from libretranslate.locales import (
     _,
@@ -632,6 +633,13 @@ def create_app(args):
               example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
             required: false
             description: API key
+          - in: formData
+            name: glossary
+            schema:
+              type: object
+              example: {"source term": "target term"}
+            required: false
+            description: Terminology to translate in a specific way
         responses:
           200:
             description: Translation
@@ -729,12 +737,14 @@ def create_app(args):
             target_lang = iso2model(json.get("target"))
             text_format = json.get("format")
             num_alternatives = int(json.get("alternatives", 0))
+            glossary = json.get("glossary")
         else:
             q = request.values.get("q")
             source_lang = iso2model(request.values.get("source"))
             target_lang = iso2model(request.values.get("target"))
             text_format = request.values.get("format")
             num_alternatives = request.values.get("alternatives", 0)
+            glossary = request.values.get("glossary")
 
         if not q:
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='q'))
@@ -750,6 +760,11 @@ def create_app(args):
 
         if args.alternatives_limit != -1 and num_alternatives > args.alternatives_limit:
             abort(400, description=_("Invalid request: %(name)s parameter must be <= %(value)s", name='alternatives', value=args.alternatives_limit))
+
+        try:
+            glossary = parse_glossary(glossary)
+        except ValueError:
+            abort(400, description=_("Invalid request: glossary must be an object with at most %(count)s words up to %(length)s characters each", count=MAX_WORDS, length=MAX_WORD_LENGTH))
 
         if not request.is_json:
             # Normalize line endings to UNIX style (LF) only so we can consistently
@@ -774,7 +789,7 @@ def create_app(args):
         ak = get_req_api_key()
         cache_key = None
         if trans_cache.should_check(ak):
-          cache_key, hit = trans_cache.hit(src_texts, source_lang, target_lang, text_format, num_alternatives)
+          cache_key, hit = trans_cache.hit(src_texts, source_lang, target_lang, text_format, num_alternatives, glossary)
           if hit is not None:
             return Response(hit, status=200, mimetype="application/json")
 
@@ -824,11 +839,16 @@ def create_app(args):
                     translator = src_lang.get_translation(tgt_lang)
                     if translator is None:
                         abort(400, description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)", tname=_lazy(tgt_lang.name), tcode=tgt_lang.code, sname=_lazy(src_lang.name), scode=src_lang.code))
+                    if glossary:
+                        translator = GlossaryTranslator(translator, glossary)
 
                     if translatable:
                       if text_format == "html":
                           translated_text = unescape(str(translate_html(translator, text)))
                           alternatives = [] # Not supported for html yet
+                      elif glossary:
+                          translated_text, *alternatives = translator.hypotheses(text, num_alternatives + 1)
+                          alternatives = filter_unique(alternatives, translated_text)
                       else:
                           hypotheses = translator.hypotheses(text, num_alternatives + 1)
                           translated_text = unescape(improve_translation_formatting(text, hypotheses[0].value))
@@ -850,11 +870,16 @@ def create_app(args):
                 translator = src_lang.get_translation(tgt_lang)
                 if translator is None:
                     abort(400, description=_("%(tname)s (%(tcode)s) is not available as a target language from %(sname)s (%(scode)s)", tname=_lazy(tgt_lang.name), tcode=tgt_lang.code, sname=_lazy(src_lang.name), scode=src_lang.code))
+                if glossary:
+                    translator = GlossaryTranslator(translator, glossary)
 
                 if translatable:
                   if text_format == "html":
                       translated_text = unescape(str(translate_html(translator, q)))
                       alternatives = [] # Not supported for html yet
+                  elif glossary:
+                      translated_text, *alternatives = translator.hypotheses(q, num_alternatives + 1)
+                      alternatives = filter_unique(alternatives, translated_text)
                   else:
                       hypotheses = translator.hypotheses(q, num_alternatives + 1)
                       translated_text = unescape(improve_translation_formatting(q, hypotheses[0].value))
@@ -915,6 +940,13 @@ def create_app(args):
               example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
             required: false
             description: API key
+          - in: formData
+            name: glossary
+            schema:
+              type: object
+              example: {"source term": "target term"}
+            required: false
+            description: Terminology to translate in a specific way
         responses:
           200:
             description: Translated file
@@ -967,6 +999,7 @@ def create_app(args):
 
         source_lang = iso2model(request.form.get("source"))
         target_lang = iso2model(request.form.get("target"))
+        glossary = request.form.get("glossary")
         file = request.files['file']
         char_limit = get_char_limit(args.char_limit, api_keys_db)
 
@@ -982,6 +1015,11 @@ def create_app(args):
 
         if os.path.splitext(file.filename)[1] not in frontend_argos_supported_files_format:
             abort(400, description=_("Invalid request: file format not supported"))
+
+        try:
+            glossary = parse_glossary(glossary)
+        except ValueError:
+            abort(400, description=_("Invalid request: glossary must be an object with at most %(count)s words up to %(length)s characters each", count=MAX_WORDS, length=MAX_WORD_LENGTH))
 
         src_lang = next((l for l in languages if l.code == source_lang), None)
 
@@ -1015,7 +1053,11 @@ def create_app(args):
                 if src_lang is None:
                     abort(400, description=_("%(lang)s is not supported", lang=detected_src_lang["language"]))
 
-            translated_file_path = argostranslatefiles.translate_file(src_lang.get_translation(tgt_lang), filepath)
+            translator = src_lang.get_translation(tgt_lang)
+            if glossary:
+                translator = GlossaryTranslator(translator, glossary)
+
+            translated_file_path = argostranslatefiles.translate_file(translator, filepath)
             translated_filename = os.path.basename(translated_file_path)
 
             return jsonify(
