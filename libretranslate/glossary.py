@@ -8,6 +8,7 @@ MAX_WORDS = 200
 MAX_WORD_LENGTH = 200
 RETRY_HYPOTHESES = 4
 NO_WORD_BOUNDARIES = ("zh", "zt", "ja", "ko", "th")
+NO_INLINE_SOURCES = ("de",)
 PLACEHOLDER = re.compile(r"V(\d{1,4})Z", re.IGNORECASE)
 
 
@@ -35,18 +36,22 @@ def parse_glossary(raw):
     return words
 
 
+def compile_words(words, lang):
+    pattern = "|".join(f"({re.escape(w)})" for w in words)
+    if lang not in NO_WORD_BOUNDARIES:
+        pattern = rf"(?<!\w)(?:{pattern})(?!\w)"
+    return re.compile(pattern, re.IGNORECASE)
+
+
 class GlossaryTranslator:
     def __init__(self, translator, words):
         self.translator = translator
         self.to_lang = translator.to_lang
+        self.use_inline = translator.from_lang.code not in NO_INLINE_SOURCES and self.to_lang.code not in NO_WORD_BOUNDARIES
 
         sources = sorted(words, key=len, reverse=True)
         self.targets = [words[s] for s in sources]
-
-        pattern = "|".join(f"({re.escape(s)})" for s in sources)
-        if translator.from_lang.code not in NO_WORD_BOUNDARIES:
-            pattern = rf"(?<!\w)(?:{pattern})(?!\w)"
-        self.pattern = re.compile(pattern, re.IGNORECASE)
+        self.pattern = compile_words(sources, translator.from_lang.code)
 
     def translate(self, text):
         return "\n".join(self.translate_line(line, 1, False)[0] for line in text.split("\n"))
@@ -71,6 +76,11 @@ class GlossaryTranslator:
             return [masked.replace("V0Z", found[0])]
         
         if found:
+            if self.use_inline:
+                results = self.run_inline(line, found, num_hypotheses, improve)
+                if results:
+                    return results
+
             results = self.run_masked(masked, line, found, num_hypotheses, improve)
             
             # Sometimes we retry because models sometimes break placeholders
@@ -80,6 +90,18 @@ class GlossaryTranslator:
                 return results[:num_hypotheses]
 
         return self.run(line, line, num_hypotheses, improve)
+
+    def run_inline(self, line, found, count, improve):
+        inline = self.pattern.sub(lambda m: self.targets[m.lastindex - 1], line)
+        targets = sorted(dict.fromkeys(found), key=len, reverse=True)
+        pattern = compile_words(targets, self.to_lang.code)
+        expected = sorted(targets.index(target) + 1 for target in found)
+
+        results = []
+        for text in self.run(inline, line, count, improve):
+            if sorted(m.lastindex for m in pattern.finditer(text)) == expected:
+                results.append(pattern.sub(lambda m: targets[m.lastindex - 1], text))
+        return results
 
     def run_masked(self, masked, source, found, count, improve):
         results = []
