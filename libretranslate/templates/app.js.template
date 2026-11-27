@@ -244,13 +244,16 @@ document.addEventListener('DOMContentLoaded', function(){
                     // Keep the text out of the query string so it is not
                     // transmitted to the server when the page is reloaded.
                     const hash = value ? '#q=' + encodeURIComponent(value) : '';
-                    history.pushState(null, '', window.location.pathname + window.location.search + hash);
+                    // Replace the current entry instead of pushing a new one so
+                    // the browser Back button leaves the page instead of walking
+                    // through every translated text (issue #1043).
+                    history.replaceState(null, '', window.location.pathname + window.location.search + hash);
                     return;
                 }
                 let searchParams = new URLSearchParams(window.location.search)
                 searchParams.set(key, value);
                 let newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
-                history.pushState(null, '', newRelativePathQuery);
+                history.replaceState(null, '', newRelativePathQuery);
             },
             handleInput: function(e){
                 if (this.disableInput) return;
